@@ -41,8 +41,6 @@ class ArticlesController extends GeneralBackendController{
 
     /*** Add Item ***/
     public function add(){
-
-
         return \View::make($this->View.'add',$this->viewData);
     }
 
