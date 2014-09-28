@@ -1,0 +1,178 @@
+// Page Header
+
+// Local Variables
+$Page-Header-Height: 					80px;
+$Page-Header-Line-Height:				20px;
+
+$Page-Navigation-Font-Size:				16px;
+$Page-Navigation-Padding:				($Page-Header-Height - $Page-Header-Line-Height) / 2;
+
+$Page-Logo-Height:						44px;
+$Page-Logo-Padding:						($Page-Header-Height - $Page-Logo-Height) / 2;
+
+$Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Header-Line-Height) / 2;
+
+.Site-Header{
+	height: 							auto;
+	@include Adaptive($Viewport-SM) {
+		height: $Page-Header-Height;
+	}
+	background-color: 					$Clr-Midnight-Blue;
+	color:								$Clr-Clouds;
+
+	box-shadow: 0 4px 0 rgba(44, 62, 80,.25);
+	@extend 							._Clearfix;
+
+	.Site-Header-Inner {
+		@extend 						.Row;
+		@extend 						.Merge;
+	}
+}
+
+.Site-Logo {
+	height: 				$Page-Header-Height;
+	position: 				relative;
+	width: 					100%;
+	padding: 				0 $size-n;
+
+	div {
+		height: 				$Page-Header-Height;
+		width: 					100%;
+		@include 				Transition(opacity, .5s);
+
+		img {
+			margin-top:			$Page-Logo-Padding;
+			margin-right: 		$size;
+			float: 				left;
+		}
+		h2 {
+			padding:			$Page-Navigation-Padding 0;
+			@include 			Adaptive($Viewport-SM) {
+				padding:			($Page-Navigation-Padding - 10px) 0;
+			}
+			@include 			Adaptive($Viewport-MD) {
+				padding:			$Page-Navigation-Padding 0;
+			}
+			text-transform: 	uppercase;
+			line-height: 		$Page-Header-Line-Height;
+			font-size: 			20px;
+			font-weight: 		100;
+			small {
+				font-size: 		14px;
+			}
+		}
+	}
+	a.Link-Home {
+		position: 				absolute;
+		top: 0;
+		padding:				$Page-Navigation-Padding 0;
+		text-transform: 		uppercase;
+		line-height: 			$Page-Header-Line-Height;
+		color:					$Clr-Silver;
+
+		@include 			Opacity(0);
+
+		&:hover {
+			color:				$Clr-Clouds;
+		}
+	}
+	&:hover {
+		div {
+			@include 			Opacity(0);
+		}
+
+		a.Link-Home {
+			@include 			Opacity(1);
+		}
+	}
+}
+
+.Site-Navigation.Primary {
+	@extend .Visible-SM;
+
+	ul {
+		width: 100%;
+		@extend ._No-Bullets;
+
+		li {
+			width: 100%;
+			display: block;
+			float: none;
+			@include Adaptive($Viewport-SM) {
+				width: auto;
+				display: inline-block;
+				float: left;
+			}
+			a {
+				display: 		block;
+				padding: 		$Page-Navigation-Padding $size-n;
+				@include Adaptive($Viewport-SM) {
+					padding: 		$Page-Navigation-Padding $size-xs;
+				}
+				@include Adaptive($Viewport-MD) {
+					padding: 		$Page-Navigation-Padding $size-s;
+				}
+				@include Adaptive($Viewport-LR) {
+					padding: 		$Page-Navigation-Padding $size;
+				}
+				font-size: 		$Page-Navigation-Font-Size;
+				line-height:	$Page-Header-Line-Height;
+				text-transform: uppercase;
+				color: 			$Clr-Silver;
+				&:hover {
+					background-color: 	$Clr-Wet-Asphalt;
+					color: 				white;
+					text-shadow: 1px 1px 2px black;
+				}
+			}
+		}
+	}
+}
+
+.Page-Auth {
+	display: block;
+	position: relative;
+	@include Adaptive($Viewport-SM - 1px, max-width) {
+		width: 100%;
+		padding: $size-n;
+	}
+	button {
+		display: block;
+		width: 100%;
+		@include 				Adaptive($Viewport-SM) {
+			margin-top:					$Page-Header-Button-Margin;
+		}
+		padding: 				$size-s 0;
+		border:					0;
+	}
+	button + button {
+		@include Adaptive($Viewport-XS, max-width) {
+			margin-top: $size-n;
+		}
+	}
+	.Sign-In-UI	,
+	.Sign-Up-UI {
+		position: absolute;
+		padding: $size-n;
+		background-color: white;
+		background-color: rgba(255,255,255,.9);
+		color: $Clr-Midnight-Blue;
+	}
+}
+
+#Menu-Toggle {
+	clear: both;
+	@extend .Hidden-SM;
+	span {
+		background-color: $Clr-Wet-Asphalt;
+		display: block;
+		width: 100%;
+		padding: $size-n;
+
+	}
+	span:hover {
+		background-color: $Clr-Main;
+		@extend %_Clickable;
+		@include Transition(color, .3s);
+	}
+}

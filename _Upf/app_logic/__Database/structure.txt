@@ -1,0 +1,22 @@
+general
+    filter
+        _categories
+        _params
+        _tags
+        _regions
+    section
+        _articles
+        _pages
+        _users
+    system
+        _administrators
+        _comments
+        _meta
+
+techonline
+    section
+        _catalog
+        _rent
+        _parts
+
+

@@ -1,0 +1,390 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* Android Fix */ }
+
+a img {
+  border: 0; }
+
+body {
+  font-family: sans-serif; }
+
+.Grid {
+  width: 100%; }
+
+.Control-Group,
+.Grid-Row {
+  width: 100%; }
+
+.Grid-Node-1-2 {
+  width: 50.00%; }
+
+.Grid-Node-1-3 {
+  width: 33.33%; }
+
+.Grid-Node-2-3 {
+  width: 66.66%; }
+
+.Grid-Node-1-4 {
+  width: 25.00%; }
+
+.Grid-Node-2-4 {
+  width: 50.00%; }
+
+.Grid-Node-3-4 {
+  width: 75.00%; }
+
+.Grid-Node-1-5 {
+  width: 20.00%; }
+
+.Grid-Node-2-5 {
+  width: 40.00%; }
+
+.Grid-Node-3-5 {
+  width: 60.00%; }
+
+.Grid-Node-4-5 {
+  width: 80.00%; }
+
+.Grid-No-Padding {
+  padding: 0 !important; }
+
+.Grid-No-Padding > * {
+  padding: 0 !important; }
+
+[class*='Grid-Node-'] {
+  display: block;
+  float: left;
+  min-height: 1px;
+  padding: 30px; }
+
+.Grid-Row [class*='Grid-Node-']:first-of-type {
+  padding-left: 0; }
+
+.Grid-Row [class*='Grid-Node-']:last-of-type {
+  padding-right: 0; }
+
+code {
+  background-color: #f7f7f7;
+  border-left: 20px solid #ccc;
+  font-family: "Courier New", monospace;
+  display: block;
+  padding: 10px 20px; }
+
+code.Inline {
+  display: inline-block; }
+
+.Node .Section-Header.Ribbon {
+  background-color: #00bff3;
+  color: #fff;
+  position: relative;
+  display: block;
+  height: 50px;
+  margin: -30px -50px 0; }
+
+.Node header.Ribbon h3 {
+  padding: 10px 30px 0; }
+
+.Node .Section-Header.Ribbon:after,
+.Node .Section-Header.Ribbon:before {
+  content: ' ';
+  position: absolute;
+  display: block;
+  border: 15px solid #00abd9;
+  border-bottom-color: transparent;
+  top: 50px;
+  z-index: 1; }
+
+.Node .Section-Header.Ribbon:before {
+  border-left-color: transparent;
+  left: 0; }
+
+.Node .Section-Header.Ribbon:after {
+  border-right-color: transparent;
+  right: 0; }
+
+/* ╨д╨Ю╨а╨Ь╨л > ///////////////////////////////////////////////////////////////////////////////////*/
+form h3.Form-Header {
+  font-size: 150%;
+  font-weight: 100;
+  margin-bottom: 30px;
+  padding: 0 10px; }
+
+.Form-Section + .Form-Section {
+  margin-top: 50px; }
+
+.Message-Error {
+  display: block;
+  float: right;
+  width: 100%;
+  padding: 10px 0; }
+
+.Control-Group.Error {
+  border: 1px solid #ec0000;
+  padding-bottom: 10px;
+  background-color: #ffecec;
+  color: #d30000; }
+
+.Control-Group.Error input {
+  border-color: #ec0000;
+  color: #ec0000; }
+
+.Control-Group,
+.Checkbox-Group {
+  padding: 0 10px; }
+
+/* DOES NOT LOOK GOOD! */
+.Control-Group + .Checkbox-Group,
+.Checkbox-Group + .Control-Group,
+.Control-Group + .Control-Group {
+  margin-top: 20px; }
+
+.Control-Group select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0; }
+
+.Control-Group input,
+.Control-Group select {
+  float: left;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px; }
+
+.Control-Group label,
+.Control-Group select,
+.Control-Group input {
+  line-height: 30px;
+  padding: 5px 10px;
+  font-size: 100%;
+  display: block;
+  vertical-align: middle; }
+
+.Control-Group label {
+  float: left;
+  width: 20%;
+  border: 1px #ccc solid;
+  box-shadow: 0 0 1px white inset;
+  background-color: #f7f7f7;
+  color: #ccc;
+  font-size: 85%;
+  cursor: pointer;
+  display: block; }
+
+.Control-Group label:first-of-type {
+  width: 30%;
+  border-right: 0;
+  color: #000; }
+
+.Control-Group select,
+.Control-Group input[type='text'],
+.Control-Group input[type='password'] {
+  border: 1px solid #ccc;
+  outline: 0;
+  width: 100%; }
+
+.Control-Group label + select,
+.Control-Group label + input[type='text'],
+.Control-Group label + input[type='password'] {
+  width: 50%; }
+
+.Control-Group select:focus,
+.Control-Group input:focus {
+  border-color: #00bff3;
+  color: #00abd9; }
+
+.Control-Group label + select:last-child,
+.Control-Group label + input[type='text']:last-child,
+.Control-Group label + input[type='password']:last-child {
+  width: 70%; }
+
+.Control-Group select + label,
+.Control-Group input[type='text'] + label,
+.Control-Group input[type='password'] + label {
+  border-left: 0; }
+
+.Control-Group input[disabled][type='text'] {
+  background-color: #f3f3f3;
+  cursor: not-allowed; }
+
+.Control-Group.Disabled label {
+  color: #777; }
+
+.Control-Group input[type='submit'] {
+  float: right;
+  padding: 15px;
+  background-color: #00bff3;
+  font-size: 120%;
+  font-weight: 100;
+  color: #fff;
+  border: 0;
+  cursor: pointer; }
+
+.Control-Group input[type='submit'][disabled],
+.Control-Group input[type='submit'][disabled]:hover {
+  background-color: #ccc;
+  cursor: not-allowed; }
+
+.Control-Group input[type='submit']:hover {
+  background-color: #00abd9; }
+
+.Checkbox-Group input[type='checkbox'] {
+  border: 1px #ccc solid;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px; }
+
+body.RoundUI .Control-Group.Error {
+  border-radius: 5px; }
+
+body.RoundUI .Control-Group label:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; }
+
+body.RoundUI .Control-Group input[type='text'] + label,
+body.RoundUI .Control-Group label + input[type='text']:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+body.RoundUI .Control-Group input[type='submit'] {
+  border-radius: 5px; }
+
+/* ╨д╨Ю╨а╨Ь╨л < ///////////////////////////////////////////////////////////////////////////////////*/
+/* ╨б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П > ///////////////////////////////////////////////////////////////////////////////*/
+.Message {
+  font-size: 90%;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 0 0 2px white inset;
+  margin-bottom: 20px; }
+
+.Message h3,
+.Message h4,
+.Message h5,
+.Message h6 {
+  margin-bottom: 5px; }
+
+.Message h3 {
+  font-size: 120%; }
+
+.Message h4 {
+  font-size: 110%; }
+
+.Message h5 {
+  font-size: 100%; }
+
+.Message h6 {
+  font-size: 90%; }
+
+.Message.Icon {
+  padding-left: 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center; }
+
+.Message.Error {
+  background-color: #ffecec;
+  border-color: #ec0000;
+  color: #d30000; }
+
+.Message.Icon.Error {
+  background-image: url(../img/icon-error.png); }
+
+.Message.Warning {
+  background-color: #fff7ea;
+  border-color: #d18200;
+  color: #b77200; }
+
+.Message.Icon.Warning {
+  background-image: url(../img/icon-warning.png); }
+
+.Message.Success {
+  background-color: #dfffdc;
+  border-color: #0da900;
+  color: #0b8f00; }
+
+.Message.Icon.Success {
+  background-image: url(../img/icon-success.png); }
+
+.Message.Info {
+  background-color: #daf7ff;
+  border-color: #00bff3;
+  color: #00abd9; }
+
+.Message.Icon.Info {
+  background-image: url(../img/icon-info.png); }
+
+body.RoundUI .Message {
+  border-radius: 5px; }
+
+/* ╨б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П < ///////////////////////////////////////////////////////////////////////////////*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.dev {
+  outline: 1px red solid !important; }
+
+.visible {
+  display: block; }
+
+.fix,
+.Node,
+.Grid,
+.Grid-Row,
+.Control-Group,
+.Tab-Set,
+.Tab-Buttons {
+  display: table; }
+
+.fix:after,
+.Node:after,
+.Grid:after,
+.Grid-Row:after,
+.Control-Group:after,
+.Tab-Set,
+.Tab-Buttons {
+  content: '. .';
+  display: block;
+  word-spacing: 99in;
+  height: 0;
+  overflow: hidden; }
+
+.Node {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.Node + .Node {
+  margin-top: 50px; }
+
+/* ╨в╨Р╨С╨л > ////////////////////////////////////////////////////////////////////////////////////*/
+.Tab-Buttons > li {
+  float: left; }
+
+[class*='Tab-Node'] {
+  display: none; }
+
+.Tab-Node:first-child {
+  display: block; }
+
+/* ╨в╨Р╨С╨л < ////////////////////////////////////////////////////////////////////////////////////*/
+table.Stripped tr:nth-child(even) td {
+  background-color: #f0f0f0; }
+
+table.Stripped {
+  border-spacing: 0; }
+
+table > tr > td {
+  padding: 20px; }
+
+table.Big > tr > td {
+  padding: 30px; }
+
+table.Small > tr > td {
+  padding: 5px; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,779 @@
+// Подключение библиотеки UPF
+@import "../../../general/libs/upf/upf";
+
+body {
+	min-width: 320px;
+	background-color: $Clr-Secondary;
+	font-family: 	'Exo 2','Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 	1.45;
+
+	@include 		Animation(FadeIn,0.6s);
+}
+
+
+// PAGE HEADER
+@import "-header";
+
+.Autocomplete {
+	width: 100%;
+	padding: $size-s $size;
+}
+#Page-Slider {
+	@include Transition(SlideDown, .5s);
+	height: 0;
+}
+.Sidebar-Filter {
+	a.Active {
+
+		color: white;
+		background-color: $Clr-Grey-Darker;
+	}
+	& > h4 {
+		font-size: 20px;
+		font-weight: 100;
+		margin-top: $size;
+		padding: $size-xs $size-s;
+		background: $Clr-Grey-Darker;
+		color: white;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	& > ul {
+		font-family: $Font-Family-Calibri;
+		& > li {
+			border-top: 1px solid white;
+			& > a {
+				display: block;
+				padding: $size-xs $size-s;
+				font-size: 13px;
+				font-weight: 900;
+				color: black;
+				background-color: $Clr-Grey-Lighter;
+				&:hover {
+					background-color: $Clr-Grey;
+				}
+			}
+			&:first-child a {
+				border: 0;
+			}
+		}
+	}
+}
+
+// Список категорий
+.List-Categories {
+	@extend ._Clearfix;
+	li {
+		padding: $size-s 0;
+		@extend ._Clearfix;
+		a {
+			font-size: $Font-Size-Small;
+			display: inline-block;
+		}
+	}
+	&.Icons {
+		a {
+			padding: $size-s;
+			width: 100%;
+			@include Adaptive($Viewport-XS) {
+				text-align: center;
+			}
+			border: 1px solid transparent;
+			&:hover {
+				border-color: $Clr-Main;
+			}
+		}
+		img {
+			border: 1px solid transparent;
+			vertical-align: middle;
+			display: none;
+			@include Adaptive($Viewport-XS) {
+				display: block;
+			}
+			height: 100px;
+			margin: 0 auto;
+		}
+
+	}
+	&.Brands {
+		img {
+			width: 50px;
+		}
+	}
+}
+
+// Блок комментариев
+.Comment-List {
+	@extend ._No-Bullets;
+	@extend ._Vertical-Spacing;
+	.Comment-Item {
+		&:first-child {
+			margin-top: 0;
+		}
+		.Item-Vote {
+			position: relative;
+		}
+		.Item-Content {
+			overflow: hidden;
+
+			header {
+				@extend ._Clearfix;
+
+				h5 {
+					.Date {
+						margin-left: $size-l;
+						display: inline-block;
+						font-size: 80%;
+						color: $Clr-Grey;
+					}
+				}
+			}
+			p {
+				width: 75%;
+			}
+		}
+	}
+}
+
+
+// Site Footer Block
+footer[role='contentinfo'] {
+	position: relative;
+	height: $Page-Footer-Height;
+	background: white;
+	border-top: 1px solid #e1e1e1;
+	& > div {
+		padding: $size-l 0;
+		@extend ._Clearfix;
+		@extend ._Centered;
+		@extend ._Section-Inner;
+		.Copyright {
+			@extend %_Left;
+		}
+		.Footer-Navigation {
+			@extend %_Right;
+			width: 37%;
+			ul {
+				@extend ._No-Bullets;
+				@extend ._Inline;
+				li {
+					margin-left: $size;
+					a {
+						color: black;
+						padding-bottom: $size-xs;
+						border-bottom: 2px solid transparent;
+						&:hover {
+							color: $Clr-Main;
+							border-color: $Clr-Main;
+						}
+					}
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+img.Footer-Img {
+	display: none;
+	position: absolute;
+	bottom: $Page-Footer-Height/2;
+	right: $size;
+	width: 200px;
+}
+
+
+.Filter-Regions {
+	li {
+		a {
+			display: block;
+			padding: $size-xs 0
+		}
+	}
+}
+
+.Filter-Categories {
+	li {
+		a {
+			display: block;
+			padding: $size-s 0;
+		}
+	}
+}
+
+// List of snippets like News, etc.
+.List.Snippets {
+	li.List-Item {
+		border: 1px solid $Clr-Clouds;
+		margin-bottom: $size;
+		header {
+			padding-bottom: $size-s;
+			background-color: $Clr-Clouds;
+			@extend ._Clearfix;
+			h5.Item-Title {
+				margin: $size-n 100px $size-n $size-n;
+				display: block;
+
+				a {
+					font-size: $Font-Size-Large;
+					text-transform: uppercase;
+				}
+			}
+
+		}
+		img {
+			width: 100%;
+		}
+		.Description {
+			margin: $size-n;
+			font-size: 14px;
+
+			& > div {
+			}
+		}
+	}
+}
+.Item-Subtitle {
+	display: block;
+	clear: both;
+	font-size: 12px;
+}
+
+// Only for LIST of Snippets
+.Snippet-List {
+	@extend ._Vertical-Spacing;
+	@extend ._No-Bullets;
+
+	.Snippet-Item {
+		@extend .Row;
+		@extend .Merge;
+
+		header {
+			position: relative;
+			background-color: $Clr-Secondary;
+			.Item-Category ,
+			.Item-Location {
+				padding: 0;
+			}
+		}
+		footer {
+			padding: 0 $size-n $size-n;
+			width: 100%;
+			clear: both;
+			@extend ._Clearfix;
+		}
+	}
+	.Item-Photo {
+		@extend .Grid-XS-5;
+	}
+	.Item-Gallery {
+		@extend ._Clearfix;
+		@extend .Grid-XS-5;
+		& > img {
+			width: 100%;
+		}
+	}
+	.Item-Content {
+		margin-top: $size-n;
+		@extend .Grid-XS-7;
+	}
+}
+
+.Snippet-Item {
+	@extend ._Clearfix;
+	@extend .Row;
+
+	header {
+		position: relative;
+		margin-bottom: $size;
+		@extend ._Clearfix;
+
+		.Item-Title {
+			margin: $size-n;
+			display: inline-block;
+			max-width: 50%;
+			text-transform: uppercase;
+			font-size: 20px;
+			@extend ._Clearfix;
+			@extend %_Left;
+
+			a {
+				display: block;
+				color: black;
+				&:hover {
+					color: $Clr-Main;
+				}
+			}
+			.Item-Category ,
+			.Item-Location {
+				float: left;
+				text-transform: none;
+				font-size: 12px;
+				font-weight: 100;
+				color: $Clr-Grey-Dark;
+			}
+		}
+		h4 				,
+		.Section-Header {
+			float: left;
+		}
+
+		.Item-Values {
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			display: inline-block;
+			float: right;
+
+			@extend ._No-Bullets;
+			@extend ._Inline;
+			@extend .Row;
+
+			li {
+				padding: $size-n $size-s;
+				h6 {
+					margin: 0;
+					font-size: 12px;
+					font-weight: 100;
+				}
+			}
+		}
+	}
+	.Item-Gallery {
+		@extend ._Clearfix;
+
+		img.Item-Main-Photo {
+			border: 5px solid $Clr-Secondary;
+			@extend ._Fit-Row;
+			@extend ._Highlight;
+		}
+
+		ul {
+			@extend ._No-Bullets;
+			@extend ._Inline;
+
+			li {
+				margin-top: -6px;
+				width: 33.33%;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				img {
+					display: block;
+					width: 100%;
+					border: 5px solid $Clr-Secondary;
+					@extend ._Highlight;
+				}
+			}
+		}
+	}
+
+	.Item-Photo {
+		margin-bottom: $size-l;
+		padding-right: $size-l;
+		@extend .Grid-XS-5;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.Item-Content {
+		font-size: 14px;
+
+		@extend .Grid-XS-7;
+
+		h6 {
+			margin: $size-s 0 $size-xs;
+			font-size: 18px;
+		}
+
+		p {
+			& + p {
+				margin-top: $size-n;
+			}
+		}
+		table {
+			font-size: 14px;
+			border-top: 1px solid $Clr-Grey-Light;
+			width: 100%;
+			tr {
+				td {
+					padding: $size-xs 0;
+				}
+			}
+		}
+	}
+
+	.Item-Info {
+		clear: both;
+		padding: $size-s 0;
+		border-top: 1px dashed $Clr-Grey-Dark;
+		color: $Clr-Grey-Dark;
+		font-size: $Font-Size-Micro;
+		.Date {
+			padding: $size-xs 0;
+			margin: 0 $size-l $size-s 0;
+			@extend %_Left;
+		}
+		.Tags {
+			@extend %_Left;
+		}
+	}
+}
+.Filter-Result {
+	width: 100%;
+	padding: $size-s;
+	background-color: $Clr-Secondary;
+	font-size: 80%;
+	@extend %_Right;
+	@extend ._No-Bullets;
+	@include Animation(FadeIn,1s);
+	li {
+		padding: $size-xs 0;
+		@extend ._Clearfix;
+		span {
+			display: inline-block;
+			padding: $size-xs;
+		}
+		.Delete {
+			display: inline-block;
+			margin-left: $size-s;
+			padding: $size-xs;
+			background-color: $Clr-Main;
+			color: white;
+			@extend .Button;
+			@extend .Small;
+			@extend %_Right;
+			&:hover {
+				background-color: $Clr-Grey-Darker;
+			}
+		}
+	}
+
+}
+
+ul.Tag-List {
+	@extend ._Clearfix;
+	@extend ._Inline;
+	@extend ._No-Bullets;
+
+	li.Tag-Item {
+		margin-right: $size-xs;
+		margin-bottom: $size-xs;
+		a {
+			display: inline-block;
+			padding: $size-xs;
+			background-color: $Clr-Grey;
+			color: $Clr-Grey-Darker;
+			font-family: $Font-Family-Calibri;
+			font-size: 12px;
+
+			@include Round(all, $Control-Border-Radius);
+			&:hover {
+				color: white;
+				background-color: $Clr-Grey-Dark;
+			}
+		}
+	}
+}
+.Vote {
+	@extend ._Inline;
+	@extend ._No-Bullets;
+	display: block;
+	width: 100%;
+	clear: both;
+	margin-top: $size-s;
+	margin-left: $size-n;
+	& > li {
+		@extend ._Clearfix;
+		& > a {
+			display: block;
+			width: 30px;
+			height: 30px;
+			border: 1px solid $Clr-Silver;
+			&:hover {
+				background-color: $Clr-Main;
+				border-color: $Clr-Main-Dark;
+			}
+		}
+		& > span {
+			text-align: center;
+			padding-top: 3px;
+			border-top: 1px solid $Clr-Silver;
+			border-bottom: 1px solid $Clr-Silver;
+			display: block;
+			width: 30px;
+			height: 30px;
+			color: $Clr-Silver;
+			font-size: 14px;
+		}
+	}
+}
+
+.Vote-Up {
+	background: url(../../../../img/techonline/icon-vote-up.png) center center no-repeat;
+}
+.Vote-Down {
+	background: url(../../../../img/techonline/icon-vote-down.png) center center no-repeat;
+}
+.List-Filter {
+	@extend ._No-Bullets;
+}
+
+.Menu-List {
+
+	ul {
+		@extend ._No-Bullets;
+
+		li {
+			padding: $size-s 0;
+		}
+	}
+}
+
+#Scroll-Top {
+	position: fixed;
+	top: $size;
+	left: $size;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	background: url(../../../../img/techonline/icon-scroll-top.png) no-repeat;
+	display: none;
+	@include Transition(background,.3s);
+	&:hover {
+		background: url(../../../../img/techonline/icon-scroll-top-hover.png) no-repeat;
+	}
+}
+
+.Filter.Accordion {
+	margin-top: $size;
+
+	@extend ._No-Bullets;
+	.Filter-Subheader {
+		margin-top: 1px;
+		background-color: $Clr-Clouds;
+        clear:both;
+		@extend ._Clearfix;
+
+		& > div {
+			float: left;
+			width: 10%;
+			text-align: center;
+
+			span {
+				color: white;
+				display: block;
+				width: 100%;
+				padding: $size-s 0;
+				line-height: $line-height;
+				background-color: $Clr-Main;
+				cursor: pointer;
+
+				&:hover {
+					color: white;
+					background-color: $Clr-Main-Dark;
+				}
+			}
+		}
+		& > a {
+			float: right;
+			width: 90%;
+			color: $Clr-Midnight-Blue;
+			background-color: $Clr-Clouds;
+			line-height: $line-height;
+			font-size: 16px;
+			display: block;
+			padding: $size-s $size-l;
+		}
+	}
+}
+.Filter-Subcategory {
+	margin: $size-xs 0;
+	display: none;
+
+	ul {
+		border-top: 0;
+		@extend ._Clearfix;
+		@extend ._No-Bullets;
+		.Filter-Cities {
+			display: none;
+		}
+
+		li {
+			border-top: 1px solid $Clr-Grey-Lighter;
+			display: inline-block;
+			width: 100%;
+
+			a {
+				display: block;
+				padding: $size-xs $size-l;
+				color: black;
+				&:hover {
+					background-color: $Clr-Grey-Light;
+				}
+			}
+		}
+	}
+}
+
+.List-Group-Actions {
+	margin-top: $size;
+	border-top: 2px solid $Clr-Main;
+	background-color: $Clr-Grey-Lighter;
+
+	@extend ._No-Bullets;
+	@extend ._Inline;
+	@extend .Row;
+	@extend .Merge;
+}
+.Item-Group-Actions {
+	border-left: 1px solid white;
+	width: 100%;
+	@extend .Grid-XS-4;
+	.Control-Group,
+	a {
+		display: block;
+		padding: $size-s $size-l;
+		font-weight: bold;
+		font-size: 80%;
+		color: $Clr-Grey-Darker;
+		&:hover {
+			background-color: $Clr-Midnight-Blue;
+			color: white;
+		}
+		&.Icon {
+			background-position: $size-s center;
+			background-repeat: no-repeat;
+			&.Back {
+				background-image: url(../../../../img/techonline/icon-backward.png);
+			}
+		}
+	}
+	&:first-child {
+		border: 0;
+	}
+}
+.Spoiler {
+	margin-top: $size-n;
+	&:hover {
+		border-color: $Clr-Wet-Asphalt;
+	}
+
+	.Spoiler-Caption {
+		display: block;
+		color: white;
+		background-color: $Clr-Wet-Asphalt;
+		padding: $size-s $size-l;
+		@include Transition(background-color,.5s);
+		&:hover {
+			background-color: $Clr-Midnight-Blue;
+		}
+		span.fa {
+			margin-right: $size-s;
+		}
+	}
+	.Spoiler-Content {
+		margin-top:0;
+		display: none;
+		border: 1px solid $Clr-Grey;
+		border-top: 0;
+		li {
+			@include Animation(FadeIn,1s);
+		}
+	}
+}
+
+
+.List-Params {
+	margin-top: $size;
+	@extend .Row;
+	@extend .Merge;
+
+	li.List-Params-Item {
+
+		.Control-Group,
+		a {
+			display: block;
+			padding: $size-s $size-l;
+			color: black!important;
+
+			&:hover {
+				background-color: $Clr-Grey-Lighter;
+			}
+		}
+	}
+}
+
+.Error-404 {
+	header {
+	}
+	h2 {
+		margin-top: $size-n;
+		font-weight: 100;
+		font-size: 72px;
+		color: $Clr-Midnight-Blue;
+	}
+	p {
+		font-size: 36px;
+		color: $Clr-Text-Main;
+	}
+	h2, p {
+		@extend %_Letterpress;
+		line-height: 1;
+		text-align: right;
+	}
+	img {
+		margin-left: $size-n;
+	}
+}
+
+
+.ui-widget-header{
+  background-color: $Clr-Main;
+}
+.Accordion-Subcategory {
+  display:none;
+}
+
+.Page-Auth .Sign-In-UI, .Page-Auth .Sign-Up-UI{
+	z-index:1000 !important;
+}
+
+@include Keyframes(FadeIn) {
+	from {
+		@include Opacity(0);
+	}
+	to {
+		@include Opacity(1);
+	}
+}
+@include Keyframes(SlideUp) {
+	from {
+		@include Opacity(0);
+		top: 300px;
+	}
+	to {
+		@include Opacity(1);
+		top: 0;
+	}
+}
+@include Keyframes(SlideDown) {
+	from {
+		max-height: 1px;
+	}
+	to {
+		max-height: 350px;
+	}
+}
+
+// Подключение файла Media Queries
+@import 'media';
+

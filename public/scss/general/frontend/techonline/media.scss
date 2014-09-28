@@ -1,0 +1,117 @@
+// 768px +
+@include Adaptive($Viewport-XS) {
+	.List.Snippets header {
+		position: relative;
+	}
+	.List.Snippets .Title {
+		display: block;
+		width: 100%;
+		padding-right: 110px;
+		float: left;
+	}
+	.Vote {
+		margin-top: 0;
+		width: 90px;
+		position: absolute;
+		top: $size-s;
+		right: $size-s;
+	}
+	.Vote-Up {
+		@include Round(right, $Control-Border-Radius);
+	}
+	.Vote-Down {
+		@include Round(left, $Control-Border-Radius);
+	}
+	li.List-Item {
+		@include Round(all, $Control-Border-Radius);
+	}
+	.Snippet-Item {
+		@include Round(all, $Control-Border-Radius);
+		.Item-Gallery {
+			padding: 0 $size-n $size-n;
+		}
+		.Item-Content {
+			margin-top: 0;
+			padding: 0 $size-n $size-n;
+		}
+	}
+	.Filter-Subcategory ul li {
+		float: left!important;
+		font-size: 14px;
+		width: 50%;
+	}
+
+}
+@media all and (min-width: $Viewport-SM) {
+	.Filter-Result {
+		display: inline-block;
+		width: auto;
+	}
+	.Snippet-List {
+		.Snippet-Item {
+			border: 1px solid $Clr-Grey-Light;
+		}
+	}
+	#Page-Slider {
+		display: block;
+		clear: both;
+		overflow: hidden;
+		margin-bottom: 50px;
+		height: 250px;
+		background-color: $Clr-Wet-Asphalt;
+		background-position: center 0;
+		background-repeat: repeat;
+		background-attachment: fixed;
+		border-bottom: 1px solid white;
+		.Slider-Inner {
+			position: relative;
+			width: $Section-Width-Small;
+			margin: 0 auto;
+
+			#Truck {
+				width: 360px;
+				top: 0;
+				position: absolute;
+			}
+			#Slider-Links {
+				position: absolute;
+				top: 50px;
+				left: 400px;
+				opacity: 1;
+				a {
+					margin-bottom: 10px;
+
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+// 1280 x 720 HD
+@media all and (min-width: $Viewport-MD) {
+	.Node {
+		padding: $size-l;
+	}
+}
+
+// 1920 x 1080 Full HD
+@media all and (min-width: $Viewport-LR) {
+	img.Footer-Img {
+			 display: block;
+	}
+	.Filter-Subcategory ul li {
+		width: 33.33%;
+		a {
+			font-size: 13px;
+		}
+	}
+}
+
+// 2560 x 1440 Ultra HD
+@media all and (min-width: $Viewport-HG) {
+	.Node {
+		padding: $size-xl;
+	}
+}
+

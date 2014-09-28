@@ -1,0 +1,74 @@
+html {
+	font-size: $Body-Font-Size;
+	line-height: 1.45;
+}
+*::selection {
+	color: white;
+	background-color: $selection-color;
+}
+a:link	  ,
+a:visited {
+	color: $Clr-Main;
+	text-decoration: none;
+	@include Transition(#{color, background, border} , .3s);
+}
+
+a:hover {
+	color: $Clr-Grey-Darker;
+}
+a:active {
+	color: $Clr-Main;
+}
+
+h1 {	font-size: 3.00em;		}
+h2 {	font-size: 2.50em;		}
+h3 {	font-size: 30px;		}
+h4 {	font-size: 1.10em;		}
+h5 {	font-size: 1.00em;		}
+h6 {	font-size: 0.90em;		}
+
+hr {
+	height: 1px;
+	border: 0;
+	border-bottom: 1px solid $Clr-Grey-Light;
+	color: $Clr-Grey-Light;
+}
+code {
+  background-color: $Clr-Grey-Light;
+  border-left: $size solid $Clr-Grey;
+  font-family: "Courier New", monospace;
+  display: block;
+  padding: $size-s $size;
+	&.Inline {
+		display: inline-block;
+	}
+}
+
+// Ordinary heading.
+// Font-size depends ono h1-h6 number.
+.Heading {
+	display: block;
+	clear: both;
+	text-transform: uppercase;
+	font-weight: 100;
+	cursor: default;
+
+	@extend ._Unselectable;
+}
+
+// Heading with background
+.Heading.Primary {
+	color: $Clr-Asbestos;
+	font-weight: 100;
+}
+.Heading.Secondary {
+	text-transform: none;
+	color: $Clr-Asbestos;
+}
+// Heading width underline (border-bottom)
+.Heading.Underlined {
+	display: block;
+	padding-bottom: $size-s;
+	border-bottom: 1px solid $Clr-Grey;
+	font-weight: 100;
+}

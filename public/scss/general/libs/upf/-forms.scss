@@ -1,0 +1,616 @@
+
+// Control-Group is a wrap to form elements. Can contain label + input/select/textarea
+// TAGS ALLOWED: ALL
+.Control-Group {
+	width: 					100%;					// Block must be full-width
+	@extend 				._Clearfix;				// Child elements are floated. Return them to flow
+	@extend 				._Unselectable;			// Disabling text selecting
+
+	&:first-child {
+		margin-top: 		0;
+	}
+
+	input ,
+	select {
+		font-weight: 		900;
+		box-shadow: 		0 1px 3px rgba(0,0,0,0.15) inset;
+		@include 			Round('all', $Control-Border-Radius);
+	}
+	textarea {
+		font-family: 		$Font-Family-Verdana;
+		resize: 			vertical;				// To prevent destroying the grid, textarea must not be resizable horizontally
+		box-shadow: 		0 1px 3px rgba(0,0,0,0.15) inset;
+		@include Round('all', $Control-Border-Radius);
+	}
+
+	// Margin between two inline buttons
+	input[type='submit'] + input[type='submit'] {
+		margin-left: 	$size-n;
+	}
+
+	span {
+		@extend ._Unselectable;
+	}
+	// Отступ между контрол-группами
+	& + .Control-Group {
+		margin-top: $size;
+	}
+	&:first-child {
+		margin-top: 0;
+	}
+
+	// Offset is the last Control-Group in form
+	&.Offset {
+		padding-top: $size;
+
+		input[type='submit']	,
+		button.Button			{
+			display: inline-block;
+			width: auto;
+			padding: $size-s $size;
+			@extend %_Right;
+		}
+	}
+
+	&.Checkbox.Submit {
+		& > label {
+			padding: $size-s 0;
+			@extend .Grid-XS-6;
+		}
+		& > [type='submit'] {
+			@extend .Grid-XS-6;
+		}
+	}
+
+	// Контрол группа умного инпута
+	&.Smart {
+		@extend ._Clearfix;
+		.Input-Smart {
+			@extend ._Clearfix;
+			.Prefix	 ,
+			.Postfix {
+				float: left;
+				padding: $Control-Padding;
+				background-color: $Control-Sublabel-Background-Color;
+				line-height: $Control-Line-Height;
+				font-size: 14px;
+				text-align: center;
+			}
+			.Prefix {
+				border: 1px solid $Control-Border-Color;
+				border-right-width: 0;
+			}
+			input	 ,
+			select   ,
+			textarea {
+				float: left;
+			}
+		}
+	}
+}
+label.Control-Group {
+	float: none!important;
+}
+.Form-Vertical .Control-Group {
+	margin-top: 		$size;
+
+	&:first-child {
+  		margin-top: 	0;
+	}
+}
+.Form-Vertical {
+	label {
+		padding: 		$size-s 0;
+		border-color: 	transparent;
+	}
+	input,
+	select,
+	textarea {
+		padding: 		$Control-Padding;
+		border: 		1px solid;
+	}
+	label,
+	input,
+	select,
+	textarea {
+		display: 		block;
+		width: 			100%;
+
+	}
+}
+// Горизонтальная форма
+.Form-Horizontal {
+	label,
+	input,
+	select,
+	textarea {
+		display: 		block;
+		float: 			left;
+		width: 			70%;
+		border: 		1px solid;
+		line-height: 	$line-height;
+	}
+	input,
+	select,
+	textarea {
+		padding: 		$size-xs $size-s;
+	}
+	label   {
+		width: 			30%;
+		border-color: 	transparent;
+		padding: 		$size-xs $size-s $size-xs 0;
+
+	}
+}
+label.Checkbox ,
+label.Radio    {
+  display: 				block;
+  width: 				100%;
+}
+
+// Чекбокс и радио-кнопка
+input[type='checkbox']  ,
+input[type='radio']     {
+  width: 				auto;
+  display: 				inline;
+  float: 				none;
+  vertical-align: 		middle;
+  margin: 				-2px $size-s 0 0;
+  border: 				0;
+}
+
+
+
+// КНОПКА (ОТКЛЮЧЕНА)
+.Control-Group input        ,
+.Control-Group select       ,
+.Control-Group textarea     {
+  border: $Control-Border-Width $Control-Border-Color solid;
+	@include Transition(border-color, .5s);
+}
+.Control-Group input:focus   ,
+.Control-Group select:focus  ,
+.Control-Group textarea:focus{
+  outline: 0;
+  border-color: $Control-Focus-Border-Color;
+}
+
+// КНОПКА
+input[type='submit'] {
+	width: 				inherit;
+	padding: 			$size-s 0;
+	font-size: 			110%;
+	font-weight: 		100;
+	text-align: 		center;
+
+	&:hover {
+		background-color: 	$Clr-Main-Dark;
+	}
+
+	&[disabled] {
+		color:				$Clr-Asbestos;
+		background-color: 	$Clr-Wet-Asphalt;
+		cursor: 			not-allowed;
+	}
+}
+
+
+// FIX reCaptcha
+#recaptcha_widget_div{
+  display: inline-block;
+  width:70%;
+}
+
+#recaptcha_widget_div .recaptchatable {
+  border: none !important;
+  width: 100%;
+  padding-bottom: 10px !important;
+  display: block;
+}
+
+
+#recaptcha_widget_div .recaptchatable .recaptcha_image_cell,
+#recaptcha_widget_div .recaptchatable td{
+  padding: 0px 7px 0px 0px !important;
+}
+
+#recaptcha_widget_div .recaptchatable #recaptcha_image{
+  margin: 0px;
+  border:none !important;
+}
+
+dl.Tabs {
+	clear: both;
+	@extend ._Clearfix;
+
+	dt {
+		margin-left: -1px;
+		position: 		relative;
+		display: 		table;
+		width: 			30%;
+		float: 			left;
+		min-height: 	48px;
+		padding: 		$size-xs 0;
+		background-color: $Clr-Clouds;
+		color:			$Clr-Midnight-Blue;
+		text-align: 	center;
+		cursor: 		pointer;
+
+		@include Transition(#{background-color, color}, 0.5s);
+
+		& > span {
+			vertical-align: 	middle;
+			display: 			table-cell;
+			font-size: 			85%;
+		}
+
+		&:hover {
+			background-color: $Clr-Silver;
+		}
+
+		&.Active {
+			background-color: $Clr-Midnight-Blue;
+			color: #fff;
+		}
+		&.Wide {
+			width: 40%;
+		}
+
+        &.inTwo{
+            width:50%;
+        }
+	}
+	dd {
+		display: none;
+		float: right;
+		margin: 60px 0 0 -100%;
+		position: relative;
+		width: 100%;
+		z-index: 2;
+
+		&.Active {
+			display: block;
+		}
+
+		& > div {
+			padding: $size 0;
+		}
+	}
+}
+
+.Box {
+	background-color: white;
+	@extend ._Clearfix;
+	& > header {
+		@extend ._Clearfix;
+		padding: $size-s $size-n;
+
+		// Pushing Box-Title to the left.
+		& > .Box-Title {
+			float: left;
+		}
+
+		// If Box Toolset is a list - display it inline without bullets.
+		& ul.Box-Tools {
+			@extend ._No-Bullets;
+			@extend ._Inline;
+		}
+
+		// Box Toolset. Contains buttons.
+		& .Box-Tools {
+			display: inline-block;
+			float: right;
+			a {
+				display: inline-block;
+				padding: 0 $size-xs;
+				color: $Clr-Secondary-Darker;
+				&:hover {
+					color: $Clr-Main;
+				}
+			}
+		}
+	}
+	& > .Box-Content {
+		padding: $size-s $size-n $size-n;
+	}
+	&.Round {
+		@include Round(all);
+	}
+	&.Outlined {
+		border: 2px solid $Clr-Secondary-Darker;
+	}
+	&.Underlined {
+		& > header {
+			border-bottom: 1px solid $Clr-Secondary-Darker;
+		}
+	}
+	&.Solid {
+		border-color: $Clr-Main;
+		& > header {
+			color: white;
+			background-color: $Clr-Main;
+		}
+	}
+
+	&.Success ,
+	&.Info    ,
+	&.Warning ,
+	&.Error  {
+		color: white;
+		.Box-Tools a {
+			color: white;
+			&:hover {
+				background-color: white;
+			}
+		}
+	}
+	&.Solid.Success ,
+	&.Solid.Info    ,
+	&.Solid.Warning ,
+	&.Solid.Error  {
+		.Box-Content {
+			color: $Clr-Text-Main;
+			background-color: white;
+		}
+	}
+	&.Solid.Gradient.Success ,
+	&.Solid.Gradient.Info    ,
+	&.Solid.Gradient.Warning ,
+	&.Solid.Gradient.Error  {
+		header {
+			color: white;
+		}
+	}
+	&.Underlined.Success ,
+	&.Underlined.Info    ,
+	&.Underlined.Warning ,
+	&.Underlined.Error   {
+		header {
+			border-bottom-color: white;
+		}
+	}
+	&.Outlined.Success ,
+	&.Outlined.Info    ,
+	&.Outlined.Warning ,
+	&.Outlined.Error   {
+		border: 2px solid white;
+	}
+
+	&.Success {
+		background-color: $Clr-Success;
+		&.Gradient {
+			@include Gradient($Clr-Success, $Clr-Success-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		&.Solid.Gradient {
+			header {
+				@include Gradient($Clr-Success, $Clr-Success-Dark, to right);
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Success-Dark;
+			}
+		}
+		&.Solid.Outlined {
+			border-color: $Clr-Success;
+		}
+	}
+	&.Info {
+		background-color: $Clr-Info;
+		&.Gradient {
+			@include Gradient($Clr-Info, $Clr-Info-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Info-Dark;
+			}
+		}
+	}
+	&.Warning {
+		background-color: $Clr-Warning;
+		&.Gradient {
+			@include Gradient($Clr-Warning, $Clr-Warning-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Warning-Dark;
+			}
+		}
+	}
+	&.Error {
+		background-color: $Clr-Error;
+		&.Gradient {
+			@include Gradient($Clr-Error, $Clr-Error-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Error-Dark;
+			}
+		}
+	}
+}
+// MAGIC!
+a.Button ,
+.Button {
+	padding: $size-xs $size-s;
+	border: 0;
+	line-height: $line-height;
+	background-color: $Clr-Main;
+	color: white;
+	font-size: 14px;
+	@extend %_Clickable;
+	@include Transition(#{border,background-color,color}, .3s);
+
+	&:hover {
+		background-color: $Clr-Main-Dark;
+	}
+	&.Small {
+		font-size: 10px;
+		padding: $size-xxs $size-xs;
+	}
+	&.Large {
+		padding: $size-s $size-n;
+	}
+	&.Huge {
+		font-size: 19px;
+		padding: $size-n $size;
+	}
+	&.Round {
+		@include Round(all,$Control-Border-Radius);
+	}
+	&.Search {
+		@include Round(all, (($line-height)/2) + $size-xs);
+		&.Large {
+			@include Round(all, (($line-height)/2) + $size-s);
+		}
+		&.Huge {
+			@include Round(all, (($line-height)/2) + $size-n);
+		}
+	}
+	&.Icon {
+		& > span.fa:first-child	 {
+			margin-right: $size-s;
+		}
+	}
+	&.Ghost {
+		color: $Clr-Midnight-Blue;
+		background-color: transparent;
+		border: 1px solid $Clr-Secondary-Dark;
+		@extend .Round;
+		&:hover {
+			color: black;
+			border-color: $Clr-Secondary-Darker;
+			background-color: $Clr-Clouds;
+		}
+		&.Invert {
+			color: white;
+			border-color: white;
+			&:hover {
+				color: $Clr-Main;
+				border-color: $Clr-Main;
+			}
+		}
+	}
+	&.Dropdown {
+		position: relative;
+		padding-right: 30px + $size-s;
+		&.Round > .Dropdown-Toggle {
+			@include Round(right, $Control-Border-Radius);
+		}
+		& > .Dropdown-Toggle {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			display: block;
+			width: 30px;
+			padding: $size-s 0;
+			border-left: 1px white solid;
+			background-color: $Clr-Main;
+			&:hover {
+				background-color: $Clr-Main-Dark;
+			}
+		}
+		& > .Dropdown-Content {
+			background-color: white;
+			border: 1px solid $Clr-Secondary-Dark;
+			position: absolute;
+			top: $line-height + ($size-xs * 2) + 3px;
+			left: 0;
+			width: 100%;
+			z-index: 100;
+
+			@extend ._No-Bullets;
+			ul {
+				@extend ._No-Bullets;
+			}
+			& li {
+				& > a {
+					display: block;
+					padding: $size-xs $size-s;
+					text-align: left;
+					color: $Clr-Midnight-Blue;
+					&:hover {
+						background-color: $Clr-Secondary-Dark;
+					}
+				}
+				&.Divider {
+					padding: 0;
+					display: block;
+					border-top: 1px solid $Clr-Secondary-Dark;
+				}
+			}
+			&.Icon {
+				li a span.fa {
+					margin-right: $size-s;
+				}
+			}
+		}
+		&.Round {
+			& > .Dropdown-Content {
+				@include Round(all, $Control-Border-Radius);
+			}
+		}
+	}
+	&.Info {
+		background-color: $Clr-Info;
+		&:hover {
+			background-color: $Clr-Info-Dark;
+		}
+		&.Dropdown ,
+		.Dropdown-Toggle {
+			background-color: $Clr-Info-Dark;
+			&:hover {
+				background-color: $Clr-Info-Dark;
+			}
+		}
+	}
+	&.Success {
+		background-color: $Clr-Success;
+		&:hover {
+			background-color: $Clr-Nephritis;
+		}
+		&.Dropdown ,
+		.Dropdown-Toggle {
+			background-color: $Clr-Success;
+			&:hover {
+				background-color: $Clr-Success-Dark;
+			}
+		}
+	}
+	&.Success {
+		background-color: $Clr-Success;
+		&:hover {
+			background-color: $Clr-Success-Dark;
+		}
+		&.Dropdown ,
+		.Dropdown-Toggle {
+			background-color: $Clr-Success;
+			&:hover {
+				background-color: $Clr-Success-Dark;
+			}
+		}
+	}
+	&.Warning {
+		background-color: $Clr-Warning;
+		&:hover {
+			background-color: $Clr-Warning-Dark;
+		}
+		&.Dropdown ,
+		.Dropdown-Toggle {
+			background-color: $Clr-Warning;
+			&:hover {
+				background-color: $Clr-Warning;
+			}
+		}
+	}
+
+}

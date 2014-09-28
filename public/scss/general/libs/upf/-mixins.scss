@@ -1,0 +1,114 @@
+@mixin Transition($Transition-Name, $Transition-Time) {
+	-webkit-transition-property: 	$Transition-Name;
+	-moz-transition-property: 		$Transition-Name;
+	transition-property: 			$Transition-Name;
+	-webkit-transition-duration: 	$Transition-Time;
+	-moz-transition-duration: 		$Transition-Time;
+	transition-duration: 			$Transition-Time;
+}
+
+@mixin Animation($animation-name, $animation-time, $animation-delay: 0) {
+	-webkit-animation: $animation-name $animation-time;
+	-moz-animation: $animation-name $animation-time;
+	animation: $animation-name $animation-time;
+	@if ($animation-delay != 0) {
+		-webkit-animation-delay: $animation-delay;
+		-moz-animation-delay: $animation-delay;
+		animation-delay: $animation-delay;
+
+	}
+}
+
+@mixin Keyframes($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+	@-moz-keyframes #{$animation-name} {
+		@content;
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+@mixin Opacity($value){
+	$IEValue: $value * 100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+	filter: alpha(opacity=$IEValue);
+}
+
+@mixin Round($Round-Mode: all, $Radius: $border-radius) {
+	@if ($Round-Mode == 'all') {
+		border-radius: $Radius;
+	}
+	@else if ($Round-Mode == 'diagonal') {
+		border-radius: $Radius 0;
+	}
+	@else if ($Round-Mode == 'diagonal-reverse') {
+		border-radius: 0 $Radius;
+	}
+	@else if ($Round-Mode == 'left') {
+		border-radius: $Radius 0 0 $Radius;
+	}
+	@else if ($Round-Mode == 'right') {
+		border-radius: 0 $Radius $Radius 0;
+	}
+	@else if ($Round-Mode == 'top') {
+		border-radius: $Radius $Radius 0 0;
+	}
+	@else if ($Round-Mode == 'bottom-left') {
+		border-bottom-left-radius: $Radius;
+	}
+	@else if ($Round-Mode == 'bottom-right') {
+		border-bottom-right-radius: $Radius;
+	}
+	@else if ($Round-Mode == 'top-left') {
+		border-top-left-radius: $Radius;
+	}
+	@else if ($Round-Mode == 'top-right') {
+		border-top-right-radius: $Radius;
+	}
+	@else if ($Round-Mode == 'search') {
+		border-radius: $size-l;
+	}
+}
+// Позволяет назначать динамические (от размера экрана) размеры шрифта
+@mixin Font-Size($FS-XS, $FS-S, $FS-M, $FS-L) {
+	font-size: $FS-M;
+	@media all and (max-width: 640px) {
+		font-size: $FS-XS;
+	}
+	@media all and (max-width: 1024px) and (min-width: 641px)  {
+		font-size: $FS-S;
+	}
+	@media all and (max-width: 1280px) and (min-width: 1025px) {
+		font-size: $FS-M;
+	}
+	@media all and (max-width: 1920px) and (min-width: 1281px) {
+		font-size: $FS-L;
+	}
+}
+
+@mixin Gradient($Color-Start, $Color-End, $Gradient-Orientation: top) {
+	background-color: $Color-End; /* Fallback */
+	background: -webkit-linear-gradient($Gradient-Orientation, $Color-Start, $Color-End); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background:    -moz-linear-gradient($Gradient-Orientation, $Color-Start, $Color-End); /* FF3.6 */
+	background:     -ms-linear-gradient($Gradient-Orientation, $Color-Start, $Color-End); /* IE10 */
+	background:      -o-linear-gradient($Gradient-Orientation, $Color-Start, $Color-End); /* Opera 11.10+ */
+	background:         linear-gradient($Gradient-Orientation, $Color-Start, $Color-End);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$Color-Start}', EndColorStr='#{$Color-End}');
+}
+
+@mixin Adaptive($Resolution-Min, $Mode: min-width)
+{
+	@media screen and ($Mode: $Resolution-Min) {
+		@content;
+	}
+}
+
+@mixin Adaptive-Mobile() {
+	@media screen and (max-width: $Viewport-XS) {
+		@content;
+	}
+}

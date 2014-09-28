@@ -1,0 +1,271 @@
+// PAGE WRAP
+// Makes Page-Footer stick to end of the page
+html		,
+body		,
+#Page-Wrap  {
+	height: 		100%;
+}
+
+// This block must wrap all content, excluding Page-Footer
+#Page-Wrap  {
+	height: 		auto;
+	min-height:		100%;
+	clear: 			both;
+}
+// This block must be the last in #Page-Wrap block before footer
+#Page-Wrap-Stop {
+	height: 		$Page-Footer-Height;
+}
+
+
+
+// *********************************************************************************************************************
+// NODES
+// *********************************************************************************************************************
+// Nodes are designed to contain sections of content separately.
+
+// Node Wrap is designed to divide page into horizontally oriented sections
+.Node-Wrap {
+	padding: $Node-Wrap-Padding 0;
+	width: 100%;
+}
+.Node {
+	padding: 			$Node-Padding;
+	background-color: 	white;
+	clear: 				both;
+
+	@extend 			._Centered;
+	@extend 			._Standalone;
+	@extend 			._Section-Inner;
+	@extend 			._Clearfix;
+}
+
+// Внутренние элементы нода отступают друг от друга
+.Node + .Node-Wrap {
+	margin-top: $section-gap;
+}
+
+// Margin between NODES
+.Node > * {
+	margin-top: $size;
+}
+
+// Убирает отступ у первого элемента в ноде
+.Node > *:first-child {
+	margin-top: 0;
+}
+
+// NODES don't need inner margins if children are GRID-positioned
+.Node.Row > * {
+	margin-top: 0;
+}
+.Table-Adaptive {
+	.Checkbox {
+		color: $Clr-Secondary-Dark;
+	}
+}
+table {
+	min-width: 320px;
+	width: 100%;
+	border-collapse: collapse;
+
+	th {
+		color: white;
+		text-align: left;
+	}
+	td, th {
+		padding: $size-xs;
+		@include Adaptive($Viewport-SM) {
+			padding: $size-s;
+		}
+		@include Adaptive($Viewport-LR) {
+			padding: $size-s $size-n;
+		}
+	}
+	tr:hover td.Actions {
+		@include Adaptive($Viewport-XS) {
+			opacity: 1;
+		}
+	}
+	td.Actions {
+		min-width: 120px;
+		@include Adaptive($Viewport-XS) {
+			opacity: 0;
+		}
+		ul {
+			@extend ._No-Bullets;
+
+			li {
+				float: left;
+				margin-right: $size-xs;
+
+				a {
+					@extend .Button;
+					@extend .Small;
+				}
+			}
+		}
+	}
+	// Divides rows by border-top: 1px
+	&.Lines {
+		tbody tr {
+			border-top: 1px solid $Clr-Secondary;
+			&:first-child {
+				border-top: 0
+			}
+		}
+	}
+	&.Solid {
+		th {
+			font-weight: 100;
+			color: white;
+			background-color: $Clr-Wet-Asphalt;
+		}
+	}
+	&.Stripped {
+		tbody tr:nth-of-type(even) {
+			background: $Clr-Secondary;
+		}
+	}
+	&.Adaptive {
+		td {
+			@extend ._Clearfix;
+			@include Adaptive-Mobile {
+				border-top: 1px solid $Clr-Secondary;
+			}
+			&:first-child {
+				border-top: 0;
+			}
+		}
+		td.Number {
+			@include Adaptive-Mobile {
+				display: none;
+			}
+		}
+	}
+	&.Edit {
+		div[contenteditable] {
+			cursor: pointer;
+		}
+		div[contenteditable]:focus {
+			color: $Clr-Wet-Asphalt;
+			outline: 0;
+		}
+	}
+}
+
+
+@include Adaptive-Mobile {
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+}
+
+// Блок Пагинации
+.pagination,
+.Pagination {
+	border-left: 4px solid $Clr-Main;
+	@extend ._No-Bullets;
+	@extend .Inline;
+	@extend ._Clearfix;
+	& > li {
+		margin-top: 0 !important; // Наследование .Node подразумевает margin-top каждого вложенного элемента. Убираем
+		margin-right: 1px; // Разлипаем прямоугольники страниц
+		float:left;
+		& > span,
+		& > a {
+			color: #fff;
+			display: block;
+			padding: $size-s $size;
+			background-color: $Clr-Midnight-Blue;
+		}
+		&:hover > span {
+			cursor: default;
+		}
+		&:hover > a {
+			background-color: $Clr-Wet-Asphalt;
+		}
+		&.disabled > span {
+			color: $Clr-Grey-Dark;
+		}
+		&.active > span {
+			background-color: $Clr-Main;
+		}
+		li.Pagination-Caption {
+
+		}
+	}
+}
+
+
+
+// Хлебные крошки
+.Breadcrumbs {
+	padding: $size-xs;
+	margin-top: $size;
+	background-color: $Clr-Secondary;
+	@include Round(all, $Control-Border-Radius);
+
+	.Breadcrumb-List {
+		@extend ._Inline;
+		@extend ._No-Bullets;
+		@extend ._Clearfix;
+
+		.Breadcrumb-Item {
+			& > span ,
+			& > a    {
+				padding: $size-xs;
+				font-size: 13px;
+				line-height: 13px;
+			}
+			a {
+				color: $Clr-Asbestos;
+			}
+			a:hover {
+				color: $Clr-Midnight-Blue;
+			}
+			&:before {
+				font-family: FontAwesome;
+				vertical-align: middle;
+				padding: 0 $size-s;
+				content: "\f105";
+				@extend ._Unselectable;
+			}
+		}
+
+		.Breadcrumb-Item:first-child {
+			&:before {
+				padding: 0;
+				content: "";
+			}
+		}
+	}
+}
+.Dev {
+	position: relative;
+	&:hover:before {
+		position: absolute;
+		top: -20px;
+		background-color: red;
+		border: 1px dashed white;
+		display: inline-block;
+		padding: $size-xs;
+		font-size: 12px;
+		line-height: 14px;
+		content: attr(class);
+	}
+}
+
+
+.Panel {
+	padding: $size-s;
+	display: inline-block;
+}
+
+

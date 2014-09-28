@@ -1,0 +1,157 @@
+@import "../../general/libs/upf/upf";
+$Menu-Width: 300px;
+
+
+
+body {
+	font-family: 'Open Sans';
+	background-color: $Clr-Secondary;
+}
+
+.Icon-Link {
+	font-size: 13px;
+	span.fa {
+		line-height: 16px;
+		font-size: 16px;
+	}
+	&.Right {
+		span.fa {
+			margin-left: $size-s;
+		}
+	}
+}
+aside.Menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 300px;
+	background-color: $Clr-Slate-Light;
+	z-index: 1;
+}
+.Menu-Shadow {
+	position: fixed;
+	width: 3px;
+	top: 0;
+	bottom: 0;
+	left: $Menu-Width;
+	box-shadow: -3px 0 3px rgba(0,0,0,0.5);
+	z-index: 2;
+}
+// Category
+aside.Menu > ul.Menu-Category {
+	@extend ._No-Bullets;
+}
+li.Menu-Category-Item {
+	position: relative;
+	@extend ._No-Bullets;
+	@extend ._Clearfix;
+	&:hover {
+		span.Menu-Category-Icon {
+			color: $Clr-Secondary;
+		}
+	}
+}
+span.Menu-Category-Icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 16px;
+	font-weight: 100;
+	color: $Clr-Secondary-Dark;
+	padding: $size-n $size-n $size-n 0;
+}
+a.Menu-Category-Link {
+	display: block;
+	font-size: 13px;
+	padding: $size-n $size-n;
+	color: $Clr-Secondary-Dark;
+	&.Active ,
+	&:hover {
+		background-color: $Clr-Cyan;
+		color: $Clr-Secondary;
+	}
+	span.fa {
+		vertical-align: middle;
+		width: 16px;
+		font-size: 16px;
+		margin-right: $size-s;
+	}
+}
+// Subcategory
+ul.Menu-Subcategory {
+	background-color: $Clr-Slate;
+	@extend ._No-Bullets;
+}
+li.Menu-Subcategory-Item {
+	@extend ._Clearfix;
+}
+a.Menu-Subcategory-Link {
+	display: block;
+	padding: $size-s $size-n $size-s $size-xl;
+	font-size: 13px;
+	color: $Clr-Secondary-Dark;
+	border-left: 0 solid transparent;
+	&.Active ,
+	&:hover {
+		background-color: $Clr-Slate-Dark;
+		color: $Clr-Secondary;
+	}
+	&:hover {
+		border-left: 10px solid transparent;
+	}
+	span.fa {
+		margin-right: $size-s;
+	}
+}
+
+// MAIN BLOCK
+main {
+	margin-left: $Menu-Width;
+	& > .Content {
+		margin: $size-n;
+		.Content-Inner {
+			margin-top: $size-n;
+			padding: $size-n;
+			background-color: white;
+		}
+	}
+}
+nav.Userbar {
+	height: auto;
+	background-color: white;
+	@extend ._Clearfix;
+	ul {
+		display: inline-block;
+		@extend ._Inline;
+		@extend ._No-Bullets;
+		li {
+			line-height: 16px;
+			a {
+				display: block;
+				padding: $size-n;
+				color: $Clr-Text-Main;
+				&:hover {
+					color: $Clr-Cyan;
+				}
+			}
+			&.Icon {
+				a {
+				}
+				span.fa {
+					display: inline-block;
+					margin-right: $size-n;
+				}
+			}
+			span.fa {
+			}
+		}
+		&.Left {
+			float: left;
+		}
+		&.Right {
+			float: right;
+		}
+	}
+
+}

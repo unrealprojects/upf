@@ -1,0 +1,123 @@
+// Модификаторы
+// Абстрактные классы. Изменяют свойства других классов
+// в результате наследования.
+// Всегда начинаются с "_"
+
+
+// Центрирует заданный блок внутри родителя.
+._Centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Отбивает секции друг от друга по вертикали
+._Standalone {
+	margin-top: 	$section-gap;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+// Отбивает блоки друг от друга по вертикали за исключением первого
+._Vertical-Spacing {
+	& > * {
+		margin-top: 	$block-gap!important;
+
+		&:first-child {
+			margin-top: 0!important;
+		}
+	}
+}
+// Устанавливает секции фиксированную ширину, согласно файлу настроек
+._Section-Inner {
+	width: 			$Section-Width-Tiny;
+	@media all and (min-width: $Viewport-SM) {
+		width:		$Section-Width-Small;
+	}
+	@media all and (min-width: $Viewport-MD) {
+		width:		$Section-Width-Default;
+	}
+	@media all and (min-width: $Viewport-LR) {
+		width:		$Section-Width-Large;
+	}
+	@media all and (min-width: $Viewport-HG) {
+		width:		$Section-Width-Huge;
+	}
+}
+
+// Отбивает контент вправо от иконки
+._Icon-Spacing {
+	margin-right: 	$size;
+}
+// Позиционирует блок слева
+%_Left {
+	float: 			left;
+}
+
+// Позиционирует блок справа
+%_Right {
+	float: 			right;
+}
+
+// Подсвечивает границы блока для отладки (НЕ ДЛЯ PRODUCTION!!!)
+._Dev {
+	outline: 		1px red solid!important;
+}
+
+// Clearfix. Предотвращает схлопывание блоков
+._Clearfix:before ,
+._Clearfix:after  {
+	content: " ";
+	display: table;
+}
+._Clearfix:after {
+	clear: both;
+}
+
+// Выводит всех потомков в линию
+._Inline {
+	@extend 				._Clearfix;
+	& > * {
+		float: 				left;
+	}
+}
+
+// Убирает буллиты у списков
+._No-Bullets {
+	list-style: 			none;
+}
+// Добавляет едва заметную тень вокруг блока
+._Soft_Shadow ,
+._Soft-Shadow {
+	box-shadow: 			0 0 50px rgba(0,0,0,0.15);
+}
+
+._Fit-Row {
+	width: 					100%;
+}
+._Highlight {
+	cursor: 				pointer;
+
+	&:hover {
+		@include 			Opacity(.9);
+	}
+}
+
+._Search {
+	@include 				Round(search);
+}
+
+// Убирает нежелательное выделение текста мышью.
+// Не блокирует интерактивные элементы.
+._Unselectable {
+	-webkit-user-select: 	none;
+	-moz-user-select: 		none;
+	-ms-user-select: 		none;
+	-o-user-select: 		none;
+	user-select: 			none;
+}
+%_Clickable {
+	cursor:					pointer;
+}
+%_Letterpress {
+	text-shadow: 1px 1px 1px white;
+}
