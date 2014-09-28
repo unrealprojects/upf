@@ -43,7 +43,7 @@ class ArticlesController extends GeneralBackendController{
     public function add(){
 
 
-        return \View::make($this->view.'add',$this->viewData);
+        return \View::make($this->View.'add',$this->viewData);
     }
 
 }

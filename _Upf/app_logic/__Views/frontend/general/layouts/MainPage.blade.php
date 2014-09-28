@@ -1,2 +1,0 @@
-@extends('frontend.standard.content')
-
