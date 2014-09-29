@@ -3,7 +3,7 @@ namespace UpfControllers;
 
 class UsersController extends GeneralBackendController{
     public $View = '/backend/standard/layouts/section/';
-    public $BaseUrl = '/backend/section/articles/';
+    public $BaseUrl = '/backend/section/users/';
 
     public function __construct(){
        parent::__construct();
@@ -13,7 +13,7 @@ class UsersController extends GeneralBackendController{
     /*** Show List ***/
     public function index(){
 
-        $Articles = new \UpfModels\Articles();
+        $Articles = new \UpfModels\Users();
         // View Data
         $this->viewData['content'] = [
             'data'=>$Articles->index()
@@ -35,7 +35,7 @@ class UsersController extends GeneralBackendController{
 
     /*** Remove Item ***/
     public function remove($alias){
-        $Articles = new \UpfModels\Articles();
+        $Articles = new \UpfModels\Users();
         $Articles->remove($alias);
     }
 

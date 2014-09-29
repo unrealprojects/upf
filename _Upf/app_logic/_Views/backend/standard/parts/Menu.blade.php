@@ -40,11 +40,19 @@
         <li class="Menu-Category-Item">
             <a class="Menu-Category-Link" href="#"><span class="fa fa-cog"></span>Документация</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
             <ul class="Menu-Subcategory">
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="#"><span class="fa fa-pencil"></span>Upf CMS</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="#"><span class="fa fa-pencil"></span>Upf js</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="#"><span class="fa fa-pencil"></span>Upf css</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="http://laravel.com/docs"><span class="fa fa-pencil"></span>Laravel Framework</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/docs/cms"><span class="fa fa-pencil"></span>Upf CMS</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/docs/css"><span class="fa fa-pencil"></span>Upf Css</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/docs/js"><span class="fa fa-pencil"></span>Upf Js</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="http://laravel.com/docs"><span class="fa fa-pencil"></span>Laravel</a></li>
+            </ul>
+        </li>
 
+        <li class="Menu-Category-Item">
+            <a class="Menu-Category-Link" href="#"><span class="fa fa-cog"></span>Тесты</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
+            <ul class="Menu-Subcategory">
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/docs/testBackend"><span class="fa fa-pencil"></span>Test Backend</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/docs/testFrontend"><span class="fa fa-pencil"></span>Test Frontend</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/docs/test"><span class="fa fa-pencil"></span>Тест</a></li>
             </ul>
         </li>
     </ul>

@@ -6,19 +6,8 @@ class Articles extends General{
     public $timestamps = false;
     protected $table = 'section_articles';
 
-    /*** Tags :: Many To Many ***/
-    public function Tags()
-    {
-          return $this->belongsToMany('UpfModels\Tags', 'filter_tags_to_items', 'item_id', 'tag_id');
-    }
-
-    /*** Categories :: Has Many ***/
-    public function Categories()
-    {
-        return $this->hasMany('UpfModels\Categories','id','category_id');
-    }
-
-    /* Запросы */
+    /*** Queries ***/
+    /*
     public function GetList($filter){
         $this->filter = $filter;
 
@@ -38,15 +27,15 @@ class Articles extends General{
                 $query->where('alias',$this->rewrite['alias']);
             })
             ->first();
-    }
+    }*/
 
-    /*** Get List for Backend***/
+    /*** Get List ***/
     public function Index(){
-        //Set Relations
         $Query = $this::with(
             'meta',
-            // Filters
-            'categories','tags');
+            'meta.categories',
+            'meta.tags');
+
         $Query = $Query->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
         return [
             'list' => $Query->toArray()['data'],
@@ -57,7 +46,7 @@ class Articles extends General{
 
     /*** Where Has Meta ***/
     public function GetMeta($Query){
-        return $Query->whereHas('metadata', function($SubQuery) {
+        return $Query->whereHas('data', function($SubQuery) {
             $SubQuery->where('alias',$this->rewrite['alias']);
         });
     }
@@ -66,8 +55,7 @@ class Articles extends General{
     public function Remove($alias){
         $this->rewrite['alias']=$alias;
         //$Query = $this::with('metadata','categories','tags');
-          $Query = $this->aMetadata($this)->with('metadata','categories','tags');
+        //$Query = $this->Metadata($this)->with('metadata','categories','tags');
         return $Query->delete();
     }
-
 }

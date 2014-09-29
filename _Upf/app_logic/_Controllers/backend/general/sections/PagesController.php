@@ -3,17 +3,17 @@ namespace UpfControllers;
 
 class PagesController extends GeneralBackendController{
     public $View = '/backend/standard/layouts/section/';
-    public $BaseUrl = '/backend/section/articles/';
+    public $BaseUrl = '/backend/section/pages/';
 
     public function __construct(){
-       parent::__construct();
+        parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
     }
 
     /*** Show List ***/
     public function index(){
 
-        $Articles = new \UpfModels\Articles();
+        $Articles = new \UpfModels\Pages();
         // View Data
         $this->viewData['content'] = [
             'data'=>$Articles->index()
@@ -41,9 +41,7 @@ class PagesController extends GeneralBackendController{
 
     /*** Add Item ***/
     public function add(){
-
-
-        return \View::make($this->view.'add',$this->viewData);
+        return \View::make($this->View.'add',$this->viewData);
     }
 
 }
