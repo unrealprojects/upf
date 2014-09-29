@@ -22,4 +22,4 @@
 
 @section('scripts')
     @include('frontend.techonline.script')
-@endsection
+@endsectiondsa
