@@ -27,7 +27,7 @@
                                     <div class="Caption">{{$field['title']}}</div>
 
                                     <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$alias}}">
-                                        {{!empty($field['relation'])?$item[$field['relation']][$alias]:$item[$alias]}}
+                                        {{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}
                                     </div>
                                 @elseif($field['type']=='input')
 

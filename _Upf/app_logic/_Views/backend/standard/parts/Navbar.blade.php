@@ -6,8 +6,10 @@
     </ul>
 
     <ul class="Right">
-        <li><a href="#"><span class="fa fa-bars fa-lg"></span></a></li>
-        <li><a href="#"><span class="fa fa-home fa-lg"></span></a></li>
+        <li><a href="#"><span class="fa fa-plus fa-lg"></span></a></li>
+        <li><a href="#"><span class="fa fa-pencil fa-lg"></span></a></li>
+        <li><a href="#"><span class="fa fa-trash fa-lg"></span></a></li>
+        <li><a href="#"><span class="fa fa-briefcase fa-lg"></span></a></li>
         <li class="Icon-Link Right"><a href="#">alexmayhem<span class="fa fa-angle-down"></span></a></li>
     </ul>
 </nav>

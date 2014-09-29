@@ -116,7 +116,7 @@ upf.List.UpdateItem = function(){
             data: DataToUpdate,
             dataType:'json',
             success: function(){
-
+                upf.Messages.Show(Data['message'],Data['type']);
             }
         });
         return false;
@@ -131,55 +131,23 @@ upf.List.TrashItem = function(){
     // Update body
     $(document).on('click',TrashButton,function(){
         // Function Variables
-        var Current = this,
-            $ItemAlias = $(Current).parents('tr').attr('item-alias');
+        var This = this,
+            $ItemAlias = $(This).parents('tr').attr('item-alias');
 
         // Send Ajax to "/alias/trash"
         $.ajax({
             type:'get',
-            url:location.pathname + '/' + $ItemAlias + '/trash',
+            url:location.pathname + '/' + $ItemAlias + '/remove',
             dataType:'json',
-            success: function(){
-
+            success: function(Data){
+                if(Data['type']=='Success'){
+                    $(This).parents('tr').animate({'opacity':0},function(){
+                        $(this).remove();
+                    });
+                }
+                upf.Messages.Show(Data['message'],Data['type']);
             }
         });
-        return false;
-    });
-}
-
-/*** Box :: Delete ***/
-upf.Box.Delete = function(){
-    // Default Variables
-    var DeleteButton = '.Box-Delete',
-        Box = '.Box';
-
-    $(document).on('click',DeleteButton,function(){
-         $(this).parents(Box).animate({'width':'0px','height':'0px','opacity':'0','margin':'0px'},function(){
-            $(this).remove();
-         });
-         return false;
-    });
-}
-/*** Box :: Hide ***/
-upf.Box.Hide = function(){
-    // Default Variables
-    var HideButton = '.Box-Hide',
-        Box = '.Box';
-    //
-    $(document).on('click',HideButton,function(){
-        $(this).parents(Box).animate({'width':'0px','height':'0px','opacity':'0','margin':'0px'});
-        return false;
-    });
-}
-/*** Box :: Drop-Down ***/
-upf.Box.DropDown = function(){
-    // Default Variables
-    var DropDownButton = '.Box-Drop-Down',
-        Box = '.Box',
-        BoxContent = '.Box-Content';
-
-    $(document).on('click',DropDownButton,function(){
-        $(this).parents(Box).find(BoxContent).slideToggle();
         return false;
     });
 }
@@ -197,8 +165,4 @@ $(document).ready(function(){
     upf.List.UpdateItem();
     upf.List.TrashItem();
 
-    /*** Box ***/
-    upf.Box.Delete();
-    upf.Box.Hide();
-    upf.Box.DropDown();
 });

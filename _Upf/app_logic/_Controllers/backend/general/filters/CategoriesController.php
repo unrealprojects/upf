@@ -24,7 +24,6 @@ class CategoriesController extends GeneralBackendController{
 
     /*** Show Edit Element ***/
     public function edit($alias){
-
         return \View::make($this->View.'edit',$this->viewData);
     }
 

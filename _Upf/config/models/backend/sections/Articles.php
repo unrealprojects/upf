@@ -6,61 +6,69 @@ return [
             'type'=>'text',
             'class'=>'Title',
             'editable'=>true,
+            'relation' => ['title']
         ],
         'intro'=>[
             'title'=>'Описание',
             'type'=>'text',
             'class'=>'Title',
             'editable'=>true,
+            'relation' => ['intro']
         ],
         'updated_at'=>[
             'title'=>'Дата изменения',
             'type'=>'text',
             'class'=>'Date',
             'editable'=>false,
-            'relation' => 'meta'
+            'relation' => ['meta','updated_at']
         ]
     ],
 
     'add' => [
-        'name'=>[
+        'title'=>[
             'title'=>'Заголовок',
             'type'=>'text',
             'class'=>'Title',
             'editable'=>true,
+            'relation' => ['title']
         ],
-        'text_preview'=>[
+        'intro'=>[
             'title'=>'Описание',
-            'type'=>'text',
+            'type'=>'textarea',
             'class'=>'Title',
             'editable'=>true,
+            'relation' => ['intro']
         ],
         'updated_at'=>[
             'title'=>'Дата изменения',
             'type'=>'text',
             'class'=>'Date',
             'editable'=>false,
+            'relation' => ['meta','updated_at']
         ]
     ],
 
     'edit' => [
-        'name'=>[
+        'title'=>[
             'title'=>'Заголовок',
             'type'=>'text',
             'class'=>'Title',
             'editable'=>true,
+            'relation' => ['title']
         ],
-        'text_preview'=>[
+        'intro'=>[
             'title'=>'Описание',
-            'type'=>'text',
+            'type'=>'textarea',
             'class'=>'Title',
             'editable'=>true,
+            'relation' => ['intro']
         ],
         'updated_at'=>[
             'title'=>'Дата изменения',
             'type'=>'text',
             'class'=>'Date',
             'editable'=>false,
+            'relation' => ['meta','updated_at']
         ]
     ]
 ];

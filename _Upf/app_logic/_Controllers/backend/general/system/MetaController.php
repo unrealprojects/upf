@@ -16,10 +16,10 @@ class MetaController extends GeneralBackendController{
     /*** Show List ***/
     public function index(){
 
-        $Articles = new $this->Model();
+        $Model = new $this->Model();
         // View Data
         $this->viewData['content'] = [
-            'data'=>$Articles->index()
+            'data'=>$Model->index()
         ];
 
         return \View::make($this->View.'list',$this->viewData);
@@ -27,19 +27,33 @@ class MetaController extends GeneralBackendController{
 
     /*** Show Edit Element ***/
     public function edit($alias){
-
+        $Model = new $this->Model();
+        $this->viewData['content'] = [
+            'data'=>$Model->EditItem($alias)
+        ];
+        //print_r($Model->EditItem($alias));
         return \View::make($this->View.'edit',$this->viewData);
     }
 
     /*** Update Item ***/
     public function update($alias){
-
+        $Input = \Input::all();
+        $Model = new $this->Model();
+        if($Model->UpdateItem($alias,$Input)){
+            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
+        }
     }
 
     /*** Remove Item ***/
     public function remove($alias){
-        $Articles = new $this->Model();
-        $Articles->remove($alias);
+        $Model = new $this->Model();
+        if($Model->remove($alias)){
+            echo json_encode(['message'=>'Запись успешноудалена из базы данных.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить запись.','type'=>'Error']);
+        }
     }
 
     /*** Add Item ***/
@@ -47,31 +61,12 @@ class MetaController extends GeneralBackendController{
         return \View::make($this->View.'add',$this->viewData);
     }
 
-
     /*** *** Default Easy Events *** ***/////////////////////////////////////////////////////////////////////////////////////
 
-    /*** Trash Item ***/
-    public function trash($alias){
+    /*** Change Status ***/
+    public function status($alias,$status){
         $Articles = new $this->Model();
-        $Articles->ToTrash($alias);
-    }
-
-    /*** Draft Item ***/
-    public function draft($alias){
-        $Articles = new $this->Model();
-        $Articles->ToDraft($alias);
-    }
-
-    /*** Active Item ***/
-    public function active($alias){
-        $Articles = new $this->Model();
-        $Articles->ToActive($alias);
-    }
-
-    /*** Inactive Item ***/
-    public function inactive($alias){
-        $Articles = new $this->Model();
-        $Articles->ToInactive($alias);
+        $Articles->ChangeStatus($alias,$status);
     }
 
     /*** To Favorite Item ***/

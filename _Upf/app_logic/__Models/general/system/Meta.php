@@ -97,48 +97,72 @@ class Meta extends General {
         ];
     }
 
+    /*** Edit Item ***/
+    public function EditItem($Alias){
+        $Result=$this
+            ->WhereAliasInMeta($this,$Alias)
+            ->with(
+                'meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions')
+            ->first();
+        return [
+            'item' => $Result->toArray(),
+            'fields' =>\Config::get($this->Config.'.edit')
+        ];
+    }
+
+    /*** Update Item ***/
+    public function UpdateItem($Alias,$Input){
+        $Validator = \Validator::make(
+                [
+                    'title' => $Input['title'],
+                    'intro' => $Input['intro']
+                ],
+                [
+                    'title' => 'required|min:5',
+                    'intro' => 'required|min:5'
+                ]
+        );
+        if(!$Validator->fails()){
+            $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+            $Result->title = $Input['title'];
+            $Result->intro = $Input['intro'];
+            return $Result->save();
+        }else{
+            return false;
+        }
+    }
+
     /*** Remove Item ***/
     public function Remove($Alias){
         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
         $Result->delete();
         $Result->meta()->delete();
+        return true;
     }
 
     /*** *** Easy Functions *** ***/////////////////////////////////////////////////////////////////////////////////////
 
     /*** To Trash ***/
-    public function ToTrash($Alias){
+    public function ChangeStatus($Alias,$Status){
         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
-        $Result->status = \Config::get('models/Fields.status.trash');
-    }
-
-    /*** To Draft ***/
-    public function ToDraft($Alias){
-        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
-        $Result->status = \Config::get('models/Fields.status.draft');
-    }
-
-    /*** To Active ***/
-    public function ToActive($Alias){
-        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
-        $Result->status = \Config::get('models/Fields.status.active');
-    }
-
-    /*** To Inactive ***/
-    public function ToInactive($Alias){
-        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
-        $Result->status = \Config::get('models/Fields.status.inactive');
+        $Result->status = $Status;
+        $Result->save();
     }
 
     /*** To Favorite ***/
     public function ToFavorite($Alias){
         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
         $Result->favorite = true;
+        $Result->save();
     }
 
     /*** From Favorite ***/
     public function FromFavorite($Alias){
         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
         $Result->favorite = false;
+        $Result->save();
     }
 }
