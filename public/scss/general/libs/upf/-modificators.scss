@@ -84,6 +84,12 @@
 // Убирает буллиты у списков
 ._No-Bullets {
 	list-style: 			none;
+	margin:					0;
+	padding: 				0;
+	& > li {
+		margin: 0;
+		padding: 0;
+	}
 }
 // Добавляет едва заметную тень вокруг блока
 ._Soft_Shadow ,

@@ -33,12 +33,22 @@ hr {
 	border-bottom: 1px solid $Clr-Grey-Light;
 	color: $Clr-Grey-Light;
 }
+
+Ul, ol {
+	margin-top: $size-n;
+	li {
+		margin-left: $size-n;
+		padding-left: $size-s;
+		& + li {
+			margin-top: $size-s;
+		}
+	}
+}
+
+p + P {
+	margin-top: $size-n;
+}
 code {
-  background-color: $Clr-Grey-Light;
-  border-left: $size solid $Clr-Grey;
-  font-family: "Courier New", monospace;
-  display: block;
-  padding: $size-s $size;
 	&.Inline {
 		display: inline-block;
 	}

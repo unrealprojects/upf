@@ -72,7 +72,18 @@ ul.Row > li, table td.Actions ul, .pagination,
 .Control-Group.Radio, .Box > header ul.Box-Tools, a.Button.Dropdown > .Dropdown-Content, table td.Actions ul li a.Dropdown > .Dropdown-Content,
 .Button.Dropdown > .Dropdown-Content, a.Button.Dropdown > .Dropdown-Content ul, table td.Actions ul li a.Dropdown > .Dropdown-Content ul,
 .Button.Dropdown > .Dropdown-Content ul {
-  list-style: none; }
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  ._No-Bullets > li, ol.Row > li > li,
+  ul.Row > li > li, table td.Actions ul > li, .pagination > li,
+  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Group.Radio > li,
+  .Ctrl-Grp.Radio > li,
+  .Control-Group.Radio > li, .Box > header ul.Box-Tools > li, table td.Actions ul li a.Dropdown > .Dropdown-Content > li,
+  .Button.Dropdown > .Dropdown-Content > li, table td.Actions ul li a.Dropdown > .Dropdown-Content ul > li,
+  .Button.Dropdown > .Dropdown-Content ul > li {
+    margin: 0;
+    padding: 0; }
 
 ._Soft_Shadow,
 ._Soft-Shadow {
@@ -666,15 +677,20 @@ hr {
   border-bottom: 1px solid #dedede;
   color: #dedede; }
 
-code {
-  background-color: #dedede;
-  border-left: 20px solid #cccccc;
-  font-family: "Courier New", monospace;
-  display: block;
-  padding: 10px 20px; }
-  code.Inline, code.pagination,
-  code.Pagination {
-    display: inline-block; }
+Ul, ol {
+  margin-top: 15px; }
+  Ul li, ol li {
+    margin-left: 15px;
+    padding-left: 10px; }
+    Ul li + li, ol li + li {
+      margin-top: 10px; }
+
+p + P {
+  margin-top: 15px; }
+
+code.Inline, code.pagination,
+code.Pagination {
+  display: inline-block; }
 
 .Heading {
   display: block;
@@ -1119,6 +1135,10 @@ dl.Tabs {
     .Box.Solid > header {
       color: white;
       background-color: #e74c3c; }
+      .Box.Solid > header a {
+        color: white; }
+        .Box.Solid > header a:hover {
+          background-color: white; }
   .Box.Success, .Box.Info, .Box.Warning, .Box.Error {
     color: white; }
     .Box.Success .Box-Tools a, .Box.Info .Box-Tools a, .Box.Warning .Box-Tools a, .Box.Error .Box-Tools a {

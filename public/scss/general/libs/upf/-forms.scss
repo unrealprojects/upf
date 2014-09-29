@@ -265,6 +265,12 @@ dl.Tabs {
 		& > header {
 			color: white;
 			background-color: $Clr-Main;
+			& a {
+				color: white;
+				&:hover {
+					background-color: white;
+				}
+			}
 		}
 	}
 
