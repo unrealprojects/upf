@@ -1,2 +1,1 @@
-@extends($template)
-@extends('frontend.site_techonline.content')
+@extends('frontend.techonline.content')

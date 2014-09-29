@@ -1,46 +1,38 @@
 <?php
 namespace UpfControllers;
 
-class ArticlesController extends GeneralBackendController{
-    public $View = '/backend/standard/layouts/section/';
-    public $BaseUrl = '/backend/section/articles/';
+class DocsController extends GeneralBackendController{
+    public $View = '/backend/standard/layouts/docs/';
+    public $BaseUrl = '/backend/docs/';
 
     public function __construct(){
         parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
     }
 
-    /*** Show List ***/
-    public function index(){
-
-        $Articles = new \UpfModels\Articles();
-        // View Data
-        $this->viewData['content'] = [
-            'data'=>$Articles->index()
-        ];
-
-        return \View::make($this->View.'list',$this->viewData);
+    /*** Show Upf Cms ***/
+    public function PageCms(){
+        return \View::make($this->View.'Cms',$this->viewData);
     }
 
-    /*** Show Edit Element ***/
-    public function edit($alias){
-
-        return \View::make($this->View.'edit',$this->viewData);
+    /*** Show Css ***/
+    public function PageCss(){
+        return \View::make($this->View.'Css',$this->viewData);
     }
-
-    /*** Update Item ***/
-    public function update($alias){
-
+    /*** Show Js ***/
+    public function PageJs(){
+        return \View::make($this->View.'Js',$this->viewData);
     }
-
-    /*** Remove Item ***/
-    public function remove($alias){
-        $Articles = new \UpfModels\Articles();
-        $Articles->remove($alias);
+    /*** Show Test ***/
+    public function PageTest(){
+        return \View::make($this->View.'Test',$this->viewData);
     }
-
-    /*** Add Item ***/
-    public function add(){
-        return \View::make($this->View.'add',$this->viewData);
+    /*** Show Test Backend ***/
+    public function PageTestBackend(){
+        return \View::make($this->View.'TestBackend',$this->viewData);
+    }
+    /*** Show Test Frontend***/
+    public function PageTestFrontend(){
+        return \View::make($this->View.'TestFrontend',$this->viewData);
     }
 }
