@@ -1,6 +1,12 @@
 // Подключение библиотеки UPF
 @import "../../../general/libs/upf/upf";
 
+$Clr-Main:  			$Clr-Alizarin;
+$Clr-Main-Dark: 		$Clr-Pamegranate;
+$Clr-Secondary:			$Clr-Clouds;
+$Clr-Secondary-Dark:	$Clr-Silver;
+$Clr-Secondary-Darker:	$Clr-Concrete;
+
 body {
 	min-width: 320px;
 	background-color: $Clr-Secondary;

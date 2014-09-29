@@ -1,199 +1,135 @@
+$Ctrl-Border-Color:			$Clr-Grey;
+$Ctrl-Border-Radius:		3px;
+$Ctrl-Focus-Color:			$Clr-Cyan;
+$Ctrl-Border-Width:			1px;
+$Ctrl-Line-Height:			1;
+$Ctrl-Padding:				$size-s;
 
-// Control-Group is a wrap to form elements. Can contain label + input/select/textarea
-// TAGS ALLOWED: ALL
+$Ctrl-Input-Width:			50%;
+$Ctrl-Label-Width:			100% - $Ctrl-Input-Width;
+
+$Ctrl-Wide-Input-Width:		75%;
+$Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
+
+.Group		   ,
+.Ctrl-Grp      ,
 .Control-Group {
-	width: 					100%;					// Block must be full-width
-	@extend 				._Clearfix;				// Child elements are floated. Return them to flow
-	@extend 				._Unselectable;			// Disabling text selecting
+	padding: 				$size-xs;
+	border: solid 			$Ctrl-Border-Width transparent;
 
-	&:first-child {
-		margin-top: 		0;
+	label                  ,
+	input:not([type='submit']),
+	select                 ,
+	textarea               {
+		display: 			inline-block;
+		padding: 			$Ctrl-Padding;
+		border: 			solid $Ctrl-Border-Width;
+		line-height: 		$Ctrl-Line-Height;
+		@include Round(all, $Ctrl-Border-Radius);
+
+		@include 			Adaptive-Mobile {
+			width: 			100%;
+		}
+		@include 			Adaptive($Viewport-XS) {
+			width: 			$Ctrl-Input-Width;
+		}
 	}
 
-	input ,
-	select {
-		font-weight: 		900;
-		box-shadow: 		0 1px 3px rgba(0,0,0,0.15) inset;
-		@include 			Round('all', $Control-Border-Radius);
+	input:not([type='submit']),
+	select   ,
+	textarea {
+		box-shadow: 		0 2px 3px $Clr-Grey-Light inset;
+		border-color: 		$Ctrl-Border-Color;
+	}
+
+	input:focus    ,
+	select:focus   ,
+	textarea:focus {
+		outline: 0;
+		border-color:		$Ctrl-Focus-Color;
+		box-shadow: 		0 0 10px $Ctrl-Focus-Color;
+	}
+
+	label    {
+		width: 				$Ctrl-Label-Width;
+		padding-left: 		0;
+		float: 				left;
+		border-color: 		transparent;
 	}
 	textarea {
-		font-family: 		$Font-Family-Verdana;
-		resize: 			vertical;				// To prevent destroying the grid, textarea must not be resizable horizontally
-		box-shadow: 		0 1px 3px rgba(0,0,0,0.15) inset;
-		@include Round('all', $Control-Border-Radius);
+		font-family: 		$Font-Family-Open-Sans;
+		resize: 			vertical;
 	}
+	&.Checkbox {
 
-	// Margin between two inline buttons
-	input[type='submit'] + input[type='submit'] {
-		margin-left: 	$size-n;
 	}
+	&.Radio {
+		@extend 			._No-Bullets;
+		li {
+			width: 			100%;
+			@extend 		._Clearfix;
+		}
 
-	span {
-		@extend ._Unselectable;
 	}
-	// Отступ между контрол-группами
+	&.Checkbox ,
+	&.Radio    {
+		input[type='checkbox'] ,
+		input[type='radio']    {
+			width: 			13px;
+			text-align: 	left;
+			margin: 		$Ctrl-Padding 0;
+			box-shadow: 	none;
+			&:focus {
+				box-shadow: none;
+			}
+		}
+		@include 			Adaptive-Mobile {
+			label {
+				width: 		80%;
+			}
+			input {
+				width: 		auto;
+				box-shadow: none;
+				float: 		right;
+			}
+		}
+	}
 	& + .Control-Group {
-		margin-top: $size;
+		margin: 			$size-s 0;
 	}
-	&:first-child {
-		margin-top: 0;
-	}
-
-	// Offset is the last Control-Group in form
 	&.Offset {
-		padding-top: $size;
-
-		input[type='submit']	,
-		button.Button			{
-			display: inline-block;
-			width: auto;
-			padding: $size-s $size;
-			@extend %_Right;
-		}
-	}
-
-	&.Checkbox.Submit {
-		& > label {
-			padding: $size-s 0;
-			@extend .Grid-XS-6;
-		}
-		& > [type='submit'] {
-			@extend .Grid-XS-6;
-		}
-	}
-
-	// Контрол группа умного инпута
-	&.Smart {
-		@extend ._Clearfix;
-		.Input-Smart {
-			@extend ._Clearfix;
-			.Prefix	 ,
-			.Postfix {
-				float: left;
-				padding: $Control-Padding;
-				background-color: $Control-Sublabel-Background-Color;
-				line-height: $Control-Line-Height;
-				font-size: 14px;
-				text-align: center;
-			}
-			.Prefix {
-				border: 1px solid $Control-Border-Color;
-				border-right-width: 0;
-			}
-			input	 ,
-			select   ,
-			textarea {
-				float: left;
+		input[type='submit'] {
+			box-shadow: none;
+			width: 			auto;
+			@include 		Adaptive($Viewport-XS) {
+				margin-left: $Ctrl-Label-Width;
 			}
 		}
 	}
 }
-label.Control-Group {
-	float: none!important;
-}
-.Form-Vertical .Control-Group {
-	margin-top: 		$size;
-
-	&:first-child {
-  		margin-top: 	0;
+form.Wide {
+	.Group         ,
+	.Ctrl-Grp      ,
+	.Control-Group {
+		input    ,
+				 select   ,
+				 textarea {
+					 @include Adaptive($Viewport-XS) {
+						 width: $Ctrl-Wide-Input-Width;
+					 }
+				 }
+		label {
+			@include Adaptive($Viewport-XS) {
+				width: $Ctrl-Wide-Label-Width;
+			}
+		}
+		&.Offset {
+			input[type='submit'] {
+				margin-left: $Ctrl-Wide-Label-Width;
+			}
+		}
 	}
 }
-.Form-Vertical {
-	label {
-		padding: 		$size-s 0;
-		border-color: 	transparent;
-	}
-	input,
-	select,
-	textarea {
-		padding: 		$Control-Padding;
-		border: 		1px solid;
-	}
-	label,
-	input,
-	select,
-	textarea {
-		display: 		block;
-		width: 			100%;
-
-	}
-}
-// Горизонтальная форма
-.Form-Horizontal {
-	label,
-	input,
-	select,
-	textarea {
-		display: 		block;
-		float: 			left;
-		width: 			70%;
-		border: 		1px solid;
-		line-height: 	$line-height;
-	}
-	input,
-	select,
-	textarea {
-		padding: 		$size-xs $size-s;
-	}
-	label   {
-		width: 			30%;
-		border-color: 	transparent;
-		padding: 		$size-xs $size-s $size-xs 0;
-
-	}
-}
-label.Checkbox ,
-label.Radio    {
-  display: 				block;
-  width: 				100%;
-}
-
-// Чекбокс и радио-кнопка
-input[type='checkbox']  ,
-input[type='radio']     {
-  width: 				auto;
-  display: 				inline;
-  float: 				none;
-  vertical-align: 		middle;
-  margin: 				-2px $size-s 0 0;
-  border: 				0;
-}
-
-
-
-// КНОПКА (ОТКЛЮЧЕНА)
-.Control-Group input        ,
-.Control-Group select       ,
-.Control-Group textarea     {
-  border: $Control-Border-Width $Control-Border-Color solid;
-	@include Transition(border-color, .5s);
-}
-.Control-Group input:focus   ,
-.Control-Group select:focus  ,
-.Control-Group textarea:focus{
-  outline: 0;
-  border-color: $Control-Focus-Border-Color;
-}
-
-// КНОПКА
-input[type='submit'] {
-	width: 				inherit;
-	padding: 			$size-s 0;
-	font-size: 			110%;
-	font-weight: 		100;
-	text-align: 		center;
-
-	&:hover {
-		background-color: 	$Clr-Main-Dark;
-	}
-
-	&[disabled] {
-		color:				$Clr-Asbestos;
-		background-color: 	$Clr-Wet-Asphalt;
-		cursor: 			not-allowed;
-	}
-}
-
 
 // FIX reCaptcha
 #recaptcha_widget_div{

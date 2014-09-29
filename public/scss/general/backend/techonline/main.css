@@ -1,7 +1,111 @@
-@charset "UTF-8";
+@import url(normalize.css);
+._Centered, .Node {
+  margin-left: auto;
+  margin-right: auto; }
+
+._Standalone, .Node {
+  margin-top: 50px; }
+  ._Standalone:first-child, .Node:first-child {
+    margin-top: 0; }
+
+._Vertical-Spacing > * {
+  margin-top: 30px !important; }
+  ._Vertical-Spacing > *:first-child {
+    margin-top: 0 !important; }
+
+._Section-Inner, .Node {
+  width: 100%; }
+  @media all and (min-width: 1024px) {
+    ._Section-Inner, .Node {
+      width: 970px; } }
+  @media all and (min-width: 1260px) {
+    ._Section-Inner, .Node {
+      width: 1100px; } }
+  @media all and (min-width: 1880px) {
+    ._Section-Inner, .Node {
+      width: 1150px; } }
+  @media all and (min-width: 2560px) {
+    ._Section-Inner, .Node {
+      width: 1200px; } }
+
+._Icon-Spacing {
+  margin-right: 20px; }
+
+._Dev {
+  outline: 1px red solid !important; }
+
+._Clearfix:before, ._Inline:before, .Breadcrumbs .Breadcrumb-List:before, .Box > header ul.Box-Tools:before, .Row:before, .Node:before, table.Adaptive td:before, .pagination:before,
+.Pagination:before, .Group.Radio li:before,
+.Ctrl-Grp.Radio li:before,
+.Control-Group.Radio li:before, dl.Tabs:before, .Box:before, .Box > header:before,
+._Clearfix:after,
+._Inline:after,
+.Breadcrumbs .Breadcrumb-List:after,
+.Box > header ul.Box-Tools:after,
+.Row:after,
+.Node:after,
+table.Adaptive td:after,
+.pagination:after,
+.Pagination:after,
+.Group.Radio li:after,
+.Ctrl-Grp.Radio li:after,
+.Control-Group.Radio li:after,
+dl.Tabs:after,
+.Box:after,
+.Box > header:after {
+  content: " ";
+  display: table; }
+
+._Clearfix:after, ._Inline:after, .Breadcrumbs .Breadcrumb-List:after, .Box > header ul.Box-Tools:after, .Row:after, .Node:after, table.Adaptive td:after, .pagination:after,
+.Pagination:after, .Group.Radio li:after,
+.Ctrl-Grp.Radio li:after,
+.Control-Group.Radio li:after, dl.Tabs:after, .Box:after, .Box > header:after {
+  clear: both; }
+
+._Inline > *, .Breadcrumbs .Breadcrumb-List > *, .Box > header ul.Box-Tools > * {
+  float: left; }
+
+._No-Bullets, ol.Row > li,
+ul.Row > li, table td.Actions ul, .pagination,
+.Pagination, .Breadcrumbs .Breadcrumb-List, .Group.Radio,
+.Ctrl-Grp.Radio,
+.Control-Group.Radio, .Box > header ul.Box-Tools, a.Button.Dropdown > .Dropdown-Content, table td.Actions ul li a.Dropdown > .Dropdown-Content,
+.Button.Dropdown > .Dropdown-Content, a.Button.Dropdown > .Dropdown-Content ul, table td.Actions ul li a.Dropdown > .Dropdown-Content ul,
+.Button.Dropdown > .Dropdown-Content ul {
+  list-style: none; }
+
+._Soft_Shadow,
+._Soft-Shadow {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.15); }
+
+._Fit-Row {
+  width: 100%; }
+
+._Highlight {
+  cursor: pointer; }
+  ._Highlight:hover {
+    opacity: 0.9;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90); }
+
+._Search {
+  border-radius: 30px; }
+
+._Unselectable, .Heading, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:before {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+a.Button, table td.Actions ul li a,
+.Button {
+  cursor: pointer; }
+
 * {
   margin: 0;
   padding: 0;
+  font-size: 100%;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   /* Android Fix */ }
@@ -10,381 +114,1347 @@ a img {
   border: 0; }
 
 body {
+  font-size: 100%;
   font-family: sans-serif; }
 
-.Grid {
-  width: 100%; }
+article,
+section,
+nav,
+aside {
+  display: block; }
 
-.Control-Group,
-.Grid-Row {
-  width: 100%; }
+iframe {
+  display: block; }
 
-.Grid-Node-1-2 {
-  width: 50.00%; }
+.Row {
+  display: block; }
 
-.Grid-Node-1-3 {
-  width: 33.33%; }
+@media screen and (max-width: 768px) {
+  table.Adaptive td.Title > *,
+  table.Adaptive td.Main > *,
+  table.Adaptive td.Date > *,
+  table.Adaptive td.Actions > *,
+  table.Adaptive td.Data > *,
+  [class*='Grid-XXS-'] {
+    float: left; }
 
-.Grid-Node-2-3 {
-  width: 66.66%; }
+  .Row.Merge > .Grid-XXS-4 {
+    width: 33.33333%; }
 
-.Grid-Node-1-4 {
-  width: 25.00%; }
+  table.Adaptive td.Title > *,
+  table.Adaptive td.Main > *,
+  table.Adaptive td.Date > *,
+  table.Adaptive td.Actions > *,
+  table.Adaptive td.Data > *,
+  .Row.Merge > .Grid-XXS-6 {
+    width: 50%; } }
+@media all and (min-width: 768px) {
+  .Row.Split > * {
+    margin-left: 1%;
+    margin-right: 1%; }
 
-.Grid-Node-2-4 {
-  width: 50.00%; }
+  [class*='Grid-XS'],
+  [class*='Grid-SM'],
+  [class*='Grid-MD'],
+  [class*='Grid-LR'],
+  [class*='Grid-HG'] {
+    float: left; }
 
-.Grid-Node-3-4 {
-  width: 75.00%; }
+  [class*='Grid-XS-'].End,
+  [class*='Grid-SM-'].End,
+  [class*='Grid-MD-'].End,
+  [class*='Grid-LR-'].End,
+  [class*='Grid-HG-'].End {
+    float: right; }
 
-.Grid-Node-1-5 {
-  width: 20.00%; }
+  .Row.Merge > .Grid-XS-1 {
+    width: 8.33333%; }
 
-.Grid-Node-2-5 {
-  width: 40.00%; }
+  .Row.Merge > .Grid-XS-2 {
+    width: 16.66667%; }
 
-.Grid-Node-3-5 {
-  width: 60.00%; }
+  .Row.Merge > .Grid-XS-3 {
+    width: 25%; }
 
-.Grid-Node-4-5 {
-  width: 80.00%; }
+  .Row.Merge > .Grid-XS-4 {
+    width: 33.33333%; }
 
-.Grid-No-Padding {
-  padding: 0 !important; }
+  .Row.Merge > .Grid-XS-5 {
+    width: 41.66667%; }
 
-.Grid-No-Padding > * {
-  padding: 0 !important; }
+  .Row.Merge > .Grid-XS-6 {
+    width: 50%; }
 
-[class*='Grid-Node-'] {
-  display: block;
-  float: left;
-  min-height: 1px;
-  padding: 30px; }
+  .Row.Merge > .Grid-XS-7 {
+    width: 58.33333%; }
 
-.Grid-Row [class*='Grid-Node-']:first-of-type {
-  padding-left: 0; }
+  .Row.Merge > .Grid-XS-8 {
+    width: 66.66667%; }
 
-.Grid-Row [class*='Grid-Node-']:last-of-type {
-  padding-right: 0; }
+  .Row.Merge > .Grid-XS-9 {
+    width: 75%; }
+
+  .Row.Merge > .Grid-XS-10 {
+    width: 83.33333%; }
+
+  .Row.Merge > .Grid-XS-11 {
+    width: 91.66667%; }
+
+  .Row.Merge > .Grid-XS-12 {
+    width: 100%; }
+
+  .Row.Split > .Grid-XS-1 {
+    width: 6.33333%; }
+
+  .Row.Split > .Grid-XS-2 {
+    width: 14.66667%; }
+
+  .Row.Split > .Grid-XS-3 {
+    width: 23%; }
+
+  .Row.Split > .Grid-XS-4 {
+    width: 31.33333%; }
+
+  .Row.Split > .Grid-XS-5 {
+    width: 39.66667%; }
+
+  .Row.Split > .Grid-XS-6 {
+    width: 48%; }
+
+  .Row.Split > .Grid-XS-7 {
+    width: 56.33333%; }
+
+  .Row.Split > .Grid-XS-8 {
+    width: 64.66667%; }
+
+  .Row.Split > .Grid-XS-9 {
+    width: 73%; }
+
+  .Row.Split > .Grid-XS-10 {
+    width: 81.33333%; }
+
+  .Row.Split > .Grid-XS-11 {
+    width: 89.66667%; }
+
+  .Row.Split > .Grid-XS-12 {
+    width: 98%; } }
+@media all and (min-width: 1024px) {
+  .Row.Merge > .Grid-SM-1 {
+    width: 8.33333%; }
+
+  .Row.Merge > .Grid-SM-2 {
+    width: 16.66667%; }
+
+  .Row.Merge > .Grid-SM-3 {
+    width: 25%; }
+
+  .Row.Merge > .Grid-SM-4 {
+    width: 33.33333%; }
+
+  .Row.Merge > .Grid-SM-5 {
+    width: 41.66667%; }
+
+  .Row.Merge > .Grid-SM-6 {
+    width: 50%; }
+
+  .Row.Merge > .Grid-SM-7 {
+    width: 58.33333%; }
+
+  .Row.Merge > .Grid-SM-8 {
+    width: 66.66667%; }
+
+  .Row.Merge > .Grid-SM-9 {
+    width: 75%; }
+
+  .Row.Merge > .Grid-SM-10 {
+    width: 83.33333%; }
+
+  .Row.Merge > .Grid-SM-11 {
+    width: 91.66667%; }
+
+  .Row.Merge > .Grid-SM-12 {
+    width: 100%; }
+
+  .Row.Split > .Grid-SM-1 {
+    width: 6.33333%; }
+
+  .Row.Split > .Grid-SM-2 {
+    width: 14.66667%; }
+
+  .Row.Split > .Grid-SM-3 {
+    width: 23%; }
+
+  .Row.Split > .Grid-SM-4 {
+    width: 31.33333%; }
+
+  .Row.Split > .Grid-SM-5 {
+    width: 39.66667%; }
+
+  .Row.Split > .Grid-SM-6 {
+    width: 48%; }
+
+  .Row.Split > .Grid-SM-7 {
+    width: 56.33333%; }
+
+  .Row.Split > .Grid-SM-8 {
+    width: 64.66667%; }
+
+  .Row.Split > .Grid-SM-9 {
+    width: 73%; }
+
+  .Row.Split > .Grid-SM-10 {
+    width: 81.33333%; }
+
+  .Row.Split > .Grid-SM-11 {
+    width: 89.66667%; }
+
+  .Row.Split > .Grid-SM-12 {
+    width: 98%; } }
+@media all and (min-width: 1260px) {
+  .Row.Merge > .Grid-MD-1 {
+    width: 8.33333%; }
+
+  .Row.Merge > .Grid-MD-2 {
+    width: 16.66667%; }
+
+  .Row.Merge > .Grid-MD-3 {
+    width: 25%; }
+
+  .Row.Merge > .Grid-MD-4 {
+    width: 33.33333%; }
+
+  .Row.Merge > .Grid-MD-5 {
+    width: 41.66667%; }
+
+  .Row.Merge > .Grid-MD-6 {
+    width: 50%; }
+
+  .Row.Merge > .Grid-MD-7 {
+    width: 58.33333%; }
+
+  .Row.Merge > .Grid-MD-8 {
+    width: 66.66667%; }
+
+  .Row.Merge > .Grid-MD-9 {
+    width: 75%; }
+
+  .Row.Merge > .Grid-MD-10 {
+    width: 83.33333%; }
+
+  .Row.Merge > .Grid-MD-11 {
+    width: 91.66667%; }
+
+  .Row.Merge > .Grid-MD-12 {
+    width: 100%; }
+
+  .Row.Split > .Grid-MD-1 {
+    width: 6.33333%; }
+
+  .Row.Split > .Grid-MD-2 {
+    width: 14.66667%; }
+
+  .Row.Split > .Grid-MD-3 {
+    width: 23%; }
+
+  .Row.Split > .Grid-MD-4 {
+    width: 31.33333%; }
+
+  .Row.Split > .Grid-MD-5 {
+    width: 39.66667%; }
+
+  .Row.Split > .Grid-MD-6 {
+    width: 48%; }
+
+  .Row.Split > .Grid-MD-7 {
+    width: 56.33333%; }
+
+  .Row.Split > .Grid-MD-8 {
+    width: 64.66667%; }
+
+  .Row.Split > .Grid-MD-9 {
+    width: 73%; }
+
+  .Row.Split > .Grid-MD-10 {
+    width: 81.33333%; }
+
+  .Row.Split > .Grid-MD-11 {
+    width: 89.66667%; }
+
+  .Row.Split > .Grid-MD-12 {
+    width: 98%; } }
+@media all and (min-width: 1880px) {
+  .Row.Merge > .Grid-LR-1 {
+    width: 8.33333%; }
+
+  .Row.Merge > .Grid-LR-2 {
+    width: 16.66667%; }
+
+  .Row.Merge > .Grid-LR-3 {
+    width: 25%; }
+
+  .Row.Merge > .Grid-LR-4 {
+    width: 33.33333%; }
+
+  .Row.Merge > .Grid-LR-5 {
+    width: 41.66667%; }
+
+  .Row.Merge > .Grid-LR-6 {
+    width: 50%; }
+
+  .Row.Merge > .Grid-LR-7 {
+    width: 58.33333%; }
+
+  .Row.Merge > .Grid-LR-8 {
+    width: 66.66667%; }
+
+  .Row.Merge > .Grid-LR-9 {
+    width: 75%; }
+
+  .Row.Merge > .Grid-LR-10 {
+    width: 83.33333%; }
+
+  .Row.Merge > .Grid-LR-11 {
+    width: 91.66667%; }
+
+  .Row.Merge > .Grid-LR-12 {
+    width: 100%; }
+
+  .Row.Split > .Grid-LR-1 {
+    width: 6.33333%; }
+
+  .Row.Split > .Grid-LR-2 {
+    width: 14.66667%; }
+
+  .Row.Split > .Grid-LR-3 {
+    width: 23%; }
+
+  .Row.Split > .Grid-LR-4 {
+    width: 31.33333%; }
+
+  .Row.Split > .Grid-LR-5 {
+    width: 39.66667%; }
+
+  .Row.Split > .Grid-LR-6 {
+    width: 48%; }
+
+  .Row.Split > .Grid-LR-7 {
+    width: 56.33333%; }
+
+  .Row.Split > .Grid-LR-8 {
+    width: 64.66667%; }
+
+  .Row.Split > .Grid-LR-9 {
+    width: 73%; }
+
+  .Row.Split > .Grid-LR-10 {
+    width: 81.33333%; }
+
+  .Row.Split > .Grid-LR-11 {
+    width: 89.66667%; }
+
+  .Row.Split > .Grid-LR-12 {
+    width: 98%; } }
+@media all and (min-width: 2560px) {
+  .Row.Merge > .Grid-HG-1 {
+    width: 8.33333%; }
+
+  .Row.Merge > .Grid-HG-2 {
+    width: 16.66667%; }
+
+  .Row.Merge > .Grid-HG-3 {
+    width: 25%; }
+
+  .Row.Merge > .Grid-HG-4 {
+    width: 33.33333%; }
+
+  .Row.Merge > .Grid-HG-5 {
+    width: 41.66667%; }
+
+  .Row.Merge > .Grid-HG-6 {
+    width: 50%; }
+
+  .Row.Merge > .Grid-HG-7 {
+    width: 58.33333%; }
+
+  .Row.Merge > .Grid-HG-8 {
+    width: 66.66667%; }
+
+  .Row.Merge > .Grid-HG-9 {
+    width: 75%; }
+
+  .Row.Merge > .Grid-HG-10 {
+    width: 83.33333%; }
+
+  .Row.Merge > .Grid-HG-11 {
+    width: 91.66667%; }
+
+  .Row.Merge > .Grid-HG-12 {
+    width: 100%; }
+
+  .Row.Split > .Grid-HG-1 {
+    width: 6.33333%; }
+
+  .Row.Split > .Grid-HG-2 {
+    width: 14.66667%; }
+
+  .Row.Split > .Grid-HG-3 {
+    width: 23%; }
+
+  .Row.Split > .Grid-HG-4 {
+    width: 31.33333%; }
+
+  .Row.Split > .Grid-HG-5 {
+    width: 39.66667%; }
+
+  .Row.Split > .Grid-HG-6 {
+    width: 48%; }
+
+  .Row.Split > .Grid-HG-7 {
+    width: 56.33333%; }
+
+  .Row.Split > .Grid-HG-8 {
+    width: 64.66667%; }
+
+  .Row.Split > .Grid-HG-9 {
+    width: 73%; }
+
+  .Row.Split > .Grid-HG-10 {
+    width: 81.33333%; }
+
+  .Row.Split > .Grid-HG-11 {
+    width: 89.66667%; }
+
+  .Row.Split > .Grid-HG-12 {
+    width: 98%; } }
+.Push-One {
+  margin-left: 8.33333%; }
+
+.Push-Two {
+  margin-left: 16.66667%; }
+
+.Push-Three {
+  margin-left: 25%; }
+
+.Push-Four {
+  margin-left: 33.33333%; }
+
+.Push-Five {
+  margin-left: 41.66667%; }
+
+.Push-Six {
+  margin-left: 50%; }
+
+.Push-Seven {
+  margin-left: 58.33333%; }
+
+.Push-Eight {
+  margin-left: 66.66667%; }
+
+.Push-Nine {
+  margin-left: 75%; }
+
+.Push-Ten {
+  margin-left: 83.33333%; }
+
+.Push-Eleven {
+  margin-left: 91.66667%; }
+
+[class*='Hidden-'] {
+  display: block; }
+
+@media screen and (max-width: 768px) {
+  .Hidden-XXS {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  .Hidden-XS {
+    display: none; } }
+
+@media screen and (min-width: 1024px) {
+  .Hidden-SM {
+    display: none; } }
+
+@media screen and (min-width: 1260px) {
+  .Hidden-MD {
+    display: none; } }
+
+@media screen and (min-width: 1880px) {
+  .Hidden-LR {
+    display: none; } }
+
+@media screen and (min-width: 2560px) {
+  .Hidden-HR {
+    display: block; } }
+
+table.Adaptive .Caption,
+*[class*='Visible-'] {
+  display: none; }
+
+@media screen and (max-width: 768px) {
+  table.Adaptive .Caption,
+  .Visible-XXS {
+    display: inline-block; } }
+
+@media screen and (min-width: 768px) {
+  .Visible-XS {
+    display: inline-block; } }
+
+.Visible-SM {
+  display: none; }
+  @media screen and (min-width: 1024px) {
+    .Visible-SM {
+      display: inline-block; } }
+
+@media screen and (min-width: 1260px) {
+  .Visible-MD {
+    display: inline-block; } }
+
+@media screen and (min-width: 1880px) {
+  .Visible-LR {
+    display: inline-block; } }
+
+@media screen and (min-width: 2560px) {
+  .Visible-HR {
+    display: inline-block; } }
+
+html {
+  font-size: 1em;
+  line-height: 1.45; }
+
+*::selection {
+  color: white;
+  background-color: #999999; }
+
+a:link,
+a:visited {
+  color: #e74c3c;
+  text-decoration: none;
+  -webkit-transition-property: color, background, border;
+  -moz-transition-property: color, background, border;
+  transition-property: color, background, border;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+
+a:hover {
+  color: #555555; }
+
+a:active {
+  color: #e74c3c; }
+
+h1 {
+  font-size: 3.00em; }
+
+h2 {
+  font-size: 2.50em; }
+
+h3 {
+  font-size: 30px; }
+
+h4 {
+  font-size: 1.10em; }
+
+h5 {
+  font-size: 1.00em; }
+
+h6 {
+  font-size: 0.90em; }
+
+hr {
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid #dedede;
+  color: #dedede; }
 
 code {
-  background-color: #f7f7f7;
-  border-left: 20px solid #ccc;
+  background-color: #dedede;
+  border-left: 20px solid #cccccc;
   font-family: "Courier New", monospace;
   display: block;
   padding: 10px 20px; }
+  code.Inline, code.pagination,
+  code.Pagination {
+    display: inline-block; }
 
-code.Inline {
-  display: inline-block; }
-
-.Node .Section-Header.Ribbon {
-  background-color: #00bff3;
-  color: #fff;
-  position: relative;
+.Heading {
   display: block;
-  height: 50px;
-  margin: -30px -50px 0; }
-
-.Node header.Ribbon h3 {
-  padding: 10px 30px 0; }
-
-.Node .Section-Header.Ribbon:after,
-.Node .Section-Header.Ribbon:before {
-  content: ' ';
-  position: absolute;
-  display: block;
-  border: 15px solid #00abd9;
-  border-bottom-color: transparent;
-  top: 50px;
-  z-index: 1; }
-
-.Node .Section-Header.Ribbon:before {
-  border-left-color: transparent;
-  left: 0; }
-
-.Node .Section-Header.Ribbon:after {
-  border-right-color: transparent;
-  right: 0; }
-
-/* ╨д╨Ю╨а╨Ь╨л > ///////////////////////////////////////////////////////////////////////////////////*/
-form h3.Form-Header {
-  font-size: 150%;
+  clear: both;
+  text-transform: uppercase;
   font-weight: 100;
-  margin-bottom: 30px;
-  padding: 0 10px; }
+  cursor: default; }
 
-.Form-Section + .Form-Section {
-  margin-top: 50px; }
+.Heading.Primary {
+  color: #7f8c8d;
+  font-weight: 100; }
 
-.Message-Error {
+.Heading.Secondary {
+  text-transform: none;
+  color: #7f8c8d; }
+
+.Heading.Underlined {
   display: block;
-  float: right;
-  width: 100%;
-  padding: 10px 0; }
-
-.Control-Group.Error {
-  border: 1px solid #ec0000;
   padding-bottom: 10px;
-  background-color: #ffecec;
-  color: #d30000; }
+  border-bottom: 1px solid #cccccc;
+  font-weight: 100; }
 
-.Control-Group.Error input {
-  border-color: #ec0000;
-  color: #ec0000; }
+html,
+body,
+#Page-Wrap {
+  height: 100%; }
 
-.Control-Group,
-.Checkbox-Group {
-  padding: 0 10px; }
+#Page-Wrap {
+  height: auto;
+  min-height: 100%;
+  clear: both; }
 
-/* DOES NOT LOOK GOOD! */
-.Control-Group + .Checkbox-Group,
-.Checkbox-Group + .Control-Group,
-.Control-Group + .Control-Group {
-  margin-top: 20px; }
+#Page-Wrap-Stop {
+  height: 100px; }
 
-.Control-Group select {
-  cursor: pointer;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0; }
-
-.Control-Group input,
-.Control-Group select {
-  float: left;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px; }
-
-.Control-Group label,
-.Control-Group select,
-.Control-Group input {
-  line-height: 30px;
-  padding: 5px 10px;
-  font-size: 100%;
-  display: block;
-  vertical-align: middle; }
-
-.Control-Group label {
-  float: left;
-  width: 20%;
-  border: 1px #ccc solid;
-  box-shadow: 0 0 1px white inset;
-  background-color: #f7f7f7;
-  color: #ccc;
-  font-size: 85%;
-  cursor: pointer;
-  display: block; }
-
-.Control-Group label:first-of-type {
-  width: 30%;
-  border-right: 0;
-  color: #000; }
-
-.Control-Group select,
-.Control-Group input[type='text'],
-.Control-Group input[type='password'] {
-  border: 1px solid #ccc;
-  outline: 0;
+.Node-Wrap {
+  padding: 15px 0;
   width: 100%; }
 
-.Control-Group label + select,
-.Control-Group label + input[type='text'],
-.Control-Group label + input[type='password'] {
-  width: 50%; }
-
-.Control-Group select:focus,
-.Control-Group input:focus {
-  border-color: #00bff3;
-  color: #00abd9; }
-
-.Control-Group label + select:last-child,
-.Control-Group label + input[type='text']:last-child,
-.Control-Group label + input[type='password']:last-child {
-  width: 70%; }
-
-.Control-Group select + label,
-.Control-Group input[type='text'] + label,
-.Control-Group input[type='password'] + label {
-  border-left: 0; }
-
-.Control-Group input[disabled][type='text'] {
-  background-color: #f3f3f3;
-  cursor: not-allowed; }
-
-.Control-Group.Disabled label {
-  color: #777; }
-
-.Control-Group input[type='submit'] {
-  float: right;
-  padding: 15px;
-  background-color: #00bff3;
-  font-size: 120%;
-  font-weight: 100;
-  color: #fff;
-  border: 0;
-  cursor: pointer; }
-
-.Control-Group input[type='submit'][disabled],
-.Control-Group input[type='submit'][disabled]:hover {
-  background-color: #ccc;
-  cursor: not-allowed; }
-
-.Control-Group input[type='submit']:hover {
-  background-color: #00abd9; }
-
-.Checkbox-Group input[type='checkbox'] {
-  border: 1px #ccc solid;
-  vertical-align: middle;
-  display: inline-block;
-  margin-right: 10px; }
-
-body.RoundUI .Control-Group.Error {
-  border-radius: 5px; }
-
-body.RoundUI .Control-Group label:first-of-type {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px; }
-
-body.RoundUI .Control-Group input[type='text'] + label,
-body.RoundUI .Control-Group label + input[type='text']:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px; }
-
-body.RoundUI .Control-Group input[type='submit'] {
-  border-radius: 5px; }
-
-/* ╨д╨Ю╨а╨Ь╨л < ///////////////////////////////////////////////////////////////////////////////////*/
-/* ╨б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П > ///////////////////////////////////////////////////////////////////////////////*/
-.Message {
-  font-size: 90%;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 0 0 2px white inset;
-  margin-bottom: 20px; }
-
-.Message h3,
-.Message h4,
-.Message h5,
-.Message h6 {
-  margin-bottom: 5px; }
-
-.Message h3 {
-  font-size: 120%; }
-
-.Message h4 {
-  font-size: 110%; }
-
-.Message h5 {
-  font-size: 100%; }
-
-.Message h6 {
-  font-size: 90%; }
-
-.Message.Icon {
-  padding-left: 50px;
-  background-repeat: no-repeat;
-  background-position: 10px center; }
-
-.Message.Error {
-  background-color: #ffecec;
-  border-color: #ec0000;
-  color: #d30000; }
-
-.Message.Icon.Error {
-  background-image: url(../img/icon-error.png); }
-
-.Message.Warning {
-  background-color: #fff7ea;
-  border-color: #d18200;
-  color: #b77200; }
-
-.Message.Icon.Warning {
-  background-image: url(../img/icon-warning.png); }
-
-.Message.Success {
-  background-color: #dfffdc;
-  border-color: #0da900;
-  color: #0b8f00; }
-
-.Message.Icon.Success {
-  background-image: url(../img/icon-success.png); }
-
-.Message.Info {
-  background-color: #daf7ff;
-  border-color: #00bff3;
-  color: #00abd9; }
-
-.Message.Icon.Info {
-  background-image: url(../img/icon-info.png); }
-
-body.RoundUI .Message {
-  border-radius: 5px; }
-
-/* ╨б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П < ///////////////////////////////////////////////////////////////////////////////*/
-.left {
-  float: left; }
-
-.right {
-  float: right; }
-
-.dev {
-  outline: 1px red solid !important; }
-
-.visible {
-  display: block; }
-
-.fix,
-.Node,
-.Grid,
-.Grid-Row,
-.Control-Group,
-.Tab-Set,
-.Tab-Buttons {
-  display: table; }
-
-.fix:after,
-.Node:after,
-.Grid:after,
-.Grid-Row:after,
-.Control-Group:after,
-.Tab-Set,
-.Tab-Buttons {
-  content: '. .';
-  display: block;
-  word-spacing: 99in;
-  height: 0;
-  overflow: hidden; }
-
 .Node {
-  width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
+  padding: 15px;
+  background-color: white;
+  clear: both; }
 
-.Node + .Node {
+.Node + .Node-Wrap {
   margin-top: 50px; }
 
-/* ╨в╨Р╨С╨л > ////////////////////////////////////////////////////////////////////////////////////*/
-.Tab-Buttons > li {
-  float: left; }
+.Node > * {
+  margin-top: 20px; }
 
-[class*='Tab-Node'] {
-  display: none; }
+.Node > *:first-child {
+  margin-top: 0; }
 
-.Tab-Node:first-child {
+.Node.Row > * {
+  margin-top: 0; }
+
+.Table-Adaptive .Checkbox {
+  color: #bdc3c7; }
+
+table {
+  min-width: 320px;
+  width: 100%;
+  border-collapse: collapse; }
+  table th {
+    color: white;
+    text-align: left; }
+  table td, table th {
+    padding: 5px; }
+    @media screen and (min-width: 1024px) {
+      table td, table th {
+        padding: 10px; } }
+    @media screen and (min-width: 1880px) {
+      table td, table th {
+        padding: 10px 15px; } }
+  @media screen and (min-width: 768px) {
+    table tr:hover td.Actions {
+      opacity: 1; } }
+  table td.Actions {
+    min-width: 120px; }
+    @media screen and (min-width: 768px) {
+      table td.Actions {
+        opacity: 0; } }
+    table td.Actions ul li {
+      float: left;
+      margin-right: 5px; }
+  table.Lines tbody tr {
+    border-top: 1px solid #ecf0f1; }
+    table.Lines tbody tr:first-child {
+      border-top: 0; }
+  table.Solid th {
+    font-weight: 100;
+    color: white;
+    background-color: #34495e; }
+  table.Stripped tbody tr:nth-of-type(even) {
+    background: #ecf0f1; }
+  @media screen and (max-width: 768px) {
+    table.Adaptive td {
+      border-top: 1px solid #ecf0f1; } }
+  table.Adaptive td:first-child {
+    border-top: 0; }
+  @media screen and (max-width: 768px) {
+    table.Adaptive td.Number {
+      display: none; } }
+  table.Edit div[contenteditable] {
+    cursor: pointer; }
+  table.Edit div[contenteditable]:focus {
+    color: #34495e;
+    outline: 0; }
+
+@media screen and (max-width: 768px) {
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block; }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; } }
+.pagination,
+.Pagination {
+  border-left: 4px solid #e74c3c; }
+  .pagination > li,
+  .Pagination > li {
+    margin-top: 0 !important;
+    margin-right: 1px;
+    float: left; }
+    .pagination > li > span, .pagination > li > a,
+    .Pagination > li > span,
+    .Pagination > li > a {
+      color: #fff;
+      display: block;
+      padding: 10px 20px;
+      background-color: #2c3e50; }
+    .pagination > li:hover > span,
+    .Pagination > li:hover > span {
+      cursor: default; }
+    .pagination > li:hover > a,
+    .Pagination > li:hover > a {
+      background-color: #34495e; }
+    .pagination > li.disabled > span,
+    .Pagination > li.disabled > span {
+      color: #999999; }
+    .pagination > li.active > span,
+    .Pagination > li.active > span {
+      background-color: #e74c3c; }
+
+.Breadcrumbs {
+  padding: 5px;
+  margin-top: 20px;
+  background-color: #ecf0f1;
+  border-radius: 5px; }
+  .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item > span, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item > a {
+    padding: 5px;
+    font-size: 13px;
+    line-height: 13px; }
+  .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item a {
+    color: #7f8c8d; }
+  .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item a:hover {
+    color: #2c3e50; }
+  .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:before {
+    font-family: FontAwesome;
+    vertical-align: middle;
+    padding: 0 10px;
+    content: "\f105"; }
+  .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:first-child:before {
+    padding: 0;
+    content: ""; }
+
+.Dev {
+  position: relative; }
+  .Dev:hover:before {
+    position: absolute;
+    top: -20px;
+    background-color: red;
+    border: 1px dashed white;
+    display: inline-block;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 14px;
+    content: attr(class); }
+
+.Panel {
+  padding: 10px;
+  display: inline-block; }
+
+.Group,
+.Ctrl-Grp,
+.Control-Group {
+  padding: 5px;
+  border: solid 1px transparent; }
+  .Group label,
+  .Group input:not([type='submit']),
+  .Group select,
+  .Group textarea,
+  .Ctrl-Grp label,
+  .Ctrl-Grp input:not([type='submit']),
+  .Ctrl-Grp select,
+  .Ctrl-Grp textarea,
+  .Control-Group label,
+  .Control-Group input:not([type='submit']),
+  .Control-Group select,
+  .Control-Group textarea {
+    display: inline-block;
+    padding: 10px;
+    border: solid 1px;
+    line-height: 1;
+    border-radius: 3px; }
+    @media screen and (max-width: 768px) {
+      .Group label,
+      .Group input:not([type='submit']),
+      .Group select,
+      .Group textarea,
+      .Ctrl-Grp label,
+      .Ctrl-Grp input:not([type='submit']),
+      .Ctrl-Grp select,
+      .Ctrl-Grp textarea,
+      .Control-Group label,
+      .Control-Group input:not([type='submit']),
+      .Control-Group select,
+      .Control-Group textarea {
+        width: 100%; } }
+    @media screen and (min-width: 768px) {
+      .Group label,
+      .Group input:not([type='submit']),
+      .Group select,
+      .Group textarea,
+      .Ctrl-Grp label,
+      .Ctrl-Grp input:not([type='submit']),
+      .Ctrl-Grp select,
+      .Ctrl-Grp textarea,
+      .Control-Group label,
+      .Control-Group input:not([type='submit']),
+      .Control-Group select,
+      .Control-Group textarea {
+        width: 50%; } }
+  .Group input:not([type='submit']),
+  .Group select,
+  .Group textarea,
+  .Ctrl-Grp input:not([type='submit']),
+  .Ctrl-Grp select,
+  .Ctrl-Grp textarea,
+  .Control-Group input:not([type='submit']),
+  .Control-Group select,
+  .Control-Group textarea {
+    box-shadow: 0 2px 3px #dedede inset;
+    border-color: #cccccc; }
+  .Group input:focus,
+  .Group select:focus,
+  .Group textarea:focus,
+  .Ctrl-Grp input:focus,
+  .Ctrl-Grp select:focus,
+  .Ctrl-Grp textarea:focus,
+  .Control-Group input:focus,
+  .Control-Group select:focus,
+  .Control-Group textarea:focus {
+    outline: 0;
+    border-color: #07b3d2;
+    box-shadow: 0 0 10px #07b3d2; }
+  .Group label,
+  .Ctrl-Grp label,
+  .Control-Group label {
+    width: 50%;
+    padding-left: 0;
+    float: left;
+    border-color: transparent; }
+  .Group textarea,
+  .Ctrl-Grp textarea,
+  .Control-Group textarea {
+    font-family: "Open Sans", Helvetica, Verdana, sans-serif;
+    resize: vertical; }
+  .Group.Radio li,
+  .Ctrl-Grp.Radio li,
+  .Control-Group.Radio li {
+    width: 100%; }
+  .Group.Checkbox input[type='checkbox'],
+  .Group.Checkbox input[type='radio'], .Group.Radio input[type='checkbox'],
+  .Group.Radio input[type='radio'],
+  .Ctrl-Grp.Checkbox input[type='checkbox'],
+  .Ctrl-Grp.Checkbox input[type='radio'],
+  .Ctrl-Grp.Radio input[type='checkbox'],
+  .Ctrl-Grp.Radio input[type='radio'],
+  .Control-Group.Checkbox input[type='checkbox'],
+  .Control-Group.Checkbox input[type='radio'],
+  .Control-Group.Radio input[type='checkbox'],
+  .Control-Group.Radio input[type='radio'] {
+    width: 13px;
+    text-align: left;
+    margin: 10px 0;
+    box-shadow: none; }
+    .Group.Checkbox input[type='checkbox']:focus,
+    .Group.Checkbox input[type='radio']:focus, .Group.Radio input[type='checkbox']:focus,
+    .Group.Radio input[type='radio']:focus,
+    .Ctrl-Grp.Checkbox input[type='checkbox']:focus,
+    .Ctrl-Grp.Checkbox input[type='radio']:focus,
+    .Ctrl-Grp.Radio input[type='checkbox']:focus,
+    .Ctrl-Grp.Radio input[type='radio']:focus,
+    .Control-Group.Checkbox input[type='checkbox']:focus,
+    .Control-Group.Checkbox input[type='radio']:focus,
+    .Control-Group.Radio input[type='checkbox']:focus,
+    .Control-Group.Radio input[type='radio']:focus {
+      box-shadow: none; }
+  @media screen and (max-width: 768px) {
+    .Group.Checkbox label, .Group.Radio label,
+    .Ctrl-Grp.Checkbox label,
+    .Ctrl-Grp.Radio label,
+    .Control-Group.Checkbox label,
+    .Control-Group.Radio label {
+      width: 80%; }
+    .Group.Checkbox input, .Group.Radio input,
+    .Ctrl-Grp.Checkbox input,
+    .Ctrl-Grp.Radio input,
+    .Control-Group.Checkbox input,
+    .Control-Group.Radio input {
+      width: auto;
+      box-shadow: none;
+      float: right; } }
+  .Group + .Control-Group,
+  .Ctrl-Grp + .Control-Group,
+  .Control-Group + .Control-Group {
+    margin: 10px 0; }
+  .Group.Offset input[type='submit'],
+  .Ctrl-Grp.Offset input[type='submit'],
+  .Control-Group.Offset input[type='submit'] {
+    box-shadow: none;
+    width: auto; }
+    @media screen and (min-width: 768px) {
+      .Group.Offset input[type='submit'],
+      .Ctrl-Grp.Offset input[type='submit'],
+      .Control-Group.Offset input[type='submit'] {
+        margin-left: 50%; } }
+
+@media screen and (min-width: 768px) {
+  form.Wide .Group input,
+  form.Wide .Group select,
+  form.Wide .Group textarea,
+  form.Wide .Ctrl-Grp input,
+  form.Wide .Ctrl-Grp select,
+  form.Wide .Ctrl-Grp textarea,
+  form.Wide .Control-Group input,
+  form.Wide .Control-Group select,
+  form.Wide .Control-Group textarea {
+    width: 75%; } }
+@media screen and (min-width: 768px) {
+  form.Wide .Group label,
+  form.Wide .Ctrl-Grp label,
+  form.Wide .Control-Group label {
+    width: 25%; } }
+form.Wide .Group.Offset input[type='submit'],
+form.Wide .Ctrl-Grp.Offset input[type='submit'],
+form.Wide .Control-Group.Offset input[type='submit'] {
+  margin-left: 25%; }
+
+#recaptcha_widget_div {
+  display: inline-block;
+  width: 70%; }
+
+#recaptcha_widget_div .recaptchatable {
+  border: none !important;
+  width: 100%;
+  padding-bottom: 10px !important;
   display: block; }
 
-/* ╨в╨Р╨С╨л < ////////////////////////////////////////////////////////////////////////////////////*/
-table.Stripped tr:nth-child(even) td {
-  background-color: #f0f0f0; }
+#recaptcha_widget_div .recaptchatable .recaptcha_image_cell,
+#recaptcha_widget_div .recaptchatable td {
+  padding: 0px 7px 0px 0px !important; }
 
-table.Stripped {
-  border-spacing: 0; }
+#recaptcha_widget_div .recaptchatable #recaptcha_image {
+  margin: 0px;
+  border: none !important; }
 
-table > tr > td {
-  padding: 20px; }
+dl.Tabs {
+  clear: both; }
+  dl.Tabs dt {
+    margin-left: -1px;
+    position: relative;
+    display: table;
+    width: 30%;
+    float: left;
+    min-height: 48px;
+    padding: 5px 0;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition-property: background-color, color;
+    -moz-transition-property: background-color, color;
+    transition-property: background-color, color;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s; }
+    dl.Tabs dt > span {
+      vertical-align: middle;
+      display: table-cell;
+      font-size: 85%; }
+    dl.Tabs dt:hover {
+      background-color: #bdc3c7; }
+    dl.Tabs dt.Active {
+      background-color: #2c3e50;
+      color: #fff; }
+    dl.Tabs dt.Wide {
+      width: 40%; }
+    dl.Tabs dt.inTwo {
+      width: 50%; }
+  dl.Tabs dd {
+    display: none;
+    float: right;
+    margin: 60px 0 0 -100%;
+    position: relative;
+    width: 100%;
+    z-index: 2; }
+    dl.Tabs dd.Active {
+      display: block; }
+    dl.Tabs dd > div {
+      padding: 20px 0; }
 
-table.Big > tr > td {
-  padding: 30px; }
+.Box {
+  background-color: white; }
+  .Box > header {
+    padding: 10px 15px; }
+    .Box > header > .Box-Title {
+      float: left; }
+    .Box > header .Box-Tools {
+      display: inline-block;
+      float: right; }
+      .Box > header .Box-Tools a {
+        display: inline-block;
+        padding: 0 5px;
+        color: #95a5a6; }
+        .Box > header .Box-Tools a:hover {
+          color: #e74c3c; }
+  .Box > .Box-Content {
+    padding: 10px 15px 15px; }
+  .Box.Round, table td.Actions ul li a.Box.Ghost,
+  .Box.Button.Ghost {
+    border-radius: 10px; }
+  .Box.Outlined {
+    border: 2px solid #95a5a6; }
+  .Box.Underlined > header {
+    border-bottom: 1px solid #95a5a6; }
+  .Box.Solid {
+    border-color: #e74c3c; }
+    .Box.Solid > header {
+      color: white;
+      background-color: #e74c3c; }
+  .Box.Success, .Box.Info, .Box.Warning, .Box.Error {
+    color: white; }
+    .Box.Success .Box-Tools a, .Box.Info .Box-Tools a, .Box.Warning .Box-Tools a, .Box.Error .Box-Tools a {
+      color: white; }
+      .Box.Success .Box-Tools a:hover, .Box.Info .Box-Tools a:hover, .Box.Warning .Box-Tools a:hover, .Box.Error .Box-Tools a:hover {
+        background-color: white; }
+  .Box.Solid.Success .Box-Content, .Box.Solid.Info .Box-Content, .Box.Solid.Warning .Box-Content, .Box.Solid.Error .Box-Content {
+    color: black;
+    background-color: white; }
+  .Box.Solid.Gradient.Success header, .Box.Solid.Gradient.Info header, .Box.Solid.Gradient.Warning header, .Box.Solid.Gradient.Error header {
+    color: white; }
+  .Box.Underlined.Success header, .Box.Underlined.Info header, .Box.Underlined.Warning header, .Box.Underlined.Error header {
+    border-bottom-color: white; }
+  .Box.Outlined.Success, .Box.Outlined.Info, .Box.Outlined.Warning, .Box.Outlined.Error {
+    border: 2px solid white; }
+  .Box.Success {
+    background-color: #2ecc71; }
+    .Box.Success.Gradient {
+      background-color: #5ec67d;
+      /* Fallback */
+      background: -webkit-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* Chrome 10+, Saf5.1+, iOS 5+ */
+      background: -moz-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* FF3.6 */
+      background: -ms-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* IE10 */
+      background: -o-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* Opera 11.10+ */
+      background: linear-gradient(to right, #2ecc71, #5ec67d);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
+    .Box.Success.Solid.Gradient header {
+      background-color: #5ec67d;
+      /* Fallback */
+      background: -webkit-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* Chrome 10+, Saf5.1+, iOS 5+ */
+      background: -moz-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* FF3.6 */
+      background: -ms-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* IE10 */
+      background: -o-linear-gradient(to right, #2ecc71, #5ec67d);
+      /* Opera 11.10+ */
+      background: linear-gradient(to right, #2ecc71, #5ec67d);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
+    .Box.Success .Box-Tools a:hover {
+      color: #5ec67d; }
+    .Box.Success.Solid.Outlined {
+      border-color: #2ecc71; }
+  .Box.Info {
+    background-color: #3498db; }
+    .Box.Info.Gradient {
+      background-color: #2980b9;
+      /* Fallback */
+      background: -webkit-linear-gradient(to right, #3498db, #2980b9);
+      /* Chrome 10+, Saf5.1+, iOS 5+ */
+      background: -moz-linear-gradient(to right, #3498db, #2980b9);
+      /* FF3.6 */
+      background: -ms-linear-gradient(to right, #3498db, #2980b9);
+      /* IE10 */
+      background: -o-linear-gradient(to right, #3498db, #2980b9);
+      /* Opera 11.10+ */
+      background: linear-gradient(to right, #3498db, #2980b9);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#3498db', EndColorStr='#2980b9'); }
+    .Box.Info .Box-Tools a:hover {
+      color: #2980b9; }
+  .Box.Warning {
+    background-color: #e67e22; }
+    .Box.Warning.Gradient {
+      background-color: #d35400;
+      /* Fallback */
+      background: -webkit-linear-gradient(to right, #e67e22, #d35400);
+      /* Chrome 10+, Saf5.1+, iOS 5+ */
+      background: -moz-linear-gradient(to right, #e67e22, #d35400);
+      /* FF3.6 */
+      background: -ms-linear-gradient(to right, #e67e22, #d35400);
+      /* IE10 */
+      background: -o-linear-gradient(to right, #e67e22, #d35400);
+      /* Opera 11.10+ */
+      background: linear-gradient(to right, #e67e22, #d35400);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e67e22', EndColorStr='#d35400'); }
+    .Box.Warning .Box-Tools a:hover {
+      color: #d35400; }
+  .Box.Error {
+    background-color: #f2070b; }
+    .Box.Error.Gradient {
+      background-color: #d1060a;
+      /* Fallback */
+      background: -webkit-linear-gradient(to right, #f2070b, #d1060a);
+      /* Chrome 10+, Saf5.1+, iOS 5+ */
+      background: -moz-linear-gradient(to right, #f2070b, #d1060a);
+      /* FF3.6 */
+      background: -ms-linear-gradient(to right, #f2070b, #d1060a);
+      /* IE10 */
+      background: -o-linear-gradient(to right, #f2070b, #d1060a);
+      /* Opera 11.10+ */
+      background: linear-gradient(to right, #f2070b, #d1060a);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f2070b', EndColorStr='#d1060a'); }
+    .Box.Error .Box-Tools a:hover {
+      color: #d1060a; }
 
-table.Small > tr > td {
-  padding: 5px; }
+a.Button, table td.Actions ul li a,
+.Button,
+table td.Actions ul li a {
+  padding: 5px 10px;
+  border: 0;
+  line-height: 24px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 14px;
+  -webkit-transition-property: border, background-color, color;
+  -moz-transition-property: border, background-color, color;
+  transition-property: border, background-color, color;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  a.Button:hover, table td.Actions ul li a:hover,
+  .Button:hover,
+  table td.Actions ul li a:hover {
+    background-color: #c0392b; }
+  a.Button.Small, table td.Actions ul li a,
+  .Button.Small,
+  table td.Actions ul li a {
+    font-size: 10px;
+    padding: 2px 5px; }
+  a.Button.Large, table td.Actions ul li a.Large,
+  .Button.Large,
+  table td.Actions ul li a.Large {
+    padding: 10px 15px; }
+  a.Button.Huge, table td.Actions ul li a.Huge,
+  .Button.Huge,
+  table td.Actions ul li a.Huge {
+    font-size: 19px;
+    padding: 15px 20px; }
+  a.Button.Round, table td.Actions ul li a.Round, a.Button.Ghost, table td.Actions ul li a.Ghost,
+  .Button.Round,
+  table td.Actions ul li a.Round,
+  a.Button.Ghost,
+  table td.Actions ul li a.Ghost,
+  .Button.Ghost {
+    border-radius: 5px; }
+  a.Button.Search, table td.Actions ul li a.Search,
+  .Button.Search,
+  table td.Actions ul li a.Search {
+    border-radius: 17px; }
+    a.Button.Search.Large, table td.Actions ul li a.Search.Large,
+    .Button.Search.Large,
+    table td.Actions ul li a.Search.Large {
+      border-radius: 22px; }
+    a.Button.Search.Huge, table td.Actions ul li a.Search.Huge,
+    .Button.Search.Huge,
+    table td.Actions ul li a.Search.Huge {
+      border-radius: 27px; }
+  a.Button.Icon > span.fa:first-child, table td.Actions ul li a.Icon > span.fa:first-child,
+  .Button.Icon > span.fa:first-child,
+  table td.Actions ul li a.Icon > span.fa:first-child {
+    margin-right: 10px; }
+  a.Button.Ghost, table td.Actions ul li a.Ghost,
+  .Button.Ghost,
+  table td.Actions ul li a.Ghost {
+    color: #2c3e50;
+    background-color: transparent;
+    border: 1px solid #bdc3c7; }
+    a.Button.Ghost:hover, table td.Actions ul li a.Ghost:hover,
+    .Button.Ghost:hover,
+    table td.Actions ul li a.Ghost:hover {
+      color: black;
+      border-color: #95a5a6;
+      background-color: #ecf0f1; }
+    a.Button.Ghost.Invert, table td.Actions ul li a.Ghost.Invert,
+    .Button.Ghost.Invert,
+    table td.Actions ul li a.Ghost.Invert {
+      color: white;
+      border-color: white; }
+      a.Button.Ghost.Invert:hover, table td.Actions ul li a.Ghost.Invert:hover,
+      .Button.Ghost.Invert:hover,
+      table td.Actions ul li a.Ghost.Invert:hover {
+        color: #e74c3c;
+        border-color: #e74c3c; }
+  a.Button.Dropdown, table td.Actions ul li a.Dropdown,
+  .Button.Dropdown,
+  table td.Actions ul li a.Dropdown {
+    position: relative;
+    padding-right: 40px; }
+    a.Button.Dropdown.Round > .Dropdown-Toggle, table td.Actions ul li a.Dropdown.Round > .Dropdown-Toggle, a.Button.Dropdown.Ghost > .Dropdown-Toggle, table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Toggle,
+    .Button.Dropdown.Round > .Dropdown-Toggle,
+    table td.Actions ul li a.Dropdown.Round > .Dropdown-Toggle,
+    table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Toggle,
+    .Button.Dropdown.Ghost > .Dropdown-Toggle {
+      border-radius: 0 5px 5px 0; }
+    a.Button.Dropdown > .Dropdown-Toggle, table td.Actions ul li a.Dropdown > .Dropdown-Toggle,
+    .Button.Dropdown > .Dropdown-Toggle,
+    table td.Actions ul li a.Dropdown > .Dropdown-Toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 30px;
+      padding: 10px 0;
+      border-left: 1px white solid;
+      background-color: #e74c3c; }
+      a.Button.Dropdown > .Dropdown-Toggle:hover, table td.Actions ul li a.Dropdown > .Dropdown-Toggle:hover,
+      .Button.Dropdown > .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Dropdown > .Dropdown-Toggle:hover {
+        background-color: #c0392b; }
+    a.Button.Dropdown > .Dropdown-Content, table td.Actions ul li a.Dropdown > .Dropdown-Content,
+    .Button.Dropdown > .Dropdown-Content,
+    table td.Actions ul li a.Dropdown > .Dropdown-Content {
+      background-color: white;
+      border: 1px solid #bdc3c7;
+      position: absolute;
+      top: 37px;
+      left: 0;
+      width: 100%;
+      z-index: 100; }
+      a.Button.Dropdown > .Dropdown-Content li > a, table td.Actions ul li a.Dropdown > .Dropdown-Content li > a,
+      .Button.Dropdown > .Dropdown-Content li > a,
+      table td.Actions ul li a.Dropdown > .Dropdown-Content li > a {
+        display: block;
+        padding: 5px 10px;
+        text-align: left;
+        color: #2c3e50; }
+        a.Button.Dropdown > .Dropdown-Content li > a:hover, table td.Actions ul li a.Dropdown > .Dropdown-Content li > a:hover,
+        .Button.Dropdown > .Dropdown-Content li > a:hover,
+        table td.Actions ul li a.Dropdown > .Dropdown-Content li > a:hover {
+          background-color: #bdc3c7; }
+      a.Button.Dropdown > .Dropdown-Content li.Divider, table td.Actions ul li a.Dropdown > .Dropdown-Content li.Divider,
+      .Button.Dropdown > .Dropdown-Content li.Divider,
+      table td.Actions ul li a.Dropdown > .Dropdown-Content li.Divider {
+        padding: 0;
+        display: block;
+        border-top: 1px solid #bdc3c7; }
+      a.Button.Dropdown > .Dropdown-Content.Icon li a span.fa, table td.Actions ul li a.Dropdown > .Dropdown-Content.Icon li a span.fa,
+      .Button.Dropdown > .Dropdown-Content.Icon li a span.fa,
+      table td.Actions ul li a.Dropdown > .Dropdown-Content.Icon li a span.fa {
+        margin-right: 10px; }
+    a.Button.Dropdown.Round > .Dropdown-Content, table td.Actions ul li a.Dropdown.Round > .Dropdown-Content, a.Button.Dropdown.Ghost > .Dropdown-Content, table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Content,
+    .Button.Dropdown.Round > .Dropdown-Content,
+    table td.Actions ul li a.Dropdown.Round > .Dropdown-Content,
+    table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Content,
+    .Button.Dropdown.Ghost > .Dropdown-Content {
+      border-radius: 5px; }
+  a.Button.Info, table td.Actions ul li a.Info,
+  .Button.Info,
+  table td.Actions ul li a.Info {
+    background-color: #3498db; }
+    a.Button.Info:hover, table td.Actions ul li a.Info:hover,
+    .Button.Info:hover,
+    table td.Actions ul li a.Info:hover {
+      background-color: #2980b9; }
+    a.Button.Info.Dropdown, table td.Actions ul li a.Info.Dropdown,
+    a.Button.Info .Dropdown-Toggle,
+    table td.Actions ul li a.Info .Dropdown-Toggle,
+    .Button.Info.Dropdown,
+    table td.Actions ul li a.Info.Dropdown,
+    .Button.Info .Dropdown-Toggle,
+    table td.Actions ul li a.Info .Dropdown-Toggle {
+      background-color: #2980b9; }
+      a.Button.Info.Dropdown:hover, table td.Actions ul li a.Info.Dropdown:hover,
+      a.Button.Info .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Info .Dropdown-Toggle:hover,
+      .Button.Info.Dropdown:hover,
+      table td.Actions ul li a.Info.Dropdown:hover,
+      .Button.Info .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Info .Dropdown-Toggle:hover {
+        background-color: #2980b9; }
+  a.Button.Success, table td.Actions ul li a.Success,
+  .Button.Success,
+  table td.Actions ul li a.Success {
+    background-color: #2ecc71; }
+    a.Button.Success:hover, table td.Actions ul li a.Success:hover,
+    .Button.Success:hover,
+    table td.Actions ul li a.Success:hover {
+      background-color: #5ec67d; }
+    a.Button.Success.Dropdown, table td.Actions ul li a.Success.Dropdown,
+    a.Button.Success .Dropdown-Toggle,
+    table td.Actions ul li a.Success .Dropdown-Toggle,
+    .Button.Success.Dropdown,
+    table td.Actions ul li a.Success.Dropdown,
+    .Button.Success .Dropdown-Toggle,
+    table td.Actions ul li a.Success .Dropdown-Toggle {
+      background-color: #2ecc71; }
+      a.Button.Success.Dropdown:hover, table td.Actions ul li a.Success.Dropdown:hover,
+      a.Button.Success .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Success .Dropdown-Toggle:hover,
+      .Button.Success.Dropdown:hover,
+      table td.Actions ul li a.Success.Dropdown:hover,
+      .Button.Success .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Success .Dropdown-Toggle:hover {
+        background-color: #5ec67d; }
+  a.Button.Success, table td.Actions ul li a.Success,
+  .Button.Success,
+  table td.Actions ul li a.Success {
+    background-color: #2ecc71; }
+    a.Button.Success:hover, table td.Actions ul li a.Success:hover,
+    .Button.Success:hover,
+    table td.Actions ul li a.Success:hover {
+      background-color: #5ec67d; }
+    a.Button.Success.Dropdown, table td.Actions ul li a.Success.Dropdown,
+    a.Button.Success .Dropdown-Toggle,
+    table td.Actions ul li a.Success .Dropdown-Toggle,
+    .Button.Success.Dropdown,
+    table td.Actions ul li a.Success.Dropdown,
+    .Button.Success .Dropdown-Toggle,
+    table td.Actions ul li a.Success .Dropdown-Toggle {
+      background-color: #2ecc71; }
+      a.Button.Success.Dropdown:hover, table td.Actions ul li a.Success.Dropdown:hover,
+      a.Button.Success .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Success .Dropdown-Toggle:hover,
+      .Button.Success.Dropdown:hover,
+      table td.Actions ul li a.Success.Dropdown:hover,
+      .Button.Success .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Success .Dropdown-Toggle:hover {
+        background-color: #5ec67d; }
+  a.Button.Warning, table td.Actions ul li a.Warning,
+  .Button.Warning,
+  table td.Actions ul li a.Warning {
+    background-color: #e67e22; }
+    a.Button.Warning:hover, table td.Actions ul li a.Warning:hover,
+    .Button.Warning:hover,
+    table td.Actions ul li a.Warning:hover {
+      background-color: #d35400; }
+    a.Button.Warning.Dropdown, table td.Actions ul li a.Warning.Dropdown,
+    a.Button.Warning .Dropdown-Toggle,
+    table td.Actions ul li a.Warning .Dropdown-Toggle,
+    .Button.Warning.Dropdown,
+    table td.Actions ul li a.Warning.Dropdown,
+    .Button.Warning .Dropdown-Toggle,
+    table td.Actions ul li a.Warning .Dropdown-Toggle {
+      background-color: #e67e22; }
+      a.Button.Warning.Dropdown:hover, table td.Actions ul li a.Warning.Dropdown:hover,
+      a.Button.Warning .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Warning .Dropdown-Toggle:hover,
+      .Button.Warning.Dropdown:hover,
+      table td.Actions ul li a.Warning.Dropdown:hover,
+      .Button.Warning .Dropdown-Toggle:hover,
+      table td.Actions ul li a.Warning .Dropdown-Toggle:hover {
+        background-color: #e67e22; }
 
 /*# sourceMappingURL=main.css.map */

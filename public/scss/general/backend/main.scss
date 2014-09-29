@@ -1,10 +1,15 @@
 @import "../../general/libs/upf/upf";
 $Menu-Width: 300px;
 
-
+$Clr-Main:  			$Clr-Alizarin;
+$Clr-Main-Dark: 		$Clr-Pamegranate;
+$Clr-Secondary:			$Clr-Clouds;
+$Clr-Secondary-Dark:	$Clr-Silver;
+$Clr-Secondary-Darker:	$Clr-Concrete;
 
 body {
-	font-family: 'Open Sans';
+	font-family: $Font-Family-Open-Sans;
+	font-size: 13px;
 	background-color: $Clr-Secondary;
 }
 
