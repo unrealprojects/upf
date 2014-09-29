@@ -54,6 +54,18 @@ upf.Menu.ToggleMenu = function(){
     });
 }
 
+/*** Menu :: Active Item ***/
+upf.Menu.ActiveItem = function(){
+    // Default Variables
+    var Active = 'Active',
+        Link = location.pathname;
+
+    $('a').removeClass(Active);
+    $('a[href="'+Link+'"]').addClass(Active);
+    $('a[href="'+Link+'"]').parents('.Menu-Category-Item').find('.Menu-Category-Link').addClass(Active);
+}
+
+
 /*** List :: Check All ***/
 upf.List.CheckAll = function(){
     // Default Variables
@@ -138,8 +150,10 @@ upf.List.RemoveItem = function(){
 /*** Call Function ***/
 $(document).ready(function(){
     /*** Menu ***/
+    upf.Menu.ActiveItem();
     upf.Menu.Accordion();
     upf.Menu.ToggleMenu();
+
 
     /*** List ***/
     upf.List.CheckAll();

@@ -5,7 +5,7 @@
         </li>
 
         <li class="Menu-Category-Item">
-            <a class="Menu-Category-Link Active" href="#"><span class="fa fa-sitemap"></span>Разделы</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
+            <a class="Menu-Category-Link" href="#"><span class="fa fa-sitemap"></span>Разделы</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
             <ul class="Menu-Subcategory">
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/catalog"><span class="fa fa-share-alt"></span>Каталог стройтехники</a></li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/rent"><span class="fa fa-share-alt"></span>Аренда стройтехники</a></li>
