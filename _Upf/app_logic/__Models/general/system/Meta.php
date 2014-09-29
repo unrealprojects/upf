@@ -4,16 +4,141 @@ namespace UpfModels;
 
 class Meta extends General {
     protected $table = 'system_meta';
+    public $Config = 'models/backend/sections/Meta';
 
-    /*** Relations :: Tags :: Many To Many ***/
-    public function Tags()
+    /*** *** Relations *** ***//////////////////////////////////////////////////////////////////////////////////////////
+
+    /***  Tags :: Many To Many ***/
+    public function tags()
     {
         return $this->belongsToMany('UpfModels\Tags', 'filter_tags_to_items', 'item_id', 'tag_id');
     }
 
-    /*** Relations :: Categories :: Has Many ***/
-    public function Categories()
+    /*** Categories :: Has Many ***/
+    public function categories()
     {
         return $this->hasMany('UpfModels\Categories','id','category_id');
+    }
+
+    /*** Relations :: Regions :: Has One ***/
+    public function regions()
+    {
+        return $this->hasMany('UpfModels\Regions','id','region_id');
+    }
+
+    /*** *** Where *** ***//////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*** Where :: Alias in Meta ***/
+    public static function WhereAliasInMeta($This,$Alias){
+        return $This->whereHas('meta', function($Query) use ($Alias) {
+            $Query->where('alias',$Alias);
+        });
+    }
+
+    /*** Where :: Alias in Tags ***/
+    public static function WhereAliasInTags($This,$Alias){
+        return $This->whereHas('tags', function($Query) use ($Alias) {
+            $Query->where('alias',$Alias);
+        });
+    }
+
+    /*** Where :: Alias in Categories ***/
+    public static function WhereAliasInCategories($This,$Alias){
+        return $This->whereHas('tags', function($Query) use ($Alias) {
+            $Query->where('alias',$Alias);
+        });
+    }
+
+    /*** Where :: Statuses Filter in Meta ***/
+    public static function WhereStatusesInMeta($This,$Filters){
+        return $This->whereHas('meta', function($Query) use ($This,$Filters) {
+            /*** Status ***/
+            if(isset($Filters['status'])){
+                $Query->where('status',$Filters['status']);
+            }else{
+                $Query->where('status',\Config::get('models/Fields.status.active'));
+            }
+            /*** Privileges ***/
+            if(isset($Filters['privileges'])){
+                $Query->where('privileges',$Filters['privileges']);
+            }
+            /*** Filters ***/
+            if(isset($Filters['favorite'])){
+                $Query->where('privileges',$Filters['favorite']);
+            }
+            /*** Category  ***/
+            if(isset($Filters['category_alias'])){
+                $This->WhereAliasInCategories($Query,$Filters['category_alias']);
+            }
+
+            /*** Tag ***/
+            if(isset($Filters['tag_alias'])){
+                $This->WhereAliasInTags($Query,$Filters['tag_alias']);
+            }
+
+        });
+    }
+    /*** *** Main Functions *** ***/////////////////////////////////////////////////////////////////////////////////////
+
+    /*** Get List ***/
+    public function Index($Filter = []){
+        $Query = $this
+            ->WhereStatusesInMeta($this,$Filter)
+            ->with(
+                'meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions')
+            ->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
+        return [
+            'list' => $Query->toArray()['data'],
+            'fields' =>\Config::get($this->Config.'.list'),
+            'pagination' => $Query->appends(\Input::except('page'))->links(),
+        ];
+    }
+
+    /*** Remove Item ***/
+    public function Remove($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->delete();
+        $Result->meta()->delete();
+    }
+
+    /*** *** Easy Functions *** ***/////////////////////////////////////////////////////////////////////////////////////
+
+    /*** To Trash ***/
+    public function ToTrash($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->status = \Config::get('models/Fields.status.trash');
+    }
+
+    /*** To Draft ***/
+    public function ToDraft($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->status = \Config::get('models/Fields.status.draft');
+    }
+
+    /*** To Active ***/
+    public function ToActive($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->status = \Config::get('models/Fields.status.active');
+    }
+
+    /*** To Inactive ***/
+    public function ToInactive($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->status = \Config::get('models/Fields.status.inactive');
+    }
+
+    /*** To Favorite ***/
+    public function ToFavorite($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->favorite = true;
+    }
+
+    /*** From Favorite ***/
+    public function FromFavorite($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->favorite = false;
     }
 }

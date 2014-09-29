@@ -6,6 +6,7 @@ Route::get('/backend/','\Controller\Backend\FrontendController@index');
 NewRoutesGroup([
     'articles',
     'pages',
+    'users'
 ],'General','section');
 
 /*** Filters ***/
@@ -14,7 +15,7 @@ NewRoutesGroup([
     'regions',
     'tags',
     'parameters',
-],'General','filters');
+],'General','filter');
 
 /*** Default ***/
 NewRoutesGroup([

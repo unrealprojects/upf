@@ -5,8 +5,8 @@
  */
 namespace UpfModels;
 
-class CatalogRegion extends General {
-    protected $table = 'catalog_region';
+class Regions extends General {
+    protected $table = 'filter_regions';
 
     /* Создание двухуровневых вложений */
     static public function toSubRegions($withPopular=false){

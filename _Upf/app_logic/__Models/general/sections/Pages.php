@@ -2,7 +2,8 @@
 namespace UpfModels;
 
 /*** Pages ***/
-class Pages extends General{
+class Pages extends Meta{
     public $timestamps = false;
-    protected $table = 'section_articles';
+    protected $table = 'section_pages';
+    public $Config = 'models/backend/sections/Pages';
 }

@@ -9,7 +9,6 @@ class General extends \Eloquent {
     public function Meta()
     {
         return $this->hasOne('UpfModels\Meta','id','meta_id');
-
     }
 
     /*** Relation Comments ***/

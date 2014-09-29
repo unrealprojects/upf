@@ -6,14 +6,15 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
-
+class Users extends Meta implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
     public $timestamps = false;
 	protected $table = 'section_users';
 	protected $hidden = array('password', 'remember_token');
 
-    /* Связи */
+    public $Config = 'models/backend/sections/Users';
+
+    /*
     public function region()
     {
         return $this->hasOne('UpfModels\CatalogRegion','id','region_id');
@@ -27,7 +28,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('UpfModels\CatalogParts','admin_id','id');
     }
 
-    /*** Queries ***/
     public function getList($filter){
         $this->filter = $filter;
 
@@ -63,4 +63,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             })
             ->first();
     }
+    */
 }
