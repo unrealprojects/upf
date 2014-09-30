@@ -39,6 +39,7 @@ $Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
 	textarea {
 		box-shadow: 		0 2px 3px $Clr-Grey-Light inset;
 		border-color: 		$Ctrl-Border-Color;
+		@include 			Round(all, $Ctrl-Border-Radius);
 	}
 	input:focus    ,
 	select:focus   ,
@@ -452,31 +453,57 @@ dl.Tabs {
 // MAGIC!
 a.Button ,
 .Button {
-	padding: $size-xs $size-s;
-	border: 0;
-	line-height: $line-height;
-	background-color: $Clr-Main;
-	color: white;
-	font-size: 14px;
-	@extend %_Clickable;
-	@include Transition(#{border,background-color,color}, .3s);
 
+	$Btn-BG-Color:			$Clr-Grey-Lighter;
+	$Btn-Hover-BG-Color:	$Clr-Grey-Light;
+
+	$Btn-Brd-Color:			$Clr-Grey-Light;
+	$Btn-Hover-Brd-Color:	$Clr-Grey;
+
+	padding: 				$size-xs $size-s;
+	border: 				1px solid $Btn-Brd-Color;
+ 	background-color: 		$Btn-BG-Color;
+	line-height: 			$line-height;
+	color: 					black;
+	font-size: 				14px;
+	text-shadow:			1px 1px 1px white;
+
+	@extend 		    	%_Clickable;
+	@include            	Transition(#{border,background-color,color}, .3s);
+	@include 				Round(all, $Ctrl-Border-Radius);
+
+	// State: HOVER
 	&:hover {
-		background-color: $Clr-Main-Dark;
+		background-color: 	$Clr-Grey-Light;
+		border: 			1px solid $Btn-Hover-Brd-Color;
 	}
+
+	// State:
+	&[disabled] {
+		color: 				$Clr-Grey;
+		cursor: 			not-allowed;
+		&:hover {
+			background-color: 	$Btn-BG-Color;
+			border-color:	1px solid $Btn-Brd-Color;
+		}
+	}
+
+	// Button sizes
 	&.Small {
-		font-size: 10px;
-		padding: $size-xxs $size-xs;
+		font-size: 			10px;
+		padding: 			$size-xxs $size-xs;
 	}
 	&.Large {
-		padding: $size-s $size-n;
+		padding: 			$size-s $size-n;
 	}
 	&.Huge {
-		font-size: 19px;
-		padding: $size-n $size;
+		font-size: 			19px;
+		padding: 			$size-n $size;
 	}
+
+	// Button round corners
 	&.Round {
-		@include Round(all,$Control-Border-Radius);
+		@include Round(all,$Ctrl-Border-Radius * 2);
 	}
 	&.Search {
 		@include Round(all, (($line-height)/2) + $size-xs);
@@ -490,6 +517,16 @@ a.Button ,
 	&.Icon {
 		& > span.fa:first-child	 {
 			margin-right: $size-s;
+		}
+	}
+	&.Primary {
+		border:				1px solid $Clr-Main-Dark;
+		background-color: 	$Clr-Main;
+		color: 				white;
+		text-shadow:		1px 1px 1px $Clr-Main-Dark;
+
+		&:hover {
+			background-color: 	$Clr-Main-Dark;
 		}
 	}
 	&.Ghost {
@@ -624,7 +661,9 @@ a.Button ,
 			}
 		}
 	}
-
+	& + .Button {
+		margin-left: $size-s;
+	}
 }
 
 .Message {

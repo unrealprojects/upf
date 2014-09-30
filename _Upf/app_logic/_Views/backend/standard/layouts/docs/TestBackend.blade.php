@@ -85,7 +85,7 @@
                 <p>Цвет градиента берется из переменной $Clr-Info</p>
             </div>
             <footer>
-                <button class="Button">Отменить</button>
+                <button disabled class="Button">Отменить</button>
                 <button class="Button">Принять</button>
             </footer>
         </article>
@@ -99,7 +99,7 @@
             </div>
             <footer>
                 <button class="Button">Отменить</button>
-                <button class="Button">Принять</button>
+                <button class="Button Primary">Принять</button>
             </footer>
         </article>
     </section>

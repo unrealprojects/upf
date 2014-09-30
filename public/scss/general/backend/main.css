@@ -1787,6 +1787,9 @@ a.Button, table td.Actions ul li a,
 .Button {
   cursor: pointer; }
 
+.Collapsed .Dropdown {
+  display: none; }
+
 * {
   margin: 0;
   padding: 0;
@@ -2612,7 +2615,8 @@ table {
   .Control-Group select,
   .Control-Group textarea {
     box-shadow: 0 2px 3px #dedede inset;
-    border-color: #cccccc; }
+    border-color: #cccccc;
+    border-radius: 3px; }
   .Group input:focus,
   .Group select:focus,
   .Group textarea:focus,
@@ -2973,21 +2977,34 @@ a.Button, table td.Actions ul li a,
 .Button,
 table td.Actions ul li a {
   padding: 5px 10px;
-  border: 0;
+  border: 1px solid #dedede;
+  background-color: #f1f1f1;
   line-height: 24px;
-  background-color: #e74c3c;
-  color: white;
+  color: black;
   font-size: 14px;
+  text-shadow: 1px 1px 1px white;
   -webkit-transition-property: border, background-color, color;
   -moz-transition-property: border, background-color, color;
   transition-property: border, background-color, color;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+  border-radius: 3px; }
   a.Button:hover, table td.Actions ul li a:hover,
   .Button:hover,
   table td.Actions ul li a:hover {
-    background-color: #c0392b; }
+    background-color: #dedede;
+    border: 1px solid #cccccc; }
+  a.Button[disabled], table td.Actions ul li a[disabled],
+  .Button[disabled],
+  table td.Actions ul li a[disabled] {
+    color: #cccccc;
+    cursor: not-allowed; }
+    a.Button[disabled]:hover, table td.Actions ul li a[disabled]:hover,
+    .Button[disabled]:hover,
+    table td.Actions ul li a[disabled]:hover {
+      background-color: #f1f1f1;
+      border-color: 1px solid #dedede; }
   a.Button.Small, table td.Actions ul li a,
   .Button.Small,
   table td.Actions ul li a {
@@ -3008,7 +3025,7 @@ table td.Actions ul li a {
   a.Button.Ghost,
   table td.Actions ul li a.Ghost,
   .Button.Ghost {
-    border-radius: 5px; }
+    border-radius: 6px; }
   a.Button.Search, table td.Actions ul li a.Search,
   .Button.Search,
   table td.Actions ul li a.Search {
@@ -3025,6 +3042,17 @@ table td.Actions ul li a {
   .Button.Icon > span.fa:first-child,
   table td.Actions ul li a.Icon > span.fa:first-child {
     margin-right: 10px; }
+  a.Button.Primary, table td.Actions ul li a.Primary,
+  .Button.Primary,
+  table td.Actions ul li a.Primary {
+    border: 1px solid #c0392b;
+    background-color: #e74c3c;
+    color: white;
+    text-shadow: 1px 1px 1px #c0392b; }
+    a.Button.Primary:hover, table td.Actions ul li a.Primary:hover,
+    .Button.Primary:hover,
+    table td.Actions ul li a.Primary:hover {
+      background-color: #c0392b; }
   a.Button.Ghost, table td.Actions ul li a.Ghost,
   .Button.Ghost,
   table td.Actions ul li a.Ghost {
@@ -3207,6 +3235,12 @@ table td.Actions ul li a {
       .Button.Warning .Dropdown-Toggle:hover,
       table td.Actions ul li a.Warning .Dropdown-Toggle:hover {
         background-color: #e67e22; }
+  a.Button + .Button, table td.Actions ul li a + .Button, table td.Actions ul li a.Button + a, table td.Actions ul li a + a,
+  .Button + .Button,
+  table td.Actions ul li a + .Button,
+  table td.Actions ul li .Button + a,
+  table td.Actions ul li a + a {
+    margin-left: 10px; }
 
 .Message {
   position: absolute;
@@ -3431,15 +3465,15 @@ a.Menu-Subcategory-Link {
 main {
   margin-left: 300px; }
   main > .Content {
-    margin: 15px; }
+    border-top: 1px solid #dedede; }
     main > .Content .Content-Inner {
-      margin-top: 15px;
       padding: 15px;
       background-color: white; }
 
 nav.Userbar {
   height: auto;
-  background-color: white; }
+  background-color: white;
+  border-bottom: 1px solid #bdc3c7; }
   nav.Userbar ul {
     display: inline-block; }
     nav.Userbar ul li {
@@ -3461,7 +3495,15 @@ nav.Userbar {
     position: relative; }
     nav.Userbar .User-Menu .Dropdown {
       position: absolute;
+      display: block;
+      min-width: 150px;
+      right: 0;
       background-color: white; }
+      nav.Userbar .User-Menu .Dropdown li {
+        display: block;
+        width: 100%; }
+        nav.Userbar .User-Menu .Dropdown li + li {
+          border-top: 1px solid #dedede; }
 
 .Auth-Wrap {
   position: absolute;

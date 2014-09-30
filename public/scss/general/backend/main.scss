@@ -116,9 +116,8 @@ a.Menu-Subcategory-Link {
 main {
 	margin-left: $Menu-Width;
 	& > .Content {
-		margin: $size-n;
+		border-top: 1px solid $Clr-Grey-Light;
 		.Content-Inner {
-			margin-top: $size-n;
 			padding: $size-n;
 			background-color: white;
 		}
@@ -127,6 +126,7 @@ main {
 nav.Userbar {
 	height: auto;
 	background-color: white;
+	border-bottom: 1px solid $Clr-Secondary-Dark;
 	@extend ._Clearfix;
 	ul {
 		display: inline-block;
@@ -165,7 +165,17 @@ nav.Userbar {
 
 		.Dropdown {
 			position: absolute;
+			display: block;
+			min-width: 150px;
+			right: 0;
 			background-color: white;
+			li {
+				display: block;
+				width: 100%;
+				& + li {
+					border-top: 1px solid $Clr-Grey-Light;
+				}
+			}
 		}
 	}
 
