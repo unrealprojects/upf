@@ -19,20 +19,15 @@
         </li>
     </ul>
 </nav>
+
 <nav class="Breadcrumbs">
     <ul class="Breadcrumb-List">
-        <li class="Breadcrumb-Item"itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <a href="/" itemprop="url">
-                <span itemprop="title">Главная</span>
+    @foreach($BreadCrumbs as $BreadCrumb)
+        <li class="Breadcrumb-Item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="{{{!empty($BreadCrumb['link'])?$BreadCrumb['link']:'#'}}}" itemprop="url">
+                <span itemprop="title">{{{$BreadCrumb['title']}}}</span>
             </a>
         </li>
-        <li class="Breadcrumb-Item"itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <a href="/" itemprop="url">
-                <span itemprop="title">Публикации</span>
-            </a>
-        </li>
-        <li class="Breadcrumb-Item">
-            <span>Создать</span>
-        </li>
+    @endforeach
     </ul>
 </nav>

@@ -9,15 +9,12 @@ class MetaController extends GeneralBackendController{
     public function __construct(){
        parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
-
     }
-
 
     /*** *** Main Functionality *** ***/////////////////////////////////////////////////////////////////////////////////
 
     /*** Show List ***/
     public function index(){
-
         $Model = new $this->Model();
         // View Data
         $this->viewData['content'] = [
@@ -39,9 +36,10 @@ class MetaController extends GeneralBackendController{
     /*** Update Item ***/
     public function update($alias){
         $Input = \Input::all();
+
         $Model = new $this->Model();
-        if($Model->UpdateItem($alias,$Input)){
-            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
+        if($Updated=$Model->UpdateItem($alias,$Input)){
+            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success','file'=>$Updated]);
         }else{
             echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
         }

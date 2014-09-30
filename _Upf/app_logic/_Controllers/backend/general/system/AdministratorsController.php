@@ -10,12 +10,17 @@ class AdministratorsController extends GeneralBackendController{
        parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
     }
+
     /*** Auth Form***/
     public function Auth(){
-        return \View::make('/backend/standard/layouts/system/auth',$this->viewData);
+        if(!\Auth::check()){
+            return \View::make('/backend/standard/layouts/system/auth',$this->viewData);
+        }else{
+            return \Redirect::to('/backend');
+        }
     }
 
-    /*** Auth Login ***/
+    /*** Auth LogIn ***/
     public function LogIn(){
         if (\Auth::attempt(['login' => \Input::get('login'), 'password' => \Input::get('password')],
             \Input::get('remember')?true:false)
@@ -30,13 +35,14 @@ class AdministratorsController extends GeneralBackendController{
             ];
         }
     }
-
+    /*** Auth LogOut ***/
     public function LogOut(){
         \Auth::logout();
         return \Redirect::to('/');
     }
 
     public function ForgotPassword(){
+
 
     }
 }

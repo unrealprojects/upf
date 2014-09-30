@@ -4,7 +4,6 @@
 <section class="Content">
     <h3 class="Heading Secondary">{{$meta['title']}}</h3>
     <section class="Content-Inner">
-
         <table class="Solid Lines Stripped Edit Adaptive">
             <thead>
                 <tr>
@@ -25,12 +24,7 @@
                             <td class="{{$field['class']}}">
                                 @if($field['type']=='text')
                                     <div class="Caption">{{$field['title']}}</div>
-
-                                    <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$alias}}">
-                                        {{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}
-                                    </div>
-                                @elseif($field['type']=='input')
-
+                                    <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$alias}}">{{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}</div>
                                 @endif
                             </td>
                         @endforeach

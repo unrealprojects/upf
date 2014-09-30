@@ -4,7 +4,7 @@
 <section class="Content">
     <h3 class="Heading Secondary">Редактирование</h3>
     <div class="Content-Inner">
-        <form class="Wide" action="">
+        <form class="Wide" id="Edit-Item" enctype="multipart/form-data">
             @foreach($content['data']['fields'] as $alias => $field)
                 @if($field['type']=='text')
                     <div class="Control-Group">
@@ -24,6 +24,18 @@
                         <textarea name="{{$alias}}" id="field_{{$alias}}" type="text">{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}</textarea>
                         @else
                         <p>{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}</p>
+                        @endif
+                    </div>
+                @endif
+
+                @if($field['type']=='photo')
+                    <div class="Control-Group">
+                        <label for="field_{{$alias}}">{{$field['title']}}</label>
+                        @if($field['editable']==true)
+                            <input name="{{$alias}}" id="field_{{$alias}}" type="file" value="{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}"/>
+                            <img src="{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}" title="Изображение"/>
+                        @else
+                            <img src="{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}" title="Изображение"/>
                         @endif
                     </div>
                 @endif

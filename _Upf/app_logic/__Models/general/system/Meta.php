@@ -5,6 +5,7 @@ namespace UpfModels;
 class Meta extends General {
     protected $table = 'system_meta';
     public $Config = 'models/backend/sections/Meta';
+    public $PhotosUrl = '/photo/standard/system/meta/';
 
     /*** *** Relations *** ***//////////////////////////////////////////////////////////////////////////////////////////
 
@@ -107,6 +108,7 @@ class Meta extends General {
                 'meta.tags',
                 'meta.regions')
             ->first();
+
         return [
             'item' => $Result->toArray(),
             'fields' =>\Config::get($this->Config.'.edit')
@@ -125,14 +127,25 @@ class Meta extends General {
                     'intro' => 'required|min:5'
                 ]
         );
+
         if(!$Validator->fails()){
             $Result = $this->WhereAliasInMeta($this,$Alias)->first();
             $Result->title = $Input['title'];
             $Result->intro = $Input['intro'];
-            return $Result->save();
+
+            $FileName='';
+            if(\Input::hasFile('logotype')){
+                $FileName = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+                \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileName);
+                $Result->logotype = $FileName;
+            }
+            $Result->save();
+            return $FileName;
         }else{
             return false;
         }
+
+
     }
 
     /*** Remove Item ***/

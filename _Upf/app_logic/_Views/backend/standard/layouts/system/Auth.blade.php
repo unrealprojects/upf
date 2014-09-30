@@ -4,6 +4,7 @@
         <section class="Auth">
             <h3 class="Heading Secondary Icon">Авторизация</h3>
                 <form class="Vertical" id="Auth">
+                    <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
                     <div class="Control-Group">
                         <label for="field_login">Логин</label>
                         <div class="Input-Group Icon Postfix">

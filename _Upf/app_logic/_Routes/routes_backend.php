@@ -1,18 +1,21 @@
 <?php
 /*** Auth ***/
-Route::get('/backend/auth','\UpfControllers\AdministratorsController@Auth');
-Route::post('/backend/login','\UpfControllers\AdministratorsController@LogIn');
 
+Route::get('/backend/auth','\UpfControllers\AdministratorsController@Auth');
+Route::group(['before'=>'csrf'],function(){
+    Route::post('/backend/login','\UpfControllers\AdministratorsController@LogIn');
+});
 
 Route::group(['before'=>'administrators'], function(){
     /*** Auth ***/
     Route::get('/backend/logout','\UpfControllers\AdministratorsController@LogOut');
+
     /*** Sections ***/
     NewRoutesGroup([
         'articles',
         'pages',
         'users',
-    ],'General','section');
+    ],'section');
 
     /*** Filters ***/
     NewRoutesGroup([
@@ -20,7 +23,7 @@ Route::group(['before'=>'administrators'], function(){
         'regions',
         'tags',
         'parameters',
-    ],'General','filter');
+    ],'filter');
 
     /*** System ***/
     NewRoutesGroup([
@@ -28,13 +31,12 @@ Route::group(['before'=>'administrators'], function(){
         'map',
         'files',
         'options',
-    ],'General','system');
+        'controllers    '
+    ],'system');
 
 
     /*** Home ***/
     Route::get('/backend/','\UpfControllers\HomeBackendController@index');
-
-
 
     /*** Documentation ***/
     Route::get('/backend/docs/cms','\UpfControllers\DocsController@PageCms');

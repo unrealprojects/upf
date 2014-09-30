@@ -36,6 +36,36 @@ class BackendController extends \Controller {
     }
 
     public function getBreadCrumbs(){
+
+        if(\Request::segment(1)=='backend'){
+            $this->viewData['BreadCrumbs'][0]['link'] = '/backend';
+            $this->viewData['BreadCrumbs'][0]['title'] = 'Панель управления';
+
+            if(\Request::segment(2)){
+                $Model = new \UpfModels\Components();
+                if($Destination = $Model->GetItemByAlias(\Request::segment(2))){
+                    $this->viewData['BreadCrumbs'][1]['alias'] = $Destination->alias;
+                    $this->viewData['BreadCrumbs'][1]['title'] = $Destination->title;
+                }
+            }
+            if(\Request::segment(3)){
+                $Model = new \UpfModels\Components();
+                if($Destination = $Model->GetItemByAlias(\Request::segment(3))){
+                    $this->viewData['BreadCrumbs'][2]['link'] =
+                        $this->viewData['BreadCrumbs'][0]['link'].'/'.$this->viewData['BreadCrumbs'][1]['alias'].'/'.$Destination->alias;
+                    $this->viewData['BreadCrumbs'][2]['title'] = $Destination->title;
+                }
+            }
+        }
+
+        //print_r($this->viewData['BreadCrumbs']);
+
+
+
+
+
+
+        /*
         $app_section=\Request::segment(1);
         $app_section_name=\UpfModels\Meta::where('section',$app_section)->where('alias','')->first();
         if($app_section_name){
@@ -58,6 +88,6 @@ class BackendController extends \Controller {
                         'link'=>''
                     ];
             }
-        }
+        }*/
     }
 }

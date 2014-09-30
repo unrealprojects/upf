@@ -17,7 +17,6 @@ class Articles extends Migration {
             /*** Content ***/
             $table->string('title')->nullable();
             $table->string('logotype')->nullable();
-            $table->string('photos')->nullable();
             $table->string('intro')->nullable();
             $table->text('text')->nullable();
 

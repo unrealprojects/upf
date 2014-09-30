@@ -20,10 +20,9 @@ class Components extends Migration {
             $table->string('description')->nullable();
 
             /*** Statuses ***/
+            $table->string('destination')->nullable();
             $table->integer('status')->default(\Config::get('models/Fields.status.active'));
-            $table->string('purpose')->nullable();
             $table->boolean('favorite')->default(0);
-            $table->timestamps();
         });
     }
 

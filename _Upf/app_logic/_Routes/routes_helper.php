@@ -7,10 +7,7 @@
  *   /.../section/.../{alias}/remove
  *   /.../section/.../add
  ***/
-function NewRoutesGroup($Groups,
-                         $SiteName='General',
-                         $SectionType='section',
-                         $Division='backend'){
+function NewRoutesGroup($Groups,$SectionType='section',$Division='backend'){
     // Transform Array or String
     if(!is_array($Groups)){
         $temp[] = $Groups;
@@ -19,8 +16,6 @@ function NewRoutesGroup($Groups,
 
     // First Letter of Division
     $NamespaceDivision=\UpfHelpers\String::LetterToUppercase($Division);
-    // Add Namespace Slash
-    $SiteName= $SiteName.'\\';
 
     // Create Routes
     foreach($Groups as $Section){
