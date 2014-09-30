@@ -23,7 +23,7 @@ a:active {
 h1 {	font-size: 3.00em;		}
 h2 {	font-size: 2.50em;		}
 h3 {	font-size: 30px;		}
-h4 {	font-size: 1.10em;		}
+h4 {	font-size: 26px;	 	}
 h5 {	font-size: 1.00em;		}
 h6 {	font-size: 0.90em;		}
 
@@ -51,6 +51,10 @@ p + P {
 code {
 	&.Inline {
 		display: inline-block;
+		padding: 1px;
+		border: 1px solid $Clr-Grey-Light;
+		background-color: $Clr-Grey-Lighter;
+		box-shadow: 0 0 1px white inset;
 	}
 }
 
@@ -65,7 +69,9 @@ code {
 
 	@extend ._Unselectable;
 }
-
+.Columns {
+	@include Columns(2, $size-l);
+}
 // Heading with background
 .Heading.Primary {
 	color: $Clr-Asbestos;

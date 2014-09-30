@@ -467,6 +467,7 @@ a.Button ,
 	color: 					black;
 	font-size: 				14px;
 	text-shadow:			1px 1px 1px white;
+	box-shadow: 			0 0 2px rgba(255,255,255,.5) inset;
 
 	@extend 		    	%_Clickable;
 	@include            	Transition(#{border,background-color,color}, .3s);
@@ -503,22 +504,23 @@ a.Button ,
 
 	// Button round corners
 	&.Round {
-		@include Round(all,$Ctrl-Border-Radius * 2);
+		@include 			Round(all,$Ctrl-Border-Radius * 2);
 	}
 	&.Search {
-		@include Round(all, (($line-height)/2) + $size-xs);
+		@include 			Round(all, (($line-height)/2) + $size-xs);
 		&.Large {
-			@include Round(all, (($line-height)/2) + $size-s);
+			@include 		Round(all, (($line-height)/2) + $size-s);
 		}
 		&.Huge {
-			@include Round(all, (($line-height)/2) + $size-n);
+			@include 		Round(all, (($line-height)/2) + $size-n);
 		}
 	}
 	&.Icon {
 		& > span.fa:first-child	 {
-			margin-right: $size-s;
+			margin-right: 	$size-s;
 		}
 	}
+
 	&.Primary {
 		border:				1px solid $Clr-Main-Dark;
 		background-color: 	$Clr-Main;

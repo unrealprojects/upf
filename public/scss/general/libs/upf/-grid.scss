@@ -1,7 +1,7 @@
 // UPF Grid Module v.4.2
 
 // GRID VARIABLES: MERGED GRID
-$Grid-One-Width:		(100% - (12 * $Grid-Gutter)) / 12;
+$Grid-One-Width:		(100% - (11 * $Grid-Gutter)) / 12;
 $Grid-Two-Width:		($Grid-One-Width * 2) + (1 * $Grid-Gutter);
 $Grid-Three-Width:		($Grid-One-Width * 3) + (2 * $Grid-Gutter);
 $Grid-Four-Width:		($Grid-One-Width * 4) + (3 * $Grid-Gutter);
@@ -60,6 +60,12 @@ ul.Row > li {
 	.Row.Split > * {
 		margin-left: $Grid-Gutter/2;
 		margin-right: $Grid-Gutter/2;
+		&:first-child {
+			margin-left:0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
 	}
 
 	// Makes grid nodes inline
@@ -219,39 +225,18 @@ ul.Row > li {
 	.Row.Split > .Grid-HG-12  {	width: $Grid-Twelve-Width;	}
 }
 
-.Push-One {
-	margin-left: $Grid-One-Width + $Grid-Gutter;
-}
-.Push-Two {
-	margin-left: $Grid-Two-Width + $Grid-Gutter;
-}
-.Push-Three {
-	margin-left: $Grid-Three-Width + $Grid-Gutter;
-}
-.Push-Four {
-	margin-left: $Grid-Four-Width + $Grid-Gutter;
-}
-.Push-Five {
-	margin-left: $Grid-Five-Width + $Grid-Gutter;
-}
-.Push-Six {
-	margin-left: $Grid-Six-Width + $Grid-Gutter;
-}
-.Push-Seven {
-	margin-left: $Grid-Seven-Width + $Grid-Gutter;
-}
-.Push-Eight {
-	margin-left: $Grid-Eight-Width + $Grid-Gutter;
-}
-.Push-Nine {
-	margin-left: $Grid-Nine-Width + $Grid-Gutter;
-}
-.Push-Ten {
-	margin-left: $Grid-Ten-Width + $Grid-Gutter;
-}
-.Push-Eleven {
-	margin-left: $Grid-Eleven-Width + $Grid-Gutter;
-}
+.Push-1		{margin-left: $Grid-One-Width + ($Grid-Gutter/2)}
+.Push-2		{margin-left: $Grid-Two-Width + ($Grid-Gutter/2)}
+.Push-3		{margin-left: $Grid-Three-Width + ($Grid-Gutter/2)}
+.Push-4		{margin-left: $Grid-Four-Width + ($Grid-Gutter/2)}
+.Push-5		{margin-left: $Grid-Five-Width + ($Grid-Gutter/2)}
+.Push-6		{margin-left: $Grid-Six-Width + ($Grid-Gutter/2)}
+.Push-7		{margin-left: $Grid-Seven-Width + ($Grid-Gutter/2)}
+.Push-8		{margin-left: $Grid-Eight-Width + ($Grid-Gutter/2)}
+.Push-9		{margin-left: $Grid-Nine-Width + ($Grid-Gutter/2)}
+.Push-10	{margin-left: $Grid-Ten-Width + ($Grid-Gutter/2)}
+.Push-11	{margin-left: $Grid-Eleven-Width + ($Grid-Gutter/2)}
+
 [class*='Hidden-'] {
 	display: block;
 }
@@ -319,5 +304,19 @@ table.Adaptive .Caption ,
 .Visible-HR {
 	@include Adaptive($Viewport-HG) {
 		display: inline-block;
+	}
+}
+
+
+// Demo mode highlights grid nodes and makes them visible to developer.
+// NOT FOR PRODUCTION!
+.Row.Demo {
+	& > * {
+		padding: $size-s $size-n;
+		border: 1px solid $Clr-Cyan;
+		background-color: $Clr-Cyan-Light;
+	}
+	+ .Row.Demo {
+		margin-top: $size-n;
 	}
 }

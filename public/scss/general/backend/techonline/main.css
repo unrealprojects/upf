@@ -172,8 +172,12 @@ iframe {
     width: 50%; } }
 @media all and (min-width: 768px) {
   .Row.Split > * {
-    margin-left: 1%;
-    margin-right: 1%; }
+    margin-left: 0.5%;
+    margin-right: 0.5%; }
+    .Row.Split > *:first-child {
+      margin-left: 0; }
+    .Row.Split > *:last-child {
+      margin-right: 0; }
 
   [class*='Grid-XS'],
   [class*='Grid-SM'],
@@ -226,40 +230,40 @@ iframe {
     width: 100%; }
 
   .Row.Split > .Grid-XS-1 {
-    width: 6.33333%; }
+    width: 7.41667%; }
 
   .Row.Split > .Grid-XS-2 {
-    width: 14.66667%; }
+    width: 15.83333%; }
 
   .Row.Split > .Grid-XS-3 {
-    width: 23%; }
+    width: 24.25%; }
 
   .Row.Split > .Grid-XS-4 {
-    width: 31.33333%; }
+    width: 32.66667%; }
 
   .Row.Split > .Grid-XS-5 {
-    width: 39.66667%; }
+    width: 41.08333%; }
 
   .Row.Split > .Grid-XS-6 {
-    width: 48%; }
+    width: 49.5%; }
 
   .Row.Split > .Grid-XS-7 {
-    width: 56.33333%; }
+    width: 57.91667%; }
 
   .Row.Split > .Grid-XS-8 {
-    width: 64.66667%; }
+    width: 66.33333%; }
 
   .Row.Split > .Grid-XS-9 {
-    width: 73%; }
+    width: 74.75%; }
 
   .Row.Split > .Grid-XS-10 {
-    width: 81.33333%; }
+    width: 83.16667%; }
 
   .Row.Split > .Grid-XS-11 {
-    width: 89.66667%; }
+    width: 91.58333%; }
 
   .Row.Split > .Grid-XS-12 {
-    width: 98%; } }
+    width: 100%; } }
 @media all and (min-width: 1024px) {
   .Row.Merge > .Grid-SM-1 {
     width: 8.33333%; }
@@ -298,40 +302,40 @@ iframe {
     width: 100%; }
 
   .Row.Split > .Grid-SM-1 {
-    width: 6.33333%; }
+    width: 7.41667%; }
 
   .Row.Split > .Grid-SM-2 {
-    width: 14.66667%; }
+    width: 15.83333%; }
 
   .Row.Split > .Grid-SM-3 {
-    width: 23%; }
+    width: 24.25%; }
 
   .Row.Split > .Grid-SM-4 {
-    width: 31.33333%; }
+    width: 32.66667%; }
 
   .Row.Split > .Grid-SM-5 {
-    width: 39.66667%; }
+    width: 41.08333%; }
 
   .Row.Split > .Grid-SM-6 {
-    width: 48%; }
+    width: 49.5%; }
 
   .Row.Split > .Grid-SM-7 {
-    width: 56.33333%; }
+    width: 57.91667%; }
 
   .Row.Split > .Grid-SM-8 {
-    width: 64.66667%; }
+    width: 66.33333%; }
 
   .Row.Split > .Grid-SM-9 {
-    width: 73%; }
+    width: 74.75%; }
 
   .Row.Split > .Grid-SM-10 {
-    width: 81.33333%; }
+    width: 83.16667%; }
 
   .Row.Split > .Grid-SM-11 {
-    width: 89.66667%; }
+    width: 91.58333%; }
 
   .Row.Split > .Grid-SM-12 {
-    width: 98%; } }
+    width: 100%; } }
 @media all and (min-width: 1260px) {
   .Row.Merge > .Grid-MD-1 {
     width: 8.33333%; }
@@ -370,40 +374,40 @@ iframe {
     width: 100%; }
 
   .Row.Split > .Grid-MD-1 {
-    width: 6.33333%; }
+    width: 7.41667%; }
 
   .Row.Split > .Grid-MD-2 {
-    width: 14.66667%; }
+    width: 15.83333%; }
 
   .Row.Split > .Grid-MD-3 {
-    width: 23%; }
+    width: 24.25%; }
 
   .Row.Split > .Grid-MD-4 {
-    width: 31.33333%; }
+    width: 32.66667%; }
 
   .Row.Split > .Grid-MD-5 {
-    width: 39.66667%; }
+    width: 41.08333%; }
 
   .Row.Split > .Grid-MD-6 {
-    width: 48%; }
+    width: 49.5%; }
 
   .Row.Split > .Grid-MD-7 {
-    width: 56.33333%; }
+    width: 57.91667%; }
 
   .Row.Split > .Grid-MD-8 {
-    width: 64.66667%; }
+    width: 66.33333%; }
 
   .Row.Split > .Grid-MD-9 {
-    width: 73%; }
+    width: 74.75%; }
 
   .Row.Split > .Grid-MD-10 {
-    width: 81.33333%; }
+    width: 83.16667%; }
 
   .Row.Split > .Grid-MD-11 {
-    width: 89.66667%; }
+    width: 91.58333%; }
 
   .Row.Split > .Grid-MD-12 {
-    width: 98%; } }
+    width: 100%; } }
 @media all and (min-width: 1880px) {
   .Row.Merge > .Grid-LR-1 {
     width: 8.33333%; }
@@ -442,40 +446,40 @@ iframe {
     width: 100%; }
 
   .Row.Split > .Grid-LR-1 {
-    width: 6.33333%; }
+    width: 7.41667%; }
 
   .Row.Split > .Grid-LR-2 {
-    width: 14.66667%; }
+    width: 15.83333%; }
 
   .Row.Split > .Grid-LR-3 {
-    width: 23%; }
+    width: 24.25%; }
 
   .Row.Split > .Grid-LR-4 {
-    width: 31.33333%; }
+    width: 32.66667%; }
 
   .Row.Split > .Grid-LR-5 {
-    width: 39.66667%; }
+    width: 41.08333%; }
 
   .Row.Split > .Grid-LR-6 {
-    width: 48%; }
+    width: 49.5%; }
 
   .Row.Split > .Grid-LR-7 {
-    width: 56.33333%; }
+    width: 57.91667%; }
 
   .Row.Split > .Grid-LR-8 {
-    width: 64.66667%; }
+    width: 66.33333%; }
 
   .Row.Split > .Grid-LR-9 {
-    width: 73%; }
+    width: 74.75%; }
 
   .Row.Split > .Grid-LR-10 {
-    width: 81.33333%; }
+    width: 83.16667%; }
 
   .Row.Split > .Grid-LR-11 {
-    width: 89.66667%; }
+    width: 91.58333%; }
 
   .Row.Split > .Grid-LR-12 {
-    width: 98%; } }
+    width: 100%; } }
 @media all and (min-width: 2560px) {
   .Row.Merge > .Grid-HG-1 {
     width: 8.33333%; }
@@ -514,72 +518,72 @@ iframe {
     width: 100%; }
 
   .Row.Split > .Grid-HG-1 {
-    width: 6.33333%; }
+    width: 7.41667%; }
 
   .Row.Split > .Grid-HG-2 {
-    width: 14.66667%; }
+    width: 15.83333%; }
 
   .Row.Split > .Grid-HG-3 {
-    width: 23%; }
+    width: 24.25%; }
 
   .Row.Split > .Grid-HG-4 {
-    width: 31.33333%; }
+    width: 32.66667%; }
 
   .Row.Split > .Grid-HG-5 {
-    width: 39.66667%; }
+    width: 41.08333%; }
 
   .Row.Split > .Grid-HG-6 {
-    width: 48%; }
+    width: 49.5%; }
 
   .Row.Split > .Grid-HG-7 {
-    width: 56.33333%; }
+    width: 57.91667%; }
 
   .Row.Split > .Grid-HG-8 {
-    width: 64.66667%; }
+    width: 66.33333%; }
 
   .Row.Split > .Grid-HG-9 {
-    width: 73%; }
+    width: 74.75%; }
 
   .Row.Split > .Grid-HG-10 {
-    width: 81.33333%; }
+    width: 83.16667%; }
 
   .Row.Split > .Grid-HG-11 {
-    width: 89.66667%; }
+    width: 91.58333%; }
 
   .Row.Split > .Grid-HG-12 {
-    width: 98%; } }
-.Push-One {
-  margin-left: 8.33333%; }
+    width: 100%; } }
+.Push-1 {
+  margin-left: 7.91667%; }
 
-.Push-Two {
-  margin-left: 16.66667%; }
+.Push-2 {
+  margin-left: 16.33333%; }
 
-.Push-Three {
-  margin-left: 25%; }
+.Push-3 {
+  margin-left: 24.75%; }
 
-.Push-Four {
-  margin-left: 33.33333%; }
+.Push-4 {
+  margin-left: 33.16667%; }
 
-.Push-Five {
-  margin-left: 41.66667%; }
+.Push-5 {
+  margin-left: 41.58333%; }
 
-.Push-Six {
+.Push-6 {
   margin-left: 50%; }
 
-.Push-Seven {
-  margin-left: 58.33333%; }
+.Push-7 {
+  margin-left: 58.41667%; }
 
-.Push-Eight {
-  margin-left: 66.66667%; }
+.Push-8 {
+  margin-left: 66.83333%; }
 
-.Push-Nine {
-  margin-left: 75%; }
+.Push-9 {
+  margin-left: 75.25%; }
 
-.Push-Ten {
-  margin-left: 83.33333%; }
+.Push-10 {
+  margin-left: 83.66667%; }
 
-.Push-Eleven {
-  margin-left: 91.66667%; }
+.Push-11 {
+  margin-left: 92.08333%; }
 
 [class*='Hidden-'] {
   display: block; }
@@ -639,6 +643,13 @@ table.Adaptive .Caption,
   .Visible-HR {
     display: inline-block; } }
 
+.Row.Demo > * {
+  padding: 10px 15px;
+  border: 1px solid #07b3d2;
+  background-color: #25d4f3; }
+.Row.Demo + .Row.Demo {
+  margin-top: 15px; }
+
 html {
   font-size: 1em;
   line-height: 1.45; }
@@ -674,7 +685,7 @@ h3 {
   font-size: 30px; }
 
 h4 {
-  font-size: 1.10em; }
+  font-size: 26px; }
 
 h5 {
   font-size: 1.00em; }
@@ -701,7 +712,11 @@ p + P {
 
 code.Inline, code.pagination,
 code.Pagination {
-  display: inline-block; }
+  display: inline-block;
+  padding: 1px;
+  border: 1px solid #dedede;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 1px white inset; }
 
 .Heading {
   display: block;
@@ -709,6 +724,14 @@ code.Pagination {
   text-transform: uppercase;
   font-weight: 100;
   cursor: default; }
+
+.Columns {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+  column-gap: 30px; }
 
 .Heading.Primary {
   color: #7f8c8d;
@@ -1317,6 +1340,7 @@ table td.Actions ul li a {
   color: black;
   font-size: 14px;
   text-shadow: 1px 1px 1px white;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5) inset;
   -webkit-transition-property: border, background-color, color;
   -moz-transition-property: border, background-color, color;
   transition-property: border, background-color, color;

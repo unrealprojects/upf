@@ -1,7 +1,8 @@
 @import "../../general/libs/fa/font-awesome";
 @import "../../general/libs/upf/upf";
 @import "-code";
-$Menu-Width: 300px;
+
+$Menu-Width: 			300px;
 
 $Clr-Main:  			$Clr-Alizarin;
 $Clr-Main-Dark: 		$Clr-Pamegranate;
@@ -10,16 +11,16 @@ $Clr-Secondary-Dark:	$Clr-Silver;
 $Clr-Secondary-Darker:	$Clr-Concrete;
 
 body {
-	font-family: $Font-Family-Open-Sans;
-	font-size: 13px;
-	background-color: $Clr-Secondary;
+	font-family: 		$Font-Family-Open-Sans;
+	font-size: 			13px;
+	background-color: 	$Clr-Secondary;
 }
 
 .Icon-Link {
-	font-size: 13px;
+	font-size: 			13px;
 	span.fa {
-		line-height: 16px;
-		font-size: 16px;
+		line-height: 	16px;
+		font-size: 		16px;
 	}
 	&.Right {
 		span.fa {
@@ -112,34 +113,40 @@ a.Menu-Subcategory-Link {
 	}
 }
 
-// MAIN BLOCK
+// Main Block
 main {
 	margin-left: $Menu-Width;
 	& > .Content {
+		margin-top: $size;
+		padding: $size-l;
 		border-top: 1px solid $Clr-Grey-Light;
+		border-bottom: 1px solid $Clr-Grey-Light;
+		background-color: white;
 		.Content-Inner {
-			padding: $size-n;
-			background-color: white;
+			@extend ._Vertical-Spacing;
+			&.Short {
+				max-width: 1000px;
+			}
 		}
 	}
 }
 nav.Userbar {
-	height: auto;
-	background-color: white;
-	border-bottom: 1px solid $Clr-Secondary-Dark;
-	@extend ._Clearfix;
+	height: 				auto;
+	background-color: 		white;
+	border-bottom: 			1px solid $Clr-Secondary-Dark;
+	@extend 				._Clearfix;
 	ul {
-		display: inline-block;
-		@extend ._Inline;
-		@extend ._No-Bullets;
+		display: 			inline-block;
+		@extend 			._Inline;
+		@extend 			._No-Bullets;
 		li {
-			line-height: 16px;
+			line-height: 	16px;
 			a {
-				display: block;
-				padding: $size-n;
-				color: $Clr-Text-Main;
+				display: 	block;
+				padding: 	$size-n;
+				color: 		$Clr-Text-Main;
 				&:hover {
-					color: $Clr-Cyan;
+					color: 	$Clr-Cyan;
 				}
 			}
 			&.Icon {

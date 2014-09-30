@@ -112,3 +112,14 @@
 		@content;
 	}
 }
+
+@mixin Columns($Column-Count,$Column-Gap) {
+
+	-webkit-column-count:	$Column-Count;
+	   -moz-column-count:	$Column-Count;
+	    	column-count:	$Column-Count;
+
+	-webkit-column-gap:		$Column-Gap;
+	   -moz-column-gap:		$Column-Gap;
+	        column-gap:		$Column-Gap;
+}
