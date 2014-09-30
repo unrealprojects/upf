@@ -5,6 +5,7 @@ window.upf.Menu = {};
 window.upf.List = {};
 window.upf.Edit = {};
 window.upf.Add = {};
+window.upf.Tools = {};
 
 /*** Box ***/
 window.upf.Box = {};
@@ -18,9 +19,10 @@ upf.Box.Delete = function(){
         Box = '.Box';
 
     $(document).on('click',DeleteButton,function(){
-        $(this).parents(Box).animate({'width':'0px','height':'0px','opacity':'0','margin':'0px'},function(){
+        $(this).parents(Box).stop(true,true).animate({'width':'0px','height':'0px','opacity':'0','margin':'0px'},function(){
             $(this).remove();
         });
+
         return false;
     });
 }
@@ -51,11 +53,14 @@ upf.Box.DropDown = function(){
 /*** Messages :: Show ***/
 upf.Messages.Show = function (message,type){
     if(type===undefined){
-        type='success';
+        type='Success';
     }
     var title = {
-        'success':'Успешно!',
-        'error':'Успешно!'
+        'Success':'Успешно!',
+        'Error':'Ошибка!',
+        'Warning':'Предупреждение!',
+        'Info':'Сообщение!'
+
     };
     // Default Variables
     var Message = '.Message';
@@ -64,15 +69,35 @@ upf.Messages.Show = function (message,type){
     $(Message).remove();
 
     // Show New Message
-    $('body').append('<aside class="Message Bottom-Right Icon '+type+'">'+
-        '<h4>'+title[type]+'</h4>'+
-        '<p>'+message+'</p>'+
-        '</aside>');
-    $(Message).effect('bounce').delay(2000).fadeOut(2000);
+    $('body').append('<article class="Box Message '+type+'">'
+                        +'<header>'
+                            +'<h4 class="Box-Title">'+title[type]+'</h4>'
+                            +'<ul class="Box-Tools">'
+                                +'<li><a class="Box-Drop-Down" href="#"><span class=" fa fa-chevron-down"></span></a></li>'
+                                +'<li><a class="Box-Delete" href="#"><span class="fa fa-close"></span></a></li>'
+                            +'</ul>'
+                        +'</header>'
+                        +'<div class="Box-Content">'+ message +'</div>'
+                    +'</article>');
+    $(Message).fadeIn(1000).delay(10000).fadeOut(2000);
+}
+
+upf.Tools.Collapsed = function(){
+    // Default Variables
+    var Toggle = '.Collapsed .Toggle',
+        DropDown = '.Dropdown',
+        Collapsed = '.Collapsed';
+
+    $(DropDown).hide();
+    $(document).on('click',Toggle,function(){
+        $(this).parents(Collapsed).find(DropDown).slideToggle();
+        return false;
+    });
 }
 
 /*** Box ***/
 upf.Box.Delete();
 upf.Box.Hide();
 upf.Box.DropDown();
+upf.Tools.Collapsed();
 

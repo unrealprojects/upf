@@ -31,5 +31,6 @@
 @endsection
 
 @section('scripts')
-
+    @parent
+        <script src="/js/backend/auth.js" type="text/javascript"></script>
 @endsection

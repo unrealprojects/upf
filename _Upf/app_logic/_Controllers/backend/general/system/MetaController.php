@@ -4,10 +4,12 @@ namespace UpfControllers;
 class MetaController extends GeneralBackendController{
     public $View = '/backend/standard/layouts/section/';
     public $BaseUrl = '/backend/section/articles/';
+    public $Model = '\UpfModels\Meta';
 
     public function __construct(){
        parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
+
     }
 
 
@@ -21,7 +23,6 @@ class MetaController extends GeneralBackendController{
         $this->viewData['content'] = [
             'data'=>$Model->index()
         ];
-
         return \View::make($this->View.'list',$this->viewData);
     }
 

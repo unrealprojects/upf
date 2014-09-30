@@ -6,6 +6,10 @@ class BackendController extends \Controller {
     public $viewData;
 
     public function __construct(){
+        $Administrator = \Auth::getUser();
+        if($Administrator){
+            $this->viewData['AdministratorLogin']=$Administrator->login;
+        }
         $this->getMeta();
         $this->getBreadCrumbs();
         $this->setTemplate();
@@ -24,12 +28,10 @@ class BackendController extends \Controller {
 
         $MetaData = \UpfModels\Meta::where('section',$app_section)->where('alias',$alias)->first();
 
-        $this->viewData=[
-            'meta' => [
+        $this->viewData['meta']=[
                 'title' => (!empty($MetaData->title))?$MetaData->title:\Config::get('site/app_settings.MetaData.title'),
                 'description' => (!empty($MetaData->description))?$MetaData->description:\Config::get('site.app_settings.metadata.description'),
                 'keywords' => (!empty($MetaData->keywords))?$MetaData->keywords:\Config::get('site.app_settings.metadata.keyword')
-            ]
         ];
     }
 

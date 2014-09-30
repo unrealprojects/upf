@@ -11,16 +11,17 @@ class Administrators extends Migration {
         {
             /*** Index ***/
             $table->increments('id');
-            $table->unique('alias');
-            $table->string('alias')->nullable();
 
             /*** Authentication ***/
-            $table->string('login')->nullable();
-            $table->string('password')->nullable();
+            $table->string('login');
+            $table->unique('login');
+            $table->string('password');
+            $table->rememberToken();
+
 
             /*** Content ***/
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('email')->nullable();
             $table->string('phones')->nullable();
 

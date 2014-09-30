@@ -2,7 +2,8 @@
 namespace UpfControllers;
 
 class HomeBackendController extends BackendController{
+    public $View = '/backend/standard/layouts/system/';
     public function index(){
-        echo 'Home';
+        return \View::make($this->View.'Home',$this->viewData);
     }
 }

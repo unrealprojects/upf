@@ -6,8 +6,9 @@ return [
         1 => 'Active',
         2 => 'Draft',
         3 => 'Trash',
-        'default' => 2,
+        'inactive' => 0,
         'active' => 1,
+        'default' => 2,
         'trash'=> 3
     ],
     'privileges' =>[

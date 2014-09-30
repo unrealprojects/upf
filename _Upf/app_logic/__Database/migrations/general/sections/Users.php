@@ -14,7 +14,9 @@ class Users extends Migration {
 
             /*** Authentication ***/
             $table->string('login')->nullable();
+            $table->unique('login');
             $table->string('password')->nullable();
+            $table->rememberToken();
 
             /*** Content ***/
             $table->string('title')->nullable();
