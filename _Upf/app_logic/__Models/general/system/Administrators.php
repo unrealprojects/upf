@@ -3,6 +3,9 @@
 namespace UpfModels;
 
 class Administrators extends General {
+    protected $table = 'system_administrators';
 
-    protected $table = 'system_comments';
+    public function Auth(){
+
+    }
 }

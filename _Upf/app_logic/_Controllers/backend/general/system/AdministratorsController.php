@@ -1,49 +1,20 @@
 <?php
 namespace UpfControllers;
 
-class AdministratorController extends GeneralBackendController{
+class AdministratorsController extends GeneralBackendController{
     public $View = '/backend/standard/layouts/section/';
-    public $BaseUrl = '/backend/section/articles/';
+    public $BaseUrl = '/backend/section/administrators/';
 
     public function __construct(){
        parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
     }
 
-    /*** Show List ***/
-    public function index(){
+    public function Auth(){
+        if(\Input::get('login') && \Input::get('password')){
 
-        $Articles = new \UpfModels\Articles();
-        // View Data
-        $this->viewData['content'] = [
-            'data'=>$Articles->index()
-        ];
-
-        return \View::make($this->View.'list',$this->viewData);
+        }else{
+            return \View::make('/backend/standard/layouts/system/auth',$this->viewData);
+        }
     }
-
-    /*** Show Edit Element ***/
-    public function edit($alias){
-
-        return \View::make($this->View.'edit',$this->viewData);
-    }
-
-    /*** Update Item ***/
-    public function update($alias){
-
-    }
-
-    /*** Remove Item ***/
-    public function remove($alias){
-        $Articles = new \UpfModels\Articles();
-        $Articles->remove($alias);
-    }
-
-    /*** Add Item ***/
-    public function add(){
-
-
-        return \View::make($this->view.'add',$this->viewData);
-    }
-
 }
