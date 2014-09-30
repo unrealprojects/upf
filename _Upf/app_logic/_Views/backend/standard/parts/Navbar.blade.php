@@ -10,7 +10,13 @@
         <li><a href="#"><span class="fa fa-pencil fa-lg"></span></a></li>
         <li><a href="#"><span class="fa fa-trash fa-lg"></span></a></li>
         <li><a href="#"><span class="fa fa-briefcase fa-lg"></span></a></li>
-        <li class="Icon-Link Right"><a href="#">alexmayhem<span class="fa fa-angle-down"></span></a></li>
+        <li class="User-Menu Icon-Link Right">
+            <a class="Toggle" href="#">alexmayhem<span class="fa fa-angle-down"></span></a>
+            <ul class="Dropdown">
+                <li class="Icon"><a href="#"><span class="fa fa-user"></span>Кабинет</a></li>
+                <li class="Icon"><a href="#"><span class="fa fa-close"></span>Выйти</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>
 <nav class="Breadcrumbs">

@@ -3457,6 +3457,11 @@ nav.Userbar {
       float: left; }
     nav.Userbar ul.Right {
       float: right; }
+  nav.Userbar .User-Menu {
+    position: relative; }
+    nav.Userbar .User-Menu .Dropdown {
+      position: absolute;
+      background-color: white; }
 
 .Auth-Wrap {
   position: absolute;
@@ -3493,5 +3498,8 @@ nav.Userbar {
       width: 400px;
       margin-top: -150px;
       margin-left: -200px; } }
+
+li.Icon a span.fa {
+  margin-right: 15px; }
 
 /*# sourceMappingURL=main.css.map */

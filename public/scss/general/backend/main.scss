@@ -160,6 +160,14 @@ nav.Userbar {
 			float: right;
 		}
 	}
+	.User-Menu {
+		position: relative;
+
+		.Dropdown {
+			position: absolute;
+			background-color: white;
+		}
+	}
 
 }
 .Auth-Wrap {
@@ -183,5 +191,13 @@ nav.Userbar {
 		width: 400px;
 		margin-top: -150px;
 		margin-left: -200px;
+	}
+}
+
+li.Icon {
+	a {
+		span.fa {
+			margin-right: $size-n;
+		}
 	}
 }
