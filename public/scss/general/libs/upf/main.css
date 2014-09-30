@@ -1542,4 +1542,12 @@ table td.Actions ul li a {
       table td.Actions ul li a.Warning .Dropdown-Toggle:hover {
         background-color: #e67e22; }
 
+.Message {
+  position: absolute;
+  max-width: 320px; }
+  @media screen and (min-width: 768px) {
+    .Message {
+      top: 30px;
+      right: 30px; } }
+
 /*# sourceMappingURL=main.css.map */

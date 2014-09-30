@@ -626,3 +626,12 @@ a.Button ,
 	}
 
 }
+
+.Message {
+	position: absolute;
+	max-width: 	320px;
+	@include 	Adaptive($Viewport-XS) {
+		top: 	$size-l;
+		right: 	$size-l;
+	}
+}
