@@ -35,9 +35,11 @@
   outline: 1px red solid !important; }
 
 ._Clearfix:before, ._Inline:before, .Breadcrumbs .Breadcrumb-List:before, .Box > header ul.Box-Tools:before, .Row:before, .Node:before, table.Adaptive td:before, .pagination:before,
-.Pagination:before, .Group.Radio li:before,
+.Pagination:before, .Group:before,
+.Ctrl-Grp:before,
+.Control-Group:before, .Group.Radio li:before,
 .Ctrl-Grp.Radio li:before,
-.Control-Group.Radio li:before, dl.Tabs:before, .Box:before, .Box > header:before,
+.Control-Group.Radio li:before, form.Vertical > .Control-Group .Label-Group:before, dl.Tabs:before, .Box:before, .Box > header:before,
 ._Clearfix:after,
 ._Inline:after,
 .Breadcrumbs .Breadcrumb-List:after,
@@ -47,9 +49,13 @@
 table.Adaptive td:after,
 .pagination:after,
 .Pagination:after,
+.Group:after,
+.Ctrl-Grp:after,
+.Control-Group:after,
 .Group.Radio li:after,
 .Ctrl-Grp.Radio li:after,
 .Control-Group.Radio li:after,
+form.Vertical > .Control-Group .Label-Group:after,
 dl.Tabs:after,
 .Box:after,
 .Box > header:after {
@@ -57,9 +63,11 @@ dl.Tabs:after,
   display: table; }
 
 ._Clearfix:after, ._Inline:after, .Breadcrumbs .Breadcrumb-List:after, .Box > header ul.Box-Tools:after, .Row:after, .Node:after, table.Adaptive td:after, .pagination:after,
-.Pagination:after, .Group.Radio li:after,
+.Pagination:after, .Group:after,
+.Ctrl-Grp:after,
+.Control-Group:after, .Group.Radio li:after,
 .Ctrl-Grp.Radio li:after,
-.Control-Group.Radio li:after, dl.Tabs:after, .Box:after, .Box > header:after {
+.Control-Group.Radio li:after, form.Vertical > .Control-Group .Label-Group:after, dl.Tabs:after, .Box:after, .Box > header:after {
   clear: both; }
 
 ._Inline > *, .Breadcrumbs .Breadcrumb-List > *, .Box > header ul.Box-Tools > * {
@@ -713,6 +721,9 @@ code.Pagination {
   border-bottom: 1px solid #cccccc;
   font-weight: 100; }
 
+.Heading.Icon span.fa {
+  margin-right: 15px; }
+
 html,
 body,
 #Page-Wrap {
@@ -879,7 +890,6 @@ table {
 .Group,
 .Ctrl-Grp,
 .Control-Group {
-  padding: 5px;
   border: solid 1px transparent; }
   .Group label,
   .Group input:not([type='submit']),
@@ -961,6 +971,27 @@ table {
   .Control-Group textarea {
     font-family: "Open Sans", Helvetica, Verdana, sans-serif;
     resize: vertical; }
+  .Group .Input-Group,
+  .Ctrl-Grp .Input-Group,
+  .Control-Group .Input-Group {
+    position: relative; }
+    .Group .Input-Group.Icon.Prefix span.fa, .Group .Input-Group.Icon.Postfix span.fa,
+    .Ctrl-Grp .Input-Group.Icon.Prefix span.fa,
+    .Ctrl-Grp .Input-Group.Icon.Postfix span.fa,
+    .Control-Group .Input-Group.Icon.Prefix span.fa,
+    .Control-Group .Input-Group.Icon.Postfix span.fa {
+      position: absolute;
+      top: 10px;
+      color: #999999;
+      font-size: 16px; }
+    .Group .Input-Group.Icon.Prefix span.fa,
+    .Ctrl-Grp .Input-Group.Icon.Prefix span.fa,
+    .Control-Group .Input-Group.Icon.Prefix span.fa {
+      left: 10px; }
+    .Group .Input-Group.Icon.Postfix span.fa,
+    .Ctrl-Grp .Input-Group.Icon.Postfix span.fa,
+    .Control-Group .Input-Group.Icon.Postfix span.fa {
+      right: 10px; }
   .Group.Radio li,
   .Ctrl-Grp.Radio li,
   .Control-Group.Radio li {
@@ -1038,10 +1069,42 @@ table {
   form.Wide .Ctrl-Grp label,
   form.Wide .Control-Group label {
     width: 25%; } }
-form.Wide .Group.Offset input[type='submit'],
-form.Wide .Ctrl-Grp.Offset input[type='submit'],
-form.Wide .Control-Group.Offset input[type='submit'] {
-  margin-left: 25%; }
+form.Wide .Group.Offset,
+form.Wide .Ctrl-Grp.Offset,
+form.Wide .Control-Group.Offset {
+  margin-top: 15px; }
+  form.Wide .Group.Offset input[type='submit'],
+  form.Wide .Ctrl-Grp.Offset input[type='submit'],
+  form.Wide .Control-Group.Offset input[type='submit'] {
+    margin-left: 25%; }
+
+form.Vertical label,
+form.Vertical .Label-Group,
+form.Vertical input:not([type='submit']),
+form.Vertical select,
+form.Vertical textarea {
+  width: 100%;
+  float: none; }
+form.Vertical > .Control-Group.Checkbox.Submit input[type='checkbox'] {
+  margin-top: 10px;
+  margin-right: 15px;
+  float: left; }
+form.Vertical > .Control-Group.Checkbox.Submit label {
+  float: left;
+  display: inline-block;
+  width: auto; }
+form.Vertical > .Control-Group.Checkbox.Submit input[type='submit'] {
+  margin-left: 0;
+  float: right; }
+form.Vertical > .Control-Group .Label-Group label {
+  width: auto;
+  float: left; }
+form.Vertical > .Control-Group .Label-Group .SubLabel {
+  padding: 10px 0;
+  display: inline-block;
+  float: right;
+  border: 1px solid transparent;
+  line-height: 1; }
 
 #recaptcha_widget_div {
   display: inline-block;

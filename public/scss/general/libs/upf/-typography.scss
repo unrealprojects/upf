@@ -82,3 +82,8 @@ code {
 	border-bottom: 1px solid $Clr-Grey;
 	font-weight: 100;
 }
+.Heading.Icon {
+	span.fa {
+		margin-right: $size-n;
+	}
+}

@@ -1,3 +1,4 @@
+@import "../../general/libs/fa/font-awesome";
 @import "../../general/libs/upf/upf";
 @import "-code";
 $Menu-Width: 300px;
@@ -160,4 +161,27 @@ nav.Userbar {
 		}
 	}
 
+}
+.Auth-Wrap {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	background-color: $Clr-Slate-Dark;
+}
+.Auth {
+	position: absolute;
+	width: 320px;
+	margin-left: -160px;
+	left: 50%;
+	background-color: white;
+	padding: $size-n;
+	border-radius: 10px;
+	border: 5px solid $Clr-Slate;
+	@include Gradient(white, $Clr-Clouds);
+	@include Adaptive($Viewport-XS) {
+		top: 50%;
+		width: 400px;
+		margin-top: -150px;
+		margin-left: -200px;
+	}
 }

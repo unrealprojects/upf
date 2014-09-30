@@ -14,8 +14,8 @@ $Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
 .Group		   ,
 .Ctrl-Grp      ,
 .Control-Group {
-	padding: 				$size-xs;
 	border: solid 			$Ctrl-Border-Width transparent;
+	@extend 				._Clearfix;
 
 	label                  ,
 	input:not([type='submit']),
@@ -34,14 +34,12 @@ $Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
 			width: 			$Ctrl-Input-Width;
 		}
 	}
-
 	input:not([type='submit']),
 	select   ,
 	textarea {
 		box-shadow: 		0 2px 3px $Clr-Grey-Light inset;
 		border-color: 		$Ctrl-Border-Color;
 	}
-
 	input:focus    ,
 	select:focus   ,
 	textarea:focus {
@@ -59,6 +57,31 @@ $Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
 	textarea {
 		font-family: 		$Font-Family-Open-Sans;
 		resize: 			vertical;
+	}
+	.Input-Group {
+		position: 			relative;
+		&.Icon {
+			&.Prefix  ,
+			&.Postfix {
+				span.fa {
+					position: absolute;
+					top: $size-s;
+					color: $Clr-Grey-Dark;
+ 					font-size: 16px;
+				}
+			}
+			&.Prefix {
+				span.fa {
+					left: $size-s;
+				}
+			}
+			&.Postfix {
+				span.fa {
+					right: $size-s;
+
+				}
+			}
+		}
 	}
 	&.Checkbox {
 
@@ -124,11 +147,55 @@ form.Wide {
 			}
 		}
 		&.Offset {
+			margin-top: $size-n;
 			input[type='submit'] {
 				margin-left: $Ctrl-Wide-Label-Width;
 			}
 		}
 	}
+}
+form.Vertical {
+	label                  ,
+	.Label-Group           ,
+	input:not([type='submit']),
+	select                 ,
+	textarea               {
+		width: 100%;
+		float: none;
+	}
+	& > .Control-Group {
+		&.Checkbox.Submit {
+			input[type='checkbox'] {
+				margin-top: $Ctrl-Padding;
+				margin-right: $size-n;
+				float: left;
+			}
+			label {
+				float: left;
+				display: inline-block;
+				width: auto;
+			}
+			input[type='submit'] {
+				margin-left: 0;
+				float: right;
+			}
+		}
+		.Label-Group {
+			@extend ._Clearfix;
+			label {
+				width: auto;
+				float: left;
+			}
+			.SubLabel {
+				padding: $Ctrl-Padding 0;
+				display: inline-block;
+				float: right;
+				border: 1px solid transparent;
+				line-height: $Ctrl-Line-Height;
+			}
+		}
+	}
+
 }
 
 // FIX reCaptcha
