@@ -1125,6 +1125,8 @@ dl.Tabs {
         color: #95a5a6; }
         .Box > header .Box-Tools a:hover {
           color: #e74c3c; }
+  .Box > footer {
+    margin: 15px; }
   .Box > .Box-Content {
     padding: 10px 15px 15px; }
   .Box.Round, table td.Actions ul li a.Box.Ghost,

@@ -246,6 +246,9 @@ dl.Tabs {
 			}
 		}
 	}
+	& > footer {
+		margin: $size-n;
+	}
 	& > .Box-Content {
 		padding: $size-s $size-n $size-n;
 	}

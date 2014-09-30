@@ -27,7 +27,7 @@
 </pre>
     </section>
     <section class="Node-Wrap Row Split">
-        <article class="Box Grid-XS-6 Grid-MD-4 Grid-LR-3">
+        <article class="Box Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box</h4>
                 <ul class="Box-Tools">
@@ -39,7 +39,7 @@
                 Содержимое
             </div>
         </article>
-        <article class="Box Outlined Grid-XS-6 Grid-MD-4 Grid-LR-3">
+        <article class="Box Outlined Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box с границей</h4>
             </header>
@@ -49,7 +49,9 @@
                 <p>Также у него отсутствуют элементы интерактива</p>
             </div>
         </article>
-        <article class="Box Solid Grid-XS-6 Grid-MD-4 Grid-LR-3">
+    </section>
+    <section class="Node-Wrap Row Split">
+        <article class="Box Solid Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box с акцентом на заголовке</h4>
                 <ul class="Box-Tools">
@@ -63,7 +65,7 @@
                 <p>Цвет фона заголовка берется из переменной $Clr-Main</p>
             </div>
         </article>
-        <article class="Box Gradient Info Grid-XS-6 Grid-MD-4 Grid-LR-3">
+        <article class="Box Gradient Info Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box с градиентом и особым цветом</h4>
             </header>
@@ -71,6 +73,34 @@
                 <p>Класс: <strong>.Gradient .Info</strong></p>
                 <p>Цвет градиента берется из переменной $Clr-Info</p>
             </div>
+        </article>
+    </section>
+    <section class="Node-Wrap Row Split">
+        <article class="Box Outlined Grid-XS-6">
+            <header>
+                <h4 class="Box-Title">Box с градиентом и особым цветом</h4>
+            </header>
+            <div class="Box-Content">
+                <p>Класс: <strong>.Gradient .Info</strong></p>
+                <p>Цвет градиента берется из переменной $Clr-Info</p>
+            </div>
+            <footer>
+                <button class="Button">Отменить</button>
+                <button class="Button">Принять</button>
+            </footer>
+        </article>
+        <article class="Box Grid-XS-6">
+            <header>
+                <h4 class="Box-Title">Box с градиентом и особым цветом</h4>
+            </header>
+            <div class="Box-Content">
+                <p>Класс: <strong>.Gradient .Info</strong></p>
+                <p>Цвет градиента берется из переменной $Clr-Info</p>
+            </div>
+            <footer>
+                <button class="Button">Отменить</button>
+                <button class="Button">Принять</button>
+            </footer>
         </article>
     </section>
 </section>
