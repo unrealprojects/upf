@@ -26,7 +26,7 @@
 &lt;/article&gt;</code>
 </pre>
     </section>
-    <section class="Node-Wrap Row Split">
+    <section class="Node-Wrap Grid Split">
         <article class="Box Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box</h4>
@@ -50,7 +50,7 @@
             </div>
         </article>
     </section>
-    <section class="Node-Wrap Row Split">
+    <section class="Node-Wrap Grid Split">
         <article class="Box Solid Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box с акцентом на заголовке</h4>
@@ -75,7 +75,7 @@
             </div>
         </article>
     </section>
-    <section class="Node-Wrap Row Split">
+    <section class="Node-Wrap Grid Split">
         <article class="Box Outlined Grid-XS-6">
             <header>
                 <h4 class="Box-Title">Box с градиентом и особым цветом</h4>

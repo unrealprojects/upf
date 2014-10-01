@@ -35,15 +35,25 @@ hr {
 }
 
 Ul, ol {
-	margin-top: $size-n;
 	li {
-		margin-left: $size-n;
+		margin-left: $size-s;
 		padding-left: $size-s;
 		& + li {
 			margin-top: $size-s;
 		}
 	}
 }
+ ol {
+	 list-style-type: none;
+	 counter-reset: ol-counter;
+
+	 & > li:before {
+		 color: $Clr-Grey;
+		 padding-right: $size-n;
+		 content: counter(ol-counter);
+		 counter-increment: ol-counter;
+	 }
+ }
 
 p + P {
 	margin-top: $size-n;
@@ -51,7 +61,7 @@ p + P {
 code {
 	&.Inline {
 		display: inline-block;
-		padding: 1px;
+		padding: 1px 5px;
 		border: 1px solid $Clr-Grey-Light;
 		background-color: $Clr-Grey-Lighter;
 		box-shadow: 0 0 1px white inset;

@@ -56,7 +56,7 @@ body		,
 }
 
 // NODES don't need inner margins if children are GRID-positioned
-.Node.Row > * {
+.Node.Grid > * {
 	margin-top: 0;
 }
 .Table-Adaptive {
