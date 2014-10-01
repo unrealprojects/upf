@@ -25,6 +25,7 @@ function NewRoutesGroup($Groups,$SectionType='section',$Division='backend'){
         Route::get('/' . $Division . '/'.$SectionType.'/' . $Section . '/','\UpfControllers\\'.$Controller.'Controller@index');
         Route::get('/' . $Division . '/'.$SectionType.'/' . $Section . '/{alias}/edit','\UpfControllers\\'.$Controller.'Controller@edit');
         Route::post('/' . $Division . '/'.$SectionType.'/' . $Section . '/{alias}/update','\UpfControllers\\'.$Controller.'Controller@update');
+        Route::post('/' . $Division . '/'.$SectionType.'/' . $Section . '/{alias}/updatePhotos','\UpfControllers\\'.$Controller.'Controller@updatePhotos');
         Route::get('/' . $Division . '/'.$SectionType.'/' . $Section . '/{alias}/remove','\UpfControllers\\'.$Controller.'Controller@remove');
         Route::get('/' . $Division . '/'.$SectionType.'/' . $Section . '/add','\UpfControllers\\'.$Controller.'Controller@add');
 

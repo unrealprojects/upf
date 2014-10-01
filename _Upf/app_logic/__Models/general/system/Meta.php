@@ -15,6 +15,12 @@ class Meta extends General {
         return $this->belongsToMany('UpfModels\Tags', 'filter_tags_to_items', 'item_id', 'tag_id');
     }
 
+    /***  Photos :: Many To Many ***/
+    public function files()
+    {
+        return $this->belongsToMany('UpfModels\Files', 'system_files_to_items', 'item_id', 'file_id');
+    }
+
     /*** Categories :: Has Many ***/
     public function categories()
     {
@@ -106,7 +112,8 @@ class Meta extends General {
                 'meta',
                 'meta.categories',
                 'meta.tags',
-                'meta.regions')
+                'meta.regions',
+                'meta.files')
             ->first();
 
         return [
@@ -132,20 +139,34 @@ class Meta extends General {
             $Result = $this->WhereAliasInMeta($this,$Alias)->first();
             $Result->title = $Input['title'];
             $Result->intro = $Input['intro'];
+            $Result->text = $Input['text'];
 
-            $FileName='';
-            if(\Input::hasFile('logotype')){
-                $FileName = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
-                \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileName);
-                $Result->logotype = $FileName;
-            }
-            $Result->save();
-            return $FileName;
+            $Result->meta()->title = 'asdf';
+            $Result->meta()->update(
+                [
+                    'alias'=>$Input['meta_alias'],
+                    'title'=>$Input['meta_title'],
+                    'description'=>$Input['meta_description'],
+                    'keywords'=>$Input['meta_keywords'],
+                ]
+            );
+            return $Result->save();
         }else{
             return false;
         }
+    }
 
-
+    /*** Update Item Files ***/
+    public function UpdateItemPhotos($Alias){
+         $FileName='';
+         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+         if(\Input::hasFile('logotype')){
+             $FileName = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+             \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileName);
+             $Result->logotype = $FileName;
+         }
+         $Result->save();
+         return $FileName;
     }
 
     /*** Remove Item ***/

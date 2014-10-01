@@ -163,12 +163,42 @@ upf.Edit.UpdateItem = function(){
         // Function Variables
         var Current = this,
             $FieldsToUpdate = $(Current).parents('tr').find('[contenteditable=true]');
+
+        // Send Ajax to "/alias/update"
+        var formData = new FormData($(UpdateForm)[0]);
+        $.ajax({
+            type:'POST',
+            url:  location.pathname.replace('edit','') + 'update',
+            data: $(UpdateForm).serialize(),
+            dataType:'json',
+            success: function(Data){
+                upf.Messages.Show(Data['message'],Data['type']);
+                if(Data['file']){
+                    $('.Control-Group img').attr('src',Data['file']);
+                }
+            }
+        });
+        return false;
+    });
+}
+
+/*** Edit :: Update Item Files***/
+upf.Edit.UpdateItemFiles = function(){
+    // Default Variables
+    var UpdateButton = '#Edit-Item input[type=file]',
+        UpdateForm = 'form#Edit-Item';
+
+    // Update body
+    $(document).on('change',UpdateButton,function(){
+        // Function Variables
+        var Current = this,
+            $FieldsToUpdate = $(Current).parents('tr').find('[contenteditable=true]');
         // Send Ajax to "/alias/update"
         data = new FormData($(UpdateForm));
         var formData = new FormData($(UpdateForm)[0]);
         $.ajax({
             type:'POST',
-            url:  location.pathname.replace('edit','') + 'update',
+            url:  location.pathname.replace('edit','') + 'updatePhotos',
             data: formData,
             dataType:'json',
             success: function(Data){
@@ -200,5 +230,6 @@ $(document).ready(function(){
 
     /*** Edit ***/
     upf.Edit.UpdateItem();
+    upf.Edit.UpdateItemFiles();
 
 });

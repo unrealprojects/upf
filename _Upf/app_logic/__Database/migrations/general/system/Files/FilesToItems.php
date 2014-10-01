@@ -3,7 +3,7 @@ namespace UpfMigrations;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ParamsToCategories extends Migration {
+class FilesToItems extends Migration {
     public function up()
     {
         \Schema::create('system_files_to_items', function($table){

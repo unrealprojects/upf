@@ -6,4 +6,5 @@ class CategoriesSeeder extends \Seeder {
 	{
 
 	}
+
 }

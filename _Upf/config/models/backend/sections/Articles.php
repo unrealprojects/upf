@@ -85,6 +85,44 @@ return [
             'class'=>'Date',
             'editable'=>false,
             'relation' => ['meta','updated_at']
+        ],
+        /*** Meta ***/
+        'meta_title'=>[
+            'title'=>'Meta Title',
+            'type'=>'text',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','title']
+        ],
+        'meta_description'=>[
+            'title'=>'Meta Description',
+            'type'=>'text',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','description']
+        ],
+        'meta_keywords'=>[
+            'title'=>'Meta Keywords',
+            'type'=>'text',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','keywords']
+        ],
+        'meta_category_id'=>[
+            'title'=>'Категория',
+            'type'=>'select',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','category_id'],
+            'values' =>\UpfModels\Categories::all()
+        ],
+        'meta_regions_id'=>[
+            'title'=>'Регион',
+            'type'=>'select',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','regions_id'],
+            'values' =>\UpfModels\Regions::all()
         ]
     ]
 ];

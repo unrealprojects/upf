@@ -17,8 +17,6 @@ class Regions extends Migration {
             $table->string('title')->nullable();
             $table->string('logotype')->nullable();
 
-            $table->enum('type',array('Области','Республики','Автономные округа','Края'))->default('Области');
-
             /*** Relations***/
             $table->integer('administrative_unit')->default(\Config::get('models/Fields.administrative_unit.default'));
             $table->integer('region_type')->default(\Config::get('models/Fields.region_type.default'));

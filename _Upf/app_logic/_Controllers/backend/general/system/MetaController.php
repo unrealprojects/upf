@@ -39,11 +39,24 @@ class MetaController extends GeneralBackendController{
 
         $Model = new $this->Model();
         if($Updated=$Model->UpdateItem($alias,$Input)){
+            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
+        }
+    }
+
+    /*** Update Item Photos ***/
+    public function updatePhotos($alias){
+        $Input = \Input::all();
+
+        $Model = new $this->Model();
+        if($Updated=$Model->UpdateItemPhotos($alias)){
             echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success','file'=>$Updated]);
         }else{
             echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
         }
     }
+
 
     /*** Remove Item ***/
     public function remove($alias){
