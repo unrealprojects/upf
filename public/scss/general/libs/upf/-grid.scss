@@ -12,7 +12,7 @@ $Enable-Merged-Grid:	true;			// Enables Grid Merge
 $Enable-Split-Grid:		true;			// Enables Grid Split
 /////////////////////////////
 $Fraction-Grid-Limit:	7;				// Determines how much fraction grids do you want
-$Grid-Gutter:			1%;
+$Grid-Gutter:			5%;
 
 $Size: ($Viewport-XXS, $Viewport-XS, $Viewport-SM, $Viewport-MD, $Viewport-LR, $Viewport-HG);
 $Size-Prefix: (XXS, XS, SM, MD, LR, HG);

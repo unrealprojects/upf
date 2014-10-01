@@ -24,7 +24,7 @@
   @media all and (min-width: 1880px) {
     ._Section-Inner, .Node {
       width: 1150px; } }
-  @media all and (min-width: 2560px) {
+  @media all and (min-width: 2540px) {
     ._Section-Inner, .Node {
       width: 1200px; } }
 
@@ -176,8 +176,8 @@ iframe {
     width: 50%; } }
 @media all and (min-width: 768px) {
   [class*='Grid'].Split > * {
-    margin-left: 0.5%;
-    margin-right: 0.5%; }
+    margin-left: 2.5%;
+    margin-right: 2.5%; }
     [class*='Grid'].Split > *:first-child {
       margin-left: 0; }
     [class*='Grid'].Split > *:last-child {
@@ -190,13 +190,13 @@ iframe {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XXS-1-2 {
-    width: 49%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-XXS-2-2 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XXS-2-2 {
-    width: 98%;
+    width: 90%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -204,19 +204,19 @@ iframe {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-1-3 {
-    width: 32.33333%; }
+    width: 28.33333%; }
 
   [class*='Grid'].Merge > .Node-XXS-2-3 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-2-3 {
-    width: 64.66667%; }
+    width: 56.66667%; }
 
   [class*='Grid'].Merge > .Node-XXS-3-3 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XXS-3-3 {
-    width: 97%;
+    width: 85%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -224,25 +224,25 @@ iframe {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-XXS-1-4 {
-    width: 24%; }
+    width: 20%; }
 
   [class*='Grid'].Merge > .Node-XXS-2-4 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XXS-2-4 {
-    width: 48%; }
+    width: 40%; }
 
   [class*='Grid'].Merge > .Node-XXS-3-4 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-XXS-3-4 {
-    width: 72%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-XXS-4-4 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XXS-4-4 {
-    width: 96%;
+    width: 80%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -250,31 +250,31 @@ iframe {
     width: 20%; }
 
   [class*='Grid'].Split > .Node-XXS-1-5 {
-    width: 19%; }
+    width: 15%; }
 
   [class*='Grid'].Merge > .Node-XXS-2-5 {
     width: 40%; }
 
   [class*='Grid'].Split > .Node-XXS-2-5 {
-    width: 38%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-XXS-3-5 {
     width: 60%; }
 
   [class*='Grid'].Split > .Node-XXS-3-5 {
-    width: 57%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-XXS-4-5 {
     width: 80%; }
 
   [class*='Grid'].Split > .Node-XXS-4-5 {
-    width: 76%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-XXS-5-5 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XXS-5-5 {
-    width: 95%;
+    width: 75%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -282,37 +282,37 @@ iframe {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-1-6 {
-    width: 15.66667%; }
+    width: 11.66667%; }
 
   [class*='Grid'].Merge > .Node-XXS-2-6 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-2-6 {
-    width: 31.33333%; }
+    width: 23.33333%; }
 
   [class*='Grid'].Merge > .Node-XXS-3-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XXS-3-6 {
-    width: 47%; }
+    width: 35%; }
 
   [class*='Grid'].Merge > .Node-XXS-4-6 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-4-6 {
-    width: 62.66667%; }
+    width: 46.66667%; }
 
   [class*='Grid'].Merge > .Node-XXS-5-6 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-5-6 {
-    width: 78.33333%; }
+    width: 58.33333%; }
 
   [class*='Grid'].Merge > .Node-XXS-6-6 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XXS-6-6 {
-    width: 94%;
+    width: 70%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -320,43 +320,43 @@ iframe {
     width: 14.28571%; }
 
   [class*='Grid'].Split > .Node-XXS-1-7 {
-    width: 13.28571%; }
+    width: 9.28571%; }
 
   [class*='Grid'].Merge > .Node-XXS-2-7 {
     width: 28.57143%; }
 
   [class*='Grid'].Split > .Node-XXS-2-7 {
-    width: 26.57143%; }
+    width: 18.57143%; }
 
   [class*='Grid'].Merge > .Node-XXS-3-7 {
     width: 42.85714%; }
 
   [class*='Grid'].Split > .Node-XXS-3-7 {
-    width: 39.85714%; }
+    width: 27.85714%; }
 
   [class*='Grid'].Merge > .Node-XXS-4-7 {
     width: 57.14286%; }
 
   [class*='Grid'].Split > .Node-XXS-4-7 {
-    width: 53.14286%; }
+    width: 37.14286%; }
 
   [class*='Grid'].Merge > .Node-XXS-5-7 {
     width: 71.42857%; }
 
   [class*='Grid'].Split > .Node-XXS-5-7 {
-    width: 66.42857%; }
+    width: 46.42857%; }
 
   [class*='Grid'].Merge > .Node-XXS-6-7 {
     width: 85.71429%; }
 
   [class*='Grid'].Split > .Node-XXS-6-7 {
-    width: 79.71429%; }
+    width: 55.71429%; }
 
   [class*='Grid'].Merge > .Node-XXS-7-7 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XXS-7-7 {
-    width: 93%;
+    width: 65%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -364,67 +364,67 @@ iframe {
     width: 8.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-1 {
-    width: 7.41667%; }
+    width: 3.75%; }
 
   [class*='Grid'].Merge > .Node-XXS-2 {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-2 {
-    width: 15.83333%; }
+    width: 12.5%; }
 
   [class*='Grid'].Merge > .Node-XXS-3 {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-XXS-3 {
-    width: 24.25%; }
+    width: 21.25%; }
 
   [class*='Grid'].Merge > .Node-XXS-4 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-4 {
-    width: 32.66667%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-XXS-5 {
     width: 41.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-5 {
-    width: 41.08333%; }
+    width: 38.75%; }
 
   [class*='Grid'].Merge > .Node-XXS-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XXS-6 {
-    width: 49.5%; }
+    width: 47.5%; }
 
   [class*='Grid'].Merge > .Node-XXS-7 {
     width: 58.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-7 {
-    width: 57.91667%; }
+    width: 56.25%; }
 
   [class*='Grid'].Merge > .Node-XXS-8 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-8 {
-    width: 66.33333%; }
+    width: 65%; }
 
   [class*='Grid'].Merge > .Node-XXS-9 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-XXS-9 {
-    width: 74.75%; }
+    width: 73.75%; }
 
   [class*='Grid'].Merge > .Node-XXS-10 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-XXS-10 {
-    width: 83.16667%; }
+    width: 82.5%; }
 
   [class*='Grid'].Merge > .Node-XXS-11 {
     width: 91.66667%; }
 
   [class*='Grid'].Split > .Node-XXS-11 {
-    width: 91.58333%; }
+    width: 91.25%; }
 
   [class*='Grid'].Merge > .Node-XXS-12 {
     width: 100%; }
@@ -438,13 +438,13 @@ iframe {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XS-1-2 {
-    width: 49%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-XS-2-2 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XS-2-2 {
-    width: 98%;
+    width: 90%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -452,19 +452,19 @@ iframe {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-XS-1-3 {
-    width: 32.33333%; }
+    width: 28.33333%; }
 
   [class*='Grid'].Merge > .Node-XS-2-3 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-XS-2-3 {
-    width: 64.66667%; }
+    width: 56.66667%; }
 
   [class*='Grid'].Merge > .Node-XS-3-3 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XS-3-3 {
-    width: 97%;
+    width: 85%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -472,25 +472,25 @@ iframe {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-XS-1-4 {
-    width: 24%; }
+    width: 20%; }
 
   [class*='Grid'].Merge > .Node-XS-2-4 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XS-2-4 {
-    width: 48%; }
+    width: 40%; }
 
   [class*='Grid'].Merge > .Node-XS-3-4 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-XS-3-4 {
-    width: 72%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-XS-4-4 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XS-4-4 {
-    width: 96%;
+    width: 80%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -498,31 +498,31 @@ iframe {
     width: 20%; }
 
   [class*='Grid'].Split > .Node-XS-1-5 {
-    width: 19%; }
+    width: 15%; }
 
   [class*='Grid'].Merge > .Node-XS-2-5 {
     width: 40%; }
 
   [class*='Grid'].Split > .Node-XS-2-5 {
-    width: 38%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-XS-3-5 {
     width: 60%; }
 
   [class*='Grid'].Split > .Node-XS-3-5 {
-    width: 57%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-XS-4-5 {
     width: 80%; }
 
   [class*='Grid'].Split > .Node-XS-4-5 {
-    width: 76%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-XS-5-5 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XS-5-5 {
-    width: 95%;
+    width: 75%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -530,37 +530,37 @@ iframe {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-XS-1-6 {
-    width: 15.66667%; }
+    width: 11.66667%; }
 
   [class*='Grid'].Merge > .Node-XS-2-6 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-XS-2-6 {
-    width: 31.33333%; }
+    width: 23.33333%; }
 
   [class*='Grid'].Merge > .Node-XS-3-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XS-3-6 {
-    width: 47%; }
+    width: 35%; }
 
   [class*='Grid'].Merge > .Node-XS-4-6 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-XS-4-6 {
-    width: 62.66667%; }
+    width: 46.66667%; }
 
   [class*='Grid'].Merge > .Node-XS-5-6 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-XS-5-6 {
-    width: 78.33333%; }
+    width: 58.33333%; }
 
   [class*='Grid'].Merge > .Node-XS-6-6 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XS-6-6 {
-    width: 94%;
+    width: 70%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -568,43 +568,43 @@ iframe {
     width: 14.28571%; }
 
   [class*='Grid'].Split > .Node-XS-1-7 {
-    width: 13.28571%; }
+    width: 9.28571%; }
 
   [class*='Grid'].Merge > .Node-XS-2-7 {
     width: 28.57143%; }
 
   [class*='Grid'].Split > .Node-XS-2-7 {
-    width: 26.57143%; }
+    width: 18.57143%; }
 
   [class*='Grid'].Merge > .Node-XS-3-7 {
     width: 42.85714%; }
 
   [class*='Grid'].Split > .Node-XS-3-7 {
-    width: 39.85714%; }
+    width: 27.85714%; }
 
   [class*='Grid'].Merge > .Node-XS-4-7 {
     width: 57.14286%; }
 
   [class*='Grid'].Split > .Node-XS-4-7 {
-    width: 53.14286%; }
+    width: 37.14286%; }
 
   [class*='Grid'].Merge > .Node-XS-5-7 {
     width: 71.42857%; }
 
   [class*='Grid'].Split > .Node-XS-5-7 {
-    width: 66.42857%; }
+    width: 46.42857%; }
 
   [class*='Grid'].Merge > .Node-XS-6-7 {
     width: 85.71429%; }
 
   [class*='Grid'].Split > .Node-XS-6-7 {
-    width: 79.71429%; }
+    width: 55.71429%; }
 
   [class*='Grid'].Merge > .Node-XS-7-7 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-XS-7-7 {
-    width: 93%;
+    width: 65%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -612,67 +612,67 @@ iframe {
     width: 8.33333%; }
 
   [class*='Grid'].Split > .Node-XS-1 {
-    width: 7.41667%; }
+    width: 3.75%; }
 
   [class*='Grid'].Merge > .Node-XS-2 {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-XS-2 {
-    width: 15.83333%; }
+    width: 12.5%; }
 
   [class*='Grid'].Merge > .Node-XS-3 {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-XS-3 {
-    width: 24.25%; }
+    width: 21.25%; }
 
   [class*='Grid'].Merge > .Node-XS-4 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-XS-4 {
-    width: 32.66667%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-XS-5 {
     width: 41.66667%; }
 
   [class*='Grid'].Split > .Node-XS-5 {
-    width: 41.08333%; }
+    width: 38.75%; }
 
   [class*='Grid'].Merge > .Node-XS-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-XS-6 {
-    width: 49.5%; }
+    width: 47.5%; }
 
   [class*='Grid'].Merge > .Node-XS-7 {
     width: 58.33333%; }
 
   [class*='Grid'].Split > .Node-XS-7 {
-    width: 57.91667%; }
+    width: 56.25%; }
 
   [class*='Grid'].Merge > .Node-XS-8 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-XS-8 {
-    width: 66.33333%; }
+    width: 65%; }
 
   [class*='Grid'].Merge > .Node-XS-9 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-XS-9 {
-    width: 74.75%; }
+    width: 73.75%; }
 
   [class*='Grid'].Merge > .Node-XS-10 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-XS-10 {
-    width: 83.16667%; }
+    width: 82.5%; }
 
   [class*='Grid'].Merge > .Node-XS-11 {
     width: 91.66667%; }
 
   [class*='Grid'].Split > .Node-XS-11 {
-    width: 91.58333%; }
+    width: 91.25%; }
 
   [class*='Grid'].Merge > .Node-XS-12 {
     width: 100%; }
@@ -686,13 +686,13 @@ iframe {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-SM-1-2 {
-    width: 49%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-SM-2-2 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-SM-2-2 {
-    width: 98%;
+    width: 90%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -700,19 +700,19 @@ iframe {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-SM-1-3 {
-    width: 32.33333%; }
+    width: 28.33333%; }
 
   [class*='Grid'].Merge > .Node-SM-2-3 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-SM-2-3 {
-    width: 64.66667%; }
+    width: 56.66667%; }
 
   [class*='Grid'].Merge > .Node-SM-3-3 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-SM-3-3 {
-    width: 97%;
+    width: 85%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -720,25 +720,25 @@ iframe {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-SM-1-4 {
-    width: 24%; }
+    width: 20%; }
 
   [class*='Grid'].Merge > .Node-SM-2-4 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-SM-2-4 {
-    width: 48%; }
+    width: 40%; }
 
   [class*='Grid'].Merge > .Node-SM-3-4 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-SM-3-4 {
-    width: 72%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-SM-4-4 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-SM-4-4 {
-    width: 96%;
+    width: 80%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -746,31 +746,31 @@ iframe {
     width: 20%; }
 
   [class*='Grid'].Split > .Node-SM-1-5 {
-    width: 19%; }
+    width: 15%; }
 
   [class*='Grid'].Merge > .Node-SM-2-5 {
     width: 40%; }
 
   [class*='Grid'].Split > .Node-SM-2-5 {
-    width: 38%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-SM-3-5 {
     width: 60%; }
 
   [class*='Grid'].Split > .Node-SM-3-5 {
-    width: 57%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-SM-4-5 {
     width: 80%; }
 
   [class*='Grid'].Split > .Node-SM-4-5 {
-    width: 76%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-SM-5-5 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-SM-5-5 {
-    width: 95%;
+    width: 75%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -778,37 +778,37 @@ iframe {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-SM-1-6 {
-    width: 15.66667%; }
+    width: 11.66667%; }
 
   [class*='Grid'].Merge > .Node-SM-2-6 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-SM-2-6 {
-    width: 31.33333%; }
+    width: 23.33333%; }
 
   [class*='Grid'].Merge > .Node-SM-3-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-SM-3-6 {
-    width: 47%; }
+    width: 35%; }
 
   [class*='Grid'].Merge > .Node-SM-4-6 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-SM-4-6 {
-    width: 62.66667%; }
+    width: 46.66667%; }
 
   [class*='Grid'].Merge > .Node-SM-5-6 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-SM-5-6 {
-    width: 78.33333%; }
+    width: 58.33333%; }
 
   [class*='Grid'].Merge > .Node-SM-6-6 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-SM-6-6 {
-    width: 94%;
+    width: 70%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -816,43 +816,43 @@ iframe {
     width: 14.28571%; }
 
   [class*='Grid'].Split > .Node-SM-1-7 {
-    width: 13.28571%; }
+    width: 9.28571%; }
 
   [class*='Grid'].Merge > .Node-SM-2-7 {
     width: 28.57143%; }
 
   [class*='Grid'].Split > .Node-SM-2-7 {
-    width: 26.57143%; }
+    width: 18.57143%; }
 
   [class*='Grid'].Merge > .Node-SM-3-7 {
     width: 42.85714%; }
 
   [class*='Grid'].Split > .Node-SM-3-7 {
-    width: 39.85714%; }
+    width: 27.85714%; }
 
   [class*='Grid'].Merge > .Node-SM-4-7 {
     width: 57.14286%; }
 
   [class*='Grid'].Split > .Node-SM-4-7 {
-    width: 53.14286%; }
+    width: 37.14286%; }
 
   [class*='Grid'].Merge > .Node-SM-5-7 {
     width: 71.42857%; }
 
   [class*='Grid'].Split > .Node-SM-5-7 {
-    width: 66.42857%; }
+    width: 46.42857%; }
 
   [class*='Grid'].Merge > .Node-SM-6-7 {
     width: 85.71429%; }
 
   [class*='Grid'].Split > .Node-SM-6-7 {
-    width: 79.71429%; }
+    width: 55.71429%; }
 
   [class*='Grid'].Merge > .Node-SM-7-7 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-SM-7-7 {
-    width: 93%;
+    width: 65%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -860,67 +860,67 @@ iframe {
     width: 8.33333%; }
 
   [class*='Grid'].Split > .Node-SM-1 {
-    width: 7.41667%; }
+    width: 3.75%; }
 
   [class*='Grid'].Merge > .Node-SM-2 {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-SM-2 {
-    width: 15.83333%; }
+    width: 12.5%; }
 
   [class*='Grid'].Merge > .Node-SM-3 {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-SM-3 {
-    width: 24.25%; }
+    width: 21.25%; }
 
   [class*='Grid'].Merge > .Node-SM-4 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-SM-4 {
-    width: 32.66667%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-SM-5 {
     width: 41.66667%; }
 
   [class*='Grid'].Split > .Node-SM-5 {
-    width: 41.08333%; }
+    width: 38.75%; }
 
   [class*='Grid'].Merge > .Node-SM-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-SM-6 {
-    width: 49.5%; }
+    width: 47.5%; }
 
   [class*='Grid'].Merge > .Node-SM-7 {
     width: 58.33333%; }
 
   [class*='Grid'].Split > .Node-SM-7 {
-    width: 57.91667%; }
+    width: 56.25%; }
 
   [class*='Grid'].Merge > .Node-SM-8 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-SM-8 {
-    width: 66.33333%; }
+    width: 65%; }
 
   [class*='Grid'].Merge > .Node-SM-9 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-SM-9 {
-    width: 74.75%; }
+    width: 73.75%; }
 
   [class*='Grid'].Merge > .Node-SM-10 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-SM-10 {
-    width: 83.16667%; }
+    width: 82.5%; }
 
   [class*='Grid'].Merge > .Node-SM-11 {
     width: 91.66667%; }
 
   [class*='Grid'].Split > .Node-SM-11 {
-    width: 91.58333%; }
+    width: 91.25%; }
 
   [class*='Grid'].Merge > .Node-SM-12 {
     width: 100%; }
@@ -934,13 +934,13 @@ iframe {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-MD-1-2 {
-    width: 49%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-MD-2-2 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-MD-2-2 {
-    width: 98%;
+    width: 90%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -948,19 +948,19 @@ iframe {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-MD-1-3 {
-    width: 32.33333%; }
+    width: 28.33333%; }
 
   [class*='Grid'].Merge > .Node-MD-2-3 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-MD-2-3 {
-    width: 64.66667%; }
+    width: 56.66667%; }
 
   [class*='Grid'].Merge > .Node-MD-3-3 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-MD-3-3 {
-    width: 97%;
+    width: 85%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -968,25 +968,25 @@ iframe {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-MD-1-4 {
-    width: 24%; }
+    width: 20%; }
 
   [class*='Grid'].Merge > .Node-MD-2-4 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-MD-2-4 {
-    width: 48%; }
+    width: 40%; }
 
   [class*='Grid'].Merge > .Node-MD-3-4 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-MD-3-4 {
-    width: 72%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-MD-4-4 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-MD-4-4 {
-    width: 96%;
+    width: 80%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -994,31 +994,31 @@ iframe {
     width: 20%; }
 
   [class*='Grid'].Split > .Node-MD-1-5 {
-    width: 19%; }
+    width: 15%; }
 
   [class*='Grid'].Merge > .Node-MD-2-5 {
     width: 40%; }
 
   [class*='Grid'].Split > .Node-MD-2-5 {
-    width: 38%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-MD-3-5 {
     width: 60%; }
 
   [class*='Grid'].Split > .Node-MD-3-5 {
-    width: 57%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-MD-4-5 {
     width: 80%; }
 
   [class*='Grid'].Split > .Node-MD-4-5 {
-    width: 76%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-MD-5-5 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-MD-5-5 {
-    width: 95%;
+    width: 75%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1026,37 +1026,37 @@ iframe {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-MD-1-6 {
-    width: 15.66667%; }
+    width: 11.66667%; }
 
   [class*='Grid'].Merge > .Node-MD-2-6 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-MD-2-6 {
-    width: 31.33333%; }
+    width: 23.33333%; }
 
   [class*='Grid'].Merge > .Node-MD-3-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-MD-3-6 {
-    width: 47%; }
+    width: 35%; }
 
   [class*='Grid'].Merge > .Node-MD-4-6 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-MD-4-6 {
-    width: 62.66667%; }
+    width: 46.66667%; }
 
   [class*='Grid'].Merge > .Node-MD-5-6 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-MD-5-6 {
-    width: 78.33333%; }
+    width: 58.33333%; }
 
   [class*='Grid'].Merge > .Node-MD-6-6 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-MD-6-6 {
-    width: 94%;
+    width: 70%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1064,43 +1064,43 @@ iframe {
     width: 14.28571%; }
 
   [class*='Grid'].Split > .Node-MD-1-7 {
-    width: 13.28571%; }
+    width: 9.28571%; }
 
   [class*='Grid'].Merge > .Node-MD-2-7 {
     width: 28.57143%; }
 
   [class*='Grid'].Split > .Node-MD-2-7 {
-    width: 26.57143%; }
+    width: 18.57143%; }
 
   [class*='Grid'].Merge > .Node-MD-3-7 {
     width: 42.85714%; }
 
   [class*='Grid'].Split > .Node-MD-3-7 {
-    width: 39.85714%; }
+    width: 27.85714%; }
 
   [class*='Grid'].Merge > .Node-MD-4-7 {
     width: 57.14286%; }
 
   [class*='Grid'].Split > .Node-MD-4-7 {
-    width: 53.14286%; }
+    width: 37.14286%; }
 
   [class*='Grid'].Merge > .Node-MD-5-7 {
     width: 71.42857%; }
 
   [class*='Grid'].Split > .Node-MD-5-7 {
-    width: 66.42857%; }
+    width: 46.42857%; }
 
   [class*='Grid'].Merge > .Node-MD-6-7 {
     width: 85.71429%; }
 
   [class*='Grid'].Split > .Node-MD-6-7 {
-    width: 79.71429%; }
+    width: 55.71429%; }
 
   [class*='Grid'].Merge > .Node-MD-7-7 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-MD-7-7 {
-    width: 93%;
+    width: 65%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1108,67 +1108,67 @@ iframe {
     width: 8.33333%; }
 
   [class*='Grid'].Split > .Node-MD-1 {
-    width: 7.41667%; }
+    width: 3.75%; }
 
   [class*='Grid'].Merge > .Node-MD-2 {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-MD-2 {
-    width: 15.83333%; }
+    width: 12.5%; }
 
   [class*='Grid'].Merge > .Node-MD-3 {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-MD-3 {
-    width: 24.25%; }
+    width: 21.25%; }
 
   [class*='Grid'].Merge > .Node-MD-4 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-MD-4 {
-    width: 32.66667%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-MD-5 {
     width: 41.66667%; }
 
   [class*='Grid'].Split > .Node-MD-5 {
-    width: 41.08333%; }
+    width: 38.75%; }
 
   [class*='Grid'].Merge > .Node-MD-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-MD-6 {
-    width: 49.5%; }
+    width: 47.5%; }
 
   [class*='Grid'].Merge > .Node-MD-7 {
     width: 58.33333%; }
 
   [class*='Grid'].Split > .Node-MD-7 {
-    width: 57.91667%; }
+    width: 56.25%; }
 
   [class*='Grid'].Merge > .Node-MD-8 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-MD-8 {
-    width: 66.33333%; }
+    width: 65%; }
 
   [class*='Grid'].Merge > .Node-MD-9 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-MD-9 {
-    width: 74.75%; }
+    width: 73.75%; }
 
   [class*='Grid'].Merge > .Node-MD-10 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-MD-10 {
-    width: 83.16667%; }
+    width: 82.5%; }
 
   [class*='Grid'].Merge > .Node-MD-11 {
     width: 91.66667%; }
 
   [class*='Grid'].Split > .Node-MD-11 {
-    width: 91.58333%; }
+    width: 91.25%; }
 
   [class*='Grid'].Merge > .Node-MD-12 {
     width: 100%; }
@@ -1182,13 +1182,13 @@ iframe {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-LR-1-2 {
-    width: 49%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-LR-2-2 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-LR-2-2 {
-    width: 98%;
+    width: 90%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1196,19 +1196,19 @@ iframe {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-LR-1-3 {
-    width: 32.33333%; }
+    width: 28.33333%; }
 
   [class*='Grid'].Merge > .Node-LR-2-3 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-LR-2-3 {
-    width: 64.66667%; }
+    width: 56.66667%; }
 
   [class*='Grid'].Merge > .Node-LR-3-3 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-LR-3-3 {
-    width: 97%;
+    width: 85%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1216,25 +1216,25 @@ iframe {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-LR-1-4 {
-    width: 24%; }
+    width: 20%; }
 
   [class*='Grid'].Merge > .Node-LR-2-4 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-LR-2-4 {
-    width: 48%; }
+    width: 40%; }
 
   [class*='Grid'].Merge > .Node-LR-3-4 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-LR-3-4 {
-    width: 72%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-LR-4-4 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-LR-4-4 {
-    width: 96%;
+    width: 80%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1242,31 +1242,31 @@ iframe {
     width: 20%; }
 
   [class*='Grid'].Split > .Node-LR-1-5 {
-    width: 19%; }
+    width: 15%; }
 
   [class*='Grid'].Merge > .Node-LR-2-5 {
     width: 40%; }
 
   [class*='Grid'].Split > .Node-LR-2-5 {
-    width: 38%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-LR-3-5 {
     width: 60%; }
 
   [class*='Grid'].Split > .Node-LR-3-5 {
-    width: 57%; }
+    width: 45%; }
 
   [class*='Grid'].Merge > .Node-LR-4-5 {
     width: 80%; }
 
   [class*='Grid'].Split > .Node-LR-4-5 {
-    width: 76%; }
+    width: 60%; }
 
   [class*='Grid'].Merge > .Node-LR-5-5 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-LR-5-5 {
-    width: 95%;
+    width: 75%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1274,37 +1274,37 @@ iframe {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-LR-1-6 {
-    width: 15.66667%; }
+    width: 11.66667%; }
 
   [class*='Grid'].Merge > .Node-LR-2-6 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-LR-2-6 {
-    width: 31.33333%; }
+    width: 23.33333%; }
 
   [class*='Grid'].Merge > .Node-LR-3-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-LR-3-6 {
-    width: 47%; }
+    width: 35%; }
 
   [class*='Grid'].Merge > .Node-LR-4-6 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-LR-4-6 {
-    width: 62.66667%; }
+    width: 46.66667%; }
 
   [class*='Grid'].Merge > .Node-LR-5-6 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-LR-5-6 {
-    width: 78.33333%; }
+    width: 58.33333%; }
 
   [class*='Grid'].Merge > .Node-LR-6-6 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-LR-6-6 {
-    width: 94%;
+    width: 70%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1312,43 +1312,43 @@ iframe {
     width: 14.28571%; }
 
   [class*='Grid'].Split > .Node-LR-1-7 {
-    width: 13.28571%; }
+    width: 9.28571%; }
 
   [class*='Grid'].Merge > .Node-LR-2-7 {
     width: 28.57143%; }
 
   [class*='Grid'].Split > .Node-LR-2-7 {
-    width: 26.57143%; }
+    width: 18.57143%; }
 
   [class*='Grid'].Merge > .Node-LR-3-7 {
     width: 42.85714%; }
 
   [class*='Grid'].Split > .Node-LR-3-7 {
-    width: 39.85714%; }
+    width: 27.85714%; }
 
   [class*='Grid'].Merge > .Node-LR-4-7 {
     width: 57.14286%; }
 
   [class*='Grid'].Split > .Node-LR-4-7 {
-    width: 53.14286%; }
+    width: 37.14286%; }
 
   [class*='Grid'].Merge > .Node-LR-5-7 {
     width: 71.42857%; }
 
   [class*='Grid'].Split > .Node-LR-5-7 {
-    width: 66.42857%; }
+    width: 46.42857%; }
 
   [class*='Grid'].Merge > .Node-LR-6-7 {
     width: 85.71429%; }
 
   [class*='Grid'].Split > .Node-LR-6-7 {
-    width: 79.71429%; }
+    width: 55.71429%; }
 
   [class*='Grid'].Merge > .Node-LR-7-7 {
     width: 100%; }
 
   [class*='Grid'].Split > .Node-LR-7-7 {
-    width: 93%;
+    width: 65%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -1356,67 +1356,67 @@ iframe {
     width: 8.33333%; }
 
   [class*='Grid'].Split > .Node-LR-1 {
-    width: 7.41667%; }
+    width: 3.75%; }
 
   [class*='Grid'].Merge > .Node-LR-2 {
     width: 16.66667%; }
 
   [class*='Grid'].Split > .Node-LR-2 {
-    width: 15.83333%; }
+    width: 12.5%; }
 
   [class*='Grid'].Merge > .Node-LR-3 {
     width: 25%; }
 
   [class*='Grid'].Split > .Node-LR-3 {
-    width: 24.25%; }
+    width: 21.25%; }
 
   [class*='Grid'].Merge > .Node-LR-4 {
     width: 33.33333%; }
 
   [class*='Grid'].Split > .Node-LR-4 {
-    width: 32.66667%; }
+    width: 30%; }
 
   [class*='Grid'].Merge > .Node-LR-5 {
     width: 41.66667%; }
 
   [class*='Grid'].Split > .Node-LR-5 {
-    width: 41.08333%; }
+    width: 38.75%; }
 
   [class*='Grid'].Merge > .Node-LR-6 {
     width: 50%; }
 
   [class*='Grid'].Split > .Node-LR-6 {
-    width: 49.5%; }
+    width: 47.5%; }
 
   [class*='Grid'].Merge > .Node-LR-7 {
     width: 58.33333%; }
 
   [class*='Grid'].Split > .Node-LR-7 {
-    width: 57.91667%; }
+    width: 56.25%; }
 
   [class*='Grid'].Merge > .Node-LR-8 {
     width: 66.66667%; }
 
   [class*='Grid'].Split > .Node-LR-8 {
-    width: 66.33333%; }
+    width: 65%; }
 
   [class*='Grid'].Merge > .Node-LR-9 {
     width: 75%; }
 
   [class*='Grid'].Split > .Node-LR-9 {
-    width: 74.75%; }
+    width: 73.75%; }
 
   [class*='Grid'].Merge > .Node-LR-10 {
     width: 83.33333%; }
 
   [class*='Grid'].Split > .Node-LR-10 {
-    width: 83.16667%; }
+    width: 82.5%; }
 
   [class*='Grid'].Merge > .Node-LR-11 {
     width: 91.66667%; }
 
   [class*='Grid'].Split > .Node-LR-11 {
-    width: 91.58333%; }
+    width: 91.25%; }
 
   [class*='Grid'].Merge > .Node-LR-12 {
     width: 100%; }

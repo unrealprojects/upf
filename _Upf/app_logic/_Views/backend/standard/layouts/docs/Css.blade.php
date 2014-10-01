@@ -56,7 +56,13 @@
             <div class="Node-XS-2-2 Node-LR-1-2"><span class="Hidden-LR">2/2</span><span class="Visible-LR">1/2</span></div>
         </div>
         <div class="Grid Merge Demo">
-            <div class="Node-XXS-6 Node-XS-1-3">1/3</div>
+            <div class="Node-XXS-6 Node-XS-1-3 Grid Merge">
+                <div class="Node-XS-6">6</div>
+                <div class="Node-XS-6 Grid Split">
+                    <div class="Node-XS-6">6</div>
+                    <div class="Node-XS-6">6</div>
+                </div>
+            </div>
             <div class="Node-XXS-6 Node-XS-1-3">1/3</div>
             <div class="Visible-XS Node-XS-1-3">1/3</div>
         </div>
