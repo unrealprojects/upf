@@ -27,6 +27,12 @@ class Meta extends General {
         return $this->hasMany('UpfModels\Categories','id','category_id');
     }
 
+    /*** Params Values :: Has Many ***/
+    public function paramsvalues()
+    {
+        return $this->hasMany('UpfModels\ParamsValues','item_id','id');
+    }
+
     /*** Relations :: Regions :: Has One ***/
     public function regions()
     {
@@ -115,7 +121,8 @@ class Meta extends General {
                 'meta.regions',
                 'meta.files')
             ->first();
-
+        //print_r($Result->toArray());
+        //exit;
         return [
             'item' => $Result->toArray(),
             'fields' =>\Config::get($this->Config.'.edit')
@@ -144,12 +151,14 @@ class Meta extends General {
             $Result->meta()->title = 'asdf';
             $Result->meta()->update(
                 [
-                    'alias'=>$Input['meta_alias'],
                     'title'=>$Input['meta_title'],
                     'description'=>$Input['meta_description'],
                     'keywords'=>$Input['meta_keywords'],
+                    'region_id'=>$Input['meta_region_id'],
+                    'category_id'=>$Input['meta_category_id'],
                 ]
             );
+            $Result->tags()->sync($Input['meta_tags']);
             return $Result->save();
         }else{
             return false;
@@ -164,6 +173,16 @@ class Meta extends General {
              $FileName = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
              \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileName);
              $Result->logotype = $FileName;
+         }
+
+         foreach(\Input::file('photos') as $Photo){
+             $File = new \UpfModels\Files();
+
+             $FileName = $this->PhotosUrl.time().'_'.$Photo->getClientOriginalName();
+             $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileName);
+             $File->src = $FileName;
+             $File->save();
+             $Result->files()->attach([$File->id]);
          }
          $Result->save();
          return $FileName;
