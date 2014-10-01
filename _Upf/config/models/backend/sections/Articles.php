@@ -72,6 +72,13 @@ return [
             'editable'=>true,
             'relation' => ['logotype']
         ],
+        'photos'=>[
+            'title'=>'Фотографии',
+            'type'=>'photos',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','files']
+        ],
         'created_at'=>[
             'title'=>'Дата создания',
             'type'=>'text',
@@ -114,15 +121,23 @@ return [
             'class'=>'Title',
             'editable'=>true,
             'relation' => ['meta','category_id'],
-            'values' =>\UpfModels\Categories::all()
+            'values' =>\UpfModels\Categories::all()->toArray()
         ],
-        'meta_regions_id'=>[
+        'meta_region_id'=>[
             'title'=>'Регион',
             'type'=>'select',
             'class'=>'Title',
             'editable'=>true,
-            'relation' => ['meta','regions_id'],
-            'values' =>\UpfModels\Regions::all()
+            'relation' => ['meta','region_id'],
+            'values' =>\UpfModels\Regions::all()->toArray()
+        ],
+        'meta_tags'=>[
+            'title'=>'Теги',
+            'type'=>'multi-select',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','tags'],
+            'values' =>\UpfModels\Tags::all()->toArray()
         ]
     ]
 ];
