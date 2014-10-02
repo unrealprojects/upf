@@ -1,4 +1,4 @@
-// UPF Grid Module v.4.2
+// UPF Grid Module v.5
 
 
 
@@ -11,14 +11,18 @@ $Enable-12-Column:		true;			// Enables 1, 2, 3 ... , 12 Grid
 $Enable-Merged-Grid:	true;			// Enables Grid Merge
 $Enable-Split-Grid:		true;			// Enables Grid Split
 /////////////////////////////
+$Fixed-Grid-Width:		960px;			// Fixed width grid
+/////////////////////////////
 $Fraction-Grid-Limit:	7;				// Determines how much fraction grids do you want
-$Grid-Gutter:			5%;
-
-$Size: ($Viewport-XXS, $Viewport-XS, $Viewport-SM, $Viewport-MD, $Viewport-LR, $Viewport-HG);
-$Size-Prefix: (XXS, XS, SM, MD, LR, HG);
-$Sizes-Count: length($Size);
-$Max: 12;
-$Node-Merge: 100% / 12;
+$Grid-Gutter:			5%;				// Gaps between grid nodes
+$Fraction-Grids-Max: 	12;				// How much do fraction grids do you need
+/////////////////////////////
+$Node-Name:				Node;			// How will you call your grid nodes in HTML (example: <div class="$Node-Name-XS-1-2>)
+$Grid-Name:				Grid;			// How will you call your grids in HTML (example: <div class="$Grid-Name Merge">)
+/////////////////////////////
+$Viewports-List: 		($Viewport-XXS, $Viewport-XS, $Viewport-SM, $Viewport-MD, $Viewport-LR, $Viewport-HG);
+$Viewports-Prefix: 		(XXS, XS, SM, MD, LR, HG);
+$Viewports-Count: 		length($Viewports-List);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -26,12 +30,12 @@ $Node-Merge: 100% / 12;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Grid row. Nothing to see here
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-[class*='Grid']
+[class*='#{$Grid-Name}']
 {
 	display: block;
 	@extend ._Clearfix;
 }
-.Grid-960
+.#{$Grid-Name}-#{$Fixed-Grid-Width}
 {
 	width: 960px!important;
 }
@@ -42,8 +46,8 @@ $Node-Merge: 100% / 12;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Disabling bullets in grids based on lists
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-ol[class*='Grid'] > li,
-ul[class*='Grid'] > li
+ol[class*='#{$Grid-Name}'] > li,
+ul[class*='#{$Grid-Name}'] > li
 {
 	@extend ._No-Bullets;
 }
@@ -55,7 +59,7 @@ ul[class*='Grid'] > li
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Making Nodes inline
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-[class*='Node-']
+[class*='#{$Node-Name}-']
 {
 	width: 100%;
 	float: left;
@@ -69,7 +73,7 @@ ul[class*='Grid'] > li
 	table.Adaptive td.Date > *,
 	table.Adaptive td.Actions > *,
 	table.Adaptive td.Data > *,
-	[class*='Node-XXS-']
+	[class*='#{$Node-Name}-XXS-']
 	{
 		float: left;
 	}
@@ -79,16 +83,16 @@ ul[class*='Grid'] > li
 	table.Adaptive td.Date > *,
 	table.Adaptive td.Actions > *,
 	table.Adaptive td.Data > *,
-	[class*='Grid'].Merge > .Node-XXS-6
+	[class*='#{$Node-Name}'].Merge > .#{Node-Name}-XXS-6
 	{
-		width: $Node-Merge * 6
+		width: (100% / 12) * 6
 	}
 
 }
 
 @media all and (min-width: $Viewport-XS) {
 	// Rows in Splitted grid must have gutter from both sides.
-	[class*='Grid'].Split > *
+	[class*='#{$Grid-Name}'].Split > *
 	{
 		margin-left: $Grid-Gutter/2;
 		margin-right: $Grid-Gutter/2;
@@ -103,7 +107,7 @@ ul[class*='Grid'] > li
 	}
 
 	// End of Grid row. Pushing grid node to right
-	[class*='Node-'].End
+	[class*='#{$Node-Name}-'].End
 	{
 		float: right;
 	}
@@ -114,9 +118,9 @@ ul[class*='Grid'] > li
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Grid Generator. Pure Magic, don't touch or you'll die!
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-@for $a from 1 to $Sizes-Count
+@for $a from 1 to $Viewports-Count
 {
-	@include Adaptive(nth($Size, $a))
+	@include Adaptive(nth($Viewports-List, $a))
 	{
 
 		@if ($Enable-Fraction-Grid == true)
@@ -128,12 +132,12 @@ ul[class*='Grid'] > li
 				{
 					@if ($Enable-Merged-Grid == true)
 					{
-						[class*='Grid'].Merge > .Node-#{nth($Size-Prefix, $a)}-#{$i}-#{$x}
+						[class*='#{$Grid-Name}'].Merge > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i}-#{$x}
 						{width: 100%/$x * $i}
 					}
 					@if ($Enable-Split-Grid  == true)
 					{
-						[class*='Grid'].Split > .Node-#{nth($Size-Prefix, $a)}-#{$i}-#{$x}
+						[class*='#{$Grid-Name}'].Split > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i}-#{$x}
 						{
 							width: ( (100% - ($Grid-Gutter * $x)) / $x) * $i;
 							@if ($i == $x)
@@ -148,22 +152,22 @@ ul[class*='Grid'] > li
 		}
 		@if ($Enable-12-Column == true)
 		{
-			@for $i from 1 to ($Max + 1)
+			@for $i from 1 to ($Fraction-Grids-Max + 1)
 			{
 				@if ($Enable-Merged-Grid == true)
 				{
-					[class*='Grid'].Merge > .Node-#{nth($Size-Prefix, $a)}-#{$i}
+					[class*='#{$Grid-Name}'].Merge > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i}
 					{
-						width: $Node-Merge * $i;
+						width: (100% / 12) * $i;
 					}
 				}
 
 				@if ($Enable-Split-Grid == true)
 				{
-					[class*='Grid'].Split > .Node-#{nth($Size-Prefix, $a)}-#{$i}
+					[class*='#{$Grid-Name}'].Split > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i}
 					{
 						width: ( ( (100% - (11 * $Grid-Gutter) ) / 12 ) * $i ) + ( ($i - 1) * $Grid-Gutter);
-						@if ($i == $Max)
+						@if ($i == $Fraction-Grids-Max)
 						{
 							margin-left: 0;
 							margin-right:0;
@@ -188,7 +192,7 @@ ul[class*='Grid'] > li
 {
 	.Push-#{$i}
 	{
-		margin-left: $Node-Merge * $i;
+		margin-left: (100% / 12) * $i;
 	}
 }
 
@@ -228,15 +232,15 @@ table.Adaptive .Caption,
 	}
 }
 
-@for $i from 1 to $Sizes-Count
+@for $i from 1 to $Viewports-Count
 {
-	@include Adaptive(nth($Size, $i))
+	@include Adaptive(nth($Viewports-List, $i))
 	{
-		.Hidden-#{nth($Size-Prefix , $i)}
+		.Hidden-#{nth($Viewports-Prefix , $i)}
 		{
 			display: none;
 		}
-		.Visible-#{nth($Size-Prefix , $i)}
+		.Visible-#{nth($Viewports-Prefix , $i)}
 		{
 			display: inline-block;
 		}
@@ -251,7 +255,7 @@ table.Adaptive .Caption,
 // Demo mode highlights grid nodes and makes them visible to developer.
 // NOT FOR PRODUCTION!
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-[class*='Grid']
+[class*='#{$Grid-Name}']
 {
 	& > *
 	{
@@ -260,6 +264,7 @@ table.Adaptive .Caption,
 		background-color: $Clr-Cyan-Light;
 	}
 
+	// Makes vertical spacing between grid rows
 	+ [class*='Grid'].Demo
 	{
 		margin-top: $size-n;

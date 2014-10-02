@@ -54,13 +54,25 @@ $Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
 		padding-left: 		0;
 		float: 				left;
 		border-color: 		transparent;
+		@extend 			._Unselectable;
 	}
 	textarea {
 		font-family: 		$Font-Family-Open-Sans;
 		resize: 			vertical;
 	}
 	.Input-Group {
+		width: $Ctrl-Input-Width;
+		float: right;
 		position: 			relative;
+
+		input:not([type='submit']),
+		select   ,
+		textarea {
+			width: 100%;
+		}
+		img.Uploaded {
+			margin: $size-n 0;
+		}
 		&.Icon {
 			&.Prefix  ,
 			&.Postfix {
@@ -152,6 +164,12 @@ form.Wide {
 			input[type='submit'] {
 				margin-left: $Ctrl-Wide-Label-Width;
 			}
+		}
+	}
+	.Input-Group {
+		width: 100%;
+		@include Adaptive($Viewport-XS) {
+			width: $Ctrl-Wide-Input-Width;
 		}
 	}
 }
