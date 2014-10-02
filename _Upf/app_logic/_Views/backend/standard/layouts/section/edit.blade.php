@@ -34,12 +34,16 @@
                     <div class="Control-Group">
                         <label for="field_{{$alias}}">{{$field['title']}}</label>
                         @if($field['editable']==true)
-                            <input name="{{$alias}}" id="field_{{$alias}}" type="file"/>
-                            <img class="Field-Img-{{$alias}}" src="{{
+                            <div class="Input-Group">
+                                <input name="{{$alias}}" id="field_{{$alias}}" type="file"/>
+                                <img class="Field-Img-{{$alias}} Uploaded" src="{{
                                     \UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])
                                 }}" title="Изображение"/>
+                            </div>
                         @else
-                            <img src="{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}" title="Изображение"/>
+                            <div class="Input-Group">
+                                <img src="{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}" title="Изображение"/>
+                            </div>
                         @endif
                     </div>
                 @endif
@@ -48,11 +52,13 @@
                     <div class="Control-Group">
                         <label for="field_{{$alias}}">{{$field['title']}}</label>
                         @if($field['editable']==true)
+                        <div class="Input-Group">
                         <input name="{{$alias}}[]" multiple="multiple" id="field_{{$alias}}" type="file"/>
 
                              @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $photos)
-                                <img class="Field-Img-{{$alias}}" src="{{$photos['src']}}" item_img_id="{{$photos['src']}}" title="Изображения"/>
+                                <img class="Field-Img-{{$alias}} Uploaded" src="{{$photos['src']}}" item_img_id="{{$photos['src']}}" title="Изображения"/>
                              @endforeach
+                        </div>
                         @endif
                     </div>
                 @endif
@@ -93,9 +99,9 @@
             @endif
             {{---------------------------------------------------------------------------------------------------------------------- Radio Filed --}}
             @if($field['type']=='radio')
-            <div class="Control-Group">
-                <label  for="field_{{$alias}}">{{$field['title']}}</label>
-                <ul>
+            <ul class="Control-Group Radio">
+                {{--<label  for="field_{{$alias}}">{{$field['title']}}</label>--}}
+
                     @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $key => $value)
                     <li>
                         <label for="field_{{$alias}}">{{$value}}</label>
@@ -103,8 +109,8 @@
                         {{($key==\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))?'checked':''}}>
                     </li>
                     @endforeach
-                </ul>
-            </div>
+
+            </ul>
             @endif
             {{---------------------------------------------------------------------------------------------------------------------- End Fields --}}
             @endforeach
