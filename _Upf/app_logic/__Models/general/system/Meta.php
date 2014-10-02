@@ -110,6 +110,12 @@ class Meta extends Fields {
             'pagination' => $Query->appends(\Input::except('page'))->links(),
         ];
     }
+    /*** Add Item ***/
+    public function AddItem(){
+        return [
+            'fields' =>$this->GetFields('add')
+        ];
+    }
 
     /*** Edit Item ***/
     public function EditItem($Alias){
@@ -123,8 +129,6 @@ class Meta extends Fields {
                 'meta.regions',
                 'meta.files')
             ->first();
-        //print_r($Result->toArray());
-        //exit;
         /*** Result ***/
         return [
             'item' => $ContentModel->toArray(),
@@ -168,7 +172,7 @@ class Meta extends Fields {
         }
     }
 
-    /*** Update Item Files ***/
+    /*** Update Item Files ***/                                                                                         /*** todo :: to Files Model ***/
     public function UpdateItemPhotos($Alias){
         $UpdatedPhotos = [];
         $Model = $this->WhereAliasInMeta($this,$Alias)->first();
@@ -209,6 +213,7 @@ class Meta extends Fields {
         $Result->meta()->delete();
         return true;
     }
+
 
     /*******************************************************************************************************************  Easy Functions ***/
 

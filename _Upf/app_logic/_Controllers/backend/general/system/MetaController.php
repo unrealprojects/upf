@@ -10,8 +10,7 @@ class MetaController extends GeneralBackendController{
        parent::__construct();
         $this->viewData['BaseUrl']=$this->BaseUrl;
     }
-
-    /*** *** Main Functionality *** ***/////////////////////////////////////////////////////////////////////////////////
+    /******************************************************************************************************************* Main Functionality ***/
 
     /*** Show List ***/
     public function index(){
@@ -71,10 +70,15 @@ class MetaController extends GeneralBackendController{
 
     /*** Add Item ***/
     public function add(){
+        $Model = new $this->Model();
+
+        $this->viewData['content'] = [
+            'data'=>$Model->AddItem()
+        ];
         return \View::make($this->View.'add',$this->viewData);
     }
 
-    /*** *** Default Easy Events *** ***/////////////////////////////////////////////////////////////////////////////////////
+    /******************************************************************************************************************* Default Easy Events ***/
 
     /*** Change Status ***/
     public function status($alias,$status){
