@@ -33,6 +33,7 @@ class Meta extends Migration {
             $table->integer('status')->default(\Config::get('models/Fields.status.default'));
             $table->integer('privileges')->dafault(\Config::get('models/Fields.status.privileges'));
             $table->integer('rating')->default(0);
+            $table->integer('views')->default(0);
             $table->boolean('favorite')->default(0);
             $table->timestamps();
         });

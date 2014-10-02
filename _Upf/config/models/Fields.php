@@ -11,7 +11,7 @@ return [
         'default' => 2,
         'trash'=> 3
     ],
-    'privileges' =>[
+    'privileges' => [
         0 => 'No Privileges',
         1 => 'Popular',
         2 => 'New',
@@ -19,6 +19,10 @@ return [
         4 => 'Silver',
         5 => 'Gold',
         'default' => 0
+    ],
+    'favorite' => [
+        0 => 'Active',
+        1 => 'Inactive'
     ],
     /***  Filter Region ***/
     'administrative_unit' => [
@@ -32,12 +36,12 @@ return [
         1 => 'Republic',
         'default' => 0
     ],
-    /*** Filter Params***/
+    /*** Filter Params ***/
     'param_type' => [
         0 => 'Slider',
         1 => 'Checkbox',
         2 => 'Radio',
         3 => 'Select',
-        4 => 'MultSelect'
-    ]
+        4 => 'MultiSelect'
+    ],
 ];

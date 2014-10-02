@@ -167,25 +167,36 @@ class Meta extends General {
 
     /*** Update Item Files ***/
     public function UpdateItemPhotos($Alias){
-         $FileName='';
-         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
-         if(\Input::hasFile('logotype')){
-             $FileName = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
-             \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileName);
-             $Result->logotype = $FileName;
-         }
+        $UpdatedPhotos = [];
+        $Model = $this->WhereAliasInMeta($this,$Alias)->first();
 
-         foreach(\Input::file('photos') as $Photo){
-             $File = new \UpfModels\Files();
+        /*** Write Logotype ***/
+        if(\Input::hasFile('logotype')){
+            /*** Set File Src ***/
+            $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+            \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+            $Model->logotype = $FileSrc;
+            $UpdatedPhotos['logotype'] = $FileSrc;
+            $Model->save();
+        }
 
-             $FileName = $this->PhotosUrl.time().'_'.$Photo->getClientOriginalName();
-             $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileName);
-             $File->src = $FileName;
-             $File->save();
-             $Result->files()->attach([$File->id]);
-         }
-         $Result->save();
-         return $FileName;
+        /*** Write Files ***/
+        if(\Input::hasFile('photos')){
+            foreach(\Input::file('photos') as $Photo){
+                $File = new \UpfModels\Files();
+
+                $FileSrc = $this->PhotosUrl.time() . '_' . $Photo->getClientOriginalName();
+                $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+                $File->src = $FileSrc;
+                $File->save();
+                /*** Save Relations ***/
+                $Model->files()->attach([$File->id]);
+                /*** Save Photos ***/
+                $UpdatedPhotos['photos'][] = $FileSrc;
+            }
+        }
+
+        return $UpdatedPhotos;
     }
 
     /*** Remove Item ***/

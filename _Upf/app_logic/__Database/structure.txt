@@ -11,6 +11,7 @@ general
     system
         _administrators
         _comments
+        _files
         _meta
 
 techonline

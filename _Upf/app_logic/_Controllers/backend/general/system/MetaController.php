@@ -50,10 +50,10 @@ class MetaController extends GeneralBackendController{
         $Input = \Input::all();
 
         $Model = new $this->Model();
-        if($Updated=$Model->UpdateItemPhotos($alias)){
-            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success','file'=>$Updated]);
+        if($Files = $Model->UpdateItemPhotos($alias)){
+            echo json_encode(['message' => 'Запись успешно обновлена.','type'=>'Success','files'=>$Files]);
         }else{
-            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
+            echo json_encode(['message' => 'Невозможно обновить запись.','type'=>'Error']);
         }
     }
 

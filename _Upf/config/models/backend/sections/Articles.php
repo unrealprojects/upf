@@ -8,7 +8,7 @@ return [
             'class'=>'Title',
             'editable'=>true,
             'relation' => ['title']
-        ],
+            ],
         'intro'=>[
             'title'=>'Введение',
             'type'=>'text',
@@ -121,7 +121,8 @@ return [
             'class'=>'Title',
             'editable'=>true,
             'relation' => ['meta','category_id'],
-            'values' =>\UpfModels\Categories::all()->toArray()
+            'values' =>\UpfModels\Categories::all()->toArray(),
+            'values_type' => 'model'
         ],
         'meta_region_id'=>[
             'title'=>'Регион',
@@ -129,7 +130,8 @@ return [
             'class'=>'Title',
             'editable'=>true,
             'relation' => ['meta','region_id'],
-            'values' =>\UpfModels\Regions::all()->toArray()
+            'values' =>\UpfModels\Regions::all()->toArray(),
+            'values_type' => 'model'
         ],
         'meta_tags'=>[
             'title'=>'Теги',
@@ -137,7 +139,49 @@ return [
             'class'=>'Title',
             'editable'=>true,
             'relation' => ['meta','tags'],
-            'values' =>\UpfModels\Tags::all()->toArray()
-        ]
+            'values' =>\UpfModels\Tags::all()->toArray(),
+            'values_type' => 'model'
+        ],
+        'meta_status'=>[
+            'title'=>'Статус',
+            'type'=>'select',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','status'],
+            'values' =>\Config::get('models/Fields.status'),
+            'values_type' => 'config'
+        ],
+        'meta_privileges'=>[
+            'title'=>'Привелегии',
+            'type'=>'select',
+            'class'=>'Title',
+            'editable'=>true,
+            'relation' => ['meta','status'],
+            'values' =>\Config::get('models/Fields.privileges'),
+            'values_type' => 'config'
+        ],
+        'meta_favorite'=>[
+            'title'=>'Избранное',
+            'type'=>'radio',
+            'class'=>'Title',
+            'editable'=>false,
+            'relation' => ['meta','favorite'],
+            'values' =>\Config::get('models/Fields.favorite'),
+            'values_type' => 'config'
+        ],
+        'meta_rating'=>[
+            'title'=>'Рейтинг',
+            'type'=>'text',
+            'class'=>'Title',
+            'editable'=>false,
+            'relation' => ['meta','rating'],
+        ],
+        'meta_views'=>[
+            'title'=>'Просмотры',
+            'type'=>'text',
+            'class'=>'Title',
+            'editable'=>false,
+            'relation' => ['meta','views'],
+        ],
     ]
 ];

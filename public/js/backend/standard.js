@@ -203,8 +203,15 @@ upf.Edit.UpdateItemFiles = function(){
             dataType:'json',
             success: function(Data){
                 upf.Messages.Show(Data['message'],Data['type']);
-                if(Data['file']){
-                    $('.Control-Group img').attr('src',Data['file']);
+                if(Data['files']){
+                    if(Data['files']['logotype']){
+                        $('.Control-Group img').attr('src',Data['file']);
+                    }
+                    if(Data['files']['photos']){
+                        $.each(Data['files']['photos'],function(key,value){
+                            $('#field_photos').after('<img src="'+value+'">');
+                        });
+                    }
                 }
             },
             cache: false,
