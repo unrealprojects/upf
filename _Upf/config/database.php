@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'hardcore',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '987975',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'hardcore_',
