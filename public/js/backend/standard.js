@@ -1,4 +1,6 @@
-/*** Menu :: Accordion ***/
+/*********************************************************************************************************************** Menu ***/
+
+/*** Accordion ***/
 upf.Menu.Accordion = function(){
     // Default Variables
     var Active = '.Active',
@@ -30,7 +32,7 @@ upf.Menu.Accordion = function(){
     });
 }
 
-/*** Menu :: Toggle Menu ***/
+/*** Toggle Menu ***/
 upf.Menu.ToggleMenu = function(){
     // Default Variables
     var $Menu = $('.Menu,.Menu-Shadow'),
@@ -54,7 +56,7 @@ upf.Menu.ToggleMenu = function(){
     });
 }
 
-/*** Menu :: Active Item ***/
+/*** Active Item ***/
 upf.Menu.ActiveItem = function(){
     // Default Variables
     var Active = 'Active',
@@ -66,7 +68,9 @@ upf.Menu.ActiveItem = function(){
 }
 
 
-/*** List :: Check All ***/
+/*********************************************************************************************************************** List ***/
+
+/*** Check All ***/
 upf.List.CheckAll = function(){
     // Default Variables
     var Toggle = '#Select-All';
@@ -91,138 +95,7 @@ upf.List.CheckAll = function(){
     });
 }
 
-/*** List :: Update Item ***/
-upf.List.UpdateItem = function(){
-    // Default Variables
-    var UpdateButton = '.Item-Update';
-
-    // Update body
-    $(document).on('click',UpdateButton,function(){
-        // Function Variables
-        var Current = this,
-            $FieldsToUpdate = $(Current).parents('tr').find('[contenteditable=true]'),
-            $ItemAlias = $(Current).parents('tr').attr('item-alias'),
-            DataToUpdate = {};
-
-        // Get Data To Update
-        $FieldsToUpdate.each(function(key,item){
-            DataToUpdate[$(item).attr('item-field')]=$(item).text();
-        });
-
-        // Send Ajax to "/alias/update"
-        $.ajax({
-            type:'post',
-            url:location.pathname + '/' + $ItemAlias + '/update',
-            data: DataToUpdate,
-            dataType:'json',
-            success: function(Data){
-                upf.Messages.Show(Data['message'],Data['type']);
-            }
-        });
-        return false;
-    });
-}
-
-/*** List :: Trash Item ***/
-upf.List.TrashItem = function(){
-    // Default Variables
-    var TrashButton = '.Item-Remove';
-
-    // Update body
-    $(document).on('click',TrashButton,function(){
-        // Function Variables
-        var This = this,
-            $ItemAlias = $(This).parents('tr').attr('item-alias');
-
-        // Send Ajax to "/alias/trash"
-        $.ajax({
-            type:'get',
-            url:location.pathname + '/' + $ItemAlias + '/remove',
-            dataType:'json',
-            success: function(Data){
-                if(Data['type']=='Success'){
-                    $(This).parents('tr').animate({'opacity':0},function(){
-                        $(this).remove();
-                    });
-                }
-                upf.Messages.Show(Data['message'],Data['type']);
-            }
-        });
-        return false;
-    });
-}
-
-/*** Edit :: Update Item ***/
-upf.Edit.UpdateItem = function(){
-    // Default Variables
-    var UpdateButton = '#Edit-Item input[type=submit]',
-        UpdateForm = 'form#Edit-Item';
-
-    // Update body
-    $(document).on('click',UpdateButton,function(){
-        // Function Variables
-        var Current = this,
-            $FieldsToUpdate = $(Current).parents('tr').find('[contenteditable=true]');
-
-        // Send Ajax to "/alias/update"
-        var formData = new FormData($(UpdateForm)[0]);
-        $.ajax({
-            type:'POST',
-            url:  location.pathname.replace('edit','') + 'update',
-            data: $(UpdateForm).serialize(),
-            dataType:'json',
-            success: function(Data){
-                upf.Messages.Show(Data['message'],Data['type']);
-                if(Data['file']){
-                    $('.Control-Group img').attr('src',Data['file']);
-                }
-            }
-        });
-        return false;
-    });
-}
-
-/*** Edit :: Update Item Files***/
-upf.Edit.UpdateItemFiles = function(){
-    // Default Variables
-    var UpdateButton = '#Edit-Item input[type=file]',
-        UpdateForm = 'form#Edit-Item';
-
-    // Update body
-    $(document).on('change',UpdateButton,function(){
-        // Function Variables
-        var Current = this,
-            $FieldsToUpdate = $(Current).parents('tr').find('[contenteditable=true]');
-        // Send Ajax to "/alias/update"
-        data = new FormData($(UpdateForm));
-        var formData = new FormData($(UpdateForm)[0]);
-        $.ajax({
-            type:'POST',
-            url:  location.pathname.replace('edit','') + 'updatePhotos',
-            data: formData,
-            dataType:'json',
-            success: function(Data){
-                upf.Messages.Show(Data['message'],Data['type']);
-                if(Data['files']){
-                    if(Data['files']['logotype']){
-                        $('.Control-Group img').attr('src',Data['file']);
-                    }
-                    if(Data['files']['photos']){
-                        $.each(Data['files']['photos'],function(key,value){
-                            $('#field_photos').after('<img src="'+value+'">');
-                        });
-                    }
-                }
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-        return false;
-    });
-}
-
-/*** Call Function ***/
+/*********************************************************************************************************************** Call Function ***/
 $(document).ready(function(){
     /*** Menu ***/
     upf.Menu.ActiveItem();
@@ -232,11 +105,4 @@ $(document).ready(function(){
 
     /*** List ***/
     upf.List.CheckAll();
-    upf.List.UpdateItem();
-    upf.List.TrashItem();
-
-    /*** Edit ***/
-    upf.Edit.UpdateItem();
-    upf.Edit.UpdateItemFiles();
-
 });

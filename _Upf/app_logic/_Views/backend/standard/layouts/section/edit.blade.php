@@ -109,7 +109,6 @@
                         {{($key==\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))?'checked':''}}>
                     </li>
                     @endforeach
-
             </ul>
             @endif
             {{---------------------------------------------------------------------------------------------------------------------- End Fields --}}

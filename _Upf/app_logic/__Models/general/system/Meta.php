@@ -188,8 +188,8 @@ class Meta extends Fields {
         }
 
         /*** Write Files ***/
-        if(\Input::hasFile('photos')){
-            foreach(\Input::file('photos') as $Photo){
+        if(\Input::hasFile('meta-files')){
+            foreach(\Input::file('meta-files') as $Photo){
                 $File = new \UpfModels\Files();
 
                 $FileSrc = $this->PhotosUrl.time() . '_' . $Photo->getClientOriginalName();
