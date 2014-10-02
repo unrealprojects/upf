@@ -20,11 +20,11 @@
                     <tr item-id="{{$item['id']}}" item-alias="{{$item['meta']['alias']}}">
                         <td class="Checkbox"><input class="Selected-Items" type="checkbox"/></td>
                         <td class="Number">{{$item['id']}}</td>
-                        @foreach($content['data']['fields'] as $alias => $field)
+                        @foreach($content['data']['fields'] as $field)
                             <td class="{{$field['class']}}">
                                 @if($field['type']=='text')
                                     <div class="Caption">{{$field['title']}}</div>
-                                    <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$alias}}">{{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}</div>
+                                    <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$field['name']}}">{{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}</div>
                                 @endif
                             </td>
                         @endforeach

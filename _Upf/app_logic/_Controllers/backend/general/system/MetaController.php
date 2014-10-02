@@ -20,6 +20,7 @@ class MetaController extends GeneralBackendController{
         $this->viewData['content'] = [
             'data'=>$Model->index()
         ];
+
         return \View::make($this->View.'list',$this->viewData);
     }
 
@@ -29,7 +30,7 @@ class MetaController extends GeneralBackendController{
         $this->viewData['content'] = [
             'data'=>$Model->EditItem($alias)
         ];
-        //print_r($Model->EditItem($alias));
+
         return \View::make($this->View.'edit',$this->viewData);
     }
 

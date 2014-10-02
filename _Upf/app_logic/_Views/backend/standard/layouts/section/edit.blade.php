@@ -62,7 +62,7 @@
                         <label for="field_{{$alias}}">{{$field['title']}}</label>
                         <select  name="{{$alias}}" id="field_{{$alias}}">
                             <option value="0">Нет</option>
-                            @foreach($field['values'] as $key => $value)
+                            @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $key => $value)
                                 @if($field['values_type']=='config' && is_int($key))
                                     <option value="{{$key}}"
                                     {{(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])==$key)?'selected="selected"':''}}>{{$value}}</option>
@@ -74,39 +74,39 @@
                         </select>
                     </div>
                 @endif
-{{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
-                @if($field['type']=='multi-select')
-                    <div class="Control-Group">
-                        <label  for="field_{{$alias}}">{{$field['title']}}</label>
-                        <select multiple="multiple" name="{{$alias}}[]" id="field_{{$alias}}">
-                            @foreach($field['values'] as $value)
-                            <option value="{{$value['id']}}"
-                                    @if(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))
-                                        @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $selected)
-                                            {{($selected['id']==$value['id'])?'selected="selected"':''}}
-                                        @endforeach
-                                    @endif
-                                >{{$value['title']}}</option>
+            {{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
+            @if($field['type']=='multi-select')
+            <div class="Control-Group">
+                <label  for="field_{{$alias}}">{{$field['title']}}</label>
+                <select multiple="multiple" name="{{$alias}}[]" id="field_{{$alias}}">
+                    @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $value)
+                    <option value="{{$value['id']}}"
+                        @if(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))
+                            @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $selected)
+                                {{($selected['id']==$value['id'])?'selected="selected"':''}}
                             @endforeach
-                        </select>
-                    </div>
-                @endif
-{{---------------------------------------------------------------------------------------------------------------------- Checkbox Filed --}}
-                @if($field['type']=='radio')
-                    <div class="Control-Group">
-                        <label  for="field_{{$alias}}">{{$field['title']}}</label>
-                        <ul>
-                            @foreach($field['values'] as $key => $value)
-                                <li>
-                                    <label for="field_{{$alias}}">{{$value}}</label>
-                                    <input type="radio" name="{{$alias}}" value="{{$key}}"
-                                    {{($key==\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))?'checked':''}}>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-{{---------------------------------------------------------------------------------------------------------------------- Checkbox End Fields --}}
+                        @endif
+                    >{{$value['title']}}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
+            {{---------------------------------------------------------------------------------------------------------------------- Radio Filed --}}
+            @if($field['type']=='radio')
+            <div class="Control-Group">
+                <label  for="field_{{$alias}}">{{$field['title']}}</label>
+                <ul>
+                    @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $key => $value)
+                    <li>
+                        <label for="field_{{$alias}}">{{$value}}</label>
+                        <input type="radio" name="{{$alias}}" value="{{$key}}"
+                        {{($key==\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))?'checked':''}}>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            {{---------------------------------------------------------------------------------------------------------------------- End Fields --}}
             @endforeach
             <input class="Button Round" type="submit" value="Обновить"/>
         </form>

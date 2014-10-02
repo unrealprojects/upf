@@ -4,6 +4,7 @@ namespace UpfModels;
 
 class General extends \Eloquent {
     public $Filter = [];
+    public $destination = 'backend';
 
     /*** Relation Meta ***/
     public function Meta()

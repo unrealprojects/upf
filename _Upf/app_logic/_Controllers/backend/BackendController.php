@@ -4,9 +4,11 @@ namespace UpfControllers;
 class BackendController extends \Controller {
 
     public $viewData;
+    public $Model='\UpfModels\\';
 
     public function __construct(){
         $Administrator = \Auth::getUser();
+        $this->viewData['Model']=$this->Model;
         if($Administrator){
             $this->viewData['AdministratorLogin']=$Administrator->login;
         }

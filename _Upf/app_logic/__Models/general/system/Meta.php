@@ -2,12 +2,12 @@
 
 namespace UpfModels;
 
-class Meta extends General {
+class Meta extends Fields {
     protected $table = 'system_meta';
     public $Config = 'models/backend/sections/Meta';
     public $PhotosUrl = '/photo/standard/system/meta/';
 
-    /*** *** Relations *** ***//////////////////////////////////////////////////////////////////////////////////////////
+    /******************************************************************************************************************* Relations ***/
 
     /***  Tags :: Many To Many ***/
     public function tags()
@@ -39,7 +39,7 @@ class Meta extends General {
         return $this->hasMany('UpfModels\Regions','id','region_id');
     }
 
-    /*** *** Where *** ***//////////////////////////////////////////////////////////////////////////////////////////////
+    /******************************************************************************************************************* Where ***/
 
     /*** Where :: Alias in Meta ***/
     public static function WhereAliasInMeta($This,$Alias){
@@ -91,7 +91,7 @@ class Meta extends General {
 
         });
     }
-    /*** *** Main Functions *** ***/////////////////////////////////////////////////////////////////////////////////////
+    /*******************************************************************************************************************  Main Functions ***/
 
     /*** Get List ***/
     public function Index($Filter = []){
@@ -103,16 +103,18 @@ class Meta extends General {
                 'meta.tags',
                 'meta.regions')
             ->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
+        //print_r($this->GetFields('list')->toArray());
         return [
             'list' => $Query->toArray()['data'],
-            'fields' =>\Config::get($this->Config.'.list'),
+            'fields' => $this->GetFields('list'),
             'pagination' => $Query->appends(\Input::except('page'))->links(),
         ];
     }
 
     /*** Edit Item ***/
     public function EditItem($Alias){
-        $Result=$this
+        /*** Get Content Model***/
+        $ContentModel=$this
             ->WhereAliasInMeta($this,$Alias)
             ->with(
                 'meta',
@@ -123,9 +125,10 @@ class Meta extends General {
             ->first();
         //print_r($Result->toArray());
         //exit;
+        /*** Result ***/
         return [
-            'item' => $Result->toArray(),
-            'fields' =>\Config::get($this->Config.'.edit')
+            'item' => $ContentModel->toArray(),
+            'fields' =>$this->GetFields('edit')
         ];
     }
 
@@ -207,7 +210,7 @@ class Meta extends General {
         return true;
     }
 
-    /*** *** Easy Functions *** ***/////////////////////////////////////////////////////////////////////////////////////
+    /*******************************************************************************************************************  Easy Functions ***/
 
     /*** To Trash ***/
     public function ChangeStatus($Alias,$Status){

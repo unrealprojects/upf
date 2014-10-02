@@ -3899,7 +3899,6 @@ namespace {
 		 * @return \Illuminate\Database\Eloquent\Builder|static
 		 * @static 
 		 */
-		 public static function where($column, $operator = null, $value = null, $boolean = 'and'){
 			//Method inherited from \Illuminate\Database\Eloquent\Builder
 			return \Illuminate\Database\Eloquent\Builder::where($column, $operator, $value, $boolean);
 		 }
