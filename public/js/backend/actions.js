@@ -104,7 +104,6 @@ upf.Edit.UpdateItemFiles = function(){
     // Update body
     $(document).on('change',UpdateButton,function(){
         // Send Ajax to "/alias/update"
-        data = new FormData($(UpdateForm));
         var formData = new FormData($(UpdateForm)[0]);
         $.ajax({
             type:'POST',
@@ -147,21 +146,22 @@ upf.Add.NewItem = function(){
     // Update body
     $(document).on('click',AddButton,function(){
         // Function Variables
-        var Current = this,
-            $FieldsToUpdate = $(Current).parents('tr').find('[contenteditable=true]');
-
+        var formData = new FormData($(AddForm)[0]);
         // Send Ajax to "/alias/update"
         $.ajax({
             type:'POST',
             url:  location.pathname,
-            data: $(UpdateForm).serialize(),
+            data: formData,
             dataType:'json',
             success: function(Data){
                 upf.Messages.Show(Data['message'],Data['type']);
-                if(Data['file']){
-                    $('.Control-Group img').attr('src',Data['file']);
+                if(Data['type']=='Success'){
+                    location.href = Data['location'];
                 }
-            }
+            },
+            cache: false,
+            contentType: false,
+            processData: false
         });
         return false;
     });

@@ -110,11 +110,54 @@ class Meta extends Fields {
             'pagination' => $Query->appends(\Input::except('page'))->links(),
         ];
     }
-    /*** Add Item ***/
-    public function AddItem(){
+
+    /*** Get Item Add Fields***/
+    public function AddItemFields(){
         return [
             'fields' =>$this->GetFields('add')
         ];
+    }
+
+    /*** Get Item Add Fields***/
+    public function AddItem(){
+        /*** Content ***/
+        $this->title = \Input::get('title');
+
+        if(\Input::hasFile('logotype')){
+            /*** Set File Src ***/
+
+            $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+
+            \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+            $this->logotype = $FileSrc;
+
+
+        }
+        $this->intro = \Input::get('intro');
+        $this->text = \Input::get('text');
+
+        /*** Meta ***/
+        $Data = [
+            /*** Content ***/
+            'title' => $this->title,
+            'description' => $this->title,
+            'keywords' => $this->title,
+            /*** Relations ***/
+            'section' => 'articles',
+            'category_id' => 0 ,
+            'user_id' => 0 ,
+            /*** Statuses ***/
+            'status' => 1,
+            'privileges' => 0,
+            'rating' => 0,
+            'favorite' => 0,
+        ];
+        $this->meta_id = \UpfSeeds\MetaSeeder::AddMetaToSection($Data);
+       // print_r ($this->logotype);
+        $this->save();
+        $Meta = new \UpfModels\Meta();
+        $Meta=$Meta->find($this->id);
+        return '/'.\Request::segment(1) . '/' .\Request::segment(2) . '/' .\Request::segment(3) . '/' . $Meta->alias . '/' . 'edit';
     }
 
     /*** Edit Item ***/
@@ -155,17 +198,16 @@ class Meta extends Fields {
             $Result->intro = $Input['intro'];
             $Result->text = $Input['text'];
 
-            $Result->meta()->title = 'asdf';
             $Result->meta()->update(
                 [
-                    'title'=>$Input['meta_title'],
-                    'description'=>$Input['meta_description'],
-                    'keywords'=>$Input['meta_keywords'],
-                    'region_id'=>$Input['meta_region_id'],
-                    'category_id'=>$Input['meta_category_id'],
+                    'title'=>$Input['meta-title'],
+                    'description'=>$Input['meta-description'],
+                    'keywords'=>$Input['meta-keywords'],
+                    'region_id'=>$Input['meta-region_id'],
+                    'category_id'=>$Input['meta-category_id'],
                 ]
             );
-            $Result->tags()->sync($Input['meta_tags']);
+            $Result->tags()->sync($Input['meta-tags']);
             return $Result->save();
         }else{
             return false;
@@ -205,6 +247,7 @@ class Meta extends Fields {
 
         return $UpdatedPhotos;
     }
+
 
     /*** Remove Item ***/
     public function Remove($Alias){

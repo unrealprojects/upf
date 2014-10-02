@@ -71,11 +71,19 @@ class MetaController extends GeneralBackendController{
     /*** Add Item ***/
     public function add(){
         $Model = new $this->Model();
+        if( \Input::get('title')){
+            if($Location = $Model->AddItem()){
+                echo json_encode(['message'=>'Запись успешно добавлена в базу данных.','type'=>'Success','location'=>$Location]);
+            }else{
+                echo json_encode(['message'=>'Невозможно добавить запись.','type'=>'Error']);
+            }
+        }else{
+            $this->viewData['content'] = [
+                'data'=>$Model->AddItemFields()
+            ];
+            return \View::make($this->View.'add',$this->viewData);
+        }
 
-        $this->viewData['content'] = [
-            'data'=>$Model->AddItem()
-        ];
-        return \View::make($this->View.'add',$this->viewData);
     }
 
     /******************************************************************************************************************* Default Easy Events ***/

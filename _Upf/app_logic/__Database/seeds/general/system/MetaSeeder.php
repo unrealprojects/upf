@@ -15,7 +15,7 @@ class MetaSeeder extends \Seeder {
         $Meta = new \UpfModels\Meta();
 
         /*** Index ***/
-        $Meta->alias = \Mascame\Urlify::filter(isset($Data['title'])?$Data['title']:'');
+        $Meta->alias = $Meta->CreateUniqueAlias(\Mascame\Urlify::filter(isset($Data['title'])?$Data['title']:''),'\UpfModels\\Meta');
 
         /*** Content ***/
         $Meta->title = isset($Data['title'])?$Data['title']:'';
