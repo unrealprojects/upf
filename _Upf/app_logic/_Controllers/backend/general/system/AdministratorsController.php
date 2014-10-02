@@ -14,7 +14,7 @@ class AdministratorsController extends GeneralBackendController{
     /*** Auth Form***/
     public function Auth(){
         if(!\Auth::check()){
-            return \View::make('/backend/standard/layouts/system/auth',$this->viewData);
+            return \View::make('/backend/standard/layouts/system/Auth',$this->viewData);
         }else{
             return \Redirect::to('/backend');
         }
