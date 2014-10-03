@@ -35,6 +35,7 @@ Route::group(['before'=>'administrators'], function(){
     ],'system');
 
 
+
     /*** Home ***/
     Route::get('/backend/','\UpfControllers\HomeBackendController@index');
 

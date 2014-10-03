@@ -5,8 +5,9 @@
  */
 namespace UpfModels;
 
-class Regions extends General {
+class Regions extends Fields {
     protected $table = 'filter_regions';
+    public $PhotosUrl = '/photo/standard/filters/regions/';
 
     /* Создание двухуровневых вложений */
     static public function toSubRegions($withPopular=false){
@@ -19,12 +20,6 @@ class Regions extends General {
         $regions['2']['subRegions']=$instance::where('type','Республики')->get()->toArray();
         $regions['2']['name']='Республики';
         $regions['2']['alias']='republic';
-      //  $regions['3']['subRegions']=$instance::where('type','Автономные округа')->get()->toArray();
-      //  $regions['3']['name']='Автономные округа';
-       // $regions['3']['alias']='okrug';
-     //   $regions['4']['subRegions']=$instance::where('type','Края')->get()->toArray();
-     //   $regions['4']['name']='Края';
-     //   $regions['4']['alias']='cray';
 
         $sorted=[];
         $i=0;

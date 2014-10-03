@@ -103,7 +103,7 @@ class Meta extends Fields {
                 'meta.tags',
                 'meta.regions')
             ->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
-        //print_r($this->GetFields('list')->toArray());
+
         return [
             'list' => $Query->toArray()['data'],
             'fields' => $this->GetFields('list'),

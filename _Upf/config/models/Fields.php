@@ -44,4 +44,10 @@ return [
         3 => 'Select',
         4 => 'MultiSelect'
     ],
+    /*** Condition ***/
+    'condition' => [
+        0 => 'Новый',
+        1 => 'БУ'
+    ],
+
 ];

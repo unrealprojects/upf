@@ -17,9 +17,14 @@
                             <p>{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}</p>
                         @endif
                     </div>
-                @endif
+{{---------------------------------------------------------------------------------------------------------------------- Text Password --}}
+                @elseif($field['type']=='password')
+                    <div class="Control-Group">
+                        <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
+                            <input name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="text" />
+                    </div>
 {{---------------------------------------------------------------------------------------------------------------------- Text Area Field --}}
-                @if($field['type']=='textarea')
+                @elseif($field['type']=='textarea')
                     <div class="Control-Group">
                         <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         @if($field['editable']==true)
@@ -28,9 +33,8 @@
                         <p>{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}</p>
                         @endif
                     </div>
-                @endif
 {{---------------------------------------------------------------------------------------------------------------------- Photo Field --}}
-                @if($field['type']=='photo')
+                @elseif($field['type']=='photo')
                     <div class="Control-Group">
                         <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         @if($field['editable']==true)
@@ -46,9 +50,8 @@
                             </div>
                         @endif
                     </div>
-                @endif
 {{---------------------------------------------------------------------------------------------------------------------- Multiple Photos Field --}}
-                @if($field['type']=='photos')
+                @elseif($field['type']=='photos')
                     <div class="Control-Group">
                         <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         @if($field['editable']==true)
@@ -61,9 +64,8 @@
                         </div>
                         @endif
                     </div>
-                @endif
 {{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
-                @if($field['type']=='select')
+                @elseif($field['type']=='select')
                     <div class="Control-Group">
                         <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         <select  name="{{$field['relation']}}" id="field_{{$field['relation']}}">
@@ -79,9 +81,8 @@
                             @endforeach
                         </select>
                     </div>
-                @endif
             {{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
-            @if($field['type']=='multi-select')
+            @elseif($field['type']=='multi-select')
             <div class="Control-Group">
                 <label  for="field_{{$field['relation']}}">{{$field['title']}}</label>
                 <select multiple="multiple" name="{{$field['relation']}}[]" id="field_{{$field['relation']}}">
@@ -96,9 +97,8 @@
                     @endforeach
                 </select>
             </div>
-            @endif
             {{---------------------------------------------------------------------------------------------------------------------- Radio Filed --}}
-            @if($field['type']=='radio')
+            @elseif($field['type']=='radio')
             <ul class="Control-Group Radio">
                 {{--<label  for="field_{{$field['relation']}}">{{$field['title']}}</label>--}}
 

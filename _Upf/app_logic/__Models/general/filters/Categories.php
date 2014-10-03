@@ -1,12 +1,10 @@
 <?php
 
-/**
- *  БАЗОВЫЙ КАТАЛОГ
- */
 namespace UpfModels;
 
-class Categories extends General{
+class Categories extends Fields{
     protected $table = 'filter_categories';
+    public $PhotosUrl = '/photo/standard/filters/params/';
 
     /*** Relations ***/
     public function Filters(){

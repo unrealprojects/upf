@@ -2,6 +2,7 @@
 
 namespace UpfModels;
 
-class Tags extends General{
+class Tags extends Fields{
     protected $table = 'filter_tags';
+    public $PhotosUrl = '/photo/standard/filters/tags/';
 }

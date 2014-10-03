@@ -17,9 +17,11 @@ class Fields extends General {
             ->where('destination',$this->destination)
             ->where('table',$this->table)
             ->where('view',$View)
+            ->orderBy('id')
             ->get();
     }
 
+    /*** Get Field Values***/
     public static function GetFieldValues($Values,$ValuesType){
         if($ValuesType=='model'){
             $Model = '\UpfModels\\' .$Values;
@@ -30,4 +32,18 @@ class Fields extends General {
             return \Config::get($Values);
         }
     }
+
+    /*** Get Clear List ***/
+    public function Index($Filter = []){
+        $Query = $this
+            ->WhereStatusesInMeta($this,$Filter)
+            ->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
+
+        return [
+            'list' => $Query->toArray()['data'],
+            'fields' => $this->GetFields('list'),
+            'pagination' => $Query->appends(\Input::except('page'))->links(),
+        ];
+    }
+
 }

@@ -3,7 +3,7 @@
 namespace UpfModels;
 
 /*** Params Values***/
-class ParamsValues extends General {
+class ParamsValues extends Fields {
     public $timestamps = false;
     protected $table = 'params_values';
 

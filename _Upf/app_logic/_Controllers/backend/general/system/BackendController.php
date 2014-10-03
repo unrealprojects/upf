@@ -4,6 +4,7 @@ namespace UpfControllers;
 class BackendController extends \Controller {
 
     public $viewData;
+    public $BaseUrl;
     public $Model='\UpfModels\\';
 
     public function __construct(){
@@ -12,7 +13,8 @@ class BackendController extends \Controller {
         if($Administrator){
             $this->viewData['AdministratorLogin']=$Administrator->login;
         }
-        $this->getMeta();
+        $this->baseUrl =
+            $this->viewData['BaseUrl'] = $this->getMeta();
         $this->getBreadCrumbs();
         $this->setTemplate();
     }

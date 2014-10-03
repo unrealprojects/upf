@@ -2,6 +2,7 @@
 
 namespace UpfModels;
 /*** Params ***/
-class Params extends General {
+class Params extends Fields {
     protected $table = 'filter_params';
+    public $PhotosUrl = '/photo/standard/filters/params/';
 }

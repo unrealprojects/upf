@@ -15,7 +15,6 @@ class Rent extends Migration {
             /*** Content ***/
             $table->string('title')->nullable();
             $table->string('logotype')->nullable();
-            $table->string('photos')->nullable();
             $table->text('intro')->nullable();
             $table->text('text')->nullable();
             $table->string('price')->nullable();
@@ -25,8 +24,7 @@ class Rent extends Migration {
             $table->integer('model_id')->default(0);
 
             /*** Status ***/
-            $table->integer('is_free')->nullable();
-            $table->integer('opacity')->nullable();
+            $table->integer('condition')->nullable();
         });
     }
 

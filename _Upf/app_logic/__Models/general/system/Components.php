@@ -1,8 +1,8 @@
 <?php
 namespace UpfModels;
 
-/*** Articles ***/
-class Components extends Meta{
+/*** Components ***/
+class Components extends Fields{
     public $timestamps = false;
     protected $table = 'system_components';
     public $Config = 'models/backend/sections/Components';

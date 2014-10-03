@@ -28,28 +28,6 @@ class TechonlineCatalog extends Migration {
         \\Schema::dropIfExists('catalog_params_values');
         \\Schema::dropIfExists('catalog_categories_to_params');
 
-        /*** БАЗОВЫЙ КАТАЛОГ ***/
-        \\Schema::create('catalog_base', function($table)
-        {
-            $table->increments('id');
-
-            $table->string('model')->nullable();
-            $table->string('logo')->nullable();
-
-            $table->text('description')->nullable();
-
-            $table->text('photos')->nullable();
-
-            $table->integer('rating')->default(0);
-
-            $table->integer('category_id')->nullable();
-            $table->integer('brand_id')->nullable();
-            $table->integer('comments_id')->nullable();
-            $table->integer('metadata_id')->nullable();
-
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-        });
 
         for($i=1;$i<30;$i++){
             $catalog_base = new \UpfModels\Catalog();

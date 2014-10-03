@@ -21,7 +21,6 @@ class Users extends Migration {
             /*** Content ***/
             $table->string('title')->nullable();
             $table->string('logotype')->nullable();
-            $table->string('photos')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->boolean('gender')->default(0);

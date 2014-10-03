@@ -15,7 +15,6 @@ class Catalog extends Migration {
             /*** Content ***/
             $table->string('title')->nullable();
             $table->string('logotype')->nullable();
-            $table->string('photos')->nullable();
             $table->text('intro')->nullable();
             $table->text('text')->nullable();
 

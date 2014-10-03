@@ -6,7 +6,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Administrators extends General implements UserInterface, RemindableInterface{
+class Administrators extends Fields implements UserInterface, RemindableInterface{
     use UserTrait, RemindableTrait;
     protected $table = 'system_administrators';
     public $Config = 'models/backend/system/Administrators';

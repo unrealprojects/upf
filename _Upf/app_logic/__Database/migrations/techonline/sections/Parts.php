@@ -18,13 +18,12 @@ class Parts extends Migration {
             $table->string('price')->nullable();
             $table->text('intro')->nullable();
             $table->text('text')->nullable();
-            $table->string('photos')->nullable();
 
             /*** Relations ***/
             $table->integer('meta_id')->default(0);
 
             /*** Status ***/
-            $table->integer('opacity')->nullable();
+            $table->integer('condition')->nullable();
         });
     }
 

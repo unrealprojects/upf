@@ -5,7 +5,7 @@
  */
 namespace UpfModels;
 
-class TagsToItems extends General{
+class TagsToItems extends Fields{
     public $timestamps = false;
     protected $table = 'filter_tags_to_items';
 }

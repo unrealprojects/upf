@@ -2,7 +2,7 @@
 
 namespace UpfModels;
 
-class Comments extends General {
+class Comments extends Fields {
 
     protected $table = 'system_comments';
 }

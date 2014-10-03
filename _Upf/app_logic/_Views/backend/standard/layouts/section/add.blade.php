@@ -12,6 +12,12 @@
                         <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         <input name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="text" value=""/>
                     </div>
+{{---------------------------------------------------------------------------------------------------------------------- Password Field --}}
+                @elseif($field['type']=='text')
+                    <div class="Control-Group">
+                        <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
+                        <input name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="password" value=""/>
+                    </div>
 {{---------------------------------------------------------------------------------------------------------------------- Text Area Field --}}
                 @elseif($field['type']=='textarea')
                     <div class="Control-Group">

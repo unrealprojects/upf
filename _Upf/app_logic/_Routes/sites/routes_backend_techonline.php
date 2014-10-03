@@ -1,8 +1,8 @@
 <?php
-
+Route::group(['before'=>'administrators'], function(){
 NewRoutesGroup([
     'catalog',
     'rent',
     'parts',
-    'sellers'
-],'TechOnline','section');
+],'section');
+});

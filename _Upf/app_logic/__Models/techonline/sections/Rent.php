@@ -1,44 +1,35 @@
 <?php
-
-/**
- *  БАЗОВЫЙ КАТАЛОГ
- */
 namespace UpfModels;
+/*** Rent ***/
+class Rent extends Meta{
+    public $timestamps = false;
+    protected $table = 'section_rent';
+    public $PhotosUrl = '/photo/standard/sections/rent/';
+}
 
-class Rent extends General {
-    protected $table = 'system_rent';
 
 
-    /* Связи */
-    public function model(){
-        return $this->hasOne('UpfModels\Catalog','id','model_id');
-    }
 
-    public function region(){
-        return $this->hasOne('UpfModels\CatalogRegion','id','region_id');
-    }
 
-    public function comments()
-    {
-        return $this->hasMany('UpfModels\Comments','list_id','comments_id');
-    }
 
-    public function status()
-    {
-        return $this->hasOne('UpfModels\CatalogStatuses','id','status_id');
-    }
 
-    public function opacity()
-    {
-        return $this->hasOne('UpfModels\CatalogOpacity','id','opacity_id');
-    }
 
-    public function admin()
-    {
-        return $this->hasOne('UpfModels\CatalogAdmin','id','admin_id');
-    }
 
-    /* Запросы */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     public function getList($filter){
         $this->filter = $filter;
 
@@ -54,13 +45,13 @@ class Rent extends General {
                            'admin',
                            'admin.metadata',
                            'metadata')
-          /*** Фильтр в Регионах ***/
+          // Фильтр в Регионах
           ->whereHas('region', function($query) {
               if($this->filter['region']){
                   \UpfModels\CatalogRegion::filterSubRegions($query,$this->filter['region']);
               }
           })
-            /*** Фильтр в Категориях ***/
+    // Фильтр в Категориях
             ->whereHas('model', function($query) {
                 if($this->filter['category']){
                     $query->whereHas('category',function($query){
@@ -68,7 +59,7 @@ class Rent extends General {
                     });
                 }
             })
-            /*** Фильтр по Поизводителям ***/
+    // Фильтр по Поизводителям
             ->whereHas('model', function($query) {
                 if($this->filter['brands']){
                     $query->whereHas('brand',function($query){
@@ -76,7 +67,7 @@ class Rent extends General {
                     });
                 }
             })
-            /*** Фильтр по Параметрам ***/
+            // Фильтр по Параметрам
             ->whereHas('model', function($query) {
                 if($this->filter['params']){
                     foreach($this->filter['params'] as $this->filter['key'] => $this->filter['param']){
@@ -100,25 +91,4 @@ class Rent extends General {
 
 
     }
-
-    public function getElement($alias){
-        $this->rewrite['alias']=$alias;
-        return $this::with('model',
-            'model.category',
-            'model.brand',
-            'model.metadata',
-            'model.params_values',
-            'model.params_values.paramData',
-            'region',
-            'comments',
-            'status',
-            'opacity',
-            'admin',
-            'admin.metadata',
-            'metadata')
-            ->whereHas('metadata', function($query) {
-                $query->where('alias',$this->rewrite['alias']);
-            })
-            ->first();
-    }
-}
+*/
