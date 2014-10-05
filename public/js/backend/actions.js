@@ -76,11 +76,13 @@ upf.Edit.UpdateItem = function(){
         // Function Variables
         var Current = this;
 
-        // Send Ajax to "/alias/update"
+        // Send Ajax to "/alias/update" or /update
+        var path = location.pathname.replace('/edit','') + '/update';
+
         var formData = new FormData($(UpdateForm)[0]);
         $.ajax({
             type:'POST',
-            url:  location.pathname.replace('edit','') + 'update',
+            url: path ,
             data: $(UpdateForm).serialize(),
             dataType:'json',
             success: function(Data){

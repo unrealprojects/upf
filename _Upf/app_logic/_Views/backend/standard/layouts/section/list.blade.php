@@ -17,7 +17,15 @@
             </thead>
             <tbody>
                 @foreach($content['data']['list'] as $item)
-                    <tr item-id="{{$item['id']}}" item-alias="{{$item['meta']['alias']}}">
+                    <tr item-id="{{$item['id']}}" item-alias="
+                    @if(isset($item['meta']['alias']))
+                        {{$item['meta']['alias']}}
+                    @elseif(isset($item['alias']))
+                        {{$item['alias']}}
+                    @elseif(isset($item['login']))
+                        {{$item['login']}}
+                    @endif
+                    ">
                         <td class="Checkbox"><input class="Selected-Items" type="checkbox"/></td>
                         <td class="Number">{{$item['id']}}</td>
                         @foreach($content['data']['fields'] as $field)
@@ -32,7 +40,15 @@
                             <div class="Caption">Действия</div>
                             <ul>
                                 <li><a class="Item-Update" title="Принять изменения" href="#"><span class="fa fa-check"></span></a></li>
-                                <li><a class="Item-Edit" title="Редактировать ..." href="{{$BaseUrl.$item['meta']['alias'].'/edit'}}"><span class="fa fa-pencil"></span></a></li>
+                                <li><a class="Item-Edit" title="Редактировать ..." href="
+                                     @if(isset($item['meta']['alias']))
+                                         {{$BaseUrl.$item['meta']['alias'].'/edit'}}
+                                     @elseif(isset($item['alias']))
+                                         {{$BaseUrl.$item['alias'].'/edit'}}
+                                     @elseif(isset($item['login']))
+                                         {{$BaseUrl.$item['login'].'/edit'}}
+                                     @endif
+                                "><span class="fa fa-pencil"></span></a></li>
                                 <li><a class="Item-Remove" title="Удалить ..." href="#"><span class="fa fa-remove"></span></a></li>
                             </ul>
                         </td>

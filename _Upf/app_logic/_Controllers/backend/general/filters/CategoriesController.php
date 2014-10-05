@@ -1,7 +1,7 @@
 <?php
 namespace UpfControllers;
 
-class CategoriesController extends GeneralBackendController{
-    public $View = '/backend/standard/layouts/section/';
+class CategoriesController extends FieldsController{
     public $BaseUrl = '/backend/section/articles/';
+    public $Model = '\UpfModels\Categories';
 }

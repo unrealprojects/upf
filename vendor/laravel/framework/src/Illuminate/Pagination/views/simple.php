@@ -3,6 +3,7 @@
 
 	$trans = $environment->getTranslator();
 ?>
+
 <?php if ($paginator->getLastPage() > 1): ?>
 	<ul class="pager">
 		<?php

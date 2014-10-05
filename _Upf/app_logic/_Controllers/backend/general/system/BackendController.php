@@ -27,15 +27,16 @@ class BackendController extends \Controller {
     }
 
     public function getMeta(){
+
         $alias=\Route::current()->parameter('alias');
-        $app_section=\Request::segment(1);
+        $Section=\Request::segment(1);
 
-        $MetaData = \UpfModels\Meta::where('section',$app_section)->where('alias',$alias)->first();
+        $Meta = \UpfModels\Meta::where('section',$Section)->where('alias',$alias)->first();
 
-        $this->viewData['meta']=[
-                'title' => (!empty($MetaData->title))?$MetaData->title:\Config::get('site/app_settings.MetaData.title'),
-                'description' => (!empty($MetaData->description))?$MetaData->description:\Config::get('site.app_settings.metadata.description'),
-                'keywords' => (!empty($MetaData->keywords))?$MetaData->keywords:\Config::get('site.app_settings.metadata.keyword')
+        $this->viewData['meta'] = [
+                'title' => (!empty($Meta->title))?$Meta->title:\Config::get('site/app_settings.MetaTitle.content'),
+                'description' => (!empty($Meta->description))?$Meta->description:\Config::get('site/app_settings.MetaDescription.content'),
+                'keywords' => (!empty($Meta->keywords))?$Meta->keywords:\Config::get('site/app_settings.MetaKeywords.content')
         ];
     }
 

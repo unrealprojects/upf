@@ -31,8 +31,8 @@
             <ul class="Menu-Subcategory">
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/administrators"><span class="fa fa-university"></span>Администраторы</a></li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/comments"><span class="fa fa-comments"></span>Комментарии</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/map"><span class="fa fa-puzzle-piece"></span>Карта сайта</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/files"><span class="fa fa-image"></span>Файлы</a></li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/meta"><span class="fa fa-puzzle-piece"></span>Карта сайта</a></li>
+{{--            <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/files"><span class="fa fa-image"></span>Файлы</a></li>         --}}
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/settings"><span class="fa fa-wrench"></span>Настройки</a></li>
             </ul>
         </li>

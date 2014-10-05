@@ -2,11 +2,10 @@
 namespace UpfControllers;
 
 class MetaController extends FieldsController{
-    public $View = '/backend/standard/layouts/section/';
     public $BaseUrl = '/backend/section/articles/';
     public $Model = '\UpfModels\Meta';
 
-    /******************************************************************************************************************* Meta    ***/
+    /******************************************************************************************************************* Meta ***/
 
     /*** Change Status ***/
     public function status($alias,$status){

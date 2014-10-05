@@ -2,6 +2,7 @@
 
 use Cache;
 use Config;
+use Maatwebsite\Excel\Classes\PHPExcel;
 use PHPExcel_IOFactory;
 use Illuminate\Filesystem\Filesystem;
 use Maatwebsite\Excel\Parsers\ExcelParser;
@@ -43,7 +44,7 @@ class LaravelExcelReader {
      * Selected columns
      * @var array
      */
-    public $columns = [];
+    public $columns = array();
 
     /**
      * Spreadsheet title
@@ -121,7 +122,7 @@ class LaravelExcelReader {
      * The date columns
      * @var array
      */
-    public $dateColumns = [];
+    public $dateColumns = array();
 
     /**
      * If the file has a heading or not
@@ -151,13 +152,37 @@ class LaravelExcelReader {
      * Selected sheets
      * @var array
      */
-    public $selectedSheets = [];
+    public $selectedSheets = array();
 
     /**
      * Selected sheet indices
      * @var array
      */
-    public $selectedSheetIndices = [];
+    public $selectedSheetIndices = array();
+
+    /**
+     * Active filter
+     * @var PHPExcel_Reader_IReadFilter
+     */
+    protected $filter;
+
+    /**
+     * Filters
+     * @var array
+     */
+    public $filters = [
+        'registered' => []
+    ];
+
+    /**
+     * @var LaravelExcelWorksheet
+     */
+    protected $sheet;
+
+    /**
+     * @var LaravelExcelWriter
+     */
+    protected $writer;
 
     /**
      * Construct new reader
@@ -191,6 +216,42 @@ class LaravelExcelReader {
 
         // Return itself
         return $this;
+    }
+
+    /**
+     * @param integer|callable|string $sheetID
+     * @param null $callback
+     * @return $this
+     * @throws \PHPExcel_Exception
+     */
+    public function sheet($sheetID, $callback = null)
+    {
+        // Default
+        $isCallable = false;
+
+        // Copy the callback when needed
+        if(is_callable($sheetID))
+        {
+            $callback = $sheetID;
+            $isCallable = true;
+        }
+
+        // Clone the loaded excel instance
+        $clone = clone $this->excel;
+        $sheet = $this->getSheetByIdOrName($sheetID, $isCallable);
+
+        // Init a new PHPExcel instance without any worksheets
+        $this->initClonedExcelObject($clone);
+
+        // Create a new cloned sheet
+        $this->sheet = $this->excel->createSheet()->cloneParent($sheet);
+
+        // Do the callback
+        if ($isCallable)
+            $return = call_user_func($callback, $this->sheet);
+
+        // Return the sheet
+        return $this->sheet;
     }
 
     /**
@@ -319,7 +380,7 @@ class LaravelExcelReader {
      * @param  array $columns
      * @return LaravelExcelReader
      */
-    public function select($columns = [])
+    public function select($columns = array())
     {
         $this->columns = array_merge($this->columns, $columns);
 
@@ -331,7 +392,7 @@ class LaravelExcelReader {
      * @param  array $columns
      * @return LaravelExcelReader
      */
-    public function all($columns = [])
+    public function all($columns = array())
     {
         return $this->get($columns);
     }
@@ -341,7 +402,7 @@ class LaravelExcelReader {
      * @param  array $columns
      * @return SheetCollection|RowCollection
      */
-    public function first($columns = [])
+    public function first($columns = array())
     {
         return $this->take(1)->get($columns)->first();
     }
@@ -351,7 +412,7 @@ class LaravelExcelReader {
      * @param array $columns
      * @return SheetCollection|RowCollection
      */
-    public function get($columns = [])
+    public function get($columns = array())
     {
         if ($this->remembered)
         {
@@ -373,6 +434,49 @@ class LaravelExcelReader {
     }
 
     /**
+     * Parse the file in chunks
+     * @param int $size
+     * @param     $callback
+     * @throws \Exception
+     * @return void
+     */
+    public function chunk($size = 10, $callback = null)
+    {
+        // Check if the chunk filter has been enabled
+        if(!in_array('chunk', $this->filters['enabled']))
+            throw new \Exception("The chunk filter is not enabled, do so with ->filter('chunk')");
+
+        // Get total rows
+        $totalRows = $this->getTotalRowsOfFile();
+
+        // Only read
+        $this->reader->setReadDataOnly(true);
+
+        // Start the chunking
+        for ($startRow = 1; $startRow <= $totalRows; $startRow += $size)
+        {
+            // Set the rows for the chunking
+            $this->filter->setRows($startRow, $size);
+
+            // Load file with chunk filter enabled
+            $this->excel = $this->reader->load($this->file);
+
+            // Set start index
+            $startIndex = ($startRow == 1) ? $startRow : $startRow - 1;
+
+            // Slice the results
+            $results = $this->get()->slice($startIndex, $size);
+
+            // Do a callback
+            if(is_callable($callback))
+                call_user_func($callback, $results);
+
+            $this->_reset();
+            unset($this->excel, $results);
+        }
+    }
+
+    /**
      * Each
      * @param  callback $callback
      * @return SheetCollection|RowCollection
@@ -387,7 +491,7 @@ class LaravelExcelReader {
      * @param  array $columns
      * @return array
      */
-    public function toArray($columns = [])
+    public function toArray($columns = array())
     {
         return (array) $this->get($columns)->toArray();
     }
@@ -397,7 +501,7 @@ class LaravelExcelReader {
      * @param array $columns
      * @return SheetCollection|RowCollection
      */
-    public function toObject($columns = [])
+    public function toObject($columns = array())
     {
         return $this->get($columns);
     }
@@ -408,7 +512,7 @@ class LaravelExcelReader {
      * @param  boolean $die
      * @return string
      */
-    public function dump($columns = [], $die = false)
+    public function dump($columns = array(), $die = false)
     {
         echo '<pre class="container" style="background: #f5f5f5; border: 1px solid #e3e3e3; padding:15px;">';
         $die ? dd($this->get($columns)) : var_dump($this->get($columns));
@@ -420,26 +524,27 @@ class LaravelExcelReader {
      * @param array $columns
      * @return string
      */
-    public function dd($columns = [])
+    public function dd($columns = array())
     {
         return $this->dump($columns, true);
     }
 
     /**
      * Init the loading
-     * @param  string        $file
-     * @param string|boolean $encoding
+     * @param      $file
+     * @param bool $encoding
      * @return void
      */
     protected function _init($file, $encoding = false)
     {
         // Set the extension
         $this->_setFile($file)
-            ->setExtension()
-            ->setTitle()
-            ->_setFormat()
-            ->_setReader()
-            ->_setInputEncoding($encoding);
+              ->setExtension()
+              ->setTitle()
+              ->_setFormat()
+              ->_setReader()
+              ->_enableFilters()
+              ->_setInputEncoding($encoding);
     }
 
     /**
@@ -451,6 +556,42 @@ class LaravelExcelReader {
     {
         $this->excel = $excel;
         $this->_reset();
+    }
+
+    /**
+     * Set filters
+     * @param array $filters
+     */
+    public function setFilters($filters = [])
+    {
+        $this->filters = $filters;
+    }
+
+    /**
+     * Enable filters
+     * @return $this
+     */
+    protected function _enableFilters()
+    {
+        // Loop through the registered filters
+        foreach($this->filters['registered'] as $key => $class)
+        {
+            // Set the filter inside the reader when enabled and the class exists
+            if(in_array($key, $this->filters['enabled']) && class_exists($class))
+            {
+                // init new filter (and overrule the current)
+                $this->filter = new $class;
+
+                // Set default rows
+                if(method_exists($this->filter, 'setRows'))
+                    $this->filter->setRows(0, 1);
+
+                // Set the read filter
+                $this->reader->setReadFilter($this->filter);
+            }
+        }
+
+        return $this;
     }
 
     /**
@@ -696,6 +837,95 @@ class LaravelExcelReader {
     }
 
     /**
+     * Get total rows of file
+     * @return integer
+     */
+    public function getTotalRowsOfFile()
+    {
+        $spreadsheetInfo = $this->reader->listWorksheetInfo($this->file);
+        return $spreadsheetInfo[0]['totalRows'];
+    }
+
+    /**
+     * @param $clone
+     */
+    protected function initClonedExcelObject($clone)
+    {
+        $this->excel = new PHPExcel();
+        $this->excel->cloneParent($clone);
+        $this->excel->disconnectWorksheets();
+    }
+
+    /**
+     * Get the sheet by id or name, else get the active sheet
+     * @param callable|integer|string $sheetID
+     * @param  boolean                $isCallable
+     * @throws \PHPExcel_Exception
+     * @return \PHPExcel_Worksheet
+     */
+    protected function getSheetByIdOrName($sheetID, $isCallable = false)
+    {
+        // If is callback, return the active sheet
+        if($isCallable)
+            return $this->excel->getActiveSheet();
+
+        // If is a string, return the sheet by name
+        if(is_string($sheetID))
+            return $this->excel->getSheetByName($sheetID);
+
+        // Else it should be the sheet index
+        return $this->excel->getSheet($sheetID);
+    }
+
+    /**
+     * Get the file title
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->excel->getProperties()->getTitle();
+    }
+
+    /**
+     * Get the current filename
+     * @return mixed
+     */
+    public function getFileName()
+    {
+        $filename = $this->file;
+        $segments = explode('/', $filename);
+        $file = end($segments);
+        list($name, $ext) = explode('.', $file);
+
+        return $name;
+    }
+
+    /**
+     * Check if the writer has the called method
+     * @param $method
+     * @return bool
+     */
+    protected function writerHasMethod($method)
+    {
+        $this->initNewWriterWhenNeeded();
+        return method_exists($this->writer, $method) ? true : false;
+    }
+
+    /**
+     * Init a new writer instance when it doesn't exist yet
+     */
+    protected function initNewWriterWhenNeeded()
+    {
+        if(!$this->writer)
+        {
+            $this->writer = app('excel.writer');
+            $this->writer->injectExcel($this->excel, false);
+            $this->writer->setFileName($this->getFileName());
+            $this->writer->setTitle($this->getTitle());
+        }
+    }
+
+    /**
      * Set the write format
      * @return LaraveExcelReader
      */
@@ -711,7 +941,7 @@ class LaravelExcelReader {
      * @param  array $columns
      * @return void
      */
-    protected function _parseFile($columns = [])
+    protected function _parseFile($columns = array())
     {
         // Merge the selected columns
         $columns = array_merge($this->columns, $columns);
@@ -778,7 +1008,7 @@ class LaravelExcelReader {
         $this->formatDates = Config::get('excel::import.dates.enabled', true);
 
         // Set default date columns
-        $this->dateColumns = Config::get('excel::import.dates.columns', []);
+        $this->dateColumns = Config::get('excel::import.dates.columns', array());
     }
 
     /**
@@ -788,6 +1018,7 @@ class LaravelExcelReader {
     protected function _reset()
     {
         $this->excel->disconnectWorksheets();
+        unset($this->parsed);
     }
 
     /**
@@ -811,16 +1042,22 @@ class LaravelExcelReader {
         if (method_exists($this->excel, $method))
         {
             // Call the method from the excel object with the given params
-            return call_user_func_array([$this->excel, $method], $params);
+            return call_user_func_array(array($this->excel, $method), $params);
         }
 
         // If it's a reader method
         elseif (method_exists($this->reader, $method))
         {
             // Call the method from the excel object with the given params
-            return call_user_func_array([$this->reader, $method], $params);
+            return call_user_func_array(array($this->reader, $method), $params);
+        }
+
+        elseif($this->writerHasMethod($method))
+        {
+            return call_user_func_array([$this->writer, $method], $params);
         }
 
         throw new LaravelExcelException('[ERROR] Reader method [' . $method . '] does not exist.');
     }
+
 }

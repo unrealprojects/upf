@@ -1,15 +1,9 @@
 <?php
 namespace UpfControllers;
 
-class AdministratorsController extends GeneralBackendController{
-    public $View = '/backend/standard/layouts/section/';
+class AdministratorsController extends FieldsController{
     public $BaseUrl = '/backend/section/administrators/';
     public $Model = '\UpfModels\Administrators';
-
-    public function __construct(){
-       parent::__construct();
-        $this->viewData['BaseUrl']=$this->BaseUrl;
-    }
 
     /*** Auth Form***/
     public function Auth(){

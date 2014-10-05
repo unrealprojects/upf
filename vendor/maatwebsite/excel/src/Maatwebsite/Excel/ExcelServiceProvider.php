@@ -7,11 +7,12 @@ use Maatwebsite\Excel\Classes\Cache;
 use Illuminate\Support\Facades\Config;
 use Maatwebsite\Excel\Classes\PHPExcel;
 use Illuminate\Support\ServiceProvider;
+use Maatwebsite\Excel\Parsers\CssParser;
 use Maatwebsite\Excel\Parsers\ViewParser;
 use Maatwebsite\Excel\Classes\FormatIdentifier;
 use Maatwebsite\Excel\Readers\LaravelExcelReader;
 use Maatwebsite\Excel\Writers\LaravelExcelWriter;
-use Maatwebsite\Excel\Classes\LaravelExcelWorksheet;
+use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 /**
  *
@@ -46,6 +47,9 @@ class ExcelServiceProvider extends ServiceProvider {
 
         // Set the autosizing settings
         $this->setAutoSizingSettings();
+
+        // Register filters
+        $this->registerFilters();
     }
 
     /**
@@ -56,6 +60,7 @@ class ExcelServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->bindClasses();
+        $this->bindCssParser();
         $this->bindReaders();
         $this->bindParsers();
         $this->bindPHPExcelClass();
@@ -75,7 +80,6 @@ class ExcelServiceProvider extends ServiceProvider {
         // Bind the PHPExcel class
         $this->app['phpexcel'] = $this->app->share(function ($app) use ($me)
         {
-
             // Set locale
             $me->setLocale();
 
@@ -84,6 +88,18 @@ class ExcelServiceProvider extends ServiceProvider {
 
             // Init phpExcel
             return new PHPExcel();
+        });
+    }
+
+    /**
+     * Bind the css parser
+     */
+    protected function bindCssParser()
+    {
+        // Bind css parser
+        $this->app->bindShared('excel.parsers.css', function ($app)
+        {
+            return new CssParser(new CssToInlineStyles());
         });
     }
 
@@ -102,7 +118,7 @@ class ExcelServiceProvider extends ServiceProvider {
         // Bind the html reader class
         $this->app['excel.readers.html'] = $this->app->share(function ($app)
         {
-            return new Html();
+            return new Html($app['excel.parsers.css']);
         });
     }
 
@@ -186,19 +202,28 @@ class ExcelServiceProvider extends ServiceProvider {
     }
 
     /**
+     * Register filters
+     * @return void
+     */
+    public function registerFilters()
+    {
+        app('excel')->registerFilters(Config::get('excel::filters', []));
+    }
+
+    /**
      * Get the services provided by the provider.
      *
      * @return array
      */
     public function provides()
     {
-        return [
+        return array(
             'excel',
             'phpexcel',
             'excel.reader',
             'excel.readers.html',
             'excel.parsers.view',
             'excel.writer'
-        ];
+        );
     }
 }

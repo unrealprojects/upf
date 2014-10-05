@@ -20,7 +20,7 @@ class PHPExcel extends PHPOffice_PHPExcel {
      * Allowed autofill properties
      * @var array
      */
-    public $allowedProperties = [
+    public $allowedProperties = array(
         'creator',
         'lastModifiedBy',
         'description',
@@ -29,7 +29,7 @@ class PHPExcel extends PHPOffice_PHPExcel {
         'category',
         'manager',
         'company'
-    ];
+    );
 
     /**
      * Create sheet and add it to this workbook
@@ -85,6 +85,32 @@ class PHPExcel extends PHPOffice_PHPExcel {
             // set the property
             call_user_func_array([$properties, $method], [$value]);
         }
+    }
+
+    /**
+     * load info from parent obj
+     * @param \PHPExcel $object
+     * @return $this
+     */
+    function cloneParent(\PHPExcel $object)
+    {
+        // Init new reflection object
+        $class = new \ReflectionClass(get_class($object));
+
+        // Loop through all properties
+        foreach($class->getProperties() as $property)
+        {
+            // Make the property public
+            $property->setAccessible(true);
+
+            // Set the found value to this sheet
+            $property->setValue(
+                $this,
+                $property->getValue($object)
+            );
+        }
+
+        return $this;
     }
 
     /**

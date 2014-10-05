@@ -64,32 +64,36 @@ class Meta extends Fields {
 
     /*** Where :: Statuses Filter in Meta ***/
     public static function WhereStatusesInMeta($This,$Filters){
-        return $This->whereHas('meta', function($Query) use ($This,$Filters) {
-            /*** Status ***/
-            if(isset($Filters['status'])){
-                $Query->where('status',$Filters['status']);
-            }else{
-                $Query->where('status',\Config::get('models/Fields.status.active'));
-            }
-            /*** Privileges ***/
-            if(isset($Filters['privileges'])){
-                $Query->where('privileges',$Filters['privileges']);
-            }
-            /*** Filters ***/
-            if(isset($Filters['favorite'])){
-                $Query->where('privileges',$Filters['favorite']);
-            }
-            /*** Category  ***/
-            if(isset($Filters['category_alias'])){
-                $This->WhereAliasInCategories($Query,$Filters['category_alias']);
-            }
 
-            /*** Tag ***/
-            if(isset($Filters['tag_alias'])){
-                $This->WhereAliasInTags($Query,$Filters['tag_alias']);
-            }
+        if($This->table=='system_meta'){
+            return $This;
+        }else{
+            return $This->whereHas('meta', function($Query) use ($This,$Filters) {
+                /*** Status ***/
+                if(isset($Filters['status'])){
+                    $Query->where('status',$Filters['status']);
+                }else{
+                    $Query->where('status',\Config::get('models/Fields.status.active'));
+                }
+                /*** Privileges ***/
+                if(isset($Filters['privileges'])){
+                    $Query->where('privileges',$Filters['privileges']);
+                }
+                /*** Filters ***/
+                if(isset($Filters['favorite'])){
+                    $Query->where('privileges',$Filters['favorite']);
+                }
+                /*** Category  ***/
+                if(isset($Filters['category_alias'])){
+                    $This->WhereAliasInCategories($Query,$Filters['category_alias']);
+                }
+                /*** Tag ***/
+                if(isset($Filters['tag_alias'])){
+                    $This->WhereAliasInTags($Query,$Filters['tag_alias']);
+                }
+            });
+        }
 
-        });
     }
     /*******************************************************************************************************************  Main Functions ***/
 
@@ -102,7 +106,7 @@ class Meta extends Fields {
                 'meta.categories',
                 'meta.tags',
                 'meta.regions')
-            ->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
+            ->paginate(isset($Filter['Pagination'])?$Filter['Pagination']:\Config::get('site\app_settings.Paginate.content'));
 
         return [
             'list' => $Query->toArray()['data'],

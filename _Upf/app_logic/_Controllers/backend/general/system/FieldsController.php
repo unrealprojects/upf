@@ -79,6 +79,7 @@ class FieldsController extends BackendController{
             ];
             return \View::make($this->View.'add',$this->viewData);
         }
+
     }
 
 }

@@ -36,7 +36,6 @@ class Fields extends General {
     /*** Get Clear List ***/
     public function Index($Filter = []){
         $Query = $this
-            ->WhereStatusesInMeta($this,$Filter)
             ->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
 
         return [

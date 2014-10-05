@@ -22,19 +22,23 @@ Route::group(['before'=>'administrators'], function(){
         'categories',
         'regions',
         'tags',
-        'parameters',
+        'params'
     ],'filter');
 
     /*** System ***/
     NewRoutesGroup([
+        'administrators',
+        'meta',
+        'fields',
         'comments',
-        'map',
         'files',
         'options',
-        'controllers    '
+        'controllers'
     ],'system');
 
-
+    /*** Settings ***/
+    Route::get('/backend/system/settings/','\UpfControllers\SettingsController@index');
+    Route::post('/backend/system/settings/update','\UpfControllers\SettingsController@update');
 
     /*** Home ***/
     Route::get('/backend/','\UpfControllers\HomeBackendController@index');

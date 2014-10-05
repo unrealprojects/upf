@@ -8,7 +8,8 @@
         "mascame/urlify": "dev-master",
         "fzaninotto/faker": "1.4.*@dev",
         "greggilbert/recaptcha": "dev-master",
-        "maatwebsite/excel": "1.*"
+        "maatwebsite/excel": "1.*",
+        "october/config": "dev"
 	},
 	"autoload": {
 		"classmap": [
