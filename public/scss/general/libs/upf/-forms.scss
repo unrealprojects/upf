@@ -1,9 +1,9 @@
 $Control-Border-Width: 1px;
-$Control-Border-Color: $Clr-Slate;
+$Control-Border-Color: $Clr-Grey;
 $Control-Border-Color-Disabled: lighten($Clr-Slate, 20%);
 $Control-Bg-Color-Disabled: lighten($Clr-Slate, 40%);
-$Control-Border-Color-Focus: $Clr-Main;
-$Control-Border-Radius: 6px;
+$Control-Border-Color-Focus: $Clr-Cyan;
+$Control-Border-Radius: 0px;
 $Control-Padding: 10px;
 $Control-Left-Column-Width: 30%;
 $Control-Right-Column-Width: 100% - $Control-Left-Column-Width;
@@ -13,15 +13,15 @@ $Control-Height: $Control-Line-Height + ($Control-Padding * 2) + ($Control-Borde
 $Control-Color: $Clr-Slate;
 
 $Control-Bg-Color: white;
-$Control-Bg-Color-Focus: lighten($Clr-Main, 55%);
+$Control-Bg-Color-Focus: lighten($Clr-Cyan, 55%);
 
 $Control-Textarea-Line-Height: ceil($Control-Font-Size * 1.45);
 $Control-Textarea-Min-Rows: 2;
 $Control-Textarea-Min-Height: ($Control-Textarea-Line-Height * 2) + ($Control-Padding * 2) + ($Control-Border-Width * 2);
 
-$Control-Button-Bg-Color: $Clr-Main;
-$Control-Button-Bg-Color-Hover: darken($Clr-Main,10%);
-$Control-Button-Border-Color:  darken($Clr-Main,10%);
+$Control-Button-Bg-Color: $Clr-Cyan;
+$Control-Button-Bg-Color-Hover: darken($Clr-Cyan,10%);
+$Control-Button-Border-Color:  darken($Clr-Cyan,10%);
  
 .Form-Group + .Form-Group
 {
@@ -63,7 +63,7 @@ $Control-Button-Border-Color:  darken($Clr-Main,10%);
 
 			box-shadow: 0 0 1px white inset,
 			0 1px 3px rgba(0,0,0,0.2) inset,
-			0 0 5px $Clr-Main;
+			0 0 5px $Clr-Cyan;
 		}
 	}
 	input[disabled]
@@ -89,7 +89,6 @@ $Control-Button-Border-Color:  darken($Clr-Main,10%);
 	}
 	select
 	{
-		-webkit-appearance: none;
 		background-color: white;
 	}
 	textarea
@@ -250,6 +249,13 @@ $Control-Button-Border-Color:  darken($Clr-Main,10%);
 				}
 			}
 		}
+	}
+}
+@include Adaptive($Viewport-XS)
+{
+	.Inline > .Control-Group + .Control-Group
+	{
+		margin-top: 0;
 	}
 }
 
@@ -544,7 +550,10 @@ input[type='button']
 			border-color:	1px solid $Btn-Brd-Color;
 		}
 	}
-
+	&.Fluid
+	{
+		width: 100%;
+	}
 	// Button sizes
 	&.Small {
 		font-size: 			10px;

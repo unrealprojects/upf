@@ -8,8 +8,11 @@
             <a class="Menu-Category-Link" href="#"><span class="fa fa-sitemap"></span>Разделы</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
             <ul class="Menu-Subcategory">
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/catalog"><span class="fa fa-folder-open"></span>Каталог стройтехники</a>
-                    <a class="Subcategory-Action" href="#">+</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/rent"><span class="fa fa-shopping-cart"></span>Аренда стройтехники</a></li>
+                    <a class="Subcategory-Action" title="Добавить ..." href="#">+</a></li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/section/rent"><span class="fa fa-shopping-cart"></span>Аренда стройтехники</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="#">+</a>
+                </li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/parts"><span class="fa fa-gears"></span>Запчасти и сервис</a></li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/users"><span class="fa fa-users"></span>Пользователи(Арендодатели)</a></li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/articles"><span class="fa fa-newspaper-o"></span>Статьи</a></li>

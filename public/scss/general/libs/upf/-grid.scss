@@ -256,7 +256,7 @@ table.Adaptive .Caption,
 // Demo mode highlights grid nodes and makes them visible to developer.
 // NOT FOR PRODUCTION!
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-[class*='#{$Grid-Name}']
+[class*='#{$Grid-Name}'].Demo
 {
 	& > *
 	{

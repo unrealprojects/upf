@@ -93,30 +93,52 @@ ul.Menu-Subcategory {
 }
 li.Menu-Subcategory-Item {
 	@extend ._Clearfix;
+	position: relative;
 }
 a.Menu-Subcategory-Link {
 	display: block;
-	padding: $size-s $size-n $size-s $size-xl;
+	padding: $size-s $size-n $size-s $size-l;
 	font-size: 13px;
 	color: $Clr-Secondary-Dark;
-	border-left: 0 solid transparent;
 	&.Active ,
 	&:hover {
 		background-color: $Clr-Slate-Dark;
 		color: $Clr-Secondary;
 	}
 	&:hover {
-		border-left: 10px solid transparent;
 	}
 	span.fa {
 		margin-right: $size-s;
 	}
 }
+li.Menu-Subcategory-Item:hover a.Subcategory-Action
+{
+	@include Opacity(1);
+}
 a.Subcategory-Action
 {
+	right: 10px;
+	top: 6px;
 	position: absolute;
+	color: white;
+	border: 1px white solid;
+	padding: 3px $size-s;
+	border-radius: 2px;
+	@include Opacity(0);
+	@include Transitions(#{opacity .3s, border-color .3s, color .3s, background-color .3s});
+	&:hover
+	{
+		border-color: $Clr-Cyan;
+		color: $Clr-Cyan;
+		background-color: rgba(0,0,0,0.2);
+	}
 }
 
+.Toolbar
+{
+	border: 1px solid $Control-Border-Color;
+	padding: $size-s;
+}
 // Main Block
 main {
 	margin-left: $Menu-Width;

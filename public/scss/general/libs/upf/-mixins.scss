@@ -6,6 +6,11 @@
 	-moz-transition-duration: 		$Transition-Time;
 	transition-duration: 			$Transition-Time;
 }
+@mixin Transitions($Transitions) {
+	-webkit-transition: 	$Transitions;
+	-moz-transition: 		$Transitions;
+	transition: 			$Transitions;
+}
 
 @mixin Animation($animation-name, $animation-time, $animation-delay: 0) {
 	-webkit-animation: $animation-name $animation-time;

@@ -1556,11 +1556,11 @@ table.Adaptive .Caption,
 
   .Visible-LR {
     display: inline-block; } }
-[class*='Grid'] > * {
+[class*='Grid'].Demo > * {
   padding: 10px 15px;
   border: 1px solid #07b3d2;
   background-color: #25d4f3; }
-[class*='Grid'] + [class*='Grid'].Demo {
+[class*='Grid'].Demo + [class*='Grid'].Demo {
   margin-top: 15px; }
 
 [class*='Visible-'].Demo,
@@ -1855,8 +1855,8 @@ table {
   height: 38px;
   outline: 0;
   padding: 10px;
-  border: 1px #374144 solid;
-  border-radius: 6px;
+  border: 1px #cccccc solid;
+  border-radius: 0px;
   background-color: white;
   color: #374144;
   font-size: 16px;
@@ -1865,9 +1865,9 @@ table {
   .Control-Group input:focus,
   .Control-Group select:focus,
   .Control-Group textarea:focus {
-    border-color: #e74c3c;
-    background-color: white;
-    box-shadow: 0 0 1px white inset, 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 0 5px #e74c3c; }
+    border-color: #07b3d2;
+    background-color: #f3fdff;
+    box-shadow: 0 0 1px white inset, 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 0 5px #07b3d2; }
 .Control-Group input[disabled] {
   border-color: #65777c;
   background-color: #9aa9ad;
@@ -1880,7 +1880,6 @@ table {
   color: #f2070b;
   border-color: #f2070b; }
 .Control-Group select {
-  -webkit-appearance: none;
   background-color: white; }
 .Control-Group textarea {
   resize: vertical;
@@ -1889,20 +1888,20 @@ table {
 .Control-Group input[type='submit'],
 .Control-Group input[type='button'],
 .Control-Group button {
-  border-color: #d62c1a;
-  background-color: #e74c3c;
+  border-color: #0589a1;
+  background-color: #07b3d2;
   color: white;
   cursor: pointer; }
   .Control-Group input[type='submit']:hover,
   .Control-Group input[type='button']:hover,
   .Control-Group button:hover {
-    background-color: #d62c1a; }
+    background-color: #0589a1; }
 .Control-Group + .Control-Group {
   margin-top: 15px; }
 .Control-Group .Input-Group.Error {
   color: white;
   background-color: #f2070b;
-  border-radius: 6px; }
+  border-radius: 0px; }
   .Control-Group .Input-Group.Error input.Error,
   .Control-Group .Input-Group.Error select.Error,
   .Control-Group .Input-Group.Error textarea.Error {
@@ -1917,10 +1916,10 @@ table {
   border-radius: 0; }
   .Control-Group .Input-Group.Merge input:first-child {
     border-right: 0;
-    border-radius: 6px 0 0 6px; }
+    border-radius: 0px 0 0 0px; }
   .Control-Group .Input-Group.Merge input:last-child {
     border-left: 0;
-    border-radius: 0 6px 6px 0; }
+    border-radius: 0 0px 0px 0; }
 .Control-Group .Input-Group.Vertical input {
   display: block;
   width: 100%;
@@ -1928,16 +1927,16 @@ table {
   border-radius: 0; }
   .Control-Group .Input-Group.Vertical input:first-child {
     border-bottom: 0;
-    border-radius: 6px 6px 0 0; }
+    border-radius: 0px 0px 0 0; }
   .Control-Group .Input-Group.Vertical input:last-child {
     border-top: 0;
-    border-radius: 0 0 6px 6px; }
+    border-radius: 0 0 0px 0px; }
 .Control-Group .Input-Group.Prefix span, .Control-Group .Input-Group.Prefix label,
 .Control-Group .Input-Group.Postfix span,
 .Control-Group .Input-Group.Postfix label {
   padding: 10px;
   height: 38px;
-  border: 1px #374144 solid;
+  border: 1px #cccccc solid;
   background-color: #eee;
   text-align: center;
   font-size: 14px;
@@ -1945,9 +1944,9 @@ table {
   color: #888;
   box-shadow: 0 0 1px white inset; }
 .Control-Group .Input-Group.Prefix span, .Control-Group .Input-Group.Prefix label {
-  border-radius: 6px 0 0 6px; }
+  border-radius: 0px 0 0 0px; }
 .Control-Group .Input-Group.Postfix span {
-  border-radius: 0 6px 6px 0; }
+  border-radius: 0 0px 0px 0; }
 .Control-Group .Input-Group.Upload input[type='file'] {
   display: block;
   width: 100%; }
@@ -1970,6 +1969,10 @@ table {
     .Control-Group .Input-Group.Upload ul li:hover a {
       bottom: 0; }
 
+@media screen and (min-width: 768px) {
+  .Inline > .Control-Group + .Control-Group, .pagination > .Control-Group + .Control-Group,
+  .Pagination > .Control-Group + .Control-Group {
+    margin-top: 0; } }
 #recaptcha_widget_div {
   display: inline-block;
   width: 70%; }
@@ -2187,7 +2190,7 @@ input[type='button'] {
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border-radius: 6px; }
+  border-radius: 0px; }
   a.Button:hover, table td.Actions ul li a:hover,
   button.Button:hover,
   input[type='submit']:hover,
@@ -2206,6 +2209,11 @@ input[type='button'] {
     input[type='button'][disabled]:hover {
       background-color: #f1f1f1;
       border-color: 1px solid #dedede; }
+  a.Button.Fluid, table td.Actions ul li a.Fluid,
+  button.Button.Fluid,
+  input[type='submit'].Fluid,
+  input[type='button'].Fluid {
+    width: 100%; }
   a.Button.Small, table td.Actions ul li a,
   button.Button.Small,
   input[type='submit'].Small,
@@ -2230,7 +2238,7 @@ input[type='button'] {
   input[type='submit'].Ghost,
   input[type='button'].Round,
   input[type='button'].Ghost {
-    border-radius: 12px; }
+    border-radius: 0px; }
   a.Button.Search, table td.Actions ul li a.Search,
   button.Button.Search,
   input[type='submit'].Search,
@@ -2303,7 +2311,7 @@ input[type='button'] {
     input[type='submit'].Dropdown.Ghost > .Dropdown-Toggle,
     input[type='button'].Dropdown.Round > .Dropdown-Toggle,
     input[type='button'].Dropdown.Ghost > .Dropdown-Toggle {
-      border-radius: 0 6px 6px 0; }
+      border-radius: 0 0px 0px 0; }
     a.Button.Dropdown > .Dropdown-Toggle, table td.Actions ul li a.Dropdown > .Dropdown-Toggle,
     button.Button.Dropdown > .Dropdown-Toggle,
     input[type='submit'].Dropdown > .Dropdown-Toggle,
@@ -2365,7 +2373,7 @@ input[type='button'] {
     input[type='submit'].Dropdown.Ghost > .Dropdown-Content,
     input[type='button'].Dropdown.Round > .Dropdown-Content,
     input[type='button'].Dropdown.Ghost > .Dropdown-Content {
-      border-radius: 6px; }
+      border-radius: 0px; }
   a.Button.Info, table td.Actions ul li a.Info,
   button.Button.Info,
   input[type='submit'].Info,
