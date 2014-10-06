@@ -156,7 +156,8 @@ ul[class*='#{$Grid-Name}'] > li
 			{
 				@if ($Enable-Merged-Grid == true)
 				{
-					[class*='#{$Grid-Name}'].Merge > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i}
+					.Merge > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i},
+					.Control-Group > .#{$Node-Name}-#{nth($Viewports-Prefix, $a)}-#{$i}
 					{
 						width: (100% / 12) * $i;
 					}

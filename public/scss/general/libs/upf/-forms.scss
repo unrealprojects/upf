@@ -1,220 +1,256 @@
-$Ctrl-Border-Color:			$Clr-Grey;
-$Ctrl-Border-Radius:		3px;
-$Ctrl-Focus-Color:			$Clr-Cyan;
-$Ctrl-Border-Width:			1px;
-$Ctrl-Line-Height:			1;
-$Ctrl-Padding:				$size-s;
+$Control-Border-Width: 1px;
+$Control-Border-Color: $Clr-Slate;
+$Control-Border-Color-Disabled: lighten($Clr-Slate, 20%);
+$Control-Bg-Color-Disabled: lighten($Clr-Slate, 40%);
+$Control-Border-Color-Focus: $Clr-Main;
+$Control-Border-Radius: 6px;
+$Control-Padding: 10px;
+$Control-Left-Column-Width: 30%;
+$Control-Right-Column-Width: 100% - $Control-Left-Column-Width;
+$Control-Font-Size: 16px;
+$Control-Line-Height: $Control-Font-Size;
+$Control-Height: $Control-Line-Height + ($Control-Padding * 2) + ($Control-Border-Width * 2);
+$Control-Color: $Clr-Slate;
 
-$Ctrl-Input-Width:			50%;
-$Ctrl-Label-Width:			100% - $Ctrl-Input-Width;
+$Control-Bg-Color: white;
+$Control-Bg-Color-Focus: lighten($Clr-Main, 55%);
 
-$Ctrl-Wide-Input-Width:		75%;
-$Ctrl-Wide-Label-Width:		100% - $Ctrl-Wide-Input-Width;
+$Control-Textarea-Line-Height: ceil($Control-Font-Size * 1.45);
+$Control-Textarea-Min-Rows: 2;
+$Control-Textarea-Min-Height: ($Control-Textarea-Line-Height * 2) + ($Control-Padding * 2) + ($Control-Border-Width * 2);
 
-.Group		   ,
-.Ctrl-Grp      ,
-.Control-Group {
-	border: solid 			$Ctrl-Border-Width transparent;
-	@extend 				._Clearfix;
+$Control-Button-Bg-Color: $Clr-Main;
+$Control-Button-Bg-Color-Hover: darken($Clr-Main,10%);
+$Control-Button-Border-Color:  darken($Clr-Main,10%);
+ 
+.Form-Group + .Form-Group
+{
+	margin-top: $size-xl;
+}
+.Control-Group
+{
+	@extend ._Clearfix;
+	label
+	{
+		height: $Control-Height;
+		padding: $Control-Padding;
+		border: $Control-Border-Width solid transparent;
 
-	label                  ,
-	input:not([type='submit']),
-	select                 ,
-	textarea               {
-		display: 			inline-block;
-		padding: 			$Ctrl-Padding;
-		border: 			solid $Ctrl-Border-Width;
-		line-height: 		$Ctrl-Line-Height;
-		@include Round(all, $Ctrl-Border-Radius);
-
-		@include 			Adaptive-Mobile {
-			width: 			100%;
-		}
-		@include 			Adaptive($Viewport-XS) {
-			width: 			$Ctrl-Input-Width;
-		}
+		font-size: $Control-Font-Size;
+		line-height: $Control-Line-Height;
 	}
-	input:not([type='submit']),
-	select   ,
-	textarea {
-		box-shadow: 		0 2px 3px $Clr-Grey-Light inset;
-		border-color: 		$Ctrl-Border-Color;
-		@include 			Round(all, $Ctrl-Border-Radius);
-	}
-	input:focus    ,
-	select:focus   ,
-	textarea:focus {
+	input,
+	select,
+	textarea
+	{
+		width: 100%;
+		height: $Control-Height;
 		outline: 0;
-		border-color:		$Ctrl-Focus-Color;
-		box-shadow: 		0 0 10px $Ctrl-Focus-Color;
-	}
+		padding: $Control-Padding;
+		border: $Control-Border-Width $Control-Border-Color solid;
+		border-radius: $Control-Border-Radius;
 
-	label    {
-		width: 				$Ctrl-Label-Width;
-		padding-left: 		0;
-		float: 				left;
-		border-color: 		transparent;
-		@extend 			._Unselectable;
-	}
-	textarea {
-		font-family: 		$Font-Family-Open-Sans;
-		resize: 			vertical;
-	}
-	.Input-Group {
-		width: $Ctrl-Input-Width;
-		float: right;
-		position: 			relative;
+		background-color: $Control-Bg-Color;
+		color: $Control-Color;
+		font-size: $Control-Font-Size;
+		line-height: $Control-Line-Height;
+		box-shadow: 0 0 2px white inset,
+		0 1px 3px rgba(0,0,0,0.2) inset;
+		&:focus
+		{
+			border-color: $Control-Border-Color-Focus;
+			background-color: $Control-Bg-Color-Focus;
 
-		input:not([type='submit']),
-		select   ,
-		textarea {
+			box-shadow: 0 0 1px white inset,
+			0 1px 3px rgba(0,0,0,0.2) inset,
+			0 0 5px $Clr-Main;
+		}
+	}
+	input[disabled]
+	{
+		border-color: $Control-Border-Color-Disabled;
+		background-color: $Control-Bg-Color-Disabled;
+		cursor: not-allowed;
+	}
+	input.Ghost
+	{
+		border-color: transparent;
+		background: transparent;
+		box-shadow: none;
+		&:focus
+		{
+
+		}
+	}
+	input.Error
+	{
+		color: $Clr-Error;
+		border-color: $Clr-Error;
+	}
+	select
+	{
+		-webkit-appearance: none;
+		background-color: white;
+	}
+	textarea
+	{
+		resize: vertical;
+		line-height: $Control-Textarea-Line-Height;
+		min-height: $Control-Textarea-Min-Height;
+	}
+	input[type='submit'],
+	input[type='button'],
+	button
+	{
+		border-color: $Control-Button-Border-Color;
+		background-color: $Control-Button-Bg-Color;
+		color: white;
+		cursor: pointer;
+		&:hover
+		{
+			background-color: $Control-Button-Bg-Color-Hover;
+		}
+	}
+	& + .Control-Group
+	{
+		margin-top: $size-n;
+	}
+	.Input-Group.Error
+	{
+		color: white;
+		background-color: $Clr-Error;
+		border-radius: $Control-Border-Radius;
+		input.Error,
+		select.Error,
+		textarea.Error
+		{
+			border-color: $Clr-Error;
+			color: $Clr-Error;
+		}
+	}
+	.Input-Group .Message
+	{
+		display: block;
+		padding: $Control-Padding;
+		&.Error
+		{
+			color: white;
+		}
+	}
+	.Input-Group.Merge
+	{
+		input
+		{
+			border-radius: 0;
+			&:first-child
+			{
+				border-right: 0;
+				border-radius: $Control-Border-Radius 0 0 $Control-Border-Radius;
+			}
+			&:last-child
+			{
+				border-left: 0;
+				border-radius: 0 $Control-Border-Radius $Control-Border-Radius 0;
+			}
+		}
+	}
+	.Input-Group.Vertical
+	{
+		input
+		{
+			display: block;
+			width: 100%;
+			margin: 0;
+			border-radius: 0;
+			&:first-child
+			{
+				border-bottom: 0;
+				border-radius: $Control-Border-Radius $Control-Border-Radius 0 0;
+			}
+			&:last-child
+			{
+				border-top: 0;
+				border-radius: 0 0 $Control-Border-Radius $Control-Border-Radius;
+			}
+		}
+	}
+	.Input-Group.Prefix,
+	.Input-Group.Postfix
+	{
+		span, label
+		{
+			padding: $Control-Padding;
+			height: $Control-Height;
+			border: $Control-Border-Width $Control-Border-Color solid;
+			background-color: #eee;
+
+			text-align: center;
+			font-size: $Control-Font-Size - 2px;
+			line-height: $Control-Line-Height;
+			color: #888;
+			box-shadow: 0 0 1px white inset;
+		}
+	}
+	.Input-Group.Prefix
+	{
+		span, label
+		{
+			border-radius: $Control-Border-Radius 0 0 $Control-Border-Radius;
+		}
+	}
+	.Input-Group.Postfix
+	{
+		span
+		{
+			border-radius: 0 $Control-Border-Radius $Control-Border-Radius 0;
+
+		}
+	}
+	.Input-Group.Button
+	{
+		input[type='button'],
+		input[type='submit'],
+		button
+		{
+
+		}
+	}
+	.Input-Group.Upload
+	{
+		input[type='file']
+		{
+			display: block;
 			width: 100%;
 		}
-		img.Uploaded {
-			margin: $size-n 0;
-		}
-		&.Icon {
-			&.Prefix  ,
-			&.Postfix {
-				span.fa {
-					position: absolute;
-					top: $size-s;
-					color: $Clr-Grey-Dark;
- 					font-size: 16px;
-				}
-			}
-			&.Prefix {
-				span.fa {
-					left: $size-s;
-				}
-			}
-			&.Postfix {
-				span.fa {
-					right: $size-s;
-
-				}
-			}
-		}
-	}
-	&.Checkbox {
-
-	}
-	&.Radio {
-		@extend 			._No-Bullets;
-		li {
-			width: 			100%;
-			@extend 		._Clearfix;
-		}
-
-	}
-	&.Checkbox ,
-	&.Radio    {
-		input[type='checkbox'] ,
-		input[type='radio']    {
-			width: 			13px;
-			text-align: 	left;
-			margin: 		$Ctrl-Padding 0;
-			box-shadow: 	none;
-			&:focus {
-				box-shadow: none;
-			}
-		}
-		@include 			Adaptive-Mobile {
-			label {
-				width: 		80%;
-			}
-			input {
-				width: 		auto;
-				box-shadow: none;
-				float: 		right;
-			}
-		}
-	}
-	& + .Control-Group {
-		margin: 			$size-s 0;
-	}
-	&.Offset {
-		input[type='submit'] {
-			box-shadow: none;
-			width: 			auto;
-			@include 		Adaptive($Viewport-XS) {
-				margin-left: $Ctrl-Label-Width;
-			}
-		}
-	}
-}
-form.Wide {
-	.Group         ,
-	.Ctrl-Grp      ,
-	.Control-Group {
-		input    ,
-				 select   ,
-				 textarea {
-					 @include Adaptive($Viewport-XS) {
-						 width: $Ctrl-Wide-Input-Width;
-					 }
-				 }
-		label {
-			@include Adaptive($Viewport-XS) {
-				width: $Ctrl-Wide-Label-Width;
-			}
-		}
-		&.Offset {
+		ul
+		{
 			margin-top: $size-n;
-			input[type='submit'] {
-				margin-left: $Ctrl-Wide-Label-Width;
+			li
+			{
+				position: relative;
+				overflow: hidden;
+				a.Link-Delete
+				{
+					position: absolute;
+					display: block;
+					padding: $Control-Padding;
+					right: 0;
+					bottom: - ($Control-Height + 4px);
+					width: 100%;
+					background-color: $Clr-Main;
+					color: white;
+				}
+				img
+				{
+					width: 100%;
+				}
+				&:hover a
+				{
+					bottom: 0;
+				}
 			}
 		}
 	}
-	.Input-Group {
-		width: 100%;
-		@include Adaptive($Viewport-XS) {
-			width: $Ctrl-Wide-Input-Width;
-		}
-	}
-}
-form.Vertical {
-	label                  ,
-	.Label-Group           ,
-	input:not([type='submit']),
-	select                 ,
-	textarea               {
-		width: 100%;
-		float: none;
-	}
-	& > .Control-Group {
-		&.Checkbox.Submit {
-			input[type='checkbox'] {
-				margin-top: $Ctrl-Padding;
-				margin-right: $size-n;
-				float: left;
-			}
-			label {
-				float: left;
-				display: inline-block;
-				width: auto;
-			}
-			input[type='submit'] {
-				margin-left: 0;
-				float: right;
-			}
-		}
-		.Label-Group {
-			@extend ._Clearfix;
-			label {
-				width: auto;
-				float: left;
-			}
-			.SubLabel {
-				padding: $Ctrl-Padding 0;
-				display: inline-block;
-				float: right;
-				border: 1px solid transparent;
-				line-height: $Ctrl-Line-Height;
-			}
-		}
-	}
-
 }
 
 // FIX reCaptcha
@@ -470,8 +506,10 @@ dl.Tabs {
 }
 // MAGIC!
 a.Button ,
-.Button {
-
+button.Button,
+input[type='submit'],
+input[type='button']
+{
 	$Btn-BG-Color:			$Clr-Grey-Lighter;
 	$Btn-Hover-BG-Color:	$Clr-Grey-Light;
 
@@ -489,7 +527,7 @@ a.Button ,
 
 	@extend 		    	%_Clickable;
 	@include            	Transition(#{border,background-color,color}, .3s);
-	@include 				Round(all, $Ctrl-Border-Radius);
+	@include 				Round(all, $Control-Border-Radius);
 
 	// State: HOVER
 	&:hover {
@@ -522,7 +560,7 @@ a.Button ,
 
 	// Button round corners
 	&.Round {
-		@include 			Round(all,$Ctrl-Border-Radius * 2);
+		@include 			Round(all,$Control-Border-Radius * 2);
 	}
 	&.Search {
 		@include 			Round(all, (($line-height)/2) + $size-xs);
