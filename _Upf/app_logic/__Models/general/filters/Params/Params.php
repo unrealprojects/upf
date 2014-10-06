@@ -5,4 +5,5 @@ namespace UpfModels;
 class Params extends Fields {
     protected $table = 'filter_params';
     public $PhotosUrl = '/photo/standard/filters/params/';
+    public $timestamps = true;
 }

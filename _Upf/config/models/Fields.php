@@ -24,6 +24,17 @@ return [
         0 => 'Active',
         1 => 'Inactive'
     ],
+
+    'sections' =>[
+        /*** General ***/
+        0 => 'articles',
+        1 => 'pages',
+        2 => 'users',
+        /*** Tech Online***/
+        3 => 'catalog',
+        4 => 'rent',
+        5 => 'parts',
+    ],
     /***  Filter Region ***/
     'administrative_unit' => [
         0 => 'Country',

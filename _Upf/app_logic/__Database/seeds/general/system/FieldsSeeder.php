@@ -41,23 +41,34 @@ class FieldsSeeder extends \Seeder {
                 ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', 'section_users', 'edit',''],
                 ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit'],
 
-            /*********************************************************************************************************** For TechOnline ***/
+            /*** Filter :: Params ***/
+                ['Min', 'param_min', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
+                ['Max', 'param_max', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
+                ['Размерность', 'dimension', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
+
+            /*********************************************************************************************************** For Tech Online ***/
             /*** Section Rent ***/
+                /*** List ***/
+                ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_rent', 'list'],
                 /*** Add ***/
                 ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_rent', 'add'],
                 /*** Edit ***/
                 // Group :: Main
                 ['Цена', 'price', 'text', 'Title', 'main', false, 'backend', 'section_rent', 'edit'],
-                ['Качество', 'condition', 'text', 'Title', 'main', true, 'backend', 'section_rent', 'edit','config','models/Fields.condition'],
-                ['Модель', 'model_id', 'text', 'Title', 'main', true, 'backend', 'section_rent', 'edit', 'model', 'Catalog'],
+                ['Качество', 'condition', 'select', 'Title', 'main', true, 'backend', 'section_rent', 'edit','config','models/Fields.condition'],
+                ['Модель', 'model_id', 'select', 'Title', 'main', true, 'backend', 'section_rent', 'edit', 'model', 'Catalog'],
+                ['Пользователь', 'meta-user_id', 'select', 'Title', 'main', true, 'backend', 'section_rent', 'edit', 'model', 'Users'],
 
             /*** Section Parts ***/
+                /*** List ***/
+                ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_parts', 'list'],
                 /*** Add ***/
                 ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_parts', 'add'],
                 /*** Edit ***/
                 // Group :: Main
                 ['Цена', 'price', 'text', 'Title', 'main', false, 'backend', 'section_parts', 'edit'],
-                ['Качество', 'condition', 'text', 'Title', 'main', true, 'backend', 'section_parts', 'config','models/Fields.condition'],
+                ['Качество', 'condition', 'select', 'Title', 'main', true, 'backend', 'section_parts', 'config','models/Fields.condition'],
+                ['Пользователь', 'meta-user_id', 'select', 'Title', 'main', true, 'backend', 'section_parts', 'edit', 'model', 'Users'],
             /*********************************************************************************************************** End For TechOnline ***/
         ];
         $this->Add($Data);
@@ -70,13 +81,36 @@ class FieldsSeeder extends \Seeder {
             'section_rent',
             'section_parts'
         ];
+
         foreach($SectionsTables as $Table){
             $this->Add($this->DefaultSectionFunctionality($Table));
             $this->Add($this->MetaFieldsDefault($Table));
         }
 
-        $this->Add($this->MetaFieldsDefault('section_users'));
+        /*** Add Default Filters Functionality ***/
 
+        $FiltersTables = [
+            'filter_categories',
+            'filter_tags',
+            'filter_regions',
+            'filter_params',
+        ];
+
+        foreach($FiltersTables as $Table){
+            $this->Add($this->DefaultParamsFunctionality($Table));
+        }
+
+        $SystemTables = [
+            'system_meta',
+        ];
+
+        $this->Add(\UpfMigrations\Administrators::AdministratorsFields());
+
+        foreach($SystemTables as $Table){
+            $this->Add($this->DefaultParamsFunctionality($Table));
+        }
+
+        $this->Add($this->MetaFieldsDefault('section_users'));
 	}
 
     /*** Insert Default Section Functionality ***/
@@ -107,13 +141,65 @@ class FieldsSeeder extends \Seeder {
         ];
     }
 
+    /*** Insert Default Fields Functionality ***/
+    public function DefaultParamsFunctionality($Table){
+        return [
+            /*** List ***/
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+
+            /*** Add ***/
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+
+            /*** Edit ***/
+            // Group :: Main
+            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+
+            // Group :: Relations
+            ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
+            // Group :: Statuses
+            ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
+            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+        ];
+    }
+
+    /*** Insert Default System Functionality ***/
+    public function DefaultSystemFunctionality($Table){
+        return [
+            /*** List ***/
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+
+            /*** Add ***/
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+
+            /*** Edit ***/
+            // Group :: Main
+            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit']
+        ];
+    }
+
+
     /*** Insert Meta Default (Sections) ***/
 
     public function MetaFieldsDefault($Table){
         return [
             // Group :: Date
-            ['Создано', 'meta-created_at', 'text', 'Date', 'date', true, 'backend', $Table, 'edit'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'date', true, 'backend', $Table, 'edit'],
+            ['Создано', 'meta-created_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
+            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
             // Group :: Meta
             ['Алиас', 'meta-alias', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
             ['Title', 'meta-title', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],

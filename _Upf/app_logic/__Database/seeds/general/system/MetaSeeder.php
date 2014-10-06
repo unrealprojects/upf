@@ -38,7 +38,7 @@ class MetaSeeder extends \Seeder {
         $Meta->favorite = isset($Data['favorite'])?$Data['favorite']:0;
 
         if($Meta->save()){
-            return $Meta->id;
+            return [$Meta->id,$Meta->alias];
         }else{
             return false;
         }

@@ -10,6 +10,7 @@ class Users extends Meta implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
     public $timestamps = false;
 	protected $table = 'section_users';
+    public $Section = 'users';
 	protected $hidden = array('password', 'remember_token');
 
     public $Config = 'models/backend/sections/Users';

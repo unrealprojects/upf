@@ -3,6 +3,7 @@
 namespace UpfModels;
 
 class Meta extends Fields {
+    public $timestamps = true;
     protected $table = 'system_meta';
     public $Config = 'models/backend/sections/Meta';
     public $PhotosUrl = '/photo/standard/system/meta/';
@@ -185,22 +186,28 @@ class Meta extends Fields {
 
     /*** Update Item ***/
     public function UpdateItem($Alias,$Input){
-        $Validator = \Validator::make(
-                [
-                    'title' => $Input['title'],
-                    'intro' => $Input['intro']
-                ],
-                [
-                    'title' => 'required|min:5',
-                    'intro' => 'required|min:5'
-                ]
-        );
+            /*** Get Fields ***/
+            $Fields = $this->GetFields('edit');
 
-        if(!$Validator->fails()){
+
             $Result = $this->WhereAliasInMeta($this,$Alias)->first();
-            $Result->title = $Input['title'];
+            foreach($Fields as $Field){
+                $FieldExplode = explode('-',$Field->relation);
+
+                if(\Input::get($FieldExplode[0]) && empty($FieldExplode[1])){
+                    $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $FieldExplode[1]=='tags'){
+                    //print_r($Input[$Field->relation]);
+                    //$Result->{$FieldExplode[1]}()->sync([$Input[$Field->relation]]);
+                }
+            }
+
+          /*  $Result->title = $Input['title'];
             $Result->intro = $Input['intro'];
             $Result->text = $Input['text'];
+
+
+
 
             $Result->meta()->update(
                 [
@@ -212,10 +219,9 @@ class Meta extends Fields {
                 ]
             );
             $Result->tags()->sync($Input['meta-tags']);
+            */
             return $Result->save();
-        }else{
-            return false;
-        }
+
     }
 
     /*** Update Item Files ***/                                                                                         /*** todo :: to Files Model ***/

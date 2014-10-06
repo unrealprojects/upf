@@ -70,7 +70,7 @@
                         <label for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         <select  name="{{$field['relation']}}" id="field_{{$field['relation']}}">
                             <option value="0">Нет</option>
-                            @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $key => $value)
+                            @foreach($Model::GetFieldValues($field['values'],$field['values_type'],$Model) as $key => $value)
                                 @if($field['values_type']=='config' && is_int($key))
                                     <option value="{{$key}}"
                                     {{(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])==$key)?'selected="selected"':''}}>{{$value}}</option>
@@ -86,7 +86,7 @@
             <div class="Control-Group">
                 <label  for="field_{{$field['relation']}}">{{$field['title']}}</label>
                 <select multiple="multiple" name="{{$field['relation']}}[]" id="field_{{$field['relation']}}">
-                    @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $value)
+                    @foreach($Model::GetFieldValues($field['values'],$field['values_type'],$Model) as $value)
                     <option value="{{$value['id']}}"
                         @if(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))
                             @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $selected)

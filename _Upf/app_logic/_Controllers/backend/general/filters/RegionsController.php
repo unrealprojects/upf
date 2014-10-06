@@ -2,6 +2,6 @@
 namespace UpfControllers;
 
 class RegionsController extends FieldsController{
-    public $BaseUrl = '/backend/section/regions/';
+    public $BaseUrl = '/backend/filter/regions/';
     public $Model = '\UpfModels\Regions';
 }

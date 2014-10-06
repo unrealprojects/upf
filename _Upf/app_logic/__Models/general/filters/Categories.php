@@ -5,6 +5,7 @@ namespace UpfModels;
 class Categories extends Fields{
     protected $table = 'filter_categories';
     public $PhotosUrl = '/photo/standard/filters/params/';
+    public $timestamps = true;
 
     /*** Relations ***/
     public function Filters(){

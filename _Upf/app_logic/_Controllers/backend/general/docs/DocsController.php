@@ -1,14 +1,9 @@
 <?php
 namespace UpfControllers;
 
-class DocsController extends GeneralBackendController{
+class DocsController extends BackendController{
     public $View = '/backend/standard/layouts/docs/';
     public $BaseUrl = '/backend/docs/';
-
-    public function __construct(){
-        parent::__construct();
-        $this->viewData['BaseUrl']=$this->BaseUrl;
-    }
 
     /*** Show Upf Cms ***/
     public function PageCms(){

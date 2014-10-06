@@ -13,8 +13,8 @@ class BackendController extends \Controller {
         if($Administrator){
             $this->viewData['AdministratorLogin']=$Administrator->login;
         }
-        $this->baseUrl =
-            $this->viewData['BaseUrl'] = $this->getMeta();
+        $this->viewData['BaseUrl'] = $this->BaseUrl;
+        $this->getMeta();
         $this->getBreadCrumbs();
         $this->setTemplate();
     }

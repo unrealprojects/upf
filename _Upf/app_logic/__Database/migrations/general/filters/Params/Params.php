@@ -20,6 +20,8 @@ class Params extends Migration {
             /*** Settings ***/
             $table->string('param_type')->nullable();
             $table->string('param_set')->nullable();
+            $table->integer('param_min')->nullable();
+            $table->integer('param_max')->nullable();
 
             /*** Relations ***/
             $table->string('section')->nullable();

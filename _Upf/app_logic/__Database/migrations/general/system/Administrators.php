@@ -36,4 +36,26 @@ class Administrators extends Migration {
         \Schema::dropIfExists('system_administrators');
 	}
 
+    /*** Insert Default System Functionality ***/
+    public static function AdministratorsFields($Table = 'system_administrators'){
+        return [
+            /*** List ***/
+            ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+            ['email', 'email', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+
+            /*** Add ***/
+            ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['email', 'email', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+
+            /*** Edit ***/
+            // Group :: Main
+            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
+            ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
+            ['email', 'email', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit']
+        ];
+    }
 }

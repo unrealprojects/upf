@@ -9,15 +9,15 @@ general
         _pages
         _users
     system
+        _fields
+        _meta
+
         _administrators
         _comments
         _files
-        _meta
 
 techonline
     section
         _catalog
         _rent
         _parts
-
-

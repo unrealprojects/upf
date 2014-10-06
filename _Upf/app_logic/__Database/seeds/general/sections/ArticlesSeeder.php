@@ -34,7 +34,7 @@ class ArticlesSeeder extends \Seeder {
                 'favorite' => 0,
             ];
 
-            $Articles->meta_id = \UpfSeeds\MetaSeeder::AddMetaToSection($Data);
+            $Articles->meta_id = \UpfSeeds\MetaSeeder::AddMetaToSection($Data)[0];
 
             $Articles->save();
         }

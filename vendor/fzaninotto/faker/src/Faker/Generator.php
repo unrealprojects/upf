@@ -3,7 +3,7 @@
 namespace Faker;
 
 /**
- * @property string $name
+ * @property string $Users->title$name
  * @property string $firstName
  * @property string $lastName
  *

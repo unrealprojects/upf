@@ -17,15 +17,15 @@ class CommentsController extends \Controller{
 
 
            $newVoteIp = new \UpfModels\Voted();
-           $newVoteIp->app_section='comments';
+           $newVoteIp->section='comments';
            $newVoteIp->item_id=$comment->id;
            $newVoteIp->ip=\Request::getClientIp();
            $newVoteIp->save();
 
-           echo json_encode(['Event'=>'Сообщение','Message'=>'Спасибо, Ваш комментрий добавлен!','Type'=>'Success',
+           echo json_encode(['Message'=>'Спасибо, Ваш комментрий добавлен!','Type'=>'Success',
                              'comment'=>[htmlentities($content)]]);
        }else{
-           echo json_encode(['Event'=>'Ошибка','Message'=>'Не верно введена капча!','Type'=>'Error']);
+           echo json_encode(['Message'=>'Не верно введена капча!','Type'=>'Error']);
        }
     }
 }

@@ -2,6 +2,6 @@
 namespace UpfControllers;
 
 class TagsController extends FieldsController{
-    public $BaseUrl = '/backend/section/tags/';
+    public $BaseUrl = '/backend/filter/tags/';
     public $Model = '\UpfModels\Tags';
 }

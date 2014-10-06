@@ -4,6 +4,7 @@ namespace UpfModels;
 class Rent extends Meta{
     public $timestamps = false;
     protected $table = 'section_rent';
+    public $Section = 'rent';
     public $PhotosUrl = '/photo/standard/sections/rent/';
 }
 

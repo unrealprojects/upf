@@ -2,7 +2,7 @@
 namespace UpfControllers;
 
 class AdministratorsController extends FieldsController{
-    public $BaseUrl = '/backend/section/administrators/';
+    public $BaseUrl = '/backend/system/administrators/';
     public $Model = '\UpfModels\Administrators';
 
     /*** Auth Form***/

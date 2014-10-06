@@ -1,7 +1,7 @@
 <?php
-namespace Controller\Frontend;
+namespace UpfFrontendControllers;
 
-class FrontendController extends \Controller {
+class FrontendController {
 
     public $viewData;
 

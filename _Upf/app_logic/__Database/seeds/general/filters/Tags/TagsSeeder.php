@@ -26,5 +26,35 @@ class TagsSeeder extends \Seeder {
             }
             $Tags->save();
         }
+
+        /*** Brands ***/
+            $Brands = [
+                'Mercedes-Benz',
+                'MAN',
+                'Foton',
+                'Carmix',
+                'Putzmeister',
+                'Brinkmann',
+                'Zettelmeyer',
+                'Vicon',
+                'IHI',
+                'КамАЗ',
+                'КрАЗ',
+                'МТЗ',
+                'УРБ',
+                'Отечественные',
+                'Иномарки',
+            ];
+        /*** Add ***/
+        foreach($Brands as $Brand){
+            $Tags = new \UpfModels\Tags();
+
+            /*** Content ***/
+            $Tags->title = $Brand;
+            /*** Index ***/
+            $Tags->alias = \UpfModels\General::CreateUniqueAlias(\Mascame\Urlify::filter($Brand),'\UpfModels\\Tags');
+            $Tags->section = 'catalog';
+            $Tags->save();
+        }
 	}
 }

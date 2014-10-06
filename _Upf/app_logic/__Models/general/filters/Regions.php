@@ -8,6 +8,7 @@ namespace UpfModels;
 class Regions extends Fields {
     protected $table = 'filter_regions';
     public $PhotosUrl = '/photo/standard/filters/regions/';
+    public $timestamps = true;
 
     /* Создание двухуровневых вложений */
     static public function toSubRegions($withPopular=false){

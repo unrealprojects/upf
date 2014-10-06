@@ -2,23 +2,23 @@
 return [
     /*** Meta ***/
     'MetaTitle' => [
-        'content'=>'Стройтехника Онлайн1243',
+        'content'=>'Стройтехника Онлайн',
         'type'=>'text',
         'title'=>'Meta Title'
         ],
     'MetaDescription' => [
-        'content'=>'Стройтехника Онлайн123',
+        'content'=>'Стройтехника',
         'type'=>'text',
         'title'=>'Meta Description'
     ],
     'MetaKeywords' => [
-        'content'=>'Стройтехника Онлайн12',
+        'content'=>'Стройтехника Онлайн',
         'type'=>'text',
         'title'=>'Meta Keywords'
     ],
     /*** Model ***/
     'Paginate'=> [
-        'content'=>'4',
+        'content'=>'30',
         'type'=>'numeric',
         'title'=>'Пагинация'
     ],
