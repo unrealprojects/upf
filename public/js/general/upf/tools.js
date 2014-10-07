@@ -15,7 +15,7 @@ upf.Tools.Dropdown = function(){
     // Body
     $(document).on('click',DropdownTitle,function(){
         $(this).parents(Dropdown).find(DropdownContent).slideToggle();
-        $(this).parents(Dropdown).toggleClass(Collapsed+' '+Extended);
+        $(this).parents(Dropdown).toggleClass(Collapsed+' '+Expanded);
         $(this).parents(Dropdown).find(DropdownToggle).toggleClass(Flip);
 
         return false;
