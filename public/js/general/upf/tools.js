@@ -7,7 +7,7 @@ upf.Tools.Dropdown = function(){
         DropdownToggle      =   '.Dropdown-Toggle',
         Collapsed           =   'Collapsed',
         Expanded            =   'Expanded',
-        Duration            =   500
+        Duration            =   500;
 
     // Presets
     $(Dropdown).addClass('Collapsed');
