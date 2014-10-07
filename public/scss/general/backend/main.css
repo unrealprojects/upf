@@ -4260,19 +4260,25 @@ input[type='button'] {
   .Dropdown .Dropdown-Title {
     float: left;
     cursor: pointer; }
+    .Dropdown .Dropdown-Title .Icon {
+      margin-right: 5px; }
+  .Dropdown.Expanded {
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+    background-color: #f2f2f2; }
   .Dropdown .Dropdown-Toggle {
     float: right;
-    margin-left: 15px; }
+    margin-left: 30px; }
   .Dropdown .Dropdown-Toggle:hover {
     background-color: #f2f2f2; }
   .Dropdown .Dropdown-Content {
     display: none;
     position: absolute;
-    top: 30px;
-    left: 0;
-    right: 0;
+    top: 29px;
+    left: -1px;
+    right: -1px;
     border: 1px #b7b7b7 solid;
-    box-shadow: 0 0 5px #b7b7b7;
+    box-shadow: 0 2px 5px #b7b7b7;
     background-color: #f9f9f9;
     border-radius: 0 0 5px 5px; }
     .Dropdown .Dropdown-Content li {
@@ -4286,8 +4292,6 @@ input[type='button'] {
           color: #f9f9f9; }
       .Dropdown .Dropdown-Content li.Divide {
         border-top: #b7b7b7 1px solid; }
-      .Dropdown .Dropdown-Content li:first-child a {
-        border-radius: 5px 5px 0 0; }
       .Dropdown .Dropdown-Content li:last-child a {
         border-radius: 0 0 5px 5px; }
 

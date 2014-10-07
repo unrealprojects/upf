@@ -131,3 +131,9 @@
 	   -moz-column-gap:		$Column-Gap;
 	        column-gap:		$Column-Gap;
 }
+@mixin Rotate($Angle)
+{
+	-ms-transform: rotate($Angle);
+	-webkit-transform: rotate($Angle);
+	transform: rotate($Angle);
+}

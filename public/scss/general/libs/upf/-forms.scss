@@ -904,11 +904,21 @@ input[type='button']
 	{
 		float: left;
 		cursor: pointer;
+		.Icon
+		{
+			margin-right: $size-xs;
+		}
+	}
+	&.Expanded
+	{
+		@include Round(top, $Control-Border-Radius);
+		border-bottom: 0;
+		background-color: $C-Grey-5;
 	}
 	.Dropdown-Toggle
 	{
 		float: right;
-		margin-left: $size-n;
+		margin-left: $size-l;
 	}
 	.Dropdown-Toggle:hover
 	{
@@ -918,11 +928,11 @@ input[type='button']
 	{
 		display: none;
 		position: absolute;
-		top: $Control-Height;
-		left: 0;
-		right: 0;
+		top: $Control-Height - 1px;
+		left: -1px;
+		right: -1px;
 		border: $Control-Border-Width $Control-Border-Color solid;
-		box-shadow: 0 0 5px $C-Grey-4;
+		box-shadow: 0 2px 5px $C-Grey-4;
 		background-color: $Control-Bg-Color;
 		@include Round(bottom, $Control-Border-Radius);
 
@@ -944,10 +954,6 @@ input[type='button']
 			&.Divide
 			{
 				border-top: $C-Grey-4 1px solid;
-			}
-			&:first-child a
-			{
-				@include Round(top, $Control-Border-Radius);
 			}
 			&:last-child a
 			{

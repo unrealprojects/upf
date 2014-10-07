@@ -276,14 +276,14 @@
                 </div>
                 <div class="Control-Group">
                     <label class="Node-XS-3" for="">Dropdown</label>
-                    <div class="Dropdown">
+                    <div class="Dropdown Expanded">
                         <div class="Dropdown-Title">
-                            <span class="fa fa-bars"></span>
-                            Dropdown
+                            <span class="Icon fa fa-bars"></span>
+                            Menu
                             <span class="Dropdown-Toggle fa fa-caret-down"></span>
                         </div>
                         <ul class="Dropdown-Content">
-                            <li><a href="#">Open File</a></li>
+                            <li><a href="#">Open The Goddamn File</a></li>
                             <li><a href="#">Save File</a></li>
                             <li><a href="#">Settings</a></li>
                             <li class="Divide"></li>
