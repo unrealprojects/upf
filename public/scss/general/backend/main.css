@@ -5,6 +5,7 @@
  */
 /* FONT PATH
  * -------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700,300);
 @import url(normalize.css);
 @font-face {
   font-family: 'FontAwesome';
@@ -1730,25 +1731,13 @@ nav.Userbar:after {
 
 ._No-Bullets, ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, table td.Actions ul, .pagination,
-.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, a.Button.Dropdown > .Dropdown-Content, table td.Actions ul li a.Dropdown > .Dropdown-Content,
-button.Button.Dropdown > .Dropdown-Content,
-input[type='submit'].Dropdown > .Dropdown-Content,
-input[type='button'].Dropdown > .Dropdown-Content, a.Button.Dropdown > .Dropdown-Content ul, table td.Actions ul li a.Dropdown > .Dropdown-Content ul,
-button.Button.Dropdown > .Dropdown-Content ul,
-input[type='submit'].Dropdown > .Dropdown-Content ul,
-input[type='button'].Dropdown > .Dropdown-Content ul, aside.Menu > ul.Menu-Category, li.Menu-Category-Item, ul.Menu-Subcategory, nav.Userbar ul {
+.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, aside.Menu > ul.Menu-Category, li.Menu-Category-Item, ul.Menu-Subcategory, nav.Userbar ul {
   list-style: none;
   margin: 0;
   padding: 0; }
   ._No-Bullets > li, ol[class*='Grid'] > li > li,
   ul[class*='Grid'] > li > li, table td.Actions ul > li, .pagination > li,
-  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, a.Button.Dropdown > .Dropdown-Content > li, table td.Actions ul li a.Dropdown > .Dropdown-Content > li,
-  button.Button.Dropdown > .Dropdown-Content > li,
-  input[type='submit'].Dropdown > .Dropdown-Content > li,
-  input[type='button'].Dropdown > .Dropdown-Content > li, a.Button.Dropdown > .Dropdown-Content ul > li, table td.Actions ul li a.Dropdown > .Dropdown-Content ul > li,
-  button.Button.Dropdown > .Dropdown-Content ul > li,
-  input[type='submit'].Dropdown > .Dropdown-Content ul > li,
-  input[type='button'].Dropdown > .Dropdown-Content ul > li, aside.Menu > ul.Menu-Category > li, li.Menu-Category-Item > li, ul.Menu-Subcategory > li, nav.Userbar ul > li {
+  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, aside.Menu > ul.Menu-Category > li, li.Menu-Category-Item > li, ul.Menu-Subcategory > li, nav.Userbar ul > li {
     margin: 0;
     padding: 0; }
 
@@ -3273,11 +3262,15 @@ a:hover {
 a:active {
   color: #e74c3c; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  font-family: 'Roboto Slab', serif; }
+
 h1 {
-  font-size: 3.00em; }
+  font-size: 40px; }
 
 h2 {
-  font-size: 2.50em; }
+  font-size: 36px; }
 
 h3 {
   font-size: 30px; }
@@ -3327,7 +3320,6 @@ code.Pagination {
   display: block;
   clear: both;
   text-transform: uppercase;
-  font-weight: 100;
   cursor: default; }
 
 .Columns {
@@ -3339,8 +3331,7 @@ code.Pagination {
   column-gap: 30px; }
 
 .Heading.Primary {
-  color: #7f8c8d;
-  font-weight: 100; }
+  color: #7f8c8d; }
 
 .Heading.Secondary {
   text-transform: none;
@@ -3349,8 +3340,7 @@ code.Pagination {
 .Heading.Underlined {
   display: block;
   padding-bottom: 10px;
-  border-bottom: 1px solid #cccccc;
-  font-weight: 100; }
+  border-bottom: 1px solid #cccccc; }
 
 .Heading.Icon span.fa {
   margin-right: 15px; }
@@ -3518,75 +3508,117 @@ table {
   padding: 10px;
   display: inline-block; }
 
-.Form-Group + .Form-Group {
-  margin-top: 50px; }
-
-.Control-Group label {
-  height: 34px;
-  padding: 8px;
-  border: 1px solid transparent;
-  font-size: 16px;
-  line-height: 16px; }
-.Control-Group input,
-.Control-Group select,
-.Control-Group textarea {
-  width: 100%;
-  height: 34px;
+input,
+select,
+textarea {
+  height: 30px;
+  padding: 7px;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 5px;
+  border: 1px #b7b7b7 solid;
   outline: 0;
-  padding: 8px;
-  border: 1px #cccccc solid;
-  border-radius: 2px;
-  background-color: white;
-  color: #374144;
-  font-size: 16px;
-  line-height: 16px;
-  box-shadow: 0 0 2px white inset; }
-  .Control-Group input:focus,
-  .Control-Group select:focus,
-  .Control-Group textarea:focus {
-    border-color: #07b3d2;
+  box-shadow: 0 0 1px white inset;
+  background-color: #f9f9f9;
+  color: #374144; }
+  input:hover,
+  select:hover,
+  textarea:hover {
+    border-color: #95edff;
     background-color: #f3fdff;
-    box-shadow: 0 0 1px white inset, 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 0 5px #07b3d2; }
-.Control-Group input[disabled] {
-  border-color: #65777c;
-  background-color: #9aa9ad;
-  cursor: not-allowed; }
-.Control-Group input.Ghost {
-  border-color: transparent;
-  background: transparent;
-  box-shadow: none; }
-.Control-Group input.Error {
-  color: #f2070b;
-  border-color: #f2070b; }
-.Control-Group select {
-  background-color: white; }
-.Control-Group select[multiple=multiple] {
-  min-height: 264px; }
-.Control-Group textarea {
+    color: #00a4c6; }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #00a4c6;
+    background-color: #e5fbff;
+    box-shadow: 0 0 1px white inset, 0 0 10px #95edff; }
+  input[disabled], input[disabled]:hover,
+  select[disabled],
+  select[disabled]:hover,
+  textarea[disabled],
+  textarea[disabled]:hover {
+    border-color: #b7b7b7;
+    background-color: #f2f2f2;
+    color: #b7b7b7;
+    cursor: not-allowed; }
+  input.Ghost,
+  select.Ghost,
+  textarea.Ghost {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none; }
+  input.Error,
+  select.Error,
+  textarea.Error {
+    color: #a02828;
+    border-color: #e43f3f;
+    background-color: #fff3f3; }
+  input.Warning,
+  select.Warning,
+  textarea.Warning {
+    color: #b4771e;
+    border-color: #e4a43f;
+    background-color: #fff9f1; }
+  input.Success,
+  select.Success,
+  textarea.Success {
+    color: #54894e;
+    border-color: #6ea268;
+    background-color: #f1fff0; }
+  input.Info,
+  select.Info,
+  textarea.Info {
+    color: #18637f;
+    border-color: #2782a4;
+    background-color: #f4fdff; }
+
+select[multiple='multiple'] {
+  min-height: 232px; }
+
+textarea {
   resize: vertical;
-  line-height: 24px;
-  min-height: 66px; }
-.Control-Group input[type='submit'],
-.Control-Group input[type='button'],
-.Control-Group button {
+  line-height: 21px;
+  min-height: 58px; }
+
+input[type='submit'],
+input[type='button'],
+button {
   border-color: #0589a1;
   background-color: #07b3d2;
   color: white;
   cursor: pointer; }
-  .Control-Group input[type='submit']:hover,
-  .Control-Group input[type='button']:hover,
-  .Control-Group button:hover {
+  input[type='submit']:hover,
+  input[type='button']:hover,
+  button:hover {
     background-color: #0589a1; }
+
+.Form-Group + .Form-Group {
+  margin-top: 50px; }
+
+.Control-Group label {
+  height: 30px;
+  padding: 7px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  line-height: 14px; }
+.Control-Group input,
+.Control-Group select,
+.Control-Group textarea {
+  width: 100%; }
+.Control-Group input
+select {
+  background-color: white; }
 .Control-Group input[type='checkbox'].Slide {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
-  width: 68px;
-  height: 34px;
+  width: 60px;
+  height: 30px;
   margin: 0px 0;
   border: 1px solid transparent;
-  border-radius: 34px;
+  border-radius: 30px;
   background-color: #e74c3c;
   box-shadow: none;
   cursor: pointer;
@@ -3599,16 +3631,16 @@ table {
     content: '';
     left: 2px;
     top: 2px;
-    width: 28px;
-    height: 28px;
-    border-radius: 28px;
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
     background-color: white;
     -webkit-transition: left .3s; }
   .Control-Group input[type='checkbox'].Slide:before {
     position: absolute;
     content: 'x';
-    top: 9px;
-    left: 48px;
+    top: 7px;
+    left: 40px;
     line-height: 14px;
     font-size: 14px;
     color: white; }
@@ -3617,10 +3649,10 @@ table {
 .Control-Group input[type='checkbox'].Slide:checked {
   background-color: #2ecc71; }
   .Control-Group input[type='checkbox'].Slide:checked:after {
-    left: 36px; }
+    left: 32px; }
   .Control-Group input[type='checkbox'].Slide:checked:before {
     content: 'o';
-    top: 9px;
+    top: 7px;
     left: 10px; }
   .Control-Group input[type='checkbox'].Slide:checked:hover {
     background-color: #5ec67d; }
@@ -3635,15 +3667,15 @@ table {
 .Control-Group .Input-Group.Error {
   color: white;
   background-color: #f2070b;
-  border-radius: 2px; }
+  border-radius: 5px; }
   .Control-Group .Input-Group.Error input.Error,
   .Control-Group .Input-Group.Error select.Error,
   .Control-Group .Input-Group.Error textarea.Error {
-    border-color: #f2070b;
-    color: #f2070b; }
+    border-color: #e43f3f;
+    color: #a02828; }
 .Control-Group .Input-Group .Message {
   display: block;
-  padding: 8px; }
+  padding: 7px; }
   .Control-Group .Input-Group .Message.Error {
     color: white; }
 .Control-Group .Input-Group.Merge input[type='text'],
@@ -3660,7 +3692,7 @@ table {
   .Control-Group .Input-Group.Merge input[type='button']:first-child,
   .Control-Group .Input-Group.Merge input[type='submit']:first-child {
     border-right: 0;
-    border-radius: 2px 0 0 2px; }
+    border-radius: 5px 0 0 5px; }
   .Control-Group .Input-Group.Merge input[type='text']:last-child,
   .Control-Group .Input-Group.Merge input[type='tel']:last-child,
   .Control-Group .Input-Group.Merge input[type='password']:last-child,
@@ -3668,7 +3700,7 @@ table {
   .Control-Group .Input-Group.Merge input[type='button']:last-child,
   .Control-Group .Input-Group.Merge input[type='submit']:last-child {
     border-left: 0;
-    border-radius: 0 2px 2px 0; }
+    border-radius: 0 5px 5px 0; }
 .Control-Group .Input-Group.Vertical input {
   display: block;
   width: 100%;
@@ -3676,26 +3708,26 @@ table {
   border-radius: 0; }
   .Control-Group .Input-Group.Vertical input:first-child {
     border-bottom: 0;
-    border-radius: 2px 2px 0 0; }
+    border-radius: 5px 5px 0 0; }
   .Control-Group .Input-Group.Vertical input:last-child {
     border-top: 0;
-    border-radius: 0 0 2px 2px; }
+    border-radius: 0 0 5px 5px; }
 .Control-Group .Input-Group.Prefix span, .Control-Group .Input-Group.Prefix label,
 .Control-Group .Input-Group.Postfix span,
 .Control-Group .Input-Group.Postfix label {
-  padding: 8px;
-  height: 34px;
-  border: 1px #cccccc solid;
+  padding: 7px;
+  height: 30px;
+  border: 1px #b7b7b7 solid;
   background-color: #eee;
   text-align: center;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 14px;
   color: #888;
   box-shadow: 0 0 1px white inset; }
 .Control-Group .Input-Group.Prefix span, .Control-Group .Input-Group.Prefix label {
-  border-radius: 2px 0 0 2px; }
+  border-radius: 5px 0 0 5px; }
 .Control-Group .Input-Group.Postfix span {
-  border-radius: 0 2px 2px 0; }
+  border-radius: 0 5px 5px 0; }
 .Control-Group .Input-Group.Upload input[type='file'] {
   display: block;
   width: 100%; }
@@ -3707,9 +3739,9 @@ table {
     .Control-Group .Input-Group.Upload ul li a.Link-Delete {
       position: absolute;
       display: block;
-      padding: 8px;
+      padding: 7px;
       right: 0;
-      bottom: -38px;
+      bottom: -34px;
       width: 100%;
       background-color: #e74c3c;
       color: white; }
@@ -3720,13 +3752,13 @@ table {
 
 .Vertical .Control-Group > label, .Vertical .Control-Group > .Label-Group {
   display: block;
-  padding: 8px 0; }
+  padding: 7px 0; }
   .Vertical .Control-Group > label .Left, .Vertical .Control-Group > .Label-Group .Left {
     float: left;
-    padding: 8px 0; }
+    padding: 7px 0; }
   .Vertical .Control-Group > label a.Right, .Vertical .Control-Group > .Label-Group a.Right {
     float: right;
-    padding: 8px 0; }
+    padding: 7px 0; }
 
 .Invert .Control-Group label {
   color: white; }
@@ -3962,7 +3994,7 @@ input[type='button'] {
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border-radius: 2px; }
+  border-radius: 5px; }
   a.Button:hover, table td.Actions ul li a:hover,
   button.Button:hover,
   input[type='submit']:hover,
@@ -4010,7 +4042,7 @@ input[type='button'] {
   input[type='submit'].Ghost,
   input[type='button'].Round,
   input[type='button'].Ghost {
-    border-radius: 4px; }
+    border-radius: 10px; }
   a.Button.Search, table td.Actions ul li a.Search,
   button.Button.Search,
   input[type='submit'].Search,
@@ -4070,82 +4102,6 @@ input[type='button'] {
       input[type='button'].Ghost.Invert:hover {
         color: #e74c3c;
         border-color: #e74c3c; }
-  a.Button.Dropdown, table td.Actions ul li a.Dropdown,
-  button.Button.Dropdown,
-  input[type='submit'].Dropdown,
-  input[type='button'].Dropdown {
-    position: relative;
-    padding-right: 40px; }
-    a.Button.Dropdown.Round > .Dropdown-Toggle, table td.Actions ul li a.Dropdown.Round > .Dropdown-Toggle, a.Button.Dropdown.Ghost > .Dropdown-Toggle, table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Toggle,
-    button.Button.Dropdown.Round > .Dropdown-Toggle,
-    button.Button.Dropdown.Ghost > .Dropdown-Toggle,
-    input[type='submit'].Dropdown.Round > .Dropdown-Toggle,
-    input[type='submit'].Dropdown.Ghost > .Dropdown-Toggle,
-    input[type='button'].Dropdown.Round > .Dropdown-Toggle,
-    input[type='button'].Dropdown.Ghost > .Dropdown-Toggle {
-      border-radius: 0 2px 2px 0; }
-    a.Button.Dropdown > .Dropdown-Toggle, table td.Actions ul li a.Dropdown > .Dropdown-Toggle,
-    button.Button.Dropdown > .Dropdown-Toggle,
-    input[type='submit'].Dropdown > .Dropdown-Toggle,
-    input[type='button'].Dropdown > .Dropdown-Toggle {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      display: block;
-      width: 30px;
-      padding: 10px 0;
-      border-left: 1px white solid;
-      background-color: #e74c3c; }
-      a.Button.Dropdown > .Dropdown-Toggle:hover, table td.Actions ul li a.Dropdown > .Dropdown-Toggle:hover,
-      button.Button.Dropdown > .Dropdown-Toggle:hover,
-      input[type='submit'].Dropdown > .Dropdown-Toggle:hover,
-      input[type='button'].Dropdown > .Dropdown-Toggle:hover {
-        background-color: #c0392b; }
-    a.Button.Dropdown > .Dropdown-Content, table td.Actions ul li a.Dropdown > .Dropdown-Content,
-    button.Button.Dropdown > .Dropdown-Content,
-    input[type='submit'].Dropdown > .Dropdown-Content,
-    input[type='button'].Dropdown > .Dropdown-Content {
-      background-color: white;
-      border: 1px solid #bdc3c7;
-      position: absolute;
-      top: 37px;
-      left: 0;
-      width: 100%;
-      z-index: 100; }
-      a.Button.Dropdown > .Dropdown-Content li > a, table td.Actions ul li a.Dropdown > .Dropdown-Content li > a,
-      button.Button.Dropdown > .Dropdown-Content li > a,
-      input[type='submit'].Dropdown > .Dropdown-Content li > a,
-      input[type='button'].Dropdown > .Dropdown-Content li > a {
-        display: block;
-        padding: 5px 10px;
-        text-align: left;
-        color: #2c3e50; }
-        a.Button.Dropdown > .Dropdown-Content li > a:hover, table td.Actions ul li a.Dropdown > .Dropdown-Content li > a:hover,
-        button.Button.Dropdown > .Dropdown-Content li > a:hover,
-        input[type='submit'].Dropdown > .Dropdown-Content li > a:hover,
-        input[type='button'].Dropdown > .Dropdown-Content li > a:hover {
-          background-color: #bdc3c7; }
-      a.Button.Dropdown > .Dropdown-Content li.Divider, table td.Actions ul li a.Dropdown > .Dropdown-Content li.Divider,
-      button.Button.Dropdown > .Dropdown-Content li.Divider,
-      input[type='submit'].Dropdown > .Dropdown-Content li.Divider,
-      input[type='button'].Dropdown > .Dropdown-Content li.Divider {
-        padding: 0;
-        display: block;
-        border-top: 1px solid #bdc3c7; }
-      a.Button.Dropdown > .Dropdown-Content.Icon li a span.fa, table td.Actions ul li a.Dropdown > .Dropdown-Content.Icon li a span.fa,
-      button.Button.Dropdown > .Dropdown-Content.Icon li a span.fa,
-      input[type='submit'].Dropdown > .Dropdown-Content.Icon li a span.fa,
-      input[type='button'].Dropdown > .Dropdown-Content.Icon li a span.fa {
-        margin-right: 10px; }
-    a.Button.Dropdown.Round > .Dropdown-Content, table td.Actions ul li a.Dropdown.Round > .Dropdown-Content, a.Button.Dropdown.Ghost > .Dropdown-Content, table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Content,
-    button.Button.Dropdown.Round > .Dropdown-Content,
-    button.Button.Dropdown.Ghost > .Dropdown-Content,
-    input[type='submit'].Dropdown.Round > .Dropdown-Content,
-    input[type='submit'].Dropdown.Ghost > .Dropdown-Content,
-    input[type='button'].Dropdown.Round > .Dropdown-Content,
-    input[type='button'].Dropdown.Ghost > .Dropdown-Content {
-      border-radius: 2px; }
   a.Button.Info, table td.Actions ul li a.Info,
   button.Button.Info,
   input[type='submit'].Info,
@@ -4282,6 +4238,19 @@ input[type='button'] {
     .Message {
       top: 30px;
       right: 30px; } }
+
+.Dropdown {
+  position: relative;
+  padding: 7px;
+  height: 30px;
+  border: 1px #b7b7b7 solid;
+  border-radius: 5px; }
+  .Dropdown .Dropdown-Content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0; }
 
 /*
 

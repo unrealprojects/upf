@@ -216,7 +216,7 @@
                         </div>
                     </div>
                 </form>asd
-                <button class="Button Info Dropdown">
+                <button class="Button Info  Dropdown">
                    asd <span class="fa fa-caret-down Dropdown-Toggle"></span>
                     <ul class="Dropdow-Content">
 
@@ -237,8 +237,25 @@
                 <div class="Control-Group">
                     <label class="Node-XS-3" for="">Input Error</label>
                     <div class="Input-Group Error Node-XS-9">
-                        <input class="Error" type="text" value="Bad input"/>
-                        <span class="Message">Woops! Error</span>
+                        <input class="Error" type="text" value="Error"/>
+                    </div>
+                </div>
+                <div class="Control-Group">
+                    <label class="Node-XS-3" for="">Input Warning</label>
+                    <div class="Input-Group Warning Node-XS-9">
+                        <input class="Warning" type="text" value="Warning"/>
+                    </div>
+                </div>
+                <div class="Control-Group">
+                    <label class="Node-XS-3" for="">Input Success</label>
+                    <div class="Input-Group Warning Node-XS-9">
+                        <input class="Success" type="text" value="Success"/>
+                    </div>
+                </div>
+                <div class="Control-Group">
+                    <label class="Node-XS-3" for="">Input Info</label>
+                    <div class="Input-Group Warning Node-XS-9">
+                        <input class="Info" type="text" value="Info"/>
                     </div>
                 </div>
                 <div class="Control-Group">
@@ -256,6 +273,18 @@
                         <option value="">Option 1</option>
                         <option value="">Option 2</option>
                     </select>
+                </div>
+                <div class="Control-Group">
+                    <label class="Node-XS-3" for="">Dropdown</label>
+                    <button class="Dropdown">
+                        <div class="Dropdown-Toggle"><span class="fa fa-bars"></span>Dropdown</div>
+                        <ul class="Dropdown-Content">
+                            <li><a href="#">Open File</a></li>
+                            <li><a href="#">Save File</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Exit</a></li>
+                        </ul>
+                    </button>
                 </div>
 
                 <div class="Control-Group">

@@ -19,9 +19,13 @@ a:hover {
 a:active {
 	color: $Clr-Main;
 }
-
-h1 {	font-size: 3.00em;		}
-h2 {	font-size: 2.50em;		}
+h1,h2,h3,h4,h5,h6
+{
+	font-weight: 400;
+	font-family: 'Roboto Slab', serif;
+}
+h1 {	font-size: 40px;		}
+h2 {	font-size: 36px;		}
 h3 {	font-size: 30px;		}
 h4 {	font-size: 26px;	 	}
 h5 {	font-size: 1.00em;		}
@@ -74,7 +78,6 @@ code {
 	display: block;
 	clear: both;
 	text-transform: uppercase;
-	font-weight: 100;
 	cursor: default;
 
 	@extend ._Unselectable;
@@ -85,7 +88,6 @@ code {
 // Heading with background
 .Heading.Primary {
 	color: $Clr-Asbestos;
-	font-weight: 100;
 }
 .Heading.Secondary {
 	text-transform: none;
@@ -96,7 +98,6 @@ code {
 	display: block;
 	padding-bottom: $size-s;
 	border-bottom: 1px solid $Clr-Grey;
-	font-weight: 100;
 }
 .Heading.Icon {
 	span.fa {

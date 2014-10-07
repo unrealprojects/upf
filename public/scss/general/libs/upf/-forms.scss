@@ -1,19 +1,22 @@
 $Control-Border-Width: 1px;
-$Control-Border-Color: $Clr-Grey;
-$Control-Border-Color-Disabled: lighten($Clr-Slate, 20%);
-$Control-Bg-Color-Disabled: lighten($Clr-Slate, 40%);
-$Control-Border-Color-Focus: $Clr-Cyan;
-$Control-Border-Radius: 2px;
-$Control-Padding: 8px;
+$Control-Border-Color: $C-Grey-4;
+$Control-Bg-Color: $C-Grey-6;
+$Control-Border-Radius: 5px;
+$Control-Padding: 7px;
 $Control-Left-Column-Width: 30%;
 $Control-Right-Column-Width: 100% - $Control-Left-Column-Width;
-$Control-Font-Size: 16px;
+$Control-Font-Size: 14px;
 $Control-Line-Height: $Control-Font-Size;
 $Control-Height: $Control-Line-Height + ($Control-Padding * 2) + ($Control-Border-Width * 2);
 $Control-Color: $Clr-Slate;
 
-$Control-Bg-Color: white;
-$Control-Bg-Color-Focus: lighten($Clr-Cyan, 55%);
+
+$Control-Bg-Color-Disabled: $C-Grey-5;
+$Control-Border-Color-Disabled: $C-Grey-4;
+$Control-Color-Disabled: $C-Grey-4;
+
+$Control-Border-Color-Focus: $C-Cyan-1;
+$Control-Bg-Color-Focus: $C-Cyan-5;
 
 $Control-Textarea-Line-Height: ceil($Control-Font-Size * 1.45);
 $Control-Textarea-Min-Rows: 2;
@@ -33,10 +36,119 @@ $Checkbox-Border-Radius: $Checkbox-Height;
 $Checkbox-Toggle-Spacing: 2px;
 $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - ($Checkbox-Border * 2);
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Default controls styling
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+input,
+select,
+textarea
+{
+	height: $Control-Height;
+	padding: $Control-Padding;
+
+	font-size: $Control-Font-Size;
+	line-height: $Control-Line-Height;
+	border-radius: $Control-Border-Radius;
+
+	border: $Control-Border-Width $Control-Border-Color solid;
+
+	outline: 0;
+	box-shadow: 0 0 1px white inset;
+	background-color: $Control-Bg-Color;
+	color: $Control-Color;
+
+	&:hover
+	{
+		border-color: $C-Cyan-3;
+		background-color: $C-Cyan-6;
+		color: $C-Cyan-1;
+	}
+	&:focus
+	{
+		border-color: $Control-Border-Color-Focus;
+		background-color: $Control-Bg-Color-Focus;
+		box-shadow: 0 0 1px white inset,
+		0 0 10px $C-Cyan-3;
+	}
+	&[disabled],
+	&[disabled]:hover
+	{
+		border-color: $Control-Border-Color-Disabled;
+		background-color: $Control-Bg-Color-Disabled;
+		color: $Control-Color-Disabled;
+		cursor: not-allowed;
+	}
+	&.Ghost
+	{
+		border-color: transparent;
+		background: transparent;
+		box-shadow: none;
+		&:focus
+		{
+
+		}
+	}
+	&.Error
+	{
+		color: $C-Red-1;
+		border-color: $C-Red-2;
+		background-color: $C-Red-6;
+	}
+	&.Warning
+	{
+		color: $C-Orange-1;
+		border-color: $C-Orange-2;
+		background-color: $C-Orange-6;
+	}
+	&.Success
+	{
+		color: $C-Green-1;
+		border-color: $C-Green-2;
+		background-color: $C-Green-6;
+	}
+	&.Info
+	{
+		color: $C-Blue-1;
+		border-color: $C-Blue-2;
+		background-color: $C-Blue-6;
+	}
+}
+select[multiple='multiple']{
+	min-height: $Control-MultiSelect-Min-Height;
+}
+textarea
+{
+	resize: vertical;
+	line-height: $Control-Textarea-Line-Height;
+	min-height: $Control-Textarea-Min-Height;
+}
+input[type='submit'],
+input[type='button'],
+button
+{
+	border-color: $Control-Button-Border-Color;
+	background-color: $Control-Button-Bg-Color;
+	color: white;
+	cursor: pointer;
+	&:hover
+	{
+		background-color: $Control-Button-Bg-Color-Hover;
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Form-Group is a bunch of Control-Groups separated vertically
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 .Form-Group + .Form-Group
 {
 	margin-top: $size-xl;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 .Control-Group
 {
 	@extend ._Clearfix;
@@ -54,73 +166,11 @@ $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - (
 	textarea
 	{
 		width: 100%;
-		height: $Control-Height;
-		outline: 0;
-		padding: $Control-Padding;
-		border: $Control-Border-Width $Control-Border-Color solid;
-		border-radius: $Control-Border-Radius;
-
-		background-color: $Control-Bg-Color;
-		color: $Control-Color;
-		font-size: $Control-Font-Size;
-		line-height: $Control-Line-Height;
-		box-shadow: 0 0 2px white inset;
-		&:focus
-		{
-			border-color: $Control-Border-Color-Focus;
-			background-color: $Control-Bg-Color-Focus;
-
-			box-shadow: 0 0 1px white inset,
-			0 1px 3px rgba(0,0,0,0.2) inset,
-			0 0 5px $Clr-Cyan;
-		}
 	}
-	input[disabled]
-	{
-		border-color: $Control-Border-Color-Disabled;
-		background-color: $Control-Bg-Color-Disabled;
-		cursor: not-allowed;
-	}
-	input.Ghost
-	{
-		border-color: transparent;
-		background: transparent;
-		box-shadow: none;
-		&:focus
-		{
-
-		}
-	}
-	input.Error
-	{
-		color: $Clr-Error;
-		border-color: $Clr-Error;
-	}
+	input
 	select
 	{
 		background-color: white;
-	}
-    select[multiple=multiple]{
-        min-height: $Control-MultiSelect-Min-Height;
-    }
-	textarea
-	{
-		resize: vertical;
-		line-height: $Control-Textarea-Line-Height;
-		min-height: $Control-Textarea-Min-Height;
-	}
-	input[type='submit'],
-	input[type='button'],
-	button
-	{
-		border-color: $Control-Button-Border-Color;
-		background-color: $Control-Button-Bg-Color;
-		color: white;
-		cursor: pointer;
-		&:hover
-		{
-			background-color: $Control-Button-Bg-Color-Hover;
-		}
 	}
 	input[type='checkbox'].Slide
 	{
@@ -225,8 +275,8 @@ $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - (
 		select.Error,
 		textarea.Error
 		{
-			border-color: $Clr-Error;
-			color: $Clr-Error;
+			border-color: $C-Red-2;
+			color: $C-Red-1;
 		}
 	}
 	.Input-Group .Message
@@ -770,67 +820,6 @@ input[type='button']
 			}
 		}
 	}
-	&.Dropdown {
-		position: relative;
-		padding-right: 30px + $size-s;
-		&.Round > .Dropdown-Toggle {
-			@include Round(right, $Control-Border-Radius);
-		}
-		& > .Dropdown-Toggle {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			display: block;
-			width: 30px;
-			padding: $size-s 0;
-			border-left: 1px white solid;
-			background-color: $Clr-Main;
-			&:hover {
-				background-color: $Clr-Main-Dark;
-			}
-		}
-		& > .Dropdown-Content {
-			background-color: white;
-			border: 1px solid $Clr-Secondary-Dark;
-			position: absolute;
-			top: $line-height + ($size-xs * 2) + 3px;
-			left: 0;
-			width: 100%;
-			z-index: 100;
-
-			@extend ._No-Bullets;
-			ul {
-				@extend ._No-Bullets;
-			}
-			& li {
-				& > a {
-					display: block;
-					padding: $size-xs $size-s;
-					text-align: left;
-					color: $Clr-Midnight-Blue;
-					&:hover {
-						background-color: $Clr-Secondary-Dark;
-					}
-				}
-				&.Divider {
-					padding: 0;
-					display: block;
-					border-top: 1px solid $Clr-Secondary-Dark;
-				}
-			}
-			&.Icon {
-				li a span.fa {
-					margin-right: $size-s;
-				}
-			}
-		}
-		&.Round {
-			& > .Dropdown-Content {
-				@include Round(all, $Control-Border-Radius);
-			}
-		}
-	}
 	&.Info {
 		background-color: $Clr-Info;
 		&:hover {
@@ -897,4 +886,24 @@ input[type='button']
 	}
 }
 
+.Dropdown
+{
+	position: relative;
 
+	padding: $Control-Padding;
+	height: $Control-Height;
+	border: $Control-Border-Width $Control-Border-Color solid;
+	border-radius: $Control-Border-Radius;
+	.Dropdown-Toggle
+	{
+	}
+	.Dropdown-Content
+	{
+		display: none;
+		position: absolute;
+
+		top: $Control-Height;
+		left:0;
+		right: 0;
+	}
+}
