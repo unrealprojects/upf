@@ -6,8 +6,8 @@
     </ul>
 
     <ul class="Right">
-        <li class="User-Menu Icon-Link Right Dropdown">
-            <a class="Dropdown-Toggle" href="#">{{$AdministratorLogin}}<span class="fa fa-angle-down"></span></a>
+        <li class="User-Menu Icon-Link Right Dropdown Ghost">
+            <div class="Dropdown-Title">{{$AdministratorLogin}}<span class="Dropdown-Toggle fa fa-angle-down"></span></div>
             <ul class="Dropdown-Content">
                 <li class="Icon"><a href="/backend/system/administrator/{{$AdministratorLogin}}/edit"><span class="fa fa-user"></span>Кабинет</a></li>
                 <li class="Icon"><a href="/backend/logout"><span class="fa fa-close"></span>Выйти</a></li>

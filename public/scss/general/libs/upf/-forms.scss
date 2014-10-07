@@ -940,6 +940,7 @@ input[type='button']
 		border: $Control-Border-Width $Control-Border-Color solid;
 		box-shadow: 0 2px 5px $C-Grey-4;
 		background-color: white;
+		z-index: 100;
 		@include Round(bottom, $Control-Border-Radius);
 
 		@extend ._No-Bullets;
@@ -972,6 +973,15 @@ input[type='button']
 
 		}
 	}
+	&.Ghost
+	{
+		border: 0;
+		border-radius: 0;
+		&:hover
+		{
+			border: 0;
+		}
+	}
 	&.Invert
 	{
 		background-color: $C-Grey-2;
@@ -997,7 +1007,7 @@ input[type='button']
 		.Dropdown-Content
 		{
 			border-color: $C-Grey-1;
-			border-top: $C-Grey-6;
+			border-top-color: $C-Grey-4;
 			background-color: $C-Grey-2;
 			li
 			{

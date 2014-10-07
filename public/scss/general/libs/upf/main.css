@@ -2621,6 +2621,7 @@ input[type='button'] {
     border: 1px #b7b7b7 solid;
     box-shadow: 0 2px 5px #b7b7b7;
     background-color: white;
+    z-index: 100;
     border-radius: 0 0 5px 5px; }
     .Dropdown .Dropdown-Content li {
       text-align: left; }
@@ -2651,7 +2652,7 @@ input[type='button'] {
       color: #f9f9f9; }
     .Dropdown.Invert .Dropdown-Content {
       border-color: #212121;
-      border-top: #f9f9f9;
+      border-top-color: #b7b7b7;
       background-color: #3c3c3c; }
       .Dropdown.Invert .Dropdown-Content li a {
         padding: 7px;
