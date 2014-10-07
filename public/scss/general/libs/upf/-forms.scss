@@ -893,27 +893,33 @@ input[type='button']
 	position: relative;
 	display: inline-block;
 	@extend ._Clearfix;
+	@include Transitions(#{border-radius .6s,box-shadow .6s});
 
-	&:hover
+	&.Collapsed:hover
 	{
 		background-color: $C-Grey-5;
-		border-color: $C-Grey-3;
+		border-color: $C-Grey-4;
 		color: $C-Grey-1;
 	}
 	.Dropdown-Title
 	{
 		float: left;
+		width: 100%;
 		cursor: pointer;
 		.Icon
 		{
-			margin-right: $size-xs;
+			margin-right: $size-s;
 		}
 	}
-	&.Expanded
+	&.Expanded,
+	&.Expanded:hover
 	{
-		@include Round(top, $Control-Border-Radius);
 		border-bottom: 0;
 		background-color: $C-Grey-5;
+		border-color: $C-Grey-4;
+		color: $C-Grey-2;
+		box-shadow: 0 2px 5px $C-Grey-4;
+		@include Round(top, $Control-Border-Radius);
 	}
 	.Dropdown-Toggle
 	{
@@ -933,7 +939,7 @@ input[type='button']
 		right: -1px;
 		border: $Control-Border-Width $Control-Border-Color solid;
 		box-shadow: 0 2px 5px $C-Grey-4;
-		background-color: $Control-Bg-Color;
+		background-color: white;
 		@include Round(bottom, $Control-Border-Radius);
 
 		@extend ._No-Bullets;
@@ -949,6 +955,10 @@ input[type='button']
 				{
 					background-color: $C-Grey-2;
 					color: $C-Grey-6;
+				}
+				span.Icon
+				{
+					margin-right: $size-s;
 				}
 			}
 			&.Divide
