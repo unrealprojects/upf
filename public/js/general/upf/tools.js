@@ -6,7 +6,7 @@ upf.Tools.Dropdown = function(){
         DropdownTitle       =   '.Dropdown-Title',
         DropdownToggle      =   '.Dropdown-Toggle',
         Collapsed           =   'Collapsed',
-        Extended            =   'Extended',
+        Expanded            =   'Expanded',
         Flip                =   'Flip';
 
     // Presets
