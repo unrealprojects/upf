@@ -2,7 +2,7 @@ upf.Grid = {};
 /*********************************************************************************************************************** Horizontal Alignment ***/
 upf.Grid.HorizontalAlignment = function(){
     // Default Variables
-    var GridClass            =   '.Grid, .Control-Group',   // Used Grid Class Names
+    var GridClass            =   '.Grid.Split, .Control-Group.Split',   // Used Grid Class Names
         NodeClass            =   'Node',                    // Node Class Name
         OpenRowClass         =   'Row-Open',                // Default Row-Open Class Name
         CloseRowClass        =   'Row-Close',               // Default Row-Close Class Name
