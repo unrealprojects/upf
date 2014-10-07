@@ -123,23 +123,42 @@ class Meta extends Fields {
         ];
     }
 
-    /*** Get Item Add Fields***/
+    /******************************************************************************************************************* Get Item Add Fields***/
     public function AddItem(){
-        /*** Content ***/
-        $this->title = \Input::get('title');
+        /*** Get Fields ***/
+        $Fields = $this->GetFields('add');
+        foreach($Fields as $Field){
+            $FieldExplode = explode('-',$Field->relation);
+            /*** Text ***/
+            if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea')  && $Field->editable){
+                if(empty($FieldExplode[1])){
+                    $this->{$FieldExplode[0]} = \Input::get($FieldExplode[0]);
+                }else{
+                    $this->$FieldExplode[0]()->update([
+                        $FieldExplode[1] => \Input::get($Field->relation)
+                    ]);
+                }
+                /*** Password ***/
+            }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
+                if(empty($FieldExplode[1])){
+                    $this->{$FieldExplode[0]} = \Hash::make(\Input::get($FieldExplode[0]));
+                }else{
+                    $this->$FieldExplode[0]()->update([
+                        $FieldExplode[1] => \Hash::make(\Input::get($Field->relation))
+                    ]);
+                }
+            }elseif($Field->type=='photo'){
 
-        if(\Input::hasFile('logotype')){
-            /*** Set File Src ***/
+                if(\Input::hasFile('logotype')){
 
-            $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
-
-            \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
-            $this->logotype = $FileSrc;
-
-
+                    /*** Set File Src ***/
+                    $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+                    \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+                    $this->logotype = $FileSrc;
+                }
+            }
         }
-        $this->intro = \Input::get('intro');
-        $this->text = \Input::get('text');
+
 
         /*** Meta ***/
         $Data = [
@@ -157,12 +176,13 @@ class Meta extends Fields {
             'rating' => 0,
             'favorite' => 0,
         ];
-        $this->meta_id = \UpfSeeds\MetaSeeder::AddMetaToSection($Data);
-       // print_r ($this->logotype);
+        $Meta = \UpfSeeds\MetaSeeder::AddMetaToSection($Data);
+        $this->meta_id = $Meta[0];
+        if($this->login){
+            $this->login = $Meta[1];
+        }
         $this->save();
-        $Meta = new \UpfModels\Meta();
-        $Meta=$Meta->find($this->id);
-        return '/'.\Request::segment(1) . '/' .\Request::segment(2) . '/' .\Request::segment(3) . '/' . $Meta->alias . '/' . 'edit';
+        return '/'.\Request::segment(1) . '/' .\Request::segment(2) . '/' .\Request::segment(3) . '/' . $Meta[1] . '/' . 'edit';
     }
 
     /*** Edit Item ***/
@@ -184,47 +204,57 @@ class Meta extends Fields {
         ];
     }
 
-    /*** Update Item ***/
+    /******************************************************************************************************************* Update Item ***/
     public function UpdateItem($Alias,$Input){
             /*** Get Fields ***/
             $Fields = $this->GetFields('edit');
-
 
             $Result = $this->WhereAliasInMeta($this,$Alias)->first();
             foreach($Fields as $Field){
                 $FieldExplode = explode('-',$Field->relation);
 
-                if(\Input::get($FieldExplode[0]) && empty($FieldExplode[1])){
-                    $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
-                }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $FieldExplode[1]=='tags'){
-                    //print_r($Input[$Field->relation]);
-                    //$Result->{$FieldExplode[1]}()->sync([$Input[$Field->relation]]);
+                /*** Text ***/
+                if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea') && $Field->editable){
+                    if(empty($FieldExplode[1])){
+                        $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                    }else{
+                        $Result->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => $Input[$Field->relation]
+                        ]);
+                    }
+                /*** Password ***/
+                }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
+                    if(empty($FieldExplode[1])){
+                        $Result->{$FieldExplode[0]} = \Hash::make($Input[$FieldExplode[0]]);
+                    }else{
+                        $Result->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => \Hash::make($Input[$Field->relation])
+                        ]);
+                    }
+                /*** Multi Select ***/
+                }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $Field['type']=='multi-select' && $Field['editable']){
+                    $Keys = [];
+                    foreach($Input[$Field->relation] as $Key){
+                        $Keys[$Key] = ['section'=>$this->Section];
+                    }
+                    $Result->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
+
+                /*** Select ***/
+                }elseif($Field['type']=='select' && $Field['editable']){
+                    if(empty($FieldExplode[1])){
+                        $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                    }else{
+                        $Result->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => $Input[$Field->relation]
+                        ]);
+                    }
                 }
+                $Result->save();
             }
-
-          /*  $Result->title = $Input['title'];
-            $Result->intro = $Input['intro'];
-            $Result->text = $Input['text'];
-
-
-
-
-            $Result->meta()->update(
-                [
-                    'title'=>$Input['meta-title'],
-                    'description'=>$Input['meta-description'],
-                    'keywords'=>$Input['meta-keywords'],
-                    'region_id'=>$Input['meta-region_id'],
-                    'category_id'=>$Input['meta-category_id'],
-                ]
-            );
-            $Result->tags()->sync($Input['meta-tags']);
-            */
             return $Result->save();
-
     }
 
-    /*** Update Item Files ***/                                                                                         /*** todo :: to Files Model ***/
+    /*** Update Item Files ***/
     public function UpdateItemPhotos($Alias){
         $UpdatedPhotos = [];
         $Model = $this->WhereAliasInMeta($this,$Alias)->first();
@@ -241,7 +271,7 @@ class Meta extends Fields {
 
         /*** Write Files ***/
         if(\Input::hasFile('meta-files')){
-            foreach(\Input::file('meta-files') as $Photo){
+            foreach(\Input::file('meta-files') as $Key=>$Photo){
                 $File = new \UpfModels\Files();
 
                 $FileSrc = $this->PhotosUrl.time() . '_' . $Photo->getClientOriginalName();
@@ -249,17 +279,16 @@ class Meta extends Fields {
                 $File->src = $FileSrc;
                 $File->save();
                 /*** Save Relations ***/
-                $Model->files()->attach([$File->id]);
+                $Model->meta->files()->attach([$File->id]);
                 /*** Save Photos ***/
-                $UpdatedPhotos['photos'][] = $FileSrc;
+                $UpdatedPhotos['photos'][$Key]['src'] = $FileSrc;
+                $UpdatedPhotos['photos'][$Key]['id'] = $File->id;
             }
         }
-
         return $UpdatedPhotos;
     }
 
-
-    /*** Remove Item ***/
+    /******************************************************************************************************************* Remove Item ***/
     public function Remove($Alias){
         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
         $Result->delete();
@@ -267,6 +296,20 @@ class Meta extends Fields {
         return true;
     }
 
+    /*** Remove Photo***/
+    public function RemovePhoto($Alias,$Id){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->files()->detach([$Id]);
+        return true;
+    }
+
+    /*** Remove Logotype***/
+    public function RemoveLogotype($Alias){
+        $Result = $this->WhereAliasInMeta($this,$Alias)->first();
+        $Result->logotype='';
+        $Result->save();
+        return true;
+    }
 
     /*******************************************************************************************************************  Easy Functions ***/
 

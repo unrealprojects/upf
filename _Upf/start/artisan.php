@@ -12,4 +12,6 @@
 */
 
 Artisan::add(new UpfMigrate());
+Artisan::add(new UpfSeeds());
+Artisan::add(new UpfFields());
 

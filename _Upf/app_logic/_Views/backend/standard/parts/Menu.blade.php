@@ -7,33 +7,64 @@
         <li class="Menu-Category-Item">
             <a class="Menu-Category-Link" href="#"><span class="fa fa-sitemap"></span>Разделы</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
             <ul class="Menu-Subcategory">
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/catalog"><span class="fa fa-folder-open"></span>Каталог стройтехники</a>
-                    <a class="Subcategory-Action" title="Добавить ..." href="#">+</a></li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/section/catalog"><span class="fa fa-folder-open"></span>Каталог стройтехники</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/catalog/add">+</a>
+                </li>
                 <li class="Menu-Subcategory-Item">
                     <a class="Menu-Subcategory-Link" href="/backend/section/rent"><span class="fa fa-shopping-cart"></span>Аренда стройтехники</a>
-                    <a class="Subcategory-Action" title="Добавить ..." href="#">+</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/rent/add">+</a>
                 </li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/parts"><span class="fa fa-gears"></span>Запчасти и сервис</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/users"><span class="fa fa-users"></span>Пользователи(Арендодатели)</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/articles"><span class="fa fa-newspaper-o"></span>Статьи</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/section/pages"><span class="fa fa-file"></span>Статические страницы</a></li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/section/parts"><span class="fa fa-gears"></span>Запчасти и сервис</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/parts/add">+</a>
+                </li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/section/users"><span class="fa fa-users"></span>Пользователи(Арендодатели)</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/users/add">+</a>
+                </li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/section/articles"><span class="fa fa-newspaper-o"></span>Статьи</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/articles/add">+</a>
+                </li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/section/pages"><span class="fa fa-file"></span>Статические страницы</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/pages/add">+</a>
+                </li>
             </ul>
         </li>
 
         <li class="Menu-Category-Item">
             <a class="Menu-Category-Link" href="#"><span class="fa fa-filter"></span>Фильтры</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
             <ul class="Menu-Subcategory">
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link Active" href="/backend/filter/categories"><span class="fa fa-list"></span>Категории</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/filter/regions"><span class="fa fa-home"></span>Регионы</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/filter/tags"><span class="fa fa-tags"></span>Теги</a></li>
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/filter/params"><span class="fa fa-gears"></span>Параметры</a></li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link Active" href="/backend/filter/categories"><span class="fa fa-list"></span>Категории</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/filter/categories/add">+</a>
+                </li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/filter/regions"><span class="fa fa-home"></span>Регионы</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/filter/regions/add">+</a>
+
+                </li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/filter/tags"><span class="fa fa-tags"></span>Теги</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/filter/tags/add">+</a>
+                </li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/filter/params"><span class="fa fa-gears"></span>Параметры</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/filter/params/add">+</a>
+                </li>
             </ul>
         </li>
 
         <li class="Menu-Category-Item">
             <a class="Menu-Category-Link" href="#"><span class="fa fa-cog"></span>Система</a><span class="Menu-Category-Icon fa fa-angle-right"></span>
             <ul class="Menu-Subcategory">
-                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/administrators"><span class="fa fa-university"></span>Администраторы</a></li>
+                <li class="Menu-Subcategory-Item">
+                    <a class="Menu-Subcategory-Link" href="/backend/system/administrators"><span class="fa fa-university"></span>Администраторы</a>
+                    <a class="Subcategory-Action" title="Добавить ..." href="/backend/system/administrators/add">+</a>
+                </li>
+                <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/components"><span class="fa fa-wrench"></span>Компоненты</a></li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/comments"><span class="fa fa-comments"></span>Комментарии</a></li>
                 <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/meta"><span class="fa fa-puzzle-piece"></span>Карта сайта</a></li>
 {{--            <li class="Menu-Subcategory-Item"><a class="Menu-Subcategory-Link" href="/backend/system/files"><span class="fa fa-image"></span>Файлы</a></li>         --}}

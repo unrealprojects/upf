@@ -25,7 +25,7 @@ class UpfMigrate extends Command {
             ${$FileName}->up();
         }
 
-        /*** Execute All Migrations ***/
+        /*** Execute All Seeds ***/
         foreach(File::allFiles(app_path().'/app_logic/__Database/seeds') as $Seeder){
             $FileName = '\UpfSeeds\\'.str_replace('.php','',$Seeder->getFilename());
             ${$FileName} = new $FileName;

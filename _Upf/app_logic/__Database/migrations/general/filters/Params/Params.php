@@ -37,5 +37,36 @@ class Params extends Migration {
 	{
         \Schema::dropIfExists('filter_params');
 	}
+
+    public static function fields($Table = 'filter_params'){
+        return [
+            /*** List ***/
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+
+            /*** Add ***/
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+
+            /*** Edit ***/
+            // Group :: Main
+            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+            ['Min', 'param_min', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
+            ['Max', 'param_max', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
+            ['Размерность', 'dimension', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
+            // Group :: Relations
+            ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
+            // Group :: Statuses
+            ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
+            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            // Group :: Date
+            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+        ];
+    }
 }
 

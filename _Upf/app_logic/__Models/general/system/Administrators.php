@@ -10,6 +10,7 @@ class Administrators extends Fields implements UserInterface, RemindableInterfac
     use UserTrait, RemindableTrait;
     protected $table = 'system_administrators';
     public $Config = 'models/backend/system/Administrators';
+    public $timestamps = true;
 
 
     public function Auth(){

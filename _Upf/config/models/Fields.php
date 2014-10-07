@@ -35,6 +35,17 @@ return [
         4 => 'rent',
         5 => 'parts',
     ],
+    /*** Component type ***/
+    'component_type'=>[
+        0 => 'section',
+        1 => 'filter',
+        2 => 'system'
+    ],
+    /*** Destination ***/
+    'destination'=>[
+        0 => 'backend',
+        1 => 'frontend'
+    ],
     /***  Filter Region ***/
     'administrative_unit' => [
         0 => 'Country',

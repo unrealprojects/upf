@@ -1,9 +1,11 @@
 @extends($template)
 
 @section('main')
-<section class="Content"><section class="Toolbar Grid Merge Inline">
+<section class="Content">
+    <h3 class="Heading Secondary">{{$meta['title']}}</h3>
+    <section class="Toolbar Grid Merge Inline">
         <div class="Control-Group Node-XS-1">
-            <button class="Button Primary Fluid"><span class="Visible-XS">Добавить</span></button>
+            <a href="{{$BaseUrl}}add"><button class="Button Primary Fluid"><span class="Visible-XS">Добавить</span></button></a>
         </div>
         <div class="Control-Group Node-XS-3">
             <select name="" id="">
@@ -30,9 +32,6 @@
             </select>
         </div>
     </section>
-    <section class="Content-Inner">
-
-        <h3 class="Heading Secondary">{{$meta['title']}}</h3>
         <table class="Solid Lines Stripped Edit Adaptive">
             <thead>
                 <tr>

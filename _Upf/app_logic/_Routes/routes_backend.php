@@ -31,6 +31,7 @@ Route::group(['before'=>'administrators'], function(){
         'meta',
         'fields',
         'comments',
+        'components',
         'files',
         'options',
         'controllers'

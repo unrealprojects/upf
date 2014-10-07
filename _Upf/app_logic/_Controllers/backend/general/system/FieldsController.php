@@ -53,7 +53,6 @@ class FieldsController extends BackendController{
         }
     }
 
-
     /*** Remove Item ***/
     public function remove($alias){
         $Model = new $this->Model();
@@ -64,8 +63,34 @@ class FieldsController extends BackendController{
         }
     }
 
+
+    /*** Remove Photo ***/
+    public function removeLogotype($alias){
+        $Input = \Input::all();
+
+        $Model = new $this->Model();
+        if($Updated=$Model->RemoveLogotype($alias)){
+            echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+        }
+    }
+
+    /*** Remove Photo ***/
+    public function removePhotos($alias,$id){
+        $Input = \Input::all();
+
+        $Model = new $this->Model();
+        if($Updated=$Model->RemovePhoto($alias,$id)){
+            echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+        }
+    }
+
     /*** Add Item ***/
     public function add(){
+
         $Model = new $this->Model();
         if( \Input::get('title')){
             if($Location = $Model->AddItem()){
@@ -77,9 +102,9 @@ class FieldsController extends BackendController{
             $this->viewData['content'] = [
                 'data'=>$Model->AddItemFields()
             ];
+
             return \View::make($this->View.'add',$this->viewData);
         }
-
     }
 
 }

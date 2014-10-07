@@ -82,22 +82,9 @@ upf.Messages.Show = function (message,type){
     $(Message).fadeIn(1000).delay(10000).fadeOut(2000);
 }
 
-upf.Tools.Collapsed = function(){
-    // Default Variables
-    var Toggle = '.Collapsed .Toggle',
-        DropDown = '.Dropdown',
-        Collapsed = '.Collapsed';
-
-    $(DropDown).hide();
-    $(document).on('click',Toggle,function(){
-        $(this).parents(Collapsed).find(DropDown).slideToggle();
-        return false;
-    });
-}
-
 /*** Box ***/
 upf.Box.Delete();
 upf.Box.Hide();
 upf.Box.DropDown();
-upf.Tools.Collapsed();
+
 

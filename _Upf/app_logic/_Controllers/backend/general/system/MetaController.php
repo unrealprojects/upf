@@ -2,7 +2,7 @@
 namespace UpfControllers;
 
 class MetaController extends FieldsController{
-    public $BaseUrl = '/backend/section/articles/';
+    public $BaseUrl = '/backend/system/meta/';
     public $Model = '\UpfModels\Meta';
 
     /******************************************************************************************************************* Meta ***/

@@ -33,5 +33,34 @@ class Categories extends Migration {
 	{
         \Schema::dropIfExists('filter_categories');
 	}
+
+    public static function fields($Table = 'filter_categories'){
+        return [
+            /*** List ***/
+            ['Категория', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+
+            /*** Add ***/
+            ['Категория', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+
+            /*** Edit ***/
+            // Group :: Main
+            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
+            ['Категория', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+            // Group :: Relations
+            ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
+            ['Родитель', 'parent_id', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
+            // Group :: Statuses
+            ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
+            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            // Group :: Date
+            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+        ];
+    }
 }
 

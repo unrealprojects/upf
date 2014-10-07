@@ -2,6 +2,6 @@
 namespace UpfControllers;
 
 class CommentsController extends FieldsController{
-    public $BaseUrl = '/backend/section/comments/';
+    public $BaseUrl = '/backend/system/comments/';
     public $Model = '\UpfModels\Comments';
 }

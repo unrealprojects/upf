@@ -4,219 +4,52 @@ namespace UpfSeeds;
 class FieldsSeeder extends \Seeder {
 	public function run()
 	{
-        /*** Extended functionality***/
-        $Data = [
-            /*** Section Users ***/
-                /*** List ***/
-                ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', 'section_users', 'list'],
-                ['Имя', 'first_name', 'text', 'Title', 'main', true, 'backend', 'section_users', 'list'],
-                ['Фамилия', 'last_name', 'text', 'Title', 'main', true, 'backend', 'section_users', 'list'],
-                ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', true, 'backend', 'section_users', 'list'],
-
-                /*** Add ***/
-                ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', 'section_users', 'add'],
-                ['Название', 'title', 'text', 'Title', 'main', true, 'backend', 'section_users', 'add'],
-                ['Имя', 'first_name', 'text', 'Title', 'main', true, 'backend', 'section_users', 'add'],
-                ['Фамилия', 'last_name', 'text', 'Title', 'main', true, 'backend', 'section_users', 'add'],
-                ['Пароль', 'password', 'password', 'Custom', 'main', true, 'backend', 'section_users', 'add'],
-
-                /*** Edit ***/
-                // Group :: Main
-                ['№', 'id', 'text', 'Title', 'main', false, 'backend', 'section_users', 'edit'],
-                ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Пароль', 'password', 'password', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Название', 'title', 'text', 'Title', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Имя', 'first_name', 'text', 'Title', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Фамилия', 'last_name', 'text', 'Title', 'main', true, 'backend', 'section_users', 'edit'],
-
-                ['Email', 'email', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Телефоны', 'phones', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Адрес', 'address', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Веб сайт', 'website', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Skype', 'skype', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['О пользователе', 'about', 'textarea', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-                ['Статус', 'user_status', 'textarea', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-
-                // Group :: Media
-                ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', 'section_users', 'edit',''],
-                ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit'],
-
-            /*** Filter :: Params ***/
-                ['Min', 'param_min', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
-                ['Max', 'param_max', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
-                ['Размерность', 'dimension', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
-
-            /*********************************************************************************************************** For Tech Online ***/
-            /*** Section Rent ***/
-                /*** List ***/
-                ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_rent', 'list'],
-                /*** Add ***/
-                ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_rent', 'add'],
-                /*** Edit ***/
-                // Group :: Main
-                ['Цена', 'price', 'text', 'Title', 'main', false, 'backend', 'section_rent', 'edit'],
-                ['Качество', 'condition', 'select', 'Title', 'main', true, 'backend', 'section_rent', 'edit','config','models/Fields.condition'],
-                ['Модель', 'model_id', 'select', 'Title', 'main', true, 'backend', 'section_rent', 'edit', 'model', 'Catalog'],
-                ['Пользователь', 'meta-user_id', 'select', 'Title', 'main', true, 'backend', 'section_rent', 'edit', 'model', 'Users'],
-
-            /*** Section Parts ***/
-                /*** List ***/
-                ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_parts', 'list'],
-                /*** Add ***/
-                ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', 'section_parts', 'add'],
-                /*** Edit ***/
-                // Group :: Main
-                ['Цена', 'price', 'text', 'Title', 'main', false, 'backend', 'section_parts', 'edit'],
-                ['Качество', 'condition', 'select', 'Title', 'main', true, 'backend', 'section_parts', 'config','models/Fields.condition'],
-                ['Пользователь', 'meta-user_id', 'select', 'Title', 'main', true, 'backend', 'section_parts', 'edit', 'model', 'Users'],
-            /*********************************************************************************************************** End For TechOnline ***/
+        $Seeds = [
+            /*** Sections ***/
+            'Articles',
+            'Pages',
+            'Users',
+            /*** Tech Online ***/
+            'Catalog',
+            'Rent',
+            'Parts',
+            /*** Filters ***/
+            'Categories',
+            'Tags',
+            'Regions',
+            'Params',
+            /*** System ***/
+            'Administrators',
+            'Comments',
+            'Components',
+            'Fields',
+            'Meta'
         ];
-        $this->Add($Data);
+        /*** Add Fields Of Migration ***/
+        foreach($Seeds as $Seed){
+            $Seed = '\UpfMigrations\\' . $Seed;
+            $this->Add($Seed::fields());
+        }
 
-        /*** Add Default Section Functionality ***/
-        $SectionsTables = [
+        $Tables = [
+            /*** Sections ***/
             'section_articles',
             'section_pages',
+            'section_users',
+            /*** Tech Online ***/
             'section_catalog',
             'section_rent',
             'section_parts'
         ];
 
-        foreach($SectionsTables as $Table){
-            $this->Add($this->DefaultSectionFunctionality($Table));
-            $this->Add($this->MetaFieldsDefault($Table));
+        /*** Add Fields Meta ***/
+        foreach($Tables as $Table){
+            $this->Add(\UpfMigrations\Meta::MetaFields($Table));
         }
-
-        /*** Add Default Filters Functionality ***/
-
-        $FiltersTables = [
-            'filter_categories',
-            'filter_tags',
-            'filter_regions',
-            'filter_params',
-        ];
-
-        foreach($FiltersTables as $Table){
-            $this->Add($this->DefaultParamsFunctionality($Table));
-        }
-
-        $SystemTables = [
-            'system_meta',
-        ];
-
-        $this->Add(\UpfMigrations\Administrators::AdministratorsFields());
-
-        foreach($SystemTables as $Table){
-            $this->Add($this->DefaultParamsFunctionality($Table));
-        }
-
-        $this->Add($this->MetaFieldsDefault('section_users'));
 	}
 
-    /*** Insert Default Section Functionality ***/
-
-    public function DefaultSectionFunctionality($Table){
-        return [
-            /*** List ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
-
-            /*** Add ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
-            ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
-
-            /*** Edit ***/
-            // Group :: Main
-            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
-            ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
-            ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
-
-            // Group :: Media
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
-        ];
-    }
-
-    /*** Insert Default Fields Functionality ***/
-    public function DefaultParamsFunctionality($Table){
-        return [
-            /*** List ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
-
-            /*** Add ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
-
-            /*** Edit ***/
-            // Group :: Main
-            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
-
-            // Group :: Relations
-            ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
-            // Group :: Statuses
-            ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
-        ];
-    }
-
-    /*** Insert Default System Functionality ***/
-    public function DefaultSystemFunctionality($Table){
-        return [
-            /*** List ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
-
-            /*** Add ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
-
-            /*** Edit ***/
-            // Group :: Main
-            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
-            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit']
-        ];
-    }
 
 
-    /*** Insert Meta Default (Sections) ***/
-
-    public function MetaFieldsDefault($Table){
-        return [
-            // Group :: Date
-            ['Создано', 'meta-created_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
-            // Group :: Meta
-            ['Алиас', 'meta-alias', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Title', 'meta-title', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Descriptions', 'meta-description', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Keywords', 'meta-keywords', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-             // Group :: Relations
-            ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
-            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
-            ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Tags'],
-             // Group :: Statuses
-            ['Статус', 'meta-status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
-            ['Избранное', 'meta-favorite', 'radio', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.favorite'],
-            ['Рейтинг', 'meta-rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
-            ['Просмотры', 'meta-views', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit']
-        ];
-    }
 
     /******************************************************************************************************************* Add ***/
 

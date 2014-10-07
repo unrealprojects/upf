@@ -36,8 +36,7 @@ class Administrators extends Migration {
         \Schema::dropIfExists('system_administrators');
 	}
 
-    /*** Insert Default System Functionality ***/
-    public static function AdministratorsFields($Table = 'system_administrators'){
+    public static function fields($Table = 'system_administrators'){
         return [
             /*** List ***/
             ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],

@@ -18,6 +18,7 @@ $Control-Bg-Color-Focus: lighten($Clr-Cyan, 55%);
 $Control-Textarea-Line-Height: ceil($Control-Font-Size * 1.45);
 $Control-Textarea-Min-Rows: 2;
 $Control-Textarea-Min-Height: ($Control-Textarea-Line-Height * 2) + ($Control-Padding * 2) + ($Control-Border-Width * 2);
+$Control-MultiSelect-Min-Height:$Control-Textarea-Min-Height*4;
 
 $Control-Button-Bg-Color: $Clr-Cyan;
 $Control-Button-Bg-Color-Hover: darken($Clr-Cyan,10%);
@@ -99,6 +100,9 @@ $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - (
 	{
 		background-color: white;
 	}
+    select[multiple=multiple]{
+        min-height: $Control-MultiSelect-Min-Height;
+    }
 	textarea
 	{
 		resize: vertical;
@@ -885,7 +889,7 @@ input[type='button']
 }
 
 .Message {
-	position: absolute;
+	position: fixed;
 	max-width: 	320px;
 	@include 	Adaptive($Viewport-XS) {
 		top: 	$size-l;

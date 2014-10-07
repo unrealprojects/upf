@@ -16,16 +16,7 @@ class UpfSeeds extends Command {
 
 	public function fire()
 	{
-        /*** Execute All Migrations***/
-        foreach(File::allFiles(app_path().'/app_logic/__Database/migrations') as $Migration){
-            $FileName = '\UpfMigrations\\'.str_replace('.php','',$Migration->getFilename());
-            ${$FileName} = new $FileName;
-
-            ${$FileName}->down();
-            ${$FileName}->up();
-        }
-
-        /*** Execute All Migrations ***/
+        /*** Execute All Seeds ***/
         foreach(File::allFiles(app_path().'/app_logic/__Database/seeds') as $Seeder){
             $FileName = '\UpfSeeds\\'.str_replace('.php','',$Seeder->getFilename());
             ${$FileName} = new $FileName;

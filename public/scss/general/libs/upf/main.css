@@ -1575,6 +1575,13 @@ table.Adaptive .Caption,
   border: 1px solid #07b3d2;
   background-color: #25d4f3; }
 
+.Row-Open {
+  margin-left: 0 !important;
+  clear: left !important; }
+
+.Row-Close {
+  margin-right: 0 !important; }
+
 html {
   font-size: 1em;
   line-height: 1.45; }
@@ -1887,6 +1894,8 @@ table {
   border-color: #f2070b; }
 .Control-Group select {
   background-color: white; }
+.Control-Group select[multiple=multiple] {
+  min-height: 264px; }
 .Control-Group textarea {
   resize: vertical;
   line-height: 24px;
@@ -2601,7 +2610,7 @@ input[type='button'] {
     margin-left: 10px; }
 
 .Message {
-  position: absolute;
+  position: fixed;
   max-width: 320px; }
   @media screen and (min-width: 768px) {
     .Message {

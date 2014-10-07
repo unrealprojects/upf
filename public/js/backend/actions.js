@@ -63,6 +63,7 @@ upf.List.TrashItem = function(){
     });
 }
 
+
 /*********************************************************************************************************************** Edit ***/
 
 /*** *** Update Item *** ***/
@@ -106,6 +107,7 @@ upf.Edit.UpdateItemFiles = function(){
     // Update body
     $(document).on('change',UpdateButton,function(){
         // Send Ajax to "/alias/update"
+        var This = this;
         var formData = new FormData($(UpdateForm)[0]);
         $.ajax({
             type:'POST',
@@ -119,19 +121,67 @@ upf.Edit.UpdateItemFiles = function(){
                         if($('.Field-Img-logotype').length){
                             $('.Field-Img-logotype').attr('src',Data['files']['logotype']);
                         }else{
-                            $('#field_logotype').after('<img class="Uploaded" src="'+Data['files']['logotype']+'"/>');
+                            $('.Control-Photo .Upload').append(
+                                '<ul class="Grid Split"><li class="Node-XS-3"><a href="#" class="Link-Delete">Удалить</a><img class="Uploaded" src="'+Data['files']['logotype']+'"/></li></ul>');
                         }
                     }
                     if(Data['files']['photos']){
                         $.each(Data['files']['photos'],function(key,value){
-                            $('#field_meta-files').after('<img src="'+value+'">');
+                            $('.Control-Photos .Upload .Grid').append('<li  class="Node-XS-3"><a href="#" class="Link-Delete">Удалить</a><img src="'+value['src']+'" item_img_id="'+value['id']+'"></li>');
                         });
                     }
+
+                    $(This).replaceWith($(This).clone(true));
                 }
             },
             cache: false,
             contentType: false,
             processData: false
+        });
+        return false;
+    });
+}
+
+/*** *** Remove Item Logotype *** ***/
+
+upf.Edit.RemoveItemLogotype = function(){
+    // Default Variables
+    var RemoveButton = '.Control-Photo .Link-Delete';
+
+    // Update body
+    $(document).on('click',RemoveButton,function(){
+        var This = this;
+        $.ajax({
+            type:'POST',
+            url:  location.pathname.replace('edit','') + 'removeLogotype',
+            dataType:'json',
+            success: function(Data){
+                upf.Messages.Show(Data['message'],Data['type']);
+                $(This).parent().remove();
+            }
+        });
+        return false;
+    });
+}
+
+/*** *** Remove Item Photos *** ***/
+
+upf.Edit.RemoveItemPhotos = function(){
+    // Default Variables
+    var RemoveButton = '.Control-Photos .Link-Delete';
+
+    // Update body
+    $(document).on('click',RemoveButton,function(){
+        var This = this;
+        var PhotoId = $(This).next('img').attr('item_img_id');
+        $.ajax({
+            type:'POST',
+            url:  location.pathname.replace('edit','') + 'removePhotos/' + PhotoId,
+            dataType:'json',
+            success: function(Data){
+                upf.Messages.Show(Data['message'],Data['type']);
+                $(This).parent().remove();
+            }
         });
         return false;
     });
@@ -179,6 +229,8 @@ $(document).ready(function(){
     /*** Edit ***/
     upf.Edit.UpdateItem();
     upf.Edit.UpdateItemFiles();
+    upf.Edit.RemoveItemLogotype();
+    upf.Edit.RemoveItemPhotos();
 
     /*** Add ***/
     upf.Add.NewItem();

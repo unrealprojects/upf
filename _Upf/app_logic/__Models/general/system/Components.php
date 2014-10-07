@@ -3,7 +3,7 @@ namespace UpfModels;
 
 /*** Components ***/
 class Components extends Fields{
-    public $timestamps = false;
+    public $timestamps = true;
     protected $table = 'system_components';
     public $Config = 'models/backend/sections/Components';
 
