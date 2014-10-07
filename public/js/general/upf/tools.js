@@ -3,15 +3,21 @@ upf.Tools.Dropdown = function(){
     // Default Variables
     var Dropdown            =   '.Dropdown',
         DropdownContent     =   '.Dropdown-Content',
-        DropdownToggle      =   '.Dropdown-Toggle';
+        DropdownTitle       =   '.Dropdown-Title',
+        DropdownToggle      =   '.Dropdown-Toggle',
+        Collapsed           =   'Collapsed',
+        Extended            =   'Extended',
+        Flip                =   'Flip';
 
-
-    // Default Hidden
-    $(DropdownContent).hide();
+    // Presets
+    $(Dropdown).addClass('Collapsed');
 
     // Body
-    $(document).on('click',DropdownToggle,function(){
+    $(document).on('click',DropdownTitle,function(){
         $(this).parents(Dropdown).find(DropdownContent).slideToggle();
+        $(this).parents(Dropdown).toggleClass(Collapsed+' '+Extended);
+        $(this).parents(Dropdown).find(DropdownToggle).toggleClass(Flip);
+
         return false;
     });
 }

@@ -56,7 +56,7 @@ upf.Grid.HorizontalAlignment = function(){
 /*
     todo: С учетом ViewPort
     todo: С учетом разных GridSize
-    todo: С учетом Content Change
+    todo: С учетом Content Change (.Grid:change .Grid:add)
     ask: Если просто Grid то он 12-колоночный, Grid-7 Строгое колличество колонок
  */
 /*********************************************************************************************************************** Execute Functions ***/
