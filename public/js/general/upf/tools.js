@@ -7,7 +7,7 @@ upf.Tools.Dropdown = function(){
         DropdownToggle      =   '.Dropdown-Toggle',
         Collapsed           =   'Collapsed',
         Expanded            =   'Expanded',
-        Flip                =   'Flip';
+        Duration            =   500
 
     // Presets
     $(Dropdown).addClass('Collapsed');
@@ -15,16 +15,19 @@ upf.Tools.Dropdown = function(){
 
     // Body
     $(document).on('click',DropdownTitle,function(){
-        $(this).parents(Dropdown).find(DropdownContent).slideToggle();
+        $(Dropdown+'.'+Expanded).not($(this).parent()).find(DropdownContent).slideUp(Duration);
+        $(Dropdown+'.'+Expanded).not($(this).parent()).find(DropdownToggle).animate({transform: 'rotate(0deg)'},Duration);
+        $(Dropdown+'.'+Expanded).not($(this).parent()).removeClass(Expanded).addClass(Collapsed);
+
+        $(this).parents(Dropdown).find(DropdownContent).slideToggle(Duration);
         $(this).parents(Dropdown).toggleClass(Collapsed+' '+Expanded);
-        $(this).parents(Dropdown).find(DropdownToggle).toggleClass(Flip);
 
         // Toggle Button
         if(!Toggle){
-            $(this).parents(Dropdown).find(DropdownToggle).animate({transform: 'rotate(-180deg)'});
+            $(this).parents(Dropdown).find(DropdownToggle).animate({transform: 'rotate(-180deg)'},Duration);
             Toggle = true;
         }else{
-            $(this).parents(Dropdown).find(DropdownToggle).animate({transform: 'rotate(0deg)'});
+            $(this).parents(Dropdown).find(DropdownToggle).animate({transform: 'rotate(0deg)'},Duration);
             Toggle = false;
         }
 
