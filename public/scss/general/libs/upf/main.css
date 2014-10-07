@@ -39,7 +39,7 @@
   outline: 1px red solid !important; }
 
 ._Clearfix:before, ._Inline:before, .Breadcrumbs .Breadcrumb-List:before, .Box > header ul.Box-Tools:before, [class*='Grid']:before, .Node:before, table.Adaptive td:before, .pagination:before,
-.Pagination:before, .Control-Group:before, dl.Tabs:before, .Box:before, .Box > header:before,
+.Pagination:before, .Control-Group:before, dl.Tabs:before, .Box:before, .Box > header:before, .Dropdown:before,
 ._Clearfix:after,
 ._Inline:after,
 .Breadcrumbs .Breadcrumb-List:after,
@@ -52,12 +52,13 @@ table.Adaptive td:after,
 .Control-Group:after,
 dl.Tabs:after,
 .Box:after,
-.Box > header:after {
+.Box > header:after,
+.Dropdown:after {
   content: " ";
   display: table; }
 
 ._Clearfix:after, ._Inline:after, .Breadcrumbs .Breadcrumb-List:after, .Box > header ul.Box-Tools:after, [class*='Grid']:after, .Node:after, table.Adaptive td:after, .pagination:after,
-.Pagination:after, .Control-Group:after, dl.Tabs:after, .Box:after, .Box > header:after {
+.Pagination:after, .Control-Group:after, dl.Tabs:after, .Box:after, .Box > header:after, .Dropdown:after {
   clear: both; }
 
 ._Inline > *, .Breadcrumbs .Breadcrumb-List > *, .Box > header ul.Box-Tools > * {
@@ -65,13 +66,13 @@ dl.Tabs:after,
 
 ._No-Bullets, ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, table td.Actions ul, .pagination,
-.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools {
+.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, .Dropdown .Dropdown-Content {
   list-style: none;
   margin: 0;
   padding: 0; }
   ._No-Bullets > li, ol[class*='Grid'] > li > li,
   ul[class*='Grid'] > li > li, table td.Actions ul > li, .pagination > li,
-  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li {
+  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, .Dropdown .Dropdown-Content > li {
     margin: 0;
     padding: 0; }
 
@@ -1844,7 +1845,8 @@ table {
 
 input,
 select,
-textarea {
+textarea,
+.Dropdown {
   height: 30px;
   padding: 7px;
   font-size: 14px;
@@ -1857,13 +1859,15 @@ textarea {
   color: #374144; }
   input:hover,
   select:hover,
-  textarea:hover {
+  textarea:hover,
+  .Dropdown:hover {
     border-color: #95edff;
     background-color: #f3fdff;
     color: #00a4c6; }
   input:focus,
   select:focus,
-  textarea:focus {
+  textarea:focus,
+  .Dropdown:focus {
     border-color: #00a4c6;
     background-color: #e5fbff;
     box-shadow: 0 0 1px white inset, 0 0 10px #95edff; }
@@ -1871,38 +1875,45 @@ textarea {
   select[disabled],
   select[disabled]:hover,
   textarea[disabled],
-  textarea[disabled]:hover {
+  textarea[disabled]:hover,
+  .Dropdown[disabled],
+  .Dropdown[disabled]:hover {
     border-color: #b7b7b7;
     background-color: #f2f2f2;
     color: #b7b7b7;
     cursor: not-allowed; }
   input.Ghost,
   select.Ghost,
-  textarea.Ghost {
+  textarea.Ghost,
+  .Dropdown.Ghost {
     border-color: transparent;
     background: transparent;
     box-shadow: none; }
   input.Error,
   select.Error,
-  textarea.Error {
+  textarea.Error,
+  .Dropdown.Error {
     color: #a02828;
     border-color: #e43f3f;
     background-color: #fff3f3; }
   input.Warning,
   select.Warning,
-  textarea.Warning {
+  textarea.Warning,
+  .Dropdown.Warning {
     color: #b4771e;
     border-color: #e4a43f;
     background-color: #fff9f1; }
   input.Success,
   select.Success,
-  textarea.Success {
+  textarea.Success,
+  .Dropdown.Success {
     color: #54894e;
     border-color: #6ea268;
     background-color: #f1fff0; }
   input.Info,
   select.Info,
-  textarea.Info {
+  textarea.Info,
+  .Dropdown.Info {
     color: #18637f;
     border-color: #2782a4;
     background-color: #f4fdff; }
@@ -2575,15 +2586,43 @@ input[type='button'] {
 
 .Dropdown {
   position: relative;
-  padding: 7px;
-  height: 30px;
-  border: 1px #b7b7b7 solid;
-  border-radius: 5px; }
+  display: inline-block; }
+  .Dropdown:hover {
+    background-color: #f2f2f2;
+    border-color: #555555;
+    color: #212121; }
+  .Dropdown .Dropdown-Title {
+    float: left;
+    cursor: pointer; }
+  .Dropdown .Dropdown-Toggle {
+    float: right;
+    margin-left: 15px; }
+  .Dropdown .Dropdown-Toggle:hover {
+    background-color: #f2f2f2; }
   .Dropdown .Dropdown-Content {
     display: none;
     position: absolute;
     top: 30px;
     left: 0;
-    right: 0; }
+    right: 0;
+    border: 1px #b7b7b7 solid;
+    box-shadow: 0 0 5px #b7b7b7;
+    background-color: #f9f9f9;
+    border-radius: 0 0 5px 5px; }
+    .Dropdown .Dropdown-Content li {
+      text-align: left; }
+      .Dropdown .Dropdown-Content li a {
+        display: block;
+        padding: 7px;
+        color: #212121; }
+        .Dropdown .Dropdown-Content li a:hover {
+          background-color: #3c3c3c;
+          color: #f9f9f9; }
+      .Dropdown .Dropdown-Content li.Divide {
+        border-top: #b7b7b7 1px solid; }
+      .Dropdown .Dropdown-Content li:first-child a {
+        border-radius: 5px 5px 0 0; }
+      .Dropdown .Dropdown-Content li:last-child a {
+        border-radius: 0 0 5px 5px; }
 
 /*# sourceMappingURL=main.css.map */

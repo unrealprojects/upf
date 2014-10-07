@@ -276,15 +276,20 @@
                 </div>
                 <div class="Control-Group">
                     <label class="Node-XS-3" for="">Dropdown</label>
-                    <button class="Dropdown">
-                        <div class="Dropdown-Toggle"><span class="fa fa-bars"></span>Dropdown</div>
+                    <div class="Dropdown">
+                        <div class="Dropdown-Title">
+                            <span class="fa fa-bars"></span>
+                            Dropdown
+                            <span class="Dropdown-Toggle fa fa-caret-down"></span>
+                        </div>
                         <ul class="Dropdown-Content">
                             <li><a href="#">Open File</a></li>
                             <li><a href="#">Save File</a></li>
                             <li><a href="#">Settings</a></li>
+                            <li class="Divide"></li>
                             <li><a href="#">Exit</a></li>
                         </ul>
-                    </button>
+                    </div>
                 </div>
 
                 <div class="Control-Group">

@@ -10,6 +10,7 @@ $Control-Line-Height: $Control-Font-Size;
 $Control-Height: $Control-Line-Height + ($Control-Padding * 2) + ($Control-Border-Width * 2);
 $Control-Color: $Clr-Slate;
 
+$Control-Bg-Color-Hover: $C-Grey-5;
 
 $Control-Bg-Color-Disabled: $C-Grey-5;
 $Control-Border-Color-Disabled: $C-Grey-4;
@@ -41,7 +42,8 @@ $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - (
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 input,
 select,
-textarea
+textarea,
+.Dropdown
 {
 	height: $Control-Height;
 	padding: $Control-Padding;
@@ -889,21 +891,69 @@ input[type='button']
 .Dropdown
 {
 	position: relative;
+	display: inline-block;
+	@extend ._Clearfix;
 
-	padding: $Control-Padding;
-	height: $Control-Height;
-	border: $Control-Border-Width $Control-Border-Color solid;
-	border-radius: $Control-Border-Radius;
+	&:hover
+	{
+		background-color: $C-Grey-5;
+		border-color: $C-Grey-3;
+		color: $C-Grey-1;
+	}
+	.Dropdown-Title
+	{
+		float: left;
+		cursor: pointer;
+	}
 	.Dropdown-Toggle
 	{
+		float: right;
+		margin-left: $size-n;
+	}
+	.Dropdown-Toggle:hover
+	{
+		background-color: $Control-Bg-Color-Hover;
 	}
 	.Dropdown-Content
 	{
 		display: none;
 		position: absolute;
-
 		top: $Control-Height;
-		left:0;
+		left: 0;
 		right: 0;
+		border: $Control-Border-Width $Control-Border-Color solid;
+		box-shadow: 0 0 5px $C-Grey-4;
+		background-color: $Control-Bg-Color;
+		@include Round(bottom, $Control-Border-Radius);
+
+		@extend ._No-Bullets;
+		li
+		{
+			text-align: left;
+			a
+			{
+				display: block;
+				padding: $Control-Padding;
+				color: $C-Grey-1;
+				&:hover
+				{
+					background-color: $C-Grey-2;
+					color: $C-Grey-6;
+				}
+			}
+			&.Divide
+			{
+				border-top: $C-Grey-4 1px solid;
+			}
+			&:first-child a
+			{
+				@include Round(top, $Control-Border-Radius);
+			}
+			&:last-child a
+			{
+				@include Round(bottom, $Control-Border-Radius);
+			}
+
+		}
 	}
 }
