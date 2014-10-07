@@ -1693,6 +1693,9 @@
 ._Icon-Spacing {
   margin-right: 20px; }
 
+._Right {
+  float: right; }
+
 ._Dev {
   outline: 1px red solid !important; }
 
@@ -1843,6 +1846,9 @@ iframe {
 
   [class*='Node-'].End {
     float: right; } }
+[class*='Node-XXS-'].End {
+  float: right; }
+
 @media screen and (min-width: 1px) {
   [class*='Grid'].Merge > .Node-XXS-1-2 {
     width: 50%; }
@@ -3509,8 +3515,8 @@ table {
   margin-top: 50px; }
 
 .Control-Group label {
-  height: 38px;
-  padding: 10px;
+  height: 34px;
+  padding: 8px;
   border: 1px solid transparent;
   font-size: 16px;
   line-height: 16px; }
@@ -3518,16 +3524,16 @@ table {
 .Control-Group select,
 .Control-Group textarea {
   width: 100%;
-  height: 38px;
+  height: 34px;
   outline: 0;
-  padding: 10px;
+  padding: 8px;
   border: 1px #cccccc solid;
-  border-radius: 0px;
+  border-radius: 2px;
   background-color: white;
   color: #374144;
   font-size: 16px;
   line-height: 16px;
-  box-shadow: 0 0 2px white inset, 0 1px 3px rgba(0, 0, 0, 0.2) inset; }
+  box-shadow: 0 0 2px white inset; }
   .Control-Group input:focus,
   .Control-Group select:focus,
   .Control-Group textarea:focus {
@@ -3550,7 +3556,7 @@ table {
 .Control-Group textarea {
   resize: vertical;
   line-height: 24px;
-  min-height: 70px; }
+  min-height: 66px; }
 .Control-Group input[type='submit'],
 .Control-Group input[type='button'],
 .Control-Group button {
@@ -3562,12 +3568,65 @@ table {
   .Control-Group input[type='button']:hover,
   .Control-Group button:hover {
     background-color: #0589a1; }
+.Control-Group input[type='checkbox'].Slide {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 68px;
+  height: 34px;
+  margin: 0px 0;
+  border: 1px solid transparent;
+  border-radius: 34px;
+  background-color: #e74c3c;
+  box-shadow: none;
+  cursor: pointer;
+  -webkit-transition: background-color .5s, border-color .5s; }
+  .Control-Group input[type='checkbox'].Slide:focus {
+    outline: 0;
+    border-color: #c0392b; }
+  .Control-Group input[type='checkbox'].Slide:after {
+    position: absolute;
+    content: '';
+    left: 2px;
+    top: 2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+    background-color: white;
+    -webkit-transition: left .3s; }
+  .Control-Group input[type='checkbox'].Slide:before {
+    position: absolute;
+    content: 'x';
+    top: 9px;
+    left: 48px;
+    line-height: 14px;
+    font-size: 14px;
+    color: white; }
+  .Control-Group input[type='checkbox'].Slide:hover {
+    background-color: #c0392b; }
+.Control-Group input[type='checkbox'].Slide:checked {
+  background-color: #2ecc71; }
+  .Control-Group input[type='checkbox'].Slide:checked:after {
+    left: 36px; }
+  .Control-Group input[type='checkbox'].Slide:checked:before {
+    content: 'o';
+    top: 9px;
+    left: 10px; }
+  .Control-Group input[type='checkbox'].Slide:checked:hover {
+    background-color: #5ec67d; }
+  .Control-Group input[type='checkbox'].Slide:checked:focus {
+    border-color: #5ec67d; }
+.Control-Group input[type='checkbox'][disabled].Slide,
+.Control-Group input[type='checkbox'][disabled].Slide:hover {
+  cursor: default;
+  background-color: #cccccc; }
 .Control-Group + .Control-Group {
   margin-top: 15px; }
 .Control-Group .Input-Group.Error {
   color: white;
   background-color: #f2070b;
-  border-radius: 0px; }
+  border-radius: 2px; }
   .Control-Group .Input-Group.Error input.Error,
   .Control-Group .Input-Group.Error select.Error,
   .Control-Group .Input-Group.Error textarea.Error {
@@ -3575,17 +3634,32 @@ table {
     color: #f2070b; }
 .Control-Group .Input-Group .Message {
   display: block;
-  padding: 10px; }
+  padding: 8px; }
   .Control-Group .Input-Group .Message.Error {
     color: white; }
-.Control-Group .Input-Group.Merge input {
+.Control-Group .Input-Group.Merge input[type='text'],
+.Control-Group .Input-Group.Merge input[type='tel'],
+.Control-Group .Input-Group.Merge input[type='password'],
+.Control-Group .Input-Group.Merge input[type='file'],
+.Control-Group .Input-Group.Merge input[type='button'],
+.Control-Group .Input-Group.Merge input[type='submit'] {
   border-radius: 0; }
-  .Control-Group .Input-Group.Merge input:first-child {
+  .Control-Group .Input-Group.Merge input[type='text']:first-child,
+  .Control-Group .Input-Group.Merge input[type='tel']:first-child,
+  .Control-Group .Input-Group.Merge input[type='password']:first-child,
+  .Control-Group .Input-Group.Merge input[type='file']:first-child,
+  .Control-Group .Input-Group.Merge input[type='button']:first-child,
+  .Control-Group .Input-Group.Merge input[type='submit']:first-child {
     border-right: 0;
-    border-radius: 0px 0 0 0px; }
-  .Control-Group .Input-Group.Merge input:last-child {
+    border-radius: 2px 0 0 2px; }
+  .Control-Group .Input-Group.Merge input[type='text']:last-child,
+  .Control-Group .Input-Group.Merge input[type='tel']:last-child,
+  .Control-Group .Input-Group.Merge input[type='password']:last-child,
+  .Control-Group .Input-Group.Merge input[type='file']:last-child,
+  .Control-Group .Input-Group.Merge input[type='button']:last-child,
+  .Control-Group .Input-Group.Merge input[type='submit']:last-child {
     border-left: 0;
-    border-radius: 0 0px 0px 0; }
+    border-radius: 0 2px 2px 0; }
 .Control-Group .Input-Group.Vertical input {
   display: block;
   width: 100%;
@@ -3593,15 +3667,15 @@ table {
   border-radius: 0; }
   .Control-Group .Input-Group.Vertical input:first-child {
     border-bottom: 0;
-    border-radius: 0px 0px 0 0; }
+    border-radius: 2px 2px 0 0; }
   .Control-Group .Input-Group.Vertical input:last-child {
     border-top: 0;
-    border-radius: 0 0 0px 0px; }
+    border-radius: 0 0 2px 2px; }
 .Control-Group .Input-Group.Prefix span, .Control-Group .Input-Group.Prefix label,
 .Control-Group .Input-Group.Postfix span,
 .Control-Group .Input-Group.Postfix label {
-  padding: 10px;
-  height: 38px;
+  padding: 8px;
+  height: 34px;
   border: 1px #cccccc solid;
   background-color: #eee;
   text-align: center;
@@ -3610,9 +3684,9 @@ table {
   color: #888;
   box-shadow: 0 0 1px white inset; }
 .Control-Group .Input-Group.Prefix span, .Control-Group .Input-Group.Prefix label {
-  border-radius: 0px 0 0 0px; }
+  border-radius: 2px 0 0 2px; }
 .Control-Group .Input-Group.Postfix span {
-  border-radius: 0 0px 0px 0; }
+  border-radius: 0 2px 2px 0; }
 .Control-Group .Input-Group.Upload input[type='file'] {
   display: block;
   width: 100%; }
@@ -3624,9 +3698,9 @@ table {
     .Control-Group .Input-Group.Upload ul li a.Link-Delete {
       position: absolute;
       display: block;
-      padding: 10px;
+      padding: 8px;
       right: 0;
-      bottom: -42px;
+      bottom: -38px;
       width: 100%;
       background-color: #e74c3c;
       color: white; }
@@ -3634,6 +3708,29 @@ table {
       width: 100%; }
     .Control-Group .Input-Group.Upload ul li:hover a {
       bottom: 0; }
+
+.Vertical .Control-Group > label, .Vertical .Control-Group > .Label-Group {
+  display: block;
+  padding: 8px 0; }
+  .Vertical .Control-Group > label .Left, .Vertical .Control-Group > .Label-Group .Left {
+    float: left;
+    padding: 8px 0; }
+  .Vertical .Control-Group > label a.Right, .Vertical .Control-Group > .Label-Group a.Right {
+    float: right;
+    padding: 8px 0; }
+
+.Invert .Control-Group label {
+  color: white; }
+.Invert .Control-Group input,
+.Invert .Control-Group select,
+.Invert .Control-Group textarea {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+  box-shadow: none; }
+.Invert .Control-Group select option {
+  background-color: white;
+  color: black; }
 
 @media screen and (min-width: 768px) {
   .Inline > .Control-Group + .Control-Group, .pagination > .Control-Group + .Control-Group,
@@ -3856,7 +3953,7 @@ input[type='button'] {
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  border-radius: 0px; }
+  border-radius: 2px; }
   a.Button:hover, table td.Actions ul li a:hover,
   button.Button:hover,
   input[type='submit']:hover,
@@ -3904,7 +4001,7 @@ input[type='button'] {
   input[type='submit'].Ghost,
   input[type='button'].Round,
   input[type='button'].Ghost {
-    border-radius: 0px; }
+    border-radius: 4px; }
   a.Button.Search, table td.Actions ul li a.Search,
   button.Button.Search,
   input[type='submit'].Search,
@@ -3977,7 +4074,7 @@ input[type='button'] {
     input[type='submit'].Dropdown.Ghost > .Dropdown-Toggle,
     input[type='button'].Dropdown.Round > .Dropdown-Toggle,
     input[type='button'].Dropdown.Ghost > .Dropdown-Toggle {
-      border-radius: 0 0px 0px 0; }
+      border-radius: 0 2px 2px 0; }
     a.Button.Dropdown > .Dropdown-Toggle, table td.Actions ul li a.Dropdown > .Dropdown-Toggle,
     button.Button.Dropdown > .Dropdown-Toggle,
     input[type='submit'].Dropdown > .Dropdown-Toggle,
@@ -4039,7 +4136,7 @@ input[type='button'] {
     input[type='submit'].Dropdown.Ghost > .Dropdown-Content,
     input[type='button'].Dropdown.Round > .Dropdown-Content,
     input[type='button'].Dropdown.Ghost > .Dropdown-Content {
-      border-radius: 0px; }
+      border-radius: 2px; }
   a.Button.Info, table td.Actions ul li a.Info,
   button.Button.Info,
   input[type='submit'].Info,
@@ -4414,19 +4511,22 @@ a.Subcategory-Action {
     background-color: rgba(0, 0, 0, 0.2); }
 
 .Toolbar {
-  border: 1px solid #cccccc;
-  padding: 10px; }
+  background-color: #3e494b;
+  padding: 5px; }
+  .Toolbar .Control-Group {
+    padding: 0 5px; }
 
 main {
   margin-left: 300px; }
   main > .Content {
     margin-top: 20px;
-    padding: 30px;
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     background-color: white; }
-    main > .Content .Content-Inner.Short {
-      max-width: 1000px; }
+    main > .Content .Content-Inner {
+      padding: 30px; }
+      main > .Content .Content-Inner.Short {
+        max-width: 1000px; }
 
 nav.Userbar {
   height: auto;
@@ -4472,10 +4572,7 @@ nav.Userbar {
   background-color: #283032; }
 
 .Auth {
-  position: absolute;
-  width: 320px;
-  margin-left: -160px;
-  left: 50%;
+  width: 100%;
   background-color: white;
   padding: 15px;
   border-radius: 10px;
@@ -4494,12 +4591,17 @@ nav.Userbar {
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#ecf0f1'); }
   @media screen and (min-width: 768px) {
     .Auth {
+      position: absolute;
       top: 50%;
+      left: 50%;
       width: 400px;
       margin-top: -150px;
       margin-left: -200px; } }
 
 li.Icon a span.fa {
   margin-right: 15px; }
+
+.Doc-Nav {
+  position: fixed; }
 
 /*# sourceMappingURL=main.css.map */

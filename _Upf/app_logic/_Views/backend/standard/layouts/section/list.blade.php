@@ -1,38 +1,38 @@
 @extends($template)
 
 @section('main')
-<section class="Content">
-    <h3 class="Heading Secondary">{{$meta['title']}}</h3>
+<section class="Content"><section class="Toolbar Grid Merge Inline">
+        <div class="Control-Group Node-XS-1">
+            <button class="Button Primary Fluid"><span class="Visible-XS">Добавить</span></button>
+        </div>
+        <div class="Control-Group Node-XS-3">
+            <select name="" id="">
+                <option value="">Элементов на странице</option>
+                <option value="">10</option>
+                <option value="">20</option>
+                <option value="">50</option>
+                <option value="">все</option>
+            </select>
+        </div>
+        <div class="Control-Group Node-XS-3">
+            <select name="" id="">
+                <option value="">Категория</option>
+            </select>
+        </div>
+        <div class="Control-Group Node-XS-3">
+            <select name="" id="">
+                <option value="">Регион</option>
+            </select>
+        </div>
+        <div class="Control-Group Node-XS-2">
+            <select name="" id="">
+                <option value="">Тег</option>
+            </select>
+        </div>
+    </section>
     <section class="Content-Inner">
-        <section class="Toolbar Grid Split Inline">
-            <div class="Control-Group Node-XS-1">
-                <button class="Button Ghost Fluid"><span class="fa fa-plus"></span><span class="Hidden-XS">Добавить ...</span></button>
-            </div>
-            <div class="Control-Group Node-XS-3">
-                <select name="" id="">
-                    <option value="">Элементов на странице</option>
-                    <option value="">10</option>
-                    <option value="">20</option>
-                    <option value="">50</option>
-                    <option value="">все</option>
-                </select>
-            </div>
-            <div class="Control-Group Node-XS-3">
-                <select name="" id="">
-                    <option value="">Категория</option>
-                </select>
-            </div>
-            <div class="Control-Group Node-XS-3">
-                <select name="" id="">
-                    <option value="">Регион</option>
-                </select>
-            </div>
-            <div class="Control-Group Node-XS-2">
-                <select name="" id="">
-                    <option value="">Тег</option>
-                </select>
-            </div>
-        </section>
+
+        <h3 class="Heading Secondary">{{$meta['title']}}</h3>
         <table class="Solid Lines Stripped Edit Adaptive">
             <thead>
                 <tr>

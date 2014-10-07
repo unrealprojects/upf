@@ -136,19 +136,23 @@ a.Subcategory-Action
 
 .Toolbar
 {
-	border: 1px solid $Control-Border-Color;
-	padding: $size-s;
+	background-color: $Clr-Slate-Light;
+	padding: $size-xs;
+	.Control-Group
+	{
+		padding: 0 $size-xs;
+	}
 }
 // Main Block
 main {
 	margin-left: $Menu-Width;
 	& > .Content {
 		margin-top: $size;
-		padding: $size-l;
 		border-top: 1px solid $Clr-Grey-Light;
 		border-bottom: 1px solid $Clr-Grey-Light;
 		background-color: white;
 		.Content-Inner {
+			padding: $size-l;
 			@extend ._Vertical-Spacing;
 			&.Short {
 				max-width: 1000px;
@@ -220,21 +224,21 @@ nav.Userbar {
 	background-color: $Clr-Slate-Dark;
 }
 .Auth {
-	position: absolute;
-	width: 320px;
-	margin-left: -160px;
-	left: 50%;
+	width: 100%;
 	background-color: white;
 	padding: $size-n;
 	border-radius: 10px;
 	border: 5px solid $Clr-Slate;
 	@include Gradient(white, $Clr-Clouds);
 	@include Adaptive($Viewport-XS) {
+		position: absolute;
 		top: 50%;
+		left: 50%;
 		width: 400px;
 		margin-top: -150px;
 		margin-left: -200px;
 	}
+
 }
 
 li.Icon {
@@ -243,4 +247,8 @@ li.Icon {
 			margin-right: $size-n;
 		}
 	}
+}
+.Doc-Nav
+{
+	position: fixed;
 }

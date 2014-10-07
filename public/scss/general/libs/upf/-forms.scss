@@ -3,8 +3,8 @@ $Control-Border-Color: $Clr-Grey;
 $Control-Border-Color-Disabled: lighten($Clr-Slate, 20%);
 $Control-Bg-Color-Disabled: lighten($Clr-Slate, 40%);
 $Control-Border-Color-Focus: $Clr-Cyan;
-$Control-Border-Radius: 0px;
-$Control-Padding: 10px;
+$Control-Border-Radius: 2px;
+$Control-Padding: 8px;
 $Control-Left-Column-Width: 30%;
 $Control-Right-Column-Width: 100% - $Control-Left-Column-Width;
 $Control-Font-Size: 16px;
@@ -22,7 +22,16 @@ $Control-Textarea-Min-Height: ($Control-Textarea-Line-Height * 2) + ($Control-Pa
 $Control-Button-Bg-Color: $Clr-Cyan;
 $Control-Button-Bg-Color-Hover: darken($Clr-Cyan,10%);
 $Control-Button-Border-Color:  darken($Clr-Cyan,10%);
- 
+
+$Checkbox-Margin:  0px;
+$Checkbox-Height: $Control-Height - $Checkbox-Margin;
+$Checkbox-Width: $Checkbox-Height * 2;
+$Checkbox-Border: $Control-Border-Width;
+$Checkbox-Fnt-Size: 14px;
+$Checkbox-Border-Radius: $Checkbox-Height;
+$Checkbox-Toggle-Spacing: 2px;
+$Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - ($Checkbox-Border * 2);
+
 .Form-Group + .Form-Group
 {
 	margin-top: $size-xl;
@@ -54,8 +63,7 @@ $Control-Button-Border-Color:  darken($Clr-Cyan,10%);
 		color: $Control-Color;
 		font-size: $Control-Font-Size;
 		line-height: $Control-Line-Height;
-		box-shadow: 0 0 2px white inset,
-		0 1px 3px rgba(0,0,0,0.2) inset;
+		box-shadow: 0 0 2px white inset;
 		&:focus
 		{
 			border-color: $Control-Border-Color-Focus;
@@ -110,6 +118,96 @@ $Control-Button-Border-Color:  darken($Clr-Cyan,10%);
 			background-color: $Control-Button-Bg-Color-Hover;
 		}
 	}
+	input[type='checkbox'].Slide
+	{
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+
+		position: relative;
+
+		width: $Checkbox-Width;
+		height: $Checkbox-Height;
+		margin: $Checkbox-Margin 0;
+
+		border: $Checkbox-Border solid transparent;
+		border-radius: $Checkbox-Height;
+		background-color: $Clr-Main;
+		box-shadow: none;
+		cursor: pointer;
+
+		-webkit-transition: background-color .5s,
+		border-color .5s;
+
+		&:focus
+		{
+			outline: 0;
+			border-color: $Clr-Main-Dark;
+		}
+		&:after
+		{
+			position: absolute;
+			content: '';
+
+			left: $Checkbox-Toggle-Spacing;
+			top: $Checkbox-Toggle-Spacing;
+
+			width: $Checkbox-Toggle-Diameter;
+			height: $Checkbox-Toggle-Diameter;
+
+			border-radius: $Checkbox-Toggle-Diameter;
+			background-color: white;
+
+
+			-webkit-transition: left .3s;
+
+		}
+		&:before
+		{
+			position: absolute;
+			content: 'x';
+			top: ($Checkbox-Height - $Checkbox-Fnt-Size - ($Checkbox-Border *2) )/2;
+			left: $Checkbox-Width - 20px;
+			line-height: $Checkbox-Fnt-Size;
+			font-size: $Checkbox-Fnt-Size;
+			color: white;
+		}
+		&:hover
+		{
+			background-color: $Clr-Main-Dark;
+		}
+	}
+
+	input[type='checkbox'].Slide:checked
+	{
+		background-color: $Clr-Success;
+
+		&:after
+		{
+			left: $Checkbox-Width - $Checkbox-Toggle-Diameter - ($Checkbox-Border * 2) - $Checkbox-Toggle-Spacing;
+		}
+		&:before
+		{
+			content: 'o';
+			top: ($Checkbox-Height - ($Checkbox-Border * 2) - $Checkbox-Fnt-Size) / 2;
+			left: 10px;
+		}
+		&:hover
+		{
+			background-color: $Clr-Success-Dark;
+		}
+		&:focus
+		{
+			border-color: $Clr-Success-Dark;
+		}
+	}
+
+	input[type='checkbox'][disabled].Slide,
+	input[type='checkbox'][disabled].Slide:hover
+	{
+		cursor: default;
+		background-color: $Clr-Grey;
+	}
 	& + .Control-Group
 	{
 		margin-top: $size-n;
@@ -138,7 +236,12 @@ $Control-Button-Border-Color:  darken($Clr-Cyan,10%);
 	}
 	.Input-Group.Merge
 	{
-		input
+		input[type='text'],
+		input[type='tel'],
+		input[type='password'],
+		input[type='file'],
+		input[type='button'],
+		input[type='submit']
 		{
 			border-radius: 0;
 			&:first-child
@@ -248,6 +351,54 @@ $Control-Button-Border-Color:  darken($Clr-Cyan,10%);
 					bottom: 0;
 				}
 			}
+		}
+	}
+}
+.Vertical
+{
+	.Control-Group
+	{
+		& > label,
+		& > .Label-Group
+		{
+			display: block;
+			padding: $Control-Padding 0;
+			.Left
+			{
+				float: left;
+				padding: $Control-Padding 0;
+			}
+			a.Right
+			{
+				float: right;
+				padding: $Control-Padding 0;
+			}
+		}
+	}
+}
+
+
+.Invert
+{
+	.Control-Group
+	{
+		label
+		{
+			color: white;
+		}
+		input,
+		select,
+		textarea
+		{
+			color: white;
+			background-color: rgba(0,0,0,.2);
+			border: $Control-Border-Width solid white;
+			box-shadow: none;
+		}
+		select option
+		{
+			background-color: white;
+			color: black;
 		}
 	}
 }
