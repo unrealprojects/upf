@@ -2637,5 +2637,33 @@ input[type='button'] {
         border-top: #b7b7b7 1px solid; }
       .Dropdown .Dropdown-Content li:last-child a {
         border-radius: 0 0 5px 5px; }
+  .Dropdown.Invert {
+    background-color: #3c3c3c;
+    border-color: #3c3c3c;
+    color: #f9f9f9; }
+    .Dropdown.Invert:hover {
+      background-color: #3c3c3c;
+      border-color: #3c3c3c;
+      color: #f9f9f9; }
+    .Dropdown.Invert.Expanded, .Dropdown.Invert.Expanded:hover {
+      background-color: #3c3c3c;
+      border-color: #3c3c3c;
+      color: #f9f9f9; }
+    .Dropdown.Invert .Dropdown-Content {
+      border-color: #212121;
+      border-top: #f9f9f9;
+      background-color: #3c3c3c; }
+      .Dropdown.Invert .Dropdown-Content li a {
+        padding: 7px;
+        color: #f9f9f9; }
+        .Dropdown.Invert .Dropdown-Content li a:hover {
+          background-color: #f9f9f9;
+          color: #212121; }
+        .Dropdown.Invert .Dropdown-Content li a span.Icon {
+          margin-right: 10px; }
+      .Dropdown.Invert .Dropdown-Content li.Divide {
+        border-top: #b7b7b7 1px solid; }
+      .Dropdown.Invert .Dropdown-Content li:last-child a {
+        border-radius: 0 0 5px 5px; }
 
 /*# sourceMappingURL=main.css.map */

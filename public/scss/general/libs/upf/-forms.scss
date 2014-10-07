@@ -972,4 +972,60 @@ input[type='button']
 
 		}
 	}
+	&.Invert
+	{
+		background-color: $C-Grey-2;
+		border-color: $C-Grey-2;
+		color: $C-Grey-6;
+		&:hover
+		{
+			background-color: $C-Grey-2;
+			border-color: $C-Grey-2;
+			color: $C-Grey-6;
+
+		}
+		&.Collapsed:hover
+		{
+		}
+		&.Expanded,
+		&.Expanded:hover
+		{
+			background-color: $C-Grey-2;
+			border-color: $C-Grey-2;
+			color: $C-Grey-6;
+		}
+		.Dropdown-Content
+		{
+			border-color: $C-Grey-1;
+			border-top: $C-Grey-6;
+			background-color: $C-Grey-2;
+			li
+			{
+				a
+				{
+					padding: $Control-Padding;
+					color: $C-Grey-6;
+					&:hover
+					{
+						background-color: $C-Grey-6;
+						color: $C-Grey-1;
+					}
+					span.Icon
+					{
+						margin-right: $size-s;
+					}
+				}
+				&.Divide
+				{
+					border-top: $C-Grey-4 1px solid;
+				}
+				&:last-child a
+				{
+					@include Round(bottom, $Control-Border-Radius);
+				}
+
+			}
+		}
+	}
+
 }

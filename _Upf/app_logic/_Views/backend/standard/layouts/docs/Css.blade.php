@@ -290,6 +290,22 @@
                         </ul>
                     </div>
                 </div>
+                <div class="Control-Group">
+                    <label class="Node-XS-3" for="">Dropdown</label>
+                    <div class="Dropdown Invert Node-XS-9">
+                        <div class="Dropdown-Title">
+                            <span class="Icon fa fa-bars"></span>Menu
+                            <span class="Dropdown-Toggle fa fa-caret-down"></span>
+                        </div>
+                        <ul class="Dropdown-Content">
+                            <li><a href="#"><span class="Icon fa fa-file"></span>Open The Goddamn File</a></li>
+                            <li><a href="#"><span class="Icon fa fa-save"></span>Save File</a></li>
+                            <li><a href="#"><span class="Icon fa fa-cog"></span>Settings</a></li>
+                            <li class="Divide"></li>
+                            <li><a href="#"><span class="Icon fa fa-close"></span>Exit</a></li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="Control-Group">
                     <label class="Node-XS-3" for="">Default Textarea</label>
