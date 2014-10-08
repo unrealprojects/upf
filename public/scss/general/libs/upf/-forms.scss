@@ -8,7 +8,7 @@ $Control-Right-Column-Width: 100% - $Control-Left-Column-Width;
 $Control-Font-Size: 14px;
 $Control-Line-Height: $Control-Font-Size;
 $Control-Height: $Control-Line-Height + ($Control-Padding * 2) + ($Control-Border-Width * 2);
-$Control-Color: $Clr-Slate;
+$Control-Color: $C-Grey-1;
 
 $Control-Bg-Color-Hover: $C-Grey-5;
 
@@ -21,12 +21,13 @@ $Control-Bg-Color-Focus: $C-Cyan-5;
 
 $Control-Textarea-Line-Height: ceil($Control-Font-Size * 1.45);
 $Control-Textarea-Min-Rows: 2;
-$Control-Textarea-Min-Height: ($Control-Textarea-Line-Height * 2) + ($Control-Padding * 2) + ($Control-Border-Width * 2);
+$Control-Textarea-Min-Height: ($Control-Textarea-Line-Height * $Control-Textarea-Min-Rows) + ($Control-Padding * 2) + ($Control-Border-Width * 2);
+$Control-Textarea-Min-Height-Focus: ($Control-Textarea-Line-Height * ($Control-Textarea-Min-Rows + 2)) + ($Control-Padding * 2) + ($Control-Border-Width * 2);
 $Control-MultiSelect-Min-Height:$Control-Textarea-Min-Height*4;
 
-$Control-Button-Bg-Color: $Clr-Cyan;
-$Control-Button-Bg-Color-Hover: darken($Clr-Cyan,10%);
-$Control-Button-Border-Color:  darken($Clr-Cyan,10%);
+$Control-Button-Bg-Color: $C-Cyan-3;
+$Control-Button-Bg-Color-Hover: $C-Cyan-2;
+$Control-Button-Border-Color:  $C-Cyan-1;
 
 $Checkbox-Margin:  0px;
 $Checkbox-Height: $Control-Height - $Checkbox-Margin;
@@ -59,11 +60,11 @@ textarea,
 	background-color: $Control-Bg-Color;
 	color: $Control-Color;
 
+	@include Transitions(#{border-color .4s, background-color .4s, color .4s});
+
 	&:hover
 	{
-		border-color: $C-Cyan-3;
-		background-color: $C-Cyan-6;
-		color: $C-Cyan-1;
+		background-color: $C-Grey-5;
 	}
 	&:focus
 	{
@@ -115,6 +116,14 @@ textarea,
 		background-color: $C-Blue-6;
 	}
 }
+label
+{
+	@extend ._Unselectable;
+}
+select:focus
+{
+	@include Round(top, $Control-Border-Radius);
+}
 select[multiple='multiple']{
 	min-height: $Control-MultiSelect-Min-Height;
 }
@@ -123,6 +132,12 @@ textarea
 	resize: vertical;
 	line-height: $Control-Textarea-Line-Height;
 	min-height: $Control-Textarea-Min-Height;
+	@include Transition(min-height, .5s);
+	&:focus
+	{
+		background-color: $Control-Bg-Color;
+		min-height: $Control-Textarea-Min-Height-Focus;
+	}
 }
 input[type='submit'],
 input[type='button'],
@@ -288,6 +303,17 @@ button
 		&.Error
 		{
 			color: white;
+		}
+	}
+	.Input-Group .Checkbox
+	{
+		input[type='checkbox'].Slide
+		{
+
+		}
+		label
+		{
+
 		}
 	}
 	.Input-Group.Merge
@@ -729,10 +755,10 @@ input[type='button']
 	$Btn-Brd-Color:			$Clr-Grey-Light;
 	$Btn-Hover-Brd-Color:	$Clr-Grey;
 
-	padding: 				$size-xs $size-s;
-	border: 				1px solid $Btn-Brd-Color;
- 	background-color: 		$Btn-BG-Color;
-	line-height: 			$line-height;
+	padding: 				$Control-Padding;
+	border: 				$Control-Border-Width $Control-Border-Color solid;
+ 	background-color: 		$Control-Bg-Color;
+	line-height: 			$Control-Line-Height;
 	color: 					black;
 	font-size: 				14px;
 	text-shadow:			1px 1px 1px white;
@@ -744,8 +770,8 @@ input[type='button']
 
 	// State: HOVER
 	&:hover {
-		background-color: 	$Clr-Grey-Light;
-		border: 			1px solid $Btn-Hover-Brd-Color;
+		background-color: 	$Control-Bg-Color-Hover;
+		border-color:		$Control-Button-Border-Color;
 	}
 
 	// State:
@@ -822,30 +848,27 @@ input[type='button']
 			}
 		}
 	}
+	&.Info,
+	&.Success,
+	&.Error,
+	&.Warning
+	{
+		color: white;
+		text-shadow: 1px 1px 2px rgba(0,0,0,.4);
+		box-shadow: 0 0 1px rgba(255,255,255,0.4) inset;
+	}
 	&.Info {
-		background-color: $Clr-Info;
+		border-color: $C-Cyan-1;
+		background-color: $C-Cyan-2;
 		&:hover {
-			background-color: $Clr-Info-Dark;
-		}
-		&.Dropdown ,
-		.Dropdown-Toggle {
-			background-color: $Clr-Info-Dark;
-			&:hover {
-				background-color: $Clr-Info-Dark;
-			}
+			background-color: $C-Cyan-1;
 		}
 	}
 	&.Success {
-		background-color: $Clr-Success;
+		border-color: $C-Green-1;
+		background-color: $C-Green-2;
 		&:hover {
-			background-color: $Clr-Nephritis;
-		}
-		&.Dropdown ,
-		.Dropdown-Toggle {
-			background-color: $Clr-Success;
-			&:hover {
-				background-color: $Clr-Success-Dark;
-			}
+			background-color: $C-Green-1;
 		}
 	}
 	&.Success {
@@ -853,25 +876,18 @@ input[type='button']
 		&:hover {
 			background-color: $Clr-Success-Dark;
 		}
-		&.Dropdown ,
-		.Dropdown-Toggle {
-			background-color: $Clr-Success;
-			&:hover {
-				background-color: $Clr-Success-Dark;
-			}
-		}
 	}
 	&.Warning {
 		background-color: $Clr-Warning;
 		&:hover {
 			background-color: $Clr-Warning-Dark;
 		}
-		&.Dropdown ,
-		.Dropdown-Toggle {
-			background-color: $Clr-Warning;
-			&:hover {
-				background-color: $Clr-Warning;
-			}
+	}
+	&.Error {
+		border-color: $C-Red-1;
+		background-color: $C-Red-2;
+		&:hover {
+			background-color: $C-Red-1;
 		}
 	}
 	& + .Button {
@@ -888,6 +904,15 @@ input[type='button']
 	}
 }
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Dropdown
+// Alternative to default 'select' control
+//
+// Modificators
+// .Invert		makes text white and background darker
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 .Dropdown
 {
 	position: relative;
@@ -1037,5 +1062,155 @@ input[type='button']
 			}
 		}
 	}
-
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Panel
+// Simple way to incapsulate some text in a colored box
+//
+// MODIFICATORS
+// .Invert		makes text white and background darker
+// .Shadow		applies text-shadow to text
+// .Simple		disables border and box-shadow
+//
+// COLOR MODIFICATORS
+// #Null#		Black/White
+// .Error		Red
+// .Warning		Orange
+// .Success		Green
+// .Info		Blue
+// .Primary		Brand color (Cyan by default)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.Panel
+{
+	padding: $size-n;
+	border-radius: $Control-Border-Radius;
+	border: $Control-Border-Width $Control-Border-Color solid;
+	background-color: $C-Grey-6;
+	color: $C-Grey-1;
+	&.Invert
+	{
+		background-color: $C-Grey-2;
+		border-color: $C-Grey-1;
+		&.Shadow
+		{
+			text-shadow: 1px 1px 1px $C-Grey-3;
+		}
+		&.Simple
+		{
+			border: $Control-Border-Width $C-Grey-2 solid;
+		}
+	}
+	&.Invert
+	{
+		color: white!important;
+	}
+	&.Simple
+	{
+		box-shadow: none!important;
+	}
+	&.Success
+	{
+		color: $C-Green-1;
+		background-color: $C-Green-6;
+		border-color: $C-Green-3;
+		box-shadow: 0 0 1px $C-Green-4 inset;
+		&.Invert
+		{
+			background-color: $C-Green-2;
+			border-color: $C-Green-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Green-2 solid;
+			}
+		}
+	}
+	&.Warning
+	{
+		color: $C-Orange-1;
+		background-color: $C-Orange-6;
+		border-color: $C-Orange-3;
+		box-shadow: 0 0 1px $C-Orange-4 inset;
+		&.Invert
+		{
+			background-color: $C-Orange-2;
+			border-color: $C-Orange-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Orange-2 solid;
+			}
+		}
+	}
+	&.Error
+	{
+		color: $C-Red-1;
+		background-color: $C-Red-6;
+		border-color: $C-Red-3;
+		box-shadow: 0 0 1px $C-Red-4 inset;
+		&.Invert
+		{
+			background-color: $C-Red-2;
+			border-color: $C-Red-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Red-2 solid;
+			}
+		}
+	}
+	&.Info
+	{
+		color: $C-Blue-1;
+		background-color: $C-Blue-6;
+		border-color: $C-Blue-3;
+		box-shadow: 0 0 1px $C-Blue-4 inset;
+		&.Invert
+		{
+			background-color: $C-Blue-2;
+			border-color: $C-Blue-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Blue-2 solid;
+			}
+		}
+	}
+	&.Primary
+	{
+		color: $C-Cyan-1;
+		background-color: $C-Cyan-6;
+		border-color: $C-Cyan-3;
+		box-shadow: 0 0 1px $C-Cyan-4 inset;
+		&.Invert
+		{
+			background-color: $C-Cyan-2;
+			border-color: $C-Cyan-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Cyan-2 solid;
+			}
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

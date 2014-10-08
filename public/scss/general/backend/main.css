@@ -1759,7 +1759,7 @@ ul[class*='Grid'] > li, table td.Actions ul, .pagination,
 ._Search {
   border-radius: 30px; }
 
-._Unselectable, .Heading, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:before {
+._Unselectable, .Heading, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:before, label {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3244,7 +3244,7 @@ html {
 
 *::selection {
   color: white;
-  background-color: #999999; }
+  background-color: #00a4c6; }
 
 a:link,
 a:visited {
@@ -3522,14 +3522,15 @@ textarea,
   outline: 0;
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
-  color: #374144; }
+  color: #212121;
+  -webkit-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
+  -moz-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
+  transition: border-color 0.4s, background-color 0.4s, color 0.4s; }
   input:hover,
   select:hover,
   textarea:hover,
   .Dropdown:hover {
-    border-color: #95edff;
-    background-color: #f3fdff;
-    color: #00a4c6; }
+    background-color: #f2f2f2; }
   input:focus,
   select:focus,
   textarea:focus,
@@ -3584,25 +3585,37 @@ textarea,
     border-color: #2782a4;
     background-color: #f4fdff; }
 
+select:focus {
+  border-radius: 5px 5px 0 0; }
+
 select[multiple='multiple'] {
   min-height: 232px; }
 
 textarea {
   resize: vertical;
   line-height: 21px;
-  min-height: 58px; }
+  min-height: 58px;
+  -webkit-transition-property: min-height;
+  -moz-transition-property: min-height;
+  transition-property: min-height;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+  textarea:focus {
+    background-color: #f9f9f9;
+    min-height: 100px; }
 
 input[type='submit'],
 input[type='button'],
 button {
-  border-color: #0589a1;
-  background-color: #07b3d2;
+  border-color: #00a4c6;
+  background-color: #95edff;
   color: white;
   cursor: pointer; }
   input[type='submit']:hover,
   input[type='button']:hover,
   button:hover {
-    background-color: #0589a1; }
+    background-color: #25c9eb; }
 
 .Form-Group + .Form-Group {
   margin-top: 50px; }
@@ -3991,10 +4004,10 @@ a.Button, table td.Actions ul li a,
 button.Button,
 input[type='submit'],
 input[type='button'] {
-  padding: 5px 10px;
-  border: 1px solid #dedede;
-  background-color: #f1f1f1;
-  line-height: 24px;
+  padding: 7px;
+  border: 1px #b7b7b7 solid;
+  background-color: #f9f9f9;
+  line-height: 14px;
   color: black;
   font-size: 14px;
   text-shadow: 1px 1px 1px white;
@@ -4010,8 +4023,8 @@ input[type='button'] {
   button.Button:hover,
   input[type='submit']:hover,
   input[type='button']:hover {
-    background-color: #dedede;
-    border: 1px solid #cccccc; }
+    background-color: #f2f2f2;
+    border-color: #00a4c6; }
   a.Button[disabled], table td.Actions ul li a[disabled],
   button.Button[disabled],
   input[type='submit'][disabled],
@@ -4113,36 +4126,44 @@ input[type='button'] {
       input[type='button'].Ghost.Invert:hover {
         color: #e74c3c;
         border-color: #e74c3c; }
+  a.Button.Info, table td.Actions ul li a.Info, a.Button.Success, table td.Actions ul li a.Success, a.Button.Error, table td.Actions ul li a.Error, a.Button.Warning, table td.Actions ul li a.Warning,
+  button.Button.Info,
+  button.Button.Success,
+  button.Button.Error,
+  button.Button.Warning,
+  input[type='submit'].Info,
+  input[type='submit'].Success,
+  input[type='submit'].Error,
+  input[type='submit'].Warning,
+  input[type='button'].Info,
+  input[type='button'].Success,
+  input[type='button'].Error,
+  input[type='button'].Warning {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset; }
   a.Button.Info, table td.Actions ul li a.Info,
   button.Button.Info,
   input[type='submit'].Info,
   input[type='button'].Info {
-    background-color: #3498db; }
+    border-color: #00a4c6;
+    background-color: #25c9eb; }
     a.Button.Info:hover, table td.Actions ul li a.Info:hover,
     button.Button.Info:hover,
     input[type='submit'].Info:hover,
     input[type='button'].Info:hover {
-      background-color: #2980b9; }
-    a.Button.Info.Dropdown, table td.Actions ul li a.Info.Dropdown,
-    a.Button.Info .Dropdown-Toggle,
-    table td.Actions ul li a.Info .Dropdown-Toggle,
-    button.Button.Info.Dropdown,
-    button.Button.Info .Dropdown-Toggle,
-    input[type='submit'].Info.Dropdown,
-    input[type='submit'].Info .Dropdown-Toggle,
-    input[type='button'].Info.Dropdown,
-    input[type='button'].Info .Dropdown-Toggle {
-      background-color: #2980b9; }
-      a.Button.Info.Dropdown:hover, table td.Actions ul li a.Info.Dropdown:hover,
-      a.Button.Info .Dropdown-Toggle:hover,
-      table td.Actions ul li a.Info .Dropdown-Toggle:hover,
-      button.Button.Info.Dropdown:hover,
-      button.Button.Info .Dropdown-Toggle:hover,
-      input[type='submit'].Info.Dropdown:hover,
-      input[type='submit'].Info .Dropdown-Toggle:hover,
-      input[type='button'].Info.Dropdown:hover,
-      input[type='button'].Info .Dropdown-Toggle:hover {
-        background-color: #2980b9; }
+      background-color: #00a4c6; }
+  a.Button.Success, table td.Actions ul li a.Success,
+  button.Button.Success,
+  input[type='submit'].Success,
+  input[type='button'].Success {
+    border-color: #54894e;
+    background-color: #6ea268; }
+    a.Button.Success:hover, table td.Actions ul li a.Success:hover,
+    button.Button.Success:hover,
+    input[type='submit'].Success:hover,
+    input[type='button'].Success:hover {
+      background-color: #54894e; }
   a.Button.Success, table td.Actions ul li a.Success,
   button.Button.Success,
   input[type='submit'].Success,
@@ -4153,56 +4174,6 @@ input[type='button'] {
     input[type='submit'].Success:hover,
     input[type='button'].Success:hover {
       background-color: #5ec67d; }
-    a.Button.Success.Dropdown, table td.Actions ul li a.Success.Dropdown,
-    a.Button.Success .Dropdown-Toggle,
-    table td.Actions ul li a.Success .Dropdown-Toggle,
-    button.Button.Success.Dropdown,
-    button.Button.Success .Dropdown-Toggle,
-    input[type='submit'].Success.Dropdown,
-    input[type='submit'].Success .Dropdown-Toggle,
-    input[type='button'].Success.Dropdown,
-    input[type='button'].Success .Dropdown-Toggle {
-      background-color: #2ecc71; }
-      a.Button.Success.Dropdown:hover, table td.Actions ul li a.Success.Dropdown:hover,
-      a.Button.Success .Dropdown-Toggle:hover,
-      table td.Actions ul li a.Success .Dropdown-Toggle:hover,
-      button.Button.Success.Dropdown:hover,
-      button.Button.Success .Dropdown-Toggle:hover,
-      input[type='submit'].Success.Dropdown:hover,
-      input[type='submit'].Success .Dropdown-Toggle:hover,
-      input[type='button'].Success.Dropdown:hover,
-      input[type='button'].Success .Dropdown-Toggle:hover {
-        background-color: #5ec67d; }
-  a.Button.Success, table td.Actions ul li a.Success,
-  button.Button.Success,
-  input[type='submit'].Success,
-  input[type='button'].Success {
-    background-color: #2ecc71; }
-    a.Button.Success:hover, table td.Actions ul li a.Success:hover,
-    button.Button.Success:hover,
-    input[type='submit'].Success:hover,
-    input[type='button'].Success:hover {
-      background-color: #5ec67d; }
-    a.Button.Success.Dropdown, table td.Actions ul li a.Success.Dropdown,
-    a.Button.Success .Dropdown-Toggle,
-    table td.Actions ul li a.Success .Dropdown-Toggle,
-    button.Button.Success.Dropdown,
-    button.Button.Success .Dropdown-Toggle,
-    input[type='submit'].Success.Dropdown,
-    input[type='submit'].Success .Dropdown-Toggle,
-    input[type='button'].Success.Dropdown,
-    input[type='button'].Success .Dropdown-Toggle {
-      background-color: #2ecc71; }
-      a.Button.Success.Dropdown:hover, table td.Actions ul li a.Success.Dropdown:hover,
-      a.Button.Success .Dropdown-Toggle:hover,
-      table td.Actions ul li a.Success .Dropdown-Toggle:hover,
-      button.Button.Success.Dropdown:hover,
-      button.Button.Success .Dropdown-Toggle:hover,
-      input[type='submit'].Success.Dropdown:hover,
-      input[type='submit'].Success .Dropdown-Toggle:hover,
-      input[type='button'].Success.Dropdown:hover,
-      input[type='button'].Success .Dropdown-Toggle:hover {
-        background-color: #5ec67d; }
   a.Button.Warning, table td.Actions ul li a.Warning,
   button.Button.Warning,
   input[type='submit'].Warning,
@@ -4213,26 +4184,17 @@ input[type='button'] {
     input[type='submit'].Warning:hover,
     input[type='button'].Warning:hover {
       background-color: #d35400; }
-    a.Button.Warning.Dropdown, table td.Actions ul li a.Warning.Dropdown,
-    a.Button.Warning .Dropdown-Toggle,
-    table td.Actions ul li a.Warning .Dropdown-Toggle,
-    button.Button.Warning.Dropdown,
-    button.Button.Warning .Dropdown-Toggle,
-    input[type='submit'].Warning.Dropdown,
-    input[type='submit'].Warning .Dropdown-Toggle,
-    input[type='button'].Warning.Dropdown,
-    input[type='button'].Warning .Dropdown-Toggle {
-      background-color: #e67e22; }
-      a.Button.Warning.Dropdown:hover, table td.Actions ul li a.Warning.Dropdown:hover,
-      a.Button.Warning .Dropdown-Toggle:hover,
-      table td.Actions ul li a.Warning .Dropdown-Toggle:hover,
-      button.Button.Warning.Dropdown:hover,
-      button.Button.Warning .Dropdown-Toggle:hover,
-      input[type='submit'].Warning.Dropdown:hover,
-      input[type='submit'].Warning .Dropdown-Toggle:hover,
-      input[type='button'].Warning.Dropdown:hover,
-      input[type='button'].Warning .Dropdown-Toggle:hover {
-        background-color: #e67e22; }
+  a.Button.Error, table td.Actions ul li a.Error,
+  button.Button.Error,
+  input[type='submit'].Error,
+  input[type='button'].Error {
+    border-color: #a02828;
+    background-color: #e43f3f; }
+    a.Button.Error:hover, table td.Actions ul li a.Error:hover,
+    button.Button.Error:hover,
+    input[type='submit'].Error:hover,
+    input[type='button'].Error:hover {
+      background-color: #a02828; }
   a.Button + .Button, table td.Actions ul li a + .Button, table td.Actions ul li a.Button + a, table td.Actions ul li a + a,
   button.Button + .Button,
   table td.Actions ul li button.Button + a,
@@ -4337,6 +4299,84 @@ input[type='button'] {
         border-top: #b7b7b7 1px solid; }
       .Dropdown.Invert .Dropdown-Content li:last-child a {
         border-radius: 0 0 5px 5px; }
+
+.Panel {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px #b7b7b7 solid;
+  background-color: #f9f9f9;
+  color: #212121; }
+  .Panel.Invert {
+    background-color: #3c3c3c;
+    border-color: #212121; }
+    .Panel.Invert.Shadow {
+      text-shadow: 1px 1px 1px #555555; }
+    .Panel.Invert.Simple {
+      border: 1px #3c3c3c solid; }
+  .Panel.Invert {
+    color: white !important; }
+  .Panel.Simple {
+    box-shadow: none !important; }
+  .Panel.Success {
+    color: #54894e;
+    background-color: #f1fff0;
+    border-color: #8ad390;
+    box-shadow: 0 0 1px #d2ecd0 inset; }
+    .Panel.Success.Invert {
+      background-color: #6ea268;
+      border-color: #54894e; }
+      .Panel.Success.Invert.Shadow {
+        text-shadow: 1px 1px 1px #555555; }
+      .Panel.Success.Invert.Simple {
+        border: 1px #6ea268 solid; }
+  .Panel.Warning {
+    color: #b4771e;
+    background-color: #fff9f1;
+    border-color: #f4c06d;
+    box-shadow: 0 0 1px #ffe0ad inset; }
+    .Panel.Warning.Invert {
+      background-color: #e4a43f;
+      border-color: #b4771e; }
+      .Panel.Warning.Invert.Shadow {
+        text-shadow: 1px 1px 1px #555555; }
+      .Panel.Warning.Invert.Simple {
+        border: 1px #e4a43f solid; }
+  .Panel.Error {
+    color: #a02828;
+    background-color: #fff3f3;
+    border-color: #f46d6d;
+    box-shadow: 0 0 1px #ffadad inset; }
+    .Panel.Error.Invert {
+      background-color: #e43f3f;
+      border-color: #a02828; }
+      .Panel.Error.Invert.Shadow {
+        text-shadow: 1px 1px 1px #555555; }
+      .Panel.Error.Invert.Simple {
+        border: 1px #e43f3f solid; }
+  .Panel.Info {
+    color: #18637f;
+    background-color: #f4fdff;
+    border-color: #8abfd3;
+    box-shadow: 0 0 1px #dceff2 inset; }
+    .Panel.Info.Invert {
+      background-color: #2782a4;
+      border-color: #18637f; }
+      .Panel.Info.Invert.Shadow {
+        text-shadow: 1px 1px 1px #555555; }
+      .Panel.Info.Invert.Simple {
+        border: 1px #2782a4 solid; }
+  .Panel.Primary {
+    color: #00a4c6;
+    background-color: #f3fdff;
+    border-color: #95edff;
+    box-shadow: 0 0 1px #ccf0f8 inset; }
+    .Panel.Primary.Invert {
+      background-color: #25c9eb;
+      border-color: #00a4c6; }
+      .Panel.Primary.Invert.Shadow {
+        text-shadow: 1px 1px 1px #555555; }
+      .Panel.Primary.Invert.Simple {
+        border: 1px #25c9eb solid; }
 
 /*
 

@@ -55,6 +55,7 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 			}
 			text-transform: 	uppercase;
 			line-height: 		$Page-Header-Line-Height;
+			font-family: 		'Open Sans', sans-serif;
 			font-size: 			20px;
 			font-weight: 		100;
 			small {
@@ -132,6 +133,10 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 .Page-Auth {
 	display: block;
 	position: relative;
+	@include Adaptive($Viewport-XS)
+	{
+		padding: 0 $size-n 0 0;
+	}
 	@include Adaptive($Viewport-SM - 1px, max-width) {
 		width: 100%;
 		padding: $size-n;
@@ -141,9 +146,9 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 		width: 100%;
 		@include 				Adaptive($Viewport-SM) {
 			margin-top:					$Page-Header-Button-Margin;
+			width: auto;
 		}
 		padding: 				$size-s 0;
-		border:					0;
 	}
 	button + button {
 		@include Adaptive($Viewport-XS, max-width) {
@@ -152,11 +157,31 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 	}
 	.Sign-In-UI	,
 	.Sign-Up-UI {
+		display: none;
 		position: absolute;
 		padding: $size-n;
 		background-color: white;
-		background-color: rgba(255,255,255,.9);
 		color: $Clr-Midnight-Blue;
+		@extend ._Soft_Shadow;
+		@include Round(all, $Control-Border-Radius);
+		@include Adaptive($Viewport-SM)
+		{
+			top: $Page-Header-Height;
+		}
+		h4
+		{
+			padding-bottom: $size-s;
+			margin-bottom: $size-s;
+			border-bottom: $Control-Border-Width $Control-Border-Color solid;
+		}
+	}
+	.Sign-In-UI
+	{
+		left: 0;
+	}
+	.Sign-Up-UI
+	{
+		right: $size-n;
 	}
 }
 
