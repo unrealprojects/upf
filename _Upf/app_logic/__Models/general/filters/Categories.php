@@ -8,9 +8,10 @@ class Categories extends Fields{
     public $timestamps = true;
 
     /*** Relations ***/
-    public function Filters(){
-        return $this->belongsToMany('UpfModels\Params', 'params_to_categories', 'category_id', 'param_id');
+    public function params(){
+        return $this->belongsToMany('UpfModels\Params', 'filter_params_to_categories', 'category_id', 'param_id');
     }
+
 
     /*** Queries ***/
     public function GetFilters($category){

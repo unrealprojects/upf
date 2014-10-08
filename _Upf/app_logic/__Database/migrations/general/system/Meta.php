@@ -68,15 +68,21 @@ class Meta extends Migration {
             ['Категория', 'category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
             ['Регион', 'region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
             ['Тэги', 'tags', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Tags'],
+
+
+
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
             ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
             ['Рейтинг', 'rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
             ['Просмотры', 'views', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
             ['Избранное', 'favorite', 'radio', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.favorite'],
+
             // Group :: Date
             ['Создано', 'created_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
             ['Обновлено', 'updated_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
+
+
         ];
     }
 
@@ -94,6 +100,7 @@ class Meta extends Migration {
             ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
             ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
             ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Tags'],
+            ['Параметры', 'meta-categories-params', 'params', 'Relation', 'relations', true, 'backend', $Table, 'edit'],
             // Group :: Statuses
             ['Статус', 'meta-status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
             ['Привелегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],

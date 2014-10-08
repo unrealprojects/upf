@@ -34,7 +34,7 @@ class Fields extends General {
 
             $Model = new $Model();
             /*** For Filters with Section  ***/
-            if($Values=='Categories' || $Values=='Tags'){
+            if(($Values=='Categories' || $Values=='Tags') && $Section){
                 return $Model->where('section',$Section)->get();
             }else{
                 return $Model->all();
@@ -71,26 +71,47 @@ class Fields extends General {
 
     /******************************************************************************************************************* Add Item ***/
     public function AddItem(){
+        /*** Get Fields ***/
         $Fields = $this->GetFields('add');
-        /*** Content ***/
-        $this->title = \Input::get('title');
+        foreach($Fields as $Field){
+            $FieldExplode = explode('-',$Field->relation);
+            /*** Text ***/
+            if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea')  && $Field->editable){
+                if(empty($FieldExplode[1])){
+                    $this->{$FieldExplode[0]} = \Input::get($FieldExplode[0]);
+                }else{
+                    $this->$FieldExplode[0]()->update([
+                        $FieldExplode[1] => \Input::get($Field->relation)
+                    ]);
+                }
+                /*** Password ***/
+            }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
+                if(empty($FieldExplode[1])){
+                    $this->{$FieldExplode[0]} = \Hash::make(\Input::get($FieldExplode[0]));
+                }else{
+                    $this->$FieldExplode[0]()->update([
+                        $FieldExplode[1] => \Hash::make(\Input::get($Field->relation))
+                    ]);
+                }
+            }elseif($Field->type=='photo'){
 
-        if(\Input::hasFile('logotype')){
-            /*** Set File Src ***/
-            $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
-            \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
-            $this->logotype = $FileSrc;
+                if(\Input::hasFile('logotype')){
+
+                    /*** Set File Src ***/
+                    $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+                    \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+                    $this->logotype = $FileSrc;
+                }
+            }
         }
-
-
-        $this->intro = \Input::get('intro');
-        $this->text = \Input::get('text');
+        $this->alias = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->title)?$this->title:''),$this);
 
         $this->save();
         return '/'.\Request::segment(1) . '/' .\Request::segment(2) . '/' .\Request::segment(3) . '/' . $this->alias . '/' . 'edit';
     }
 
-    /*** Edit Item ***/
+
+        /*** Edit Item ***/
     public function EditItem($Alias){
         /*** Get Content Model***/
         $ContentModel=$this
@@ -104,42 +125,79 @@ class Fields extends General {
     }
 
     /******************************************************************************************************************* Update Item ***/
+
+
+
     public function UpdateItem($Alias,$Input){
         /*** Get Fields ***/
         $Fields = $this->GetFields('edit');
 
-        $Result = $this->where($Alias)->first();
+        $Result = $this->where('alias',$Alias)->first();
         foreach($Fields as $Field){
             $FieldExplode = explode('-',$Field->relation);
-
-            /*** Text ***/
-            if(\Input::get($Field->relation) && $Field->type=='text' && $Field->editable){
-                if(empty($FieldExplode[1])){
-                    $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
-                }else{
-                    $Result->$FieldExplode[0]()->update([
-                        $FieldExplode[1] => $Input[$Field->relation]
-                    ]);
-                }
-                /*** Multi Select ***/
-            }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $Field['type']=='multi-select' && $Field['editable']){
-                $Keys = [];
-                foreach($Input[$Field->relation] as $Key){
-                    $Keys[$Key] = ['section'=>$this->Section];
-                }
-                $Result->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
-                /*** Select ***/
-            }elseif($Field['type']=='select' && $Field['editable']){
-                if(empty($FieldExplode[1])){
-                    $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
-                }else{
-                    $Result->$FieldExplode[0]()->update([
-                        $FieldExplode[1] => $Input[$Field->relation]
-                    ]);
+            if(isset($Input[$Field->relation])){
+                /*** Text ***/
+                if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea') && $Field->editable){
+                    if(empty($FieldExplode[1])){
+                        $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                    }else{
+                        $Result->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => $Input[$Field->relation]
+                        ]);
+                    }
+                    /*** Password ***/
+                }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
+                    if(empty($FieldExplode[1])){
+                        $Result->{$FieldExplode[0]} = \Hash::make($Input[$FieldExplode[0]]);
+                    }else{
+                        $Result->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => \Hash::make($Input[$Field->relation])
+                        ]);
+                    }
+                    /*** Multi Select ***/
+                }elseif(\Input::get($Field->relation) && $Field['type']=='multi-select' && $Field['editable']){
+                    if(empty($FieldExplode[1])){
+                        $Keys = [];
+                        foreach($Input[$Field->relation] as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $Result->{$FieldExplode[0]}()->sync($Keys);
+                    }else{
+                        $Keys = [];
+                        foreach($Input[$Field->relation] as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $Result->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
+                    }
+                    /*** Select ***/
+                }elseif($Field['type']=='select' && $Field['editable']){
+                    if(empty($FieldExplode[1])){
+                        $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                    }else{
+                        $Result->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => $Input[$Field->relation]
+                        ]);
+                    }
                 }
             }
             $Result->save();
         }
-        return $Result->save();
+        return true;
+    }
+
+    /******************************************************************************************************************* Remove Item ***/
+    public function Remove($Alias){
+        $Result = $this->where('alias',$Alias)->first();
+        $Result->delete();
+        $Result->meta()->delete();
+        return true;
+    }
+
+    /*** Remove Logotype***/
+    public function RemoveLogotype($Alias){
+        $Result =  $Result = $this->where('alias',$Alias)->first();
+        $Result->logotype='';
+        $Result->save();
+        return true;
     }
 }

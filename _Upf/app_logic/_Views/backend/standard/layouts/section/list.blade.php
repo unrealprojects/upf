@@ -45,22 +45,15 @@
             </thead>
             <tbody>
                 @foreach($content['data']['list'] as $item)
-                    <tr item-id="{{$item['id']}}" item-alias="
-                    @if(isset($item['meta']['alias']))
-                        {{$item['meta']['alias']}}
-                    @elseif(isset($item['alias']))
-                        {{$item['alias']}}
-                    @elseif(isset($item['login']))
-                        {{$item['login']}}
-                    @endif
-                    ">
+                    <tr item-id="{{$item['id']}}"
+                        item-alias="@if(isset($item['meta']['alias'])){{$item['meta']['alias']}}@elseif(isset($item['alias'])){{$item['alias']}}@elseif(isset($item['login'])){{$item['login']}}@endif">
                         <td class="Checkbox"><input class="Selected-Items" type="checkbox"/></td>
                         <td class="Number">{{$item['id']}}</td>
                         @foreach($content['data']['fields'] as $field)
                             <td class="{{$field['class']}}">
                                 @if($field['type']=='text')
                                     <div class="Caption">{{$field['title']}}</div>
-                                    <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$field['name']}}">{{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}</div>
+                                    <div {{$field['editable']?'contenteditable="true"':''}} item-field="{{$field['relation']}}">{{\UpfHelpers\View::RelationToArray($item,$field['relation'])}}</div>
                                 @endif
                             </td>
                         @endforeach

@@ -9,7 +9,7 @@ class ParamsValues extends Migration {
         \Schema::create('filter_params_values', function($table){
             /*** Index ***/
             $table->increments('id');
-            $table->unique(['item_id', 'param_id','section']);
+            $table->unique(['item_id', 'param_id']);
 
             /*** Content ***/
             $table->string('title')->nullable();
@@ -19,11 +19,7 @@ class ParamsValues extends Migration {
             /*** Relations ***/
             $table->integer('item_id')->default(0);
             $table->integer('param_id')->default(0);
-            $table->string('section')->nullable();
 
-            /*** Statuses ***/
-            $table->boolean('status')->dafault(2);
-            $table->boolean('privileges')->dafault(0);
             $table->timestamps();
         });
 	}

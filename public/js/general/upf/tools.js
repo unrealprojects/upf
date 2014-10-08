@@ -33,6 +33,13 @@ upf.Tools.Dropdown = function(){
 
         return false;
     });
+
+    // Focus Out
+    $(document).on('click','body',function(){
+        $(Dropdown+'.'+Expanded).find(DropdownContent).slideUp(Duration);
+        $(Dropdown+'.'+Expanded).find(DropdownToggle).animate({transform: 'rotate(0deg)'},Duration);
+        $(Dropdown+'.'+Expanded).removeClass(Expanded).addClass(Collapsed);
+    });
 }
 
 /*********************************************************************************************************************** Execute Functions ***/

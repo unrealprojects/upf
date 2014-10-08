@@ -19,7 +19,7 @@
                                    value="{{\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation'])}}"/>
                             @endif
                         </div>
-    {{---------------------------------------------------------------------------------------------------------------------- Text Password --}}
+{{---------------------------------------------------------------------------------------------------------------------- Text Password --}}
                     @elseif($field['type']=='password')
                         <div class="Control-Group">
                             <label class="Node-XXS-3" for="field_{{$field['relation']}}">{{$field['title']}}</label>
@@ -76,7 +76,7 @@
                             @endif
                         </div>
 {{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
-                @elseif($field['type']=='select')
+                    @elseif($field['type']=='select')
                         <div class="Control-Group">
                             <label class='Node-XXS-3' for="field_{{$field['relation']}}">{{$field['title']}}</label>
                             <select class='Node-XXS-9' name="{{$field['relation']}}" id="field_{{$field['relation']}}">
@@ -93,8 +93,8 @@
                             </select>
                         </div>
 {{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
-                @elseif($field['type']=='multi-select')
-                    <div class="Control-Group">
+                    @elseif($field['type']=='multi-select')
+                        <div class="Control-Group">
                         <label class='Node-XXS-3' for="field_{{$field['relation']}}">{{$field['title']}}</label>
                         <select class='Node-XXS-9' multiple="multiple" name="{{$field['relation']}}[]" id="field_{{$field['relation']}}">
                             @foreach($Model::GetFieldValues($field['values'],$field['values_type'],$Model) as $value)
@@ -109,8 +109,8 @@
                         </select>
                     </div>
 {{---------------------------------------------------------------------------------------------------------------------- Radio Filed --}}
-                @elseif($field['type']=='radio')
-                    <ul class="Control-Group Radio">
+                    @elseif($field['type']=='radio')
+                        <ul class="Control-Group Radio">
                         {{--<label class='Node-XXS-3' for="field_{{$field['relation']}}">{{$field['title']}}</label>--}}
 
                             @foreach($Model::GetFieldValues($field['values'],$field['values_type']) as $key => $value)
@@ -121,9 +121,26 @@
                             </li>
                             @endforeach
                     </ul>
-                @endif
-                </div>
+{{---------------------------------------------------------------------------------------------------------------------- Text Field --}}
+                    @elseif($field['type']=='params')
+                        <div class="Control-Group">
+                            <label class="Node-XXS-3" for="field_{{$field['relation']}}">{{$field['title']}}</label>
+                            <div class="Input-Group Vertical Node-XS-9">
+                                @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $ParamKey => $Param)
+                                    <input class="Node-XXS-9" name="params[{{$Param['alias']}}]" id="field_{{$field['relation']}}" type="text" type="numeric"
+                                        @foreach($content['data']['item']['meta']['paramsvalues'] as $ParamValue)
+                                            @if($ParamValue['param_id'] == $Param['id'])
+                                                 value="{{$ParamValue['value']}}"
+                                            @endif
+                                        @endforeach
+                                    placeholder="{{$Param['title']}}"/>
+                                @endforeach
+                            </div>
+                        </div>
 {{---------------------------------------------------------------------------------------------------------------------- End Fields --}}
+                    @endif
+                </div>
+
             @endforeach
             <div class="Form-Group">
                 <div class="Control-Group">

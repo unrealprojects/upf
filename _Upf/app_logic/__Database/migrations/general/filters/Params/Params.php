@@ -60,6 +60,7 @@ class Params extends Migration {
             ['Размерность', 'dimension', 'text', 'Custom', 'main', true, 'backend', 'filter_params', 'edit'],
             // Group :: Relations
             ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
+            ['Категории', 'categories', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
             ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],

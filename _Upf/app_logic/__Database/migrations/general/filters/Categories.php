@@ -39,12 +39,12 @@ class Categories extends Migration {
             /*** List ***/
             ['Категория', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
             ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'list'],
 
             /*** Add ***/
             ['Категория', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+            ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'add','config','models/Fields.sections'],
+            ['Родитель', 'parent_id', 'select', 'Custom', 'relations', true, 'backend', $Table, 'add    ','model','Categories'],
 
             /*** Edit ***/
             // Group :: Main

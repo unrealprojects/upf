@@ -5,7 +5,7 @@ namespace UpfModels;
 /*** Params Values***/
 class ParamsValues extends Fields {
     public $timestamps = true;
-    protected $table = 'params_values';
+    protected $table = 'filter_params_values';
 
     public function paramData()
     {

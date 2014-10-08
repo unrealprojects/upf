@@ -22,10 +22,10 @@ class Meta extends Fields {
         return $this->belongsToMany('UpfModels\Files', 'system_files_to_items', 'item_id', 'file_id');
     }
 
-    /*** Categories :: Has Many ***/
+    /*** Categories :: Has One ***/
     public function categories()
     {
-        return $this->hasMany('UpfModels\Categories','id','category_id');
+        return $this->hasOne('UpfModels\Categories','id','category_id');
     }
 
     /*** Params Values :: Has Many ***/
@@ -39,6 +39,7 @@ class Meta extends Fields {
     {
         return $this->hasMany('UpfModels\Regions','id','region_id');
     }
+
 
     /******************************************************************************************************************* Where ***/
 
@@ -193,13 +194,17 @@ class Meta extends Fields {
             ->with(
                 'meta',
                 'meta.categories',
+                'meta.categories.params',
+                'meta.paramsvalues',
                 'meta.tags',
                 'meta.regions',
                 'meta.files')
-            ->first();
+            ->first()->toArray();
+       // print_r($ContentModel);exit;
+
         /*** Result ***/
         return [
-            'item' => $ContentModel->toArray(),
+            'item' => $ContentModel,
             'fields' =>$this->GetFields('edit')
         ];
     }
@@ -212,46 +217,64 @@ class Meta extends Fields {
             $Result = $this->WhereAliasInMeta($this,$Alias)->first();
             foreach($Fields as $Field){
                 $FieldExplode = explode('-',$Field->relation);
+                if(isset($Input[$Field->relation])){
+                    /*** Text ***/
+                    if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea') && $Field->editable){
+                        if(empty($FieldExplode[1])){
+                            $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                        }else{
+                            $Result->$FieldExplode[0]()->update([
+                                $FieldExplode[1] => $Input[$Field->relation]
+                            ]);
+                        }
+                    /*** Password ***/
+                    }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
+                        if(empty($FieldExplode[1])){
+                            $Result->{$FieldExplode[0]} = \Hash::make($Input[$FieldExplode[0]]);
+                        }else{
+                            $Result->$FieldExplode[0]()->update([
+                                $FieldExplode[1] => \Hash::make($Input[$Field->relation])
+                            ]);
+                        }
+                    /*** Multi Select ***/
+                    }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $Field['type']=='multi-select' && $Field['editable']){
+                        $Keys = [];
+                        foreach($Input[$Field->relation] as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $Result->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
 
-                /*** Text ***/
-                if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea') && $Field->editable){
-                    if(empty($FieldExplode[1])){
-                        $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
-                    }else{
-                        $Result->$FieldExplode[0]()->update([
-                            $FieldExplode[1] => $Input[$Field->relation]
-                        ]);
+                    /*** Select ***/
+                    }elseif($Field['type']=='select' && $Field['editable']){
+                        if(empty($FieldExplode[1])){
+                            $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
+                        }else{
+                            $Result->$FieldExplode[0]()->update([
+                                $FieldExplode[1] => $Input[$Field->relation]
+                            ]);
+                        }
                     }
-                /*** Password ***/
-                }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
-                    if(empty($FieldExplode[1])){
-                        $Result->{$FieldExplode[0]} = \Hash::make($Input[$FieldExplode[0]]);
-                    }else{
-                        $Result->$FieldExplode[0]()->update([
-                            $FieldExplode[1] => \Hash::make($Input[$Field->relation])
-                        ]);
-                    }
-                /*** Multi Select ***/
-                }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $Field['type']=='multi-select' && $Field['editable']){
-                    $Keys = [];
-                    foreach($Input[$Field->relation] as $Key){
-                        $Keys[$Key] = ['section'=>$this->Section];
-                    }
-                    $Result->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
+                }elseif($Field->type=='params'){
+                    print_r(\Input::get('params'));
+                    if(\Input::has('params')){
+                        foreach(\Input::get('params') as $InputKey => $InputParam){
+                            $Value = new \UpfModels\ParamsValues();
+                            $Param = \UpfModels\Params::where('alias',$InputKey)->first();
+                            if($Param){
+                                \UpfModels\ParamsValues::where('item_id',$Result->meta_id)->where('param_id',$Value->param_id)  ->delete();
+                                $Value->item_id = $Result->meta_id;
+                                $Value->value = $InputParam;
+                                $Value->param_id = $Param->id;
 
-                /*** Select ***/
-                }elseif($Field['type']=='select' && $Field['editable']){
-                    if(empty($FieldExplode[1])){
-                        $Result->{$FieldExplode[0]} = $Input[$FieldExplode[0]];
-                    }else{
-                        $Result->$FieldExplode[0]()->update([
-                            $FieldExplode[1] => $Input[$Field->relation]
-                        ]);
+                                $Value->save();
+                            }
+                        }
                     }
                 }
+
                 $Result->save();
             }
-            return $Result->save();
+            return true;
     }
 
     /*** Update Item Files ***/
@@ -334,3 +357,4 @@ class Meta extends Fields {
         $Result->save();
     }
 }
+

@@ -23,7 +23,7 @@ class FieldsController extends BackendController{
     public function edit($alias){
         $Model = new $this->Model();
         $this->viewData['content'] = [
-            'data'=>$Model->EditItem($alias)
+            'data' => $Model->EditItem($alias),
         ];
 
         return \View::make($this->View.'edit',$this->viewData);
