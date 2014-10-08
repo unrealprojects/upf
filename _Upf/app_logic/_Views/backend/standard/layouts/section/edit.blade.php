@@ -123,20 +123,22 @@
                     </ul>
 {{---------------------------------------------------------------------------------------------------------------------- Text Field --}}
                     @elseif($field['type']=='params')
-                        <div class="Control-Group">
-                            <label class="Node-XXS-3" for="field_{{$field['relation']}}">{{$field['title']}}</label>
-                            <div class="Input-Group Vertical Node-XS-9">
-                                @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $ParamKey => $Param)
-                                    <input class="Node-XXS-9" name="params[{{$Param['alias']}}]" id="field_{{$field['relation']}}" type="text" type="numeric"
-                                        @foreach($content['data']['item']['meta']['paramsvalues'] as $ParamValue)
-                                            @if($ParamValue['param_id'] == $Param['id'])
-                                                 value="{{$ParamValue['value']}}"
-                                            @endif
-                                        @endforeach
-                                    placeholder="{{$Param['title']}}"/>
-                                @endforeach
+                        @if($Relation = \UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))
+                            <div class="Control-Group">
+                                <label class="Node-XXS-3" for="field_{{$field['relation']}}">{{$field['title']}}</label>
+                                <div class="Input-Group Vertical Node-XS-9">
+                                    @foreach($Relation as $ParamKey => $Param)
+                                        <input class="Node-XXS-9" name="params[{{$Param['alias']}}]" id="field_{{$field['relation']}}" type="text" type="numeric"
+                                            @foreach($content['data']['item']['meta']['paramsvalues'] as $ParamValue)
+                                                @if($ParamValue['param_id'] == $Param['id'])
+                                                     value="{{$ParamValue['value']}}"
+                                                @endif
+                                            @endforeach
+                                        placeholder="{{$Param['title']}}"/>
+                                    @endforeach
                             </div>
                         </div>
+                    @endif
 {{---------------------------------------------------------------------------------------------------------------------- End Fields --}}
                     @endif
                 </div>

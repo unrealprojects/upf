@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Controller\\CommentsController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/CommentsController.php',
-    'Controller\\Frontend\\TechOnline\\MainPageController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/techonline/HomeController.php',
     'Controller\\Frontend\\WindSpace\\WindController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/wind/WindController.php',
     'Controller\\VoteController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/VoteController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
@@ -64,7 +63,8 @@ return array(
     'UpfFrontendControllers\\CabinetController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/techonline/CabinetController.php',
     'UpfFrontendControllers\\CatalogController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/techonline/sections/CatalogController.php',
     'UpfFrontendControllers\\FieldsController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/FieldsController.php',
-    'UpfFrontendControllers\\FrontendController' => $baseDir . '/_Upf/app_logic/_Controllers/FrontendController.php',
+    'UpfFrontendControllers\\FrontendController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/FrontendController.php',
+    'UpfFrontendControllers\\HomeController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/HomeController.php',
     'UpfFrontendControllers\\MetaController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/MetaController.php',
     'UpfFrontendControllers\\PagesController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/sections/PagesController.php',
     'UpfFrontendControllers\\PartsController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/techonline/sections/PartsController.php',

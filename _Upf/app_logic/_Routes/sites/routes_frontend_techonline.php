@@ -1,23 +1,12 @@
 <?php
 
-/*** CATALOG ***/
-Route::get('/','\Controller\Frontend\TechOnline\MainPageController@index');
-Route::get('/filter/{category_alias}','\Controller\Frontend\TechOnline\MainPageController@filterSet');
+FrontendRoutes([
+    /*** Tech Online ***/
+    'catalog',
+    'rent',
+    'parts'
+]);
 
-Route::get('/catalog','\Controller\Frontend\TechOnline\CatalogController@actionList');
-Route::get('/catalog/{alias}','\Controller\Frontend\TechOnline\CatalogController@actionElement');
-
-/*** CATALOG_TECH ***/
-Route::get('/rent','\Controller\Frontend\TechOnline\CatalogTechController@actionList');
-Route::get('/rent/{alias}','\Controller\Frontend\TechOnline\CatalogTechController@actionElement');
-
-/*** CATALOG_PARTS ***/
-Route::get('/parts','\Controller\Frontend\TechOnline\CatalogPartsController@actionList');
-Route::get('/parts/{alias}','\Controller\Frontend\TechOnline\CatalogPartsController@actionElement');
-
-/*** CATALOG_SELLERS ***/
-Route::get('/sellers','\Controller\Frontend\TechOnline\CatalogSellersController@actionList');
-Route::get('/sellers/{alias}','\Controller\Frontend\TechOnline\CatalogSellersController@actionElement');
 
 
 /*** CABINET ***/
@@ -31,4 +20,4 @@ Route::post('/cabinet/{alias}/parts/add','\Controller\Frontend\TechOnline\Cabine
 Route::get('/cabinet/{alias}/rent/{item_alias}/','\Controller\Frontend\TechOnline\CabinetController@actionEditRent');
 Route::get('/cabinet/{alias}/parts/{item_alias}/','\Controller\Frontend\TechOnline\CabinetController@actionEditParts');
 Route::post('/cabinet/{alias}/rent/{item_alias}/update','\Controller\Frontend\TechOnline\CabinetController@actionUpdateRent');
-Route::post('/cabinet/{alias}/parts/{item_alias}/update','\Controller\Frontend\TechOn   line\CabinetController@actionUpdateParts');
+Route::post('/cabinet/{alias}/parts/{item_alias}/update','\Controller\Frontend\TechOnline\CabinetController@actionUpdateParts');

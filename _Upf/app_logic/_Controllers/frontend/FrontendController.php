@@ -1,13 +1,54 @@
 <?php
 namespace UpfFrontendControllers;
 
-class FrontendController {
+class FrontendController extends \Controller{
+    /******************************************************************************************************************* Construct Frontend App ***/
 
+    public $ViewData = [];
+    public $View = '/frontend/techonline/layouts/Snippet/';
+    public $Model = '\UpfModels\Fields';
+    public $BaseUrl = '/';
+    public $Template = 'frontend.techonline.content';
+
+    public function __construct(){
+        $this->ViewData['Model'] = $this->Model;
+        $this->ViewData['BaseUrl'] = $this->BaseUrl;
+        $this->ViewData['Template'] = $this->Template;
+    }
+
+    /******************************************************************************************************************* Default Frontend Functionality ***/
+
+    /*** *** Index Action List *** ***/
+
+    public function Index(){
+        /*** Default Model ***/
+        $DefaultModel = new $this->Model();
+
+        /*** Set Content ***/
+        $this->ViewData['Content'] = [
+            'Data'=>$DefaultModel->FrontIndex()
+        ];
+
+        /*** Show View ***/
+        return \View::make($this->View . 'List' , $this->ViewData);
+    }
+
+
+
+    /*** *** Index Action List Item *** ***/
+
+    public function Item($Alias){
+
+    }
+}
+
+
+/*
     public $viewData;
 
     public function __construct(){
-        $this->getMetaData();
-        $this->getBreadCrumbs();
+      //  $this->getMetaData();
+      //  $this->getBreadCrumbs();
     }
 
     public function getMetaData(){
@@ -54,5 +95,4 @@ class FrontendController {
 
 
     }
-
-}
+*/

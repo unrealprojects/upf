@@ -1,14 +1,18 @@
 <?php
+/*** Home ***/
+Route::get('/','\UpfFrontendControllers\HomeController@Index');
 
-/*** ARTICLES ***/
-Route::get('/news','\Controller\Frontend\NewsController@actionList');
-Route::get('/news/{alias}','\Controller\Frontend\NewsController@actionItem');
-
+/*** Sections ***/
+FrontendRoutes([
+    /*** General ***/
+    'articles',
+    'pages',
+    'users',
+]);
 
 /*** VOTED ***/
-Route::get('/vote/up/{app_section}/{id}','\Controller\VoteController@up');
-Route::get('/vote/down/{app_section}/{id}','\Controller\VoteController@down');
-
+Route::get('/vote/up/{app_section}/{id}','\Controller\VoteController@Up');
+Route::get('/vote/down/{app_section}/{id}','\Controller\VoteController@Down');
 
 /*** COMMENTS ***/
-Route::get('/comments/add/{list_id}','\Controller\CommentsController@add');
+Route::get('/comments/add/{list_id}','\Controller\CommentsController@Add');

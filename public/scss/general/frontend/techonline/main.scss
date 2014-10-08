@@ -25,7 +25,7 @@ body {
 	padding: $size-s $size;
 }
 #Page-Slider {
-	@include Transition(SlideDown, .5s);
+//	@include Transition(SlideDown, .5s);
 	height: 0;
 }
 .Sidebar-Filter {
@@ -159,7 +159,7 @@ footer[role='contentinfo'] {
 			@extend %_Left;
 		}
 		.Footer-Navigation {
-			@extend %_Right;
+			/*@extend %_Right;*/
 			width: 37%;
 			ul {
 				@extend ._No-Bullets;
@@ -254,7 +254,7 @@ img.Footer-Img {
 	@extend ._No-Bullets;
 
 	.Snippet-Item {
-		@extend .Row;
+//		@extend .Row;
 		@extend .Merge;
 
 		header {
@@ -273,24 +273,24 @@ img.Footer-Img {
 		}
 	}
 	.Item-Photo {
-		@extend .Grid-XS-5;
+//		@extend .Grid-XS-5;
 	}
 	.Item-Gallery {
 		@extend ._Clearfix;
-		@extend .Grid-XS-5;
+//		@extend .Grid-XS-5;
 		& > img {
 			width: 100%;
 		}
 	}
 	.Item-Content {
 		margin-top: $size-n;
-		@extend .Grid-XS-7;
+//		@extend .Grid-XS-7;
 	}
 }
 
 .Snippet-Item {
 	@extend ._Clearfix;
-	@extend .Row;
+//	@extend .Row;
 
 	header {
 		position: relative;
@@ -337,7 +337,7 @@ img.Footer-Img {
 
 			@extend ._No-Bullets;
 			@extend ._Inline;
-			@extend .Row;
+//			@extend .Row;
 
 			li {
 				padding: $size-n $size-s;
@@ -383,7 +383,7 @@ img.Footer-Img {
 	.Item-Photo {
 		margin-bottom: $size-l;
 		padding-right: $size-l;
-		@extend .Grid-XS-5;
+//		@extend .Grid-XS-5;
 
 		img {
 			width: 100%;
@@ -393,7 +393,7 @@ img.Footer-Img {
 	.Item-Content {
 		font-size: 14px;
 
-		@extend .Grid-XS-7;
+//		@extend .Grid-XS-7;
 
 		h6 {
 			margin: $size-s 0 $size-xs;
@@ -438,7 +438,7 @@ img.Footer-Img {
 	padding: $size-s;
 	background-color: $Clr-Secondary;
 	font-size: 80%;
-	@extend %_Right;
+//	@extend %_Right;
 	@extend ._No-Bullets;
 	@include Animation(FadeIn,1s);
 	li {
@@ -456,7 +456,7 @@ img.Footer-Img {
 			color: white;
 			@extend .Button;
 			@extend .Small;
-			@extend %_Right;
+//			@extend %_Right;
 			&:hover {
 				background-color: $Clr-Grey-Darker;
 			}
@@ -637,13 +637,13 @@ ul.Tag-List {
 
 	@extend ._No-Bullets;
 	@extend ._Inline;
-	@extend .Row;
+//	@extend .Row;
 	@extend .Merge;
 }
 .Item-Group-Actions {
 	border-left: 1px solid white;
 	width: 100%;
-	@extend .Grid-XS-4;
+//	@extend .Grid-XS-4;
 	.Control-Group,
 	a {
 		display: block;
@@ -700,7 +700,7 @@ ul.Tag-List {
 
 .List-Params {
 	margin-top: $size;
-	@extend .Row;
+//	@extend .Row;
 	@extend .Merge;
 
 	li.List-Params-Item {

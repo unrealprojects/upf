@@ -255,13 +255,15 @@ class Meta extends Fields {
                         }
                     }
                 }elseif($Field->type=='params'){
-                    print_r(\Input::get('params'));
                     if(\Input::has('params')){
                         foreach(\Input::get('params') as $InputKey => $InputParam){
                             $Value = new \UpfModels\ParamsValues();
                             $Param = \UpfModels\Params::where('alias',$InputKey)->first();
                             if($Param){
-                                \UpfModels\ParamsValues::where('item_id',$Result->meta_id)->where('param_id',$Value->param_id)  ->delete();
+
+                                if($PresetValue = \UpfModels\ParamsValues::where('item_id',$Result->meta_id)->where('param_id',$Param->id)->first()){
+                                    $PresetValue->delete();
+                                }
                                 $Value->item_id = $Result->meta_id;
                                 $Value->value = $InputParam;
                                 $Value->param_id = $Param->id;
@@ -355,6 +357,35 @@ class Meta extends Fields {
         $Result = $this->WhereAliasInMeta($this,$Alias)->first();
         $Result->favorite = false;
         $Result->save();
+    }
+
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* *** *** Front Functions *** ***/
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* ***/
+
+    /*** *** Get Front List *** ***/
+    public function FrontIndex($Filter = []){
+        /*** Get Data ***/
+        $Query = $this->WhereStatusesInMeta($this,$Filter)
+            ->with('meta',
+                   'meta.categories',
+                   'meta.tags',
+                   'meta.regions',
+                   'meta.categories.params',
+                   'meta.paramsvalues')
+            ->paginate(
+                isset($Filter['Pagination'])?$Filter['Pagination']
+                                            :\Config::get('site\app_settings.Paginate.content')
+            );
+
+        /*** Return Frontend Content ***/
+        return [
+            'list' => $Query->toArray()['data'],
+            'fields' => $this->GetFields('list'),
+            'pagination' => $Query->appends(\Input::except('page'))->links(),
+        ];
     }
 }
 
