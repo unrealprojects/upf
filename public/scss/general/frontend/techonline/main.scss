@@ -581,7 +581,7 @@ ul.Tag-List {
 		span
 		{
 			display: block;
-			padding: $size-xs $size-s;
+			padding: 3px 6px 6px;
 			font-size: 19px;
 			border: $Control-Border-Color $Control-Border-Width solid;
 			border-radius: $Control-Border-Radius;
@@ -593,6 +593,7 @@ ul.Tag-List {
 				border-color: $Clr-Main-Dark;
 				background-color: $Clr-Main;
 				color: white;
+				box-shadow: 1px 1px 3px rgba(0,0,0,.3);
 			}
 
 		}

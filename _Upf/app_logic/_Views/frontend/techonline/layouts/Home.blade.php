@@ -67,13 +67,13 @@
                         </ul>
                     </header>
 
-                    <div class="Grid Node-XXS-3 Item-Gallery">
+                    <div class="Grid Node-XS-3 Item-Gallery">
                         <a href="{{ $User['logotype'] }}" rel="Gallery" class="fancybox">
                             <img class="Item-Main-Photo" src="{{ $User['logotype'] }}" alt="{{ $User['title'] }}">
                         </a>
                     </div>
 
-                    <div class="Grid Node-XXS-9 Item-Content">
+                    <div class="Grid Node-XS-9 Item-Content">
                         {{$User['about']}}
                     </div>
                 </li>
@@ -111,10 +111,10 @@
                             </ul>
 
                         </header>
-                        <div class="Grid Node-XXS-4 Item-Gallery">
+                        <div class="Grid Node-XS-4 Item-Gallery">
                             <img src="{{$Article['logotype']}}" alt="{{$Article['title']}}">
                         </div>
-                        <article class="Item-Content Node-XXS-8">
+                        <article class="Item-Content Node-XS-8">
                             <div>{{ $Article['intro'] }}</div>
                         </article>
 
