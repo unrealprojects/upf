@@ -75,6 +75,49 @@
             @endif
         {{-- End Regions --}}
 
+
+
+        {{-- Categories --}}
+        @if(!empty($Content['Filters']['categories']))
+        <dt class="Tab-Categories {{(!empty($Content['Filters']['type']) && $Content['Filters']['type']=='catalog')?'inTwo Active':''}}">
+            <span>Выбор категории</span>
+        </dt>
+
+        <dd class="Tab-Categories
+                {{(!empty($Content['Filters']['type']) && $Content['Filters']['type']=='catalog')?'Active':''}}">
+            <div>
+
+                <div class="Control-Group">
+                    <input class="Autocomplete Autocomplete-Categories" placeholder="Поиск техники ..."/>
+                </div>
+
+                <ul class="Filter Accordion">
+                    @foreach($Content['Filters']['categories'] as $category)
+
+                    <li class="Filter-Subheader Accordion-Subheader">
+                        @if($category['subCategories'])
+                        <div class="Accordion-Switch"><span class="fa fa-angle-down"></span></div>
+                        @endif
+                        <a href="#" alias="{{$category['alias']}}">{{$category['name']}}</a>
+                    </li>
+
+                    @if($category['subCategories'])
+                    <li class="Filter-Subcategory Accordion-Subcategory">
+                        <ul>
+                            @foreach($category['subCategories'] as $subCategory)
+                            <li><a href="#" alias="{{$subCategory['alias']}}">{{$subCategory['name']}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+
+                    @endif
+                    @endforeach
+                </ul>
+            </div>
+        </dd>
+        @endif
+        {{-- End Categories --}}
+
     </dl>
 </section>
 
