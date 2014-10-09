@@ -409,6 +409,31 @@ class Meta extends Fields {
         ];
     }
 
+    /*** *** Get Front Item *** ***/
+
+    public function FrontItem($Alias = ''){
+
+        /*** Get Data ***/
+        $Item = $this->WhereAliasInMeta($this,$Alias)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files',
+                'meta.categories.params',
+                'meta.paramsvalues',
+                'meta.paramsvalues.params')
+            ->first();
+
+        // print_r($this->GetFields('list','frontend', true));exit;
+        // print_r($Item->toArray());exit;
+
+        /*** Return Frontend Content ***/
+        return [
+            'Item'          =>      $Item->toArray(),
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+        ];
+    }
 
 
 

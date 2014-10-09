@@ -45,7 +45,14 @@ class FrontendController extends \Controller{
     /*** *** Index Action List Item *** ***/
 
     public function Item($Alias){
+        /*** Default Model ***/
+        $DefaultModel = new $this->Model();
 
+        /*** Set Content ***/
+        $this->ViewData['Content'] = $DefaultModel->FrontItem($Alias);
+
+        /*** Show View ***/
+        return \View::make($this->View . 'Item' , $this->ViewData);
     }
 }
 

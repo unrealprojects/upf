@@ -62,6 +62,37 @@ class Rent extends Meta{
             'Filters'       =>      $this->FrontFilters()
         ];
     }
+
+
+    /*** *** Get Front Item *** ***/
+
+    public function FrontItem($Alias = ''){
+
+        /*** Get Data ***/
+        $Item = $this->WhereAliasInMeta($this,$Alias)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files',
+                'meta.users',
+                'meta.categories.params',
+                'meta.paramsvalues',
+                'meta.paramsvalues.params',
+                'catalog',
+                'catalog.meta',
+                'catalog.meta.categories')
+            ->first();
+
+        // print_r($this->GetFields('list','frontend', true));exit;
+        // print_r($Item->toArray());exit;
+
+        /*** Return Frontend Content ***/
+        return [
+            'Item'          =>      $Item->toArray(),
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+        ];
+    }
 }
 
 
