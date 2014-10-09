@@ -106,7 +106,7 @@ class RegionsSeeder extends \Seeder {
         foreach($Regions as $Region){
             $RegionModel = new \UpfModels\Regions();
             $RegionModel->title=$Region;
-            $RegionModel->administrative_unit=2;
+            $RegionModel->administrative_unit=1;
             $RegionModel->region_type=1;
 
             $RegionModel->parent_id=1;
@@ -157,6 +157,7 @@ class RegionsSeeder extends \Seeder {
             $RegionModel->parent_id=3;
 
             $RegionModel->status=1;
+            $RegionModel->privileges=1;
             $RegionModel->alias = \Mascame\Urlify::filter($RegionModel->title);
             $RegionModel->save();
         }

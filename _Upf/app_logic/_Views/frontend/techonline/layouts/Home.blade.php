@@ -17,6 +17,10 @@
 
 
 
+    {{-- Filter --}}
+        @include($TemplateLayouts.'Filter.HomeFilter')
+    {{-- End Filter --}}
+
 
     {{-- Main Categories --}}
         <section class="Node">
