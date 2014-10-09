@@ -498,7 +498,7 @@ class Meta extends Fields {
         }
 
         /*** Categories List ***/
-        $Categories     =       \UpfModels\Categories::where( 'section', 'catalog' )->get();
+        $Categories     =       \UpfModels\Categories::SortCategories(true);
 
         /*** Tags List ***/
         $Tags           =       \UpfModels\Tags::where( 'section', $Section )->get();
