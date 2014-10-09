@@ -158,6 +158,7 @@
 
 
 
+
         {{-- Tags --}}
             @if(isset($Content['Filters']['tags']))
                 <dt class="Tab-Params">
