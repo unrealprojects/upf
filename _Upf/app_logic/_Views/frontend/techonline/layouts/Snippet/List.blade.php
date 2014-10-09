@@ -20,7 +20,7 @@
 
                         <header>
                             @if( isset($Item['title']) )
-                                <h4 class="Item-Title">
+                                <h4 class="Item-Title {{ (strlen($Item['title'])>20) ? 'Item-Title-Long' : ''}}">
                                     <a href="{{ $BaseUrl . $Item['meta']['alias'] }}">
                                         {{ $Item['title'] }}
                                     </a>
