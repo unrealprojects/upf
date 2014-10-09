@@ -111,9 +111,10 @@
                             </ul>
 
                         </header>
-
-                        <article class="Item-Content">
+                        <div class="Grid Node-XXS-4 Item-Gallery">
                             <img src="{{$Article['logotype']}}" alt="{{$Article['title']}}">
+                        </div>
+                        <article class="Item-Content Node-XXS-8">
                             <div>{{ $Article['intro'] }}</div>
                         </article>
 

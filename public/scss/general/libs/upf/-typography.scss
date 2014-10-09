@@ -81,6 +81,10 @@ code {
 	cursor: default;
 
 	@extend ._Unselectable;
+	span.fa
+	{
+		margin-right: $size-n;
+	}
 }
 .Columns {
 	@include Columns(2, $size-l);

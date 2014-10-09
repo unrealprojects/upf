@@ -120,18 +120,30 @@ footer[role='contentinfo'] {
 	background: white;
 	border-top: 1px solid #e1e1e1;
 	& > div {
-		padding: $size-l 0;
+		padding: $size $size-n 0;
+		@include Adaptive($Viewport-SM)
+		{
+			padding: $size-l 0;
+		}
 		@extend ._Clearfix;
 		@extend ._Centered;
 		@extend ._Section-Inner;
 		.Copyright {
-			@extend %_Left;
 		}
 		.Footer-Navigation {
 			/*@extend %_Right;*/
 			display: inline-block;
-			float: right;
+
+			margin-top: $size-n;
+			@include Adaptive($Viewport-SM)
+			{
+				margin-top: 0;
+			}
 			ul {
+				@include Adaptive($Viewport-SM)
+				{
+					float: right;
+				}
 				@extend ._No-Bullets;
 				@extend ._Inline;
 				li {
@@ -159,6 +171,7 @@ img.Footer-Img {
 	bottom: $Page-Footer-Height/2;
 	right: $size;
 	width: 200px;
+	@extend ._Unselectable;
 }
 
 
@@ -179,39 +192,6 @@ img.Footer-Img {
 		}
 	}
 }
-
-/* List of snippets like News, etc.
-.List.Snippets {
-	li.List-Item {
-		border: 1px solid $Clr-Clouds;
-		margin-bottom: $size;
-		header {
-			padding-bottom: $size-s;
-			background-color: $Clr-Clouds;
-			@extend ._Clearfix;
-			h5.Item-Title {
-				margin: $size-n 100px $size-n $size-n;
-				display: block;
-
-				a {
-					font-size: $Font-Size-Large;
-					text-transform: uppercase;
-				}
-			}
-
-		}
-		img {
-			width: 100%;
-		}
-		.Description {
-			margin: $size-n;
-			font-size: 14px;
-
-			& > div {
-			}
-		}
-	}
-}*/
 .Item-Subtitle {
 	display: block;
 	clear: both;
@@ -229,7 +209,7 @@ img.Footer-Img {
 
 		header {
 			position: relative;
-			background-color: $Clr-Secondary;
+			background-color: $C-Grey-6;
 			.Item-Category ,
 			.Item-Location {
 				padding: 0;
@@ -310,7 +290,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 .Snippet-Item {
 	@include Adaptive($Viewport-SM)
 	{
-		border: 1px solid $Clr-Secondary;
+		border: 1px solid $C-Grey-5;
 	}
 	@extend ._Clearfix;
 //	@extend .Row;
@@ -342,6 +322,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		}
 		.Item-Views
 		{
+			@extend ._Unselectable;
 			@extend %Small-Prototype;
 			span.fa
 			{
@@ -349,11 +330,8 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 				color: $C-Grey-3;
 			}
 		}
-		.Item-Vote
-		{
-			@extend %Tall-Prototype;
-		}
 		.Item-Vote {
+			@extend %Tall-Prototype;
 			@extend ._Inline;
 			@extend ._No-Bullets;
 			padding: 0;
@@ -517,6 +495,7 @@ ul.Tag-List {
 }
 .Item-Vote
 {
+	@extend ._Unselectable;
 	@extend ._No-Bullets;
 	li
 	{
@@ -541,13 +520,19 @@ ul.Tag-List {
 			display: block;
 			height: 35px;
 			border: 1px solid $Clr-Silver;
-			padding-top: 6px;
+			padding-top: 4px;
 			text-align: center;
 			color: $C-Grey-4;
+			@include Transitions(#{text-shadow $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time, border-color $Base-Animation-Time});
 			&:hover {
 				background-color: $Clr-Main;
 				border-color: $Clr-Main-Dark;
 				color: white;
+				text-shadow: 1px 1px 0 $Clr-Main-Dark;
+			}
+			span.fa
+			{
+				font-size: 14px;
 			}
 		}
 		& > span {
@@ -559,6 +544,14 @@ ul.Tag-List {
 			height: 35px;
 			color: $Clr-Silver;
 			font-size: 14px;
+			&.Positive
+			{
+				color: $C-Green-2;
+			}
+			&.Negative
+			{
+				color: $C-Red-3;
+			}
 		}
 	}
 }
@@ -578,20 +571,34 @@ ul.Tag-List {
 	}
 }
 
-#Scroll-Top {
-	position: fixed;
-	top: $size;
-	left: $size;
-	width: 40px;
-	height: 40px;
-	cursor: pointer;
-	background: url(../../../../img/techonline/icon-scroll-top.png) no-repeat;
-	display: none;
-	@include Transition(background,.3s);
-	&:hover {
-		background: url(../../../../img/techonline/icon-scroll-top-hover.png) no-repeat;
+@include Adaptive($Viewport-SM)
+{
+	#Scroll-Top {
+		display: none;
+		position: fixed;
+		top: $size;
+		left: $size;
+		span
+		{
+			display: block;
+			padding: $size-xs $size-s;
+			font-size: 19px;
+			border: $Control-Border-Color $Control-Border-Width solid;
+			border-radius: $Control-Border-Radius;
+			background-color: white;
+			cursor: pointer;
+			@include Transitions(#{border-color $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time});
+			&:hover
+			{
+				border-color: $Clr-Main-Dark;
+				background-color: $Clr-Main;
+				color: white;
+			}
+
+		}
 	}
 }
+
 
 .Filter.Accordion {
 	margin-top: $size;

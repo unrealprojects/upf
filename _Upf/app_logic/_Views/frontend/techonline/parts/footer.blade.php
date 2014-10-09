@@ -1,8 +1,8 @@
 <div title="Вернуться наверх" id="Scroll-Top"></div>
 <footer role="contentinfo">
-    <div>
-        <p class="Copyright">&copy; Copyright 2014 &mdash; Стройтехника.Онлайн</p>
-        <nav class="Footer-Navigation">
+    <div class="Grid Merge">
+        <p class="Copyright Node-SM-6">&copy; <span class="Visible-SM">Copyright</span> 2014 <span class="Visible-XS">&mdash;</span> Стройтехника.Онлайн</p>
+        <nav class="Footer-Navigation Node-SM-6">
             <ul>
                 <li><a href="/pages/contacts">Контакты</a></li>
                 <li><a href="/pages/about">О сервисе</a></li>

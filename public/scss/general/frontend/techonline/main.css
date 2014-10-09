@@ -84,6 +84,8 @@ code.Pagination {
   clear: both;
   text-transform: uppercase;
   cursor: default; }
+  .Heading span.fa {
+    margin-right: 15px; }
 
 .Columns {
   -webkit-column-count: 2;
@@ -140,7 +142,7 @@ code.Pagination {
 ._Icon-Spacing {
   margin-right: 20px; }
 
-footer[role='contentinfo'] > div .Copyright, .Snippet-Item .Item-Info .Date, .Snippet-Item .Item-Info .Tags {
+.Snippet-Item .Item-Info .Date, .Snippet-Item .Item-Info .Tags {
   float: left; }
 
 ._Right {
@@ -225,7 +227,7 @@ ul[class*='Grid'] > li, table td.Actions ul, .pagination,
 ._Search {
   border-radius: 30px; }
 
-._Unselectable, .Heading, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:before, label {
+._Unselectable, .Heading, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item:before, label, img.Footer-Img, .Snippet-Item header .Item-Views, .Item-Vote {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -314,180 +316,6 @@ iframe {
   float: right; }
 
 @media screen and (min-width: 1px) {
-  [class*='Grid'].Merge > .Node-XXS-1-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-1-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-1-2, [class*='Grid'].List-Group-Actions > .Node-XXS-1-2, [class*='Grid'].List-Params > .Node-XXS-1-2 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-XXS-1-2 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-XXS-2-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-2-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-2-2, [class*='Grid'].List-Group-Actions > .Node-XXS-2-2, [class*='Grid'].List-Params > .Node-XXS-2-2 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XXS-2-2 {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XXS-1-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-1-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-1-3, [class*='Grid'].List-Group-Actions > .Node-XXS-1-3, [class*='Grid'].List-Params > .Node-XXS-1-3 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-XXS-1-3 {
-    width: 28.33333%; }
-
-  [class*='Grid'].Merge > .Node-XXS-2-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-2-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-2-3, [class*='Grid'].List-Group-Actions > .Node-XXS-2-3, [class*='Grid'].List-Params > .Node-XXS-2-3 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-XXS-2-3 {
-    width: 56.66667%; }
-
-  [class*='Grid'].Merge > .Node-XXS-3-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-3-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-3-3, [class*='Grid'].List-Group-Actions > .Node-XXS-3-3, [class*='Grid'].List-Params > .Node-XXS-3-3 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XXS-3-3 {
-    width: 85%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XXS-1-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-1-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-1-4, [class*='Grid'].List-Group-Actions > .Node-XXS-1-4, [class*='Grid'].List-Params > .Node-XXS-1-4 {
-    width: 25%; }
-
-  [class*='Grid'].Split > .Node-XXS-1-4 {
-    width: 20%; }
-
-  [class*='Grid'].Merge > .Node-XXS-2-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-2-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-2-4, [class*='Grid'].List-Group-Actions > .Node-XXS-2-4, [class*='Grid'].List-Params > .Node-XXS-2-4 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-XXS-2-4 {
-    width: 40%; }
-
-  [class*='Grid'].Merge > .Node-XXS-3-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-3-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-3-4, [class*='Grid'].List-Group-Actions > .Node-XXS-3-4, [class*='Grid'].List-Params > .Node-XXS-3-4 {
-    width: 75%; }
-
-  [class*='Grid'].Split > .Node-XXS-3-4 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-XXS-4-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-4-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-4-4, [class*='Grid'].List-Group-Actions > .Node-XXS-4-4, [class*='Grid'].List-Params > .Node-XXS-4-4 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XXS-4-4 {
-    width: 80%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XXS-1-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-1-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-1-5, [class*='Grid'].List-Group-Actions > .Node-XXS-1-5, [class*='Grid'].List-Params > .Node-XXS-1-5 {
-    width: 20%; }
-
-  [class*='Grid'].Split > .Node-XXS-1-5 {
-    width: 15%; }
-
-  [class*='Grid'].Merge > .Node-XXS-2-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-2-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-2-5, [class*='Grid'].List-Group-Actions > .Node-XXS-2-5, [class*='Grid'].List-Params > .Node-XXS-2-5 {
-    width: 40%; }
-
-  [class*='Grid'].Split > .Node-XXS-2-5 {
-    width: 30%; }
-
-  [class*='Grid'].Merge > .Node-XXS-3-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-3-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-3-5, [class*='Grid'].List-Group-Actions > .Node-XXS-3-5, [class*='Grid'].List-Params > .Node-XXS-3-5 {
-    width: 60%; }
-
-  [class*='Grid'].Split > .Node-XXS-3-5 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-XXS-4-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-4-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-4-5, [class*='Grid'].List-Group-Actions > .Node-XXS-4-5, [class*='Grid'].List-Params > .Node-XXS-4-5 {
-    width: 80%; }
-
-  [class*='Grid'].Split > .Node-XXS-4-5 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-XXS-5-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-5-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-5-5, [class*='Grid'].List-Group-Actions > .Node-XXS-5-5, [class*='Grid'].List-Params > .Node-XXS-5-5 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XXS-5-5 {
-    width: 75%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XXS-1-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-1-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-1-6, [class*='Grid'].List-Group-Actions > .Node-XXS-1-6, [class*='Grid'].List-Params > .Node-XXS-1-6 {
-    width: 16.66667%; }
-
-  [class*='Grid'].Split > .Node-XXS-1-6 {
-    width: 11.66667%; }
-
-  [class*='Grid'].Merge > .Node-XXS-2-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-2-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-2-6, [class*='Grid'].List-Group-Actions > .Node-XXS-2-6, [class*='Grid'].List-Params > .Node-XXS-2-6 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-XXS-2-6 {
-    width: 23.33333%; }
-
-  [class*='Grid'].Merge > .Node-XXS-3-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-3-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-3-6, [class*='Grid'].List-Group-Actions > .Node-XXS-3-6, [class*='Grid'].List-Params > .Node-XXS-3-6 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-XXS-3-6 {
-    width: 35%; }
-
-  [class*='Grid'].Merge > .Node-XXS-4-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-4-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-4-6, [class*='Grid'].List-Group-Actions > .Node-XXS-4-6, [class*='Grid'].List-Params > .Node-XXS-4-6 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-XXS-4-6 {
-    width: 46.66667%; }
-
-  [class*='Grid'].Merge > .Node-XXS-5-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-5-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-5-6, [class*='Grid'].List-Group-Actions > .Node-XXS-5-6, [class*='Grid'].List-Params > .Node-XXS-5-6 {
-    width: 83.33333%; }
-
-  [class*='Grid'].Split > .Node-XXS-5-6 {
-    width: 58.33333%; }
-
-  [class*='Grid'].Merge > .Node-XXS-6-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-6-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-6-6, [class*='Grid'].List-Group-Actions > .Node-XXS-6-6, [class*='Grid'].List-Params > .Node-XXS-6-6 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XXS-6-6 {
-    width: 70%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XXS-1-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-1-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-1-7, [class*='Grid'].List-Group-Actions > .Node-XXS-1-7, [class*='Grid'].List-Params > .Node-XXS-1-7 {
-    width: 14.28571%; }
-
-  [class*='Grid'].Split > .Node-XXS-1-7 {
-    width: 9.28571%; }
-
-  [class*='Grid'].Merge > .Node-XXS-2-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-2-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-2-7, [class*='Grid'].List-Group-Actions > .Node-XXS-2-7, [class*='Grid'].List-Params > .Node-XXS-2-7 {
-    width: 28.57143%; }
-
-  [class*='Grid'].Split > .Node-XXS-2-7 {
-    width: 18.57143%; }
-
-  [class*='Grid'].Merge > .Node-XXS-3-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-3-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-3-7, [class*='Grid'].List-Group-Actions > .Node-XXS-3-7, [class*='Grid'].List-Params > .Node-XXS-3-7 {
-    width: 42.85714%; }
-
-  [class*='Grid'].Split > .Node-XXS-3-7 {
-    width: 27.85714%; }
-
-  [class*='Grid'].Merge > .Node-XXS-4-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-4-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-4-7, [class*='Grid'].List-Group-Actions > .Node-XXS-4-7, [class*='Grid'].List-Params > .Node-XXS-4-7 {
-    width: 57.14286%; }
-
-  [class*='Grid'].Split > .Node-XXS-4-7 {
-    width: 37.14286%; }
-
-  [class*='Grid'].Merge > .Node-XXS-5-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-5-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-5-7, [class*='Grid'].List-Group-Actions > .Node-XXS-5-7, [class*='Grid'].List-Params > .Node-XXS-5-7 {
-    width: 71.42857%; }
-
-  [class*='Grid'].Split > .Node-XXS-5-7 {
-    width: 46.42857%; }
-
-  [class*='Grid'].Merge > .Node-XXS-6-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-6-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-6-7, [class*='Grid'].List-Group-Actions > .Node-XXS-6-7, [class*='Grid'].List-Params > .Node-XXS-6-7 {
-    width: 85.71429%; }
-
-  [class*='Grid'].Split > .Node-XXS-6-7 {
-    width: 55.71429%; }
-
-  [class*='Grid'].Merge > .Node-XXS-7-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XXS-7-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XXS-7-7, [class*='Grid'].List-Group-Actions > .Node-XXS-7-7, [class*='Grid'].List-Params > .Node-XXS-7-7 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XXS-7-7 {
-    width: 65%;
-    margin-left: 0;
-    margin-right: 0; }
-
   .Merge > .Node-XXS-1, .Site-Header .Site-Header-Inner > .Node-XXS-1, .Snippet-List .Snippet-Item > .Node-XXS-1, .List-Group-Actions > .Node-XXS-1, .List-Params > .Node-XXS-1,
   .Control-Group > .Node-XXS-1 {
     width: 8.33333%; }
@@ -574,180 +402,6 @@ iframe {
     margin-left: 0;
     margin-right: 0; } }
 @media screen and (min-width: 768px) {
-  [class*='Grid'].Merge > .Node-XS-1-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-1-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-1-2, [class*='Grid'].List-Group-Actions > .Node-XS-1-2, [class*='Grid'].List-Params > .Node-XS-1-2 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-XS-1-2 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-XS-2-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-2-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-2-2, [class*='Grid'].List-Group-Actions > .Node-XS-2-2, [class*='Grid'].List-Params > .Node-XS-2-2 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XS-2-2 {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XS-1-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-1-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-1-3, [class*='Grid'].List-Group-Actions > .Node-XS-1-3, [class*='Grid'].List-Params > .Node-XS-1-3 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-XS-1-3 {
-    width: 28.33333%; }
-
-  [class*='Grid'].Merge > .Node-XS-2-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-2-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-2-3, [class*='Grid'].List-Group-Actions > .Node-XS-2-3, [class*='Grid'].List-Params > .Node-XS-2-3 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-XS-2-3 {
-    width: 56.66667%; }
-
-  [class*='Grid'].Merge > .Node-XS-3-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-3-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-3-3, [class*='Grid'].List-Group-Actions > .Node-XS-3-3, [class*='Grid'].List-Params > .Node-XS-3-3 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XS-3-3 {
-    width: 85%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XS-1-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-1-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-1-4, [class*='Grid'].List-Group-Actions > .Node-XS-1-4, [class*='Grid'].List-Params > .Node-XS-1-4 {
-    width: 25%; }
-
-  [class*='Grid'].Split > .Node-XS-1-4 {
-    width: 20%; }
-
-  [class*='Grid'].Merge > .Node-XS-2-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-2-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-2-4, [class*='Grid'].List-Group-Actions > .Node-XS-2-4, [class*='Grid'].List-Params > .Node-XS-2-4 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-XS-2-4 {
-    width: 40%; }
-
-  [class*='Grid'].Merge > .Node-XS-3-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-3-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-3-4, [class*='Grid'].List-Group-Actions > .Node-XS-3-4, [class*='Grid'].List-Params > .Node-XS-3-4 {
-    width: 75%; }
-
-  [class*='Grid'].Split > .Node-XS-3-4 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-XS-4-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-4-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-4-4, [class*='Grid'].List-Group-Actions > .Node-XS-4-4, [class*='Grid'].List-Params > .Node-XS-4-4 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XS-4-4 {
-    width: 80%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XS-1-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-1-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-1-5, [class*='Grid'].List-Group-Actions > .Node-XS-1-5, [class*='Grid'].List-Params > .Node-XS-1-5 {
-    width: 20%; }
-
-  [class*='Grid'].Split > .Node-XS-1-5 {
-    width: 15%; }
-
-  [class*='Grid'].Merge > .Node-XS-2-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-2-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-2-5, [class*='Grid'].List-Group-Actions > .Node-XS-2-5, [class*='Grid'].List-Params > .Node-XS-2-5 {
-    width: 40%; }
-
-  [class*='Grid'].Split > .Node-XS-2-5 {
-    width: 30%; }
-
-  [class*='Grid'].Merge > .Node-XS-3-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-3-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-3-5, [class*='Grid'].List-Group-Actions > .Node-XS-3-5, [class*='Grid'].List-Params > .Node-XS-3-5 {
-    width: 60%; }
-
-  [class*='Grid'].Split > .Node-XS-3-5 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-XS-4-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-4-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-4-5, [class*='Grid'].List-Group-Actions > .Node-XS-4-5, [class*='Grid'].List-Params > .Node-XS-4-5 {
-    width: 80%; }
-
-  [class*='Grid'].Split > .Node-XS-4-5 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-XS-5-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-5-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-5-5, [class*='Grid'].List-Group-Actions > .Node-XS-5-5, [class*='Grid'].List-Params > .Node-XS-5-5 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XS-5-5 {
-    width: 75%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XS-1-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-1-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-1-6, [class*='Grid'].List-Group-Actions > .Node-XS-1-6, [class*='Grid'].List-Params > .Node-XS-1-6 {
-    width: 16.66667%; }
-
-  [class*='Grid'].Split > .Node-XS-1-6 {
-    width: 11.66667%; }
-
-  [class*='Grid'].Merge > .Node-XS-2-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-2-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-2-6, [class*='Grid'].List-Group-Actions > .Node-XS-2-6, [class*='Grid'].List-Params > .Node-XS-2-6 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-XS-2-6 {
-    width: 23.33333%; }
-
-  [class*='Grid'].Merge > .Node-XS-3-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-3-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-3-6, [class*='Grid'].List-Group-Actions > .Node-XS-3-6, [class*='Grid'].List-Params > .Node-XS-3-6 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-XS-3-6 {
-    width: 35%; }
-
-  [class*='Grid'].Merge > .Node-XS-4-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-4-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-4-6, [class*='Grid'].List-Group-Actions > .Node-XS-4-6, [class*='Grid'].List-Params > .Node-XS-4-6 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-XS-4-6 {
-    width: 46.66667%; }
-
-  [class*='Grid'].Merge > .Node-XS-5-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-5-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-5-6, [class*='Grid'].List-Group-Actions > .Node-XS-5-6, [class*='Grid'].List-Params > .Node-XS-5-6 {
-    width: 83.33333%; }
-
-  [class*='Grid'].Split > .Node-XS-5-6 {
-    width: 58.33333%; }
-
-  [class*='Grid'].Merge > .Node-XS-6-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-6-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-6-6, [class*='Grid'].List-Group-Actions > .Node-XS-6-6, [class*='Grid'].List-Params > .Node-XS-6-6 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XS-6-6 {
-    width: 70%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-XS-1-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-1-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-1-7, [class*='Grid'].List-Group-Actions > .Node-XS-1-7, [class*='Grid'].List-Params > .Node-XS-1-7 {
-    width: 14.28571%; }
-
-  [class*='Grid'].Split > .Node-XS-1-7 {
-    width: 9.28571%; }
-
-  [class*='Grid'].Merge > .Node-XS-2-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-2-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-2-7, [class*='Grid'].List-Group-Actions > .Node-XS-2-7, [class*='Grid'].List-Params > .Node-XS-2-7 {
-    width: 28.57143%; }
-
-  [class*='Grid'].Split > .Node-XS-2-7 {
-    width: 18.57143%; }
-
-  [class*='Grid'].Merge > .Node-XS-3-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-3-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-3-7, [class*='Grid'].List-Group-Actions > .Node-XS-3-7, [class*='Grid'].List-Params > .Node-XS-3-7 {
-    width: 42.85714%; }
-
-  [class*='Grid'].Split > .Node-XS-3-7 {
-    width: 27.85714%; }
-
-  [class*='Grid'].Merge > .Node-XS-4-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-4-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-4-7, [class*='Grid'].List-Group-Actions > .Node-XS-4-7, [class*='Grid'].List-Params > .Node-XS-4-7 {
-    width: 57.14286%; }
-
-  [class*='Grid'].Split > .Node-XS-4-7 {
-    width: 37.14286%; }
-
-  [class*='Grid'].Merge > .Node-XS-5-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-5-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-5-7, [class*='Grid'].List-Group-Actions > .Node-XS-5-7, [class*='Grid'].List-Params > .Node-XS-5-7 {
-    width: 71.42857%; }
-
-  [class*='Grid'].Split > .Node-XS-5-7 {
-    width: 46.42857%; }
-
-  [class*='Grid'].Merge > .Node-XS-6-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-6-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-6-7, [class*='Grid'].List-Group-Actions > .Node-XS-6-7, [class*='Grid'].List-Params > .Node-XS-6-7 {
-    width: 85.71429%; }
-
-  [class*='Grid'].Split > .Node-XS-6-7 {
-    width: 55.71429%; }
-
-  [class*='Grid'].Merge > .Node-XS-7-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-XS-7-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-XS-7-7, [class*='Grid'].List-Group-Actions > .Node-XS-7-7, [class*='Grid'].List-Params > .Node-XS-7-7 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-XS-7-7 {
-    width: 65%;
-    margin-left: 0;
-    margin-right: 0; }
-
   .Merge > .Node-XS-1, .Site-Header .Site-Header-Inner > .Node-XS-1, .Snippet-List .Snippet-Item > .Node-XS-1, .List-Group-Actions > .Node-XS-1, .List-Params > .Node-XS-1,
   .Control-Group > .Node-XS-1 {
     width: 8.33333%; }
@@ -834,180 +488,6 @@ iframe {
     margin-left: 0;
     margin-right: 0; } }
 @media screen and (min-width: 1014px) {
-  [class*='Grid'].Merge > .Node-SM-1-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-2, [class*='Grid'].List-Group-Actions > .Node-SM-1-2, [class*='Grid'].List-Params > .Node-SM-1-2 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-SM-1-2 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-SM-2-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-2-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-2-2, [class*='Grid'].List-Group-Actions > .Node-SM-2-2, [class*='Grid'].List-Params > .Node-SM-2-2 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-SM-2-2 {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-SM-1-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-3, [class*='Grid'].List-Group-Actions > .Node-SM-1-3, [class*='Grid'].List-Params > .Node-SM-1-3 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-SM-1-3 {
-    width: 28.33333%; }
-
-  [class*='Grid'].Merge > .Node-SM-2-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-2-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-2-3, [class*='Grid'].List-Group-Actions > .Node-SM-2-3, [class*='Grid'].List-Params > .Node-SM-2-3 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-SM-2-3 {
-    width: 56.66667%; }
-
-  [class*='Grid'].Merge > .Node-SM-3-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-3-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-3-3, [class*='Grid'].List-Group-Actions > .Node-SM-3-3, [class*='Grid'].List-Params > .Node-SM-3-3 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-SM-3-3 {
-    width: 85%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-SM-1-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-4, [class*='Grid'].List-Group-Actions > .Node-SM-1-4, [class*='Grid'].List-Params > .Node-SM-1-4 {
-    width: 25%; }
-
-  [class*='Grid'].Split > .Node-SM-1-4 {
-    width: 20%; }
-
-  [class*='Grid'].Merge > .Node-SM-2-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-2-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-2-4, [class*='Grid'].List-Group-Actions > .Node-SM-2-4, [class*='Grid'].List-Params > .Node-SM-2-4 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-SM-2-4 {
-    width: 40%; }
-
-  [class*='Grid'].Merge > .Node-SM-3-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-3-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-3-4, [class*='Grid'].List-Group-Actions > .Node-SM-3-4, [class*='Grid'].List-Params > .Node-SM-3-4 {
-    width: 75%; }
-
-  [class*='Grid'].Split > .Node-SM-3-4 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-SM-4-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-4-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-4-4, [class*='Grid'].List-Group-Actions > .Node-SM-4-4, [class*='Grid'].List-Params > .Node-SM-4-4 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-SM-4-4 {
-    width: 80%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-SM-1-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-5, [class*='Grid'].List-Group-Actions > .Node-SM-1-5, [class*='Grid'].List-Params > .Node-SM-1-5 {
-    width: 20%; }
-
-  [class*='Grid'].Split > .Node-SM-1-5 {
-    width: 15%; }
-
-  [class*='Grid'].Merge > .Node-SM-2-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-2-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-2-5, [class*='Grid'].List-Group-Actions > .Node-SM-2-5, [class*='Grid'].List-Params > .Node-SM-2-5 {
-    width: 40%; }
-
-  [class*='Grid'].Split > .Node-SM-2-5 {
-    width: 30%; }
-
-  [class*='Grid'].Merge > .Node-SM-3-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-3-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-3-5, [class*='Grid'].List-Group-Actions > .Node-SM-3-5, [class*='Grid'].List-Params > .Node-SM-3-5 {
-    width: 60%; }
-
-  [class*='Grid'].Split > .Node-SM-3-5 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-SM-4-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-4-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-4-5, [class*='Grid'].List-Group-Actions > .Node-SM-4-5, [class*='Grid'].List-Params > .Node-SM-4-5 {
-    width: 80%; }
-
-  [class*='Grid'].Split > .Node-SM-4-5 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-SM-5-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-5-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-5-5, [class*='Grid'].List-Group-Actions > .Node-SM-5-5, [class*='Grid'].List-Params > .Node-SM-5-5 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-SM-5-5 {
-    width: 75%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-SM-1-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-6, [class*='Grid'].List-Group-Actions > .Node-SM-1-6, [class*='Grid'].List-Params > .Node-SM-1-6 {
-    width: 16.66667%; }
-
-  [class*='Grid'].Split > .Node-SM-1-6 {
-    width: 11.66667%; }
-
-  [class*='Grid'].Merge > .Node-SM-2-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-2-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-2-6, [class*='Grid'].List-Group-Actions > .Node-SM-2-6, [class*='Grid'].List-Params > .Node-SM-2-6 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-SM-2-6 {
-    width: 23.33333%; }
-
-  [class*='Grid'].Merge > .Node-SM-3-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-3-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-3-6, [class*='Grid'].List-Group-Actions > .Node-SM-3-6, [class*='Grid'].List-Params > .Node-SM-3-6 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-SM-3-6 {
-    width: 35%; }
-
-  [class*='Grid'].Merge > .Node-SM-4-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-4-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-4-6, [class*='Grid'].List-Group-Actions > .Node-SM-4-6, [class*='Grid'].List-Params > .Node-SM-4-6 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-SM-4-6 {
-    width: 46.66667%; }
-
-  [class*='Grid'].Merge > .Node-SM-5-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-5-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-5-6, [class*='Grid'].List-Group-Actions > .Node-SM-5-6, [class*='Grid'].List-Params > .Node-SM-5-6 {
-    width: 83.33333%; }
-
-  [class*='Grid'].Split > .Node-SM-5-6 {
-    width: 58.33333%; }
-
-  [class*='Grid'].Merge > .Node-SM-6-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-6-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-6-6, [class*='Grid'].List-Group-Actions > .Node-SM-6-6, [class*='Grid'].List-Params > .Node-SM-6-6 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-SM-6-6 {
-    width: 70%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-SM-1-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-7, [class*='Grid'].List-Group-Actions > .Node-SM-1-7, [class*='Grid'].List-Params > .Node-SM-1-7 {
-    width: 14.28571%; }
-
-  [class*='Grid'].Split > .Node-SM-1-7 {
-    width: 9.28571%; }
-
-  [class*='Grid'].Merge > .Node-SM-2-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-2-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-2-7, [class*='Grid'].List-Group-Actions > .Node-SM-2-7, [class*='Grid'].List-Params > .Node-SM-2-7 {
-    width: 28.57143%; }
-
-  [class*='Grid'].Split > .Node-SM-2-7 {
-    width: 18.57143%; }
-
-  [class*='Grid'].Merge > .Node-SM-3-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-3-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-3-7, [class*='Grid'].List-Group-Actions > .Node-SM-3-7, [class*='Grid'].List-Params > .Node-SM-3-7 {
-    width: 42.85714%; }
-
-  [class*='Grid'].Split > .Node-SM-3-7 {
-    width: 27.85714%; }
-
-  [class*='Grid'].Merge > .Node-SM-4-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-4-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-4-7, [class*='Grid'].List-Group-Actions > .Node-SM-4-7, [class*='Grid'].List-Params > .Node-SM-4-7 {
-    width: 57.14286%; }
-
-  [class*='Grid'].Split > .Node-SM-4-7 {
-    width: 37.14286%; }
-
-  [class*='Grid'].Merge > .Node-SM-5-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-5-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-5-7, [class*='Grid'].List-Group-Actions > .Node-SM-5-7, [class*='Grid'].List-Params > .Node-SM-5-7 {
-    width: 71.42857%; }
-
-  [class*='Grid'].Split > .Node-SM-5-7 {
-    width: 46.42857%; }
-
-  [class*='Grid'].Merge > .Node-SM-6-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-6-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-6-7, [class*='Grid'].List-Group-Actions > .Node-SM-6-7, [class*='Grid'].List-Params > .Node-SM-6-7 {
-    width: 85.71429%; }
-
-  [class*='Grid'].Split > .Node-SM-6-7 {
-    width: 55.71429%; }
-
-  [class*='Grid'].Merge > .Node-SM-7-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-7-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-7-7, [class*='Grid'].List-Group-Actions > .Node-SM-7-7, [class*='Grid'].List-Params > .Node-SM-7-7 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-SM-7-7 {
-    width: 65%;
-    margin-left: 0;
-    margin-right: 0; }
-
   .Merge > .Node-SM-1, .Site-Header .Site-Header-Inner > .Node-SM-1, .Snippet-List .Snippet-Item > .Node-SM-1, .List-Group-Actions > .Node-SM-1, .List-Params > .Node-SM-1,
   .Control-Group > .Node-SM-1 {
     width: 8.33333%; }
@@ -1094,180 +574,6 @@ iframe {
     margin-left: 0;
     margin-right: 0; } }
 @media screen and (min-width: 1260px) {
-  [class*='Grid'].Merge > .Node-MD-1-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-1-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-1-2, [class*='Grid'].List-Group-Actions > .Node-MD-1-2, [class*='Grid'].List-Params > .Node-MD-1-2 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-MD-1-2 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-MD-2-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-2-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-2-2, [class*='Grid'].List-Group-Actions > .Node-MD-2-2, [class*='Grid'].List-Params > .Node-MD-2-2 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-MD-2-2 {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-MD-1-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-1-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-1-3, [class*='Grid'].List-Group-Actions > .Node-MD-1-3, [class*='Grid'].List-Params > .Node-MD-1-3 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-MD-1-3 {
-    width: 28.33333%; }
-
-  [class*='Grid'].Merge > .Node-MD-2-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-2-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-2-3, [class*='Grid'].List-Group-Actions > .Node-MD-2-3, [class*='Grid'].List-Params > .Node-MD-2-3 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-MD-2-3 {
-    width: 56.66667%; }
-
-  [class*='Grid'].Merge > .Node-MD-3-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-3-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-3-3, [class*='Grid'].List-Group-Actions > .Node-MD-3-3, [class*='Grid'].List-Params > .Node-MD-3-3 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-MD-3-3 {
-    width: 85%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-MD-1-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-1-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-1-4, [class*='Grid'].List-Group-Actions > .Node-MD-1-4, [class*='Grid'].List-Params > .Node-MD-1-4 {
-    width: 25%; }
-
-  [class*='Grid'].Split > .Node-MD-1-4 {
-    width: 20%; }
-
-  [class*='Grid'].Merge > .Node-MD-2-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-2-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-2-4, [class*='Grid'].List-Group-Actions > .Node-MD-2-4, [class*='Grid'].List-Params > .Node-MD-2-4 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-MD-2-4 {
-    width: 40%; }
-
-  [class*='Grid'].Merge > .Node-MD-3-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-3-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-3-4, [class*='Grid'].List-Group-Actions > .Node-MD-3-4, [class*='Grid'].List-Params > .Node-MD-3-4 {
-    width: 75%; }
-
-  [class*='Grid'].Split > .Node-MD-3-4 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-MD-4-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-4-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-4-4, [class*='Grid'].List-Group-Actions > .Node-MD-4-4, [class*='Grid'].List-Params > .Node-MD-4-4 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-MD-4-4 {
-    width: 80%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-MD-1-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-1-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-1-5, [class*='Grid'].List-Group-Actions > .Node-MD-1-5, [class*='Grid'].List-Params > .Node-MD-1-5 {
-    width: 20%; }
-
-  [class*='Grid'].Split > .Node-MD-1-5 {
-    width: 15%; }
-
-  [class*='Grid'].Merge > .Node-MD-2-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-2-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-2-5, [class*='Grid'].List-Group-Actions > .Node-MD-2-5, [class*='Grid'].List-Params > .Node-MD-2-5 {
-    width: 40%; }
-
-  [class*='Grid'].Split > .Node-MD-2-5 {
-    width: 30%; }
-
-  [class*='Grid'].Merge > .Node-MD-3-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-3-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-3-5, [class*='Grid'].List-Group-Actions > .Node-MD-3-5, [class*='Grid'].List-Params > .Node-MD-3-5 {
-    width: 60%; }
-
-  [class*='Grid'].Split > .Node-MD-3-5 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-MD-4-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-4-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-4-5, [class*='Grid'].List-Group-Actions > .Node-MD-4-5, [class*='Grid'].List-Params > .Node-MD-4-5 {
-    width: 80%; }
-
-  [class*='Grid'].Split > .Node-MD-4-5 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-MD-5-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-5-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-5-5, [class*='Grid'].List-Group-Actions > .Node-MD-5-5, [class*='Grid'].List-Params > .Node-MD-5-5 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-MD-5-5 {
-    width: 75%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-MD-1-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-1-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-1-6, [class*='Grid'].List-Group-Actions > .Node-MD-1-6, [class*='Grid'].List-Params > .Node-MD-1-6 {
-    width: 16.66667%; }
-
-  [class*='Grid'].Split > .Node-MD-1-6 {
-    width: 11.66667%; }
-
-  [class*='Grid'].Merge > .Node-MD-2-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-2-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-2-6, [class*='Grid'].List-Group-Actions > .Node-MD-2-6, [class*='Grid'].List-Params > .Node-MD-2-6 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-MD-2-6 {
-    width: 23.33333%; }
-
-  [class*='Grid'].Merge > .Node-MD-3-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-3-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-3-6, [class*='Grid'].List-Group-Actions > .Node-MD-3-6, [class*='Grid'].List-Params > .Node-MD-3-6 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-MD-3-6 {
-    width: 35%; }
-
-  [class*='Grid'].Merge > .Node-MD-4-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-4-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-4-6, [class*='Grid'].List-Group-Actions > .Node-MD-4-6, [class*='Grid'].List-Params > .Node-MD-4-6 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-MD-4-6 {
-    width: 46.66667%; }
-
-  [class*='Grid'].Merge > .Node-MD-5-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-5-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-5-6, [class*='Grid'].List-Group-Actions > .Node-MD-5-6, [class*='Grid'].List-Params > .Node-MD-5-6 {
-    width: 83.33333%; }
-
-  [class*='Grid'].Split > .Node-MD-5-6 {
-    width: 58.33333%; }
-
-  [class*='Grid'].Merge > .Node-MD-6-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-6-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-6-6, [class*='Grid'].List-Group-Actions > .Node-MD-6-6, [class*='Grid'].List-Params > .Node-MD-6-6 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-MD-6-6 {
-    width: 70%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-MD-1-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-1-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-1-7, [class*='Grid'].List-Group-Actions > .Node-MD-1-7, [class*='Grid'].List-Params > .Node-MD-1-7 {
-    width: 14.28571%; }
-
-  [class*='Grid'].Split > .Node-MD-1-7 {
-    width: 9.28571%; }
-
-  [class*='Grid'].Merge > .Node-MD-2-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-2-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-2-7, [class*='Grid'].List-Group-Actions > .Node-MD-2-7, [class*='Grid'].List-Params > .Node-MD-2-7 {
-    width: 28.57143%; }
-
-  [class*='Grid'].Split > .Node-MD-2-7 {
-    width: 18.57143%; }
-
-  [class*='Grid'].Merge > .Node-MD-3-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-3-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-3-7, [class*='Grid'].List-Group-Actions > .Node-MD-3-7, [class*='Grid'].List-Params > .Node-MD-3-7 {
-    width: 42.85714%; }
-
-  [class*='Grid'].Split > .Node-MD-3-7 {
-    width: 27.85714%; }
-
-  [class*='Grid'].Merge > .Node-MD-4-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-4-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-4-7, [class*='Grid'].List-Group-Actions > .Node-MD-4-7, [class*='Grid'].List-Params > .Node-MD-4-7 {
-    width: 57.14286%; }
-
-  [class*='Grid'].Split > .Node-MD-4-7 {
-    width: 37.14286%; }
-
-  [class*='Grid'].Merge > .Node-MD-5-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-5-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-5-7, [class*='Grid'].List-Group-Actions > .Node-MD-5-7, [class*='Grid'].List-Params > .Node-MD-5-7 {
-    width: 71.42857%; }
-
-  [class*='Grid'].Split > .Node-MD-5-7 {
-    width: 46.42857%; }
-
-  [class*='Grid'].Merge > .Node-MD-6-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-6-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-6-7, [class*='Grid'].List-Group-Actions > .Node-MD-6-7, [class*='Grid'].List-Params > .Node-MD-6-7 {
-    width: 85.71429%; }
-
-  [class*='Grid'].Split > .Node-MD-6-7 {
-    width: 55.71429%; }
-
-  [class*='Grid'].Merge > .Node-MD-7-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-MD-7-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-MD-7-7, [class*='Grid'].List-Group-Actions > .Node-MD-7-7, [class*='Grid'].List-Params > .Node-MD-7-7 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-MD-7-7 {
-    width: 65%;
-    margin-left: 0;
-    margin-right: 0; }
-
   .Merge > .Node-MD-1, .Site-Header .Site-Header-Inner > .Node-MD-1, .Snippet-List .Snippet-Item > .Node-MD-1, .List-Group-Actions > .Node-MD-1, .List-Params > .Node-MD-1,
   .Control-Group > .Node-MD-1 {
     width: 8.33333%; }
@@ -1354,180 +660,6 @@ iframe {
     margin-left: 0;
     margin-right: 0; } }
 @media screen and (min-width: 1880px) {
-  [class*='Grid'].Merge > .Node-LR-1-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-1-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-1-2, [class*='Grid'].List-Group-Actions > .Node-LR-1-2, [class*='Grid'].List-Params > .Node-LR-1-2 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-LR-1-2 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-LR-2-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-2-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-2-2, [class*='Grid'].List-Group-Actions > .Node-LR-2-2, [class*='Grid'].List-Params > .Node-LR-2-2 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-LR-2-2 {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-LR-1-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-1-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-1-3, [class*='Grid'].List-Group-Actions > .Node-LR-1-3, [class*='Grid'].List-Params > .Node-LR-1-3 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-LR-1-3 {
-    width: 28.33333%; }
-
-  [class*='Grid'].Merge > .Node-LR-2-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-2-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-2-3, [class*='Grid'].List-Group-Actions > .Node-LR-2-3, [class*='Grid'].List-Params > .Node-LR-2-3 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-LR-2-3 {
-    width: 56.66667%; }
-
-  [class*='Grid'].Merge > .Node-LR-3-3, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-3-3, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-3-3, [class*='Grid'].List-Group-Actions > .Node-LR-3-3, [class*='Grid'].List-Params > .Node-LR-3-3 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-LR-3-3 {
-    width: 85%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-LR-1-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-1-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-1-4, [class*='Grid'].List-Group-Actions > .Node-LR-1-4, [class*='Grid'].List-Params > .Node-LR-1-4 {
-    width: 25%; }
-
-  [class*='Grid'].Split > .Node-LR-1-4 {
-    width: 20%; }
-
-  [class*='Grid'].Merge > .Node-LR-2-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-2-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-2-4, [class*='Grid'].List-Group-Actions > .Node-LR-2-4, [class*='Grid'].List-Params > .Node-LR-2-4 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-LR-2-4 {
-    width: 40%; }
-
-  [class*='Grid'].Merge > .Node-LR-3-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-3-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-3-4, [class*='Grid'].List-Group-Actions > .Node-LR-3-4, [class*='Grid'].List-Params > .Node-LR-3-4 {
-    width: 75%; }
-
-  [class*='Grid'].Split > .Node-LR-3-4 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-LR-4-4, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-4-4, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-4-4, [class*='Grid'].List-Group-Actions > .Node-LR-4-4, [class*='Grid'].List-Params > .Node-LR-4-4 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-LR-4-4 {
-    width: 80%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-LR-1-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-1-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-1-5, [class*='Grid'].List-Group-Actions > .Node-LR-1-5, [class*='Grid'].List-Params > .Node-LR-1-5 {
-    width: 20%; }
-
-  [class*='Grid'].Split > .Node-LR-1-5 {
-    width: 15%; }
-
-  [class*='Grid'].Merge > .Node-LR-2-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-2-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-2-5, [class*='Grid'].List-Group-Actions > .Node-LR-2-5, [class*='Grid'].List-Params > .Node-LR-2-5 {
-    width: 40%; }
-
-  [class*='Grid'].Split > .Node-LR-2-5 {
-    width: 30%; }
-
-  [class*='Grid'].Merge > .Node-LR-3-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-3-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-3-5, [class*='Grid'].List-Group-Actions > .Node-LR-3-5, [class*='Grid'].List-Params > .Node-LR-3-5 {
-    width: 60%; }
-
-  [class*='Grid'].Split > .Node-LR-3-5 {
-    width: 45%; }
-
-  [class*='Grid'].Merge > .Node-LR-4-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-4-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-4-5, [class*='Grid'].List-Group-Actions > .Node-LR-4-5, [class*='Grid'].List-Params > .Node-LR-4-5 {
-    width: 80%; }
-
-  [class*='Grid'].Split > .Node-LR-4-5 {
-    width: 60%; }
-
-  [class*='Grid'].Merge > .Node-LR-5-5, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-5-5, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-5-5, [class*='Grid'].List-Group-Actions > .Node-LR-5-5, [class*='Grid'].List-Params > .Node-LR-5-5 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-LR-5-5 {
-    width: 75%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-LR-1-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-1-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-1-6, [class*='Grid'].List-Group-Actions > .Node-LR-1-6, [class*='Grid'].List-Params > .Node-LR-1-6 {
-    width: 16.66667%; }
-
-  [class*='Grid'].Split > .Node-LR-1-6 {
-    width: 11.66667%; }
-
-  [class*='Grid'].Merge > .Node-LR-2-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-2-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-2-6, [class*='Grid'].List-Group-Actions > .Node-LR-2-6, [class*='Grid'].List-Params > .Node-LR-2-6 {
-    width: 33.33333%; }
-
-  [class*='Grid'].Split > .Node-LR-2-6 {
-    width: 23.33333%; }
-
-  [class*='Grid'].Merge > .Node-LR-3-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-3-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-3-6, [class*='Grid'].List-Group-Actions > .Node-LR-3-6, [class*='Grid'].List-Params > .Node-LR-3-6 {
-    width: 50%; }
-
-  [class*='Grid'].Split > .Node-LR-3-6 {
-    width: 35%; }
-
-  [class*='Grid'].Merge > .Node-LR-4-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-4-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-4-6, [class*='Grid'].List-Group-Actions > .Node-LR-4-6, [class*='Grid'].List-Params > .Node-LR-4-6 {
-    width: 66.66667%; }
-
-  [class*='Grid'].Split > .Node-LR-4-6 {
-    width: 46.66667%; }
-
-  [class*='Grid'].Merge > .Node-LR-5-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-5-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-5-6, [class*='Grid'].List-Group-Actions > .Node-LR-5-6, [class*='Grid'].List-Params > .Node-LR-5-6 {
-    width: 83.33333%; }
-
-  [class*='Grid'].Split > .Node-LR-5-6 {
-    width: 58.33333%; }
-
-  [class*='Grid'].Merge > .Node-LR-6-6, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-6-6, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-6-6, [class*='Grid'].List-Group-Actions > .Node-LR-6-6, [class*='Grid'].List-Params > .Node-LR-6-6 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-LR-6-6 {
-    width: 70%;
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*='Grid'].Merge > .Node-LR-1-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-1-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-1-7, [class*='Grid'].List-Group-Actions > .Node-LR-1-7, [class*='Grid'].List-Params > .Node-LR-1-7 {
-    width: 14.28571%; }
-
-  [class*='Grid'].Split > .Node-LR-1-7 {
-    width: 9.28571%; }
-
-  [class*='Grid'].Merge > .Node-LR-2-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-2-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-2-7, [class*='Grid'].List-Group-Actions > .Node-LR-2-7, [class*='Grid'].List-Params > .Node-LR-2-7 {
-    width: 28.57143%; }
-
-  [class*='Grid'].Split > .Node-LR-2-7 {
-    width: 18.57143%; }
-
-  [class*='Grid'].Merge > .Node-LR-3-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-3-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-3-7, [class*='Grid'].List-Group-Actions > .Node-LR-3-7, [class*='Grid'].List-Params > .Node-LR-3-7 {
-    width: 42.85714%; }
-
-  [class*='Grid'].Split > .Node-LR-3-7 {
-    width: 27.85714%; }
-
-  [class*='Grid'].Merge > .Node-LR-4-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-4-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-4-7, [class*='Grid'].List-Group-Actions > .Node-LR-4-7, [class*='Grid'].List-Params > .Node-LR-4-7 {
-    width: 57.14286%; }
-
-  [class*='Grid'].Split > .Node-LR-4-7 {
-    width: 37.14286%; }
-
-  [class*='Grid'].Merge > .Node-LR-5-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-5-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-5-7, [class*='Grid'].List-Group-Actions > .Node-LR-5-7, [class*='Grid'].List-Params > .Node-LR-5-7 {
-    width: 71.42857%; }
-
-  [class*='Grid'].Split > .Node-LR-5-7 {
-    width: 46.42857%; }
-
-  [class*='Grid'].Merge > .Node-LR-6-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-6-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-6-7, [class*='Grid'].List-Group-Actions > .Node-LR-6-7, [class*='Grid'].List-Params > .Node-LR-6-7 {
-    width: 85.71429%; }
-
-  [class*='Grid'].Split > .Node-LR-6-7 {
-    width: 55.71429%; }
-
-  [class*='Grid'].Merge > .Node-LR-7-7, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-LR-7-7, .Snippet-List [class*='Grid'].Snippet-Item > .Node-LR-7-7, [class*='Grid'].List-Group-Actions > .Node-LR-7-7, [class*='Grid'].List-Params > .Node-LR-7-7 {
-    width: 100%; }
-
-  [class*='Grid'].Split > .Node-LR-7-7 {
-    width: 65%;
-    margin-left: 0;
-    margin-right: 0; }
-
   .Merge > .Node-LR-1, .Site-Header .Site-Header-Inner > .Node-LR-1, .Snippet-List .Snippet-Item > .Node-LR-1, .List-Group-Actions > .Node-LR-1, .List-Params > .Node-LR-1,
   .Control-Group > .Node-LR-1 {
     width: 8.33333%; }
@@ -2285,6 +1417,9 @@ select {
   border-color: #b7b7b7 !important;
   width: 100% !important; }
 
+.Heading + dl.Tabs {
+  margin-top: 15px; }
+
 dl.Tabs {
   clear: both; }
   dl.Tabs dt {
@@ -3027,6 +2162,7 @@ body {
   .Site-Logo a.Link-Home {
     position: absolute;
     top: 0;
+    width: 100%;
     padding: 30px 0;
     text-transform: uppercase;
     line-height: 20px;
@@ -3206,11 +2342,20 @@ footer[role='contentinfo'] {
   background: white;
   border-top: 1px solid #e1e1e1; }
   footer[role='contentinfo'] > div {
-    padding: 30px 0; }
+    padding: 20px 15px 0; }
+    @media screen and (min-width: 1014px) {
+      footer[role='contentinfo'] > div {
+        padding: 30px 0; } }
     footer[role='contentinfo'] > div .Footer-Navigation {
       /*@extend %_Right;*/
       display: inline-block;
-      float: right; }
+      margin-top: 15px; }
+      @media screen and (min-width: 1014px) {
+        footer[role='contentinfo'] > div .Footer-Navigation {
+          margin-top: 0; } }
+      @media screen and (min-width: 1014px) {
+        footer[role='contentinfo'] > div .Footer-Navigation ul {
+          float: right; } }
       footer[role='contentinfo'] > div .Footer-Navigation ul li {
         margin-left: 20px; }
         footer[role='contentinfo'] > div .Footer-Navigation ul li a {
@@ -3238,38 +2383,6 @@ img.Footer-Img {
   display: block;
   padding: 10px 0; }
 
-/* List of snippets like News, etc.
-.List.Snippets {
-	li.List-Item {
-		border: 1px solid $Clr-Clouds;
-		margin-bottom: $size;
-		header {
-			padding-bottom: $size-s;
-			background-color: $Clr-Clouds;
-			@extend ._Clearfix;
-			h5.Item-Title {
-				margin: $size-n 100px $size-n $size-n;
-				display: block;
-
-				a {
-					font-size: $Font-Size-Large;
-					text-transform: uppercase;
-				}
-			}
-
-		}
-		img {
-			width: 100%;
-		}
-		.Description {
-			margin: $size-n;
-			font-size: 14px;
-
-			& > div {
-			}
-		}
-	}
-}*/
 .Item-Subtitle {
   display: block;
   clear: both;
@@ -3279,7 +2392,7 @@ img.Footer-Img {
 
 .Snippet-List .Snippet-Item header {
   position: relative;
-  background-color: #ecf0f1; }
+  background-color: #f9f9f9; }
   .Snippet-List .Snippet-Item header .Item-Category,
   .Snippet-List .Snippet-Item header .Item-Location {
     padding: 0; }
@@ -3321,7 +2434,7 @@ img.Footer-Img {
 
 @media screen and (min-width: 1014px) {
   .Snippet-Item {
-    border: 1px solid #ecf0f1; } }
+    border: 1px solid #f2f2f2; } }
 .Snippet-Item header {
   width: 100%;
   margin-bottom: 15px; }
@@ -3447,13 +2560,19 @@ ul.Tag-List li.Tag-Item {
     display: block;
     height: 35px;
     border: 1px solid #bdc3c7;
-    padding-top: 6px;
+    padding-top: 4px;
     text-align: center;
-    color: #b7b7b7; }
+    color: #b7b7b7;
+    -webkit-transition: text-shadow 0.4s, color 0.4s, background-color 0.4s, border-color 0.4s;
+    -moz-transition: text-shadow 0.4s, color 0.4s, background-color 0.4s, border-color 0.4s;
+    transition: text-shadow 0.4s, color 0.4s, background-color 0.4s, border-color 0.4s; }
     .Item-Vote > li > a:hover {
       background-color: #e74c3c;
       border-color: #c0392b;
-      color: white; }
+      color: white;
+      text-shadow: 1px 1px 0 #c0392b; }
+    .Item-Vote > li > a span.fa {
+      font-size: 14px; }
   .Item-Vote > li > span {
     display: block;
     text-align: center;
@@ -3463,28 +2582,35 @@ ul.Tag-List li.Tag-Item {
     height: 35px;
     color: #bdc3c7;
     font-size: 14px; }
+    .Item-Vote > li > span.Positive {
+      color: #6ea268; }
+    .Item-Vote > li > span.Negative {
+      color: #f46d6d; }
 
 .Menu-List ul li {
   padding: 10px 0; }
 
-#Scroll-Top {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  background: url(../../../../img/techonline/icon-scroll-top.png) no-repeat;
-  display: none;
-  -webkit-transition-property: background;
-  -moz-transition-property: background;
-  transition-property: background;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  transition-duration: 0.3s; }
-  #Scroll-Top:hover {
-    background: url(../../../../img/techonline/icon-scroll-top-hover.png) no-repeat; }
-
+@media screen and (min-width: 1014px) {
+  #Scroll-Top {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px; }
+    #Scroll-Top span {
+      display: block;
+      padding: 5px 10px;
+      font-size: 19px;
+      border: #b7b7b7 1px solid;
+      border-radius: 5px;
+      background-color: white;
+      cursor: pointer;
+      -webkit-transition: border-color 0.4s, color 0.4s, background-color 0.4s;
+      -moz-transition: border-color 0.4s, color 0.4s, background-color 0.4s;
+      transition: border-color 0.4s, color 0.4s, background-color 0.4s; }
+      #Scroll-Top span:hover {
+        border-color: #c0392b;
+        background-color: #e74c3c;
+        color: white; } }
 .Filter.Accordion {
   margin-top: 20px; }
   .Filter.Accordion .Filter-Subheader {

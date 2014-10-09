@@ -8,9 +8,9 @@
                 <img class="Logo-Img" src="/img/techonline/logo.png"/>
                 <h2>Стройтехника
                     <small><span class="Visible-LR">.</span>Онлайн</small>
-                </h2> 
+                </h2>
             </div>
-            <a class="Link-Home" href="/">Вернуться на главную страницу</a>
+            <a class="Link-Home" href="/">Вернуться на главную</a>
         </div>
 
         <div id="Menu-Toggle">
