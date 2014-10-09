@@ -2162,7 +2162,8 @@ body {
   .Site-Logo a.Link-Home {
     position: absolute;
     top: 0;
-    width: 100%;
+    right: 0;
+    left: 15px;
     padding: 30px 0;
     text-transform: uppercase;
     line-height: 20px;
@@ -2598,7 +2599,7 @@ ul.Tag-List li.Tag-Item {
     left: 20px; }
     #Scroll-Top span {
       display: block;
-      padding: 5px 10px;
+      padding: 3px 6px 6px;
       font-size: 19px;
       border: #b7b7b7 1px solid;
       border-radius: 5px;
@@ -2610,7 +2611,8 @@ ul.Tag-List li.Tag-Item {
       #Scroll-Top span:hover {
         border-color: #c0392b;
         background-color: #e74c3c;
-        color: white; } }
+        color: white;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); } }
 .Filter.Accordion {
   margin-top: 20px; }
   .Filter.Accordion .Filter-Subheader {
