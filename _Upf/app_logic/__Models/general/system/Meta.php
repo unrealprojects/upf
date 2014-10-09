@@ -504,7 +504,7 @@ class Meta extends Fields {
         $Tags           =       \UpfModels\Tags::where( 'section', $Section )->get();
 
         /*** Regions List ***/
-        $Regions        =       \UpfModels\Regions::all();
+        $Regions        =       \UpfModels\Regions::SortRegions(true);
 
         /*** Params List ***/
         $Params         =       \UpfModels\Params::where( 'section', $Section )->get();
