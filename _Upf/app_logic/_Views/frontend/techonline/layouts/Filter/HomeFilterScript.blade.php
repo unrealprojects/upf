@@ -104,11 +104,11 @@
 
 /*********************************************************************** Таб :: Региионы ***/
 
-            /*** Autocomplite :: Регионы ***/
-            @if(!empty($Content['filter']['regions_list']))
+            /*** Autocomplete :: Regions ***/
+            @if(!empty($Content['Filters']['regions_list']))
                 var regions = [
-                    @foreach($Content['filter']['regions_list'] as $region)
-                        {key:"{{$region['alias']}}",label:"{{$region['name']}}"},
+                    @foreach($Content['Filters']['regions_list'] as $Region)
+                        {key:"{{$Region['alias']}}",label:"{{$Region['title']}}"},
                     @endforeach
                 ];
 
@@ -163,7 +163,7 @@
             /*** Autocomplite по Категориям ***/
             var categories = [
                 @foreach($Content['Filters']['categories_list'] as $Category)
-                    {key:"{{$Category['alias']}}",label:"{{$Category['name']}}"},
+                    {key:"{{$Category['alias']}}",label:"{{$Category['title']}}"},
                 @endforeach
             ];
 
@@ -292,14 +292,14 @@
                 max: 50000,
                 values: [ searchArray['price-min']?searchArray['price-min']:100, searchArray['price-max']?searchArray['price-max']:50000 ],
                 slide: function( event, ui ) {
-                    $("#Slider-Range-Value-1").text(ui.values[ 0 ] + " руб. - " + ui.values[ 1 ] +" руб.");
+                    $("#Slider-Range-Value-1").html(ui.values[ 0 ] + " - " + ui.values[ 1 ] +"  <span class='fa fa-rub'></span>");
                     searchArray['price-min']=ui.values[ 0 ];
                     searchArray['price-max']= ui.values[ 1 ];
                 }
             });
 
-            $("#Slider-Range-Value-1").text(
-                $( "#Slider-Range-1").slider( "values", 0 ) + " руб. - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" руб."
+            $("#Slider-Range-Value-1").html(
+                $( "#Slider-Range-1").slider( "values", 0 ) + " - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" <span class='fa fa-rub'></span>"
             );
 
             @if(isset($Content['Filters']['params']))
@@ -332,22 +332,13 @@
                     searchString+=key+'='+value+'&';
                 }
             });
-    {{-- location.href='{{$Content["Filters"]["type"]}}'+searchString;--}}
+            location.href=searchString;
               console.log('rent'+searchString);
         }
         $('#Filter-Search').click(function(){
             filterSearch();
         });
 
-
-    /*
-     Добавить на страницы "аренда, каталог, запчасти и сервис, арендодатели" рейтинг
-     Привести в порядок лайтбокс
-     Не нравится как выглядят Фотки для каталогов
-     На Главной - Аренда стройтехники и производители (причесать)
-     Кнопка меню в мобильной версии
-     Скрыть фильтр в сплойлер на внутренних страницах
-     */
 </script>
 @endsection
 
