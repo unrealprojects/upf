@@ -75,19 +75,7 @@
             @endif
         {{-- End Regions --}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </dl>
+</section>
 
 {{-- @include('frontend.site_techonline.layouts/filter/FilterScript')  --}}
