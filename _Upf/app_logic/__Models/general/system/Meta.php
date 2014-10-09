@@ -499,24 +499,29 @@ class Meta extends Fields {
 
         /*** Categories List ***/
         $Categories     =       \UpfModels\Categories::SortCategories(true);
+        $CategoriesList =       \UpfModels\Categories::where( 'section', $Section )->get();
 
         /*** Tags List ***/
         $Tags           =       \UpfModels\Tags::where( 'section', $Section )->get();
 
         /*** Regions List ***/
         $Regions        =       \UpfModels\Regions::SortRegions(true);
+        $RegionsList        =       \UpfModels\Regions::all();
 
         /*** Params List ***/
         $Params         =       \UpfModels\Params::where( 'section', $Section )->get();
+        // Set Filter To Session
 
 
 
         /*** Return Filters ***/
         return [
-            'categories'    =>     $Categories,
-            'tags'          =>     $Tags,
-            'regions'       =>     $Regions,
-            'params'        =>     $Params,
+            'categories'        =>     $Categories,
+            'tags'              =>     $Tags,
+            'regions'           =>     $Regions,
+            'regions_list'      =>     $RegionsList,
+            'categories_list'   =>     $CategoriesList,
+           // 'params'        =>     $Params,
         ];
     }
 

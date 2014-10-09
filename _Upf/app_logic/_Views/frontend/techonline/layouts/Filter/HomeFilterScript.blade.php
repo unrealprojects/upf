@@ -105,9 +105,9 @@
 /*********************************************************************** Таб :: Региионы ***/
 
             /*** Autocomplite :: Регионы ***/
-            @if(!empty($content['filter']['regions_list']))
+            @if(!empty($Content['filter']['regions_list']))
                 var regions = [
-                    @foreach($content['filter']['regions_list'] as $region)
+                    @foreach($Content['filter']['regions_list'] as $region)
                         {key:"{{$region['alias']}}",label:"{{$region['name']}}"},
                     @endforeach
                 ];
@@ -162,8 +162,8 @@
 
             /*** Autocomplite по Категориям ***/
             var categories = [
-                @foreach($content['filter']['categories_list'] as $category)
-                    {key:"{{$category['alias']}}",label:"{{$category['name']}}"},
+                @foreach($Content['Filters']['categories_list'] as $Category)
+                    {key:"{{$Category['alias']}}",label:"{{$Category['name']}}"},
                 @endforeach
             ];
 
@@ -302,8 +302,8 @@
                 $( "#Slider-Range-1").slider( "values", 0 ) + " руб. - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" руб."
             );
 
-            @if(!empty($content['filter']['params']))
-                @foreach($content['filter']['params']['filters'] as $key => $param)
+            @if(isset($Content['Filters']['params']))
+                @foreach($Content['Filters']['params']['filters'] as $key => $param)
                     $("#Slider-Range-{{$param['alias']}}").slider({
                         range: true,
                         min: {{$param['min_value']}},
@@ -332,7 +332,7 @@
                     searchString+=key+'='+value+'&';
                 }
             });
-            location.href='{{$content["filter"]["type"]}}'+searchString;
+    {{-- location.href='{{$Content["Filters"]["type"]}}'+searchString;--}}
               console.log('rent'+searchString);
         }
         $('#Filter-Search').click(function(){

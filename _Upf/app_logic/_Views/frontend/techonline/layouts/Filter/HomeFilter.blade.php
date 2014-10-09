@@ -135,10 +135,10 @@
                     <form class="Form-Vertical" action="">
 
                         <div class="Control-Group">
-                            @if(isset($Content['Filters']['has_price']))
-                                <label for="Slider-Range-1">Цена: <span id="Slider-Range-Value-1"></span></label>
-                                <div class="Slider-Range" id="Slider-Range-1"></div>
-                            @endif
+
+                             <label for="Slider-Range-1">Цена: <span id="Slider-Range-Value-1"></span></label>
+                             <div class="Slider-Range" id="Slider-Range-1"></div>
+
                         </div>
 
                         @if(!empty($Content['Filters']['params']))
@@ -199,4 +199,4 @@
     </dl>
 </section>
 
-{{-- @include('frontend.site_techonline.layouts/filter/FilterScript')  --}}
+@include($TemplateLayouts . '/Filter/HomeFilterScript')
