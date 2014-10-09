@@ -20,39 +20,64 @@ class Categories extends Fields{
             ->first();
     }
 
-    /*** Subcategories in Double Level***/
-    static public function toSubCategories($withPopular=false){
-       $instance = new static;
-       $categories=$instance::where('app_section','catalog')->get()->toArray();
-       $sorted=[];
-        $i=0;
-        // Popular
-        if($withPopular){
-            $sorted[0]=["name"=>"Популярные","alias"=>"popular"];
-            foreach($categories as $key=>&$category){
-                if($category['popular']){
-                    $sorted[0]['subCategories'][]=$category;
+
+    /*** *** Subcategories in Double Level *** ***/
+
+    static public function SortCategories($Popular = false){
+
+       /*** Get Categories ***/
+       $Instance = new static;
+       $Categories=$Instance::where('section','catalog')->get()->toArray();
+
+       $SortedCategories = [];
+        $SortedCategories[0]['title'] = 'Популярные';
+        $SortedCategories[0]['alias'] = '';
+        /*** Get Popular ***/
+        if($Popular){
+            // Each Category
+            foreach($Categories as &$Category){
+                /*** Set Level Areas ***/
+                if($Category['privileges']== true ){
+                    $SortedCategories[0]['list'][] = $Category;
                 }
             }
-            $i++;
         }
 
-        // Catalog
-       foreach($categories as $key=>&$category){
-           if($category['parent_id']==0){
-               $sorted[]=$category;
-               foreach($categories as $subKey=>&$subcategory){
-                   if($subcategory['parent_id']!=0 && $category['id']==$subcategory['parent_id']){
-                       $sorted[$i]['subCategories'][]=$subcategory;
-                       unset($categories[$subKey]);
-                   }
-               }
-               unset($categories[$key]);
-               $i++;
-           }
-       }
-       return $sorted;
+        /*** Set  Categories ***/
+        foreach($Categories as &$Category){
+            /*** Set Level 1 Categories ***/
+            if($Category['parent_id'] == 0 ){
+                $SortedCategories[] = $Category;
+                unset($Category);
+            }
+        }
+
+        /*** Set Sub Categories ***/
+        // Each Area
+        foreach($SortedCategories as &$SortedCategory){
+            //Each Region
+            foreach($Categories as &$Category){
+
+                if(isset($SortedCategory['id']) && $SortedCategory['id']==$Category['parent_id']){
+                    $SortedCategory['list'][] = $Category;
+                    unset($Category);
+
+                }
+
+            }
+        }
+
+//        print_r($SortedCategories);exit;
+        return $SortedCategories;
+
+
     }
+
+
+
+
+
+
 
     /*** Get Subcategories In Search ***/
     public static function filterSubCategories($query,$alias){

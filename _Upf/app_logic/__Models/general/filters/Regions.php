@@ -36,7 +36,7 @@ class Regions extends Fields {
             foreach($Regions as &$Region){
                 /*** Set Level Areas ***/
                 if($Region['privileges']== true ){
-                    $SortedRegions['popular']['regions'][] = $Region;
+                    $SortedRegions['popular']['list'][] = $Region;
                 }
             }
         }
