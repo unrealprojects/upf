@@ -40,6 +40,7 @@ class Rent extends Meta{
                 'meta.regions',
                 'meta.files',
                 'meta.users',
+                'meta.comments',
                 'meta.categories.params',
                 'meta.paramsvalues',
                 'meta.paramsvalues.params',

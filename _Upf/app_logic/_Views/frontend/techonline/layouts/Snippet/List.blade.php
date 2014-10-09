@@ -72,7 +72,7 @@
                     {{-- Group :: Media --}}
 
                         @if( isset($Item['logotype']) || isset($Item['photos']) )
-                            @include( $TemplateLayouts . 'Snippet.Elements.Media', [ 'MediaClass' => 'Node-XS-3' ])
+                            @include( $TemplateLayouts . 'Snippet.Elements.Media', [ 'MediaClass' => 'Node-XS-2' ])
                         @endif
 
                     {{-- End Group :: Media --}}
@@ -83,7 +83,7 @@
                     {{-- Group :: Content --}}
 
                         @if( isset($Item['intro']) )
-                            <div class="Item-Content Node-XS-9" >
+                            <div class="Item-Content Node-XS-10" >
                                 <p>{{ $Item['intro'] }}</p>
 
                                 {{-- More Info --}}
