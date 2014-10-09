@@ -369,6 +369,9 @@ class Meta extends Fields {
     /******************************************************************************************************************* ***/
     /******************************************************************************************************************* ***/
 
+
+
+
     /*** *** Get Front List *** ***/
     public function FrontIndex($Filter = []){
         /*** Get Data ***/
@@ -394,7 +397,11 @@ class Meta extends Fields {
         ];
     }
 
+
+
+
     /*** *** Get Front Filters *** ***/
+
     public function FrontFilters(){
 
         /*** Categories List ***/

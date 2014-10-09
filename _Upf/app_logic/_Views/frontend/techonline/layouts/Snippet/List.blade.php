@@ -8,7 +8,7 @@
     <article>
         <ul class="Snippet-List">
 
-            {{-- Each Item--}}
+            {{-- Each Item --}}
             @foreach( $Content['List'] as $ItemKey => $Item )
 
                 <li class="Snippet-Item Grid Merge">
