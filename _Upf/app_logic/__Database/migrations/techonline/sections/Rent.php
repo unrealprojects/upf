@@ -62,6 +62,30 @@ class Rent extends Migration {
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+
+            /*** *** Frontend *** ***/
+
+                /*** List ***/
+                // Group :: Main
+                ['№', 'id', 'text', 'Title', 'main', false, 'frontend', $Table, 'list'],
+                ['Заголовок', 'title', 'text', 'Title', 'main', true, 'frontend', $Table, 'list'],
+                ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
+                ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
+
+                // Group :: Media
+                ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'list',''],
+                ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'list'],
+
+                // Group :: Statuses
+                ['Цена',        'price',                     'text',       'Price',      'statuses',         true,       'frontend',   $Table,     'list'],
+
+
+                // Group :: More
+                ['Категория',       'catalog-meta-categories',     'link',       'Price',      'more',         true,       'frontend',     $Table,       'list' ,  'link' ,'catalog'],
+                ['Пользователь',    'meta-users',     'link',       'Price',      'more',         true,       'frontend',     $Table,       'list' ,  'link' ,'users'],
+                ['Состояние',    'condition',     'config',       'Price',      'more',         true,       'frontend',     $Table,       'list' , 'config' , 'condition' ],
+
+
         ];
     }
 }

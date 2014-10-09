@@ -25,25 +25,38 @@
                                         {{ $Item['title'] }}
                                     </a>
 
-                                    @if( isset($Item['meta']) )
+                                    @if( isset($Item['meta']) && isset($Content['Fields']['date']['meta-created_at']) )
                                         <span class="Item-Subtitle">{{ $Item['meta']['created_at'] }}</span>
                                     @endif
 
                                 </h4>
                             @endif
 
+                            @if( isset($Item['price']) && isset($Content['Fields']['statuses']['price']) )
+                                <div class="Price">
+                                    <span>{{$Item['price']}}</span>
+                                    <span>руб.</span>
+                                </div>
+                            @endif
+
                             @if( isset($Item['meta']) )
-                                <ul class="Vote">
-                                    <li><a class="Vote-Down" href="#"></a></li>
-                                    <li><span>{{ $Item['meta']['rating'] }}</span></li>
-                                    <li><a class="Vote-Up" href="#"></a></li>
-                                </ul>
 
 
                                 {{-- Group :: Statuses --}}
 
+                                    @if(isset($Item['meta']['rating']))
+                                        <ul class="Vote">
+                                            <li><a class="Vote-Down" href="#"></a></li>
+                                            <li><span>{{ $Item['meta']['rating'] }}</span></li>
+                                            <li><a class="Vote-Up" href="#"></a></li>
+                                        </ul>
+                                    @endif
 
-
+                                    @if(isset($Item['meta']['views']))
+                                        <div class="Views">
+                                            <span>{{ $Item['meta']['views'] }}</span>
+                                        </div>
+                                    @endif
 
                                 {{-- End Group :: Statuses --}}
 
@@ -74,18 +87,33 @@
                                 <p>{{ $Item['intro'] }}</p>
 
                                 {{-- More Info --}}
-                                <div class="">
-                                    <h6 class=" Toggle-Next-Item"><a href="#">Подробная информация</a></h6>
-                                    <table class="Toggled-Next-Item">
-
-                                        @if( isset($Item['price']) )
-                                            <tr>
-                                                <td>Цена:</td>
-                                                <td>{{ $Item['price'] }}руб.</td>
-                                            </tr>
-                                        @endif
-                                    </table>
-                                 </div>
+                                @if( isset($Content['Fields']['more']) )
+                                    <div class="">
+                                        <h6 class=" Toggle-Next-Item"><a href="#">Подробная информация</a></h6>
+                                        <table class="Toggled-Next-Item">
+                                            @foreach( $Content['Fields']['more'] as $FieldMore )
+                                                @if($SubItem = \UpfHelpers\View::RelationToArray( $Item, $FieldMore['relation'] ))
+                                                    @if($FieldMore['type']=='link')
+                                                         <tr>
+                                                             <td>{{ $FieldMore['title'] }}</td>
+                                                             <td>
+                                                                 <a href="{{$FieldMore['values'] . '/' .( isset($SubItem['alias'])?$SubItem['alias']
+                                                                                                                                  :$SubItem['login'] ) }}">
+                                                                     {{ $SubItem['title'] }}
+                                                                 </a>
+                                                             </td>
+                                                         </tr>
+                                                    @elseif($FieldMore['type']=='config')
+                                                        <tr>
+                                                            <td>{{ $FieldMore['title'] }}</td>
+                                                            <td>{{ \Config::get('models/Fields.' . $FieldMore['values'] . '.' . $SubItem) }}</td>
+                                                        </tr>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        </table>
+                                     </div>
+                                @endif
                             </div>
                         @endif
 

@@ -41,6 +41,12 @@ class Meta extends Fields {
         return $this->hasMany('UpfModels\Regions','id','region_id');
     }
 
+    /*** Relations :: Regions :: Has One ***/
+    public function users()
+    {
+        return $this->hasOne('UpfModels\Users','id','user_id');
+    }
+
 
     /******************************************************************************************************************* Where ***/
 
@@ -373,7 +379,9 @@ class Meta extends Fields {
 
 
     /*** *** Get Front List *** ***/
+
     public function FrontIndex($Filter = []){
+
         /*** Get Data ***/
         $List = $this->WhereStatusesInMeta($this,$Filter)
             ->with('meta',
@@ -382,11 +390,15 @@ class Meta extends Fields {
                    'meta.regions',
                    'meta.files',
                    'meta.categories.params',
-                   'meta.paramsvalues')
+                   'meta.paramsvalues',
+                   'meta.paramsvalues.params')
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                                             :\Config::get('site\app_settings.PaginateFrontend.content')
             );
+
+        // print_r($this->GetFields('list','frontend', true));exit;
+        // print_r($List->toArray()['data']);exit;
 
         /*** Return Frontend Content ***/
         return [

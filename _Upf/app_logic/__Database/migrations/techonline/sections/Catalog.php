@@ -18,7 +18,6 @@ class Catalog extends Migration {
             $table->text('intro')->nullable();
             $table->text('text')->nullable();
 
-
             /*** Relations ***/
             $table->integer('meta_id')->default(0);
         });

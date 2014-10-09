@@ -90,26 +90,52 @@ class Meta extends Migration {
     /*** Related Meta Fields ***/
     public static function MetaFields($Table){
         return [
-            /*** Edit ***/
-            // Group :: Meta
-            ['Алиас', 'meta-alias', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Title', 'meta-title', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Descriptions', 'meta-description', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Keywords', 'meta-keywords', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+            /*** *** Backend *** ***/
+
+                /*** Edit ***/
+
+                // Group :: Meta
+                ['Алиас', 'meta-alias', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+                ['Title', 'meta-title', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+                ['Descriptions', 'meta-description', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+                ['Keywords', 'meta-keywords', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+                // Group :: Relations
+                ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
+                ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
+                ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Tags'],
+                ['Параметры', 'meta-categories-params', 'params', 'Relation', 'relations', true, 'backend', $Table, 'edit'],
+                // Group :: Statuses
+                ['Статус', 'meta-status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
+                ['Привелегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+                ['Рейтинг', 'meta-rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
+                ['Просмотры', 'meta-views', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
+                ['Избранное', 'meta-favorite', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.favorite'],
+                // Group :: Date
+                ['Создано', 'meta-created_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
+                ['Обновлено', 'meta-updated_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
+
+
+
+
+        /*** *** Frontend *** ***/
+
+            /*** List ***/
+/*
             // Group :: Relations
-            ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
-            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
-            ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Tags'],
-            ['Параметры', 'meta-categories-params', 'params', 'Relation', 'relations', true, 'backend', $Table, 'edit'],
+            ['Категория',    'meta-categories',     'text',       'Relation',     'relations',      true,     'frontend',     $Table,     'list'],
+            ['Регион',       'meta-region',         'text',       'Relation',     'relations',      true,     'frontend',     $Table,     'list'],
+            ['Тэги',         'meta-tags',           'text',       'Relation',     'relations',      true,     'frontend',     $Table,     'list'],
+            ['Параметры',    'meta-paramsvalues',   'text',       'Relation',     'relations',      true,     'frontend',     $Table,     'list'],
+
             // Group :: Statuses
-            ['Статус', 'meta-status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
-            ['Рейтинг', 'meta-rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
-            ['Просмотры', 'meta-views', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
-            ['Избранное', 'meta-favorite', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.favorite'],
+            ['Статус',       'meta-status',         'text',        'Status',       'statuses',      true,     'frontend',     $Table,     'list'],
+            ['Привелегии',   'meta-privileges',     'text',        'Status',       'statuses',      true,     'frontend',     $Table,     'list'],
+            ['Рейтинг',      'meta-rating',         'text',        'Status',       'statuses',      false,    'frontend',     $Table,     'list'],
+            ['Просмотры',    'meta-views',          'text',        'Status',       'statuses',      false,    'frontend',     $Table,     'list'],
+
             // Group :: Date
-            ['Создано', 'meta-created_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'date', false, 'backend', $Table, 'edit'],
+            ['Созданно',     'meta-created_at',     'text',        'Status',       'date',          false,    'frontend',     $Table,     'list'],
+*/
         ];
     }
 

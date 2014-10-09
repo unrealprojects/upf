@@ -67,9 +67,13 @@ class Articles extends Migration {
                 ['Заголовок', 'title', 'text', 'Title', 'main', true, 'frontend', $Table, 'list'],
                 ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
                 ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
+
                 // Group :: Media
                 ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'list',''],
                 ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'list'],
+
+                // Group :: Statuses
+
         ];
     }
 }

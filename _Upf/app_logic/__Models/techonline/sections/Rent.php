@@ -6,6 +6,62 @@ class Rent extends Meta{
     protected $table = 'section_rent';
     public $Section = 'rent';
     public $PhotosUrl = '/photo/standard/sections/rent/';
+
+
+    /*** Categories :: Has One ***/
+
+    public function catalog()
+    {
+        return $this->hasOne('UpfModels\Catalog','id','model_id');
+    }
+
+
+
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* ***/
+
+    /*** ***    Front Functions     *** ***/
+
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* ***/
+
+
+
+
+    /*** *** Get Front List *** ***/
+
+    public function FrontIndex($Filter = []){
+
+        /*** Get Data ***/
+        $List = $this->WhereStatusesInMeta($this,$Filter)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files',
+                'meta.users',
+                'meta.categories.params',
+                'meta.paramsvalues',
+                'meta.paramsvalues.params',
+                'catalog',
+                'catalog.meta',
+                'catalog.meta.categories')
+            ->paginate(
+                isset($Filter['Pagination'])?$Filter['Pagination']
+                    :\Config::get('site\app_settings.PaginateFrontend.content')
+            );
+
+//         print_r($this->GetFields('list','frontend', true));exit;
+//        print_r($List->toArray()['data']);exit;
+
+        /*** Return Frontend Content ***/
+        return [
+            'List'          =>      $List->toArray()['data'],
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+            'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
+            'Filters'       =>      $this->FrontFilters()
+        ];
+    }
 }
 
 
