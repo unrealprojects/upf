@@ -178,7 +178,7 @@
 
                     <ul class="List-Params  Accordion-Brands Spoiler-Content Grid Merge">
                         @foreach($Content['Filters']['tags'] as $Tag)
-                        <li class="Item-Group-Actions Node-XS-6 Node-LR-4">
+                        <li class="Item-Group-Actions Node-XS-6 Node-SM-4 Node-LR-3">
                             <label class="Control-Group">
                                 <span class="Node-XXS-8" for="brand_{{$Tag['alias']}}" >{{$Tag['title']}}</span>
                                 <input class="Node-XXS-4 Slide End" type="checkbox" checked="checked" name="{{$Tag['alias']}}" id="tag_{{$Tag['alias']}}"/>

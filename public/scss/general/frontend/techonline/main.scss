@@ -688,7 +688,7 @@ ul.Tag-List {
 	.Control-Group,
 	a {
 		display: block;
-		padding: $size-s $size-l;
+		padding: $size-xs $size-l;
 		font-weight: bold;
 		font-size: 80%;
 		color: $Clr-Grey-Darker;
@@ -703,6 +703,10 @@ ul.Tag-List {
 				background-image: url(../../../../img/techonline/icon-backward.png);
 			}
 		}
+	}
+	label span
+	{
+		padding: $Control-Padding;
 	}
 	&:first-child {
 		border: 0;
