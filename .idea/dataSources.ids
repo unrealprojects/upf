@@ -29,6 +29,8 @@
       <column name="dimension" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="param_type" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="param_set" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="param_min" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="param_max" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="section" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="status" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="privileges" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
@@ -52,13 +54,10 @@
       <column name="value" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="item_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="param_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="section" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="status" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
-      <column name="privileges" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="filter_params_values_item_id_param_id_section_unique" unique="true" columns="item_id,param_id,section"/>
+      <index name="filter_params_values_item_id_param_id_unique" unique="true" columns="item_id,param_id"/>
     </table>
     <table name="hardcore_filter_regions" schema="" catalog="hardcore" type="TABLE">
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -109,7 +108,6 @@
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="title" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="logotype" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="photos" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="intro" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="text" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="meta_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
@@ -132,23 +130,20 @@
       <column name="price" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="intro" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="text" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
-      <column name="photos" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="meta_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="opacity" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="condition" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="hardcore_section_rent" schema="" catalog="hardcore" type="TABLE">
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="title" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="logotype" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="photos" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="intro" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="text" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="price" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="meta_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="model_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="is_free" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="opacity" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="condition" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="hardcore_section_users" schema="" catalog="hardcore" type="TABLE">
@@ -158,7 +153,6 @@
       <column name="remember_token" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
       <column name="title" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="logotype" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="photos" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="first_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="last_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="gender" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6" def="MA=="/>
@@ -191,11 +185,12 @@
     </table>
     <table name="hardcore_system_comments" schema="" catalog="hardcore" type="TABLE">
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="alias" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="author" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="post" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <column name="section" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="wall_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="author_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="parent_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="status" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6" def="Mg=="/>
       <column name="privileges" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
@@ -209,9 +204,12 @@
       <column name="alias" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="title" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="component_type" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="destination" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="status" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MQ=="/>
       <column name="favorite" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
       <index name="system_components_alias_unique" unique="true" columns="alias"/>
     </table>
@@ -226,7 +224,7 @@
       <column name="values" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="values_type" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="table" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12" def="J3NlY3Rpb25fbWV0YSc="/>
-      <column name="destination" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12" def="J2JhY2tlbmQn"/>
+      <column name="destination" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="view" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12" def="J2xpc3Qn"/>
       <primary-key name="PRIMARY" columns="id"/>
       <index name="system_fields_table_destination_relation_view_unique" unique="true" columns="table,destination,relation,view"/>
