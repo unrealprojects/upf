@@ -23,7 +23,7 @@ class CommentsSeeder extends \Seeder {
             $Comments->alias = $Comments->CreateUniqueAlias(\Mascame\Urlify::filter(substr($Comments->post,0,20)),'\UpfModels\\Comments');
             /*** Relations ***/
             $Comments->section = $Section;
-            $Comments->wall_id = $NewWall + 1;
+            $Comments->wall_id = $NewWall;
 
             $Comments->save();
         }

@@ -152,11 +152,18 @@
 
 </section>
 
+    {{-- Comments --}}
+          @include($TemplateLayouts . 'Snippet.Comments.List',
+            [ 'Comments' => isset($Content['Item']['meta']['comments'])?$Content['Item']['meta']['comments']:[] ] )
+    {{-- End Comments --}}
+
 
 @endsection
 
+
+
 {{-- Include Scripts --}}
 @section('scripts')
-@parent
-<script src="/js/frontend/Accordion.js" type="text/javascript"></script>
+    @parent
+    <script src="/js/frontend/Accordion.js" type="text/javascript"></script>
 @endsection

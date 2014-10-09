@@ -7,6 +7,12 @@ class HomeController extends FrontendController{
     public $BaseUrl = '/';
 
     public function Index(){
+        /*** Default Model ***/
+        $DefaultModel = new $this->Model();
+
+        /*** Set Content ***/
+        $this->ViewData['Content'] = $DefaultModel->FrontHome();
+
         return \View::make($this->View,$this->ViewData);
     }
 }
@@ -50,4 +56,4 @@ public function filterSet($category_alias){
         'params'=>[htmlentities($content)],
         'script'=>[htmlentities($script)],
     ]);
-}*/
+} */

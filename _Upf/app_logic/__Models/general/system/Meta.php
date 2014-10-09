@@ -7,7 +7,7 @@ class Meta extends Fields {
     protected $table = 'system_meta';
     public $Config = 'models/backend/sections/Meta';
     public $PhotosUrl = '/photo/standard/system/meta/';
-    public $Section = '';
+    public $Section = 'Meta';
 
     /******************************************************************************************************************* Relations ***/
 
@@ -45,6 +45,12 @@ class Meta extends Fields {
     public function users()
     {
         return $this->hasOne('UpfModels\Users','id','user_id');
+    }
+
+    /*** Relations :: Regions :: Has Many ***/
+    public function comments()
+    {
+        return $this->hasMany('UpfModels\Comments','wall_id','comments_id');
     }
 
 
@@ -409,6 +415,9 @@ class Meta extends Fields {
         ];
     }
 
+
+
+
     /*** *** Get Front Item *** ***/
 
     public function FrontItem($Alias = ''){
@@ -416,17 +425,20 @@ class Meta extends Fields {
         /*** Get Data ***/
         $Item = $this->WhereAliasInMeta($this,$Alias)
             ->with('meta',
-                'meta.categories',
-                'meta.tags',
-                'meta.regions',
-                'meta.files',
-                'meta.categories.params',
-                'meta.paramsvalues',
-                'meta.paramsvalues.params')
+                   'meta.categories',
+                   'meta.tags',
+                   'meta.regions',
+                   'meta.comments',
+                   'meta.files',
+                   'meta.categories.params',
+                   'meta.paramsvalues',
+                   'meta.paramsvalues.params'
+                   )
             ->first();
 
+
         // print_r($this->GetFields('list','frontend', true));exit;
-        // print_r($Item->toArray());exit;
+//         print_r($Item->toArray());exit;
 
         /*** Return Frontend Content ***/
         return [
@@ -437,21 +449,65 @@ class Meta extends Fields {
 
 
 
+
+    /*** *** Get Front Home *** ***/
+
+    public function FrontHome(){
+
+
+        /*** Main Catalog Categories List ***/
+        $MainCatalogCategories     =       \UpfModels\Categories::where( 'section', 'catalog' )
+                                                                ->where('parent_id',0)
+                                                                ->get()
+                                                                ->toArray();
+
+        /*** Best Users List ***/
+        $BestUsers      =    \UpfModels\Users::with('meta','meta.regions')
+                                               ->limit(6)
+                                               ->whereHas('meta',function($Query){
+                                                    return $Query->orderBy('rating','desc');
+                                                })
+                                               ->get()
+                                               ->toArray();
+
+        /*** Last Articles ***/
+        $LastArticles      =    \UpfModels\Articles::with('meta','meta.regions','meta.tags')
+                                                    ->limit(6)
+                                                    ->whereHas('meta',function($Query){
+                                                        return $Query->orderBy('rating','desc');
+                                                    })
+                                                    ->get()
+                                                    ->toArray();
+
+//        print_r($MainCatalogCategories);
+        /*** Return Filters ***/
+        return [
+            'Filters'                   =>      $this->FrontFilters('catalog'),
+            'MainCatalogCategories'     =>      $MainCatalogCategories,
+            'BestUsers'                 =>      $BestUsers,
+            'LastArticles'              =>      $LastArticles,
+        ];
+    }
+
     /*** *** Get Front Filters *** ***/
 
-    public function FrontFilters(){
+    public function FrontFilters($Section = false){
+
+        if(!$Section){
+            $Section = $this->Section;
+        }
 
         /*** Categories List ***/
-        $Categories     =       \UpfModels\Categories::where( 'section', $this->Section )->get();
+        $Categories     =       \UpfModels\Categories::where( 'section', 'catalog' )->get();
 
         /*** Tags List ***/
-        $Tags           =       \UpfModels\Tags::where( 'section', $this->Section )->get();
+        $Tags           =       \UpfModels\Tags::where( 'section', $Section )->get();
 
         /*** Regions List ***/
         $Regions        =       \UpfModels\Regions::all();
 
         /*** Params List ***/
-        $Params         =       \UpfModels\Params::where( 'section', $this->Section )->get();
+        $Params         =       \UpfModels\Params::where( 'section', $Section )->get();
 
 
 
