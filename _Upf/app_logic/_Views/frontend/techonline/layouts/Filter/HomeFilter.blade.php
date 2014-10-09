@@ -2,11 +2,11 @@
 
     <h3 class="Heading Primary"><span class="fa fa-search"></span>Поиск стройтехники</h3>
 
-    <dl class="Tabs">
+    <dl class="Tabs Grid Merge">
 
         {{-- Regions --}}
             @if( isset($Content['Filters']['regions']) )
-                <dt class="Active Tab-Regions"><span>Выбор региона</span></dt>
+                <dt class="Active Tab-Regions Node-XXS-6 Node-XS-3"><span>Выбор региона</span></dt>
 
                 <dd class="Active Tab-Regions">
                     <div>
@@ -50,7 +50,7 @@
 
                                                                 <ul class="List-Params Row Merge">
                                                                     @foreach($RegionItem['cities'] as $City)
-                                                                        <li class="List-Params-Item Grid-XS-6 Grid-LR-4">
+                                                                        <li class="List-Params-Item Node-XS-6 Node-LR-4">
                                                                             <a href="#" alias="{{$city['alias']}}">{{$city['name']}}</a>
                                                                         </li>
                                                                     @endforeach
@@ -83,7 +83,7 @@
 
         {{-- Categories --}}
             @if(!empty($Content['Filters']['categories']))
-            <dt class="Tab-Categories {{(!empty($Content['Filters']['type']) && $Content['Filters']['type']=='catalog')?'inTwo Active':''}}">
+            <dt class="Tab-Categories Node-XXS-6 Node-XS-3 {{(!empty($Content['Filters']['type']) && $Content['Filters']['type']=='catalog')?'inTwo Active':''}}">
                 <span>Выбор категории</span>
             </dt>
 
@@ -126,7 +126,7 @@
 
 
         {{-- Params --}}
-            <dt class="Wide Tab-Params">
+            <dt class="Wide Tab-Params Node-XXS-6 Node-XS-3">
                 <span>Дополнительные параметры</span>
             </dt>
 
@@ -161,7 +161,7 @@
 
         {{-- Tags --}}
             @if(isset($Content['Filters']['tags']))
-                <dt class="Tab-Params">
+                <dt class="Tab-Params Node-XXS-6 Node-XS-3">
                     <span>Производители</span>
                 </dt>
 
@@ -170,26 +170,24 @@
                     <ul class="List-Group-Actions">
                         <li class="Item-Group-Actions">
                             <label class="Control-Group">
-                                <input type="checkbox" checked="checked" id="all_brands"/>
-                                <span for="all_params" >Все производители</span>
+                                <span class="Node-XXS-8" for="all_params" >Все производители</span>
+                                <input class="Node-XXS-4 Slide End" type="checkbox" checked="checked" id="all_brands"/>
                             </label>
                         </li>
                     </ul>
 
-                    <div class="Spoiler">
-                        <a href="#" class="Spoiler-Caption"><span class="fa fa-angle-down"></span>Конкретные производители</a>
+                    <ul class="List-Params  Accordion-Brands Spoiler-Content Grid Merge">
+                        @foreach($Content['Filters']['tags'] as $Tag)
+                        <li class="Item-Group-Actions Node-XS-6 Node-LR-4">
+                            <label class="Control-Group">
+                                <span class="Node-XXS-8" for="brand_{{$Tag['alias']}}" >{{$Tag['title']}}</span>
+                                <input class="Node-XXS-4 Slide End" type="checkbox" checked="checked" name="{{$Tag['alias']}}" id="tag_{{$Tag['alias']}}"/>
+                            </label>
+                        </li>
+                        @endforeach
+                    </ul>
 
-                        <ul class="List-Params  Accordion-Brands Spoiler-Content">
-                            @foreach($Content['Filters']['tags'] as $Tag)
-                            <li class="Item-Group-Actions Grid-XS-6 Grid-LR-4">
-                                <label class="Control-Group">
-                                    <input type="checkbox" checked="checked" name="{{$Tag['alias']}}" id="tag_{{$Tag['alias']}}"/>
-                                    <span for="brand_{{$Tag['alias']}}" >{{$Tag['title']}}</span>
-                                </label>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
+
 
                 </dd>
             @endif

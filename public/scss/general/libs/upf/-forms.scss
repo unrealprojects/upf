@@ -123,6 +123,10 @@ textarea,
 label
 {
 	@extend ._Unselectable;
+	&.Control-Group
+	{
+		cursor: pointer;
+	}
 }
 select:focus
 {
@@ -181,6 +185,8 @@ button
 
 		font-size: $Control-Font-Size;
 		line-height: $Control-Line-Height;
+
+		cursor: pointer;
 	}
 	input,
 	select,
@@ -307,17 +313,6 @@ button
 		&.Error
 		{
 			color: white;
-		}
-	}
-	.Input-Group .Checkbox
-	{
-		input[type='checkbox'].Slide
-		{
-
-		}
-		label
-		{
-
 		}
 	}
 	.Input-Group.Merge
@@ -538,7 +533,6 @@ dl.Tabs {
 		margin-left: -1px;
 		position: 		relative;
 		display: 		table;
-		width: 			30%;
 		float: 			left;
 		min-height: 	48px;
 		padding: 		$size-xs 0;
@@ -563,9 +557,6 @@ dl.Tabs {
 			background-color: $Clr-Midnight-Blue;
 			color: #fff;
 		}
-		&.Wide {
-			width: 40%;
-		}
 
         &.inTwo{
             width:50%;
@@ -574,7 +565,12 @@ dl.Tabs {
 	dd {
 		display: none;
 		float: right;
-		margin: 60px 0 0 -100%;
+
+		margin: 100px 0 0 -100%;
+		@include Adaptive($Viewport-XS)
+		{
+			margin: 60px 0 0 -100%;
+		}
 		position: relative;
 		width: 100%;
 		z-index: 2;

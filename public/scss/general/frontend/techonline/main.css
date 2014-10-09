@@ -1088,6 +1088,9 @@ textarea,
     border-color: #2782a4;
     background-color: #f4fdff; }
 
+label.Control-Group {
+  cursor: pointer; }
+
 select:focus {
   border-radius: 5px 5px 0 0; }
 
@@ -1128,7 +1131,8 @@ button {
   padding: 7px;
   border: 1px solid transparent;
   font-size: 14px;
-  line-height: 14px; }
+  line-height: 14px;
+  cursor: pointer; }
 .Control-Group input,
 .Control-Group select,
 .Control-Group textarea {
@@ -1426,7 +1430,6 @@ dl.Tabs {
     margin-left: -1px;
     position: relative;
     display: table;
-    width: 30%;
     float: left;
     min-height: 48px;
     padding: 5px 0;
@@ -1449,17 +1452,18 @@ dl.Tabs {
     dl.Tabs dt.Active {
       background-color: #2c3e50;
       color: #fff; }
-    dl.Tabs dt.Wide {
-      width: 40%; }
     dl.Tabs dt.inTwo {
       width: 50%; }
   dl.Tabs dd {
     display: none;
     float: right;
-    margin: 60px 0 0 -100%;
+    margin: 100px 0 0 -100%;
     position: relative;
     width: 100%;
     z-index: 2; }
+    @media screen and (min-width: 768px) {
+      dl.Tabs dd {
+        margin: 60px 0 0 -100%; } }
     dl.Tabs dd.Active {
       display: block; }
     dl.Tabs dd > div {
@@ -2591,28 +2595,28 @@ ul.Tag-List li.Tag-Item {
 .Menu-List ul li {
   padding: 10px 0; }
 
-@media screen and (min-width: 1014px) {
-  #Scroll-Top {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 20px; }
-    #Scroll-Top span {
-      display: block;
-      padding: 3px 6px 6px;
-      font-size: 19px;
-      border: #b7b7b7 1px solid;
-      border-radius: 5px;
-      background-color: white;
-      cursor: pointer;
-      -webkit-transition: border-color 0.4s, color 0.4s, background-color 0.4s;
-      -moz-transition: border-color 0.4s, color 0.4s, background-color 0.4s;
-      transition: border-color 0.4s, color 0.4s, background-color 0.4s; }
-      #Scroll-Top span:hover {
-        border-color: #c0392b;
-        background-color: #e74c3c;
-        color: white;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); } }
+#Scroll-Top {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px; }
+  #Scroll-Top span {
+    display: block;
+    padding: 3px 6px 6px;
+    font-size: 19px;
+    border: #b7b7b7 1px solid;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    -webkit-transition: border-color 0.4s, color 0.4s, background-color 0.4s;
+    -moz-transition: border-color 0.4s, color 0.4s, background-color 0.4s;
+    transition: border-color 0.4s, color 0.4s, background-color 0.4s; }
+    #Scroll-Top span:hover {
+      border-color: #c0392b;
+      background-color: #e74c3c;
+      color: white;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
+
 .Filter.Accordion {
   margin-top: 20px; }
   .Filter.Accordion .Filter-Subheader {
@@ -2627,7 +2631,7 @@ ul.Tag-List li.Tag-Item {
         color: white;
         display: block;
         width: 100%;
-        padding: 10px 0;
+        padding: 5px 0;
         line-height: 24px;
         background-color: #e74c3c;
         cursor: pointer; }
@@ -2642,7 +2646,7 @@ ul.Tag-List li.Tag-Item {
       line-height: 24px;
       font-size: 16px;
       display: block;
-      padding: 10px 30px; }
+      padding: 5px 30px; }
 
 .Filter-Subcategory {
   margin: 5px 0;
