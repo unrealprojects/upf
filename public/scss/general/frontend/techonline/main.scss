@@ -25,7 +25,7 @@ body {
 	width: 100%;
 	padding: $size-s $size;
 }
-#Page-Slider {
+#Page-Slider { 
 //	@include Transition(SlideDown, .5s);
 	height: 0;
 }
@@ -571,34 +571,33 @@ ul.Tag-List {
 	}
 }
 
-@include Adaptive($Viewport-SM)
-{
-	#Scroll-Top {
-		display: none;
-		position: fixed;
-		top: $size;
-		left: $size;
-		span
-		{
-			display: block;
-			padding: 3px 6px 6px;
-			font-size: 19px;
-			border: $Control-Border-Color $Control-Border-Width solid;
-			border-radius: $Control-Border-Radius;
-			background-color: white;
-			cursor: pointer;
-			@include Transitions(#{border-color $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time});
-			&:hover
-			{
-				border-color: $Clr-Main-Dark;
-				background-color: $Clr-Main;
-				color: white;
-				box-shadow: 1px 1px 3px rgba(0,0,0,.3);
-			}
 
+#Scroll-Top {
+	display: none;
+	position: fixed;
+	top: $size;
+	left: $size;
+	span
+	{
+		display: block;
+		padding: 3px 6px 6px;
+		font-size: 19px;
+		border: $Control-Border-Color $Control-Border-Width solid;
+		border-radius: $Control-Border-Radius;
+		background-color: white;
+		cursor: pointer;
+		@include Transitions(#{border-color $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time});
+		&:hover
+		{
+			border-color: $Clr-Main-Dark;
+			background-color: $Clr-Main;
+			color: white;
+			box-shadow: 1px 1px 3px rgba(0,0,0,.3);
 		}
+
 	}
 }
+
 
 
 .Filter.Accordion {
@@ -620,7 +619,7 @@ ul.Tag-List {
 				color: white;
 				display: block;
 				width: 100%;
-				padding: $size-s 0;
+				padding: $size-xs 0;
 				line-height: $line-height;
 				background-color: $Clr-Main;
 				cursor: pointer;
@@ -639,7 +638,7 @@ ul.Tag-List {
 			line-height: $line-height;
 			font-size: 16px;
 			display: block;
-			padding: $size-s $size-l;
+			padding: $size-xs $size-l;
 		}
 	}
 }
