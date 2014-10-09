@@ -123,6 +123,10 @@ textarea,
 label
 {
 	@extend ._Unselectable;
+	&.Control-Group
+	{
+		cursor: pointer;
+	}
 }
 select:focus
 {
