@@ -4,14 +4,14 @@
 
 @import "normalize.css";
 @import "-mixins";					// Миксины
-@import "-variables";				// Настройки
+@import "-typography";				// Типографика
 @import "-modificators";			// Модификаторы
 @import "-reset";					// Сброс настроек браузера
 @import "-grid";					// Сетка
-@import "-typography";				// Типографика
 @import "-modules";					// Layout blocks
 @import "-forms";					// Формы
 @import "-messages";				// Сообщения
+@import "-comments";
 
 
 

@@ -519,7 +519,12 @@ button
   margin: 0px;
   border:none !important;
 }
-
+#recaptcha_response_field
+{
+	padding: $Control-Padding!important;
+	border-color: $Control-Border-Color!important;
+	width: 100%!important;
+}
 dl.Tabs {
 	clear: both;
 	@extend ._Clearfix;

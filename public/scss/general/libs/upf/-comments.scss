@@ -1,0 +1,267 @@
+$Enable-User-Avatars:          false;
+$Enable-Comment-Levels:        false;
+
+$Comment-List-Name:            Comments;
+$Comment-Item-Name:            Comment;
+
+$Comment-Avatar-Width:         75px;
+$Comment-Avatar-Height:        $Comment-Avatar-Width;
+$Comment-Avatar-Margin:        25px;
+$Comment-Avatar-Border-Width:  5px;
+$Comment-Avatar-Border-Radius: 20px;
+
+$Comment-Background-Primary:   #f9f9f9;
+$Comment-Background-Secondary: #fbfbfb;
+$Comment-Background-Tertiary:  #fbfbfb;
+$Comment-Background-Author:    #EDEBE1;
+
+$Comment-Title-Primary:        $C-Grey-3;
+$Comment-Time-Primary:         $C-Grey-4;
+$Comment-Title-Secondary:      darken($Comment-Background-Secondary,20%);
+$Comment-Time-Secondary:       darken($Comment-Background-Secondary,15%);
+$Comment-Title-Tertiary:       darken($Comment-Background-Tertiary,20%);
+$Comment-Time-Tertiary:        darken($Comment-Background-Tertiary,15%);
+$Comment-Title-Author:         darken($Comment-Background-Author,20%);
+$Comment-Time-Author:          darken($Comment-Background-Author,15%);
+
+$Comment-Outlined-Border-Width: 1px;
+$Comment-Outlined-Border-Color: $C-Grey-4;
+$Comment-Outlined-Border-Color-Author: darken($Comment-Background-Author,20%);
+
+$Comment-Secondary-Margin: $Comment-Avatar-Width + $Comment-Avatar-Margin;
+$Comment-Tertiary-Margin: $Comment-Secondary-Margin * 2;
+$Comment-Spacing: 25px;
+$Comment-Padding: 10px;
+$Comment-Border-Radius: 5px;
+
+body {background-color: #fff}
+.#{$Comment-List-Name}
+{
+
+	.#{$Comment-Item-Name}
+	{
+		@extend ._Clearfix;
+		position: relative;
+		& + .#{$Comment-Item-Name}
+		{
+			margin-top: $Comment-Spacing;
+		}
+		aside
+		{
+			position: absolute;
+			img
+			{
+				width: $Comment-Avatar-Width;
+				height: $Comment-Avatar-Height;
+				border-color: $Comment-Background-Primary;
+			}
+		}
+
+		.Comment-Content
+		{
+			position: relative;
+			min-height: $Comment-Avatar-Height;
+			@if ($Enable-User-Avatars == true)
+			{
+				margin-left: $Comment-Avatar-Width + $Comment-Avatar-Margin;
+			}
+			border-radius: $Comment-Border-Radius;
+
+			p + p
+			{
+				margin-top: 10px;
+			}
+			header
+			{
+				@extend ._Clearfix;
+				margin-bottom: 10px;
+				h5
+				{
+					float: left;
+					text-transform: uppercase;
+				}
+				time
+				{
+					float: right;
+					font-size: 13px;
+				}
+			}
+		}
+		&.Secondary
+		{
+			aside img
+			{
+				border-color: $Comment-Background-Secondary;
+			}
+			@if ($Enable-Comment-Levels == true)
+			{
+				margin-left: $Comment-Secondary-Margin;
+			}
+		}
+		&.Tertiary
+		{
+			aside img
+			{
+				border-color: $Comment-Background-Tertiary;
+			}
+			@if ($Enable-Comment-Levels == true)
+			{
+				margin-left: $Comment-Tertiary-Margin;
+			}
+		}
+		&.Author
+		{
+			aside img
+			{
+				border-color: $Comment-Background-Author;
+			}
+		}
+	}
+}
+.#{$Comment-List-Name}.Colored
+{
+	.#{$Comment-Item-Name}
+	{
+		.Comment-Content
+		{
+			background-color: $Comment-Background-Primary;
+			header h5 {color: $Comment-Title-Primary}
+			header time {color: $Comment-Time-Primary}
+			&:before
+			{
+				border-color: transparent $Comment-Background-Primary transparent transparent;
+			}
+		}
+		&.Secondary .Comment-Content
+		{
+			background-color: $Comment-Background-Secondary;
+			header h5 {color: $Comment-Title-Secondary}
+			header time {color: $Comment-Time-Secondary}
+			&:before
+			{
+				border-color: transparent $Comment-Background-Secondary transparent transparent;
+			}
+		}
+
+		&.Tertiary .Comment-Content
+		{
+			background-color: $Comment-Background-Tertiary;
+			header h5 {color: $Comment-Title-Tertiary}
+			header time {color: $Comment-Time-Tertiary}
+			&:before
+			{
+				border-color: transparent $Comment-Background-Tertiary transparent transparent;
+			}
+		}
+
+		&.Author .Comment-Content
+		{
+			background-color: $Comment-Background-Author;
+			header h5 {color: $Comment-Title-Author}
+			header time {color: $Comment-Time-Author}
+
+			&:before
+			{
+				border-color: transparent $Comment-Background-Author transparent transparent;
+			}
+		}
+	}
+}
+.#{$Comment-List-Name}.Outlined
+{
+	.#{$Comment-Item-Name}
+	{
+		.Comment-Content
+		{
+			border: $Comment-Outlined-Border-Width $Comment-Outlined-Border-Color solid;
+			@if ($Enable-User-Avatars == true)
+			{
+				&:before
+				{
+					left: -$Comment-Avatar-Margin + 1px;
+					border-color: transparent white transparent transparent;
+					z-index: 2;
+				}
+				&:after
+				{
+					position: absolute;
+					top: ($Comment-Avatar-Height / 2) - ( $Comment-Avatar-Margin / 2);
+					left: -$Comment-Avatar-Margin - $Comment-Outlined-Border-Width;
+					border-width: ($Comment-Avatar-Margin / 2) $Comment-Avatar-Margin ($Comment-Avatar-Margin / 2) 0;
+					border-style: solid;
+					@if ($Comment-Outlined-Border-Width > 0)
+					{
+						border-color: transparent $Comment-Outlined-Border-Color transparent transparent;
+					}
+					@else
+					{
+						border-color: transparent;
+					}
+					content: '';
+					z-index: 1;
+				}
+			}
+		}
+		&.Author .Comment-Content
+		{
+			border-color: $Comment-Outlined-Border-Color-Author;
+			&:after
+			{
+				@if ($Comment-Outlined-Border-Width > 0)
+				{
+					border-color: transparent $Comment-Outlined-Border-Color-Author transparent transparent;
+				}
+
+			}
+		}
+	}
+}
+.#{$Comment-List-Name}.Outlined.Colored .Comment-Content:before
+{
+	border-color: transparent $Comment-Background-Primary transparent transparent;
+}
+.#{$Comment-List-Name}.Colored .Comment-Content,
+.#{$Comment-List-Name}.Outlined .Comment-Content
+{
+	padding: $Comment-Padding;
+	@if ($Enable-User-Avatars == true)
+	{
+		&:before
+		{
+			position: absolute;
+			top: ($Comment-Avatar-Height / 2) - ( $Comment-Avatar-Margin / 2);
+			left: -$Comment-Avatar-Margin;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: ($Comment-Avatar-Margin / 2) $Comment-Avatar-Margin ($Comment-Avatar-Margin / 2) 0;
+			content: '';
+		}
+	}
+}
+.#{$Comment-List-Name}.Avatar-Round aside img
+{
+	border-radius: $Comment-Avatar-Border-Radius;
+}
+.#{$Comment-List-Name}.Avatar-Circle aside img
+{
+	border-radius: $Comment-Avatar-Height;
+}
+.#{$Comment-List-Name}.Avatar-Leaf aside img
+{
+	border-radius: $Comment-Avatar-Border-Radius 0;
+}
+.#{$Comment-List-Name}.Avatar-Border aside img
+{
+	border-style: solid;
+	border-width: $Comment-Avatar-Border-Width;
+}
+.#{$Comment-List-Name}.Shadow .Comment-Content
+{
+	box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+.#{$Comment-List-Name}.Separated .Comment + .Comment
+{
+	padding-top: $size-n;
+	border-top: 1px solid $Clr-Secondary;
+}

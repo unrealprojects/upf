@@ -1,0 +1,183 @@
+// SCREEN SIZES
+$Viewport-XXS:			1px;
+$Viewport-XS:			768px;
+$Viewport-SM:			1024px;
+$Viewport-MD:			1260px;
+$Viewport-LR:			1880px;
+$Viewport-HG:			2540px;
+
+
+
+// Hexapalette
+$C-Grey-1: #212121;
+$C-Grey-2: #3c3c3c;
+$C-Grey-3: #555555;
+$C-Grey-4: #b7b7b7;
+$C-Grey-5: #f2f2f2;
+$C-Grey-6: #f9f9f9;
+
+$C-Red-1: #a02828;
+$C-Red-2: #e43f3f;
+$C-Red-3: #f46d6d;
+$C-Red-4: #ffadad;
+$C-Red-5: #ffdede;
+$C-Red-6: #fff3f3;
+
+$C-Orange-1: #b4771e;
+$C-Orange-2: #e4a43f;
+$C-Orange-3: #f4c06d;
+$C-Orange-4: #ffe0ad;
+$C-Orange-5: #fff1de;
+$C-Orange-6: #fff9f1;
+
+$C-Green-1: #54894e;
+$C-Green-2: #6ea268;
+$C-Green-3: #8ad390;
+$C-Green-4: #d2ecd0;
+$C-Green-5: #ebfaea;
+$C-Green-6: #f1fff0;
+
+$C-Cyan-1: #00a4c6;
+$C-Cyan-2: #25c9eb;
+$C-Cyan-3: #95edff;
+$C-Cyan-4: #ccf0f8;
+$C-Cyan-5: #e5fbff;
+$C-Cyan-6: #f3fdff;
+
+$C-Blue-1: #18637f;
+$C-Blue-2: #2782a4;
+$C-Blue-3: #8abfd3;
+$C-Blue-4: #dceff2;
+$C-Blue-5: #eaf8fa;
+$C-Blue-6: #f4fdff;
+
+// Color Scheme
+$Clr-Sunflower:			#f1c40f;
+$Clr-Orange:			#f39c12;
+$Clr-Carrot:			#e67e22;
+$Clr-Pumpkin:			#d35400;
+
+$Clr-Turquoise:			#1abc9c;
+$Clr-Green-Sea:			#16a085;
+$Clr-Emerald:			#2ecc71;
+$Clr-Nephritis:			#27ae60;
+$Clr-Nephritis: 		#5ec67d;
+
+$Clr-Scarlet:			#ff2400;
+$Clr-Coral:				#ff4040;
+$Clr-Pamegranate:		#c0392b;
+$Clr-Alizarin:			#e74c3c;
+
+$Clr-Cyan-Light:		#25d4f3;
+$Clr-Cyan:				#07b3d2;
+$Clr-Cyan-Dark:			#0599b4;
+$Clr-Belize-Hole:		#2980b9;
+$Clr-Peter-River:		#3498db;
+$Clr-Midnight-Blue:		#2c3e50;
+$Clr-Wet-Asphalt:		#34495e;
+
+$Clr-Asbestos:			#7f8c8d;
+$Clr-Concrete:			#95a5a6;
+$Clr-Silver:			#bdc3c7;
+$Clr-Clouds:			#ecf0f1;
+
+$Clr-Slate-Light:		#3e494b;
+$Clr-Slate:				#374144;
+$Clr-Slate-Dark:		#283032;
+$Clr-Slate-Darker: 		#161a1b;
+
+
+
+$Clr-Success:			$Clr-Emerald;
+$Clr-Success-Dark:		$Clr-Nephritis;
+$Clr-Info:				$Clr-Peter-River;
+$Clr-Info-Dark:			$Clr-Belize-Hole;
+$Clr-Warning:			$Clr-Carrot;
+$Clr-Warning-Dark:		$Clr-Pumpkin;
+$Clr-Error: 			#f2070b;
+$Clr-Error-Dark: 		#d1060a;
+
+$Clr-Text-Main:			black;
+$Clr-Grey-Lighter: 		#f1f1f1;
+$Clr-Grey-Light: 		#dedede;
+$Clr-Grey:				#cccccc;
+$Clr-Grey-Dark: 		#999999;
+$Clr-Grey-Darker: 		#555555;
+
+$Clr-Main:  			$Clr-Alizarin;
+$Clr-Main-Dark: 		$Clr-Pamegranate;
+$Clr-Secondary:			$Clr-Clouds;
+$Clr-Secondary-Dark:	$Clr-Silver;
+$Clr-Secondary-Darker:	$Clr-Concrete;
+
+
+$Clr-Orange:            #111111;
+$Clr-Sunflower:         #222222;
+// Color Scheme
+
+
+// Sizes
+$size-xxs: 2px;
+$size-xs:  5px;
+$size-s:   10px;
+$size-n:   15px;
+$size:     20px;
+$size-l:   30px;
+$size-xl:  50px;
+$size-xxl: 75px;
+$size-xxxl:100px;
+
+
+$Font-Size-Micro:				0.800em;
+$Font-Size-Small:				0.875em;
+$Font-Size-Default:				1.000em;
+$Font-Size-Large:				1.125em;
+$Font-Size-Huge:				1.500em;
+
+
+$Font-Family-Exo2:				'Exo 2', 'Open Sans', Helvetica, Verdana, sans-serif;
+$Font-Family-Open-Sans:			'Open Sans', Helvetica, Verdana, sans-serif;
+$Font-Family-Verdana:			Helvetica, Verdana, sans-serif!important;
+$Font-Family-Calibri:			Calibri, Helvetica, Verdana, sans-serif!important;
+$Font-Family-Georgia:			Georgia, 'Times new Roman', Times, serif;
+// НАСТРОЙКИ САЙТА
+$Body-Font-Size:				$Font-Size-Default;
+$node-width: 					1000px;			// Ширина ноды
+$Node-Padding:					$size-n;
+$Node-Wrap-Padding:				$size-n;
+$section-gap: 					$size-xl;		// Отступ между нодами
+$block-gap: 					$size-l;		// Отступ между блоками внутри нода
+
+$border-radius: 				10px;
+$border-radius-small:			5px;
+$Page-Footer-Height:			100px;			// Высота футера
+$line-height: 					24px;			// Стандартная высота строки
+$selection-color: 				$C-Cyan-1;
+
+// Таблица размеров нод
+$Section-Width-Tiny: 			100%;
+$Section-Width-Small: 			970px;
+$Section-Width-Default: 		$Section-Width-Small + 130px;
+$Section-Width-Large:			$Section-Width-Default + 50px;
+$Section-Width-Huge:			$Section-Width-Large + 50px;
+
+
+// Стилевые ограничения для разных устройств
+
+// tiny, small, default, huge, false
+$Enable-Fly-Out:				small;
+$Enable-Grid:					tiny;
+
+$grid-spacing: 5%;
+$message-br-width: 300px;
+
+$Control-Border-Color:					$Clr-Grey;
+$Control-Border-Width:					1px;
+$Control-Background-Color:				white;
+$Control-Focus-Border-Color:			$Clr-Main;
+$Control-Sublabel-Background-Color:		$Clr-Grey-Lighter;
+$Control-Padding:						$size-xs $size-s;
+$Control-Line-Height:					$line-height;
+$Control-Border-Radius:					5px;
+
+//

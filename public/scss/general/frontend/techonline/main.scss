@@ -1,4 +1,5 @@
 // Подключение библиотеки UPF
+@import "-variables";
 @import "../../../general/libs/upf/upf";
 
 $Clr-Main:  			$Clr-Alizarin;
@@ -251,7 +252,6 @@ img.Footer-Img {
 
 // Only for LIST of Snippets
 .Snippet-List {
-	@extend ._Vertical-Spacing;
 	@extend ._No-Bullets;
 
 	.Snippet-Item {
@@ -270,6 +270,10 @@ img.Footer-Img {
 			width: 100%;
 			clear: both;
 			@extend ._Clearfix;
+		}
+		& + .Snippet-Item
+		{
+			margin-top: $size-n;
 		}
 	}
 	.Item-Gallery {
@@ -329,7 +333,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 	header {
 		display: table;
 		width: 100%;
-		margin-bottom: $size;
+		margin-bottom: $size-n;
 		@extend ._Clearfix;
 		.Item-Title
 		{
@@ -372,44 +376,6 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 			padding: 0;
 			padding-right: $size-n;
 			width: 100%;
-			& > li {
-				display: block;
-				width: 33.33%;
-				&:first-child,
-				&:first-child a
-				{
-					@include Round(left, $Control-Border-Radius);
-				}
-				&:last-child,
-				&:last-child a
-				{
-					@include Round(right, $Control-Border-Radius);
-				}
-				@extend ._Clearfix;
-				& > a {
-					display: block;
-					height: 35px;
-					border: 1px solid $Clr-Silver;
-					padding-top: 6px;
-					text-align: center;
-					color: $C-Grey-4;
-					&:hover {
-						background-color: $Clr-Main;
-						border-color: $Clr-Main-Dark;
-						color: white;
-					}
-				}
-				& > span {
-					display: block;
-					text-align: center;
-					padding-top: 6px;
-					border-top: 1px solid $Clr-Silver;
-					border-bottom: 1px solid $Clr-Silver;
-					height: 35px;
-					color: $Clr-Silver;
-					font-size: 14px;
-				}
-			}
 		}
 
 	}
@@ -451,6 +417,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 
 
 	.Item-Content {
+		margin-top: 0;
 		font-size: 14px;
 
 		h6 {
@@ -557,14 +524,54 @@ ul.Tag-List {
 		}
 	}
 }
-
-
-.Vote-Up {
-	background: url(../../../../img/techonline/icon-vote-up.png) center center no-repeat;
+.Item-Vote
+{
+	@extend ._No-Bullets;
+	li
+	{
+		margin: 0;
+		float: left;
+	}
+	& > li {
+		display: block;
+		width: 33.33%;
+		&:first-child,
+		&:first-child a
+		{
+			@include Round(left, $Control-Border-Radius);
+		}
+		&:last-child,
+		&:last-child a
+		{
+			@include Round(right, $Control-Border-Radius);
+		}
+		@extend ._Clearfix;
+		& > a {
+			display: block;
+			height: 35px;
+			border: 1px solid $Clr-Silver;
+			padding-top: 6px;
+			text-align: center;
+			color: $C-Grey-4;
+			&:hover {
+				background-color: $Clr-Main;
+				border-color: $Clr-Main-Dark;
+				color: white;
+			}
+		}
+		& > span {
+			display: block;
+			text-align: center;
+			padding-top: 6px;
+			border-top: 1px solid $Clr-Silver;
+			border-bottom: 1px solid $Clr-Silver;
+			height: 35px;
+			color: $Clr-Silver;
+			font-size: 14px;
+		}
+	}
 }
-.Vote-Down {
-	background: url(../../../../img/techonline/icon-vote-down.png) center center no-repeat;
-}
+
 .List-Filter {
 	@extend ._No-Bullets;
 }

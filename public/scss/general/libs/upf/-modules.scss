@@ -44,10 +44,9 @@ body		,
 .Node + .Node-Wrap {
 	margin-top: $section-gap;
 }
-
-// Margin between NODES
-.Node > * {
-	margin-top: $size;
+.Node > *
+{
+	margin-top: $size-n;
 }
 
 // Убирает отступ у первого элемента в ноде

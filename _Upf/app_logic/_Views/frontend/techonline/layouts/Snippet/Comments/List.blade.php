@@ -2,26 +2,22 @@
 
     {{-- Comments Body --}}
         <h4 class="Heading Primary">Комментарии</h4>
-        <ul class="Comment-List">
+        <ul class="Comments Separated">
             @foreach($Comments as $Comment)
-                <li class="Comment-Item" comment_id="{{$Comment['id']}}">
+                <li class="Comment Grid Split" comment_id="{{$Comment['id']}}">
 
-                    <div class="Item-Vote">
-                        <ul class="Vote">
-                            <li><a class="Vote-Down" href="#"></a></li>
-                            <li><span>{{$Comment['rating']}}</span></li>
-                            <li><a class="Vote-Up" href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="Item-Content">
+                    <div class="Comment-Content Node-XS-10">
                         <header>
-                            <h5>{{$Comment['author']}}
-                                <span class="Date">{{$Comment['created_at']}}</span></h5>
+                            <h5>{{$Comment['author']}}</h5>
+                                <time>{{$Comment['created_at']}}</time>
                         </header>
                         <p>{{$Comment['post']}}</p>
-
                     </div>
+                    <ul class="Item-Vote Node-XXS-3 Node-XS-2">
+                        <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+                        <li><span>{{ $Item['meta']['rating'] }}</span></li>
+                        <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
+                    </ul>
                 </li>
             @endforeach
         </ul>
@@ -30,27 +26,29 @@
 
 
     {{-- Comments Form --}}
+    <h4 class="Section-Subheader">Написать комментарий</h4>
         <form class="Form-Horizontal action="">
-            <h4 class="Section-Subheader">Написать комментарий</h4>
             <input name="list_id" value="{{isset( $Comments[0]['wall_id'] )?$Comments[0]['wall_id']:''}}" type="hidden">
 
             <div class="Control-Group">
-                <label for="Comment-New-Name">Имя</label>
-                <input id="Comment-New-Name" name="name" type="text"/>
+                <label class="Node-XS-3" for="Comment-New-Name">Имя</label>
+                <input class="Node-XS-9" id="Comment-New-Name" name="name" type="text"/>
             </div>
 
             <div class="Control-Group">
-                <label for="Comment-New">Текст комментария</label>
-                <textarea name="comment" id="Comment-New-Text" rows="5"></textarea>
+                <label class="Node-XS-3" for="Comment-New">Текст комментария</label>
+                <textarea class="Node-XS-9" name="comment" id="Comment-New-Text" rows="5"></textarea>
             </div>
 
             <div class="Control-Group">
-                <label for="Comment-New">Введите код</label>
-                {{Form::captcha()}}
+                <label class="Node-XS-3" for="Comment-New">Введите код</label>
+                <div class="Input-Group Node-XS-9">
+                    {{Form::captcha()}}
+                </div>
             </div>
 
             <div class="Control-Group Offset">
-                <input type="submit" value="Написать"/>
+                <input class="Node-XS-3 Push-3 Primary" type="submit" value="Написать"/>
             </div>
         </form>
     {{-- End Comments Form --}}
