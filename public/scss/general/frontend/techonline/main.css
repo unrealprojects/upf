@@ -124,7 +124,7 @@ code.Pagination {
 
 ._Section-Inner, .Node, footer[role='contentinfo'] > div {
   width: 100%; }
-  @media all and (min-width: 1024px) {
+  @media all and (min-width: 1014px) {
     ._Section-Inner, .Node, footer[role='contentinfo'] > div {
       width: 970px; } }
   @media all and (min-width: 1260px) {
@@ -833,7 +833,7 @@ iframe {
     width: 100%;
     margin-left: 0;
     margin-right: 0; } }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1014px) {
   [class*='Grid'].Merge > .Node-SM-1-2, .Site-Header [class*='Grid'].Site-Header-Inner > .Node-SM-1-2, .Snippet-List [class*='Grid'].Snippet-Item > .Node-SM-1-2, [class*='Grid'].List-Group-Actions > .Node-SM-1-2, [class*='Grid'].List-Params > .Node-SM-1-2 {
     width: 50%; }
 
@@ -1674,7 +1674,7 @@ table.Adaptive .Caption,
 
   .Visible-XS {
     display: inline-block; } }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1014px) {
   .Hidden-SM, #Menu-Toggle {
     display: none; }
 
@@ -1758,7 +1758,7 @@ table {
     text-align: left; }
   table td, table th {
     padding: 5px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1014px) {
       table td, table th {
         padding: 10px; } }
     @media screen and (min-width: 1880px) {
@@ -2985,7 +2985,7 @@ body {
   background-color: #2c3e50;
   color: #ecf0f1;
   box-shadow: 0 4px 0 rgba(44, 62, 80, 0.25); }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1014px) {
     .Site-Header {
       height: 80px; } }
   .Site-Header .Site-Header-Inner {
@@ -3016,7 +3016,7 @@ body {
       font-family: 'Open Sans', sans-serif;
       font-size: 20px;
       font-weight: 100; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1014px) {
         .Site-Logo div h2 {
           padding: 20px 0; } }
       @media screen and (min-width: 1260px) {
@@ -3051,7 +3051,7 @@ body {
     width: 100%;
     display: block;
     float: none; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1014px) {
       .Site-Navigation.Primary ul li {
         width: auto;
         display: inline-block;
@@ -3063,7 +3063,7 @@ body {
       line-height: 20px;
       text-transform: uppercase;
       color: #bdc3c7; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1014px) {
         .Site-Navigation.Primary ul li a {
           padding: 30px 5px; } }
       @media screen and (min-width: 1260px) {
@@ -3083,7 +3083,7 @@ body {
   @media screen and (min-width: 768px) {
     .Page-Auth {
       padding: 0 15px 0 0; } }
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1013px) {
     .Page-Auth {
       width: 100%;
       padding: 15px; } }
@@ -3091,7 +3091,7 @@ body {
     display: block;
     width: 100%;
     padding: 10px 0; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1014px) {
       .Page-Auth button {
         margin-top: 20px;
         width: auto; } }
@@ -3108,7 +3108,7 @@ body {
     background-color: white;
     color: #2c3e50;
     border-radius: 5px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1014px) {
       .Page-Auth .Sign-In-UI,
       .Page-Auth .Sign-Up-UI {
         top: 80px; } }
@@ -3287,7 +3287,7 @@ img.Footer-Img {
   padding: 15px 0;
   width: 100%;
   clear: both; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1014px) {
     .Snippet-List .Snippet-Item footer {
       padding: 15px 15px 15px; } }
 .Snippet-List .Snippet-Item + .Snippet-Item {
@@ -3319,7 +3319,7 @@ img.Footer-Img {
   font-size: 14px;
   line-height: 14px; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1014px) {
   .Snippet-Item {
     border: 1px solid #ecf0f1; } }
 .Snippet-Item header {
@@ -3345,7 +3345,7 @@ img.Footer-Img {
     padding-right: 15px; }
 .Snippet-Item .Item-Gallery {
   padding-left: 0; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1014px) {
     .Snippet-Item .Item-Gallery {
       padding-left: 15px; } }
   .Snippet-Item .Item-Gallery img.Item-Main-Photo {
@@ -3362,7 +3362,7 @@ img.Footer-Img {
 .Snippet-Item .Item-Content {
   margin-top: 0;
   font-size: 14px; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1014px) {
     .Snippet-Item .Item-Content {
       padding: 0 15px 15px; } }
   .Snippet-Item .Item-Content img {
@@ -3718,7 +3718,7 @@ ul.Tag-List li.Tag-Item {
     float: left !important;
     font-size: 14px;
     width: 50%; } }
-@media all and (min-width: 1024px) {
+@media all and (min-width: 1014px) {
   .Filter-Result {
     display: inline-block;
     width: auto; }
