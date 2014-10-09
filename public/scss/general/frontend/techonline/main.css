@@ -117,9 +117,9 @@ code.Pagination {
   ._Standalone:first-child, .Node:first-child {
     margin-top: 0; }
 
-._Vertical-Spacing > *, .Comment-List > * {
+._Vertical-Spacing > * {
   margin-top: 30px !important; }
-  ._Vertical-Spacing > *:first-child, .Comment-List > *:first-child {
+  ._Vertical-Spacing > *:first-child {
     margin-top: 0 !important; }
 
 ._Section-Inner, .Node, footer[role='contentinfo'] > div {
@@ -150,7 +150,7 @@ footer[role='contentinfo'] > div .Copyright, .Snippet-Item .Item-Info .Date, .Sn
   outline: 1px red solid !important; }
 
 ._Clearfix:before, ._Inline:before, .Breadcrumbs .Breadcrumb-List:before, .Box > header ul.Box-Tools:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header .Item-Vote:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, .List-Group-Actions:before, [class*='Grid']:before, .Node:before, table.Adaptive td:before, .pagination:before,
-.Pagination:before, .Control-Group:before, dl.Tabs:before, .Box:before, .Box > header:before, .Dropdown:before, .Comments .Comment:before, .Comments .Comment .Comment-Content header:before, .Site-Header:before, .List-Categories:before, .List-Categories li:before, .Comment-List .Comment-Item .Item-Content header:before, footer[role='contentinfo'] > div:before, .List.Snippets li.List-Item header:before, .Snippet-List .Snippet-Item footer:before, .Snippet-List .Item-Gallery:before, .Snippet-Item:before, .Snippet-Item header:before, .Snippet-Item .Item-Gallery:before, .Filter-Result li:before, .Item-Vote > li:before, .Filter.Accordion .Filter-Subheader:before, .Filter-Subcategory ul:before,
+.Pagination:before, .Control-Group:before, dl.Tabs:before, .Box:before, .Box > header:before, .Dropdown:before, .Comments .Comment:before, .Comments .Comment .Comment-Content header:before, .Site-Header:before, .List-Categories:before, .List-Categories li:before, footer[role='contentinfo'] > div:before, .Snippet-List .Snippet-Item footer:before, .Snippet-List .Item-Gallery:before, .Snippet-Item:before, .Snippet-Item header:before, .Snippet-Item .Item-Gallery:before, .Filter-Result li:before, .Item-Vote > li:before, .Filter.Accordion .Filter-Subheader:before, .Filter-Subcategory ul:before,
 ._Clearfix:after,
 ._Inline:after,
 .Breadcrumbs .Breadcrumb-List:after,
@@ -175,9 +175,7 @@ dl.Tabs:after,
 .Site-Header:after,
 .List-Categories:after,
 .List-Categories li:after,
-.Comment-List .Comment-Item .Item-Content header:after,
 footer[role='contentinfo'] > div:after,
-.List.Snippets li.List-Item header:after,
 .Snippet-List .Snippet-Item footer:after,
 .Snippet-List .Item-Gallery:after,
 .Snippet-Item:after,
@@ -191,7 +189,7 @@ footer[role='contentinfo'] > div:after,
   display: table; }
 
 ._Clearfix:after, ._Inline:after, .Breadcrumbs .Breadcrumb-List:after, .Box > header ul.Box-Tools:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .List-Group-Actions:after, [class*='Grid']:after, .Node:after, table.Adaptive td:after, .pagination:after,
-.Pagination:after, .Control-Group:after, dl.Tabs:after, .Box:after, .Box > header:after, .Dropdown:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, .Comment-List .Comment-Item .Item-Content header:after, footer[role='contentinfo'] > div:after, .List.Snippets li.List-Item header:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result li:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
+.Pagination:after, .Control-Group:after, dl.Tabs:after, .Box:after, .Box > header:after, .Dropdown:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, footer[role='contentinfo'] > div:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result li:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
   clear: both; }
 
 ._Inline > *, .Breadcrumbs .Breadcrumb-List > *, .Box > header ul.Box-Tools > *, footer[role='contentinfo'] > div .Footer-Navigation ul > *, .Snippet-Item header .Item-Vote > *, .Snippet-Item .Item-Gallery ul > *, ul.Tag-List > *, .List-Group-Actions > * {
@@ -199,13 +197,13 @@ footer[role='contentinfo'] > div:after,
 
 ._No-Bullets, ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, table td.Actions ul, .pagination,
-.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, .Dropdown .Dropdown-Content, .Site-Navigation.Primary ul, .Comment-List, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-List, .Snippet-Item header .Item-Vote, .Snippet-Item .Item-Gallery ul, .Filter-Result, ul.Tag-List, .Item-Vote, .List-Filter, .Menu-List ul, .Filter.Accordion, .Filter-Subcategory ul, .List-Group-Actions {
+.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, .Dropdown .Dropdown-Content, .Site-Navigation.Primary ul, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-List, .Snippet-Item header .Item-Vote, .Snippet-Item .Item-Gallery ul, .Filter-Result, ul.Tag-List, .Item-Vote, .List-Filter, .Menu-List ul, .Filter.Accordion, .Filter-Subcategory ul, .List-Group-Actions {
   list-style: none;
   margin: 0;
   padding: 0; }
   ._No-Bullets > li, ol[class*='Grid'] > li > li,
   ul[class*='Grid'] > li > li, table td.Actions ul > li, .pagination > li,
-  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, .Dropdown .Dropdown-Content > li, .Site-Navigation.Primary ul > li, .Comment-List > li, footer[role='contentinfo'] > div .Footer-Navigation ul > li, .Snippet-List > li, .Snippet-Item header .Item-Vote > li, .Snippet-Item .Item-Gallery ul > li, .Filter-Result > li, ul.Tag-List > li, .Item-Vote > li, .List-Filter > li, .Menu-List ul > li, .Filter.Accordion > li, .Filter-Subcategory ul > li, .List-Group-Actions > li {
+  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, .Dropdown .Dropdown-Content > li, .Site-Navigation.Primary ul > li, footer[role='contentinfo'] > div .Footer-Navigation ul > li, .Snippet-List > li, .Snippet-Item header .Item-Vote > li, .Snippet-Item .Item-Gallery ul > li, .Filter-Result > li, ul.Tag-List > li, .Item-Vote > li, .List-Filter > li, .Menu-List ul > li, .Filter.Accordion > li, .Filter-Subcategory ul > li, .List-Group-Actions > li {
     margin: 0;
     padding: 0; }
 
@@ -3097,9 +3095,11 @@ body {
       .Page-Auth button {
         margin-top: 20px;
         width: auto; } }
-  @media screen and (max-width: 768px) {
-    .Page-Auth button + button {
-      margin-top: 15px; } }
+  .Page-Auth button + button {
+    margin-left: 0 !important; }
+    @media screen and (max-width: 768px) {
+      .Page-Auth button + button {
+        margin-top: 15px; } }
   .Page-Auth .Sign-In-UI,
   .Page-Auth .Sign-Up-UI {
     display: none;
@@ -3176,6 +3176,7 @@ body {
 .List-Categories li {
   padding: 10px 0; }
   .List-Categories li a {
+    text-transform: uppercase;
     font-size: 0.875em;
     display: inline-block; }
 .List-Categories.Icons a {
@@ -3192,26 +3193,12 @@ body {
   vertical-align: middle;
   display: none;
   height: 100px;
-  margin: 0 auto; }
+  margin: 0 auto 10px; }
   @media screen and (min-width: 768px) {
     .List-Categories.Icons img {
       display: block; } }
 .List-Categories.Brands img {
   width: 50px; }
-
-.Comment-List .Comment-Item:first-child {
-  margin-top: 0; }
-.Comment-List .Comment-Item .Item-Vote {
-  position: relative; }
-.Comment-List .Comment-Item .Item-Content {
-  overflow: hidden; }
-  .Comment-List .Comment-Item .Item-Content header h5 .Date {
-    margin-left: 30px;
-    display: inline-block;
-    font-size: 80%;
-    color: #cccccc; }
-  .Comment-List .Comment-Item .Item-Content p {
-    width: 75%; }
 
 footer[role='contentinfo'] {
   position: relative;
@@ -3251,28 +3238,44 @@ img.Footer-Img {
   display: block;
   padding: 10px 0; }
 
-.List.Snippets li.List-Item {
-  border: 1px solid #ecf0f1;
-  margin-bottom: 20px; }
-  .List.Snippets li.List-Item header {
-    padding-bottom: 10px;
-    background-color: #ecf0f1; }
-    .List.Snippets li.List-Item header h5.Item-Title {
-      margin: 15px 100px 15px 15px;
-      display: block; }
-      .List.Snippets li.List-Item header h5.Item-Title a {
-        font-size: 1.125em;
-        text-transform: uppercase; }
-  .List.Snippets li.List-Item img {
-    width: 100%; }
-  .List.Snippets li.List-Item .Description {
-    margin: 15px;
-    font-size: 14px; }
+/* List of snippets like News, etc.
+.List.Snippets {
+	li.List-Item {
+		border: 1px solid $Clr-Clouds;
+		margin-bottom: $size;
+		header {
+			padding-bottom: $size-s;
+			background-color: $Clr-Clouds;
+			@extend ._Clearfix;
+			h5.Item-Title {
+				margin: $size-n 100px $size-n $size-n;
+				display: block;
 
+				a {
+					font-size: $Font-Size-Large;
+					text-transform: uppercase;
+				}
+			}
+
+		}
+		img {
+			width: 100%;
+		}
+		.Description {
+			margin: $size-n;
+			font-size: 14px;
+
+			& > div {
+			}
+		}
+	}
+}*/
 .Item-Subtitle {
   display: block;
   clear: both;
-  font-size: 12px; }
+  font-size: 11px;
+  font-family: "Open Sans", Helvetica, Verdana, sans-serif;
+  color: #555555; }
 
 .Snippet-List .Snippet-Item header {
   position: relative;
@@ -3281,15 +3284,22 @@ img.Footer-Img {
   .Snippet-List .Snippet-Item header .Item-Location {
     padding: 0; }
 .Snippet-List .Snippet-Item footer {
-  padding: 0 15px 15px;
+  padding: 15px 0;
   width: 100%;
   clear: both; }
+  @media screen and (min-width: 1024px) {
+    .Snippet-List .Snippet-Item footer {
+      padding: 15px 15px 15px; } }
 .Snippet-List .Snippet-Item + .Snippet-Item {
   margin-top: 15px; }
 .Snippet-List .Item-Gallery > img {
   width: 100%; }
 .Snippet-List .Item-Content {
   margin-top: 15px; }
+.Snippet-List.Grid .Snippet-Item {
+  margin-top: 15px; }
+  .Snippet-List.Grid .Snippet-Item header.Grid {
+    margin-right: 0; }
 
 .Snippet-Item header .Item-Title, .Snippet-Item header .Item-Vote {
   border: 0;
@@ -3313,7 +3323,6 @@ img.Footer-Img {
   .Snippet-Item {
     border: 1px solid #ecf0f1; } }
 .Snippet-Item header {
-  display: table;
   width: 100%;
   margin-bottom: 15px; }
   .Snippet-Item header .Item-Title {
@@ -3333,8 +3342,7 @@ img.Footer-Img {
     color: #555555; }
   .Snippet-Item header .Item-Vote {
     padding: 0;
-    padding-right: 15px;
-    width: 100%; }
+    padding-right: 15px; }
 .Snippet-Item .Item-Gallery {
   padding-left: 0; }
   @media screen and (min-width: 1024px) {
@@ -3354,6 +3362,11 @@ img.Footer-Img {
 .Snippet-Item .Item-Content {
   margin-top: 0;
   font-size: 14px; }
+  @media screen and (min-width: 1024px) {
+    .Snippet-Item .Item-Content {
+      padding: 0 15px 15px; } }
+  .Snippet-Item .Item-Content img {
+    width: 100%; }
   .Snippet-Item .Item-Content h6 {
     margin: 10px 0 5px;
     font-size: 18px; }
@@ -3409,14 +3422,16 @@ ul.Tag-List li.Tag-Item {
   ul.Tag-List li.Tag-Item a {
     display: inline-block;
     padding: 5px;
-    background-color: #cccccc;
+    background-color: #f9f9f9;
+    border: 1px solid #f2f2f2;
     color: #555555;
     font-family: Calibri, Helvetica, Verdana, sans-serif !important;
     font-size: 12px;
     border-radius: 5px; }
     ul.Tag-List li.Tag-Item a:hover {
       color: white;
-      background-color: #999999; }
+      background-color: #e74c3c;
+      border-color: #c0392b; }
 
 .Item-Vote li {
   margin: 0;

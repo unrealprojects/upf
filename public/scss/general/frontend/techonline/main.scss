@@ -76,6 +76,7 @@ body {
 		padding: $size-s 0;
 		@extend ._Clearfix;
 		a {
+			text-transform: uppercase;
 			font-size: $Font-Size-Small;
 			display: inline-block;
 		}
@@ -100,46 +101,13 @@ body {
 				display: block;
 			}
 			height: 100px;
-			margin: 0 auto;
+			margin: 0 auto $size-s;
 		}
 
 	}
 	&.Brands {
 		img {
 			width: 50px;
-		}
-	}
-}
-
-// Блок комментариев
-.Comment-List {
-	@extend ._No-Bullets;
-	@extend ._Vertical-Spacing;
-	.Comment-Item {
-		&:first-child {
-			margin-top: 0;
-		}
-		.Item-Vote {
-			position: relative;
-		}
-		.Item-Content {
-			overflow: hidden;
-
-			header {
-				@extend ._Clearfix;
-
-				h5 {
-					.Date {
-						margin-left: $size-l;
-						display: inline-block;
-						font-size: 80%;
-						color: $Clr-Grey;
-					}
-				}
-			}
-			p {
-				width: 75%;
-			}
 		}
 	}
 }
@@ -212,7 +180,7 @@ img.Footer-Img {
 	}
 }
 
-// List of snippets like News, etc.
+/* List of snippets like News, etc.
 .List.Snippets {
 	li.List-Item {
 		border: 1px solid $Clr-Clouds;
@@ -243,11 +211,13 @@ img.Footer-Img {
 			}
 		}
 	}
-}
+}*/
 .Item-Subtitle {
 	display: block;
 	clear: both;
-	font-size: 12px;
+	font-size: 11px;
+	font-family: $Font-Family-Open-Sans;
+	color: $C-Grey-3;
 }
 
 // Only for LIST of Snippets
@@ -266,7 +236,11 @@ img.Footer-Img {
 			}
 		}
 		footer {
-			padding: 0 $size-n $size-n;
+			padding: $size-n 0;
+			@include Adaptive($Viewport-SM)
+			{
+				padding: $size-n $size-n $size-n;
+			}
 			width: 100%;
 			clear: both;
 			@extend ._Clearfix;
@@ -285,8 +259,18 @@ img.Footer-Img {
 	.Item-Content {
 		margin-top: $size-n;
 	}
+	&.Grid
+	{
+		.Snippet-Item
+		{
+			margin-top: 15px;
+			header.Grid
+			{
+				margin-right: 0;
+			}
+		}
+	}
 }
-
 $Snippet-Header-Height: 50px;
 
 $Snippet-Header-Tall-Font-Size: 20px;
@@ -331,7 +315,6 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 	@extend ._Clearfix;
 //	@extend .Row;
 	header {
-		display: table;
 		width: 100%;
 		margin-bottom: $size-n;
 		@extend ._Clearfix;
@@ -375,7 +358,6 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 			@extend ._No-Bullets;
 			padding: 0;
 			padding-right: $size-n;
-			width: 100%;
 		}
 
 	}
@@ -419,7 +401,14 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 	.Item-Content {
 		margin-top: 0;
 		font-size: 14px;
-
+		@include Adaptive($Viewport-SM)
+		{
+			padding: 0 $size-n $size-n;
+		}
+		img
+		{
+			width: 100%;
+		}
 		h6 {
 			margin: $size-s 0 $size-xs;
 			font-size: 18px;
@@ -511,15 +500,17 @@ ul.Tag-List {
 		a {
 			display: inline-block;
 			padding: $size-xs;
-			background-color: $Clr-Grey;
+			background-color: $C-Grey-6;
+			border: 1px solid $C-Grey-5;
 			color: $Clr-Grey-Darker;
 			font-family: $Font-Family-Calibri;
 			font-size: 12px;
-
 			@include Round(all, $Control-Border-Radius);
+
 			&:hover {
 				color: white;
-				background-color: $Clr-Grey-Dark;
+				background-color: $Clr-Main;
+				border-color: $Clr-Main-Dark;
 			}
 		}
 	}

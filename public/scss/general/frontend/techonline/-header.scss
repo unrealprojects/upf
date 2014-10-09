@@ -151,6 +151,8 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 		padding: 				$size-s 0;
 	}
 	button + button {
+
+			margin-left: 0!important;
 		@include Adaptive($Viewport-XS, max-width) {
 			margin-top: $size-n;
 		}

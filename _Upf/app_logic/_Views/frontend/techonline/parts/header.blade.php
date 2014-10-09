@@ -16,7 +16,7 @@
         <div id="Menu-Toggle">
             <span class="fa fa-2x fa-bars"></span>
         </div>
-        <nav id="Menu" class="Site-Navigation Primary Row Split Node-SM-5 Node-LR-6">
+        <nav id="Menu" class="Site-Navigation Primary Row Split Node-SM-6">
             <ul class="Menu-List">
                 <li><a class="Menu-Link" href="/catalog" title="Каталог стройтехники">Каталог</a></li>
                 <li><a class="Menu-Link" href="/rent" title="Взять стройтехнику в аренду">Аренда</a></li>
@@ -25,7 +25,7 @@
             </ul>
         </nav>
 
-        <div class="Page-Auth Node-SM-4 Node-LR-3 Grid Split">
+        <div class="Page-Auth Node-SM-3 Grid Split">
             <button class="Button Error Sign-In Node-XS-6"><span class="fa fa-sign-in"></span> Войти</button>
             <button class="Button Error Sign-Up Node-XS-6"><span class="fa fa-user"></span> Регистрация</button>
 

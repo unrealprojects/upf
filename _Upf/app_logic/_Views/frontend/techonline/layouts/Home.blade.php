@@ -22,9 +22,9 @@
         <section class="Node">
             <h3 class="Heading Primary">Каталог стройтехники</h3>
 
-            <ul class="Grid Split List-Categories Icons">
+            <ul class="Grid Merge List-Categories Icons">
                 @foreach($Content['MainCatalogCategories'] as $Category)
-                    <li class=" Node-SM-3 Node-XS-6">
+                    <li class=" Node-SM-3 Node-XXS-12 Node-XS-6">
                         <a href="/catalog/?category={{$Category['alias']}}" alt="{{$Category['title']}}">
                             <img src="{{$Category['logotype']}}">
                                 {{$Category['title']}}
@@ -45,21 +45,21 @@
 
             <h3 class="Heading Primary">Лучшие арендодатели</h3>
 
-            <ul class="List Snippets Split Grid">
+            <ul class="Snippet-List Split Grid">
                 @foreach($Content['BestUsers'] as $User)
-                <li class="Grid Node-XS-6 Node-HG-4 List-Item ">
-                    <header>
-                        <h5 class="Item-Title">
+                <li class="Node-XS-6 Node-HG-4 Snippet-Item Grid Split">
+                    <header class="Grid Merge">
+                        <h4 class="Item-Title Node-XXS-9">
                             <a href="/sellers/{{$User['meta']['alias']}}" alt=" {{$User['title']}}">{{$User['title']}}</a>
                             <span class="Item-Subtitle">
                                 {{ $User['title'] }}
                             </span>
-                        </h5>
+                        </h4>
 
-                        <ul class="Vote">
-                            <li><a class="Vote-Down" href="#"></a></li>
+                        <ul class="Item-Vote Node-XXS-3">
+                            <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
                             <li><span>{{ $User['meta']['rating'] }}</span></li>
-                            <li><a class="Vote-Up" href="#"></a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
                         </ul>
                     </header>
 
@@ -69,7 +69,7 @@
                         </a>
                     </div>
 
-                    <div class="Grid Node-XXS-9 Description">
+                    <div class="Grid Node-XXS-9 Item-Content">
                         {{$User['about']}}
                     </div>
                 </li>
@@ -87,34 +87,34 @@
 
             <h3 class="Heading Primary">Новости</h3>
 
-            <ul class="List Snippets Grid Split">
+            <ul class="Snippet-List Split Grid">
 
                 @foreach($Content['LastArticles'] as $Article)
-                    <li class="List-Item Grid-XS-6">
-                        <header>
+                    <li class="Snippet-Item Node-XS-6">
+                        <header class="Grid Merge">
 
-                            <h5 class="Item-Title">
+                            <h5 class="Item-Title Node-XXS-9">
                                 <a href="/articles/{{$Article['meta']['alias']}}" alt=" {{$Article['title']}}">{{$Article['title']}}</a>
-                                <span class="Item-Subtitle">
+                                <time class="Item-Subtitle">
                                     {{$Article['meta']['updated_at']}}
-                                </span>
+                                </time>
                             </h5>
 
-                            <ul class="Vote">
-                                <li><a class="Vote-Down" href="#"></a></li>
-                                <li><span>{{$Article['meta']['rating']}}</span></li>
-                                <li><a class="Vote-Up" href="#"></a></li>
+                            <ul class="Item-Vote Node-XXS-3">
+                                <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+                                <li><span>{{ $User['meta']['rating'] }}</span></li>
+                                <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
                             </ul>
 
                         </header>
 
-                        <img src="{{$Article['logotype']}}" alt="{{$Article['title']}}">
-
-                        <article class="Description">
+                        <article class="Item-Content">
+                            <img src="{{$Article['logotype']}}" alt="{{$Article['title']}}">
                             <div>{{ $Article['intro'] }}</div>
                         </article>
 
                         @if(isset($Article['meta']['tags']))
+                        <footer>
                             <ul class="Tag-List">
                                 @foreach( $Article['meta']['tags'] as $Tag )
                                     <li class="Tag-Item">
@@ -122,6 +122,7 @@
                                     </li>
                                 @endforeach
                             </ul>
+                        </footer>
                         @endif
                     </li>
                 @endforeach
