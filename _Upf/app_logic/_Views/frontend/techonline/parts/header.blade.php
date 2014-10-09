@@ -7,8 +7,8 @@
             <div>
                 <img class="Logo-Img" src="/img/techonline/logo.png"/>
                 <h2>Стройтехника
-                    <small><span class="Visible-MD">.</span>Онлайн</small>
-                </h2>
+                    <small><span class="Visible-LR">.</span>Онлайн</small>
+                </h2> 
             </div>
             <a class="Link-Home" href="/">Вернуться на главную страницу</a>
         </div>
@@ -16,7 +16,7 @@
         <div id="Menu-Toggle">
             <span class="fa fa-2x fa-bars"></span>
         </div>
-        <nav id="Menu" class="Site-Navigation Primary Row Split Node-SM-6">
+        <nav id="Menu" class="Site-Navigation Primary Row Split Node-SM-6 Hidden-XS Visible-SM">
             <ul class="Menu-List">
                 <li><a class="Menu-Link" href="/catalog" title="Каталог стройтехники">Каталог</a></li>
                 <li><a class="Menu-Link" href="/rent" title="Взять стройтехнику в аренду">Аренда</a></li>
