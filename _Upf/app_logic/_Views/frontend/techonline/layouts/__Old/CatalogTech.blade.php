@@ -61,12 +61,12 @@
                                 <td>Регион:</td>
                                 <td>{{$list_elem['region']['name']}}</td>
                             </tr>
-                        @foreach($list_elem['model']['params_values'] as $param)
-                            <tr>
-                                <td>{{$param['param_data']['name']}}</td>
-                                <td>{{$param['value']}} {{$param['param_data']['dimension']}}</td>
-                            </tr>
-                        @endforeach
+                                @foreach($list_elem['model']['params_values'] as $param)
+                                    <tr>
+                                        <td>{{$param['param_data']['name']}}</td>
+                                        <td>{{$param['value']}} {{$param['param_data']['dimension']}}</td>
+                                    </tr>
+                                @endforeach
                         </table>
                     </div>
 

@@ -8,7 +8,7 @@
 <div id="Page-Wrap">
     @include('frontend.techonline.parts.header')
     <main>
-        @yield('main')
+        @yield('Main')
     </main>
     <div id="Page-Wrap-Stop"></div>
 </div>

@@ -32,27 +32,44 @@ class Articles extends Migration {
 
     public static function fields($Table = 'section_articles'){
         return [
-            /*** List ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+            /*** *** Backend *** ***/
 
-            /*** Add ***/
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
-            ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
+                /*** List ***/
+                ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+                ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
+                ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
 
-            /*** Edit ***/
-            // Group :: Main
-            ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
-            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
-            ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
-            ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
+                /*** Add ***/
+                ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+                ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
+                ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
+                ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
 
-            // Group :: Media
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+                /*** Edit ***/
+                // Group :: Main
+                ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
+                ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
+                ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
+                ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
+
+                // Group :: Media
+                ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
+                ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+
+
+
+
+            /*** *** Frontend *** ***/
+
+                /*** List ***/
+                // Group :: Main
+                ['№', 'id', 'text', 'Title', 'main', false, 'frontend', $Table, 'list'],
+                ['Заголовок', 'title', 'text', 'Title', 'main', true, 'frontend', $Table, 'list'],
+                ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
+                ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
+                // Group :: Media
+                ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'list',''],
+                ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'list'],
         ];
     }
 }

@@ -7,6 +7,7 @@ class Meta extends Fields {
     protected $table = 'system_meta';
     public $Config = 'models/backend/sections/Meta';
     public $PhotosUrl = '/photo/standard/system/meta/';
+    public $Section = '';
 
     /******************************************************************************************************************* Relations ***/
 
@@ -359,33 +360,65 @@ class Meta extends Fields {
         $Result->save();
     }
 
+
     /******************************************************************************************************************* ***/
     /******************************************************************************************************************* ***/
-    /******************************************************************************************************************* *** *** Front Functions *** ***/
+
+    /*** ***    Front Functions     *** ***/
+
     /******************************************************************************************************************* ***/
     /******************************************************************************************************************* ***/
 
     /*** *** Get Front List *** ***/
     public function FrontIndex($Filter = []){
         /*** Get Data ***/
-        $Query = $this->WhereStatusesInMeta($this,$Filter)
+        $List = $this->WhereStatusesInMeta($this,$Filter)
             ->with('meta',
                    'meta.categories',
                    'meta.tags',
                    'meta.regions',
+                   'meta.files',
                    'meta.categories.params',
                    'meta.paramsvalues')
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
-                                            :\Config::get('site\app_settings.Paginate.content')
+                                            :\Config::get('site\app_settings.PaginateFrontend.content')
             );
 
         /*** Return Frontend Content ***/
         return [
-            'list' => $Query->toArray()['data'],
-            'fields' => $this->GetFields('list'),
-            'pagination' => $Query->appends(\Input::except('page'))->links(),
+            'List'          =>      $List->toArray()['data'],
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+            'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
+            'Filters'       =>      $this->FrontFilters()
         ];
     }
+
+    /*** *** Get Front Filters *** ***/
+    public function FrontFilters(){
+
+        /*** Categories List ***/
+        $Categories     =       \UpfModels\Categories::where( 'section', $this->Section )->get();
+
+        /*** Tags List ***/
+        $Tags           =       \UpfModels\Tags::where( 'section', $this->Section )->get();
+
+        /*** Regions List ***/
+        $Regions        =       \UpfModels\Regions::all();
+
+        /*** Params List ***/
+        $Params         =       \UpfModels\Params::where( 'section', $this->Section )->get();
+
+
+
+        /*** Return Filters ***/
+        return [
+            'categories'    =>     $Categories,
+            'tags'          =>     $Tags,
+            'regions'       =>     $Regions,
+            'params'        =>     $Params,
+        ];
+    }
+
 }
 

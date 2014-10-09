@@ -46,11 +46,14 @@ function NewRoutesGroup($Groups,$SectionType='section',$Division='backend'){
 
 
 
-/*** Add Frontend Default ***/
+/*** *** Add Frontend Default *** ***/
+
 function FrontendRoutes($Groups){
+
     foreach($Groups as $Section){
         $Controller=\UpfHelpers\String::LetterToUppercase($Section);
         Route::get('/'. $Section .'/','\UpfFrontendControllers\\'.$Controller.'Controller@Index');
-        Route::get('/'. $Section .'/{alias}','\UpfFrontendControllers\\'.$Controller.'Controller@Item}');
+        Route::get('/'. $Section .'/{alias}','\UpfFrontendControllers\\'.$Controller.'Controller@Item');
     }
+
 }

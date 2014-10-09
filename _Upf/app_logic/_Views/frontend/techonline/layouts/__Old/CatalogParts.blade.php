@@ -7,31 +7,7 @@
     <h3 class="Heading Primary">Запчасти и сервис</h3>
     @include('frontend.site_techonline.parts.breadcrumbs')
     <div class="Row Merge">
-        <!--
-        <aside class="Sidebar-Filter Grid XS-3">
-            <h4>Категории</h4>
-            <ul class="List-Filter Accordion">
-                @foreach($content['categories'] as $category)
-                <li class="List-Filter-Subheader Accordion-Subheader">
-                    @if($category['subCategories'])
-                    <img class='Accordion-Switch' src="/img/techonline/icon-dropdown.png" alt=""/>
-                    @endif
-                    <a href="/catalog/?category={{$category['alias']}}&{{\Input::getQueryString()}}">{{$category['name']}}</a>
-                </li>
 
-                @if($category['subCategories'])
-                <li class="List-Filter-Subcategory Accordion-Subcategory">
-                    <ul>
-                        @foreach($category['subCategories'] as $subCategory)
-                        <li><a href="/catalog/?category={{$subCategory['alias']}}&{{\Input::getQueryString()}}">{{$subCategory['name']}}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-        </aside>
-        -->
         <article class="">
             <ul class="Snippet-List">
                 @foreach($content['list'] as $item_key => $list_elem)

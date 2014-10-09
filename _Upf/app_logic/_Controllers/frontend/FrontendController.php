@@ -9,11 +9,20 @@ class FrontendController extends \Controller{
     public $Model = '\UpfModels\Fields';
     public $BaseUrl = '/';
     public $Template = 'frontend.techonline.content';
+    public $TemplateRoot = 'frontend.techonline';
 
     public function __construct(){
-        $this->ViewData['Model'] = $this->Model;
-        $this->ViewData['BaseUrl'] = $this->BaseUrl;
-        $this->ViewData['Template'] = $this->Template;
+        $this->ViewData = [
+            /*** Default ***/
+            'Model'             => $this->Model,
+            'BaseUrl'           => $this->BaseUrl,
+            /*** Template ***/
+            'Template'          => $this->Template,
+            'TemplateRoot'      => $this->TemplateRoot,
+            'TemplateParts'     => $this->TemplateRoot . '.parts.',
+            'TemplateLayouts'   => $this->TemplateRoot . '.layouts.',
+            /*** Other ***/
+        ];
     }
 
     /******************************************************************************************************************* Default Frontend Functionality ***/
@@ -25,9 +34,7 @@ class FrontendController extends \Controller{
         $DefaultModel = new $this->Model();
 
         /*** Set Content ***/
-        $this->ViewData['Content'] = [
-            'Data'=>$DefaultModel->FrontIndex()
-        ];
+        $this->ViewData['Content'] = $DefaultModel->FrontIndex();
 
         /*** Show View ***/
         return \View::make($this->View . 'List' , $this->ViewData);

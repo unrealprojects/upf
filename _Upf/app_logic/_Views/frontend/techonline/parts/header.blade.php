@@ -1,4 +1,4 @@
-<!-- СЕКЦИЯ: Верхнее меню сайта (Логотип + Вход) -->
+{{-- СЕКЦИЯ: Верхнее меню сайта (Логотип + Вход) --}}
 <section class="Site-Header">
 
     <div class="Site-Header-Inner Grid Merge" role="banner">
@@ -21,7 +21,7 @@
                 <li><a class="Menu-Link" href="/catalog" title="Каталог стройтехники">Каталог</a></li>
                 <li><a class="Menu-Link" href="/rent" title="Взять стройтехнику в аренду">Аренда</a></li>
                 <li><a class="Menu-Link" href="/parts">Запчасти и сервис</a></li>
-                <li><a class="Menu-Link" href="/sellers">Арендодатели</a></li>
+                <li><a class="Menu-Link" href="/users">Арендодатели</a></li>
             </ul>
         </nav>
 

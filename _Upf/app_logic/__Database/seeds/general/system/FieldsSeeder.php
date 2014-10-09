@@ -56,23 +56,28 @@ class FieldsSeeder extends \Seeder {
     public function Add($Data){
         foreach($Data as $Field){
             /*** Get Model ***/
+
             $Model = new \UpfModels\Fields();
+
             /*** Content ***/
-            $Model->title = $Field[0];
-            $Model->relation = $Field[1];
-            $Model->type = $Field[2];
-            $Model->class = $Field[3];
-            $Model->group = $Field[4];
-            $Model->editable = $Field[5];
+            $Model->title =         $Field[0];
+            $Model->relation =      $Field[1];
+            $Model->type =          $Field[2];
+            $Model->class =         $Field[3];
+            $Model->group =         $Field[4];
+            $Model->editable =      $Field[5];
+
             /*** Relations ***/
-            $Model->destination = $Field[6];
-            $Model->table = $Field[7];
-            $Model->view = $Field[8];
+            $Model->destination =   $Field[6];
+            $Model->table =         $Field[7];
+            $Model->view =          $Field[8];
+
             /*** Values ***/
             if(isset($Field[9]) && isset($Field[10])){
-                $Model->values_type = $Field[9];
-                $Model->values =  $Field[10];
+                $Model->values_type =   $Field[9];
+                $Model->values =        $Field[10];
             }
+
             /*** Save Item ***/
             $Model->save();
         }

@@ -9,16 +9,38 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class Fields extends General {
     public $timestamps = false;
 	protected $table = 'system_fields';
+
     /******************************************************************************************************************* Fields Functionality ***/
+
     /*** Get All Field Indicated From View ***/
-    public function GetFields($View){
+    public function GetFields($View, $Destination = 'backend', $Sort = false){
+
+        /*** Default***/
         $Model =  new \UpfModels\Fields();
-        return $Model
-            ->where('destination',$this->destination)
-            ->where('table',$this->table)
-            ->where('view',$View)
-            ->orderBy('id')
-            ->get();
+
+        /*** Get Fields ***/
+        $Fields = $Model->where('destination',$Destination)
+                         ->where('table',$this->table)
+                         ->where('view',$View)
+                         ->orderBy('id')
+                         ->get();
+
+        /*** Sort Fields By Group ***/
+        if($Sort){
+            $SortedFields = [];
+            $Groups = \Config::get('models/Fields.field_groups');
+            foreach($Fields->toArray() as $Field){
+                foreach($Groups as $GroupKey => $Group){
+                    if($GroupKey==$Field['group']){
+                        $SortedFields[$GroupKey][$Field['relation']] = $Field;
+                    }
+                }
+            }
+            return $SortedFields;
+        }else{
+            /*** Don't sort ***/
+            return $Fields;
+        }
     }
 
     /*** Get Field Values ***/
@@ -186,6 +208,7 @@ class Fields extends General {
     }
 
     /******************************************************************************************************************* Remove Item ***/
+
     public function Remove($Alias){
         $Result = $this->where('alias',$Alias)->first();
         $Result->delete();

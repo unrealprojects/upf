@@ -42,6 +42,7 @@
                     <div class="Item-Content">
                         <p>{{$list_elem['text_preview']}}</p>
                     </div>
+
                     <footer>
                         <ul class="Tag-List">
                             @foreach($list_elem['tags'] as $tag)

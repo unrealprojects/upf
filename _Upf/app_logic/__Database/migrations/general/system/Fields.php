@@ -27,8 +27,9 @@ class Fields extends Migration {
             /*** Relations ***/
             // Example :: articles, meta...
             $table->string('table')->default('section_meta');
+
             // Values(frontend, backend)
-            $table->string('destination')->default('backend');
+            $table->string('destination');
             // Values(list, snippet, edit, item, add )
             $table->string('view')->default('list');
         });

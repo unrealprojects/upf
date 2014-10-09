@@ -72,4 +72,12 @@ return [
         1 => 'БУ'
     ],
 
+    /*** Field Groups ***/
+    'field_groups' => [
+        'main'      => 'Основная',
+        'media'     => 'Медиа',
+        'relations' => 'Отношения',
+        'meta'      => 'Заголовки'
+    ]
+
 ];

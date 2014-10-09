@@ -20,6 +20,11 @@ return [
     'Paginate'=> [
         'content'=>'30',
         'type'=>'numeric',
-        'title'=>'Пагинация'
+        'title'=>'Пагинация на Backend'
+    ],
+    'PaginateFrontend'=> [
+        'content'=>'5',
+        'type'=>'numeric',
+        'title'=>'Пагинация на Frontend'
     ],
 ];
