@@ -11,19 +11,15 @@
             {{-- Each Item --}}
             @if( $Item = $Content['Item'])
 
-            <li class="Snippet-Item Grid Merge">
-
-
-
+            <li class="Snippet-Item Grid Split">
 
                 {{-- Group :: Main --}}
 
-                <header>
+                <header class="Grid Split">
                     @if( isset($Item['title']) )
-                    <h4 class="Item-Title {{ (strlen($Item['title'])>20) ? 'Item-Title-Long' : ''}}">
-                        <a href="{{ $BaseUrl . $Item['meta']['alias'] }}">
+                    <h4 class="Item-Title {{ (strlen($Item['title'])>20) ? 'Item-Title-Long' : ''}} Node-XS-6">
                             {{ $Item['title'] }}
-                        </a>
+
 
                         @if( isset($Item['meta']) && isset($Content['Fields']['date']['meta-created_at']) )
                         <span class="Item-Subtitle">{{ $Item['meta']['created_at'] }}</span>
@@ -33,9 +29,9 @@
                     @endif
 
                     @if( isset($Item['price']) && isset($Content['Fields']['statuses']['price']) )
-                    <div class="Price">
+                    <div class="Item-Price Node-XS-2">
                         <span>{{$Item['price']}}</span>
-                        <span>руб.</span>
+                        <span class="fa fa-rub"></span>
                     </div>
                     @endif
 
@@ -44,18 +40,18 @@
 
                     {{-- Group :: Statuses --}}
 
-                    @if(isset($Item['meta']['rating']))
-                    <ul class="Vote">
-                        <li><a class="Vote-Down" href="#"></a></li>
-                        <li><span>{{ $Item['meta']['rating'] }}</span></li>
-                        <li><a class="Vote-Up" href="#"></a></li>
-                    </ul>
+                    @if(isset($Item['meta']['views']))
+                    <div class="Item-Views Node-XS-2" title="Просмотров записи: {{ $Item['meta']['views'] }}">
+                        <span class="fa fa-eye"></span><span>{{ $Item['meta']['views'] }}</span>
+                    </div>
                     @endif
 
-                    @if(isset($Item['meta']['views']))
-                    <div class="Views">
-                        <span>{{ $Item['meta']['views'] }}</span>
-                    </div>
+                    @if(isset($Item['meta']['rating']))
+                    <ul class="Item-Vote Node-XS-2 End">
+                        <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+                        <li><span>{{ $Item['meta']['rating'] }}</span></li>
+                        <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
+                    </ul>
                     @endif
 
                     {{-- End Group :: Statuses --}}

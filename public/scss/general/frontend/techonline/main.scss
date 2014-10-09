@@ -255,7 +255,6 @@ img.Footer-Img {
 	@extend ._No-Bullets;
 
 	.Snippet-Item {
-//		@extend .Row;
 		@extend .Merge;
 
 		header {
@@ -273,84 +272,153 @@ img.Footer-Img {
 			@extend ._Clearfix;
 		}
 	}
-	.Item-Photo {
-//		@extend .Grid-XS-5;
-	}
 	.Item-Gallery {
 		@extend ._Clearfix;
-//		@extend .Grid-XS-5;
 		& > img {
 			width: 100%;
 		}
 	}
 	.Item-Content {
 		margin-top: $size-n;
-//		@extend .Grid-XS-7;
 	}
 }
 
+$Snippet-Header-Height: 50px;
+
+$Snippet-Header-Tall-Font-Size: 20px;
+$Snippet-Header-Small-Font-Size: 14px;
+$Snippet-Header-Small-Border-Width: 1px;
+
+$Snippet-Header-Tall-Padding: ($Snippet-Header-Height - $Snippet-Header-Tall-Font-Size) / 4;
+$Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-Font-Size) / 4;
+
+
+%Tall-Prototype
+{
+	border: 0;
+
+	padding-top: $Snippet-Header-Tall-Padding;
+	padding-bottom: $Snippet-Header-Tall-Padding;
+	margin-top: $Snippet-Header-Tall-Padding;
+	margin-bottom: $Snippet-Header-Tall-Padding;
+
+	font-size: $Snippet-Header-Tall-Font-Size;
+	line-height: $Snippet-Header-Tall-Font-Size;
+
+}
+%Small-Prototype
+{
+	border: 1px solid transparent;
+	margin-top: $Snippet-Header-Small-Padding;
+	margin-bottom: $Snippet-Header-Small-Padding;
+	padding-top: $Snippet-Header-Small-Padding;
+	padding-bottom: $Snippet-Header-Small-Padding;
+
+	font-size: $Snippet-Header-Small-Font-Size;
+	line-height: $Snippet-Header-Small-Font-Size;
+
+}
+
 .Snippet-Item {
+	@include Adaptive($Viewport-SM)
+	{
+		border: 1px solid $Clr-Secondary;
+	}
 	@extend ._Clearfix;
 //	@extend .Row;
-
 	header {
-		position: relative;
+		display: table;
+		width: 100%;
 		margin-bottom: $size;
 		@extend ._Clearfix;
-
-		.Item-Title {
-			margin: $size-n;
-			display: inline-block;
-			max-width: 50%;
+		.Item-Title
+		{
+			padding-left: $size-n;
 			text-transform: uppercase;
-			font-size: 20px;
-			@extend ._Clearfix;
-			@extend %_Left;
-
-			a {
-				display: block;
-				color: black;
-				&:hover {
+			@extend %Tall-Prototype;
+			a
+			{
+				color: $Clr-Text-Main;
+				&:hover
+				{
 					color: $Clr-Main;
 				}
 			}
-			.Item-Category ,
-			.Item-Location {
-				float: left;
-				text-transform: none;
-				font-size: 12px;
-				font-weight: 100;
-				color: $Clr-Grey-Dark;
+		}
+		.Item-Price
+		{
+			background-color: $Clr-Main;
+			border-radius: $Control-Border-Radius;
+			text-align: center;
+			color: white;
+			@extend %Small-Prototype;
+		}
+		.Item-Views
+		{
+			@extend %Small-Prototype;
+			span.fa
+			{
+				margin-right: $size-s;
+				color: $C-Grey-3;
 			}
 		}
-		h4 				,
-		.Section-Header {
-			float: left;
+		.Item-Vote
+		{
+			@extend %Tall-Prototype;
 		}
-
-		.Item-Values {
-			position: absolute;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			display: inline-block;
-			float: right;
-
-			@extend ._No-Bullets;
+		.Item-Vote {
 			@extend ._Inline;
-//			@extend .Row;
-
-			li {
-				padding: $size-n $size-s;
-				h6 {
-					margin: 0;
-					font-size: 12px;
-					font-weight: 100;
+			@extend ._No-Bullets;
+			padding: 0;
+			padding-right: $size-n;
+			width: 100%;
+			& > li {
+				display: block;
+				width: 33.33%;
+				&:first-child,
+				&:first-child a
+				{
+					@include Round(left, $Control-Border-Radius);
+				}
+				&:last-child,
+				&:last-child a
+				{
+					@include Round(right, $Control-Border-Radius);
+				}
+				@extend ._Clearfix;
+				& > a {
+					display: block;
+					height: 35px;
+					border: 1px solid $Clr-Silver;
+					padding-top: 6px;
+					text-align: center;
+					color: $C-Grey-4;
+					&:hover {
+						background-color: $Clr-Main;
+						border-color: $Clr-Main-Dark;
+						color: white;
+					}
+				}
+				& > span {
+					display: block;
+					text-align: center;
+					padding-top: 6px;
+					border-top: 1px solid $Clr-Silver;
+					border-bottom: 1px solid $Clr-Silver;
+					height: 35px;
+					color: $Clr-Silver;
+					font-size: 14px;
 				}
 			}
 		}
+
 	}
 	.Item-Gallery {
+		padding-left: 0;
+		@include Adaptive($Viewport-SM)
+		{
+			padding-left: $size-n;
+		}
 		@extend ._Clearfix;
 
 		img.Item-Main-Photo {
@@ -381,20 +449,9 @@ img.Footer-Img {
 		}
 	}
 
-	.Item-Photo {
-		margin-bottom: $size-l;
-		padding-right: $size-l;
-//		@extend .Grid-XS-5;
-
-		img {
-			width: 100%;
-		}
-	}
 
 	.Item-Content {
 		font-size: 14px;
-
-//		@extend .Grid-XS-7;
 
 		h6 {
 			margin: $size-s 0 $size-xs;
@@ -414,6 +471,16 @@ img.Footer-Img {
 				td {
 					padding: $size-xs 0;
 				}
+			}
+		}
+		.More-Info a
+		{
+			font-family: $Font-Family-Open-Sans;
+			font-size: 14px;
+			border-bottom: 1px $Clr-Main dashed;
+			&:hover
+			{
+				border-color: $Clr-Text-Main;
 			}
 		}
 	}
@@ -490,39 +557,7 @@ ul.Tag-List {
 		}
 	}
 }
-.Vote {
-	@extend ._Inline;
-	@extend ._No-Bullets;
-	display: block;
-	width: 100%;
-	clear: both;
-	margin-top: $size-s;
-	margin-left: $size-n;
-	& > li {
-		@extend ._Clearfix;
-		& > a {
-			display: block;
-			width: 30px;
-			height: 30px;
-			border: 1px solid $Clr-Silver;
-			&:hover {
-				background-color: $Clr-Main;
-				border-color: $Clr-Main-Dark;
-			}
-		}
-		& > span {
-			text-align: center;
-			padding-top: 3px;
-			border-top: 1px solid $Clr-Silver;
-			border-bottom: 1px solid $Clr-Silver;
-			display: block;
-			width: 30px;
-			height: 30px;
-			color: $Clr-Silver;
-			font-size: 14px;
-		}
-	}
-}
+
 
 .Vote-Up {
 	background: url(../../../../img/techonline/icon-vote-up.png) center center no-repeat;

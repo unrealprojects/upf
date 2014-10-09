@@ -32,7 +32,7 @@
 ._Icon-Spacing {
   margin-right: 20px; }
 
-footer[role='contentinfo'] > div .Copyright, .Snippet-Item header .Item-Title, .Snippet-Item .Item-Info .Date, .Snippet-Item .Item-Info .Tags {
+footer[role='contentinfo'] > div .Copyright, .Snippet-Item .Item-Info .Date, .Snippet-Item .Item-Info .Tags {
   float: left; }
 
 ._Right {
@@ -41,17 +41,16 @@ footer[role='contentinfo'] > div .Copyright, .Snippet-Item header .Item-Title, .
 ._Dev {
   outline: 1px red solid !important; }
 
-._Clearfix:before, ._Inline:before, .Breadcrumbs .Breadcrumb-List:before, .Box > header ul.Box-Tools:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header .Item-Values:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, .Vote:before, .List-Group-Actions:before, [class*='Grid']:before, .Node:before, table.Adaptive td:before, .pagination:before,
-.Pagination:before, .Control-Group:before, dl.Tabs:before, .Box:before, .Box > header:before, .Dropdown:before, .Site-Header:before, .List-Categories:before, .List-Categories li:before, .Comment-List .Comment-Item .Item-Content header:before, footer[role='contentinfo'] > div:before, .List.Snippets li.List-Item header:before, .Snippet-List .Snippet-Item footer:before, .Snippet-List .Item-Gallery:before, .Snippet-Item:before, .Snippet-Item header:before, .Snippet-Item header .Item-Title:before, .Snippet-Item .Item-Gallery:before, .Filter-Result li:before, .Vote > li:before, .Filter.Accordion .Filter-Subheader:before, .Filter-Subcategory ul:before,
+._Clearfix:before, ._Inline:before, .Breadcrumbs .Breadcrumb-List:before, .Box > header ul.Box-Tools:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header .Item-Vote:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, .List-Group-Actions:before, [class*='Grid']:before, .Node:before, table.Adaptive td:before, .pagination:before,
+.Pagination:before, .Control-Group:before, dl.Tabs:before, .Box:before, .Box > header:before, .Dropdown:before, .Site-Header:before, .List-Categories:before, .List-Categories li:before, .Comment-List .Comment-Item .Item-Content header:before, footer[role='contentinfo'] > div:before, .List.Snippets li.List-Item header:before, .Snippet-List .Snippet-Item footer:before, .Snippet-List .Item-Gallery:before, .Snippet-Item:before, .Snippet-Item header:before, .Snippet-Item header .Item-Vote > li:before, .Snippet-Item .Item-Gallery:before, .Filter-Result li:before, .Filter.Accordion .Filter-Subheader:before, .Filter-Subcategory ul:before,
 ._Clearfix:after,
 ._Inline:after,
 .Breadcrumbs .Breadcrumb-List:after,
 .Box > header ul.Box-Tools:after,
 footer[role='contentinfo'] > div .Footer-Navigation ul:after,
-.Snippet-Item header .Item-Values:after,
+.Snippet-Item header .Item-Vote:after,
 .Snippet-Item .Item-Gallery ul:after,
 ul.Tag-List:after,
-.Vote:after,
 .List-Group-Actions:after,
 [class*='Grid']:after,
 .Node:after,
@@ -73,31 +72,30 @@ footer[role='contentinfo'] > div:after,
 .Snippet-List .Item-Gallery:after,
 .Snippet-Item:after,
 .Snippet-Item header:after,
-.Snippet-Item header .Item-Title:after,
+.Snippet-Item header .Item-Vote > li:after,
 .Snippet-Item .Item-Gallery:after,
 .Filter-Result li:after,
-.Vote > li:after,
 .Filter.Accordion .Filter-Subheader:after,
 .Filter-Subcategory ul:after {
   content: " ";
   display: table; }
 
-._Clearfix:after, ._Inline:after, .Breadcrumbs .Breadcrumb-List:after, .Box > header ul.Box-Tools:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Values:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .Vote:after, .List-Group-Actions:after, [class*='Grid']:after, .Node:after, table.Adaptive td:after, .pagination:after,
-.Pagination:after, .Control-Group:after, dl.Tabs:after, .Box:after, .Box > header:after, .Dropdown:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, .Comment-List .Comment-Item .Item-Content header:after, footer[role='contentinfo'] > div:after, .List.Snippets li.List-Item header:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item header .Item-Title:after, .Snippet-Item .Item-Gallery:after, .Filter-Result li:after, .Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
+._Clearfix:after, ._Inline:after, .Breadcrumbs .Breadcrumb-List:after, .Box > header ul.Box-Tools:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .List-Group-Actions:after, [class*='Grid']:after, .Node:after, table.Adaptive td:after, .pagination:after,
+.Pagination:after, .Control-Group:after, dl.Tabs:after, .Box:after, .Box > header:after, .Dropdown:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, .Comment-List .Comment-Item .Item-Content header:after, footer[role='contentinfo'] > div:after, .List.Snippets li.List-Item header:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item header .Item-Vote > li:after, .Snippet-Item .Item-Gallery:after, .Filter-Result li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
   clear: both; }
 
-._Inline > *, .Breadcrumbs .Breadcrumb-List > *, .Box > header ul.Box-Tools > *, footer[role='contentinfo'] > div .Footer-Navigation ul > *, .Snippet-Item header .Item-Values > *, .Snippet-Item .Item-Gallery ul > *, ul.Tag-List > *, .Vote > *, .List-Group-Actions > * {
+._Inline > *, .Breadcrumbs .Breadcrumb-List > *, .Box > header ul.Box-Tools > *, footer[role='contentinfo'] > div .Footer-Navigation ul > *, .Snippet-Item header .Item-Vote > *, .Snippet-Item .Item-Gallery ul > *, ul.Tag-List > *, .List-Group-Actions > * {
   float: left; }
 
 ._No-Bullets, ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, table td.Actions ul, .pagination,
-.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, .Dropdown .Dropdown-Content, .Site-Navigation.Primary ul, .Comment-List, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-List, .Snippet-Item header .Item-Values, .Snippet-Item .Item-Gallery ul, .Filter-Result, ul.Tag-List, .Vote, .List-Filter, .Menu-List ul, .Filter.Accordion, .Filter-Subcategory ul, .List-Group-Actions {
+.Pagination, .Breadcrumbs .Breadcrumb-List, .Box > header ul.Box-Tools, .Dropdown .Dropdown-Content, .Site-Navigation.Primary ul, .Comment-List, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-List, .Snippet-Item header .Item-Vote, .Snippet-Item .Item-Gallery ul, .Filter-Result, ul.Tag-List, .List-Filter, .Menu-List ul, .Filter.Accordion, .Filter-Subcategory ul, .List-Group-Actions {
   list-style: none;
   margin: 0;
   padding: 0; }
   ._No-Bullets > li, ol[class*='Grid'] > li > li,
   ul[class*='Grid'] > li > li, table td.Actions ul > li, .pagination > li,
-  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, .Dropdown .Dropdown-Content > li, .Site-Navigation.Primary ul > li, .Comment-List > li, footer[role='contentinfo'] > div .Footer-Navigation ul > li, .Snippet-List > li, .Snippet-Item header .Item-Values > li, .Snippet-Item .Item-Gallery ul > li, .Filter-Result > li, ul.Tag-List > li, .Vote > li, .List-Filter > li, .Menu-List ul > li, .Filter.Accordion > li, .Filter-Subcategory ul > li, .List-Group-Actions > li {
+  .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Box > header ul.Box-Tools > li, .Dropdown .Dropdown-Content > li, .Site-Navigation.Primary ul > li, .Comment-List > li, footer[role='contentinfo'] > div .Footer-Navigation ul > li, .Snippet-List > li, .Snippet-Item header .Item-Vote > li, .Snippet-Item .Item-Gallery ul > li, .Filter-Result > li, ul.Tag-List > li, .List-Filter > li, .Menu-List ul > li, .Filter.Accordion > li, .Filter-Subcategory ul > li, .List-Group-Actions > li {
     margin: 0;
     padding: 0; }
 
@@ -1883,11 +1881,16 @@ textarea,
 .Dropdown {
   height: 30px;
   padding: 7px;
-  font-size: 14px;
-  line-height: 14px;
-  border-radius: 5px;
   border: 1px #b7b7b7 solid;
+  border-radius: 5px;
   outline: 0;
+  font-size: 14px;
+  line-height: 14px; }
+
+input,
+select,
+textarea,
+.Dropdown {
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
   color: #212121;
@@ -2379,30 +2382,20 @@ dl.Tabs {
     background-color: #2ecc71; }
     .Box.Success.Gradient {
       background-color: #5ec67d;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* IE10 */
       background: -o-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #2ecc71, #5ec67d);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
     .Box.Success.Solid.Gradient header {
       background-color: #5ec67d;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* IE10 */
       background: -o-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #2ecc71, #5ec67d);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
     .Box.Success .Box-Tools a:hover {
       color: #5ec67d; }
     .Box.Success.Solid.Outlined {
@@ -2411,51 +2404,36 @@ dl.Tabs {
     background-color: #3498db; }
     .Box.Info.Gradient {
       background-color: #2980b9;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #3498db, #2980b9);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #3498db, #2980b9);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #3498db, #2980b9);
-      /* IE10 */
       background: -o-linear-gradient(to right, #3498db, #2980b9);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #3498db, #2980b9);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#3498db', EndColorStr='#2980b9'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#3498db', EndColorStr='#2980b9'); }
     .Box.Info .Box-Tools a:hover {
       color: #2980b9; }
   .Box.Warning {
     background-color: #e67e22; }
     .Box.Warning.Gradient {
       background-color: #d35400;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #e67e22, #d35400);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #e67e22, #d35400);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #e67e22, #d35400);
-      /* IE10 */
       background: -o-linear-gradient(to right, #e67e22, #d35400);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #e67e22, #d35400);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e67e22', EndColorStr='#d35400'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#e67e22', EndColorStr='#d35400'); }
     .Box.Warning .Box-Tools a:hover {
       color: #d35400; }
   .Box.Error {
     background-color: #f2070b; }
     .Box.Error.Gradient {
       background-color: #d1060a;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #f2070b, #d1060a);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #f2070b, #d1060a);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #f2070b, #d1060a);
-      /* IE10 */
       background: -o-linear-gradient(to right, #f2070b, #d1060a);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #f2070b, #d1060a);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f2070b', EndColorStr='#d1060a'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f2070b', EndColorStr='#d1060a'); }
     .Box.Error .Box-Tools a:hover {
       color: #d1060a; }
 
@@ -2880,6 +2858,13 @@ input[type='button'] {
       .Panel.Primary.Invert.Simple {
         border: 1px #25c9eb solid; }
 
+.Badge.Error {
+  background-color: #a02828; }
+.Badge.Primary {
+  border-color: #c0392b;
+  background-color: #e74c3c;
+  color: white; }
+
 body {
   min-width: 320px;
   background-color: #ecf0f1;
@@ -3196,59 +3181,93 @@ img.Footer-Img {
 .Snippet-List .Item-Content {
   margin-top: 15px; }
 
+.Snippet-Item header .Item-Title, .Snippet-Item header .Item-Vote {
+  border: 0;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+  font-size: 20px;
+  line-height: 20px; }
+
+.Snippet-Item header .Item-Price, .Snippet-Item header .Item-Views {
+  border: 1px solid transparent;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: 14px;
+  line-height: 14px; }
+
+@media screen and (min-width: 1024px) {
+  .Snippet-Item {
+    border: 1px solid #ecf0f1; } }
 .Snippet-Item header {
-  position: relative;
+  display: table;
+  width: 100%;
   margin-bottom: 20px; }
   .Snippet-Item header .Item-Title {
-    margin: 15px;
-    display: inline-block;
-    max-width: 50%;
-    text-transform: uppercase;
-    font-size: 20px; }
+    padding-left: 15px;
+    text-transform: uppercase; }
     .Snippet-Item header .Item-Title a {
-      display: block;
       color: black; }
       .Snippet-Item header .Item-Title a:hover {
         color: #e74c3c; }
-    .Snippet-Item header .Item-Title .Item-Category,
-    .Snippet-Item header .Item-Title .Item-Location {
-      float: left;
-      text-transform: none;
-      font-size: 12px;
-      font-weight: 100;
-      color: #999999; }
-  .Snippet-Item header h4,
-  .Snippet-Item header .Section-Header {
-    float: left; }
-  .Snippet-Item header .Item-Values {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: inline-block;
-    float: right; }
-    .Snippet-Item header .Item-Values li {
-      padding: 15px 10px; }
-      .Snippet-Item header .Item-Values li h6 {
-        margin: 0;
-        font-size: 12px;
-        font-weight: 100; }
-.Snippet-Item .Item-Gallery img.Item-Main-Photo {
-  border: 5px solid #ecf0f1; }
-.Snippet-Item .Item-Gallery ul li {
-  margin-top: -6px;
-  width: 33.33%; }
-  .Snippet-Item .Item-Gallery ul li:first-child {
-    margin-left: 0; }
-  .Snippet-Item .Item-Gallery ul li img {
-    display: block;
-    width: 100%;
-    border: 5px solid #ecf0f1; }
-.Snippet-Item .Item-Photo {
-  margin-bottom: 30px;
-  padding-right: 30px; }
-  .Snippet-Item .Item-Photo img {
+  .Snippet-Item header .Item-Price {
+    background-color: #e74c3c;
+    border-radius: 5px;
+    text-align: center;
+    color: white; }
+  .Snippet-Item header .Item-Views span.fa {
+    margin-right: 10px;
+    color: #555555; }
+  .Snippet-Item header .Item-Vote {
+    padding: 0;
+    padding-right: 15px;
     width: 100%; }
+    .Snippet-Item header .Item-Vote > li {
+      display: block;
+      width: 33.33%; }
+      .Snippet-Item header .Item-Vote > li:first-child, .Snippet-Item header .Item-Vote > li:first-child a {
+        border-radius: 5px 0 0 5px; }
+      .Snippet-Item header .Item-Vote > li:last-child, .Snippet-Item header .Item-Vote > li:last-child a {
+        border-radius: 0 5px 5px 0; }
+      .Snippet-Item header .Item-Vote > li > a {
+        display: block;
+        height: 35px;
+        border: 1px solid #bdc3c7;
+        padding-top: 6px;
+        text-align: center;
+        color: #b7b7b7; }
+        .Snippet-Item header .Item-Vote > li > a:hover {
+          background-color: #e74c3c;
+          border-color: #c0392b;
+          color: white; }
+      .Snippet-Item header .Item-Vote > li > span {
+        display: block;
+        text-align: center;
+        padding-top: 6px;
+        border-top: 1px solid #bdc3c7;
+        border-bottom: 1px solid #bdc3c7;
+        height: 35px;
+        color: #bdc3c7;
+        font-size: 14px; }
+.Snippet-Item .Item-Gallery {
+  padding-left: 0; }
+  @media screen and (min-width: 1024px) {
+    .Snippet-Item .Item-Gallery {
+      padding-left: 15px; } }
+  .Snippet-Item .Item-Gallery img.Item-Main-Photo {
+    border: 5px solid #ecf0f1; }
+  .Snippet-Item .Item-Gallery ul li {
+    margin-top: -6px;
+    width: 33.33%; }
+    .Snippet-Item .Item-Gallery ul li:first-child {
+      margin-left: 0; }
+    .Snippet-Item .Item-Gallery ul li img {
+      display: block;
+      width: 100%;
+      border: 5px solid #ecf0f1; }
 .Snippet-Item .Item-Content {
   font-size: 14px; }
   .Snippet-Item .Item-Content h6 {
@@ -3262,6 +3281,12 @@ img.Footer-Img {
     width: 100%; }
     .Snippet-Item .Item-Content table tr td {
       padding: 5px 0; }
+  .Snippet-Item .Item-Content .More-Info a {
+    font-family: "Open Sans", Helvetica, Verdana, sans-serif;
+    font-size: 14px;
+    border-bottom: 1px #e74c3c dashed; }
+    .Snippet-Item .Item-Content .More-Info a:hover {
+      border-color: black; }
 .Snippet-Item .Item-Info {
   clear: both;
   padding: 10px 0;
@@ -3308,31 +3333,6 @@ ul.Tag-List li.Tag-Item {
     ul.Tag-List li.Tag-Item a:hover {
       color: white;
       background-color: #999999; }
-
-.Vote {
-  display: block;
-  width: 100%;
-  clear: both;
-  margin-top: 10px;
-  margin-left: 15px; }
-  .Vote > li > a {
-    display: block;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #bdc3c7; }
-    .Vote > li > a:hover {
-      background-color: #e74c3c;
-      border-color: #c0392b; }
-  .Vote > li > span {
-    text-align: center;
-    padding-top: 3px;
-    border-top: 1px solid #bdc3c7;
-    border-bottom: 1px solid #bdc3c7;
-    display: block;
-    width: 30px;
-    height: 30px;
-    color: #bdc3c7;
-    font-size: 14px; }
 
 .Vote-Up {
   background: url(../../../../img/techonline/icon-vote-up.png) center center no-repeat; }
@@ -3587,29 +3587,8 @@ ul.Tag-List li.Tag-Item {
     padding-right: 110px;
     float: left; }
 
-  .Vote {
-    margin-top: 0;
-    width: 90px;
-    position: absolute;
-    top: 10px;
-    right: 10px; }
-
-  .Vote-Up {
-    border-radius: 0 5px 5px 0; }
-
-  .Vote-Down {
-    border-radius: 5px 0 0 5px; }
-
   li.List-Item {
     border-radius: 5px; }
-
-  .Snippet-Item {
-    border-radius: 5px; }
-    .Snippet-Item .Item-Gallery {
-      padding: 0 15px 15px; }
-    .Snippet-Item .Item-Content {
-      margin-top: 0;
-      padding: 0 15px 15px; }
 
   .Filter-Subcategory ul li {
     float: left !important;
@@ -3619,9 +3598,6 @@ ul.Tag-List li.Tag-Item {
   .Filter-Result {
     display: inline-block;
     width: auto; }
-
-  .Snippet-List .Snippet-Item {
-    border: 1px solid #dedede; }
 
   #Page-Slider {
     display: block;

@@ -9,31 +9,8 @@
 		padding-right: 110px;
 		float: left;
 	}
-	.Vote {
-		margin-top: 0;
-		width: 90px;
-		position: absolute;
-		top: $size-s;
-		right: $size-s;
-	}
-	.Vote-Up {
-		@include Round(right, $Control-Border-Radius);
-	}
-	.Vote-Down {
-		@include Round(left, $Control-Border-Radius);
-	}
 	li.List-Item {
 		@include Round(all, $Control-Border-Radius);
-	}
-	.Snippet-Item {
-		@include Round(all, $Control-Border-Radius);
-		.Item-Gallery {
-			padding: 0 $size-n $size-n;
-		}
-		.Item-Content {
-			margin-top: 0;
-			padding: 0 $size-n $size-n;
-		}
 	}
 	.Filter-Subcategory ul li {
 		float: left!important;
@@ -46,11 +23,6 @@
 	.Filter-Result {
 		display: inline-block;
 		width: auto;
-	}
-	.Snippet-List {
-		.Snippet-Item {
-			border: 1px solid $Clr-Grey-Light;
-		}
 	}
 	#Page-Slider {
 		display: block;

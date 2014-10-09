@@ -3515,11 +3515,16 @@ textarea,
 .Dropdown {
   height: 30px;
   padding: 7px;
-  font-size: 14px;
-  line-height: 14px;
-  border-radius: 5px;
   border: 1px #b7b7b7 solid;
+  border-radius: 5px;
   outline: 0;
+  font-size: 14px;
+  line-height: 14px; }
+
+input,
+select,
+textarea,
+.Dropdown {
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
   color: #212121;
@@ -3920,30 +3925,20 @@ dl.Tabs {
     background-color: #2ecc71; }
     .Box.Success.Gradient {
       background-color: #5ec67d;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* IE10 */
       background: -o-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #2ecc71, #5ec67d);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
     .Box.Success.Solid.Gradient header {
       background-color: #5ec67d;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* IE10 */
       background: -o-linear-gradient(to right, #2ecc71, #5ec67d);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #2ecc71, #5ec67d);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#2ecc71', EndColorStr='#5ec67d'); }
     .Box.Success .Box-Tools a:hover {
       color: #5ec67d; }
     .Box.Success.Solid.Outlined {
@@ -3952,51 +3947,36 @@ dl.Tabs {
     background-color: #3498db; }
     .Box.Info.Gradient {
       background-color: #2980b9;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #3498db, #2980b9);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #3498db, #2980b9);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #3498db, #2980b9);
-      /* IE10 */
       background: -o-linear-gradient(to right, #3498db, #2980b9);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #3498db, #2980b9);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#3498db', EndColorStr='#2980b9'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#3498db', EndColorStr='#2980b9'); }
     .Box.Info .Box-Tools a:hover {
       color: #2980b9; }
   .Box.Warning {
     background-color: #e67e22; }
     .Box.Warning.Gradient {
       background-color: #d35400;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #e67e22, #d35400);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #e67e22, #d35400);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #e67e22, #d35400);
-      /* IE10 */
       background: -o-linear-gradient(to right, #e67e22, #d35400);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #e67e22, #d35400);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e67e22', EndColorStr='#d35400'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#e67e22', EndColorStr='#d35400'); }
     .Box.Warning .Box-Tools a:hover {
       color: #d35400; }
   .Box.Error {
     background-color: #f2070b; }
     .Box.Error.Gradient {
       background-color: #d1060a;
-      /* Fallback */
       background: -webkit-linear-gradient(to right, #f2070b, #d1060a);
-      /* Chrome 10+, Saf5.1+, iOS 5+ */
       background: -moz-linear-gradient(to right, #f2070b, #d1060a);
-      /* FF3.6 */
       background: -ms-linear-gradient(to right, #f2070b, #d1060a);
-      /* IE10 */
       background: -o-linear-gradient(to right, #f2070b, #d1060a);
-      /* Opera 11.10+ */
       background: linear-gradient(to right, #f2070b, #d1060a);
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f2070b', EndColorStr='#d1060a'); }
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f2070b', EndColorStr='#d1060a'); }
     .Box.Error .Box-Tools a:hover {
       color: #d1060a; }
 
@@ -4378,6 +4358,13 @@ input[type='button'] {
       .Panel.Primary.Invert.Simple {
         border: 1px #25c9eb solid; }
 
+.Badge.Error {
+  background-color: #a02828; }
+.Badge.Primary {
+  border-color: #c0392b;
+  background-color: #e74c3c;
+  color: white; }
+
 /*
 
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
@@ -4682,17 +4669,12 @@ nav.Userbar {
   border-radius: 10px;
   border: 5px solid #374144;
   background-color: #ecf0f1;
-  /* Fallback */
   background: -webkit-linear-gradient(top, white, #ecf0f1);
-  /* Chrome 10+, Saf5.1+, iOS 5+ */
   background: -moz-linear-gradient(top, white, #ecf0f1);
-  /* FF3.6 */
   background: -ms-linear-gradient(top, white, #ecf0f1);
-  /* IE10 */
   background: -o-linear-gradient(top, white, #ecf0f1);
-  /* Opera 11.10+ */
   background: linear-gradient(top, white, #ecf0f1);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#ecf0f1'); }
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='white', EndColorStr='#ecf0f1'); }
   @media screen and (min-width: 768px) {
     .Auth {
       position: absolute;

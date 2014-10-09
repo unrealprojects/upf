@@ -38,6 +38,19 @@ $Checkbox-Border-Radius: $Checkbox-Height;
 $Checkbox-Toggle-Spacing: 2px;
 $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - ($Checkbox-Border * 2);
 
+%Control
+{
+	height: $Control-Height;
+	padding: $Control-Padding;
+
+	border: $Control-Border-Width $Control-Border-Color solid;
+	border-radius: $Control-Border-Radius;
+	outline: 0;
+
+	font-size: $Control-Font-Size;
+	line-height: $Control-Line-Height;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Default controls styling
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,19 +59,10 @@ select,
 textarea,
 .Dropdown
 {
-	height: $Control-Height;
-	padding: $Control-Padding;
-
-	font-size: $Control-Font-Size;
-	line-height: $Control-Line-Height;
-	border-radius: $Control-Border-Radius;
-
-	border: $Control-Border-Width $Control-Border-Color solid;
-
-	outline: 0;
 	box-shadow: 0 0 1px white inset;
 	background-color: $Control-Bg-Color;
 	color: $Control-Color;
+	@extend %Control;
 
 	@include Transitions(#{border-color .4s, background-color .4s, color .4s});
 
@@ -1214,3 +1218,24 @@ input[type='button']
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Badges
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.Badge
+{
+
+	&.Error
+	{
+		background-color: $C-Red-1;
+	}
+	&.Primary
+	{
+		border-color: $Clr-Main-Dark;
+		background-color: $Clr-Main;
+		color: white;
+	}
+}
