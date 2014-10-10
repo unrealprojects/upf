@@ -1,8 +1,10 @@
 <?php
 Route::group(['before'=>'administrators'], function(){
-NewRoutesGroup([
-    'catalog',
-    'rent',
-    'parts',
-],'section');
+
+    BackendRoutes([
+        'catalog',
+        'rent',
+        'parts',
+    ],'section');
+
 });

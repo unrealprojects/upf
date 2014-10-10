@@ -1,8 +1,9 @@
 <?php
 
-FrontendRoutes([
-    /*** Tech Online ***/
-    'catalog',
-    'rent',
-    'parts'
-]);
+/*** Tech Online ***/
+
+    FrontendRoutes([
+        'catalog',
+        'rent',
+        'parts'
+    ]);

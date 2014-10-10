@@ -28,65 +28,79 @@
 
 
         @if(!\Auth::users()->check())
-        <div class="Page-Auth Node-SM-3 Grid Split">
-            <button class="Button Error Sign-In Node-XS-6"><span class="fa fa-sign-in"></span> Войти</button>
-            <button class="Button Error Sign-Up Node-XS-6"><span class="fa fa-user"></span> Регистрация</button>
+            <div class="Page-Auth Node-SM-3 Grid Split">
+                <button class="Button Error Sign-In Node-XS-6"><span class="fa fa-sign-in"></span> Войти</button>
+                <button class="Button Error Sign-Up Node-XS-6"><span class="fa fa-user"></span> Регистрация</button>
 
-            <div class="Sign-In-UI">
-                <form class="Form-Horizontal" action="">
-                    <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
-                    <h4>Вход на сайт</h4>
-                    <div class="Control-Group">
-                        <label class="Node-XS-3"  for="Sign-In-Username">Логин</label>
-                        <input class="Node-XS-9" id="Sign-In-Username"  name='login' type="text"/>
-                    </div>
+                <div class="Sign-In-UI">
+                    <form class="Form-Horizontal" action="">
+                        <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
+                        <h4>Вход на сайт</h4>
+                        <div class="Control-Group">
+                            <label class="Node-XS-3"  for="Sign-In-Username">Логин</label>
+                            <input class="Node-XS-9" id="Sign-In-Username"  name='login' type="text"/>
+                        </div>
 
-                    <div class="Control-Group">
-                        <label class="Node-XS-3"  for="Sign-In-Password">Пароль</label>
-                        <input class="Node-XS-9" id="Sign-In-Password"  name='password' type="password"/>
-                    </div>
+                        <div class="Control-Group">
+                            <label class="Node-XS-3"  for="Sign-In-Password">Пароль</label>
+                            <input class="Node-XS-9" id="Sign-In-Password"  name='password' type="password"/>
+                        </div>
 
-                    <div class="Control-Group Row Merge" for="Sign-In-Remember-Me">
-                        <label for="Sign-In-Remember-Me" class="Input-Group Checkbox">
-                            <input class="Slide Node-XS-3" id="Sign-In-Remember-Me" name="remember" type="checkbox"/>
-                            <span>Запомнить меня</span>
-                        </label>
-                    </div>
-                    <div class="Control-Group">
-                        <input class="Button Node-XS-12" type="submit" value="Авторизоваться"/>
-                    </div>
-                </form>
+                        <div class="Control-Group Row Merge" for="Sign-In-Remember-Me">
+                            <label for="Sign-In-Remember-Me" class="Input-Group Checkbox">
+                                <input class="Slide Node-XS-3" id="Sign-In-Remember-Me" name="remember" type="checkbox"/>
+                                <span>Запомнить меня</span>
+                            </label>
+                        </div>
+                        <div class="Control-Group">
+                            <input class="Button Node-XS-12" type="submit" value="Авторизоваться"/>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="Sign-Up-UI">
+                    <form class="Form-Horizontal" action="">
+                        <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
+                        <h4>Регистрация</h4>
+                        <div class="Control-Group">
+                            <label class="Node-XS-3" for="Sign-Up-Username">Логин</label>
+                            <input class="Node-XS-9" id="Sign-Up-Username" name='login' type="text"/>
+                        </div>
+
+                        <div class="Control-Group">
+                            <label class="Node-XS-3" for="Sign-Up-Password">Пароль</label>
+                            <input class="Node-XS-9" id="Sign-Up-Password" name='password' type="password"/>
+                        </div>
+
+                        <div class="Control-Group Row Merge" for="Sign-Up-Remember-Me">
+                            <label for="Sign-Up-Remember-Me" class="Input-Group Checkbox">
+                                <input class="Slide Node-XS-3" id="Sign-Up-Remember-Me" type="checkbox"/>
+                                <span>Запомнить меня</span>
+                            </label>
+                        </div>
+                        <div class="Control-Group">
+                            <input class="Button Node-XS-12" type="submit" value="Зарегистриваться"/>
+                        </div>
+                    </form>
+                </div>
             </div>
+        @else
+            <div class="Page-Auth Node-SM-3 Grid Split">
+                <div class="Dropdown Collapsed Node-XS-6">
+                    <div class="Dropdown-Title">Кабинет<span class="Dropdown-Toggle fa fa-angle-down"></span></div>
+                    <ul class="Dropdown-Content" style="display: none;">
+                        <li class="Icon"><a href="/cabinet"><span class="fa fa-user"></span>Кабинет</a></li>
+                        <li class="Icon"><a href="/cabinet/rent/"><span class="fa fa-shopping-cart"></span>Список техники</a></li>
+                        <li class="Icon"><a href="/cabinet/parts"><span class="fa fa-gears"></span>Список запчастей</a></li>
 
-
-            <div class="Sign-Up-UI">
-                <form class="Form-Horizontal" action="">
-                    <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
-                    <h4>Регистрация</h4>
-                    <div class="Control-Group">
-                        <label class="Node-XS-3" for="Sign-Up-Username">Логин</label>
-                        <input class="Node-XS-9" id="Sign-Up-Username" name='login' type="text"/>
-                    </div>
-
-                    <div class="Control-Group">
-                        <label class="Node-XS-3" for="Sign-Up-Password">Пароль</label>
-                        <input class="Node-XS-9" id="Sign-Up-Password" name='password' type="password"/>
-                    </div>
-
-                    <div class="Control-Group Row Merge" for="Sign-Up-Remember-Me">
-                        <label for="Sign-Up-Remember-Me" class="Input-Group Checkbox">
-                            <input class="Slide Node-XS-3" id="Sign-Up-Remember-Me" type="checkbox"/>
-                            <span>Запомнить меня</span>
-                        </label>
-                    </div>
-                    <div class="Control-Group">
-                        <input class="Button Node-XS-12" type="submit" value="Зарегистриваться"/>
-                    </div>
-                </form>
+                        <li class="Icon"><a href="/cabinet/rent/add"><span class="fa fa-plus"></span>Добавить технику</a></li>
+                        <li class="Icon"><a href="/cabinet/parts/add"><span class="fa fa-plus"></span>Добавить запчасти</a></li>
+                        <li class="Icon"><a href="/logout"><span class="fa fa-close"></span>Выход</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
         @endif
-
     </div>
 
 </section>
