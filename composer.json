@@ -9,7 +9,7 @@
         "fzaninotto/faker": "1.4.*@dev",
         "greggilbert/recaptcha": "dev-master",
         "maatwebsite/excel": "1.*",
-        "october/config": "dev"
+        "ollieread/multiauth": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

@@ -7,7 +7,7 @@ class AdministratorsController extends FieldsController{
 
     /*** Auth Form***/
     public function Auth(){
-        if(!\Auth::check()){
+        if(!\Auth::administrators()->check()){
             return \View::make('/backend/standard/layouts/system/Auth',$this->viewData);
         }else{
             return \Redirect::to('/backend');
@@ -16,7 +16,7 @@ class AdministratorsController extends FieldsController{
 
     /*** Auth LogIn ***/
     public function LogIn(){
-        if (\Auth::attempt(['login' => \Input::get('login'), 'password' => \Input::get('password')],
+        if (\Auth::administrators()->attempt(['login' => \Input::get('login'), 'password' => \Input::get('password')],
             \Input::get('remember')?true:false)
         ) {
             return [
@@ -31,7 +31,7 @@ class AdministratorsController extends FieldsController{
     }
     /*** Auth LogOut ***/
     public function LogOut(){
-        \Auth::logout();
+        \Auth::administrators()->logout();
         return \Redirect::to('/');
     }
 

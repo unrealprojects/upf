@@ -8,7 +8,7 @@ class BackendController extends \Controller {
     public $Model='\UpfModels\\';
 
     public function __construct(){
-        $Administrator = \Auth::getUser();
+        $Administrator = \Auth::administrators()->getUser();
         $this->viewData['Model']=$this->Model;
         if($Administrator){
             $this->viewData['AdministratorLogin']=$Administrator->login;

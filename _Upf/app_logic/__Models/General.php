@@ -20,8 +20,8 @@ class General extends \Eloquent {
 
 
     /*** Create Unique Alias ***/
-    public static function CreateUniqueAlias($Alias,$Model){
-        if($Model::where('alias',$Alias)->first()){
+    public static function CreateUniqueAlias($Alias,$Model,$AliasFiled = 'alias'){
+        if($Model::where($AliasFiled,$Alias)->first()){
             $Alias = $Alias . '(Doubled)';
             return General::CreateUniqueAlias($Alias,$Model);
         }else{
@@ -29,8 +29,8 @@ class General extends \Eloquent {
         }
     }
 
-    public static function isUniqueAlias($Alias,$Model){
-        if($Model::where('alias',$Alias)->first()){
+    public static function isUniqueAlias($Alias,$Model,$AliasFiled='alias'){
+        if($Model::where($AliasFiled,$Alias)->first()){
             return false;
         }else{
             return true;

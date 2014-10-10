@@ -1,17 +1,89 @@
 (function($){
     $(document).ready(function(){
-        /*** Кнопки "Войти" и "Регистрация" ***/
+
+
+        /*** Buttons LogIn - LogOut ***/
         $(".Sign-In").click(function(){
             $('.Sign-Up-UI').fadeOut(100,'easeInQuint');
             $('.Sign-In-UI').fadeToggle(300,'easeInQuint');
         });
+
         $(".Sign-Up").click(function(){
             $('.Sign-In-UI').fadeOut(100,'easeInQuint');
             $('.Sign-Up-UI').fadeToggle(300,'easeInQuint');
         });
+
         $('main').click(function(){
             $('.Sign-In-UI,.Sign-Up-UI').fadeOut(100,'easeInQuint');
         });
+
+        /*** Log In ***/
+
+         function LogIn(){
+            // Default Variables
+            var AuthButton = '.Sign-In-UI>form input[type=submit]',
+                AuthForm = '.Sign-In-UI>form',
+                LogPath = '/login';
+
+            // Update body
+            $(document).on('click',AuthButton,function(){
+                // Function Variables
+                var This = this;
+
+                // Send Ajax to "/alias/update"
+                $.ajax({
+                    type:'post',
+                    url:LogPath,
+                    data: $(AuthForm).serialize(),
+                    dataType:'json',
+                    success: function(Data){
+                        if(Data['type']=='Success'){
+                            location.href='/cabinet/';
+                        }else{
+                            upf.Messages.Show(Data['message'],Data['type']);
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+        LogIn();
+
+
+        /*** Log In ***/
+
+        function Register(){
+            // Default Variables
+            var AuthButton = '.Sign-Up-UI>form input[type=submit]',
+                AuthForm = '.Sign-Up-UI>form',
+                LogPath = '/register';
+
+            // Update body
+            $(document).on('click',AuthButton,function(){
+                // Function Variables
+                var This = this;
+
+                // Send Ajax to "/alias/update"
+                $.ajax({
+                    type:'post',
+                    url:LogPath,
+                    data: $(AuthForm).serialize(),
+                    dataType:'json',
+                    success: function(Data){
+                        if(Data['type']=='Success'){
+                            location.href='/cabinet/';
+                        }else{
+                            upf.Messages.Show(Data['message'],Data['type']);
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+        Register();
+
+
+
 
         $(window).scroll(function(){
             /*** Paralax Top Menu ***/
@@ -43,6 +115,13 @@
                 $('#Scroll-Top').fadeOut();
             }
         });
+
+
+
+
+
+
+
 
         /*** Скролл вверх ***/
         $('#Scroll-Top').click(function () {

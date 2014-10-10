@@ -84,7 +84,7 @@ class Fields extends General {
         ];
     }
 
-    /*** Get Item Add Fields***/
+    /*** Get Item Add Fields ***/
     public function AddItemFields(){
         return [
             'fields' =>$this->GetFields('add')

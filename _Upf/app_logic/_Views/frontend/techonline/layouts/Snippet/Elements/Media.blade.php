@@ -2,7 +2,7 @@
 
     {{-- Logotype --}}
     @if( isset($Item['meta']['files']) )
-        <a href="{{ $Item['logotype'] }}" rel="Gallery" class="fancybox">
+        <a href="{{ $Item['logotype'] }}" rel="Gallery-{{$Item['id']}}" class="fancybox">
             <img class="Item-Main-Photo" src="{{ $Item['logotype'] }}" alt="{{$Item['title']}}">
         </a>
     @endif
@@ -16,7 +16,7 @@
                 {{-- Visible Photos --}}
                 @if( $PhotoKey >= 0 && $PhotoKey < 4 )
                     <li>
-                        <a href="{{$Photo['src']}}" rel="Gallery" class="fancybox">
+                        <a href="{{$Photo['src']}}" rel="Gallery-{{$Item['id']}}" class="fancybox">
                             <img src="{{$Photo['src']}}" alt="{{$Photo['title']}}">
                         </a>
                     </li>

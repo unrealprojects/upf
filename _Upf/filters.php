@@ -24,7 +24,7 @@ Route::filter('csrf', function()
 /*** Only Administrators ***/
 Route::filter('administrators', function()
 {
-    if(!Auth::check()){
+    if(!Auth::administrators()->check()){
         return Redirect::to('/backend/auth');
     }
 });
@@ -32,7 +32,7 @@ Route::filter('administrators', function()
 /*** Only Users ***/
 Route::filter('users', function()
 {
-    if(!Auth::check()){
-        return Redirect::to('/auth');
+    if(!Auth::users()->check()){
+        return Redirect::to('/');
     }
 });

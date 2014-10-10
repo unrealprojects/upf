@@ -15,54 +15,38 @@ class Users extends Meta implements UserInterface, RemindableInterface {
 
     public $Config = 'models/backend/sections/Users';
 
-    /*
-    public function region()
-    {
-        return $this->hasOne('UpfModels\CatalogRegion','id','region_id');
+
+    public function Register(){
+        /*** Set Fields ***/
+
+        $this->password = \Hash::make(\Input::get('password'));
+
+        $this->login = $this->CreateUniqueAlias(\Mascame\Urlify::filter(\Input::get('login')),$this,'login');
+
+
+        /*** Add Meta ***/
+        $Data = [
+            /*** Content ***/
+            'title' => $this->login,
+            'description' => $this->login,
+            'keywords' => $this->login,
+            /*** Relations ***/
+            'section' => $this->Section,
+            'category_id' => 0 ,
+            'user_id' => 0 ,
+            /*** Statuses ***/
+            'status' => 1,
+            'privileges' => 0,
+            'rating' => 0,
+            'favorite' => 0,
+        ];
+
+        $Meta = \UpfSeeds\MetaSeeder::AddMetaToSection($Data);
+
+        $this->meta_id = $Meta[0];
+
+        if($this->save()){
+            return $this->login;
+        }
     }
-
-    public function techList(){
-        return $this->hasMany('UpfModels\CatalogTech','admin_id','id');
-    }
-
-    public function partsList(){
-        return $this->hasMany('UpfModels\CatalogParts','admin_id','id');
-    }
-
-    public function getList($filter){
-        $this->filter = $filter;
-
-        return $this->with('region','metadata')
-            ->whereHas('region', function($query) {
-                if($this->filter['region']){
-                    $query->where('alias', $this->filter['region']);
-                }
-            })
-            ->where('active','=',1)
-            ->paginate(5);
-    }
-
-    public function getItem($alias){
-        $this->rewrite['alias']=$alias;
-
-        return $this->with('region','partsList','partsList.metadata','techList','techList.metadata','comments','metadata')
-            ->whereHas('metadata', function($query) {
-                $query->where('alias',$this->rewrite['alias']);
-            })
-            ->first();
-    }
-
-    public function getFullItem($alias){
-        $this->rewrite['alias']=$alias;
-
-        return $this->with('region',
-            'partsList','partsList.metadata',
-            'techList','techList.metadata','techList.region','techList.status','techList.opacity','techList.model','techList.model.category','techList.model.brand',
-            'comments','metadata')
-            ->whereHas('metadata', function($query) {
-                $query->where('alias',$this->rewrite['alias']);
-            })
-            ->first();
-    }
-    */
 }

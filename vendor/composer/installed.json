@@ -1841,17 +1841,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v4.2.10",
-        "version_normalized": "4.2.10.0",
+        "version": "v4.2.11",
+        "version_normalized": "4.2.11.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "3fe430a55ec73346c708f0b864820528d6c28eda"
+            "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/3fe430a55ec73346c708f0b864820528d6c28eda",
-            "reference": "3fe430a55ec73346c708f0b864820528d6c28eda",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
+            "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
             "shasum": ""
         },
         "require": {
@@ -1921,7 +1921,7 @@
         "suggest": {
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
         },
-        "time": "2014-10-02 19:50:12",
+        "time": "2014-10-04 18:48:27",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1958,17 +1958,17 @@
     },
     {
         "name": "maatwebsite/excel",
-        "version": "v1.2.1",
-        "version_normalized": "1.2.1.0",
+        "version": "v1.2.2",
+        "version_normalized": "1.2.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-            "reference": "9ca79ed07c1ee7474715d46a48b368e8980c5c53"
+            "reference": "357e8f576a754a6840a6d79c2cd0c66b20dbac87"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/9ca79ed07c1ee7474715d46a48b368e8980c5c53",
-            "reference": "9ca79ed07c1ee7474715d46a48b368e8980c5c53",
+            "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/357e8f576a754a6840a6d79c2cd0c66b20dbac87",
+            "reference": "357e8f576a754a6840a6d79c2cd0c66b20dbac87",
             "shasum": ""
         },
         "require": {
@@ -1990,7 +1990,7 @@
             "orchestra/testbench": "~2.2.0",
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2014-09-20 19:17:38",
+        "time": "2014-10-08 18:59:13",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2021,6 +2021,54 @@
             "export",
             "import",
             "laravel"
+        ]
+    },
+    {
+        "name": "ollieread/multiauth",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ollieread/multiauth.git",
+            "reference": "2f737c221d439954031c3de83c8447002b0cf5c5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ollieread/multiauth/zipball/2f737c221d439954031c3de83c8447002b0cf5c5",
+            "reference": "2f737c221d439954031c3de83c8447002b0cf5c5",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/auth": "~4.1",
+            "illuminate/console": "~4.1",
+            "illuminate/database": "~4.1",
+            "illuminate/filesystem": "~4.1",
+            "illuminate/support": "~4.1",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-09-14 13:25:59",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Ollieread\\Multiauth": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ollie Read",
+                "email": "labs@ollieread.com"
+            }
+        ],
+        "description": "Multiple auth driver for Laravel",
+        "keywords": [
+            "auth",
+            "laravel",
+            "multi"
         ]
     }
 ]

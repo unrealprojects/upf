@@ -96,7 +96,7 @@ return array(
 	'providers' => array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-		'Illuminate\Auth\AuthServiceProvider',
+
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
@@ -122,10 +122,16 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 //        'Loom\Extensions\LoomViewServiceProvider', @prepend (включение)
         'Illuminate\Workbench\WorkbenchServiceProvider',
+
+
+
+        /*** *** Upf Providers *** ***/
+        //'Illuminate\Auth\AuthServiceProvider', replaced
+        "Ollieread\\Multiauth\\MultiauthServiceProvider",
+
         'Mascame\Urlify\UrlifyServiceProvider',
         'Greggilbert\Recaptcha\RecaptchaServiceProvider',
-        'Maatwebsite\Excel\ExcelServiceProvider'
-
+        'Maatwebsite\Excel\ExcelServiceProvider',
 	),
 
 	/*
