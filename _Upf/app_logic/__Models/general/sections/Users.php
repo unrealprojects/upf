@@ -23,7 +23,6 @@ class Users extends Meta implements UserInterface, RemindableInterface {
 
         $this->login = $this->CreateUniqueAlias(\Mascame\Urlify::filter(\Input::get('login')),$this,'login');
 
-
         /*** Add Meta ***/
         $Data = [
             /*** Content ***/
@@ -48,5 +47,32 @@ class Users extends Meta implements UserInterface, RemindableInterface {
         if($this->save()){
             return $this->login;
         }
+    }
+
+
+
+
+    /******************************************************************************************************************* Cabinet ***/
+
+    public function CabinetItem($Alias){
+        /*** Get Content Model***/
+        $ContentModel=$this
+            ->WhereAliasInMeta($this,$Alias)
+            ->with(
+                'meta',
+                'meta.categories',
+                'meta.categories.params',
+                'meta.paramsvalues',
+                'meta.tags',
+                'meta.regions',
+                'meta.files')
+            ->first()->toArray();
+        // print_r($ContentModel);exit;
+
+        /*** Result ***/
+        return [
+            'Item' => $ContentModel,
+            'Fields' =>$this->GetFields('edit')
+        ];
     }
 }

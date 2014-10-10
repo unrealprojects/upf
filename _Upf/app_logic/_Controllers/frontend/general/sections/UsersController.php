@@ -27,7 +27,7 @@ class UsersController extends FrontendController{
         return \Redirect::to('/');
     }
 
-    /*** Auth LogIn ***/
+    /*** Auth Register ***/
     public function Register(){
         if(\Input::get('login') && \ Input::get('password')){
             $NewUser = new $this->Model();
@@ -39,7 +39,6 @@ class UsersController extends FrontendController{
                 'message'=>'Ошибка регистрации!'
             ];
         }
-
     }
 
 }

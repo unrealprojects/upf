@@ -21,5 +21,6 @@
 
 
 
-<!-- Developer Tools -->
+<!-- Developer Tools
 <script src="/js/general/libs/live.js" type="text/javascript"></script>
+-->

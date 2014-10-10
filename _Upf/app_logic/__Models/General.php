@@ -23,7 +23,7 @@ class General extends \Eloquent {
     public static function CreateUniqueAlias($Alias,$Model,$AliasFiled = 'alias'){
         if($Model::where($AliasFiled,$Alias)->first()){
             $Alias = $Alias . '(Doubled)';
-            return General::CreateUniqueAlias($Alias,$Model);
+            return General::CreateUniqueAlias($Alias,$Model,$AliasFiled);
         }else{
             return $Alias;
         }

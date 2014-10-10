@@ -42,13 +42,13 @@
                     </div>
 
                     <div class="Control-Group">
-                        <label class="Node-XS-3"  name='password' for="Sign-In-Password">Пароль</label>
-                        <input class="Node-XS-9" id="Sign-In-Password" type="password"/>
+                        <label class="Node-XS-3"  for="Sign-In-Password">Пароль</label>
+                        <input class="Node-XS-9" id="Sign-In-Password"  name='password' type="password"/>
                     </div>
 
                     <div class="Control-Group Row Merge" for="Sign-In-Remember-Me">
                         <label for="Sign-In-Remember-Me" class="Input-Group Checkbox">
-                            <input class="Slide Node-XS-3" id="Sign-In-Remember-Me" type="checkbox"/>
+                            <input class="Slide Node-XS-3" id="Sign-In-Remember-Me" name="remember" type="checkbox"/>
                             <span>Запомнить меня</span>
                         </label>
                     </div>

@@ -10,6 +10,7 @@ class FrontendController extends \Controller{
     public $BaseUrl = '/';
     public $Template = 'frontend.techonline.content';
     public $TemplateRoot = 'frontend.techonline';
+    public $User = [];
 
     public function __construct(){
         $this->ViewData = [
@@ -23,6 +24,12 @@ class FrontendController extends \Controller{
             'TemplateLayouts'   => $this->TemplateRoot . '.layouts.',
             /*** Other ***/
         ];
+
+        if(\Auth::users()->check()){
+            $this->ViewData['user'] = \Auth::users()->getUser();
+            $this->User = \Auth::users()->getUser();
+            //print_r( $this->ViewData['user']);
+        }
     }
 
     /******************************************************************************************************************* Default Frontend Functionality ***/

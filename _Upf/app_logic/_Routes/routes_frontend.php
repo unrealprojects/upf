@@ -24,7 +24,7 @@ Route::group(['before'=>'csrf'],function(){
 /*** User Cabinet ***/
 
 Route::group(['before'=>'users'], function(){
-    Route::get('/backend/logout','\UpfFrontendControllers\UsersController@LogOut');
+    Route::get('/logout','\UpfFrontendControllers\UsersController@LogOut');
 
     FrontendFullRoutes([
         'cabinet'
