@@ -181,7 +181,7 @@ class Meta extends Fields {
             'description' => $this->title,
             'keywords' => $this->title,
             /*** Relations ***/
-            'section' => 'articles',
+            'section' => $this->Section,
             'category_id' => 0 ,
             'user_id' => 0 ,
             /*** Statuses ***/

@@ -25,20 +25,24 @@
             </ul>
         </nav>
 
+
+
+        @if(!\Auth::users()->check())
         <div class="Page-Auth Node-SM-3 Grid Split">
             <button class="Button Error Sign-In Node-XS-6"><span class="fa fa-sign-in"></span> Войти</button>
             <button class="Button Error Sign-Up Node-XS-6"><span class="fa fa-user"></span> Регистрация</button>
 
             <div class="Sign-In-UI">
                 <form class="Form-Horizontal" action="">
+                    <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
                     <h4>Вход на сайт</h4>
                     <div class="Control-Group">
-                        <label class="Node-XS-3" for="Sign-In-Username">E-mail</label>
-                        <input class="Node-XS-9" id="Sign-In-Username" type="text"/>
+                        <label class="Node-XS-3"  for="Sign-In-Username">Логин</label>
+                        <input class="Node-XS-9" id="Sign-In-Username"  name='login' type="text"/>
                     </div>
 
                     <div class="Control-Group">
-                        <label class="Node-XS-3" for="Sign-In-Password">Пароль</label>
+                        <label class="Node-XS-3"  name='password' for="Sign-In-Password">Пароль</label>
                         <input class="Node-XS-9" id="Sign-In-Password" type="password"/>
                     </div>
 
@@ -57,15 +61,16 @@
 
             <div class="Sign-Up-UI">
                 <form class="Form-Horizontal" action="">
+                    <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
                     <h4>Регистрация</h4>
                     <div class="Control-Group">
-                        <label class="Node-XS-3" for="Sign-Up-Username">E-mail</label>
-                        <input class="Node-XS-9" id="Sign-Up-Username" type="text"/>
+                        <label class="Node-XS-3" for="Sign-Up-Username">Логин</label>
+                        <input class="Node-XS-9" id="Sign-Up-Username" name='login' type="text"/>
                     </div>
 
                     <div class="Control-Group">
                         <label class="Node-XS-3" for="Sign-Up-Password">Пароль</label>
-                        <input class="Node-XS-9" id="Sign-Up-Password" type="password"/>
+                        <input class="Node-XS-9" id="Sign-Up-Password" name='password' type="password"/>
                     </div>
 
                     <div class="Control-Group Row Merge" for="Sign-Up-Remember-Me">
@@ -80,6 +85,7 @@
                 </form>
             </div>
         </div>
+        @endif
 
     </div>
 
