@@ -27,12 +27,13 @@ class UsersController extends FrontendController{
         return \Redirect::to('/');
     }
 
+
     /*** Auth Register ***/
     public function Register(){
         if(\Input::get('login') && \ Input::get('password')){
             $NewUser = new $this->Model();
             $NewUser->Register();
-            $this->login();
+            $this->LogIn();
         }else{
             return [
                 'type'=>'Error',
