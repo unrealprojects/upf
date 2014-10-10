@@ -10,14 +10,14 @@ class UsersController extends FrontendController{
         if (\Auth::users()->attempt(['login' => \Input::get('login'), 'password' => \Input::get('password')],
             \Input::get('remember')?true:false)
         ) {
-            return [
+            echo json_encode([
                 'type'=>'Success'
-            ];
+            ]);
         }else{
-            return [
+            echo json_encode([
                 'type'=>'Error',
                 'message'=>'Доступ запрещен!'
-            ];
+            ]);
         }
     }
 
@@ -33,12 +33,12 @@ class UsersController extends FrontendController{
         if(\Input::get('login') && \ Input::get('password')){
             $NewUser = new $this->Model();
             $NewUser->Register();
-            $this->LogIn();
+            echo $this->LogIn();
         }else{
-            return [
+            echo json_encode([
                 'type'=>'Error',
                 'message'=>'Ошибка регистрации!'
-            ];
+            ]);
         }
     }
 
