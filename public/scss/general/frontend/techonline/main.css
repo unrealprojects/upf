@@ -874,7 +874,9 @@ a.Button, table td.Actions ul li a, .Filter-Result li a.Delete,
 button.Button,
 .Filter-Result li button.Delete,
 input[type='submit'],
-input[type='button'], #Menu-Toggle span:hover {
+input[type='button'],
+span.Button,
+.Filter-Result li span.Delete, #Menu-Toggle span:hover {
   cursor: pointer; }
 
 .Error-404 h2, .Error-404 p {
@@ -1034,41 +1036,78 @@ button, .Control-Group label, .Control-Group input[type='checkbox'].Slide, .Drop
 .Heading, .Site-Logo div h2, .Site-Logo a.Link-Home, .Site-Navigation.Primary ul li a, .List-Categories li a, .Snippet-Item header .Item-Title {
   text-transform: uppercase; }
 
-input,
+input[type='text'],
+input[type='tel'],
+input[type='submit'],
+input[type='button'],
+input[type='search'],
+input[type='email'],
+input[type='file'],
 select,
 textarea,
-.Dropdown {
+.Dropdown, Label.File-Upload > span {
+  display: inline-block;
   height: 30px;
-  padding: 7px;
   border: 1px #b7b7b7 solid;
   border-radius: 5px;
   outline: 0;
   font-size: 14px;
   line-height: 14px; }
 
-input,
+input[type='text'],
+input[type='tel'],
+input[type='submit'],
+input[type='button'],
+input[type='search'],
+input[type='email'],
+input[type='file'],
 select,
 textarea,
 .Dropdown {
+  padding: 7px;
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
   color: #212121;
   -webkit-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   -moz-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   transition: border-color 0.4s, background-color 0.4s, color 0.4s; }
-  input:hover,
+  input[type='text']:hover,
+  input[type='tel']:hover,
+  input[type='submit']:hover,
+  input[type='button']:hover,
+  input[type='search']:hover,
+  input[type='email']:hover,
+  input[type='file']:hover,
   select:hover,
   textarea:hover,
   .Dropdown:hover {
     background-color: #f2f2f2; }
-  input:focus,
+  input[type='text']:focus,
+  input[type='tel']:focus,
+  input[type='submit']:focus,
+  input[type='button']:focus,
+  input[type='search']:focus,
+  input[type='email']:focus,
+  input[type='file']:focus,
   select:focus,
   textarea:focus,
   .Dropdown:focus {
     border-color: #00a4c6;
     background-color: #e5fbff;
     box-shadow: 0 0 1px white inset, 0 0 10px #95edff; }
-  input[disabled], input[disabled]:hover,
+  input[type='text'][disabled], input[type='text'][disabled]:hover,
+  input[type='tel'][disabled],
+  input[type='tel'][disabled]:hover,
+  input[type='submit'][disabled],
+  input[type='submit'][disabled]:hover,
+  input[type='button'][disabled],
+  input[type='button'][disabled]:hover,
+  input[type='search'][disabled],
+  input[type='search'][disabled]:hover,
+  input[type='email'][disabled],
+  input[type='email'][disabled]:hover,
+  input[type='file'][disabled],
+  input[type='file'][disabled]:hover,
   select[disabled],
   select[disabled]:hover,
   textarea[disabled],
@@ -1079,35 +1118,65 @@ textarea,
     background-color: #f2f2f2;
     color: #b7b7b7;
     cursor: not-allowed; }
-  input.Ghost,
+  input[type='text'].Ghost,
+  input[type='tel'].Ghost,
+  input[type='submit'].Ghost,
+  input[type='button'].Ghost,
+  input[type='search'].Ghost,
+  input[type='email'].Ghost,
+  input[type='file'].Ghost,
   select.Ghost,
   textarea.Ghost,
   .Dropdown.Ghost {
     border-color: transparent;
     background: transparent;
     box-shadow: none; }
-  input.Error,
+  input[type='text'].Error,
+  input[type='tel'].Error,
+  input[type='submit'].Error,
+  input[type='button'].Error,
+  input[type='search'].Error,
+  input[type='email'].Error,
+  input[type='file'].Error,
   select.Error,
   textarea.Error,
   .Dropdown.Error {
     color: #a02828;
     border-color: #e43f3f;
     background-color: #fff3f3; }
-  input.Warning,
+  input[type='text'].Warning,
+  input[type='tel'].Warning,
+  input[type='submit'].Warning,
+  input[type='button'].Warning,
+  input[type='search'].Warning,
+  input[type='email'].Warning,
+  input[type='file'].Warning,
   select.Warning,
   textarea.Warning,
   .Dropdown.Warning {
     color: #b4771e;
     border-color: #e4a43f;
     background-color: #fff9f1; }
-  input.Success,
+  input[type='text'].Success,
+  input[type='tel'].Success,
+  input[type='submit'].Success,
+  input[type='button'].Success,
+  input[type='search'].Success,
+  input[type='email'].Success,
+  input[type='file'].Success,
   select.Success,
   textarea.Success,
   .Dropdown.Success {
     color: #54894e;
     border-color: #6ea268;
     background-color: #f1fff0; }
-  input.Info,
+  input[type='text'].Info,
+  input[type='tel'].Info,
+  input[type='submit'].Info,
+  input[type='button'].Info,
+  input[type='search'].Info,
+  input[type='email'].Info,
+  input[type='file'].Info,
   select.Info,
   textarea.Info,
   .Dropdown.Info {
@@ -1115,10 +1184,14 @@ textarea,
     border-color: #2782a4;
     background-color: #f4fdff; }
 
+select {
+  padding: 5px; }
+
 select:focus {
   border-radius: 5px 5px 0 0; }
 
 select[multiple='multiple'] {
+  -moz-appearance: button;
   min-height: 232px; }
 
 textarea {
@@ -1135,6 +1208,10 @@ textarea {
     background-color: #f9f9f9;
     min-height: 100px; }
 
+input[type='file'] {
+  -moz-appearance: button;
+  padding: 3px; }
+
 input[type='submit'],
 input[type='button'],
 button {
@@ -1145,6 +1222,24 @@ button {
   input[type='button']:hover,
   button:hover {
     background-color: #25c9eb; }
+
+Label.File-Upload {
+  width: 100%;
+  display: block;
+  padding: 0 !important;
+  text-align: left; }
+  Label.File-Upload input[type='file'] {
+    height: 0;
+    padding: 0;
+    border: 0;
+    visibility: hidden; }
+  Label.File-Upload > span {
+    padding: 7px; }
+    Label.File-Upload > span:hover {
+      border-color: #b7b7b7;
+      background-color: #f2f2f2; }
+    Label.File-Upload > span > span.fa {
+      margin-right: 10px; }
 
 .Form-Group + .Form-Group {
   margin-top: 50px; }
@@ -1163,8 +1258,6 @@ button {
 select {
   background-color: white; }
 .Control-Group input[type='checkbox'].Slide {
-  appearance: none;
-  -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
   width: 60px;
@@ -1449,7 +1542,9 @@ a.Button, table td.Actions ul li a, .Filter-Result li a.Delete,
 button.Button,
 .Filter-Result li button.Delete,
 input[type='submit'],
-input[type='button'] {
+input[type='button'],
+span.Button,
+.Filter-Result li span.Delete {
   padding: 7px;
   border: 1px #b7b7b7 solid;
   background-color: #f9f9f9;
@@ -1469,28 +1564,36 @@ input[type='button'] {
   button.Button:hover,
   .Filter-Result li button.Delete:hover,
   input[type='submit']:hover,
-  input[type='button']:hover {
+  input[type='button']:hover,
+  span.Button:hover,
+  .Filter-Result li span.Delete:hover {
     background-color: #f2f2f2;
     border-color: #00a4c6; }
   a.Button[disabled], table td.Actions ul li a[disabled], .Filter-Result li a[disabled].Delete,
   button.Button[disabled],
   .Filter-Result li button[disabled].Delete,
   input[type='submit'][disabled],
-  input[type='button'][disabled] {
+  input[type='button'][disabled],
+  span.Button[disabled],
+  .Filter-Result li span[disabled].Delete {
     color: #cccccc;
     cursor: not-allowed; }
     a.Button[disabled]:hover, table td.Actions ul li a[disabled]:hover, .Filter-Result li a[disabled].Delete:hover,
     button.Button[disabled]:hover,
     .Filter-Result li button[disabled].Delete:hover,
     input[type='submit'][disabled]:hover,
-    input[type='button'][disabled]:hover {
+    input[type='button'][disabled]:hover,
+    span.Button[disabled]:hover,
+    .Filter-Result li span[disabled].Delete:hover {
       background-color: #f1f1f1;
       border-color: 1px solid #dedede; }
   a.Button.Fluid, table td.Actions ul li a.Fluid, .Filter-Result li a.Fluid.Delete,
   button.Button.Fluid,
   .Filter-Result li button.Fluid.Delete,
   input[type='submit'].Fluid,
-  input[type='button'].Fluid {
+  input[type='button'].Fluid,
+  span.Button.Fluid,
+  .Filter-Result li span.Fluid.Delete {
     width: 100%; }
   a.Button.Small, table td.Actions ul li a, .Filter-Result li a.Delete,
   button.Button.Small,
@@ -1498,20 +1601,26 @@ input[type='button'] {
   input[type='submit'].Small,
   .Filter-Result li input[type='submit'].Delete,
   input[type='button'].Small,
-  .Filter-Result li input[type='button'].Delete {
+  .Filter-Result li input[type='button'].Delete,
+  span.Button.Small,
+  .Filter-Result li span.Delete {
     font-size: 10px;
     padding: 2px 5px; }
   a.Button.Large, table td.Actions ul li a.Large, .Filter-Result li a.Large.Delete,
   button.Button.Large,
   .Filter-Result li button.Large.Delete,
   input[type='submit'].Large,
-  input[type='button'].Large {
+  input[type='button'].Large,
+  span.Button.Large,
+  .Filter-Result li span.Large.Delete {
     padding: 10px 15px; }
   a.Button.Huge, table td.Actions ul li a.Huge, .Filter-Result li a.Huge.Delete,
   button.Button.Huge,
   .Filter-Result li button.Huge.Delete,
   input[type='submit'].Huge,
-  input[type='button'].Huge {
+  input[type='button'].Huge,
+  span.Button.Huge,
+  .Filter-Result li span.Huge.Delete {
     font-size: 19px;
     padding: 15px 20px; }
   a.Button.Round, table td.Actions ul li a.Round, a.Button.Ghost, table td.Actions ul li a.Ghost, .Filter-Result li a.Ghost.Delete, .Filter-Result li a.Round.Delete,
@@ -1522,37 +1631,51 @@ input[type='button'] {
   input[type='submit'].Round,
   input[type='submit'].Ghost,
   input[type='button'].Round,
-  input[type='button'].Ghost {
+  input[type='button'].Ghost,
+  span.Button.Round,
+  span.Button.Ghost,
+  .Filter-Result li span.Ghost.Delete,
+  .Filter-Result li span.Round.Delete {
     border-radius: 10px; }
   a.Button.Search, table td.Actions ul li a.Search, .Filter-Result li a.Search.Delete,
   button.Button.Search,
   .Filter-Result li button.Search.Delete,
   input[type='submit'].Search,
-  input[type='button'].Search {
+  input[type='button'].Search,
+  span.Button.Search,
+  .Filter-Result li span.Search.Delete {
     border-radius: 17px; }
     a.Button.Search.Large, table td.Actions ul li a.Search.Large, .Filter-Result li a.Search.Large.Delete,
     button.Button.Search.Large,
     .Filter-Result li button.Search.Large.Delete,
     input[type='submit'].Search.Large,
-    input[type='button'].Search.Large {
+    input[type='button'].Search.Large,
+    span.Button.Search.Large,
+    .Filter-Result li span.Search.Large.Delete {
       border-radius: 22px; }
     a.Button.Search.Huge, table td.Actions ul li a.Search.Huge, .Filter-Result li a.Search.Huge.Delete,
     button.Button.Search.Huge,
     .Filter-Result li button.Search.Huge.Delete,
     input[type='submit'].Search.Huge,
-    input[type='button'].Search.Huge {
+    input[type='button'].Search.Huge,
+    span.Button.Search.Huge,
+    .Filter-Result li span.Search.Huge.Delete {
       border-radius: 27px; }
   a.Button.Icon > span.fa:first-child, table td.Actions ul li a.Icon > span.fa:first-child, .Filter-Result li a.Icon.Delete > span.fa:first-child,
   button.Button.Icon > span.fa:first-child,
   .Filter-Result li button.Icon.Delete > span.fa:first-child,
   input[type='submit'].Icon > span.fa:first-child,
-  input[type='button'].Icon > span.fa:first-child {
+  input[type='button'].Icon > span.fa:first-child,
+  span.Button.Icon > span.fa:first-child,
+  .Filter-Result li span.Icon.Delete > span.fa:first-child {
     margin-right: 10px; }
   a.Button.Primary, table td.Actions ul li a.Primary, .Filter-Result li a.Primary.Delete,
   button.Button.Primary,
   .Filter-Result li button.Primary.Delete,
   input[type='submit'].Primary,
-  input[type='button'].Primary {
+  input[type='button'].Primary,
+  span.Button.Primary,
+  .Filter-Result li span.Primary.Delete {
     border: 1px solid #c0392b;
     background-color: #e74c3c;
     color: white;
@@ -1561,13 +1684,17 @@ input[type='button'] {
     button.Button.Primary:hover,
     .Filter-Result li button.Primary.Delete:hover,
     input[type='submit'].Primary:hover,
-    input[type='button'].Primary:hover {
+    input[type='button'].Primary:hover,
+    span.Button.Primary:hover,
+    .Filter-Result li span.Primary.Delete:hover {
       background-color: #c0392b; }
   a.Button.Ghost, table td.Actions ul li a.Ghost, .Filter-Result li a.Ghost.Delete,
   button.Button.Ghost,
   .Filter-Result li button.Ghost.Delete,
   input[type='submit'].Ghost,
-  input[type='button'].Ghost {
+  input[type='button'].Ghost,
+  span.Button.Ghost,
+  .Filter-Result li span.Ghost.Delete {
     color: #2c3e50;
     background-color: transparent;
     border: 1px solid #bdc3c7; }
@@ -1575,7 +1702,9 @@ input[type='button'] {
     button.Button.Ghost:hover,
     .Filter-Result li button.Ghost.Delete:hover,
     input[type='submit'].Ghost:hover,
-    input[type='button'].Ghost:hover {
+    input[type='button'].Ghost:hover,
+    span.Button.Ghost:hover,
+    .Filter-Result li span.Ghost.Delete:hover {
       color: black;
       border-color: #95a5a6;
       background-color: #ecf0f1; }
@@ -1583,14 +1712,18 @@ input[type='button'] {
     button.Button.Ghost.Invert,
     .Filter-Result li button.Ghost.Invert.Delete,
     input[type='submit'].Ghost.Invert,
-    input[type='button'].Ghost.Invert {
+    input[type='button'].Ghost.Invert,
+    span.Button.Ghost.Invert,
+    .Filter-Result li span.Ghost.Invert.Delete {
       color: white;
       border-color: white; }
       a.Button.Ghost.Invert:hover, table td.Actions ul li a.Ghost.Invert:hover, .Filter-Result li a.Ghost.Invert.Delete:hover,
       button.Button.Ghost.Invert:hover,
       .Filter-Result li button.Ghost.Invert.Delete:hover,
       input[type='submit'].Ghost.Invert:hover,
-      input[type='button'].Ghost.Invert:hover {
+      input[type='button'].Ghost.Invert:hover,
+      span.Button.Ghost.Invert:hover,
+      .Filter-Result li span.Ghost.Invert.Delete:hover {
         color: #e74c3c;
         border-color: #e74c3c; }
   a.Button.Info, table td.Actions ul li a.Info, .Filter-Result li a.Info.Delete, a.Button.Success, table td.Actions ul li a.Success, .Filter-Result li a.Success.Delete, a.Button.Error, table td.Actions ul li a.Error, .Filter-Result li a.Error.Delete, a.Button.Warning, table td.Actions ul li a.Warning, .Filter-Result li a.Warning.Delete,
@@ -1609,7 +1742,15 @@ input[type='button'] {
   input[type='button'].Info,
   input[type='button'].Success,
   input[type='button'].Error,
-  input[type='button'].Warning {
+  input[type='button'].Warning,
+  span.Button.Info,
+  .Filter-Result li span.Info.Delete,
+  span.Button.Success,
+  .Filter-Result li span.Success.Delete,
+  span.Button.Error,
+  .Filter-Result li span.Error.Delete,
+  span.Button.Warning,
+  .Filter-Result li span.Warning.Delete {
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset; }
@@ -1617,64 +1758,84 @@ input[type='button'] {
   button.Button.Info,
   .Filter-Result li button.Info.Delete,
   input[type='submit'].Info,
-  input[type='button'].Info {
+  input[type='button'].Info,
+  span.Button.Info,
+  .Filter-Result li span.Info.Delete {
     border-color: #00a4c6;
     background-color: #25c9eb; }
     a.Button.Info:hover, table td.Actions ul li a.Info:hover, .Filter-Result li a.Info.Delete:hover,
     button.Button.Info:hover,
     .Filter-Result li button.Info.Delete:hover,
     input[type='submit'].Info:hover,
-    input[type='button'].Info:hover {
+    input[type='button'].Info:hover,
+    span.Button.Info:hover,
+    .Filter-Result li span.Info.Delete:hover {
       background-color: #00a4c6; }
   a.Button.Success, table td.Actions ul li a.Success, .Filter-Result li a.Success.Delete,
   button.Button.Success,
   .Filter-Result li button.Success.Delete,
   input[type='submit'].Success,
-  input[type='button'].Success {
+  input[type='button'].Success,
+  span.Button.Success,
+  .Filter-Result li span.Success.Delete {
     border-color: #54894e;
     background-color: #6ea268; }
     a.Button.Success:hover, table td.Actions ul li a.Success:hover, .Filter-Result li a.Success.Delete:hover,
     button.Button.Success:hover,
     .Filter-Result li button.Success.Delete:hover,
     input[type='submit'].Success:hover,
-    input[type='button'].Success:hover {
+    input[type='button'].Success:hover,
+    span.Button.Success:hover,
+    .Filter-Result li span.Success.Delete:hover {
       background-color: #54894e; }
   a.Button.Success, table td.Actions ul li a.Success, .Filter-Result li a.Success.Delete,
   button.Button.Success,
   .Filter-Result li button.Success.Delete,
   input[type='submit'].Success,
-  input[type='button'].Success {
+  input[type='button'].Success,
+  span.Button.Success,
+  .Filter-Result li span.Success.Delete {
     background-color: #2ecc71; }
     a.Button.Success:hover, table td.Actions ul li a.Success:hover, .Filter-Result li a.Success.Delete:hover,
     button.Button.Success:hover,
     .Filter-Result li button.Success.Delete:hover,
     input[type='submit'].Success:hover,
-    input[type='button'].Success:hover {
+    input[type='button'].Success:hover,
+    span.Button.Success:hover,
+    .Filter-Result li span.Success.Delete:hover {
       background-color: #5ec67d; }
   a.Button.Warning, table td.Actions ul li a.Warning, .Filter-Result li a.Warning.Delete,
   button.Button.Warning,
   .Filter-Result li button.Warning.Delete,
   input[type='submit'].Warning,
-  input[type='button'].Warning {
+  input[type='button'].Warning,
+  span.Button.Warning,
+  .Filter-Result li span.Warning.Delete {
     background-color: #e67e22; }
     a.Button.Warning:hover, table td.Actions ul li a.Warning:hover, .Filter-Result li a.Warning.Delete:hover,
     button.Button.Warning:hover,
     .Filter-Result li button.Warning.Delete:hover,
     input[type='submit'].Warning:hover,
-    input[type='button'].Warning:hover {
+    input[type='button'].Warning:hover,
+    span.Button.Warning:hover,
+    .Filter-Result li span.Warning.Delete:hover {
       background-color: #d35400; }
   a.Button.Error, table td.Actions ul li a.Error, .Filter-Result li a.Error.Delete,
   button.Button.Error,
   .Filter-Result li button.Error.Delete,
   input[type='submit'].Error,
-  input[type='button'].Error {
+  input[type='button'].Error,
+  span.Button.Error,
+  .Filter-Result li span.Error.Delete {
     border-color: #a02828;
     background-color: #e43f3f; }
     a.Button.Error:hover, table td.Actions ul li a.Error:hover, .Filter-Result li a.Error.Delete:hover,
     button.Button.Error:hover,
     .Filter-Result li button.Error.Delete:hover,
     input[type='submit'].Error:hover,
-    input[type='button'].Error:hover {
+    input[type='button'].Error:hover,
+    span.Button.Error:hover,
+    .Filter-Result li span.Error.Delete:hover {
       background-color: #a02828; }
   a.Button + .Button, table td.Actions ul li a + .Button, .Filter-Result li a.Delete + .Button, table td.Actions ul li a.Button + a, table td.Actions ul li a + a, .Filter-Result table td.Actions ul li a.Delete + a, table td.Actions ul .Filter-Result li a.Delete + a, .Filter-Result li a.Button + .Delete, table td.Actions ul .Filter-Result li a + .Delete, .Filter-Result table td.Actions ul li a + .Delete, .Filter-Result li a.Delete + .Delete,
   button.Button + .Button,
@@ -1689,7 +1850,14 @@ input[type='button'] {
   .Filter-Result li input[type='submit'] + .Delete,
   input[type='button'] + .Button,
   table td.Actions ul li input[type='button'] + a,
-  .Filter-Result li input[type='button'] + .Delete {
+  .Filter-Result li input[type='button'] + .Delete,
+  span.Button + .Button,
+  .Filter-Result li span.Delete + .Button,
+  table td.Actions ul li span.Button + a,
+  .Filter-Result table td.Actions ul li span.Delete + a,
+  table td.Actions ul .Filter-Result li span.Delete + a,
+  .Filter-Result li span.Button + .Delete,
+  .Filter-Result li span.Delete + .Delete {
     margin-left: 10px; }
 
 .Message {
@@ -1730,7 +1898,9 @@ input[type='button'] {
   button.Box.Button.Ghost,
   .Filter-Result li button.Box.Ghost.Delete,
   input.Box[type='submit'].Ghost,
-  input.Box[type='button'].Ghost {
+  input.Box[type='button'].Ghost,
+  span.Box.Button.Ghost,
+  .Filter-Result li span.Box.Ghost.Delete {
     border-radius: 10px; }
   .Box.Outlined {
     border: 2px solid #95a5a6; }
