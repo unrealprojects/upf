@@ -309,7 +309,7 @@
                         min: {{$param['min_value']}},
                         max: {{$param['max_value']}},
                         values: [ searchArray['params[{{$param["alias"]}}][min-value]']?searchArray['params[{{$param["alias"]}}][min-value]']:{{$Param['min_value']}},
-                                  searchArray['params[{{$param["alias"]}}][max-value]']?searchArray['params[{{$param["alias"]}}][max-value]']:{{$Param['max_value']}} ],
+                                  searchArray['params[{{$param["alias"]}}][max-value]']?searchArray['params[{{$param["alias"]}}][max-value]']:{{$Param  ['max_value']}} ],
                         slide: function( event, ui ) {
                             $("#Slider-Range-Value-{{$param["alias"]}}").text(ui.values[ 0 ] + "{{$param['dimension']}} - " + ui.values[ 1 ] +"{{$param['dimension']}}");
                             searchArray['params[{{$param["alias"]}}][min-value]']=ui.values[ 0 ];

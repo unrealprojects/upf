@@ -10,6 +10,10 @@ FrontendRoutes([
     'users',
 ]);
 
+FrontendFullRoutes([
+    'cabinet'
+]);
+
 /*** VOTED ***/
 Route::get('/vote/up/{app_section}/{id}','\Controller\VoteController@Up');
 Route::get('/vote/down/{app_section}/{id}','\Controller\VoteController@Down');

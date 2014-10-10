@@ -1,6 +1,11 @@
 @extends($Template)
 
 @section('Main')
+
+    {{-- Filter --}}
+        @include($TemplateLayouts.'Filter.HomeFilter')
+    {{-- End Filter --}}
+
 <section class="Node">
     <h3 class="Heading Primary">{{-- $Title --}}</h3>
     {{--@include($TemplateParts . 'BreadCrumbs')--}}
