@@ -66,7 +66,8 @@ class Users extends Meta implements UserInterface, RemindableInterface {
                 'meta.tags',
                 'meta.regions',
                 'meta.files')
-            ->first()->toArray();
+            ->first()
+            ->toArray();
         // print_r($ContentModel);exit;
 
         /*** Result ***/

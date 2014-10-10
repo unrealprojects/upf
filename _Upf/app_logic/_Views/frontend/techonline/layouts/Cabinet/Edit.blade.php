@@ -37,44 +37,51 @@
                         </div>
 {{---------------------------------------------------------------------------------------------------------------------- Photo Field --}}
                     @elseif($Field['type']=='photo')
-                        <div class="Control-Group  Control-Photo">
-                            <label class="Node-XXS-3" for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
-                            @if($Field['editable']==true)
-                                <div class="Input-Group Node-XXS-9 Grid Upload">
-                                    <input  name="{{$Field['relation']}}" id="field_{{$Field['relation']}}" type="file"/>
-                                    @if($Src = \UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']))
-                                        <ul class="Grid Split" >
-                                           <li class="Node-XS-6">
-                                                <a href="#" class="Link-Delete">Удалить</a>
-                                                <img class="Field-Img-{{$Field['relation']}} Uploaded" src="{{$Src}}" title="Изображение"/>
-                                            </li>
-                                         </ul>
-                                    @endif
-                                </div>
-                            @else
-                                <div class="Input-Group">
-                                    <img src="{{\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])}}" title="Изображение"/>
-                                </div>
+                    <div class="Control-Group  Control-Photo">
+                        <label class="Node-XXS-3" for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
+                        @if($Field['editable']==true)
+                        <div class="Input-Group Node-XXS-9 Grid Upload">
+
+                            <label class="File-Upload">
+                                <input  name="{{$Field['relation']}}" id="field_{{$Field['relation']}}" type="file"/>
+                                <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                            </label>
+                            @if($Src = \UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']))
+                            <ul class="Grid Split" >
+                                <li class="Node-XS-6">
+                                    <a href="#" class="Link-Delete">Удалить</a>
+                                    <img class="Field-Img-{{$Field['relation']}} Uploaded" src="{{$Src}}" title="Изображение"/>
+                                </li>
+                            </ul>
                             @endif
                         </div>
+                        @else
+                        <div class="Input-Group">
+                            <img src="{{\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])}}" title="Изображение"/>
+                        </div>
+                        @endif
+                    </div>
 {{---------------------------------------------------------------------------------------------------------------------- Multiple Photos Field --}}
                     @elseif($Field['type']=='photos')
-                        <div class="Control-Group Control-Photos">
-                            <label class='Node-XXS-3' for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
-                            @if($Field['editable']==true)
-                            <div class="Input-Group Upload Node-XXS-9">
+                    <div class="Control-Group Control-Photos">
+                        <label class='Node-XXS-3' for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
+                        @if($Field['editable']==true)
+                        <div class="Input-Group Upload Node-XXS-9">
+                            <label class="File-Upload">
                                 <input class="" name="{{$Field['relation']}}[]" multiple="multiple" id="field_{{$Field['relation']}}" type="file"/>
-                                <ul class="Grid Split">
-                                     @foreach(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']) as $photos)
-                                        <li class="Node-XS-3">
-                                            <a href="#" class="Link-Delete">Удалить</a>
-                                            <img class="Field-Img-{{$Field['relation']}} Uploaded" src="{{$photos['src']}}" item_img_id="{{$photos['id']}}" title="Изображения"/>
-                                        </li>
-                                     @endforeach
-                                </ul>
-                            </div>
-                            @endif
+                                <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                            </label>
+                            <ul class="Grid Split">
+                                @foreach(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']) as $photos)
+                                <li class="Node-XS-3">
+                                    <a href="#" class="Link-Delete">Удалить</a>
+                                    <img class="Field-Img-{{$Field['relation']}} Uploaded" src="{{$photos['src']}}" item_img_id="{{$photos['id']}}" title="Изображения"/>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
+                        @endif
+                    </div>
 {{---------------------------------------------------------------------------------------------------------------------- Select Field --}}
                     @elseif($Field['type']=='select')
                         <div class="Control-Group">

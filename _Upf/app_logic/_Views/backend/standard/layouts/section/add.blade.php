@@ -29,7 +29,12 @@
                 @elseif($field['type']=='photo')
                     <div class="Control-Group">
                         <label class="Node-XXS-3" for="field_{{$field['relation']}}">{{$field['title']}}</label>
-                        <input class="Node-XXS-9" name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="file"/>
+                        <div class="Input-Group Node-XXS-9 Grid Upload">
+                            <label class="File-Upload">
+                                <input  name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="file"/>
+                                <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                            </label>
+                        </div>
                     </div>
 {{---------------------------------------------------------------------------------------------------------------------- Photo Field --}}
                 @endif
