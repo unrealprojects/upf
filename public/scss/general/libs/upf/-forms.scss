@@ -229,7 +229,7 @@ Label.File-Upload
 
 .Control-Group
 {
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	label
 	{
 		height: $Control-Height;

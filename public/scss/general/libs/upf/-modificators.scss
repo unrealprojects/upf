@@ -5,7 +5,7 @@
 
 
 // Центрирует заданный блок внутри родителя.
-._Centered {
+%Centrate {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -49,12 +49,12 @@
 	margin-right: 	$size;
 }
 // Позиционирует блок слева
-%_Left {
+%Left {
 	float: 			left;
 }
 
 // Позиционирует блок справа
-._Right {
+%Right {
 	float: 			right;
 }
 
@@ -64,25 +64,25 @@
 }
 
 // Clearfix. Предотвращает схлопывание блоков
-._Clearfix:before ,
-._Clearfix:after  {
+%Clearfix:before ,
+%Clearfix:after  {
 	content: " ";
 	display: table;
 }
-._Clearfix:after {
+%Clearfix:after {
 	clear: both;
 }
 
 // Выводит всех потомков в линию
 ._Inline {
-	@extend 				._Clearfix;
+	@extend 				%Clearfix;
 	& > * {
 		float: 				left;
 	}
 }
 ul._Inline
 {
-	@extend 				._Clearfix;
+	@extend 				%Clearfix;
 	@extend 				._No-Bullets;
 }
 
@@ -137,4 +137,19 @@ ul._Inline
 	.Dropdown {
 		display: none;
 	}
+}
+
+%Script
+{
+	text-decoration: none;
+	border-bottom: 1px dashed;
+}
+
+%Clickable
+{
+	cursor: pointer;
+}
+%Capitalize
+{
+	text-transform: uppercase;
 }

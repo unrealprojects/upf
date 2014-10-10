@@ -21,7 +21,7 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 	color:								$Clr-Clouds;
 
 	box-shadow: 0 4px 0 rgba(44, 62, 80,.25);
-	@extend 							._Clearfix;
+	@extend 							%Clearfix;
 
 	.Site-Header-Inner {
 		/*@extend 						.Row;*/

@@ -9,7 +9,7 @@
 {
 	position: relative;
 	display: inline-block;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	@include Transitions(#{border-radius .6s,box-shadow .6s});
 
 	&.Collapsed:hover

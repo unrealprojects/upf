@@ -71,10 +71,10 @@ body {
 
 // Список категорий
 .List-Categories {
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	li {
 		padding: $size-s 0;
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		a {
 			font-size: $Font-Size-Small;
 			display: inline-block;
@@ -125,8 +125,8 @@ footer[role='contentinfo'] {
 		{
 			padding: $size-l 0;
 		}
-		@extend ._Clearfix;
-		@extend ._Centered;
+		@extend %Clearfix;
+		@extend %Centrate;
 		@extend ._Section-Inner;
 		.Copyright {
 		}
@@ -223,7 +223,7 @@ img.Footer-Img {
 			}
 			width: 100%;
 			clear: both;
-			@extend ._Clearfix;
+			@extend %Clearfix;
 		}
 		& + .Snippet-Item
 		{
@@ -231,7 +231,7 @@ img.Footer-Img {
 		}
 	}
 	.Item-Gallery {
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		& > img {
 			width: 100%;
 		}
@@ -292,12 +292,12 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 	{
 		border: 1px solid $C-Grey-5;
 	}
-	@extend ._Clearfix;
+	@extend %Clearfix;
 //	@extend .Row;
 	header {
 		width: 100%;
 		margin-bottom: $size-n;
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		.Item-Title
 		{
 			padding-left: $size-n;
@@ -345,7 +345,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		{
 			padding-left: $size-n;
 		}
-		@extend ._Clearfix;
+		@extend %Clearfix;
 
 		img.Item-Main-Photo {
 			border: 5px solid $Clr-Secondary;
@@ -428,16 +428,16 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		.Date {
 			padding: $size-xs 0;
 			margin: 0 $size-l $size-s 0;
-			@extend %_Left;
+			@extend %Left;
 		}
 		.Tags {
-			@extend %_Left;
+			@extend %Left;
 		}
 	}
 }
 .Filter-Result {
 	font-size: 12px;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	@extend ._No-Bullets;
 	@include Animation(FadeIn,1s);
 	li {
@@ -448,7 +448,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		margin-right: $size-s;
 		border: 1px $C-Grey-5 solid;
 		background-color: white;
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		span {
 			display: inline-block;
 			padding: $size-xs;
@@ -461,7 +461,6 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 			color: white;
 			@extend .Button;
 			@extend .Small;
-//			@extend %_Right;
 			&:hover {
 				background-color: $Clr-Grey-Darker;
 			}
@@ -471,7 +470,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 }
 
 ul.Tag-List {
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	@extend ._Inline;
 	@extend ._No-Bullets;
 
@@ -518,7 +517,7 @@ ul.Tag-List {
 		{
 			@include Round(right, $Control-Border-Radius);
 		}
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		& > a {
 			display: block;
 			height: 35px;
@@ -611,7 +610,7 @@ ul.Tag-List {
 		margin-top: 1px;
 		background-color: $Clr-Clouds;
         clear:both;
-		@extend ._Clearfix;
+		@extend %Clearfix;
 
 		& > div {
 			float: left;
@@ -651,7 +650,7 @@ ul.Tag-List {
 
 	ul {
 		border-top: 0;
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		@extend ._No-Bullets;
 		.Filter-Cities {
 			display: none;

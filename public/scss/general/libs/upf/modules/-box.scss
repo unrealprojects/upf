@@ -1,8 +1,8 @@
 .Box {
 	background-color: white;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	& > header {
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		padding: $size-s $size-n;
 
 		// Pushing Box-Title to the left.

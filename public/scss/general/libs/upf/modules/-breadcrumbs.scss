@@ -9,7 +9,7 @@
 	.Breadcrumb-List {
 		@extend ._Inline;
 		@extend ._No-Bullets;
-		@extend ._Clearfix;
+		@extend %Clearfix;
 
 		.Breadcrumb-Item {
 			& > span ,

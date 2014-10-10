@@ -1,6 +1,6 @@
 dl.Tabs {
 	clear: both;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 
 	dt {
 		margin-left: -1px;

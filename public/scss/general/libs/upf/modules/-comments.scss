@@ -40,7 +40,7 @@ body {background-color: #fff}
 
 	.#{$Comment-Item-Name}
 	{
-		@extend ._Clearfix;
+		@extend %Clearfix;
 		position: relative;
 		& + .#{$Comment-Item-Name}
 		{
@@ -73,7 +73,7 @@ body {background-color: #fff}
 			}
 			header
 			{
-				@extend ._Clearfix;
+				@extend %Clearfix;
 				margin-bottom: 10px;
 				h5
 				{

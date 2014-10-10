@@ -34,10 +34,10 @@ body		,
 	background-color: 	white;
 	clear: 				both;
 
-	@extend 			._Centered;
+	@extend 			%Clearfix;
+	@extend 			%Centrate;
 	@extend 			._Standalone;
 	@extend 			._Section-Inner;
-	@extend 			._Clearfix;
 }
 
 // Внутренние элементы нода отступают друг от друга
@@ -128,7 +128,7 @@ table {
 	}
 	&.Adaptive {
 		td {
-			@extend ._Clearfix;
+			@extend %Clearfix;
 			@include Adaptive-Mobile {
 				border-top: 1px solid $Clr-Secondary;
 			}
@@ -172,7 +172,7 @@ table {
 	border-left: 4px solid $Clr-Main;
 	@extend ._No-Bullets;
 	@extend .Inline;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	& > li {
 		margin-top: 0 !important; // Наследование .Node подразумевает margin-top каждого вложенного элемента. Убираем
 		margin-right: 1px; // Разлипаем прямоугольники страниц
@@ -222,17 +222,3 @@ table {
 	display: inline-block;
 }
 
-%Script
-{
-	text-decoration: none;
-	border-bottom: 1px dashed;
-}
-
-%Clickable
-{
-	cursor: pointer;
-}
-%Capitalize
-{
-	text-transform: uppercase;
-}

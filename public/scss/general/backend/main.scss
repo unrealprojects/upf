@@ -55,7 +55,7 @@ aside.Menu > ul.Menu-Category {
 li.Menu-Category-Item {
 	position: relative;
 	@extend ._No-Bullets;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	&:hover {
 		span.Menu-Category-Icon {
 			color: $Clr-Secondary;
@@ -94,7 +94,7 @@ ul.Menu-Subcategory {
 	@extend ._No-Bullets;
 }
 li.Menu-Subcategory-Item {
-	@extend ._Clearfix;
+	@extend %Clearfix;
 	position: relative;
 }
 a.Menu-Subcategory-Link {
@@ -166,7 +166,7 @@ nav.Userbar {
 	height: 				auto;
 	background-color: 		white;
 	border-bottom: 			1px solid $Clr-Secondary-Dark;
-	@extend 				._Clearfix;
+	@extend 				%Clearfix;
 	ul {
 		float: left;
 		display: 			inline-block;

@@ -9,7 +9,7 @@
 [class*='#{$Grid-Name}']
 {
 	display: block;
-	@extend ._Clearfix;
+	@extend %Clearfix;
 }
 .#{$Grid-Name}-#{$Fixed-Grid-Width}
 {
