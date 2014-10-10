@@ -1,9 +1,26 @@
 @extends($Template)
 
 @section('Main')
-<section class="Content">
+<section class="Node">
     <h3 class="Heading Secondary">Редактирование</h3>
-    <div class="Content-Inner">
+        <div class="Tab-Set Solid">
+            <ul class="Tab-Captions Grid Merge">
+                <li class="Node-XS-4"><a class="Active" href="#">Данные компании</a></li>
+                <li class="Node-XS-4"><a href="#">Список запчастей</a></li>
+                <li class="Node-XS-4"><a href="#">Список техники</a></li>
+            </ul>
+            <ul class="Tab-Content">
+                <li class="Active">
+                    a1
+                </li>
+                <li>
+                    a2
+                </li>
+                <li>
+                    a3
+                </li>
+            </ul>
+        </div>
         <form class="Wide" id="Edit-Item" enctype="multipart/form-data">
             @foreach($Content['Fields'] as $Field)
                 <div class="Form-Group">
@@ -157,6 +174,5 @@
                 </div>
             </div>
         </form>
-    </div>
 </section>
 @endsection

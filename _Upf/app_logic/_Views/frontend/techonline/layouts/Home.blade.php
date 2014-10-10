@@ -21,7 +21,6 @@
         @include($TemplateLayouts.'Filter.HomeFilter')
     {{-- End Filter --}}
 
-
     {{-- Main Categories --}}
         <section class="Node">
             <h3 class="Heading Primary">Каталог стройтехники</h3>
