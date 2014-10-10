@@ -40,8 +40,8 @@ $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - (
 
 %Control
 {
+	display: inline-block;
 	height: $Control-Height;
-	padding: $Control-Padding;
 
 	border: $Control-Border-Width $Control-Border-Color solid;
 	border-radius: $Control-Border-Radius;
@@ -54,11 +54,20 @@ $Checkbox-Toggle-Diameter: $Checkbox-Height - ($Checkbox-Toggle-Spacing * 2) - (
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Default controls styling
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-input,
+
+
+input[type='text'],
+input[type='tel'],
+input[type='submit'],
+input[type='button'],
+input[type='search'],
+input[type='email'],
+input[type='file'],
 select,
 textarea,
 .Dropdown
 {
+	padding: $Control-Padding;
 	box-shadow: 0 0 1px white inset;
 	background-color: $Control-Bg-Color;
 	color: $Control-Color;
@@ -128,11 +137,17 @@ label
 		@extend %Clickable;
 	}
 }
+select
+{
+	padding: $Control-Padding - 2;
+}
+
 select:focus
 {
 	@include Round(top, $Control-Border-Radius);
 }
 select[multiple='multiple']{
+	-moz-appearance: button;
 	min-height: $Control-MultiSelect-Min-Height;
 }
 textarea
@@ -147,6 +162,11 @@ textarea
 		min-height: $Control-Textarea-Min-Height-Focus;
 	}
 }
+input[type='file']
+{
+	-moz-appearance: button;
+	padding: $Control-Padding - 4px;
+}
 input[type='submit'],
 input[type='button'],
 button
@@ -160,6 +180,38 @@ button
 		background-color: $Control-Button-Bg-Color-Hover;
 	}
 }
+
+Label.File-Upload
+{
+	width: 100%;
+	display: block;
+	padding: 0!important;
+	text-align: left;
+	input[type='file']
+	{
+		height: 0;
+		padding: 0;
+		border: 0;
+		visibility: hidden;
+	}
+	& > span
+	{
+		padding: $Control-Padding;
+		@extend %Control;
+		&:hover
+		{
+			border-color: $C-Grey-4;
+			background-color: $Control-Bg-Color-Hover;
+		}
+		& > span.fa
+		{
+			margin-right: $size-s;
+		}
+
+	}
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -201,8 +253,6 @@ button
 	}
 	input[type='checkbox'].Slide
 	{
-		appearance: none;
-		-moz-appearance: none;
 		-webkit-appearance: none;
 
 		position: relative;
@@ -530,7 +580,8 @@ button
 a.Button ,
 button.Button,
 input[type='submit'],
-input[type='button']
+input[type='button'],
+span.Button
 {
 	$Btn-BG-Color:			$Clr-Grey-Lighter;
 	$Btn-Hover-BG-Color:	$Clr-Grey-Light;

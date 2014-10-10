@@ -41,7 +41,11 @@
                             <label class="Node-XXS-3" for="field_{{$field['relation']}}">{{$field['title']}}</label>
                             @if($field['editable']==true)
                                 <div class="Input-Group Node-XXS-9 Grid Upload">
-                                    <input  name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="file"/>
+
+                                    <label class="File-Upload">
+                                        <input  name="{{$field['relation']}}" id="field_{{$field['relation']}}" type="file"/>
+                                        <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                                    </label>
                                     @if($Src = \UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']))
                                         <ul class="Grid Split" >
                                            <li class="Node-XS-6">
@@ -63,7 +67,10 @@
                             <label class='Node-XXS-3' for="field_{{$field['relation']}}">{{$field['title']}}</label>
                             @if($field['editable']==true)
                             <div class="Input-Group Upload Node-XXS-9">
-                                <input class="" name="{{$field['relation']}}[]" multiple="multiple" id="field_{{$field['relation']}}" type="file"/>
+                                <label class="File-Upload">
+                                    <input class="" name="{{$field['relation']}}[]" multiple="multiple" id="field_{{$field['relation']}}" type="file"/>
+                                    <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                                </label>
                                 <ul class="Grid Split">
                                      @foreach(\UpfHelpers\View::RelationToArray($content['data']['item'],$field['relation']) as $photos)
                                         <li class="Node-XS-3">
