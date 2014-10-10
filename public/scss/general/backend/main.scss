@@ -168,6 +168,7 @@ nav.Userbar {
 	border-bottom: 			1px solid $Clr-Secondary-Dark;
 	@extend 				._Clearfix;
 	ul {
+		float: left;
 		display: 			inline-block;
 		@extend 			._Inline;
 		@extend 			._No-Bullets;
@@ -199,23 +200,12 @@ nav.Userbar {
 			float: right;
 		}
 	}
-	.User-Menu {
-		position: relative;
-
-		.Dropdown {
-			position: absolute;
-			display: block;
-			min-width: 150px;
-			right: 0;
-			background-color: white;
-			li {
-				display: block;
-				width: 100%;
-				& + li {
-					border-top: 1px solid $Clr-Grey-Light;
-				}
-			}
-		}
+	.Dropdown
+	{
+		float: right;
+		margin-top: 9px;
+		margin-right: $size-n;
+		min-width: 200px;
 	}
 
 }

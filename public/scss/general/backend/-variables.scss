@@ -1,7 +1,7 @@
 // SCREEN SIZES
 $Viewport-XXS:			1px;
 $Viewport-XS:			768px;
-$Viewport-SM:			1024px;
+$Viewport-SM:			1014px;
 $Viewport-MD:			1260px;
 $Viewport-LR:			1880px;
 $Viewport-HG:			2540px;
@@ -161,6 +161,7 @@ $Section-Width-Default: 		$Section-Width-Small + 130px;
 $Section-Width-Large:			$Section-Width-Default + 50px;
 $Section-Width-Huge:			$Section-Width-Large + 50px;
 
+$Base-Animation-Time:			.4s;
 
 // Стилевые ограничения для разных устройств
 
@@ -180,4 +181,28 @@ $Control-Padding:						$size-xs $size-s;
 $Control-Line-Height:					$line-height;
 $Control-Border-Radius:					5px;
 
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Grid variables
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$Enable-Fraction-Grid:	false;			// Enables 1/2, 1/3, ... , 1/7 Grids
+$Enable-12-Column:		true;			// Enables 1, 2, 3 ... , 12 Grid
+$Enable-Merged-Grid:	true;			// Enables Grid Merge
+$Enable-Split-Grid:		true;			// Enables Grid Split
+/////////////////////////////
+$Fixed-Grid-Width:		960px;			// Fixed width grid
+/////////////////////////////
+$Fraction-Grid-Limit:	7;				// Determines how much fraction grids do you want
+$Grid-Gutter:			5%;				// Gaps between grid nodes
+$Fraction-Grids-Max: 	12;				// How much do fraction grids do you need
+/////////////////////////////
+$Node-Name:				Node;			// How will you call your grid nodes in HTML (example: <div class="$Node-Name-XS-1-2>)
+$Grid-Name:				Grid;			// How will you call your grids in HTML (example: <div class="$Grid-Name Merge">)
+/////////////////////////////
+$Viewports-List: 		($Viewport-XXS, $Viewport-XS, $Viewport-SM, $Viewport-MD, $Viewport-LR, $Viewport-HG);
+$Viewports-Prefix: 		(XXS, XS, SM, MD, LR, HG);
+$Viewports-Count: 		length($Viewports-List);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$Component-Box:			true;
+$Component-Badge:		true;
+$Component-Comments:	true;

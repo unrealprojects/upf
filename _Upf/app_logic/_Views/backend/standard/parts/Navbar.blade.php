@@ -5,15 +5,13 @@
         {{--<li><a href="#" id="Nav-Favorite"><span class="fa fa-star fa-lg"></span></a></li>--}}
     </ul>
 
-    <ul class="Right">
-        <li class="User-Menu Icon-Link Right Dropdown Ghost">
-            <div class="Dropdown-Title">{{$AdministratorLogin}}<span class="Dropdown-Toggle fa fa-angle-down"></span></div>
-            <ul class="Dropdown-Content">
-                <li class="Icon"><a href="/backend/system/administrator/{{$AdministratorLogin}}/edit"><span class="fa fa-user"></span>Кабинет</a></li>
-                <li class="Icon"><a href="/backend/logout"><span class="fa fa-close"></span>Выйти</a></li>
-            </ul>
-        </li>
-    </ul>
+    <div class="Dropdown">
+        <div class="Dropdown-Title">{{$AdministratorLogin}}<span class="Dropdown-Toggle fa fa-angle-down"></span></div>
+        <ul class="Dropdown-Content">
+            <li class="Icon"><a href="/backend/system/administrator/{{$AdministratorLogin}}/edit"><span class="fa fa-user"></span>Кабинет</a></li>
+            <li class="Icon"><a href="/backend/logout"><span class="fa fa-close"></span>Выйти</a></li>
+        </ul>
+    </div>
 </nav>
 
 <nav class="Breadcrumbs">

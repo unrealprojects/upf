@@ -15,66 +15,6 @@
         </section>
     {{-- End Header --}}
 
-<section class="Node">
-    <div class="Tab-Set Pills">
-        <ul class="Tab-Captions">
-            <li class="Node-XS-4"><a href="">Tab One</a></li>
-            <li class="Node-XS-4"><a href="">Tab Two</a></li>
-            <li class="Node-XS-4"><a class="Active"  href="">Tab Three</a></li>
-        </ul>
-        <ul class="Tab-Content">
-            <li class="Tab-Node">
-                Tab Content One
-            </li>
-            <li class="Tab-Node">
-                Tab Content Two
-            </li>
-            <li class="Tab-Node Active">
-                Tab Content Three
-            </li>
-        </ul>
-    </div>
-</section>
-<section class="Node">
-    <div class="Tab-Set Solid">
-        <ul class="Tab-Captions">
-            <li class="Node-XS-4"><a href="">Tab One</a></li>
-            <li class="Node-XS-4"><a class="Active" href="">Tab Two</a></li>
-            <li class="Node-XS-4"><a href="">Tab Three</a></li>
-        </ul>
-        <ul class="Tab-Content">
-            <li class="Tab-Node">
-                Tab Content One
-            </li>
-            <li class="Tab-Node Active">
-                Tab Content Two
-            </li>
-            <li class="Tab-Node">
-                Tab Content Three
-            </li>
-        </ul>
-    </div>
-</section>
-<section class="Node">
-    <div class="Tab-Set Outlined">
-        <ul class="Tab-Captions">
-            <li class="Node-XS-4"><a class="Active" href="">Tab One</a></li>
-            <li class="Node-XS-4"><a href="">Tab Two</a></li>
-            <li class="Node-XS-4"><a href="">Tab Three</a></li>
-        </ul>
-        <ul class="Tab-Content">
-            <li class="Tab-Node Active">
-                Tab Content One
-            </li>
-            <li class="Tab-Node">
-                Tab Content Two
-            </li>
-            <li class="Tab-Node">
-                Tab Content Three
-            </li>
-        </ul>
-    </div>
-</section>
 
 
     {{-- Filter --}}
