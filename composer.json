@@ -19,7 +19,7 @@
 			"_Upf/app_logic/__Database/seeds",
             "_Upf/app_logic/__Models",
             "_Upf/app_logic/_Controllers",
-            "_Upf/app_logic/Helpers",
+            "_Upf/app_logic/helpers",
 			"_Upf/tests/TestCase.php"
 		]
 	},
