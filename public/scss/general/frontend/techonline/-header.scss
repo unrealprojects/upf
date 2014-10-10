@@ -53,11 +53,11 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 			@include 			Adaptive($Viewport-MD) {
 				padding:			$Page-Navigation-Padding 0;
 			}
-			text-transform: 	uppercase;
 			line-height: 		$Page-Header-Line-Height;
 			font-family: 		'Open Sans', sans-serif;
 			font-size: 			20px;
 			font-weight: 		100;
+			@extend 			%Capitalize;
 			small {
 				font-size: 		14px;
 			}
@@ -69,9 +69,9 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 		right: 0;
 		left: $size-n;
 		padding:				$Page-Navigation-Padding 0;
-		text-transform: 		uppercase;
 		line-height: 			$Page-Header-Line-Height;
 		color:					$Clr-Silver;
+		@extend 				%Capitalize;
 
 		@include 			Opacity(0);
 
@@ -120,8 +120,8 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 				}
 				font-size: 		$Page-Navigation-Font-Size;
 				line-height:	$Page-Header-Line-Height;
-				text-transform: uppercase;
 				color: 			$Clr-Silver;
+				@extend 		%Capitalize;
 				&:hover {
 					background-color: 	$Clr-Wet-Asphalt;
 					color: 				white;

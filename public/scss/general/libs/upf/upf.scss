@@ -2,17 +2,21 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700,300);
 
-@import "normalize.css";
-@import "-mixins";					// Миксины
+@import "core/-reset";
+@import "core/-mixins";
+@import "core/-grid";
+
 @import "-typography";				// Типографика
 @import "-modificators";			// Модификаторы
-@import "-reset";					// Сброс настроек браузера
-@import "-grid";					// Сетка
 @import "-modules";					// Layout blocks
 @import "-forms";					// Формы
 @import "-messages";				// Сообщения
-@import "-comments";
 
-
+@import "modules/-box";
+@import "modules/-breadcrumbs";
+@import "modules/-comments";
+@import "modules/-dropdown";
+@import "modules/-panel";
+@import "modules/-tabs";
 
 

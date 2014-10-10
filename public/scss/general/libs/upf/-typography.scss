@@ -77,9 +77,8 @@ code {
 .Heading {
 	display: block;
 	clear: both;
-	text-transform: uppercase;
 	cursor: default;
-
+	@extend %Capitalize;
 	@extend ._Unselectable;
 	span.fa
 	{

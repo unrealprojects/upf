@@ -1,0 +1,147 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Panel
+// Simple way to incapsulate some text in a colored box
+//
+// MODIFICATORS
+// .Invert		makes text white and background darker
+// .Shadow		applies text-shadow to text
+// .Simple		disables border and box-shadow
+//
+// COLOR MODIFICATORS
+// #Null#		Black/White
+// .Error		Red
+// .Warning		Orange
+// .Success		Green
+// .Info		Blue
+// .Primary		Brand color (Cyan by default)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.Panel
+{
+	padding: $size-n;
+	border-radius: $Control-Border-Radius;
+	border: $Control-Border-Width $Control-Border-Color solid;
+	background-color: $C-Grey-6;
+	color: $C-Grey-1;
+	&.Invert
+	{
+		background-color: $C-Grey-2;
+		border-color: $C-Grey-1;
+		&.Shadow
+		{
+			text-shadow: 1px 1px 1px $C-Grey-3;
+		}
+		&.Simple
+		{
+			border: $Control-Border-Width $C-Grey-2 solid;
+		}
+	}
+	&.Invert
+	{
+		color: white!important;
+	}
+	&.Simple
+	{
+		box-shadow: none!important;
+	}
+	&.Success
+	{
+		color: $C-Green-1;
+		background-color: $C-Green-6;
+		border-color: $C-Green-3;
+		box-shadow: 0 0 1px $C-Green-4 inset;
+		&.Invert
+		{
+			background-color: $C-Green-2;
+			border-color: $C-Green-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Green-2 solid;
+			}
+		}
+	}
+	&.Warning
+	{
+		color: $C-Orange-1;
+		background-color: $C-Orange-6;
+		border-color: $C-Orange-3;
+		box-shadow: 0 0 1px $C-Orange-4 inset;
+		&.Invert
+		{
+			background-color: $C-Orange-2;
+			border-color: $C-Orange-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Orange-2 solid;
+			}
+		}
+	}
+	&.Error
+	{
+		color: $C-Red-1;
+		background-color: $C-Red-6;
+		border-color: $C-Red-3;
+		box-shadow: 0 0 1px $C-Red-4 inset;
+		&.Invert
+		{
+			background-color: $C-Red-2;
+			border-color: $C-Red-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Red-2 solid;
+			}
+		}
+	}
+	&.Info
+	{
+		color: $C-Blue-1;
+		background-color: $C-Blue-6;
+		border-color: $C-Blue-3;
+		box-shadow: 0 0 1px $C-Blue-4 inset;
+		&.Invert
+		{
+			background-color: $C-Blue-2;
+			border-color: $C-Blue-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Blue-2 solid;
+			}
+		}
+	}
+	&.Primary
+	{
+		color: $C-Cyan-1;
+		background-color: $C-Cyan-6;
+		border-color: $C-Cyan-3;
+		box-shadow: 0 0 1px $C-Cyan-4 inset;
+		&.Invert
+		{
+			background-color: $C-Cyan-2;
+			border-color: $C-Cyan-1;
+			&.Shadow
+			{
+				text-shadow: 1px 1px 1px $C-Grey-3;
+			}
+			&.Simple
+			{
+				border: $Control-Border-Width $C-Cyan-2 solid;
+			}
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

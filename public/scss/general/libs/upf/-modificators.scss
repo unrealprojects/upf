@@ -80,6 +80,11 @@
 		float: 				left;
 	}
 }
+ul._Inline
+{
+	@extend 				._Clearfix;
+	@extend 				._No-Bullets;
+}
 
 // Убирает буллиты у списков
 ._No-Bullets {

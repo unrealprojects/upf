@@ -1,0 +1,43 @@
+// Configurable Breadcrumbs
+// NOT CONFIGURABLE IN THIS VERSION, LOL :D
+.Breadcrumbs {
+	padding: $size-xs;
+	margin-top: $size;
+	background-color: $Clr-Secondary;
+	@include Round(all, $Control-Border-Radius);
+
+	.Breadcrumb-List {
+		@extend ._Inline;
+		@extend ._No-Bullets;
+		@extend ._Clearfix;
+
+		.Breadcrumb-Item {
+			& > span ,
+			& > a    {
+				padding: $size-xs;
+				font-size: 13px;
+				line-height: 13px;
+			}
+			a {
+				color: $Clr-Asbestos;
+			}
+			a:hover {
+				color: $Clr-Midnight-Blue;
+			}
+			&:before {
+				font-family: FontAwesome;
+				vertical-align: middle;
+				padding: 0 $size-s;
+				content: "\f105";
+				@extend ._Unselectable;
+			}
+		}
+
+		.Breadcrumb-Item:first-child {
+			&:before {
+				padding: 0;
+				content: "";
+			}
+		}
+	}
+}

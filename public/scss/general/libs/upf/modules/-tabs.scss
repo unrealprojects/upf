@@ -1,0 +1,203 @@
+dl.Tabs {
+	clear: both;
+	@extend ._Clearfix;
+
+	dt {
+		margin-left: -1px;
+		position: 		relative;
+		display: 		table;
+		float: 			left;
+		min-height: 	48px;
+		padding: 		$size-xs 0;
+		background-color: $Clr-Clouds;
+		color:			$Clr-Midnight-Blue;
+		text-align: 	center;
+		@extend %Clickable;
+
+		@include Transition(#{background-color, color}, 0.5s);
+
+		& > span {
+			vertical-align: 	middle;
+			display: 			table-cell;
+			font-size: 			85%;
+		}
+
+		&:hover {
+			background-color: $Clr-Silver;
+		}
+
+		&.Active {
+			background-color: $Clr-Midnight-Blue;
+			color: #fff;
+		}
+
+		&.inTwo{
+			width:50%;
+		}
+	}
+	dd {
+		display: none;
+		float: right;
+
+		margin: 100px 0 0 -100%;
+		@include Adaptive($Viewport-XS)
+		{
+			margin: 60px 0 0 -100%;
+		}
+		position: relative;
+		width: 100%;
+		z-index: 2;
+
+		&.Active {
+			display: block;
+		}
+
+		& > div {
+			padding: $size 0;
+		}
+	}
+}
+.Tab-Set
+{
+	ul.Tab-Captions
+	{
+		@extend .Grid;
+		@extend ._Inline;
+		li
+		{
+			a
+			{
+				display: block;
+				width: 100%;
+				padding: $size-s $size-n;
+				text-align: center;
+			}
+		}
+	}
+	ul.Tab-Content
+	{
+		@extend ._No-Bullets;
+		li
+		{
+			display: none;
+			&.Active
+			{
+				display: block;
+			}
+		}
+	}
+	&.Pills
+	{
+		ul.Tab-Captions
+		{
+			margin-bottom: $size-n;
+			li
+			{
+				padding: 0 $size-n;
+				a
+				{
+					background-color: $Clr-Secondary;
+					color: $C-Grey-1;
+					@include Round(all,$Control-Border-Radius);
+					&:hover
+					{
+						background-color: $Clr-Silver;
+					}
+				}
+				a.Active
+				{
+					background-color: $Clr-Main;
+					color: white;
+					&:hover
+					{
+						background-color: $Clr-Main-Dark;
+					}
+
+				}
+				&:first-child
+				{
+					padding-left: 0;
+				}
+			}
+		}
+		ul.Tab-Content
+		{
+
+		}
+	}
+	&.Solid
+	{
+		ul.Tab-Captions
+		{
+			li
+			{
+				a
+				{
+					background-color: $Clr-Secondary;
+					color: $C-Grey-1;
+					&:hover
+					{
+						background-color: $Clr-Silver;
+					}
+				}
+				a.Active
+				{
+					background-color: $Clr-Main;
+					color: white;
+					&:hover
+					{
+						background-color: $Clr-Main-Dark;
+					}
+
+				}
+			}
+		}
+		ul.Tab-Content
+		{
+			border: 1px solid $Clr-Secondary;
+			border-top-width: 0;
+			li
+			{
+				padding: $size-n;
+			}
+		}
+	}
+	&.Outlined
+	{
+		ul.Tab-Captions
+		{
+			li
+			{
+				a
+				{
+					border-bottom: 1px solid $C-Grey-4;
+					color: $C-Grey-1;
+					@include Round(top,$Control-Border-Radius);
+					&:hover
+					{
+						background-color: $C-Grey-5;
+					}
+				}
+				a.Active
+				{
+					border: 1px solid $C-Grey-4;
+					border-bottom-width: 0;
+					&:hover
+					{
+						background-color: inherit;
+					}
+
+				}
+			}
+		}
+		ul.Tab-Content
+		{
+			border: 1px solid $C-Grey-4;
+			border-top-width: 0;
+			li
+			{
+				padding: $size-n;
+			}
+		}
+	}
+}

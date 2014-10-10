@@ -76,9 +76,9 @@ body {
 		padding: $size-s 0;
 		@extend ._Clearfix;
 		a {
-			text-transform: uppercase;
 			font-size: $Font-Size-Small;
 			display: inline-block;
+			@extend %Capitalize;
 		}
 	}
 	&.Icons {
@@ -301,7 +301,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		.Item-Title
 		{
 			padding-left: $size-n;
-			text-transform: uppercase;
+			@extend %Capitalize;
 			@extend %Tall-Prototype;
 			a
 			{
@@ -411,7 +411,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		{
 			font-family: $Font-Family-Open-Sans;
 			font-size: 14px;
-			border-bottom: 1px $Clr-Main dashed;
+			@extend %Script;
 			&:hover
 			{
 				border-color: $Clr-Text-Main;
@@ -436,15 +436,18 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 	}
 }
 .Filter-Result {
-	width: 100%;
-	padding: $size-s;
-	background-color: $Clr-Secondary;
-	font-size: 80%;
-//	@extend %_Right;
+	font-size: 12px;
+	@extend ._Clearfix;
 	@extend ._No-Bullets;
 	@include Animation(FadeIn,1s);
 	li {
-		padding: $size-xs 0;
+		margin-top: $size-s;
+		float: left;
+		width: auto;
+		padding: $size-xs;
+		margin-right: $size-s;
+		border: 1px $C-Grey-5 solid;
+		background-color: white;
 		@extend ._Clearfix;
 		span {
 			display: inline-block;
@@ -585,7 +588,7 @@ ul.Tag-List {
 		border: $Control-Border-Color $Control-Border-Width solid;
 		border-radius: $Control-Border-Radius;
 		background-color: white;
-		cursor: pointer;
+		@extend %Clickable;
 		@include Transitions(#{border-color $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time});
 		&:hover
 		{
@@ -622,7 +625,7 @@ ul.Tag-List {
 				padding: $size-xs 0;
 				line-height: $line-height;
 				background-color: $Clr-Main;
-				cursor: pointer;
+				@extend %Clickable;
 
 				&:hover {
 					color: white;

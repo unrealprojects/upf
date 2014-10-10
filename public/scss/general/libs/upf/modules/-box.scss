@@ -1,0 +1,168 @@
+.Box {
+	background-color: white;
+	@extend ._Clearfix;
+	& > header {
+		@extend ._Clearfix;
+		padding: $size-s $size-n;
+
+		// Pushing Box-Title to the left.
+		& > .Box-Title {
+			float: left;
+		}
+
+		// If Box Toolset is a list - display it inline without bullets.
+		& ul.Box-Tools {
+			@extend ._No-Bullets;
+			@extend ._Inline;
+		}
+
+		// Box Toolset. Contains buttons.
+		& .Box-Tools {
+			display: inline-block;
+			float: right;
+			a {
+				display: inline-block;
+				padding: 0 $size-xs;
+				color: $Clr-Secondary-Darker;
+				&:hover {
+					color: $Clr-Main;
+				}
+			}
+		}
+	}
+	& > footer {
+		margin: $size-n;
+	}
+	& > .Box-Content {
+		padding: $size-s $size-n $size-n;
+	}
+	&.Round {
+		@include Round(all);
+	}
+	&.Outlined {
+		border: 2px solid $Clr-Secondary-Darker;
+	}
+	&.Underlined {
+		& > header {
+			border-bottom: 1px solid $Clr-Secondary-Darker;
+		}
+	}
+	&.Solid {
+		border-color: $Clr-Main;
+		& > header {
+			color: white;
+			background-color: $Clr-Main;
+			& a {
+				color: white;
+				&:hover {
+					background-color: white;
+				}
+			}
+		}
+	}
+
+	&.Success ,
+	&.Info    ,
+	&.Warning ,
+	&.Error  {
+		color: white;
+		.Box-Tools a {
+			color: white;
+			&:hover {
+				background-color: white;
+			}
+		}
+	}
+	&.Solid.Success ,
+	&.Solid.Info    ,
+	&.Solid.Warning ,
+	&.Solid.Error  {
+		.Box-Content {
+			color: $Clr-Text-Main;
+			background-color: white;
+		}
+	}
+	&.Solid.Gradient.Success ,
+	&.Solid.Gradient.Info    ,
+	&.Solid.Gradient.Warning ,
+	&.Solid.Gradient.Error  {
+		header {
+			color: white;
+		}
+	}
+	&.Underlined.Success ,
+	&.Underlined.Info    ,
+	&.Underlined.Warning ,
+	&.Underlined.Error   {
+		header {
+			border-bottom-color: white;
+		}
+	}
+	&.Outlined.Success ,
+	&.Outlined.Info    ,
+	&.Outlined.Warning ,
+	&.Outlined.Error   {
+		border: 2px solid white;
+	}
+
+	&.Success {
+		background-color: $Clr-Success;
+		&.Gradient {
+			@include Gradient($Clr-Success, $Clr-Success-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		&.Solid.Gradient {
+			header {
+				@include Gradient($Clr-Success, $Clr-Success-Dark, to right);
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Success-Dark;
+			}
+		}
+		&.Solid.Outlined {
+			border-color: $Clr-Success;
+		}
+	}
+	&.Info {
+		background-color: $Clr-Info;
+		&.Gradient {
+			@include Gradient($Clr-Info, $Clr-Info-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Info-Dark;
+			}
+		}
+	}
+	&.Warning {
+		background-color: $Clr-Warning;
+		&.Gradient {
+			@include Gradient($Clr-Warning, $Clr-Warning-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Warning-Dark;
+			}
+		}
+	}
+	&.Error {
+		background-color: $Clr-Error;
+		&.Gradient {
+			@include Gradient($Clr-Error, $Clr-Error-Dark, to right);
+			.Box-Tools a:hover {
+			}
+		}
+		.Box-Tools a {
+			&:hover {
+				color :$Clr-Error-Dark;
+			}
+		}
+	}
+}
