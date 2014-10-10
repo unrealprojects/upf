@@ -16,4 +16,15 @@ class CabinetController extends FrontendController{
         /*** Show View ***/
         return \View::make($this->View . 'Edit' , $this->ViewData);
     }
+
+    public function RentIndex(){
+        /*** Default Model ***/
+        $DefaultModel = new \UpfModels\Rent();
+
+        /*** Set Content ***/
+        $this->ViewData['Content'] = $DefaultModel->CabinetList($this->User['login']);
+
+        /*** Show View ***/
+        return \View::make($this->View . 'List' , $this->ViewData);
+    }
 }

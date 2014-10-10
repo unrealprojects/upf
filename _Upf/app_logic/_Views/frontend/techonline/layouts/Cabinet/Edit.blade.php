@@ -9,17 +9,6 @@
                 <li class="Node-XS-4"><a href="#">Список запчастей</a></li>
                 <li class="Node-XS-4"><a href="#">Список техники</a></li>
             </ul>
-            <ul class="Tab-Content">
-                <li class="Active">
-                    a1
-                </li>
-                <li>
-                    a2
-                </li>
-                <li>
-                    a3
-                </li>
-            </ul>
         </div>
         <form class="Wide" id="Edit-Item" enctype="multipart/form-data">
             @foreach($Content['Fields'] as $Field)
