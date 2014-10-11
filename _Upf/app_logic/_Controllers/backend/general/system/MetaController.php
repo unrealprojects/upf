@@ -8,19 +8,19 @@ class MetaController extends FieldsController{
     /******************************************************************************************************************* Meta ***/
 
     /*** Change Status ***/
-    public function status($alias,$status){
+    public function Status($alias,$status){
         $Articles = new $this->Model();
         $Articles->ChangeStatus($alias,$status);
     }
 
     /*** To Favorite Item ***/
-    public function toFavorite($alias){
+    public function ToFavorite($alias){
         $Articles = new $this->Model();
         $Articles->ToFavorite($alias);
     }
 
     /*** From Favorite Item ***/
-    public function fromFavorite($alias){
+    public function FromFavorite($alias){
         $Articles = new $this->Model();
         $Articles->FromFavorite($alias);
     }

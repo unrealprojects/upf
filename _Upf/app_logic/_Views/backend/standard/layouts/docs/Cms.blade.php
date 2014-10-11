@@ -1,1 +1,1 @@
-@extends($template)
+@extends($Template)

@@ -26,7 +26,7 @@ public function index()
     /* Фильтр */
     /* Новости, Исполнители с наивысшим рейтингом */
 /*
-    $this->viewData['content']=[
+    $this->ViewData['content']=[
         'filter'=>[
             'categories'=>\UpfModels\Categories::toSubCategories(true),
             'brands'=>\UpfModels\CatalogBrand::orderBy('foreign')->get()->toArray(),
@@ -41,17 +41,17 @@ public function index()
         'sellers'=>\UpfModels\CatalogAdmin::orderBy('rating','desc')->with('region','metadata')->limit(6)->get()->toArray()
     ];
 
-    return \View::make($this->siteViewPath.'/layouts/MainPage',$this->viewData);
+    return \View::make($this->siteViewPath.'/layouts/MainPage',$this->ViewData);
 }
 
 public function filterSet($category_alias){
     $paramFilters = new \UpfModels\Categories();
     $filters = $paramFilters->getFilters($category_alias);
-    $this->viewData['content']=[
+    $this->ViewData['content']=[
         'filters'=>$filters
     ];
-    $content=\View::make($this->siteViewPath.'/layouts/filter/FilterParams',$this->viewData);
-    $script=\View::make($this->siteViewPath.'/layouts/filter/FilterParamsScript',$this->viewData);
+    $content=\View::make($this->siteViewPath.'/layouts/filter/FilterParams',$this->ViewData);
+    $script=\View::make($this->siteViewPath.'/layouts/filter/FilterParamsScript',$this->ViewData);
     echo json_encode([
         'params'=>[htmlentities($content)],
         'script'=>[htmlentities($script)],

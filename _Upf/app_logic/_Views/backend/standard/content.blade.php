@@ -9,7 +9,7 @@
     @include('backend.standard.parts.Menu')
     <main>
         @include('backend.standard.parts.Navbar')
-        @yield('main')
+        @yield('Main')
     </main>
 @endsection
 

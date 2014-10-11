@@ -14,7 +14,7 @@ class WindController extends \Controller {
         $data = array_reverse((array)$data);
 
         /*** Вывод таблицы***/
-        $viewData=[
+        $ViewData=[
             'avgDay'=>[
                 'temp' => $this->getAvgDay($data,'temp'),
                 'pressure' => $this->getAvgDay($data,'pressure'),
@@ -31,7 +31,7 @@ class WindController extends \Controller {
             ]
         ];
 
-        return \View::make('/frontend/site_wind/Main',$viewData);
+        return \View::make('/frontend/site_wind/Main',$ViewData);
     }
 
 

@@ -4,15 +4,21 @@ namespace UpfFrontendControllers;
 class FrontendController extends \Controller{
     /******************************************************************************************************************* Construct Frontend App ***/
 
-    public $ViewData = [];
-    public $View = '/frontend/techonline/layouts/Snippet/';
-    public $Model = '\UpfModels\Fields';
-    public $BaseUrl = '/';
-    public $Template = 'frontend.techonline.content';
-    public $TemplateRoot = 'frontend.techonline';
+    public $ViewData =          [];
+    public $View =              '/frontend/techonline/layouts/Snippet/';
+    public $Model =             '\UpfModels\Fields';
+    public $BaseUrl =           '/';
+    public $Template =          'frontend.techonline.content';
+    public $TemplateRoot =      'frontend.techonline';
+    public $TemplateParts =     'frontend.techonline.parts.';
+    public $TemplateLayouts =   'frontend.techonline.layouts.';
+    public $TemplateModules =   'frontend.techonline.modules.';
     public $User = [];
+    public $HasMeta = false;
 
     public function __construct(){
+
+
         $this->ViewData = [
             /*** Default ***/
             'Model'             => $this->Model,
@@ -20,52 +26,61 @@ class FrontendController extends \Controller{
             /*** Template ***/
             'Template'          => $this->Template,
             'TemplateRoot'      => $this->TemplateRoot,
-            'TemplateParts'     => $this->TemplateRoot . '.parts.',
-            'TemplateLayouts'   => $this->TemplateRoot . '.layouts.',
+            'TemplateParts'     => $this->TemplateParts,
+            'TemplateLayouts'   => $this->TemplateLayouts,
+            'TemplateModules'   => $this->TemplateModules,
             /*** Other ***/
+            'Modules'           => $this->Modules()
         ];
 
+        /*** User Data ***/
         if(\Auth::users()->check()){
             $this->ViewData['user'] = \Auth::users()->getUser();
             $this->User = \Auth::users()->getUser();
-            //print_r( $this->ViewData['user']);
         }
+
+        //print_r($this->ViewData['user']);
     }
 
     /******************************************************************************************************************* Default Frontend Functionality ***/
 
     /*** *** Index Action List *** ***/
 
-    public function Index(){
-        /*** Default Model ***/
-        $DefaultModel = new $this->Model();
+        public function Index(){
+            /*** Default Model ***/
+            $DefaultModel = new $this->Model();
 
-        /*** Set Content ***/
-        $this->ViewData['Content'] = $DefaultModel->FrontIndex();
+            /*** Set Content ***/
+            $this->ViewData['Content'] = $DefaultModel->FrontIndex();
 
-        /*** Show View ***/
-        return \View::make($this->View . 'List' , $this->ViewData);
-    }
+            /*** Show View ***/
+            return \View::make($this->View . 'List' , $this->ViewData);
+        }
 
 
 
     /*** *** Index Action List Item *** ***/
 
-    public function Item($Alias){
-        /*** Default Model ***/
-        $DefaultModel = new $this->Model();
+        public function Item($Alias){
+            /*** Default Model ***/
+            $DefaultModel = new $this->Model();
 
-        /*** Set Content ***/
-        $this->ViewData['Content'] = $DefaultModel->FrontItem($Alias);
+            /*** Set Content ***/
+            $this->ViewData['Content'] = $DefaultModel->FrontItem($Alias);
 
-        /*** Show View ***/
-        return \View::make($this->View . 'Item' , $this->ViewData);
+            /*** Show View ***/
+            return \View::make($this->View . 'Item' , $this->ViewData);
+        }
+
+    /*** *** Set Default Modules *** ***/
+    public function Modules(){
+        return [];
     }
 }
 
 
 /*
-    public $viewData;
+    public $ViewData;
 
     public function __construct(){
       //  $this->getMetaData();
@@ -78,7 +93,7 @@ class FrontendController extends \Controller{
 
         $MetaData = \UpfModels\Meta::where('section',$Section)->where('alias',$alias)->first();
 
-        $this->viewData=[
+        $this->ViewData=[
             'meta' => [
                 'title' => (!empty($MetaData->title))?$MetaData->title:\Config::get('site/app_settings.MetaData.title'),
                 'description' => (!empty($MetaData->description))?$MetaData->description:\Config::get('site.app_settings.metadata.description'),
@@ -91,7 +106,7 @@ class FrontendController extends \Controller{
         $Section=\Request::segment(1);
         $SectionName=\UpfModels\Meta::where('section',$Section)->where('alias','')->first();
         if($Section){
-            $this->viewData['breadCrumbs']=[
+            $this->ViewData['breadCrumbs']=[
                 0=>[
                     'title'=>'Главная',
                     'link'=>'/'
@@ -104,7 +119,7 @@ class FrontendController extends \Controller{
         }
         if($alias=\Route::current()->parameter('alias')){
             if($SectionItem = \UpfModels\Meta::where('section',$Section)->where('alias',$alias)->first()){
-                $this->viewData['breadCrumbs'][2]=
+                $this->ViewData['breadCrumbs'][2]=
                     [
                         'title'=>$SectionItem->title,
                         'link'=>''
@@ -112,7 +127,7 @@ class FrontendController extends \Controller{
             }
 
         }
-//        print_r($this->viewData['breadCrumbs']);
+//        print_r($this->ViewData['breadCrumbs']);
 
 
     }

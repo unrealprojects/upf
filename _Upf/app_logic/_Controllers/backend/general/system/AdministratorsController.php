@@ -8,7 +8,7 @@ class AdministratorsController extends FieldsController{
     /*** Auth Form***/
     public function Auth(){
         if(!\Auth::administrators()->check()){
-            return \View::make('/backend/standard/layouts/system/Auth',$this->viewData);
+            return \View::make('/backend/standard/layouts/system/Auth',$this->ViewData);
         }else{
             return \Redirect::to('/backend');
         }

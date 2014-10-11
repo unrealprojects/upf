@@ -7,25 +7,21 @@ class SettingsController extends BackendController{
     public $View = '/backend/standard/layouts/system/';
 
     /*** Show List ***/
-    public function index(){
+    public function Index(){
         // View Data
-        $this->viewData['content'] = [
+        $this->ViewData['content'] = [
             'data' => \Config::get('site/app_settings')
         ];
-        return \View::make($this->View.'Settings',$this->viewData);
+        return \View::make($this->View.'Settings',$this->ViewData);
     }
 
-    public function update(){
-        $Input = \Input::all();
+    public function Update(){
 
-        if($Input){
-            foreach(\Config::get('site/app_settings') as $relation => $value){
-                \UpfHelpers\SaveConfig::Write('site/app_settings.php', [$relation .'.content' => \Input::get($relation)]);
-            }
-            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
-        }else{
-            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
+        foreach(\Config::get('site/app_settings') as $relation => $value){
+            \UpfHelpers\SaveConfig::Write('site/app_settings.php', [$relation .'.content' => \Input::get($relation)]);
         }
+        echo json_encode([ 'message'=>'Настройки сохранены.','type'=>'Success']);
+
     }
 
 

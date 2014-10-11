@@ -1,4 +1,4 @@
-@extends($template)
+@extends($Template)
 
 @section('main')
 <section class="Content">

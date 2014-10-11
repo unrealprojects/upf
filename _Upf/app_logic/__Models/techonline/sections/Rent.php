@@ -97,48 +97,6 @@ class Rent extends Meta{
 
 
 
-
-
-    /*** *** Get Cabinet List Front Item *** ***/
-
-
-    public function CabinetList($Login,$Filter = []){
-
-        /*** Get Data ***/
-        $List = $this->WhereStatusesInMeta($this,$Filter)
-            ->whereHas('meta',function($Query) use($Login){
-                $Query->whereHas('users',function($Query) use($Login){
-                    $Query->where('login',$Login);
-                });
-            })
-            ->with('meta',
-                    'meta.users',
-                    'meta.categories',
-                    'meta.tags',
-                    'meta.regions',
-                    'meta.files',
-                    'meta.categories.params',
-                    'meta.paramsvalues',
-                    'meta.paramsvalues.params')
-            ->paginate(
-                isset($Filter['Pagination'])?$Filter['Pagination']
-                    :\Config::get('site\app_settings.PaginateFrontend.content')
-            );
-
-         //print_r($this->GetFields('list','frontend', false));exit;
-        //print_r($List->toArray()['data']);exit;
-
-        /*** Return Frontend Content ***/
-        return [
-            'List'          =>      $List->toArray()['data'],
-            'Fields'        =>      $this->GetFields('list','backend', false),
-            'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
-            'Filters'       =>      $this->FrontFilters()
-        ];
-    }
-
-
-
 }
 
 

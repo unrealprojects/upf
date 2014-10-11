@@ -54,26 +54,5 @@ class Users extends Meta implements UserInterface, RemindableInterface {
 
     /******************************************************************************************************************* Cabinet ***/
 
-    public function CabinetItem($Alias){
-        /*** Get Content Model***/
-        $ContentModel=$this
-            ->WhereAliasInMeta($this,$Alias)
-            ->with(
-                'meta',
-                'meta.categories',
-                'meta.categories.params',
-                'meta.paramsvalues',
-                'meta.tags',
-                'meta.regions',
-                'meta.files')
-            ->first()
-            ->toArray();
-        // print_r($ContentModel);exit;
 
-        /*** Result ***/
-        return [
-            'Item' => $ContentModel,
-            'Fields' =>$this->GetFields('edit')
-        ];
-    }
 }

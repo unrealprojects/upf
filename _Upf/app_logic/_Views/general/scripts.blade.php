@@ -19,6 +19,9 @@
 <script src="/js/general/upf/forms.js" type="text/javascript"></script>
 <script src="/js/general/upf/tools.js" type="text/javascript"></script>
 
+<!-- Ufp CMS -->
+<script src="/js/backend/actions.js" type="text/javascript"></script>
+
 
 
 <!-- Developer Tools

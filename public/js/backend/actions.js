@@ -66,36 +66,41 @@ upf.List.TrashItem = function(){
 
 /*********************************************************************************************************************** Edit ***/
 
-/*** *** Update Item *** ***/
-upf.Edit.UpdateItem = function(){
-    // Default Variables
-    var UpdateButton = '#Edit-Item input[type=submit]',
-        UpdateForm = 'form#Edit-Item';
+    /*** *** Update Item *** ***/
 
-    // Update body
-    $(document).on('click',UpdateButton,function(){
-        // Function Variables
-        var Current = this;
+        upf.Edit.UpdateItem = function(){
+            // Default Variables
+            var UpdateButton = '#Edit-Item input[type=submit]',
+                UpdateForm = 'form#Edit-Item';
 
-        // Send Ajax to "/alias/update" or /update
-        var path = location.pathname.replace('/edit','') + '/update';
+            // Update body
+            $(document).on('click',UpdateButton,function(){
+                // Function Variables
+                var Current = this;
 
-        var formData = new FormData($(UpdateForm)[0]);
-        $.ajax({
-            type:'POST',
-            url: path ,
-            data: $(UpdateForm).serialize(),
-            dataType:'json',
-            success: function(Data){
-                upf.Messages.Show(Data['message'],Data['type']);
-                if(Data['file']){
-                    $('.Control-Group img').attr('src',Data['file']);
-                }
-            }
-        });
-        return false;
-    });
-}
+                // Send Ajax to "/alias/update" or /update
+                var path = location.pathname.replace('/edit','') + '/update';
+
+                var formData = new FormData($(UpdateForm)[0]);
+                $.ajax({
+                    type:'POST',
+                    url: path ,
+                    data: $(UpdateForm).serialize(),
+                    dataType:'json',
+                    success: function(Data){
+                        upf.Messages.Show(Data['message'],Data['type']);
+                        if(Data['file']){
+                            $('.Control-Group img').attr('src',Data['file']);
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+
+
+
 
 /*** *** Update Item Files *** ***/
 

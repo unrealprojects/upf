@@ -24,17 +24,17 @@ class Administrators extends Fields implements UserInterface, RemindableInterfac
         }
     }
 
-    /*** Edit Item ***/
-    public function EditItem($Login){
-        /*** Get Content Model***/
-        $ContentModel=$this
-            ->where('login',$Login)
-            ->first();
-        /*** Result ***/
-        return [
-            'item' => $ContentModel->toArray(),
-            'fields' =>$this->GetFields('edit')
-        ];
-    }
+//    /*** Edit Item ***/
+//    public function EditItem($Login){
+//        /*** Get Content Model***/
+//        $ContentModel=$this
+//            ->where('login',$Login)
+//            ->first();
+//        /*** Result ***/
+//        return [
+//            'item' => $ContentModel->toArray(),
+//            'fields' =>$this->GetFields('edit')
+//        ];
+//    }
 
 }
