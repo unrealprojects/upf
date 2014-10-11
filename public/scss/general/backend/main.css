@@ -2466,9 +2466,6 @@ nav.Userbar:after {
 .Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, li.Menu-Category-Item:after, li.Menu-Subcategory-Item:after, nav.Userbar:after {
   clear: both; }
 
-._Inline > *, .Box > header ul.Box-Tools > *, .Breadcrumbs .Breadcrumb-List > *, .Tab-Set ul.Tab-Captions > *, nav.Userbar ul > * {
-  float: left; }
-
 ._No-Bullets, ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Tab-Set ul.Tab-Captions, nav.Userbar ul, table td.Actions ul, .pagination,
 .Pagination, .Breadcrumbs .Breadcrumb-List, .Dropdown .Dropdown-Content, .Tab-Set ul.Tab-Content, aside.Menu > ul.Menu-Category, li.Menu-Category-Item, ul.Menu-Subcategory {
@@ -2480,6 +2477,9 @@ ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Tab-Set ul.Tab-
   .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Dropdown .Dropdown-Content > li, .Tab-Set ul.Tab-Content > li, aside.Menu > ul.Menu-Category > li, li.Menu-Category-Item > li, ul.Menu-Subcategory > li {
     margin: 0;
     padding: 0; }
+
+._Inline > *, .Box > header ul.Box-Tools > *, .Breadcrumbs .Breadcrumb-List > *, .Tab-Set ul.Tab-Captions > *, nav.Userbar ul > * {
+  float: left; }
 
 ._Soft_Shadow,
 ._Soft-Shadow {

@@ -749,6 +749,9 @@ code.Pagination {
   margin-left: auto;
   margin-right: auto; }
 
+.Snippet-Item .Item-Info .Date, .Snippet-Item .Item-Info .Tags {
+  float: left; }
+
 ._Standalone, .Node {
   margin-top: 50px; }
   ._Standalone:first-child, .Node:first-child {
@@ -776,9 +779,6 @@ code.Pagination {
 
 ._Icon-Spacing {
   margin-right: 20px; }
-
-.Snippet-Item .Item-Info .Date, .Snippet-Item .Item-Info .Tags {
-  float: left; }
 
 ._Dev {
   outline: 1px red solid !important; }
@@ -827,9 +827,6 @@ footer[role='contentinfo'] > div:after,
 .Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, footer[role='contentinfo'] > div:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result:after, .Filter-Result li:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
   clear: both; }
 
-._Inline > *, .Box > header ul.Box-Tools > *, .Breadcrumbs .Breadcrumb-List > *, .Tab-Set ul.Tab-Captions > *, footer[role='contentinfo'] > div .Footer-Navigation ul > *, .Snippet-Item header .Item-Vote > *, .Snippet-Item .Item-Gallery ul > *, ul.Tag-List > *, .List-Group-Actions > * {
-  float: left; }
-
 ._No-Bullets, ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Tab-Set ul.Tab-Captions, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-Item .Item-Gallery ul, ul.Tag-List, ul.List-Group-Actions, table td.Actions ul, .pagination,
 .Pagination, .Breadcrumbs .Breadcrumb-List, .Dropdown .Dropdown-Content, .Tab-Set ul.Tab-Content, .Site-Navigation.Primary ul, .Snippet-List, .Snippet-Item header .Item-Vote, .Filter-Result, .Item-Vote, .List-Filter, .Menu-List ul, .Filter.Accordion, .Filter-Subcategory ul, .List-Group-Actions {
@@ -841,6 +838,9 @@ ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Tab-Set ul.Tab-
   .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Dropdown .Dropdown-Content > li, .Tab-Set ul.Tab-Content > li, .Site-Navigation.Primary ul > li, .Snippet-List > li, .Snippet-Item header .Item-Vote > li, .Filter-Result > li, .Item-Vote > li, .List-Filter > li, .Menu-List ul > li, .Filter.Accordion > li, .Filter-Subcategory ul > li, .List-Group-Actions > li {
     margin: 0;
     padding: 0; }
+
+._Inline > *, .Box > header ul.Box-Tools > *, .Breadcrumbs .Breadcrumb-List > *, .Tab-Set ul.Tab-Captions > *, footer[role='contentinfo'] > div .Footer-Navigation ul > *, .Snippet-Item header .Item-Vote > *, .Snippet-Item .Item-Gallery ul > *, ul.Tag-List > *, .List-Group-Actions > * {
+  float: left; }
 
 ._Soft_Shadow, .Page-Auth .Sign-In-UI,
 .Page-Auth .Sign-Up-UI,

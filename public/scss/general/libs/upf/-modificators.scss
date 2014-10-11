@@ -9,7 +9,15 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+// Позиционирует блок слева
+%Left {
+	float: 			left;
+}
 
+// Позиционирует блок справа
+%Right {
+	float: 			right;
+}
 // Отбивает секции друг от друга по вертикали
 ._Standalone {
 	margin-top: 	$section-gap;
@@ -48,15 +56,7 @@
 ._Icon-Spacing {
 	margin-right: 	$size;
 }
-// Позиционирует блок слева
-%Left {
-	float: 			left;
-}
 
-// Позиционирует блок справа
-%Right {
-	float: 			right;
-}
 
 // Подсвечивает границы блока для отладки (НЕ ДЛЯ PRODUCTION!!!)
 ._Dev {
@@ -72,7 +72,16 @@
 %Clearfix:after {
 	clear: both;
 }
-
+// Убирает буллиты у списков
+._No-Bullets {
+	list-style: 			none;
+	margin:					0;
+	padding: 				0;
+	& > li {
+		margin: 0;
+		padding: 0;
+	}
+}
 // Выводит всех потомков в линию
 ._Inline {
 	@extend 				%Clearfix;
@@ -86,16 +95,7 @@ ul._Inline
 	@extend 				._No-Bullets;
 }
 
-// Убирает буллиты у списков
-._No-Bullets {
-	list-style: 			none;
-	margin:					0;
-	padding: 				0;
-	& > li {
-		margin: 0;
-		padding: 0;
-	}
-}
+
 // Добавляет едва заметную тень вокруг блока
 ._Soft_Shadow ,
 ._Soft-Shadow {
