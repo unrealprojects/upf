@@ -1,4 +1,4 @@
-    window.upf = {};
+window.upf = {};
 
 /*** Backend ***/
 window.upf.Menu = {};
