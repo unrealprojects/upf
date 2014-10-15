@@ -1,140 +1,180 @@
-// Модификаторы
-// Абстрактные классы. Изменяют свойства других классов
-// в результате наследования.
-// Всегда начинаются с "_"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Clearfix. Pushes floated elements back to the flow
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%Clearfix:before,
+%Clearfix:after
+{
+	content: " ";
+	display: table;
+}
+
+%Clearfix:after
+{
+	clear: both;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// Центрирует заданный блок внутри родителя.
-%Centrate {
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Positioning styles
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%Centrate
+{
 	margin-left: auto;
 	margin-right: auto;
 }
-// Позиционирует блок слева
-%Left {
-	float: 			left;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%Left
+{
+	float: left;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%Right
+{
+	float: right;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Позиционирует блок справа
-%Right {
-	float: 			right;
-}
-// Отбивает секции друг от друга по вертикали
-._Standalone {
-	margin-top: 	$section-gap;
-	&:first-child {
+
+
+
+._Standalone
+{
+	margin-top: $section-gap;
+	&:first-child
+	{
 		margin-top: 0;
 	}
 }
-// Отбивает блоки друг от друга по вертикали за исключением первого
-._Vertical-Spacing {
-	& > * {
-		margin-top: 	$block-gap!important;
 
-		&:first-child {
-			margin-top: 0!important;
+// Отбивает блоки друг от друга по вертикали за исключением первого
+._Vertical-Spacing
+{
+	& > *
+	{
+		margin-top: $block-gap !important;
+
+		&:first-child
+		{
+			margin-top: 0 !important;
 		}
 	}
 }
+
 // Устанавливает секции фиксированную ширину, согласно файлу настроек
-._Section-Inner {
-	width: 			$Section-Width-Tiny;
+._Section-Inner
+{
+	width: $Section-Width-Tiny;
 	@media all and (min-width: $Viewport-SM) {
-		width:		$Section-Width-Small;
+		width: $Section-Width-Small;
 	}
 	@media all and (min-width: $Viewport-MD) {
-		width:		$Section-Width-Default;
+		width: $Section-Width-Default;
 	}
 	@media all and (min-width: $Viewport-LR) {
-		width:		$Section-Width-Large;
+		width: $Section-Width-Large;
 	}
 	@media all and (min-width: $Viewport-HG) {
-		width:		$Section-Width-Huge;
+		width: $Section-Width-Huge;
 	}
 }
 
 // Отбивает контент вправо от иконки
-._Icon-Spacing {
-	margin-right: 	$size;
+._Icon-Spacing
+{
+	margin-right: $size;
 }
-
 
 // Подсвечивает границы блока для отладки (НЕ ДЛЯ PRODUCTION!!!)
-._Dev {
-	outline: 		1px red solid!important;
+._Dev
+{
+	outline: 1px red solid !important;
 }
 
-// Clearfix. Предотвращает схлопывание блоков
-%Clearfix:before ,
-%Clearfix:after  {
-	content: " ";
-	display: table;
-}
-%Clearfix:after {
-	clear: both;
-}
+
+
 // Убирает буллиты у списков
-._No-Bullets {
-	list-style: 			none;
-	margin:					0;
-	padding: 				0;
-	& > li {
+%Unstyle
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	& > li
+	{
 		margin: 0;
 		padding: 0;
 	}
 }
+
 // Выводит всех потомков в линию
-._Inline {
-	@extend 				%Clearfix;
-	& > * {
-		float: 				left;
+._Inline
+{
+	@extend %Clearfix;
+	& > *
+	{
+		float: left;
 	}
 }
+
 ul._Inline
 {
-	@extend 				%Clearfix;
-	@extend 				._No-Bullets;
+	@extend %Clearfix;
+	@extend %Unstyle;
 }
-
 
 // Добавляет едва заметную тень вокруг блока
-._Soft_Shadow ,
-._Soft-Shadow {
-	box-shadow: 			0 0 50px rgba(0,0,0,0.15);
+._Soft_Shadow,
+._Soft-Shadow
+{
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
 }
 
-._Fit-Row {
-	width: 					100%;
+._Fit-Row
+{
+	width: 100%;
 }
-._Highlight {
-	cursor: 				pointer;
 
-	&:hover {
-		@include 			Opacity(.9);
+._Highlight
+{
+	cursor: pointer;
+
+	&:hover
+	{
+		@include Opacity(.9);
 	}
 }
 
-._Search {
-	@include 				Round(search);
+._Search
+{
+	@include Round(search);
 }
 
 // Убирает нежелательное выделение текста мышью.
 // Не блокирует интерактивные элементы.
-._Unselectable {
-	-webkit-user-select: 	none;
-	-moz-user-select: 		none;
-	-ms-user-select: 		none;
-	-o-user-select: 		none;
-	user-select: 			none;
+._Unselectable
+{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }
-%_Clickable {
-	cursor:					pointer;
+
+%_Clickable
+{
+	cursor: pointer;
 }
-%_Letterpress {
+
+%_Letterpress
+{
 	text-shadow: 1px 1px 1px white;
 }
 
-.Collapsed {
-	.Dropdown {
+.Collapsed
+{
+	.Dropdown
+	{
 		display: none;
 	}
 }
@@ -149,7 +189,9 @@ ul._Inline
 {
 	cursor: pointer;
 }
-%Capitalize
+
+%Capitalize,
+%Uppercase
 {
 	text-transform: uppercase;
 }

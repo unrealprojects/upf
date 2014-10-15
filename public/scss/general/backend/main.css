@@ -1661,36 +1661,27 @@
 .fa-meanpath:before {
   content: ""; }
 
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box; }
-
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
 
 body {
   line-height: 1; }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
 
 nav ul {
   list-style: none; }
@@ -1708,7 +1699,9 @@ a {
   padding: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
 
 del {
   text-decoration: line-through; }
@@ -1722,7 +1715,9 @@ table {
   border-spacing: 0; }
 
 input, select {
-  vertical-align: middle; }
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
 
 [class*='Grid'] {
   display: block; }
@@ -2402,6 +2397,35 @@ code.Pagination {
 .Heading.Icon span.fa {
   margin-right: 15px; }
 
+[class*='Grid']:before, ._Inline:before, .Box > header ul.Box-Tools:before, .Breadcrumbs .Breadcrumb-List:before, .Tab-Set ul.Tab-Captions:before, nav.Userbar ul:before, .Node:before, table.Adaptive td:before, .pagination:before,
+.Pagination:before, .Control-Group:before, .Box:before, .Box > header:before, .Comments .Comment:before, .Comments .Comment .Comment-Content header:before, .Dropdown:before, dl.Tabs:before, li.Menu-Category-Item:before, li.Menu-Subcategory-Item:before, nav.Userbar:before,
+[class*='Grid']:after,
+._Inline:after,
+.Box > header ul.Box-Tools:after,
+.Breadcrumbs .Breadcrumb-List:after,
+.Tab-Set ul.Tab-Captions:after,
+nav.Userbar ul:after,
+.Node:after,
+table.Adaptive td:after,
+.pagination:after,
+.Pagination:after,
+.Control-Group:after,
+.Box:after,
+.Box > header:after,
+.Comments .Comment:after,
+.Comments .Comment .Comment-Content header:after,
+.Dropdown:after,
+dl.Tabs:after,
+li.Menu-Category-Item:after,
+li.Menu-Subcategory-Item:after,
+nav.Userbar:after {
+  content: " ";
+  display: table; }
+
+[class*='Grid']:after, ._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs .Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, nav.Userbar ul:after, .Node:after, table.Adaptive td:after, .pagination:after,
+.Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, li.Menu-Category-Item:after, li.Menu-Subcategory-Item:after, nav.Userbar:after {
+  clear: both; }
+
 .Node {
   margin-left: auto;
   margin-right: auto; }
@@ -2437,42 +2461,13 @@ code.Pagination {
 ._Dev {
   outline: 1px red solid !important; }
 
-[class*='Grid']:before, ._Inline:before, .Box > header ul.Box-Tools:before, .Breadcrumbs .Breadcrumb-List:before, .Tab-Set ul.Tab-Captions:before, nav.Userbar ul:before, .Node:before, table.Adaptive td:before, .pagination:before,
-.Pagination:before, .Control-Group:before, .Box:before, .Box > header:before, .Comments .Comment:before, .Comments .Comment .Comment-Content header:before, .Dropdown:before, dl.Tabs:before, li.Menu-Category-Item:before, li.Menu-Subcategory-Item:before, nav.Userbar:before,
-[class*='Grid']:after,
-._Inline:after,
-.Box > header ul.Box-Tools:after,
-.Breadcrumbs .Breadcrumb-List:after,
-.Tab-Set ul.Tab-Captions:after,
-nav.Userbar ul:after,
-.Node:after,
-table.Adaptive td:after,
-.pagination:after,
-.Pagination:after,
-.Control-Group:after,
-.Box:after,
-.Box > header:after,
-.Comments .Comment:after,
-.Comments .Comment .Comment-Content header:after,
-.Dropdown:after,
-dl.Tabs:after,
-li.Menu-Category-Item:after,
-li.Menu-Subcategory-Item:after,
-nav.Userbar:after {
-  content: " ";
-  display: table; }
-
-[class*='Grid']:after, ._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs .Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, nav.Userbar ul:after, .Node:after, table.Adaptive td:after, .pagination:after,
-.Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, li.Menu-Category-Item:after, li.Menu-Subcategory-Item:after, nav.Userbar:after {
-  clear: both; }
-
-._No-Bullets, ol[class*='Grid'] > li,
+ol[class*='Grid'] > li,
 ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Tab-Set ul.Tab-Captions, nav.Userbar ul, table td.Actions ul, .pagination,
 .Pagination, .Breadcrumbs .Breadcrumb-List, .Dropdown .Dropdown-Content, .Tab-Set ul.Tab-Content, aside.Menu > ul.Menu-Category, li.Menu-Category-Item, ul.Menu-Subcategory {
   list-style: none;
   margin: 0;
   padding: 0; }
-  ._No-Bullets > li, ol[class*='Grid'] > li > li,
+  ol[class*='Grid'] > li > li,
   ul[class*='Grid'] > li > li, ul._Inline > li, .Box > header ul.Box-Tools > li, .Tab-Set ul.Tab-Captions > li, nav.Userbar ul > li, table td.Actions ul > li, .pagination > li,
   .Pagination > li, .Breadcrumbs .Breadcrumb-List > li, .Dropdown .Dropdown-Content > li, .Tab-Set ul.Tab-Content > li, aside.Menu > ul.Menu-Category > li, li.Menu-Category-Item > li, ul.Menu-Subcategory > li {
     margin: 0;

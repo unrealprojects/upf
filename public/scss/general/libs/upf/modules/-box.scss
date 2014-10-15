@@ -12,7 +12,7 @@
 
 		// If Box Toolset is a list - display it inline without bullets.
 		& ul.Box-Tools {
-			@extend ._No-Bullets;
+			@extend %Unstyle;
 			@extend ._Inline;
 		}
 

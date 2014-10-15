@@ -1,5 +1,5 @@
 <!doctype HTML>
-<html>
+<html lang="ru">
 
 <head>
     @include('general.head')

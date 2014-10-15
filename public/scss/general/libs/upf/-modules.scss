@@ -92,7 +92,7 @@ table {
 			opacity: 0;
 		}
 		ul {
-			@extend ._No-Bullets;
+			@extend %Unstyle;
 
 			li {
 				float: left;
@@ -170,7 +170,7 @@ table {
 .pagination,
 .Pagination {
 	border-left: 4px solid $Clr-Main;
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 	@extend .Inline;
 	@extend %Clearfix;
 	& > li {

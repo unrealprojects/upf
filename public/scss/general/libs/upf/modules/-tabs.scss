@@ -76,7 +76,7 @@ dl.Tabs {
 	}
 	ul.Tab-Content
 	{
-		@extend ._No-Bullets;
+		@extend %Unstyle;
 		li
 		{
 			display: none;

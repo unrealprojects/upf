@@ -144,7 +144,7 @@ footer[role='contentinfo'] {
 				{
 					float: right;
 				}
-				@extend ._No-Bullets;
+				@extend %Unstyle;
 				@extend ._Inline;
 				li {
 					margin-left: $size;
@@ -202,7 +202,7 @@ img.Footer-Img {
 
 // Only for LIST of Snippets
 .Snippet-List {
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 
 	.Snippet-Item {
 		@extend .Merge;
@@ -333,7 +333,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		.Item-Vote {
 			@extend %Tall-Prototype;
 			@extend ._Inline;
-			@extend ._No-Bullets;
+			@extend %Unstyle;
 			padding: 0;
 			padding-right: $size-n;
 		}
@@ -354,7 +354,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		}
 
 		ul {
-			@extend ._No-Bullets;
+			@extend %Unstyle;
 			@extend ._Inline;
 
 			li {
@@ -438,7 +438,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 .Filter-Result {
 	font-size: 12px;
 	@extend %Clearfix;
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 	@include Animation(FadeIn,1s);
 	li {
 		margin-top: $size-s;
@@ -472,7 +472,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 ul.Tag-List {
 	@extend %Clearfix;
 	@extend ._Inline;
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 
 	li.Tag-Item {
 		margin-right: $size-xs;
@@ -498,7 +498,7 @@ ul.Tag-List {
 .Item-Vote
 {
 	@extend ._Unselectable;
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 	li
 	{
 		margin: 0;
@@ -559,13 +559,13 @@ ul.Tag-List {
 }
 
 .List-Filter {
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 }
 
 .Menu-List {
 
 	ul {
-		@extend ._No-Bullets;
+		@extend %Unstyle;
 
 		li {
 			padding: $size-s 0;
@@ -605,7 +605,7 @@ ul.Tag-List {
 .Filter.Accordion {
 	margin-top: $size;
 
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 	.Filter-Subheader {
 		margin-top: 1px;
 		background-color: $Clr-Clouds;
@@ -651,7 +651,7 @@ ul.Tag-List {
 	ul {
 		border-top: 0;
 		@extend %Clearfix;
-		@extend ._No-Bullets;
+		@extend %Unstyle;
 		.Filter-Cities {
 			display: none;
 		}
@@ -678,7 +678,7 @@ ul.Tag-List {
 	border-top: 2px solid $Clr-Main;
 	background-color: $Clr-Grey-Lighter;
 
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 	@extend ._Inline;
 //	@extend .Row;
 	@extend .Merge;

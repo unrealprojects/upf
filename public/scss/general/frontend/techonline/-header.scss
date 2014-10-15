@@ -95,7 +95,7 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 
 	ul {
 		width: 100%;
-		@extend ._No-Bullets;
+		@extend %Unstyle;
 
 		li {
 			width: 100%;

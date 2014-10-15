@@ -60,7 +60,7 @@
 		z-index: 100;
 		@include Round(bottom, $Control-Border-Radius);
 
-		@extend ._No-Bullets;
+		@extend %Unstyle;
 		li
 		{
 			width: 100%;

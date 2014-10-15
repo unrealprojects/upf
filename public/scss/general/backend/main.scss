@@ -50,11 +50,11 @@ aside.Menu {
 }
 // Category
 aside.Menu > ul.Menu-Category {
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 }
 li.Menu-Category-Item {
 	position: relative;
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 	@extend %Clearfix;
 	&:hover {
 		span.Menu-Category-Icon {
@@ -91,7 +91,7 @@ a.Menu-Category-Link {
 // Subcategory
 ul.Menu-Subcategory {
 	background-color: $Clr-Slate;
-	@extend ._No-Bullets;
+	@extend %Unstyle;
 }
 li.Menu-Subcategory-Item {
 	@extend %Clearfix;
@@ -171,7 +171,7 @@ nav.Userbar {
 		float: left;
 		display: 			inline-block;
 		@extend 			._Inline;
-		@extend 			._No-Bullets;
+		@extend 			%Unstyle;
 		li {
 			line-height: 	16px;
 			a {

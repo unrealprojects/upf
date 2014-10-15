@@ -8,7 +8,7 @@
 
 	.Breadcrumb-List {
 		@extend ._Inline;
-		@extend ._No-Bullets;
+		@extend %Unstyle;
 		@extend %Clearfix;
 
 		.Breadcrumb-Item {
