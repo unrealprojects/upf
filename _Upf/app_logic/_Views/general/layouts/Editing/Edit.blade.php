@@ -2,14 +2,15 @@
 
 @section('Main')
     <section class="Content Node">
-        <h3 class="Heading Secondary">Редактирование</h3>
-
-        {{-- Module Navigate --}}
-            @if(isset($Modules['Navigate']))
-                @include($Modules['Navigate']['Template'], [ 'Content' => $Modules['Navigate']['Content'] ])
-            @endif
-
         <div class="Content-Inner">
+            <h3 class="Heading Secondary">Редактирование</h3>
+
+            {{-- Module Navigate --}}
+                @if(isset($Modules['Navigate']))
+                    @include($Modules['Navigate']['Template'], [ 'Content' => $Modules['Navigate']['Content'] ])
+                @endif
+
+
             <form class="Wide" id="Edit-Item" enctype="multipart/form-data">
                 @foreach($Content['Fields'] as $Field)
                     <div class="Form-Group">

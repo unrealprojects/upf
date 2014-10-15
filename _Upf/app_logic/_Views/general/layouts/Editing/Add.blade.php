@@ -2,8 +2,8 @@
 
 @section('Main')
     <section class="Content">
-        <h3 class="Heading Secondary">Создать</h3>
         <div class="Content-Inner">
+            <h3 class="Heading Secondary">Создать</h3>
             <form class="Wide" id="Add-Item" enctype="multipart/form-data">
                 <div class="Form-Group">
                 @foreach($Content['Fields'] as $Field)
