@@ -1,4 +1,4 @@
-<aside class="Menu">
+    <aside class="Menu">
     <ul class="Menu-Category">
         <li class="Menu-Category-Item">
             <a class="Menu-Category-Link" href="/"><span class="fa fa-dashboard"></span>Приборная панель</a>
@@ -20,7 +20,7 @@
                     <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/parts/add">+</a>
                 </li>
                 <li class="Menu-Subcategory-Item">
-                    <a class="Menu-Subcategory-Link" href="/backend/section/users"><span class="fa fa-users"></span>Пользователи(Арендодатели)</a>
+                    <a class="Menu-Subcategory-Link" href="/backend/section/users"><span class="fa fa-users"></span>Пользователи (Арендодатели)</a>
                     <a class="Subcategory-Action" title="Добавить ..." href="/backend/section/users/add">+</a>
                 </li>
                 <li class="Menu-Subcategory-Item">

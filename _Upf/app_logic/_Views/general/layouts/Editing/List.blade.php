@@ -2,9 +2,8 @@
 
 @section('Main')
     <section class="Content Node">
-        <h3 class="Heading Secondary">{{--$Meta['title']--}}</h3>
-
         <section class="Toolbar Grid Merge Inline">
+            <h3 class="Heading Secondary">{{--$Meta['title']--}}</h3>
             <div class="Control-Group Node-XS-1">
                 <a href="{{$BaseUrl}}add"><button class="Button Primary Fluid"><span class="Visible-XS">Добавить</span></button></a>
             </div>
