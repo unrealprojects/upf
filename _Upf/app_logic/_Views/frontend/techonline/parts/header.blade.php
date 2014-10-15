@@ -14,7 +14,7 @@
         </div>
 
         <div id="Menu-Toggle">
-            <span class="fa fa-2x fa-bars"></span>
+            <span class="Icon Icon-2x Icon-bars"></span>
         </div>
         <nav id="Menu" class="Site-Navigation Primary Row Split Node-SM-6 Hidden-XS Visible-SM">
             <ul class="Menu-List">
@@ -29,8 +29,8 @@
 
         @if(!\Auth::users()->check())
             <div class="Page-Auth Node-SM-3 Grid Split">
-                <button class="Button Error Sign-In Node-XS-6"><span class="fa fa-sign-in"></span> Войти</button>
-                <button class="Button Error Sign-Up Node-XS-6"><span class="fa fa-user"></span> Регистрация</button>
+                <button class="Button Error Sign-In Node-XS-6"><span class="Icon Icon-sign-in"></span> Войти</button>
+                <button class="Button Error Sign-Up Node-XS-6"><span class="Icon Icon-user"></span> Регистрация</button>
 
                 <div class="Sign-In-UI">
                     <form class="Form-Horizontal" action="">
@@ -87,16 +87,17 @@
             </div>
         @else
             <div class="Page-Auth Node-SM-3 Grid Split">
-                <div class="Dropdown Collapsed Node-XS-6">
-                    <div class="Dropdown-Title">Кабинет<span class="Dropdown-Toggle fa fa-angle-down"></span></div>
+                <div class="Dropdown Node-XS-8 End Collapsed">
+                    <div class="Dropdown-Title">Кабинет<span class="Dropdown-Toggle Icon Icon-angle-down"></span></div>
                     <ul class="Dropdown-Content" style="display: none;">
-                        <li class="Icon"><a href="/cabinet"><span class="fa fa-user"></span>Кабинет</a></li>
-                        <li class="Icon"><a href="/cabinet/rent/"><span class="fa fa-shopping-cart"></span>Список техники</a></li>
-                        <li class="Icon"><a href="/cabinet/parts"><span class="fa fa-gears"></span>Список запчастей</a></li>
-
-                        <li class="Icon"><a href="/cabinet/rent/add"><span class="fa fa-plus"></span>Добавить технику</a></li>
-                        <li class="Icon"><a href="/cabinet/parts/add"><span class="fa fa-plus"></span>Добавить запчасти</a></li>
-                        <li class="Icon"><a href="/logout"><span class="fa fa-close"></span>Выход</a></li>
+                        <li><a href="/cabinet"><span class="Icon Icon-user"></span>Кабинет</a></li>
+                        <li><a href="/cabinet/rent/"><span class="Icon Icon-shopping-cart"></span>Список техники</a></li>
+                        <li><a href="/cabinet/parts"><span class="Icon Icon-gears"></span>Список запчастей</a></li>
+                        <li class="Divide"></li>
+                        <li><a href="/cabinet/rent/add"><span class="Icon Icon-plus"></span>Добавить технику</a></li>
+                        <li><a href="/cabinet/parts/add"><span class="Icon Icon-plus"></span>Добавить запчасти</a></li>
+                        <li class="Divide"></li>
+                        <li><a href="/logout"><span class="Icon Icon-close"></span>Выход</a></li>
                     </ul>
                 </div>
             </div>

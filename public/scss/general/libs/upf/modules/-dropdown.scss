@@ -35,7 +35,7 @@
 		background-color: $C-Grey-5;
 		border-color: $C-Grey-4;
 		color: $C-Grey-2;
-		box-shadow: 0 2px 5px $C-Grey-4;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 		@include Round(top, $Control-Border-Radius);
 	}
 	.Dropdown-Toggle
@@ -55,7 +55,7 @@
 		left: -1px;
 		right: -1px;
 		border: $Control-Border-Width $Control-Border-Color solid;
-		box-shadow: 0 2px 5px $C-Grey-4;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 		background-color: white;
 		z-index: 100;
 		@include Round(bottom, $Control-Border-Radius);
@@ -72,7 +72,7 @@
 				color: $C-Grey-1;
 				&:hover
 				{
-					background-color: $C-Grey-2;
+					background-color: $Clr-Main;
 					color: $C-Grey-6;
 				}
 				span.Icon

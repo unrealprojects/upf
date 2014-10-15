@@ -1623,7 +1623,7 @@ code.Pagination {
   border-bottom: 1px solid #cccccc;
   font-weight: 100; }
 
-.Heading.Icon span.fa {
+.Heading.Icon span.Icon {
   margin-right: 15px; }
 
 html,
@@ -1898,18 +1898,18 @@ table {
     .Ctrl-Grp .Input-Group.Icon.Prefix span.fa,
     .Ctrl-Grp .Input-Group.Icon.Postfix span.fa,
     .Control-Group .Input-Group.Icon.Prefix span.fa,
-    .Control-Group .Input-Group.Icon.Postfix span.fa {
+    .Control-Group .Input-Group.Icon.Postfix span.Icon {
       position: absolute;
       top: 10px;
       color: #999999;
       font-size: 16px; }
     .Group .Input-Group.Icon.Prefix span.fa,
     .Ctrl-Grp .Input-Group.Icon.Prefix span.fa,
-    .Control-Group .Input-Group.Icon.Prefix span.fa {
+    .Control-Group .Input-Group.Icon.Prefix span.Icon {
       left: 10px; }
     .Group .Input-Group.Icon.Postfix span.fa,
     .Ctrl-Grp .Input-Group.Icon.Postfix span.fa,
-    .Control-Group .Input-Group.Icon.Postfix span.fa {
+    .Control-Group .Input-Group.Icon.Postfix span.Icon {
       right: 10px; }
   .Group.Radio li,
   .Ctrl-Grp.Radio li,
@@ -2386,7 +2386,7 @@ table td.Actions ul li a {
         border-top: 1px solid #bdc3c7; }
       a.Button.Dropdown > .Dropdown-Content.Icon li a span.fa, table td.Actions ul li a.Dropdown > .Dropdown-Content.Icon li a span.fa,
       .Button.Dropdown > .Dropdown-Content.Icon li a span.fa,
-      table td.Actions ul li a.Dropdown > .Dropdown-Content.Icon li a span.fa {
+      table td.Actions ul li a.Dropdown > .Dropdown-Content.Icon li a span.Icon {
         margin-right: 10px; }
     a.Button.Dropdown.Round > .Dropdown-Content, table td.Actions ul li a.Dropdown.Round > .Dropdown-Content, a.Button.Dropdown.Ghost > .Dropdown-Content, table td.Actions ul li a.Dropdown.Ghost > .Dropdown-Content,
     .Button.Dropdown.Round > .Dropdown-Content,

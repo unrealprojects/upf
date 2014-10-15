@@ -1,6 +1,6 @@
 <section class="Node Filter Grid Merge">
 
-    <h3 class="Heading Primary"><span class="fa fa-search"></span>Поиск стройтехники</h3>
+    <h3 class="Heading Primary"><span class="Icon Icon-search"></span>Поиск стройтехники</h3>
 
     <dl class="Tabs">
 
@@ -20,7 +20,7 @@
                             @foreach($Content['Filters']['regions'] as $RegionTab)
 
                                 <li class="Filter-Subheader Accordion-Subheader">
-                                    <div class="Accordion-Switch"><span class="fa fa-angle-down"></span></div>
+                                    <div class="Accordion-Switch"><span class="Icon Icon-angle-down"></span></div>
                                     <a class="Accordion-Switch" href="#">{{$RegionTab['title']}}</a>
                                 </li>
 
@@ -95,7 +95,7 @@
 
                                 <li class="Filter-Subheader Accordion-Subheader">
                                     @if($category['subCategories'])
-                                    <div class="Accordion-Switch"><span class="fa fa-angle-down"></span></div>
+                                    <div class="Accordion-Switch"><span class="Icon Icon-angle-down"></span></div>
                                     @endif
                                     <a href="#" alias="{{$category['alias']}}">{{$category['name']}}</a>
                                 </li>
@@ -164,7 +164,7 @@
                     </ul>
                     @if(!empty($Content['Filters']['brands']))
                     <div class="Spoiler">
-                        <a href="#" class="Spoiler-Caption"><span class="fa fa-angle-down"></span>Конкретные производители</a>
+                        <a href="#" class="Spoiler-Caption"><span class="Icon Icon-angle-down"></span>Конкретные производители</a>
 
                         <ul class="List-Params  Accordion-Brands Spoiler-Content">
                             @foreach($Content['Filters']['brands'] as $brand)

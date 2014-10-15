@@ -152,6 +152,13 @@ $Page-Header-Button-Margin:				($Page-Header-Height - ($size-s * 2) - $Page-Head
 		}
 		padding: 				$size-s 0;
 	}
+	.Dropdown
+	{
+		width: 100%;
+		@include 				Adaptive($Viewport-SM) {
+			margin-top:					$Page-Header-Button-Margin;
+		}
+	}
 	button + button {
 
 			margin-left: 0!important;

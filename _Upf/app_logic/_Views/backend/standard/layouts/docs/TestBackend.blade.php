@@ -16,8 +16,8 @@
      &lt;header&gt;
         &lt;h4 class=&quot;Box-Title&quot;&gt;Заголовок&lt;/h4&gt;
         &lt;ul class=&quot;Box-Tools&quot;&gt;
-           &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span class=&quot;Box-Drop-Down fa fa-chevron-down&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-           &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span class=&quot;Box-Delete fa fa-close&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+           &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span class=&quot;Box-Drop-DownIcon-chevron-down&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+           &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span class=&quot;Box-DeleteIcon-close&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
      &lt;/header&gt;
      &lt;div class=&quot;Box-Content&quot;&gt;
@@ -31,8 +31,8 @@
             <header>
                 <h4 class="Box-Title">Box</h4>
                 <ul class="Box-Tools">
-                    <li><a href="#"><span class="Box-Drop-Down fa fa-chevron-down"></span></a></li>
-                    <li><a href="#"><span class="Box-Hide fa fa-close"></span></a></li>
+                    <li><a href="#"><span class="Box-Drop-DownIcon-chevron-down"></span></a></li>
+                    <li><a href="#"><span class="Box-HideIcon-close"></span></a></li>
                 </ul>
             </header>
             <div class="Box-Content">
@@ -55,8 +55,8 @@
             <header>
                 <h4 class="Box-Title">Box с акцентом на заголовке</h4>
                 <ul class="Box-Tools">
-                    <li><a href="#"><span class="Box-Drop-Down fa fa-chevron-down"></span></a></li>
-                    <li><a href="#"><span class="Box-Delete fa fa-close"></span></a></li>
+                    <li><a href="#"><span class="Box-Drop-DownIcon-chevron-down"></span></a></li>
+                    <li><a href="#"><span class="Box-DeleteIcon-close"></span></a></li>
                 </ul>
             </header>
             <div class="Box-Content">

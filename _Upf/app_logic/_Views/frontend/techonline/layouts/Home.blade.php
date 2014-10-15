@@ -60,9 +60,9 @@
                         </h4>
 
                         <ul class="Item-Vote Node-XXS-3">
-                            <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+                            <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
                             <li><span>{{ $User['meta']['rating'] }}</span></li>
-                            <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
+                            <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
                         </ul>
                     </header>
 
@@ -104,9 +104,9 @@
                             </h5>
 
                             <ul class="Item-Vote Node-XXS-3">
-                                <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+                                <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
                                 <li><span>{{ $User['meta']['rating'] }}</span></li>
-                                <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
+                                <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
                             </ul>
 
                         </header>

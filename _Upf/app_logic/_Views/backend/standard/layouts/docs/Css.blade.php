@@ -217,7 +217,7 @@
                     </div>
                 </form>asd
                 <button class="Button Info  Dropdown">
-                   asd <span class="fa fa-caret-down Dropdown-Toggle"></span>
+                   asd <span class="Icon Icon-caret-down Dropdown-Toggle"></span>
                     <ul class="Dropdow-Content">
 
                     </ul>
@@ -278,15 +278,15 @@
                     <label class="Node-XS-3" for="">Dropdown</label>
                     <div class="Dropdown Node-XS-9">
                         <div class="Dropdown-Title">
-                            <span class="Icon fa fa-bars"></span>Menu
-                            <span class="Dropdown-Toggle fa fa-caret-down"></span>
+                            <span class="IconIcon-bars"></span>Menu
+                            <span class="Dropdown-ToggleIcon-caret-down"></span>
                         </div>
                         <ul class="Dropdown-Content">
-                            <li><a href="#"><span class="Icon fa fa-file"></span>Open The Goddamn File</a></li>
-                            <li><a href="#"><span class="Icon fa fa-save"></span>Save File</a></li>
-                            <li><a href="#"><span class="Icon fa fa-cog"></span>Settings</a></li>
+                            <li><a href="#"><span class="IconIcon-file"></span>Open The Goddamn File</a></li>
+                            <li><a href="#"><span class="IconIcon-save"></span>Save File</a></li>
+                            <li><a href="#"><span class="IconIcon-cog"></span>Settings</a></li>
                             <li class="Divide"></li>
-                            <li><a href="#"><span class="Icon fa fa-close"></span>Exit</a></li>
+                            <li><a href="#"><span class="IconIcon-close"></span>Exit</a></li>
                         </ul>
                     </div>
                 </div>
@@ -294,15 +294,15 @@
                     <label class="Node-XS-3" for="">Dropdown</label>
                     <div class="Dropdown Invert Node-XS-9">
                         <div class="Dropdown-Title">
-                            <span class="Icon fa fa-bars"></span>Menu
-                            <span class="Dropdown-Toggle fa fa-caret-down"></span>
+                            <span class="IconIcon-bars"></span>Menu
+                            <span class="Dropdown-ToggleIcon-caret-down"></span>
                         </div>
                         <ul class="Dropdown-Content">
-                            <li><a href="#"><span class="Icon fa fa-file"></span>Open The Goddamn File</a></li>
-                            <li><a href="#"><span class="Icon fa fa-save"></span>Save File</a></li>
-                            <li><a href="#"><span class="Icon fa fa-cog"></span>Settings</a></li>
+                            <li><a href="#"><span class="IconIcon-file"></span>Open The Goddamn File</a></li>
+                            <li><a href="#"><span class="IconIcon-save"></span>Save File</a></li>
+                            <li><a href="#"><span class="IconIcon-cog"></span>Settings</a></li>
                             <li class="Divide"></li>
-                            <li><a href="#"><span class="Icon fa fa-close"></span>Exit</a></li>
+                            <li><a href="#"><span class="IconIcon-close"></span>Exit</a></li>
                         </ul>
                     </div>
                 </div>

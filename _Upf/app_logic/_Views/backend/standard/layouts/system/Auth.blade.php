@@ -8,7 +8,7 @@
                     <div class="Control-Group">
                         <label class="" for="field_login">Логин</label>
                         <div class="Input-Group Grid Merge Icon Prefix">
-                            <label class="Node-XXS-1 fa fa-user" for="field_login"></label>
+                            <label class="Node-XXS-1Icon-user" for="field_login"></label>
                             <input class="Node-XXS-11" name="login" id="field_login" type="text" tabindex="1"/>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                             <a class="Right" href="#">Забыли пароль?</a>
                         </div>
                         <div class="Input-Group Grid Merge Icon Prefix">
-                            <label for="field_password" class="Node-XXS-1 fa fa-lock"></label>
+                            <label for="field_password" class="Node-XXS-1Icon-lock"></label>
                             <input class="Node-XXS-11" name="password" id="field_password" type="password" tabindex="2"/>
                         </div>
                     </div>

@@ -62,7 +62,7 @@
 
                                         <label class="File-Upload">
                                             <input  name="{{$Field['relation']}}" id="field_{{$Field['relation']}}" type="file"/>
-                                            <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                                            <span class="Button Info"><span class="Icon Icon-folder-open"></span>Загрузить Файл</span>
                                         </label>
                                         @if($Src = \UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']))
                                             <ul class="Grid Split" >
@@ -91,7 +91,7 @@
                                 <div class="Input-Group Upload Node-XXS-9">
                                     <label class="File-Upload">
                                         <input class="" name="{{$Field['relation']}}[]" multiple="multiple" id="field_{{$Field['relation']}}" type="file"/>
-                                        <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                                        <span class="Button Info"><span class="Icon Icon-folder-open"></span>Загрузить Файл</span>
                                     </label>
                                     <ul class="Grid Split">
                                          @foreach(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']) as $photos)

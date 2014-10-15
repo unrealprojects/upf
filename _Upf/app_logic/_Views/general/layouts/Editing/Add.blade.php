@@ -44,7 +44,7 @@
                             <div class="Input-Group Node-XXS-9 Grid Upload">
                                 <label class="File-Upload">
                                     <input  name="{{$Field['relation']}}" id="field_{{$Field['relation']}}" type="file"/>
-                                    <span class="Button Info"><span class="fa fa-folder-open"></span>Загрузить Файл</span>
+                                    <span class="Button Info"><span class="Icon Icon-folder-open"></span>Загрузить Файл</span>
                                 </label>
                             </div>
                         </div>

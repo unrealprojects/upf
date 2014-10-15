@@ -1,7 +1,7 @@
 // Mixins
 // --------------------------
 
-@mixin fa-icon() {
+@mixin Icon-icon() {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
   font-size: inherit; // can't have font-size inherit on line above, so need to override
@@ -10,14 +10,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin fa-icon-rotate($degrees, $rotation) {
+@mixin Icon-icon-rotate($degrees, $rotation) {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
   -webkit-transform: rotate($degrees);
       -ms-transform: rotate($degrees);
           transform: rotate($degrees);
 }
 
-@mixin fa-icon-flip($horiz, $vert, $rotation) {
+@mixin Icon-icon-flip($horiz, $vert, $rotation) {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
   -webkit-transform: scale($horiz, $vert);
       -ms-transform: scale($horiz, $vert);

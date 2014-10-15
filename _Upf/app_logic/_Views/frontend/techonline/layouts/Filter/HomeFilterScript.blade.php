@@ -292,14 +292,14 @@
                 max: 50000,
                 values: [ searchArray['price-min']?searchArray['price-min']:100, searchArray['price-max']?searchArray['price-max']:50000 ],
                 slide: function( event, ui ) {
-                    $("#Slider-Range-Value-1").html(ui.values[ 0 ] + " - " + ui.values[ 1 ] +"  <span class='fa fa-rub'></span>");
+                    $("#Slider-Range-Value-1").html(ui.values[ 0 ] + " - " + ui.values[ 1 ] +"  <span class='fa Icon-rub'></span>");
                     searchArray['price-min']=ui.values[ 0 ];
                     searchArray['price-max']= ui.values[ 1 ];
                 }
             });
 
             $("#Slider-Range-Value-1").html(
-                $( "#Slider-Range-1").slider( "values", 0 ) + " - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" <span class='fa fa-rub'></span>"
+                $( "#Slider-Range-1").slider( "values", 0 ) + " - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" <span class='fa Icon-rub'></span>"
             );
 
             @if(isset($Content['Filters']['params']))

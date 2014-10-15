@@ -13,7 +13,7 @@
     <div id="Page-Wrap-Stop"></div>
 </div>
 
-<div title="Вернуться наверх" id="Scroll-Top"><span class="fa fa-chevron-up"></span></div>
+<div title="Вернуться наверх" id="Scroll-Top"><span class="Icon Icon-chevron-up"></span></div>
 
 <footer>
     @include('frontend.techonline.parts.footer')

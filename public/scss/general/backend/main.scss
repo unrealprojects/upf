@@ -20,12 +20,12 @@ body {
 
 .Icon-Link {
 	font-size: 			13px;
-	span.fa {
+	span.Icon {
 		line-height: 	16px;
 		font-size: 		16px;
 	}
 	&.Right {
-		span.fa {
+		span.Icon {
 			margin-left: $size-s;
 		}
 	}
@@ -81,7 +81,7 @@ a.Menu-Category-Link {
 		background-color: $Clr-Cyan;
 		color: $Clr-Secondary;
 	}
-	span.fa {
+	span.Icon {
 		vertical-align: middle;
 		width: 16px;
 		font-size: 16px;
@@ -109,7 +109,7 @@ a.Menu-Subcategory-Link {
 	}
 	&:hover {
 	}
-	span.fa {
+	span.Icon {
 		margin-right: $size-s;
 	}
 }
@@ -138,7 +138,8 @@ a.Subcategory-Action
 
 .Toolbar
 {
-	background-color: $Clr-Slate-Light;
+	border: 1px solid $C-Grey-5;
+	border-radius: 6px;
 	padding: $size-xs;
 	.Control-Group
 	{
@@ -185,12 +186,12 @@ nav.Userbar {
 			&.Icon {
 				a {
 				}
-				span.fa {
+				span.Icon {
 					display: inline-block;
 					margin-right: $size-n;
 				}
 			}
-			span.fa {
+			span.Icon {
 			}
 		}
 		&.Left {
@@ -235,7 +236,7 @@ nav.Userbar {
 
 li.Icon {
 	a {
-		span.fa {
+		span.Icon {
 			margin-right: $size-n;
 		}
 	}

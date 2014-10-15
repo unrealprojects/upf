@@ -65,13 +65,13 @@
                             <td class="Actions">
                                 <div class="Caption">Действия</div>
                                 <ul>
-                                    <li><a class="Item-Update" title="Принять изменения" href="#"><span class="fa fa-check"></span></a></li>
+                                    <li><a class="Item-Update" title="Принять изменения" href="#"><span class="Icon Icon-check"></span></a></li>
                                     <li><a class="Item-Edit" title="Редактировать ..."
                                         href="@if(isset($Item['meta']['alias'])){{$BaseUrl.$Item['meta']['alias'].'/edit'}}
                                               @elseif(isset($Item['alias'])){{$BaseUrl.$Item['alias'].'/edit'}}
                                               @elseif(isset($Item['login'])){{$BaseUrl.$Item['login'].'/edit'}}@endif">
-                                            <span class="fa fa-pencil"></span></a></li>
-                                    <li><a class="Item-Remove" title="Удалить ..." href="#"><span class="fa fa-remove"></span></a></li>
+                                            <span class="Icon Icon-pencil"></span></a></li>
+                                    <li><a class="Item-Remove" title="Удалить ..." href="#"><span class="Icon Icon-remove"></span></a></li>
                                 </ul>
                             </td>
                         </tr>

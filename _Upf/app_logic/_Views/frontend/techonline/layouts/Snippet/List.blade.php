@@ -51,15 +51,15 @@
 
                                     @if(isset($Item['meta']['views']))
                                         <div class="Item-Views Node-XS-2" title="Просмотров записи: {{ $Item['meta']['views'] }}">
-                                            <span class="fa fa-eye"></span><span>{{ $Item['meta']['views'] }}</span>
+                                            <span class="Icon Icon-eye"></span><span>{{ $Item['meta']['views'] }}</span>
                                         </div>
                                     @endif
 
                                     @if(isset($Item['meta']['rating']))
                                     <ul class="Item-Vote Node-XS-2 End">
-                                        <li><a href="#"><span class="fa fa-chevron-left"></span></a></li>
+                                        <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
                                         <li><span>{{ $Item['meta']['rating'] }}</span></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right"></span></a></li>
+                                        <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
                                     </ul>
                                     @endif
 
