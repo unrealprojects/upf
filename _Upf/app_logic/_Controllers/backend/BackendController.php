@@ -1,10 +1,11 @@
 <?php
 namespace UpfControllers;
 
-class BackendController extends \Controller {
+class BackendController extends UpfController {
     /******************************************************************************************************************* Construct Backend App ***/
+    public $Upf_Interface = 'backend';
 
-    public $ViewData = [];
+
     public $View = '/general/layouts/Editing/';
     public $Model = '\UpfModels\Fields';
     public $BaseUrl = '/';
@@ -16,6 +17,9 @@ class BackendController extends \Controller {
 
 
         public function __construct(){
+
+            parent::__construct();
+            \SassCompiler::Make("scss/general/backend/main.scss", "css/backend/main.css");
 
             /*** Current Administrator ***/
                 if($Administrator = \Auth::administrators()->getUser()){

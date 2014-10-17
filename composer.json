@@ -9,7 +9,8 @@
         "fzaninotto/faker": "1.4.*@dev",
         "greggilbert/recaptcha": "dev-master",
         "maatwebsite/excel": "1.*",
-        "ollieread/multiauth": "dev-master"
+        "ollieread/multiauth": "dev-master",
+        "panique/laravel-sass": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

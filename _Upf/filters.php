@@ -24,6 +24,7 @@ Route::filter('csrf', function()
 /*** Only Administrators ***/
 Route::filter('administrators', function()
 {
+
     if(!Auth::administrators()->check()){
         return Redirect::to('/backend/auth');
     }

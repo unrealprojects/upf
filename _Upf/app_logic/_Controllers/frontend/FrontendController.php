@@ -1,7 +1,7 @@
 <?php
 namespace UpfFrontendControllers;
 
-class FrontendController extends \Controller{
+class FrontendController extends \UpfControllers\UpfController {
     /******************************************************************************************************************* Construct Frontend App ***/
 
     public $ViewData =          [];
@@ -17,7 +17,8 @@ class FrontendController extends \Controller{
     public $HasMeta = false;
 
     public function __construct(){
-
+        parent::__construct();
+        \SassCompiler::Make("scss/general/frontend/techonline/main.scss", "css/frontend/techonline/main.css");
 
         $this->ViewData = [
             /*** Default ***/
