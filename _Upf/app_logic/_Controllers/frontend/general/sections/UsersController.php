@@ -1,9 +1,11 @@
 <?php
 namespace UpfFrontendControllers;
 
-class UsersController extends FrontendController{
-    public $Model = '\UpfModels\Users';
-    public $BaseUrl = '/users/';
+class UsersController extends SectionsController{
+    public $Upf_Page_Section =       'users';
+
+    public $Model =                  '\UpfModels\Users';
+    public $BaseUrl =                '/users/';
 
     /*** Auth LogIn ***/
     public function LogIn(){

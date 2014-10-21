@@ -6,10 +6,13 @@
     @yield('head')
 </head>
 
-<body>
-    <div data-role="page">
-        @yield('content')
-    </div>
+<body upf-page-interface="{{$Upf['Page']['Interface']}}"
+      upf-page-component="{{$Upf['Page']['Component']}}"
+      upf-page-section="{{$Upf['Page']['Section']}}"
+      upf-page-alias="{{$Upf['Page']['Alias']}}"
+      upf-page-type="{{$Upf['Page']['Action']}}">
+
+    @yield('content')
 
     @include('general.scripts')
     @yield('template_scripts')

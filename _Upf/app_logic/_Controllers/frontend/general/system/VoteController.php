@@ -1,7 +1,7 @@
 <?php
-namespace Controller;
+namespace UpfFrontendControllers;
 
-class VoteController extends \Controller{
+class VoteController extends SystemController{
 
 	public function up($app_section,$id)
 	{

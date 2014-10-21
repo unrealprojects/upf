@@ -1,7 +1,9 @@
 @extends($Template)
 
 @section('Main')
-    <section class="Content">
+    <section class="Content{{$Upf['Page']['Interface']=='frontend'?' Node':''}}">
+
+
         <div class="Content-Inner">
             <h3 class="Heading Secondary">Создать</h3>
             <form class="Wide" id="Add-Item" enctype="multipart/form-data">

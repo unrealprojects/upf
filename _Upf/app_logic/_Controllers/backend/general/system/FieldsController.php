@@ -1,7 +1,9 @@
 <?php
 namespace UpfControllers;
 
-class FieldsController extends BackendController{
+class FieldsController extends SystemController{
+    public $Upf_Page_Section = 'fields';
+
     public $BaseUrl = '/backend/section/fields/';
     public $Model = '\UpfModels\Fields';
 

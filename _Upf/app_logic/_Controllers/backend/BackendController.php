@@ -18,7 +18,7 @@ class BackendController extends UpfController {
 
         public function __construct(){
 
-            parent::__construct();
+
             \SassCompiler::Make("scss/general/backend/main.scss", "css/backend/main.css");
 
             /*** Current Administrator ***/
@@ -45,7 +45,7 @@ class BackendController extends UpfController {
                 'BreadCrumbs'           =>      $this->BreadCrumbs(),
                 'Meta'                  =>      $this->Meta()
             ];
-
+            parent::__construct();
         }
 
 

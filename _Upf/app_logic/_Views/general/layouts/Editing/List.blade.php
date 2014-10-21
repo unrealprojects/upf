@@ -1,7 +1,7 @@
 @extends($Template)
 
 @section('Main')
-    <section class="Content Node">
+    <section class="Content{{$Upf['Page']['Interface']=='frontend'?' Node':''}}">
         <section class="Toolbar Grid Merge Inline">
             <h3 class="Heading Secondary">{{--$Meta['title']--}}</h3>
             <div class="Control-Group Node-XS-1">

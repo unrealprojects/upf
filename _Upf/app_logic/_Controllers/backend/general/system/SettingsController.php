@@ -2,6 +2,8 @@
 namespace UpfControllers;
 
 class SettingsController extends BackendController{
+    public $Upf_Page_Section = 'settings';
+
     public $BaseUrl = '/backend/system/settings/';
     public $Model = '\UpfModels\Settings';
     public $View = '/backend/standard/layouts/system/';

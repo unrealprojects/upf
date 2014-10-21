@@ -1,6 +1,6 @@
 <?php
 namespace UpfFrontendControllers;
 
-class MetaController extends FrontendController{
+class MetaController extends SystemController{
 
 }

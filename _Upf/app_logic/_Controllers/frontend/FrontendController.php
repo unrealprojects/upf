@@ -17,7 +17,7 @@ class FrontendController extends \UpfControllers\UpfController {
     public $HasMeta = false;
 
     public function __construct(){
-        parent::__construct();
+
         \SassCompiler::Make("scss/general/frontend/techonline/main.scss", "css/frontend/techonline/main.css");
 
         $this->ViewData = [
@@ -40,7 +40,7 @@ class FrontendController extends \UpfControllers\UpfController {
             $this->User = \Auth::users()->getUser();
         }
 
-        //print_r($this->ViewData['user']);
+        parent::__construct();
     }
 
     /******************************************************************************************************************* Default Frontend Functionality ***/

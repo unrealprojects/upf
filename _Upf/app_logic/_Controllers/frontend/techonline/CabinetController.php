@@ -1,7 +1,10 @@
 <?php
 namespace UpfFrontendControllers;
 
-class CabinetController extends FrontendController{
+
+class CabinetController extends SystemController{
+    public $Upf_Page_Section = 'cabinet';
+
     public $Model = '\UpfModels\Users';
     public $BaseUrl = '/cabinet/';
     public $View = '/general/layouts/Editing/';

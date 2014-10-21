@@ -2,6 +2,8 @@
 namespace Controller;
 
 class CommentsController extends \Controller{
+    public $Upf_Page_Section =       'users';
+
 
     public function add($list_id){
        $reCaptcha = new \Greggilbert\Recaptcha\CheckRecaptcha();

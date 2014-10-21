@@ -1,7 +1,9 @@
 <?php
 namespace UpfFrontendControllers;
 
-class ArticlesController extends FrontendController{
-    public $Model = '\UpfModels\Articles';
-    public $BaseUrl = '/articles/';
+class ArticlesController extends SectionsController{
+    public $Upf_Page_Section =      'articles';
+
+    public $Model =                 '\UpfModels\Articles';
+    public $BaseUrl =               '/articles/';
 }
