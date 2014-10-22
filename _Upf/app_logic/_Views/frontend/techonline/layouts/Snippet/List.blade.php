@@ -25,11 +25,15 @@
 
                         <header class="Grid Split">
                             @if( isset($Item['title']) )
-                                <h4 class="Item-Title {{ (strlen($Item['title'])>20) ? 'Item-Title-Long' : ''}} Node-XS-6">
+                                <h4 class="Item-Title {{ (strlen($Item['title'])>20) ? 'Item-Title-Long' : ''}} Node-XS-8">
                                     <a href="{{ $BaseUrl . $Item['meta']['alias'] }}">
                                         {{ $Item['title'] }}
                                     </a>
-
+                                    @if(isset($Item['meta']['views']))
+                                    <span class="Item-Views" title="Просмотров записи: {{ $Item['meta']['views'] }}">
+                                        <span class="Icon Icon-eye"></span><span>{{ $Item['meta']['views'] }}</span>
+                                    </span>
+                                    @endif
                                     @if( isset($Item['meta']) && isset($Content['Fields']['date']['meta-created_at']) )
                                         <span class="Item-Subtitle">{{ $Item['meta']['created_at'] }}</span>
                                     @endif
@@ -46,35 +50,6 @@
 
 
 
-                                    @if(isset($Item['meta']['views']))
-                                        <div class="Item-Views Node-XS-2" title="Просмотров записи: {{ $Item['meta']['views'] }}">
-                                            <span class="Icon Icon-eye"></span><span>{{ $Item['meta']['views'] }}</span>
-                                        </div>
-                                    @endif
-
-                                    @if(isset($Item['meta']['users']['phones']))
-                                        <div class="Item-User Node-XS-2">
-                                            <span>{{ $Item['meta']['users']['phones'] }}</span>
-                                        </div>
-                                    @elseif(isset($Item['phones']))
-                                        <div class="Item-User Node-XS-2">
-                                            <span>{{ $Item['phones'] }}</span>
-                                        </div>
-                                    @endif
-
-
-
-                                    @if(isset($Item['meta']['categories']['title']))
-                                        <div class="Item-User Node-XS-2">
-                                            <span>{{ $Item['meta']['categories']['title'] }}</span>
-                                        </div>
-                                    @endif
-
-                                    @if(isset($Item['meta']['regions']['title']))
-                                        <div class="Item-Region Node-XS-2">
-                                            <span>{{ $Item['meta']['regions']['title'] }}</span>
-                                        </div>
-                                    @endif
 
 
                                     @if( isset($Item['price']) && isset($Content['Fields']['statuses']['price']) )
@@ -124,6 +99,33 @@
                                     <p>{{ $Item['about'] }}</p>
                                 @endif
 
+                                    @if(isset($Item['meta']['users']['phones']))
+                                        <div class="Item-User Node-XS-2">
+                                            <span>C:</span>
+                                            <span>{{ $Item['meta']['users']['phones'] }}</span>
+                                        </div>
+                                    @elseif(isset($Item['phones']))
+                                        <div class="Item-User Node-XS-2">
+                                            <span>Телефоны:</span>
+                                            <span>{{ $Item['phones'] }}</span>
+                                        </div>
+                                    @endif
+
+
+
+                                    @if(isset($Item['meta']['categories']['title']))
+                                        <div class="Item-User Node-XS-2">
+                                            <span>Категория:</span>
+                                            <span>{{ $Item['meta']['categories']['title'] }}</span>
+                                        </div>
+                                    @endif
+
+                                    @if(isset($Item['meta']['regions']['title']))
+                                        <div class="Item-Region Node-XS-2">
+                                            <span>Регион:</span>
+                                            <span>{{ $Item['meta']['regions']['title'] }}</span>
+                                        </div>
+                                    @endif
 
 
                                 {{-- More Info --}}
