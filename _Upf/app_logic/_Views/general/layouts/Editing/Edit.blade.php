@@ -179,13 +179,13 @@
     <select class='Node-XXS-9' name="{{$Field['relation']}}" id="field_{{$Field['relation']}}">
         <option value="0">Нет</option>
         @foreach($Model::GetFieldValues($Field['values'],$Field['values_type'],$Model) as $key => $value)
-        @if($Field['values_type']=='config' && is_int($key))
-        <option value="{{$key}}"
-        {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$key)?'selected="selected"':''}}>{{$value}}</option>
-        @elseif($Field['values_type']=='model' && is_int($key))
-        <option value="{{$value['id']}}"
-        {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$value['id'])?'selected="selected"':''}}>{{$value['title']}}</option>
-        @endif
+            @if($Field['values_type']=='config' && ( is_int($key) || $Field['relation']=='section' ) )
+                <option value="{{$key}}"
+                {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$key)?'selected="selected"':''}}>{{$value}}</option>
+            @elseif($Field['values_type']=='model' && is_int($key) )
+                <option value="{{$value['id']}}"
+                {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$value['id'])?'selected="selected"':''}}>{{$value['title']}}</option>
+            @endif
         @endforeach
     </select>
 </div>
@@ -210,9 +210,9 @@
         @foreach($Model::GetFieldValues($Field['values'],$Field['values_type'],$Model) as $value)
         <option value="{{$value['id']}}"
         @if(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']))
-        @foreach(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']) as $selected)
-        {{($selected['id']==$value['id'])?'selected="selected"':''}}
-        @endforeach
+            @foreach(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation']) as $selected)
+                {{($selected['id']==$value['id'])?'selected="selected"':''}}
+            @endforeach
         @endif
         >{{$value['title']}}</option>
         @endforeach

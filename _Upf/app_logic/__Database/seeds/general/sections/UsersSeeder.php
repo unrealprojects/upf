@@ -7,7 +7,7 @@ class UsersSeeder extends \Seeder {
         $Faker = \Faker\Factory::create();
 
         /*** Add ***/
-        for($i=0;$i<10;$i++){
+        for($i=0;$i<30;$i++){
             $Users = new \UpfModels\Users();
 
             /*** Content ***/
@@ -32,6 +32,7 @@ class UsersSeeder extends \Seeder {
                 'section' => 'users',
                 'category_id' => 0 ,
                 'user_id' => 0 ,
+                'region_id' => $i ,
                 /*** Statuses ***/
                 'status' => 1,
                 'privileges' => 0,

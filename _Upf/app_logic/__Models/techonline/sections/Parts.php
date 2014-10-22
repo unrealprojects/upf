@@ -7,4 +7,82 @@ class Parts extends Meta{
     protected $table = 'section_parts';
     public $Section = 'parts';
     public $PhotosUrl = '/photo/standard/sections/parts/';
+
+
+
+
+
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* ***/
+
+    /*** ***    Front Functions     *** ***/
+
+    /******************************************************************************************************************* ***/
+    /******************************************************************************************************************* ***/
+
+
+
+
+    /*** *** Get Front List *** ***/
+
+    public function FrontendIndex($Filter = []){
+
+        /*** Get Data ***/
+        $List = $this->WhereStatusesInMeta($this,$Filter)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files',
+                'meta.users',
+                'meta.comments',
+                'meta.categories.params',
+                'meta.paramsvalues',
+                'meta.paramsvalues.params')
+            ->paginate(
+                isset($Filter['Pagination'])?$Filter['Pagination']
+                    :\Config::get('site\app_settings.PaginateFrontend.content')
+            );
+
+//         print_r($this->GetFields('list','frontend', true));exit;
+//        print_r($List->toArray()['data']);exit;
+//
+        /*** Return Frontend Content ***/
+        return [
+            'List'          =>      $List->toArray()['data'],
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+            'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
+            'Filters'       =>      $this->FrontFilters()
+        ];
+    }
+
+
+    /*** *** Get Front Item *** ***/
+
+    public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
+
+        /*** Get Data ***/
+        $Item = $this->WhereAliasInMeta($this,$Alias)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files',
+                'meta.users',
+                'meta.categories.params',
+                'meta.paramsvalues',
+                'meta.paramsvalues.params')
+            ->first();
+
+        // print_r($this->GetFields('list','frontend', true));exit;
+        // print_r($Item->toArray());exit;
+
+        /*** Return Frontend Content ***/
+        return [
+            'Item'          =>      $Item->toArray(),
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+        ];
+    }
+
+
 }

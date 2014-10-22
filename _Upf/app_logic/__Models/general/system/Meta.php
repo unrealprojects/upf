@@ -47,7 +47,7 @@ class Meta extends Fields {
 
         public function regions()
         {
-            return $this->hasMany('UpfModels\Regions','id','region_id');
+            return $this->hasOne('UpfModels\Regions','id','region_id');
         }
 
 
@@ -198,7 +198,7 @@ class Meta extends Fields {
 
     /*** *** Get Front List *** ***/
 
-        public function FrontIndex($Filter = []){
+        public function FrontendIndex($Filter = []){
 
             /*** Get Data ***/
             $List = $this->WhereStatusesInMeta($this,$Filter)
@@ -214,11 +214,12 @@ class Meta extends Fields {
                     isset($Filter['Pagination'])?$Filter['Pagination']
                                                 :\Config::get('site\app_settings.PaginateFrontend.content')
                 );
+           //print_r($List->toArray());exit;
 
             /*** Return Frontend Content ***/
             return [
                 'List'          =>      $List->toArray()['data'],
-                'Fields'        =>      $this->GetFields('list','frontend', true),
+                'Fields'        =>      $this->GetFields('list', 'frontend' , $Sort =  true),
                 'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
                 'Filters'       =>      $this->FrontFilters()
             ];
@@ -227,6 +228,22 @@ class Meta extends Fields {
 
 
 
+
+
+        /*** Get Frontend Item ***/
+
+        public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
+            /*** Get Item By Field ***/
+            $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
+
+
+            /*** Result ***/
+            return [
+                'Item' =>       $Item,
+                'Fields' =>     $this->GetFields('item', $Division = 'frontend' , $Sort = true)
+            ];
+
+        }
 
 
 

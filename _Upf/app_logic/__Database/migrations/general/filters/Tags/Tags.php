@@ -44,21 +44,23 @@ class Tags extends Migration {
             /*** Add ***/
             ['Тег', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
             ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
 
             /*** Edit ***/
             // Group :: Main
             ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
             ['Тег', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
             ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+
             // Group :: Relations
             ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
+
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
             ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+
             // Group :: Date
-            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+            ['Созданно',        'created_at',       'text',     'Date',     'main',     false,      'backend',      $Table,     'edit'],
+            ['Обновлено',       'updated_at',       'text',     'Date',     'main',     false,      'backend',      $Table,     'edit'],
         ];
     }
 }

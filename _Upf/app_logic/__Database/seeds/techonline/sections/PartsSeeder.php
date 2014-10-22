@@ -27,8 +27,9 @@ class PartsSeeder extends \Seeder {
                 'keywords' => $Parts->title,
                 /*** Relations ***/
                 'section' => 'parts',
-                'category_id' => 1,
-                'user_id' => 0 ,
+                'category_id' => $i,
+                'user_id' => $i ,
+                'region_id' => $i ,
                 /*** Statuses ***/
                 'status' => 1,
                 'privileges' => 0,

@@ -30,7 +30,7 @@ class Rent extends Meta{
 
     /*** *** Get Front List *** ***/
 
-    public function FrontIndex($Filter = []){
+    public function FrontendIndex($Filter = []){
 
         /*** Get Data ***/
         $List = $this->WhereStatusesInMeta($this,$Filter)
@@ -54,7 +54,7 @@ class Rent extends Meta{
 
 //         print_r($this->GetFields('list','frontend', true));exit;
 //        print_r($List->toArray()['data']);exit;
-
+//
         /*** Return Frontend Content ***/
         return [
             'List'          =>      $List->toArray()['data'],
@@ -67,7 +67,7 @@ class Rent extends Meta{
 
     /*** *** Get Front Item *** ***/
 
-    public function FrontItem($Alias = ''){
+    public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
 
         /*** Get Data ***/
         $Item = $this->WhereAliasInMeta($this,$Alias)

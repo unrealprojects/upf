@@ -27,13 +27,13 @@ return [
 
     'sections' =>[
         /*** General ***/
-        0 => 'articles',
-        1 => 'pages',
-        2 => 'users',
+        'articles' => 'Статьи',
+        'pages' => 'Статические страницы',
+        'users' => 'Пользователи',
         /*** Tech Online***/
-        3 => 'catalog',
-        4 => 'rent',
-        5 => 'parts',
+        'catalog' => 'Каталог',
+        'rent' => 'Аренда',
+        'parts' => 'Запчасти',
     ],
     /*** Component type ***/
     'component_type'=>[

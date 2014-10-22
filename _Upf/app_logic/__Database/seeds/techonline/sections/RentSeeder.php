@@ -27,8 +27,9 @@ class RentSeeder extends \Seeder {
                 'keywords' => $Rent->title,
                 /*** Relations ***/
                 'section' => 'rent',
-                'category_id' => 0 ,
-                'user_id' => 0 ,
+                'category_id' => $i ,
+                'user_id' => $i ,
+                'region_id' => $i ,
                 /*** Statuses ***/
                 'status' => 1,
                 'privileges' => 0,

@@ -1577,7 +1577,6 @@ body {
 dl.Tabs {
   clear: both; }
   dl.Tabs dt {
-    margin-left: -1px;
     position: relative;
     display: table;
     float: left;

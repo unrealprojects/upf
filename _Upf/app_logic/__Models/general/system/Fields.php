@@ -16,6 +16,7 @@ class Fields extends General {
 
         public function GetFields($View, $Destination = 'backend', $Sort = false){
 
+
             /*** Default***/
                 $Model =  new \UpfModels\Fields();
 
@@ -25,6 +26,7 @@ class Fields extends General {
                                  ->where('view',$View)
                                  ->orderBy('id')
                                  ->get();
+
 
             /*** Sort Fields By Group ***/
                 if($Sort){
@@ -41,10 +43,12 @@ class Fields extends General {
 
                     /*** Sorted :: Group -> Fields ***/
                         return $SortedFields;
+
                 }else{
 
                     /*** Don't sort ***/
                         return $Fields;
+
                 }
         }
 
@@ -262,55 +266,6 @@ class Fields extends General {
 
 
 
-    /******************************************************************************************************************* Update Photos ***/
-
-        public function UpdateItemPhotos($Alias, $Meta = false, $SearchField = false){
-            /*** Photos Array ***/
-            $UpdatedPhotos = [];
-
-
-            /*** Get Item By Field ***/
-            $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
-
-
-            /*** Write Logotype ***/
-
-            if(\Input::hasFile('logotype')){
-                /*** Set File Src ***/
-                $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
-
-                /*** Save ***/
-                \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
-                $Item->logotype = $FileSrc;
-                $UpdatedPhotos['logotype'] = $FileSrc;
-                $Item->save();
-            }
-
-            /*** Write Files ***/
-            if(!$Meta){
-                if(\Input::hasFile('meta-files')){
-                    foreach(\Input::file('meta-files') as $Key=>$Photo){
-                        $File = new \UpfModels\Files();
-
-                        $FileSrc = $this->PhotosUrl.time() . '_' . $Photo->getClientOriginalName();
-                        $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
-                        $File->src = $FileSrc;
-                        $File->save();
-
-                        /*** Save Relations ***/
-                        $Item->meta->files()->attach([$File->id]);
-
-                        /*** Save Photos ***/
-                        $UpdatedPhotos['photos'][$Key]['src'] = $FileSrc;
-                        $UpdatedPhotos['photos'][$Key]['id'] = $File->id;
-                    }
-                }
-                return $UpdatedPhotos;
-            }
-        }
-
-
-
 
     /******************************************************************************************************************* Update Item ***/
 
@@ -366,6 +321,7 @@ class Fields extends General {
                             $FieldExplode[1] => $Input[$Field->relation]
                         ]);
                     }
+
                 }
 
                 /*** Params ***/
@@ -395,6 +351,61 @@ class Fields extends General {
 
         return true;
     }
+
+
+
+
+
+
+    /******************************************************************************************************************* Update Photos ***/
+
+    public function UpdateItemPhotos($Alias, $Meta = false, $SearchField = false){
+        /*** Photos Array ***/
+        $UpdatedPhotos = [];
+
+
+        /*** Get Item By Field ***/
+        $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
+
+
+        /*** Write Logotype ***/
+
+        if(\Input::hasFile('logotype')){
+            /*** Set File Src ***/
+            $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+
+            /*** Save ***/
+            \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+            $Item->logotype = $FileSrc;
+            $UpdatedPhotos['logotype'] = $FileSrc;
+            $Item->save();
+        }
+
+        /*** Write Files ***/
+        if(!$Meta){
+            if(\Input::hasFile('meta-files')){
+                foreach(\Input::file('meta-files') as $Key=>$Photo){
+                    $File = new \UpfModels\Files();
+
+                    $FileSrc = $this->PhotosUrl.time() . '_' . $Photo->getClientOriginalName();
+                    $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
+                    $File->src = $FileSrc;
+                    $File->save();
+
+                    /*** Save Relations ***/
+                    $Item->meta->files()->attach([$File->id]);
+
+                    /*** Save Photos ***/
+                    $UpdatedPhotos['photos'][$Key]['src'] = $FileSrc;
+                    $UpdatedPhotos['photos'][$Key]['id'] = $File->id;
+                }
+            }
+            return $UpdatedPhotos;
+        }
+    }
+
+
+
 
 
     /******************************************************************************************************************* Remove Item ***/

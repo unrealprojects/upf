@@ -2,6 +2,8 @@
 namespace UpfFrontendControllers;
 
 class FrontendController extends \UpfControllers\UpfController {
+    public $Upf_Page_Interface =    'frontend';
+
     /******************************************************************************************************************* Construct Frontend App ***/
 
     public $ViewData =          [];
@@ -52,7 +54,7 @@ class FrontendController extends \UpfControllers\UpfController {
             $DefaultModel = new $this->Model();
 
             /*** Set Content ***/
-            $this->ViewData['Content'] = $DefaultModel->FrontIndex();
+            $this->ViewData['Content'] = $DefaultModel->FrontendIndex();
 
             /*** Show View ***/
             return \View::make($this->View . 'List' , $this->ViewData);
@@ -67,7 +69,7 @@ class FrontendController extends \UpfControllers\UpfController {
             $DefaultModel = new $this->Model();
 
             /*** Set Content ***/
-            $this->ViewData['Content'] = $DefaultModel->FrontItem($Alias);
+            $this->ViewData['Content'] = $DefaultModel->FrontendItem($Alias,true);
 
             /*** Show View ***/
             return \View::make($this->View . 'Item' , $this->ViewData);

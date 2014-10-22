@@ -8,7 +8,7 @@ class CatalogSeeder extends \Seeder {
         $Faker = \Faker\Factory::create();
 
         /*** Add ***/
-        for($i=0;$i<10;$i++){
+        for($i=0;$i<30;$i++){
             $Catalog = new \UpfModels\Catalog();
 
             /*** Content ***/
@@ -25,7 +25,7 @@ class CatalogSeeder extends \Seeder {
                 'keywords' => $Catalog->title,
                 /*** Relations ***/
                 'section' => 'catalog',
-                'category_id' => 0 ,
+                'category_id' => $i ,
                 'user_id' => 0 ,
                 /*** Statuses ***/
                 'status' => 1,

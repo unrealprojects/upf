@@ -37,21 +37,50 @@
                                 </h4>
                             @endif
 
-                            @if( isset($Item['price']) && isset($Content['Fields']['statuses']['price']) )
-                                <div class="Item-Price Node-XS-2">
-                                    <span>{{$Item['price']}}</span>
-                                    <span>руб.</span>
-                                </div>
-                            @endif
+
 
                             @if( isset($Item['meta']) )
 
 
                                 {{-- Group :: Statuses --}}
 
+
+
                                     @if(isset($Item['meta']['views']))
                                         <div class="Item-Views Node-XS-2" title="Просмотров записи: {{ $Item['meta']['views'] }}">
                                             <span class="Icon Icon-eye"></span><span>{{ $Item['meta']['views'] }}</span>
+                                        </div>
+                                    @endif
+
+                                    @if(isset($Item['meta']['users']['phones']))
+                                        <div class="Item-User Node-XS-2">
+                                            <span>{{ $Item['meta']['users']['phones'] }}</span>
+                                        </div>
+                                    @elseif(isset($Item['phones']))
+                                        <div class="Item-User Node-XS-2">
+                                            <span>{{ $Item['phones'] }}</span>
+                                        </div>
+                                    @endif
+
+
+
+                                    @if(isset($Item['meta']['categories']['title']))
+                                        <div class="Item-User Node-XS-2">
+                                            <span>{{ $Item['meta']['categories']['title'] }}</span>
+                                        </div>
+                                    @endif
+
+                                    @if(isset($Item['meta']['regions']['title']))
+                                        <div class="Item-Region Node-XS-2">
+                                            <span>{{ $Item['meta']['regions']['title'] }}</span>
+                                        </div>
+                                    @endif
+
+
+                                    @if( isset($Item['price']) && isset($Content['Fields']['statuses']['price']) )
+                                        <div class="Item-Price Node-XS-2">
+                                            <span>{{$Item['price']}}</span>
+                                            <span class="Icon Icon-rub"></span>
                                         </div>
                                     @endif
 
@@ -87,9 +116,15 @@
 
                     {{-- Group :: Content --}}
 
-                        @if( isset($Item['intro']) )
+                        @if( isset($Item['intro']) || isset($Item['about']))
                             <div class="Item-Content Node-XS-10" >
-                                <p>{{ $Item['intro'] }}</p>
+                                @if( isset($Item['intro']) )
+                                    <p>{{ $Item['intro'] }}</p>
+                                @else
+                                    <p>{{ $Item['about'] }}</p>
+                                @endif
+
+
 
                                 {{-- More Info --}}
                                 @if( isset($Content['Fields']['more']) )
@@ -102,7 +137,7 @@
                                                          <tr>
                                                              <td>{{ $FieldMore['title'] }}</td>
                                                              <td>
-                                                                 <a href="{{$FieldMore['values'] . '/' .( isset($SubItem['alias'])?$SubItem['alias']
+                                                                 <a href="/{{$FieldMore['values'] . '/' .( isset($SubItem['alias'])?$SubItem['alias']
                                                                                                                                   :$SubItem['login'] ) }}">
                                                                      {{ $SubItem['title'] }}
                                                                  </a>
