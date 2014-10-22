@@ -101,7 +101,7 @@
 
                                     @if(isset($Item['meta']['users']['phones']))
                                         <div class="Item-User Node-XS-2">
-                                            <span>C:</span>
+                                            <span>Телефоны:</span>
                                             <span>{{ $Item['meta']['users']['phones'] }}</span>
                                         </div>
                                     @elseif(isset($Item['phones']))
