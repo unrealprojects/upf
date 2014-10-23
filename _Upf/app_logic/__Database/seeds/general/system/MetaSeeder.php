@@ -28,7 +28,8 @@ class MetaSeeder extends \Seeder {
 
         /*** Relations ***/
         $Meta->section = $Data['section'];
-        $Meta->comments_id = \UpfSeeds\CommentsSeeder::AddCommentsToSection($Data['section']);
+        //$Meta->comments_id = \UpfSeeds\CommentsSeeder::AddCommentsToSection($Data['section']);
+        $Meta->comments_id = \UpfModels\Comments::max('wall_id') + 1;
 
         /*** Statuses ***/
         $Meta->status = isset($Data['status'])?$Data['status']:\Config::get('models/Fields.status.default');

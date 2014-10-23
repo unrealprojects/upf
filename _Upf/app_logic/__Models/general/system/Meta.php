@@ -238,7 +238,6 @@ class Meta extends Fields {
         public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
             /*** Get Item By Field ***/
             $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
-            //print_r($Item);exit;
 
             /*** Result ***/
             return [

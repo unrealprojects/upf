@@ -24,14 +24,20 @@
 
         /*** Tootle-Next-Item ***/
         $('.Toggled-Next-Item').slideUp();
-//        $('.Toggle-Next-Item a').click(function(){
-//            $.preventDefault();
-//        });
         $('.Toggle-Next-Item a').click(function(){
             $(this).parent().next().slideToggle();
             return false;
         });
 
+
+        /*** Activate Current Tab ***/
+        $('.Tab-Set a').each(function(Key,Item){
+            if($(Item).attr('href') == location.pathname){
+                $(Item).addClass('Active');
+            }else{
+                $(Item).removeClass('Active');
+            }
+        });
 
     });
 })(jQuery);

@@ -39,7 +39,7 @@ class Parts extends Migration {
             ['Запчасть/Услуга', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
             ['Короткое описание', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
             ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'list'],
 
             /*** Add ***/
             ['Запчасть/Услуга', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
@@ -61,6 +61,23 @@ class Parts extends Migration {
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+
+
+
+            /*** Edit :: Frontend ***/
+            // Group :: Main
+            ['Основная информация', 'divider_1', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+
+            ['Запчасть/Услуга', 'title', 'text', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            ['Короткое описание', 'intro', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'edit'],
+            ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'edit'],
+            ['Цена', 'price', 'text', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            ['Качество', 'condition', 'select', 'Title', 'main', true, 'frontend', $Table, 'edit','config','models/Fields.condition'],
+
+            ['Медиа информация', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            // Group :: Media
+            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'edit',''],
+            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'edit'],
         ];
     }
 }

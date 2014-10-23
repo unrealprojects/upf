@@ -75,11 +75,39 @@ class Users extends Migration {
             ['Веб сайт', 'website', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
             ['Skype', 'skype', 'text', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
             ['О пользователе', 'about', 'textarea', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
-            ['Статус', 'user_status', 'textarea', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
+//            ['Статус', 'user_status', 'textarea', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
 
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', 'section_users', 'edit',''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit']
+            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit'],
+
+
+
+            /*** Frontend :: Edit ***/
+            // Group :: Main
+            ['Регистрационные данные', 'divider_1', 'divider', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+
+            ['Логин', 'login', 'text', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Пароль', 'password', 'password', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Название (компании)', 'title', 'text', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Имя', 'first_name', 'text', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Фамилия', 'last_name', 'text', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+
+            ['Контактная информация', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+
+
+            ['Email', 'email', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Телефоны', 'phones', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Адрес', 'address', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Веб сайт', 'website', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Skype', 'skype', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['О пользователе', 'about', 'textarea', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+
+            ['Медиа', 'divider_3', 'divider', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
+
+            // Group :: Media
+            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', 'section_users', 'edit',''],
+            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', 'section_users', 'edit']
         ];
     }
 

@@ -37,14 +37,14 @@ class Rent extends Migration {
     public static function fields($Table = 'section_rent'){
         return [
             /*** List ***/
-            ['Предложение', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
             ['Короткое описание', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
             ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+            ['Обновлено', 'meta-updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'list'],
 
             /*** Add ***/
-            ['Предложение', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Короткое описание', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['Короткое описание', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
@@ -64,28 +64,29 @@ class Rent extends Migration {
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
 
+
+
             /*** *** Frontend *** ***/
 
-                /*** List ***/
-                // Group :: Main
-                ['№', 'id', 'text', 'Title', 'main', false, 'frontend', $Table, 'list'],
-                ['Заголовок', 'title', 'text', 'Title', 'main', true, 'frontend', $Table, 'list'],
-                ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
-                ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'list'],
+            /*** Edit ***/
+            // Group :: Main
+            ['Основная информация', 'divider_1', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
 
-                // Group :: Media
-                ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'list',''],
-                ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'list'],
+            ['Заголовок', 'title', 'text', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            ['Короткое описание', 'intro', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'edit'],
+            ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'frontend', $Table, 'edit'],
+            ['Цена', 'price', 'text', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            ['Качество', 'condition', 'select', 'Title', 'main', true, 'frontend', $Table, 'edit','config','models/Fields.condition'],
 
-                // Group :: Statuses
-                ['Цена',        'price',                     'text',       'Price',      'statuses',         true,       'frontend',   $Table,     'list'],
+            ['Выберите модель из каталога', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
 
+            //Group :: Relations
+            ['Модель', 'model_id', 'select', 'Title', 'main', true, 'frontend', $Table, 'edit', 'model', 'Catalog'],
 
-                // Group :: More
-                ['Категория',       'catalog-meta-categories',     'link',       'Price',      'more',         true,       'frontend',     $Table,       'list' ,  'link' ,'catalog'],
-                ['Пользователь',    'meta-users',     'link',       'Price',      'more',         true,       'frontend',     $Table,       'list' ,  'link' ,'users'],
-                ['Состояние',    'condition',     'config',       'Price',      'more',         true,       'frontend',     $Table,       'list' , 'config' , 'condition' ],
-
+            ['Медиа информация', 'divider_3', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            // Group :: Media
+            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'edit',''],
+            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'edit'],
 
         ];
     }

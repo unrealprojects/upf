@@ -201,7 +201,7 @@ class Fields extends General {
                     if(\Input::hasFile('logotype')){
 
                         /*** Set File Src ***/
-                        $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+                        $FileSrc = $this->PhotosUrl.time().'_'.\Mascame\Urlify::filter(\Input::file('logotype')->getClientOriginalName());
                         \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
                         $this->logotype = $FileSrc;
                     }
@@ -211,6 +211,7 @@ class Fields extends General {
         // Set User By Login
             if($RelatedUser){
                 $RelatedUser = \UpfModels\Users::where('login',$RelatedUser)->first()->id;
+                $this->user_id= $RelatedUser;
             }
 
         /*** If Model Has Meta ***/
@@ -224,7 +225,6 @@ class Fields extends General {
                     /*** Relations ***/
                     'section' =>        $this->Section,
                     'category_id' =>    0 ,
-                    'user_id' =>        $RelatedUser ,
                     /*** Statuses ***/
                     'status' =>         1,
                     'privileges' =>     0,
@@ -255,7 +255,13 @@ class Fields extends General {
             $this->save();
 
         /*** Return Url To Redirect ***/
+        if($RelatedUser){
+            //if cabinet
+            return '/'.\Request::segment(1) . '/' .\Request::segment(2) . '/' . $LinkAlias . '/' . 'edit';
+
+        }else{
             return '/'.\Request::segment(1) . '/' .\Request::segment(2) . '/' .\Request::segment(3) . '/' . $LinkAlias . '/' . 'edit';
+        }
     }
 
 
@@ -495,10 +501,8 @@ class Fields extends General {
 
         /*** Get Data ***/
         $List = $this->WhereStatusesInMeta($this,$Filter)
-            ->whereHas('meta',function($Query) use($Login){
-                $Query->whereHas('users',function($Query) use($Login){
-                    $Query->where('login',$Login);
-                });
+            ->whereHas('users',function($Query) use($Login){
+                $Query->where('login',$Login);
             })
             ->with('meta',
                 'users',
@@ -508,10 +512,9 @@ class Fields extends General {
                 'meta.regions',
                 'meta.files',
                 'meta.categories.params',
-                'meta.paramsvalues'
-                //'meta.paramsvalues.params'
-    )
-            ->order('created_at','desc')
+                'meta.paramsvalues',
+                'meta.paramsvalues.params'
+            )
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')

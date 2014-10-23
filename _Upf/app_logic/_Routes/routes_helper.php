@@ -7,28 +7,28 @@
             $Controller=\UpfHelpers\String::LetterToUppercase($Section);
 
             /*** Default Events ***/
-            Route::get($Division . $SectionType.'/' . $Section .    '/','\UpfControllers\\'.$Controller.'Controller@index');
+            Route::get($Division . $SectionType. '/' . $Section .    '/','\UpfControllers\\'.$Controller.'Controller@index');
 
-            Route::any($Division . $SectionType.'/' . $Section .    '/add',                             '\UpfControllers\\'.$Controller.'Controller@add');
-            Route::get($Division . $SectionType.'/' . $Section .    '/{alias}/edit',                    '\UpfControllers\\'.$Controller.'Controller@edit');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/update',                  '\UpfControllers\\'.$Controller.'Controller@update');
-            Route::get($Division . $SectionType.'/' . $Section .    '/{alias}/remove',                  '\UpfControllers\\'.$Controller.'Controller@remove');
-
-
-            /*** Files Ajax Events ***/
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/updatePhotos',            '\UpfControllers\\'.$Controller.'Controller@updatePhotos');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/removePhotos/{id}',       '\UpfControllers\\'.$Controller.'Controller@removePhotos');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/removeLogotype/',         '\UpfControllers\\'.$Controller.'Controller@removeLogotype');
+            Route::any($Division . $SectionType. '/' . $Section .    '/add',                             '\UpfControllers\\'.$Controller.'Controller@add');
+            Route::get($Division . $SectionType. '/' . $Section .    '/{alias}/edit',                    '\UpfControllers\\'.$Controller.'Controller@edit');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/update',                  '\UpfControllers\\'.$Controller.'Controller@update');
+            Route::get($Division . $SectionType. '/' . $Section .    '/{alias}/remove',                  '\UpfControllers\\'.$Controller.'Controller@remove');
 
 
             /*** Files Ajax Events ***/
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/trash',                   '\UpfControllers\\'.$Controller.'Controller@trash');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/draft',                   '\UpfControllers\\'.$Controller.'Controller@draft');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/active',                  '\UpfControllers\\'.$Controller.'Controller@active');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/inactive',                '\UpfControllers\\'.$Controller.'Controller@inactive');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/updatePhotos',            '\UpfControllers\\'.$Controller.'Controller@updatePhotos');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/removePhotos/{id}',       '\UpfControllers\\'.$Controller.'Controller@removePhotos');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/removeLogotype/',         '\UpfControllers\\'.$Controller.'Controller@removeLogotype');
 
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/toFavorite',              '\UpfControllers\\'.$Controller.'Controller@toFavorite');
-            Route::any($Division . $SectionType.'/' . $Section .    '/{alias}/fromFavorite',            '\UpfControllers\\'.$Controller.'Controller@fromFavorite');
+
+            /*** Files Ajax Events ***/
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/trash',                   '\UpfControllers\\'.$Controller.'Controller@trash');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/draft',                   '\UpfControllers\\'.$Controller.'Controller@draft');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/active',                  '\UpfControllers\\'.$Controller.'Controller@active');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/inactive',                '\UpfControllers\\'.$Controller.'Controller@inactive');
+
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/toFavorite',              '\UpfControllers\\'.$Controller.'Controller@toFavorite');
+            Route::any($Division . $SectionType. '/' . $Section .    '/{alias}/fromFavorite',            '\UpfControllers\\'.$Controller.'Controller@fromFavorite');
         }
     }
 
@@ -47,15 +47,22 @@
 
     }
 
+
+
+
+
 /*** *** Add Frontend Cabinet *** ***/
 
     function FrontendCabinetRoutes($Groups){
         foreach($Groups as $Section){
             $Controller=\UpfHelpers\String::LetterToUppercase($Section);
 
+
+
             /*** Cabinet ***/
 
                 Route::get('/'. $Section .'/','\UpfFrontendControllers\\'.$Controller.'Controller@Index');
+                Route::get('/'. $Section .'/profile','\UpfFrontendControllers\\'.$Controller.'Controller@Profile');
 
                 Route::any('/' . $Section . '/update',                     '\UpfFrontendControllers\\'     .$Controller.    'Controller@Update');
                 Route::any('/' . $Section . '/remove',                     '\UpfFrontendControllers\\'     .$Controller.    'Controller@Remove');

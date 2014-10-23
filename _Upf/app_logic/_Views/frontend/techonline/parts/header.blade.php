@@ -91,8 +91,10 @@
                     <div class="Dropdown-Title">Кабинет<span class="Dropdown-Toggle Icon Icon-angle-down"></span></div>
                     <ul class="Dropdown-Content" style="display: none;">
                         <li><a href="/cabinet"><span class="Icon Icon-user"></span>Кабинет</a></li>
-                        <li><a href="/cabinet/rent/"><span class="Icon Icon-shopping-cart"></span>Список техники</a></li>
-                        <li><a href="/cabinet/parts"><span class="Icon Icon-gears"></span>Список запчастей</a></li>
+                        <li><a href="/profile"><span class="Icon Icon-info-circle"></span>Профиль</a></li>
+                        <li class="Divide"></li>
+                        <li><a href="/cabinet/rent/"><span class="Icon Icon-shopping-cart"></span>Моя техника</a></li>
+                        <li><a href="/cabinet/parts"><span class="Icon Icon-gears"></span>Мои запчасти</a></li>
                         <li class="Divide"></li>
                         <li><a href="/cabinet/rent/add"><span class="Icon Icon-plus"></span>Добавить технику</a></li>
                         <li><a href="/cabinet/parts/add"><span class="Icon Icon-plus"></span>Добавить запчасти</a></li>

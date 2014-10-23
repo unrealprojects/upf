@@ -100,20 +100,38 @@ class Users extends Meta implements UserInterface, RemindableInterface {
     public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
 
         /*** Get Data ***/
-        $Item = $this->WhereAliasInMeta($this,$Alias)
-            ->with('meta',
-                'meta.categories',
-                'meta.tags',
-                'meta.regions',
-                'meta.files',
-                'meta.comments',
-                'rent',
-                'rent.meta',
-                'parts',
-                'parts.meta'
+        if($SearchField){
+            $Item = $this->where($SearchField,$Alias)
+                ->with('meta',
+                    'meta.categories',
+                    'meta.tags',
+                    'meta.regions',
+                    'meta.files',
+                    'meta.comments',
+                    'rent',
+                    'rent.meta',
+                    'parts',
+                    'parts.meta'
+                )
+                ->first();
+        }else{
 
-            )
-            ->first();
+            $Item = $this->WhereAliasInMeta($this,$Alias)
+                ->with('meta',
+                    'meta.categories',
+                    'meta.tags',
+                    'meta.regions',
+                    'meta.files',
+                    'meta.comments',
+                    'rent',
+                    'rent.meta',
+                    'parts',
+                    'parts.meta'
+                )
+                ->first();
+        }
+
+
 
         // print_r($this->GetFields('list','frontend', true));exit;
 //         print_r($Item->toArray());exit;

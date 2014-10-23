@@ -12,14 +12,31 @@ class CabinetController extends SystemController{
 
     /******************************************************************************************************************* Cabinet Item ***/
 
+
+    /*** Edit User Cabinet ***/
+
+        public function Index(){
+            /*** Default Model ***/
+            $DefaultModel = new $this->Model();
+
+            /*** Set Content ***/
+            $this->ViewData['Content'] = $DefaultModel->FrontendItem($this->User['login'],false,'login');
+
+
+
+            /*** Show View ***/
+            return \View::make('/frontend/techonline/layouts/Snippet/Edit' , $this->ViewData);
+        }
+
+
         /*** Edit User Cabinet ***/
 
-            public function Index(){
+            public function Profile(){
                 /*** Default Model ***/
                 $DefaultModel = new $this->Model();
 
                 /*** Set Content ***/
-                $this->ViewData['Content'] = $DefaultModel->EditItem($this->User['login'],true,'login');
+                $this->ViewData['Content'] = $DefaultModel->EditItem($this->User['login'],true,'login','frontend');
 
                 /*** Show View ***/
                 return \View::make($this->View . 'Edit' , $this->ViewData);
@@ -89,7 +106,7 @@ class CabinetController extends SystemController{
 
             $Model = new \UpfModels\Rent();
 
-            $this->ViewData['Content'] = $Model->EditItem($Alias, true);
+            $this->ViewData['Content'] = $Model->EditItem($Alias, true, false,'frontend');
 
             return \View::make($this->View.'Edit',$this->ViewData);
         }
@@ -141,7 +158,7 @@ class CabinetController extends SystemController{
 
             $Model = new \UpfModels\Parts();
 
-            $this->ViewData['Content'] = $Model->EditItem($Alias, true);
+            $this->ViewData['Content'] = $Model->EditItem($Alias, true, false,'frontend');
 
             return \View::make($this->View.'Edit',$this->ViewData);
         }
