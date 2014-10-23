@@ -19,7 +19,7 @@ class FieldsController extends SystemController{
 //            exit;
 
 
-            return \View::make($this->View.'list',$this->ViewData);
+            return \View::make($this->View.'List',$this->ViewData);
         }
 
 
@@ -41,7 +41,7 @@ class FieldsController extends SystemController{
             }else{
                 $this->ViewData['Content'] = [ 'Fields' => $Model->GetFields('add') ];
 
-                return \View::make($this->View.'add',$this->ViewData);
+                return \View::make($this->View.'Add',$this->ViewData);
             }
         }
 
@@ -56,7 +56,7 @@ class FieldsController extends SystemController{
             $Model = new $this->Model();
             $this->ViewData['Content'] = $Model->EditItem($Alias, $this->HasMeta);
 
-            return \View::make($this->View.'edit',$this->ViewData);
+            return \View::make($this->View.'Edit',$this->ViewData);
         }
 
 
