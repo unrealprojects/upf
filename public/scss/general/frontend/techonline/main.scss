@@ -147,7 +147,7 @@ footer[role='contentinfo'] {
 				@extend %Unstyle;
 				@extend ._Inline;
 				li {
-					margin-left: $size;
+					margin-right: $size;
 					a {
 						color: black;
 						padding-bottom: $size-xs;
@@ -355,7 +355,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		@extend %Clearfix;
 
 		img.Item-Main-Photo {
-			border: 5px solid $Clr-Secondary;
+			/*border: 5px solid $Clr-Secondary;*/
 			@extend ._Fit-Row;
 			@extend ._Highlight;
 		}
@@ -548,7 +548,7 @@ ul.Tag-List {
 			display: block;
 			height: 35px;
 			border: 1px solid $Clr-Silver;
-			padding-top: 4px;
+			padding-top: 6px;
 			text-align: center;
 			color: $C-Grey-4;
 			@include Transitions(#{text-shadow $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time, border-color $Base-Animation-Time});

@@ -44,9 +44,9 @@
 
                         @if(isset($Item['meta']['rating']))
                         <ul class="Item-Vote Node-XS-2 End">
-                            <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                            <li><span>{{ $Item['meta']['rating'] }}</span></li>
-                            <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                            <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                         </ul>
                         @endif
 
@@ -64,7 +64,7 @@
                 {{-- Group :: Media --}}
 
                 @if( isset($Item['logotype']) || isset($Item['photos']) )
-                @include( $TemplateLayouts . 'Snippet.Elements.Media', [ 'MediaClass' => 'Node-XS-5' ])
+                @include( $TemplateLayouts . 'Snippet.Elements.Media', [ 'MediaClass' => 'Node-XS-4' ])
                 @endif
 
                 {{-- End Group :: Media --}}
@@ -75,7 +75,7 @@
                 {{-- Group :: Content --}}
 
                 @if( isset($Item['intro']) || isset($Item['about']) )
-                <div class="Item-Content Node-XS-7" >
+                <div class="Item-Content Node-XS-8" >
                     @if( isset($Item['intro']) )
                         <p>{{ $Item['intro'] }}</p>
                     @elseif( isset($Item['about']))
@@ -99,7 +99,7 @@
 
                         @if( isset($Item['users']) )
                         <li>
-                            <span>Пользователь:</span>
+                            <span>Компания:</span>
                             <strong>
                                 <a href="/users/{{$Item['users']['login']}}">
                                     {{ $Item['users']['title'] }}
@@ -202,7 +202,7 @@
                                 <a href="/rent/{{$Rent['meta']['alias'] }}">{{ $Rent['title'] }}</a>
 
 
-                                @if( isset($Rent['meta']) && isset($Rent['meta']['created_at']) )
+                                @if( isset($Rent['meta']) )
                                      <span class="Item-Subtitle">{{ $Item['meta']['created_at'] }}</span>
                                 @endif
 
@@ -225,9 +225,9 @@
 
                             @if(isset($Rent['meta']['rating']))
                             <ul class="Item-Vote Node-XS-2 End">
-                                <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                                <li><span>{{ $Rent['meta']['rating'] }}</span></li>
-                                <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                                <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                                <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                                <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                             </ul>
                             @endif
 
@@ -282,9 +282,9 @@
 
                     @if(isset($Parts['meta']['rating']))
                     <ul class="Item-Vote Node-XS-2 End">
-                        <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                        <li><span>{{ $Parts['meta']['rating'] }}</span></li>
-                        <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                        <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                        <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                        <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                     </ul>
                     @endif
 

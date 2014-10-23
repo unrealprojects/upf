@@ -50,19 +50,19 @@
 
             <ul class="Snippet-List Split Grid">
                 @foreach($Content['BestUsers'] as $User)
-                <li class="Node-XS-6 Node-HG-4 Snippet-Item Grid Split">
+                <li class="Node-XS-6 Node-HG-4 Snippet-Item Grid Merge">
                     <header class="Grid Merge">
                         <h4 class="Item-Title Node-XXS-9">
-                            <a href="/sellers/{{$User['meta']['alias']}}" alt=" {{$User['title']}}">{{$User['title']}}</a>
+                            <a href="/users/{{$User['meta']['alias']}}" alt=" {{$User['title']}}">{{$User['title']}}</a>
                             <span class="Item-Subtitle">
                                 {{ $User['title'] }}
                             </span>
                         </h4>
 
                         <ul class="Item-Vote Node-XXS-3">
-                            <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                            <li><span>{{ $User['meta']['rating'] }}</span></li>
-                            <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                            <li><span title="Рейтинг">{{ $User['meta']['rating'] }}</span></li>
+                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                         </ul>
                     </header>
 
@@ -104,9 +104,9 @@
                             </h5>
 
                             <ul class="Item-Vote Node-XXS-3">
-                                <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                                <li><span>{{ $User['meta']['rating'] }}</span></li>
-                                <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                                <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                                <li><span title="Рейтинг">{{ $Article['meta']['rating'] }}</span></li>
+                                <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                             </ul>
 
                         </header>

@@ -38,7 +38,7 @@
                                     @endif--}}
 
 
-                                    @if( isset($Item['meta']) && isset($Content['Fields']['date']['meta-created_at']) )
+                                    @if( isset($Item['meta']) )
                                         <span class="Item-Subtitle">{{ $Item['meta']['created_at'] }}</span>
                                     @endif
 
@@ -56,7 +56,7 @@
 
 
 
-                                    @if( isset($Item['price']) && isset($Content['Fields']['statuses']['price']) )
+                                    @if( isset($Item['price']))
                                         <div class="Item-Price Node-XS-2">
                                             <span>{{$Item['price']}}</span>
                                             <span class="Icon Icon-rub"></span>
@@ -65,9 +65,9 @@
 
                                     @if(isset($Item['meta']['rating']))
                                     <ul class="Item-Vote Node-XS-2 End">
-                                        <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                                        <li><span>{{ $Item['meta']['rating'] }}</span></li>
-                                        <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                                        <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                                        <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                                        <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                                     </ul>
                                     @endif
 
@@ -119,9 +119,9 @@
 
                                     @if( isset($Item['users']) )
                                         <li>
-                                            <span>Пользователь:</span>
+                                            <span>Компания:</span>
                                             <strong>
-                                                <a href="/users/{{$Item['users']['login']}}">
+                                                <a href="/users/{{$Item['users']['meta']['alias']}}">
                                                     {{ $Item['users']['title'] }}
                                                 </a>
                                             </strong>

@@ -1,12 +1,15 @@
 <div class="Item-Gallery {{$MediaClass}}">
 
     {{-- Logotype --}}
-    @if( isset($Item['meta']['files']) )
+    @if( !empty($Item['logotype'] ) )
         <a href="{{ $Item['logotype'] }}" rel="Gallery-{{$Item['id']}}" class="fancybox">
             <img class="Item-Main-Photo" src="{{ $Item['logotype'] }}" alt="{{$Item['title']}}">
         </a>
+    @elseif( !empty($Item['catalog']) )
+        <a href="{{ $Item['catalog']['logotype'] }}" rel="Gallery-{{$Item['id']}}" class="fancybox">
+            <img class="Item-Main-Photo" src="{{ $Item['catalog']['logotype'] }}" alt="{{$Item['title']}}">
+        </a>
     @endif
-
     <ul>
         @if( isset($Item['meta']['files']) )
 

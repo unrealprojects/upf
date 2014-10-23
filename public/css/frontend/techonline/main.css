@@ -1007,7 +1007,7 @@ Label.File-Upload {
       display: block;
       padding: 7px;
       right: 0;
-      bottom: - 34px;
+      bottom: -34px;
       width: 100%;
       background-color: #e74c3c;
       color: white; }
@@ -3503,7 +3503,7 @@ footer[role='contentinfo'] {
         footer[role='contentinfo'] > div .Footer-Navigation ul {
           float: right; } }
   footer[role='contentinfo'] > div .Footer-Navigation ul li {
-    margin-left: 20px; }
+    margin-right: 20px; }
     footer[role='contentinfo'] > div .Footer-Navigation ul li a {
       color: black;
       padding-bottom: 5px;
@@ -3609,8 +3609,6 @@ img.Footer-Img {
   @media screen and (min-width: 1014px) {
     .Snippet-Item .Item-Gallery {
       padding-left: 15px; } }
-  .Snippet-Item .Item-Gallery img.Item-Main-Photo {
-    border: 5px solid #ecf0f1; }
   .Snippet-Item .Item-Gallery ul li {
     margin-top: -6px;
     width: 33.33%; }
@@ -3719,7 +3717,7 @@ ul.Tag-List li.Tag-Item {
     display: block;
     height: 35px;
     border: 1px solid #bdc3c7;
-    padding-top: 4px;
+    padding-top: 6px;
     text-align: center;
     color: #b7b7b7;
     -webkit-transition: text-shadow 0.4s, color 0.4s, background-color 0.4s, border-color 0.4s;

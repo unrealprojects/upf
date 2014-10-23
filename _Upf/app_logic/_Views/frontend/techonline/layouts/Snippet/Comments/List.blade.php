@@ -14,9 +14,9 @@
                         <p>{{$Comment['post']}}</p>
                     </div>
                     <ul class="Item-Vote Node-XXS-3 Node-XS-2">
-                        <li><a href="#"><span class="Icon Icon-chevron-left"></span></a></li>
-                        <li><span>{{ $Item['meta']['rating'] }}</span></li>
-                        <li><a href="#"><span class="Icon Icon-chevron-right"></span></a></li>
+                        <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                        <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                        <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                     </ul>
                 </li>
             @endforeach

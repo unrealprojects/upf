@@ -502,6 +502,7 @@ class Fields extends General {
             })
             ->with('meta',
                 'users',
+                'users.meta',
                 'meta.categories',
                 'meta.tags',
                 'meta.regions',

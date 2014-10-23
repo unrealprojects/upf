@@ -35,7 +35,13 @@ class Parts extends Meta{
                 'meta.regions',
                 'meta.files',
                 'users',
+                'users.meta',
                 'meta.comments')
+            //  Hard Crutch
+            ->leftJoin('system_meta', 'meta_id', '=', 'system_meta.id')
+            ->orderBy('created_at', 'DESC')
+            ->select($this->table . '.*')
+
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')
@@ -66,6 +72,7 @@ class Parts extends Meta{
                 'meta.regions',
                 'meta.files',
                 'users',
+                'users.meta',
                 'meta.comments'
             )
             ->first();

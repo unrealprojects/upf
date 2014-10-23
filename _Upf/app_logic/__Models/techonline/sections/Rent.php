@@ -40,6 +40,7 @@ class Rent extends Meta{
                 'meta.regions',
                 'meta.files',
                 'users',
+                'users.meta',
                 'meta.comments',
                 'catalog',
                 'catalog.meta',
@@ -49,6 +50,13 @@ class Rent extends Meta{
                 'catalog.meta.paramsvalues.paramData'
 
             )
+
+            //  Hard Crutch
+            ->leftJoin('system_meta', 'meta_id', '=', 'system_meta.id')
+            ->orderBy('created_at', 'DESC')
+            ->select($this->table . '.*')
+
+
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')
@@ -80,6 +88,7 @@ class Rent extends Meta{
                 'meta.files',
                 'meta.comments',
                 'users',
+                'users.meta',
                 'catalog',
                 'catalog.meta',
                 'catalog.meta.categories',
