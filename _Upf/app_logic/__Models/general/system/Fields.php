@@ -133,9 +133,10 @@ class Fields extends General {
                         'meta.tags',
                         'meta.regions')
 
-                        //  Crutch
-        //                        ->join('system_meta as h1', 'meta_id', '=', 'h1.id')
-        //                        ->orderBy('h1.updated_at', 'DESC')
+                        //  Hard Crutch
+                            ->leftJoin('system_meta', 'meta_id', '=', 'system_meta.id')
+                            ->orderBy('created_at', 'DESC')
+                            ->select($this->table . '.*')
 
 
                     ->paginate(isset($Filter['Pagination'])?$Filter['Pagination']
@@ -144,7 +145,7 @@ class Fields extends General {
           //      print_r($List->toArray());exit;
             }else{
                 /*** Clear List ***/
-                $List = $this->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
+                $List = $this->orderBy('created_at', 'DESC')->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
             }
 
         /*** Return Data ***/
@@ -388,13 +389,14 @@ class Fields extends General {
 
         /*** Get Item By Field ***/
         $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
-
+    //        print_r(\Input::all());
+    //        exit;
 
         /*** Write Logotype ***/
 
         if(\Input::hasFile('logotype')){
             /*** Set File Src ***/
-            $FileSrc = $this->PhotosUrl.time().'_'.\Input::file('logotype')->getClientOriginalName();
+            $FileSrc = $this->PhotosUrl.time().'_'.\Mascame\Urlify::filter(\Input::file('logotype')->getClientOriginalName());
 
             /*** Save ***/
             \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
@@ -404,12 +406,12 @@ class Fields extends General {
         }
 
         /*** Write Files ***/
-        if(!$Meta){
+        if($Meta){
             if(\Input::hasFile('meta-files')){
                 foreach(\Input::file('meta-files') as $Key=>$Photo){
                     $File = new \UpfModels\Files();
 
-                    $FileSrc = $this->PhotosUrl.time() . '_' . $Photo->getClientOriginalName();
+                    $FileSrc = $this->PhotosUrl.time() . '_' . \Mascame\Urlify::filter($Photo->getClientOriginalName());
                     $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
                     $File->src = $FileSrc;
                     $File->save();
