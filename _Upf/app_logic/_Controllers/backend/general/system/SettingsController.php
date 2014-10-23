@@ -11,9 +11,7 @@ class SettingsController extends BackendController{
     /*** Show List ***/
     public function Index(){
         // View Data
-        $this->ViewData['content'] = [
-            'data' => \Config::get('site/app_settings')
-        ];
+        $this->ViewData['Content'] = \Config::get('site/app_settings');
         return \View::make($this->View.'Settings',$this->ViewData);
     }
 

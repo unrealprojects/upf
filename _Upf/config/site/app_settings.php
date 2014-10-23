@@ -18,12 +18,12 @@ return [
     ],
     /*** Model ***/
     'Paginate'=> [
-        'content'=>'30',
+        'content'=>'10',
         'type'=>'numeric',
         'title'=>'Пагинация на Backend'
     ],
     'PaginateFrontend'=> [
-        'content'=>'5',
+        'content'=>'8',
         'type'=>'numeric',
         'title'=>'Пагинация на Frontend'
     ],

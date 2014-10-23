@@ -16,24 +16,28 @@
             {{-- Each Item --}}
             @foreach( $Content['List'] as $ItemKey => $Item )
 
-                <li class="Snippet-Item Grid Split">
+                <li class="Snippet-Item Grid Merge">
 
 
 
 
                     {{-- Group :: Main --}}
 
-                        <header class="Grid Split">
+                            <header class="Grid Split">
                             @if( isset($Item['title']) )
                                 <h4 class="Item-Title {{ (strlen($Item['title'])>20) ? 'Item-Title-Long' : ''}} Node-XS-8">
                                     <a href="{{ $BaseUrl . $Item['meta']['alias'] }}">
                                         {{ $Item['title'] }}
                                     </a>
-                                    @if(isset($Item['meta']['views']))
+
+
+{{--                                    @if(isset($Item['meta']['views']))
                                     <span class="Item-Views" title="Просмотров записи: {{ $Item['meta']['views'] }}">
                                         <span class="Icon Icon-eye"></span><span>{{ $Item['meta']['views'] }}</span>
                                     </span>
-                                    @endif
+                                    @endif--}}
+
+
                                     @if( isset($Item['meta']) && isset($Content['Fields']['date']['meta-created_at']) )
                                         <span class="Item-Subtitle">{{ $Item['meta']['created_at'] }}</span>
                                     @endif
@@ -99,61 +103,75 @@
                                     <p>{{ $Item['about'] }}</p>
                                 @endif
 
-                                    @if(isset($Item['meta']['users']['phones']))
-                                        <div class="Item-User Node-XS-2">
+
+                                <ul class="_Inline Item-Details">
+                                    @if( isset($Item['users']['phones']) )
+                                        <li class="Item-User ">
                                             <span>Телефоны:</span>
-                                            <span>{{ $Item['meta']['users']['phones'] }}</span>
-                                        </div>
+                                            <strong>{{ $Item['users']['phones'] }}</strong>
+                                        </li>
                                     @elseif(isset($Item['phones']))
-                                        <div class="Item-User Node-XS-2">
+                                        <li class="Item-User">
                                             <span>Телефоны:</span>
-                                            <span>{{ $Item['phones'] }}</span>
-                                        </div>
+                                            <strong>{{ $Item['phones'] }}</strong>
+                                        </li>
                                     @endif
 
+                                    @if( isset($Item['users']) )
+                                        <li>
+                                            <span>Пользователь:</span>
+                                            <strong>
+                                                <a href="/users/{{$Item['users']['login']}}">
+                                                    {{ $Item['users']['title'] }}
+                                                </a>
+                                            </strong>
+                                        </li>
+                                    @endif
 
 
                                     @if(isset($Item['meta']['categories']['title']))
-                                        <div class="Item-User Node-XS-2">
+                                        <li class="Item-User">
                                             <span>Категория:</span>
-                                            <span>{{ $Item['meta']['categories']['title'] }}</span>
-                                        </div>
+                                            <strong>{{ $Item['meta']['categories']['title'] }}</strong>
+                                        </li>
                                     @endif
 
                                     @if(isset($Item['meta']['regions']['title']))
-                                        <div class="Item-Region Node-XS-2">
+                                        <li class="Item-Region">
                                             <span>Регион:</span>
-                                            <span>{{ $Item['meta']['regions']['title'] }}</span>
-                                        </div>
+                                            <strong>{{ $Item['meta']['regions']['title'] }}</strong>
+                                        </li>
                                     @endif
-
+                                </ul>
 
                                 {{-- More Info --}}
-                                @if( isset($Content['Fields']['more']) )
+                                @if(!empty($Item['meta']['paramsvalues'])  || !empty($Item['catalog']['meta']['paramsvalues']) )
                                     <div class="More-Info">
-                                        <h6 class=" Toggle-Next-Item"><a href="#">Подробная информация</a></h6>
-                                        <table class="Toggled-Next-Item">
-                                            @foreach( $Content['Fields']['more'] as $FieldMore )
-                                                @if($SubItem = \UpfHelpers\View::RelationToArray( $Item, $FieldMore['relation'] ))
-                                                    @if($FieldMore['type']=='link')
-                                                         <tr>
-                                                             <td>{{ $FieldMore['title'] }}</td>
-                                                             <td>
-                                                                 <a href="/{{$FieldMore['values'] . '/' .( isset($SubItem['alias'])?$SubItem['alias']
-                                                                                                                                  :$SubItem['login'] ) }}">
-                                                                     {{ $SubItem['title'] }}
-                                                                 </a>
-                                                             </td>
-                                                         </tr>
-                                                    @elseif($FieldMore['type']=='config')
-                                                        <tr>
-                                                            <td>{{ $FieldMore['title'] }}</td>
-                                                            <td>{{ \Config::get('models/Fields.' . $FieldMore['values'] . '.' . $SubItem) }}</td>
-                                                        </tr>
-                                                    @endif
-                                                @endif
-                                            @endforeach
+                                        <h6 class=" Toggle-Next-Item"><a href="#">Подробная информация <span class="Icon Icon-caret-down"></span></a></h6>
+                                        <div  class="Toggled-Next-Item">
+                                        <table>
+
+
+                                            @if( isset($Item['meta']['paramsvalues']) )
+                                                @foreach($Item['meta']['paramsvalues'] as $Param)
+                                                    <tr>
+                                                        <td>{{$Param['param_data']['title']}}</td>
+                                                        <td>{{$Param['value']}} {{$Param['param_data']['dimension']}}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+
+                                            @if( isset($Item['catalog']['meta']['paramsvalues']) )
+                                                @foreach($Item['catalog']['meta']['paramsvalues'] as $Param)
+                                                    <tr>
+                                                        <td>{{$Param['param_data']['title']}}</td>
+                                                        <td>{{$Param['value']}} {{$Param['param_data']['dimension']}}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+
                                         </table>
+                                        </div>
                                      </div>
                                 @endif
                             </div>
@@ -165,10 +183,9 @@
 
 
                     {{-- Group :: Relation --}}
-
+                    @if( !empty($Item['meta']['tags']) )
                         <footer>
                             {{-- Tags --}}
-                            @if( isset($Item['meta']['tags']) )
                                 <ul class="Tag-List">
                                     @foreach($Item['meta']['tags'] as $Tag)
                                         <li class="Tag-Item">
@@ -176,12 +193,10 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                            @endif
 
-                            {{-- Categories --}}
-
+                            {{-- Tags --}}
                         </footer>
-
+                    @endif
                     {{-- End Group :: Relation --}}
 
 

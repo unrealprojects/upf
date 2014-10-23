@@ -133,6 +133,8 @@ class Meta extends Fields {
                     if(isset($Filters['tag_alias'])){
                         $This->WhereAliasInTags($Query,$Filters['tag_alias']);
                     }
+
+                   // $This->orderBy('updated_at','DESC');
                 });
             }
 
@@ -209,12 +211,13 @@ class Meta extends Fields {
                        'meta.files',
                        'meta.categories.params',
                        'meta.paramsvalues',
-                       'meta.paramsvalues.params')
+                       'meta.paramsvalues.paramData'
+                )
                 ->paginate(
                     isset($Filter['Pagination'])?$Filter['Pagination']
                                                 :\Config::get('site\app_settings.PaginateFrontend.content')
                 );
-           //print_r($List->toArray());exit;
+          // print_r($List->toArray());exit;
 
             /*** Return Frontend Content ***/
             return [
@@ -235,7 +238,7 @@ class Meta extends Fields {
         public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
             /*** Get Item By Field ***/
             $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
-
+            //print_r($Item);exit;
 
             /*** Result ***/
             return [

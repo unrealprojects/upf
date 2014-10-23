@@ -98,8 +98,7 @@ table {
 				float: left;
 				margin-right: $size-xs;
 
-				a {
-					@extend .Button;
+				span {
 					@extend .Small;
 				}
 			}

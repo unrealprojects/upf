@@ -57,13 +57,13 @@
 
 
 {{--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// Text Field
+/// Password Field
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
 
 @elseif($Field['type']=='password')
 <div class="Control-Group">
     <label class="Node-XXS-3" for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
-    <input class="Node-XXS-9" name="{{$Field['relation']}}" id="field_{{$Field['relation']}}" type="text"/>
+    <input class="Node-XXS-9" name="{{$Field['relation']}}" id="field_{{$Field['relation']}}" type="password"/>
 </div>
 
 

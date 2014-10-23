@@ -75,7 +75,7 @@ upf.Messages.Show = function (message,type){
                         +'<header>'
                             +'<h4 class="Box-Title">'+title[type]+'</h4>'
                             +'<ul class="Box-Tools">'
-                                +'<li><a class="Box-Drop-Down" href="#"><span class="Icon-chevron-down"></span></a></li>'
+                                +'<li><a class="Box-Drop-Down" href="#"><span class="Icon Icon-chevron-down"></span></a></li>'
                                 +'<li><a class="Box-Delete" href="#"><span class="Icon Icon-close"></span></a></li>'
                             +'</ul>'
                         +'</header>'

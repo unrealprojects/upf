@@ -64,11 +64,12 @@ class BackendController extends UpfController {
 
             $Meta = \UpfModels\Meta::where('section',$Section)->where('alias',$alias)->first();
 
-            $this->ViewData['meta'] = [
+            return [
                     'title' => (!empty($Meta->title))?$Meta->title:\Config::get('site/app_settings.MetaTitle.content'),
                     'description' => (!empty($Meta->description))?$Meta->description:\Config::get('site/app_settings.MetaDescription.content'),
                     'keywords' => (!empty($Meta->keywords))?$Meta->keywords:\Config::get('site/app_settings.MetaKeywords.content')
             ];
+
         }
 
 

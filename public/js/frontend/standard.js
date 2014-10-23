@@ -23,7 +23,7 @@
         });
 
         /*** Tootle-Next-Item ***/
-        $('.Toggled-Next-Item').hide();
+        $('.Toggled-Next-Item').slideUp();
 //        $('.Toggle-Next-Item a').click(function(){
 //            $.preventDefault();
 //        });

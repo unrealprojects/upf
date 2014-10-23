@@ -40,19 +40,18 @@ class Comments extends Migration {
         return [
             /*** List ***/
             ['Автор', 'author', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Пост', 'post', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
+            ['Пост', 'post', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
             ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
 
             /*** Add ***/
             ['Автор', 'author', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Пост', 'post', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+            ['Пост', 'post', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
 
             /*** Edit ***/
             // Group :: Main
             ['№', 'id', 'text', 'Title', 'main', false, 'backend', $Table, 'edit'],
             ['Автор', 'author', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
-            ['Пост', 'post', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
+            ['Пост', 'post', 'text', 'Custom', 'main', true, 'backend', $Table, 'edit'],
             // Group :: Relations
             ['Раздел сайта', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.sections'],
 //            ['Материал', 'wall_id', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','section',''],
@@ -62,8 +61,8 @@ class Comments extends Migration {
             ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
             ['Рейтинг', 'rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
             // Group :: Date
-            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit']
+            ['Созданно', 'created_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit']
         ];
     }
 }

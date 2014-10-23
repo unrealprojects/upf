@@ -27,7 +27,6 @@ class Meta extends Migration {
             /*** Relations ***/
             $table->string('section')->nullable();
             $table->integer('comments_id')->default(0);
-            $table->integer('user_id')->default(0);
 
             /*** Statuses ***/
             $table->integer('status')->default(\Config::get('models/Fields.status.default'));
@@ -103,7 +102,7 @@ class Meta extends Migration {
                 ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
                 ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
                 ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Tags'],
-                ['Параметры', 'meta-categories-params', 'params', 'Relation', 'relations', true, 'backend', $Table, 'edit'],
+
                 // Group :: Statuses
                 ['Статус', 'meta-status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
                 ['Привелегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],

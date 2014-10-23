@@ -28,7 +28,6 @@ class MetaSeeder extends \Seeder {
 
         /*** Relations ***/
         $Meta->section = $Data['section'];
-        $Meta->user_id = isset($Data['user_id'])?$Data['user_id']:0;
         $Meta->comments_id = \UpfSeeds\CommentsSeeder::AddCommentsToSection($Data['section']);
 
         /*** Statuses ***/

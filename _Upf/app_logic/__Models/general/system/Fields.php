@@ -115,7 +115,8 @@ class Fields extends General {
                     'meta.files',
                     'meta.categories.params',
                     'meta.paramsvalues',
-                    'meta.paramsvalues.params')->first();
+                    'meta.paramsvalues.paramData'
+                )->first();
         }
     }
 
@@ -131,9 +132,16 @@ class Fields extends General {
                         'meta.categories',
                         'meta.tags',
                         'meta.regions')
+
+                        //  Crutch
+        //                        ->join('system_meta as h1', 'meta_id', '=', 'h1.id')
+        //                        ->orderBy('h1.updated_at', 'DESC')
+
+
                     ->paginate(isset($Filter['Pagination'])?$Filter['Pagination']
                         :\Config::get('site\app_settings.Paginate.content'));
 
+          //      print_r($List->toArray());exit;
             }else{
                 /*** Clear List ***/
                 $List = $this->paginate(isset($Filter['PageSize'])?$Filter['PageSize']:20);
@@ -233,8 +241,13 @@ class Fields extends General {
                     }
                 $LinkAlias = $MetaRelations[1];
             }else{
-                $this->alias = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->title)?$this->title:''),$this);
-                $LinkAlias = $this->alias;
+                if(isset($this->alias)){
+                    $this->alias = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->title)?$this->title:''),$this);
+                    $LinkAlias = $this->alias;
+                }elseif(isset($this->login)){
+                    $this->login = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->login)?$this->login:''),$this,'login');
+                    $LinkAlias = $this->login;
+                }
             }
 
         /*** Save ***/
@@ -305,12 +318,21 @@ class Fields extends General {
                     }
 
                     /*** Multi Select ***/
-                }elseif(\Input::get($Field->relation) && isset($FieldExplode[1]) && $Field['type']=='multi-select' && $Field['editable']){
+                }elseif(\Input::get($Field->relation) && $Field['type']=='multi-select' && $Field['editable']){
+
                     $Keys = [];
-                    foreach($Input[$Field->relation] as $Key){
-                        $Keys[$Key] = ['section'=>$this->Section];
+                    if( isset($FieldExplode[1]) ){
+                        foreach($Input[$Field->relation] as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $Item->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
+                    }elseif($FieldExplode[0]){
+
+                        foreach($Input[$Field->relation] as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $Item->{$FieldExplode[0]}()->sync($Keys);
                     }
-                    $Item->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
 
                     /*** Select ***/
                 }elseif($Field['type']=='select' && $Field['editable']){
@@ -477,14 +499,16 @@ class Fields extends General {
                 });
             })
             ->with('meta',
-                'meta.users',
+                'users',
                 'meta.categories',
                 'meta.tags',
                 'meta.regions',
                 'meta.files',
                 'meta.categories.params',
-                'meta.paramsvalues',
-                'meta.paramsvalues.params')
+                'meta.paramsvalues'
+                //'meta.paramsvalues.params'
+    )
+            ->order('created_at','desc')
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')

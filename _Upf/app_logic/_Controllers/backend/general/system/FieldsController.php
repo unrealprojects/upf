@@ -15,6 +15,9 @@ class FieldsController extends SystemController{
             $Model = new $this->Model();
 
             $this->ViewData['Content'] = $Model->Index($this->Filters,$this->HasMeta);
+//            print_r($this->ViewData['Meta']);
+//            exit;
+
 
             return \View::make($this->View.'list',$this->ViewData);
         }
@@ -29,7 +32,7 @@ class FieldsController extends SystemController{
 
             $Model = new $this->Model();
 
-            if( \Input::get('title')){
+            if( \Input::get('title') || \Input::get('login') ){
                 if($Location = $Model->AddItem($this->HasMeta)){
                     echo json_encode(['message'=>'Запись успешно добавлена в базу данных.','type'=>'Success','location'=>$Location]);
                 }else{

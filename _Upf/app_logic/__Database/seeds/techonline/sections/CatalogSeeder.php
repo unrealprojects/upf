@@ -26,7 +26,6 @@ class CatalogSeeder extends \Seeder {
                 /*** Relations ***/
                 'section' => 'catalog',
                 'category_id' => $i ,
-                'user_id' => 0 ,
                 /*** Statuses ***/
                 'status' => 1,
                 'privileges' => 0,

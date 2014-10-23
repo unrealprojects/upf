@@ -47,6 +47,7 @@ class Catalog extends Migration {
             ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
             ['Короткое описание', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
             ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'edit'],
+            ['Параметры', 'meta-categories-params', 'params', 'Relation', 'relations', true, 'backend', $Table, 'edit'],
 
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],

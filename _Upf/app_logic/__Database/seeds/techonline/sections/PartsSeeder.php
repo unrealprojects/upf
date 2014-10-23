@@ -18,6 +18,7 @@ class PartsSeeder extends \Seeder {
             $Parts->intro = $Faker->paragraph();
             $Parts->text = $Faker->text();
             $Parts->price = $Faker->numberBetween(200,10000);
+            $Parts->user_id = $i;
 
             /*** Meta ***/
             $Data = [
@@ -28,7 +29,6 @@ class PartsSeeder extends \Seeder {
                 /*** Relations ***/
                 'section' => 'parts',
                 'category_id' => $i,
-                'user_id' => $i ,
                 'region_id' => $i ,
                 /*** Statuses ***/
                 'status' => 1,

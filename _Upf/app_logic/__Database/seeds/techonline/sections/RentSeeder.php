@@ -18,6 +18,7 @@ class RentSeeder extends \Seeder {
             $Rent->intro = $Faker->paragraph();
             $Rent->text = $Faker->text();
             $Rent->price = $Faker->numberBetween(200,10000);
+            $Rent->user_id = $i;
 
             /*** Meta ***/
             $Data = [
@@ -28,7 +29,6 @@ class RentSeeder extends \Seeder {
                 /*** Relations ***/
                 'section' => 'rent',
                 'category_id' => $i ,
-                'user_id' => $i ,
                 'region_id' => $i ,
                 /*** Statuses ***/
                 'status' => 1,

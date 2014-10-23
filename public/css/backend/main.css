@@ -2198,9 +2198,7 @@ code.Inline, code.pagination, code.Pagination {
   outline: 1px red solid !important; }
 
 ol[class*='Grid'] > li, ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Breadcrumbs ul.Breadcrumb-List, .Tab-Set ul.Tab-Captions, nav.Userbar ul, table td.Actions ul, .pagination, .Pagination, .Box > header ul.Box-Tools, .Breadcrumbs .Breadcrumb-List, .Dropdown .Dropdown-Content, .Tab-Set ul.Tab-Content, aside.Menu > ul.Menu-Category, li.Menu-Category-Item, ul.Menu-Subcategory, nav.Userbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
+  list-style: none; }
   ol[class*='Grid'] > li > li, ul[class*='Grid'] > li > li, ul._Inline > li, .Box > header ul.Box-Tools > li, .Breadcrumbs ul.Breadcrumb-List > li, .Tab-Set ul.Tab-Captions > li, nav.Userbar ul > li, table td.Actions ul > li, .pagination > li, .Pagination > li, .Box > header ul.Box-Tools > li, .Breadcrumbs .Breadcrumb-List > li, .Dropdown .Dropdown-Content > li, .Tab-Set ul.Tab-Content > li, aside.Menu > ul.Menu-Category > li, li.Menu-Category-Item > li, ul.Menu-Subcategory > li, nav.Userbar ul > li {
     margin: 0;
     padding: 0; }
@@ -2231,7 +2229,7 @@ ol[class*='Grid'] > li, ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box
   -o-user-select: none;
   user-select: none; }
 
-a.Button, table td.Actions ul li a, button.Button, table td.Actions ul li button, input[type='submit'], input[type='button'], span.Button, table td.Actions ul li span {
+a.Button, button.Button, input[type='submit'], input[type='button'], span.Button {
   cursor: pointer; }
 
 .Collapsed .Dropdown {
@@ -2370,7 +2368,7 @@ table {
   padding: 10px;
   display: inline-block; }
 
-input[type='text'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown, Label.File-Upload > span {
+input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown, Label.File-Upload > span {
   display: inline-block;
   height: 30px;
   border: 1px #b7b7b7 solid;
@@ -2379,7 +2377,7 @@ input[type='text'], input[type='tel'], input[type='submit'], input[type='button'
   font-size: 14px;
   line-height: 14px; }
 
-input[type='text'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown {
+input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown {
   padding: 7px;
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
@@ -2387,34 +2385,34 @@ input[type='text'], input[type='tel'], input[type='submit'], input[type='button'
   -webkit-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   -moz-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   transition: border-color 0.4s, background-color 0.4s, color 0.4s; }
-  input[type='text']:hover, input[type='tel']:hover, input[type='submit']:hover, input[type='button']:hover, input[type='search']:hover, input[type='email']:hover, input[type='file']:hover, input[type='password']:hover, select:hover, textarea:hover, .Dropdown:hover {
+  input[type='text']:hover, input[type='number']:hover, input[type='tel']:hover, input[type='submit']:hover, input[type='button']:hover, input[type='search']:hover, input[type='email']:hover, input[type='file']:hover, input[type='password']:hover, select:hover, textarea:hover, .Dropdown:hover {
     background-color: #f2f2f2; }
-  input[type='text']:focus, input[type='tel']:focus, input[type='submit']:focus, input[type='button']:focus, input[type='search']:focus, input[type='email']:focus, input[type='file']:focus, input[type='password']:focus, select:focus, textarea:focus, .Dropdown:focus {
+  input[type='text']:focus, input[type='number']:focus, input[type='tel']:focus, input[type='submit']:focus, input[type='button']:focus, input[type='search']:focus, input[type='email']:focus, input[type='file']:focus, input[type='password']:focus, select:focus, textarea:focus, .Dropdown:focus {
     border-color: #00a4c6;
     background-color: #e5fbff;
     box-shadow: 0 0 1px white inset, 0 0 10px #95edff; }
-  input[type='text'][disabled], input[type='tel'][disabled], input[type='submit'][disabled], input[type='button'][disabled], input[type='search'][disabled], input[type='email'][disabled], input[type='file'][disabled], input[type='password'][disabled], select[disabled], textarea[disabled], .Dropdown[disabled], input[type='text'][disabled]:hover, input[type='tel'][disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, input[type='search'][disabled]:hover, input[type='email'][disabled]:hover, input[type='file'][disabled]:hover, input[type='password'][disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, .Dropdown[disabled]:hover {
+  input[type='text'][disabled], input[type='number'][disabled], input[type='tel'][disabled], input[type='submit'][disabled], input[type='button'][disabled], input[type='search'][disabled], input[type='email'][disabled], input[type='file'][disabled], input[type='password'][disabled], select[disabled], textarea[disabled], .Dropdown[disabled], input[type='text'][disabled]:hover, input[type='number'][disabled]:hover, input[type='tel'][disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, input[type='search'][disabled]:hover, input[type='email'][disabled]:hover, input[type='file'][disabled]:hover, input[type='password'][disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, .Dropdown[disabled]:hover {
     border-color: #b7b7b7;
     background-color: #f2f2f2;
     color: #b7b7b7;
     cursor: not-allowed; }
-  input[type='text'].Ghost, input[type='tel'].Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, input[type='search'].Ghost, input[type='email'].Ghost, input[type='file'].Ghost, input[type='password'].Ghost, select.Ghost, textarea.Ghost, .Dropdown.Ghost {
+  input[type='text'].Ghost, input[type='number'].Ghost, input[type='tel'].Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, input[type='search'].Ghost, input[type='email'].Ghost, input[type='file'].Ghost, input[type='password'].Ghost, select.Ghost, textarea.Ghost, .Dropdown.Ghost {
     border-color: transparent;
     background: transparent;
     box-shadow: none; }
-  input[type='text'].Error, input[type='tel'].Error, input[type='submit'].Error, input[type='button'].Error, input[type='search'].Error, input[type='email'].Error, input[type='file'].Error, input[type='password'].Error, select.Error, textarea.Error, .Dropdown.Error {
+  input[type='text'].Error, input[type='number'].Error, input[type='tel'].Error, input[type='submit'].Error, input[type='button'].Error, input[type='search'].Error, input[type='email'].Error, input[type='file'].Error, input[type='password'].Error, select.Error, textarea.Error, .Dropdown.Error {
     color: #a02828;
     border-color: #e43f3f;
     background-color: #fff3f3; }
-  input[type='text'].Warning, input[type='tel'].Warning, input[type='submit'].Warning, input[type='button'].Warning, input[type='search'].Warning, input[type='email'].Warning, input[type='file'].Warning, input[type='password'].Warning, select.Warning, textarea.Warning, .Dropdown.Warning {
+  input[type='text'].Warning, input[type='number'].Warning, input[type='tel'].Warning, input[type='submit'].Warning, input[type='button'].Warning, input[type='search'].Warning, input[type='email'].Warning, input[type='file'].Warning, input[type='password'].Warning, select.Warning, textarea.Warning, .Dropdown.Warning {
     color: #b4771e;
     border-color: #e4a43f;
     background-color: #fff9f1; }
-  input[type='text'].Success, input[type='tel'].Success, input[type='submit'].Success, input[type='button'].Success, input[type='search'].Success, input[type='email'].Success, input[type='file'].Success, input[type='password'].Success, select.Success, textarea.Success, .Dropdown.Success {
+  input[type='text'].Success, input[type='number'].Success, input[type='tel'].Success, input[type='submit'].Success, input[type='button'].Success, input[type='search'].Success, input[type='email'].Success, input[type='file'].Success, input[type='password'].Success, select.Success, textarea.Success, .Dropdown.Success {
     color: #54894e;
     border-color: #6ea268;
     background-color: #f1fff0; }
-  input[type='text'].Info, input[type='tel'].Info, input[type='submit'].Info, input[type='button'].Info, input[type='search'].Info, input[type='email'].Info, input[type='file'].Info, input[type='password'].Info, select.Info, textarea.Info, .Dropdown.Info {
+  input[type='text'].Info, input[type='number'].Info, input[type='tel'].Info, input[type='submit'].Info, input[type='button'].Info, input[type='search'].Info, input[type='email'].Info, input[type='file'].Info, input[type='password'].Info, select.Info, textarea.Info, .Dropdown.Info {
     color: #18637f;
     border-color: #2782a4;
     background-color: #f4fdff; }
@@ -2654,7 +2652,7 @@ Label.File-Upload {
 .Heading + dl.Tabs {
   margin-top: 15px; }
 
-a.Button, table td.Actions ul li a, button.Button, table td.Actions ul li button, input[type='submit'], input[type='button'], span.Button, table td.Actions ul li span {
+a.Button, button.Button, input[type='submit'], input[type='button'], span.Button {
   padding: 7px;
   border: 1px #b7b7b7 solid;
   background-color: #f9f9f9;
@@ -2670,84 +2668,84 @@ a.Button, table td.Actions ul li a, button.Button, table td.Actions ul li button
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
   border-radius: 5px; }
-  a.Button:hover, table td.Actions ul li a:hover, button.Button:hover, table td.Actions ul li button:hover, input[type='submit']:hover, input[type='button']:hover, span.Button:hover, table td.Actions ul li span:hover {
+  a.Button:hover, button.Button:hover, input[type='submit']:hover, input[type='button']:hover, span.Button:hover {
     background-color: #f2f2f2;
     border-color: #00a4c6; }
-  a.Button[disabled], table td.Actions ul li a[disabled], button.Button[disabled], table td.Actions ul li button[disabled], input[type='submit'][disabled], input[type='button'][disabled], span.Button[disabled], table td.Actions ul li span[disabled] {
+  a.Button[disabled], button.Button[disabled], input[type='submit'][disabled], input[type='button'][disabled], span.Button[disabled] {
     color: #ccc;
     cursor: not-allowed; }
-  a.Button[disabled]:hover, table td.Actions ul li a[disabled]:hover, button.Button[disabled]:hover, table td.Actions ul li button[disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, span.Button[disabled]:hover, table td.Actions ul li span[disabled]:hover {
+  a.Button[disabled]:hover, button.Button[disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, span.Button[disabled]:hover {
     background-color: #f1f1f1;
     border-color: 1px solid #dedede; }
-  a.Button.Fluid, table td.Actions ul li a.Fluid, button.Button.Fluid, table td.Actions ul li button.Fluid, input[type='submit'].Fluid, input[type='button'].Fluid, span.Button.Fluid, table td.Actions ul li span.Fluid {
+  a.Button.Fluid, button.Button.Fluid, input[type='submit'].Fluid, input[type='button'].Fluid, span.Button.Fluid {
     width: 100%; }
-  a.Button.Small, table td.Actions ul li a.Small, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li a.Button, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li table td.Actions ul li a, button.Button.Small, table td.Actions ul li button.Small, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li button.Button, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li table td.Actions ul li button, input[type='submit'].Small, table td.Actions ul li input[type='submit'], input[type='button'].Small, table td.Actions ul li input[type='button'], span.Button.Small, table td.Actions ul li span.Small, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li span.Button, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li table td.Actions ul li span {
+  a.Button.Small, table td.Actions ul li a.Button, button.Button.Small, table td.Actions ul li button.Button, input[type='submit'].Small, table td.Actions ul li input[type='submit'], input[type='button'].Small, table td.Actions ul li input[type='button'], span.Button.Small, table td.Actions ul li span.Button {
     font-size: 10px;
     padding: 2px 5px; }
-  a.Button.Large, table td.Actions ul li a.Large, button.Button.Large, table td.Actions ul li button.Large, input[type='submit'].Large, input[type='button'].Large, span.Button.Large, table td.Actions ul li span.Large {
+  a.Button.Large, button.Button.Large, input[type='submit'].Large, input[type='button'].Large, span.Button.Large {
     padding: 10px 15px; }
-  a.Button.Huge, table td.Actions ul li a.Huge, button.Button.Huge, table td.Actions ul li button.Huge, input[type='submit'].Huge, input[type='button'].Huge, span.Button.Huge, table td.Actions ul li span.Huge {
+  a.Button.Huge, button.Button.Huge, input[type='submit'].Huge, input[type='button'].Huge, span.Button.Huge {
     font-size: 19px;
     padding: 15px 20px; }
-  a.Button.Round, table td.Actions ul li a.Round, table td.Actions ul li a.Button.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li a.Button.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li a[type='submit'].Ghost, table td.Actions ul li a[type='button'].Ghost, table td.Actions ul li a.Button.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, a.Button.Ghost.Button, a.Button.Ghost.Button, a[type='submit'].Ghost.Button, table td.Actions ul li a[type='submit'].Ghost, a[type='button'].Ghost.Button, table td.Actions ul li a[type='button'].Ghost, a.Button.Ghost.Button, button.Button.Round, table td.Actions ul li button.Round, table td.Actions ul li button.Button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li button.Button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li button[type='submit'].Ghost, table td.Actions ul li button[type='button'].Ghost, table td.Actions ul li button.Button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, button.Button.Ghost.Button, button.Button.Ghost.Button, button[type='submit'].Ghost.Button, table td.Actions ul li button[type='submit'].Ghost, button[type='button'].Ghost.Button, table td.Actions ul li button[type='button'].Ghost, button.Button.Ghost.Button, input[type='submit'].Round, input.Button.Ghost[type='submit'], table td.Actions ul li input.Ghost[type='submit'], input.Button.Ghost[type='submit'], table td.Actions ul li input.Ghost[type='submit'], input[type='submit'].Ghost[type='submit'], input[type='button'].Ghost[type='submit'], input.Button.Ghost[type='submit'], table td.Actions ul li input.Ghost[type='submit'], input[type='button'].Round, input.Button.Ghost[type='button'], table td.Actions ul li input.Ghost[type='button'], input.Button.Ghost[type='button'], table td.Actions ul li input.Ghost[type='button'], input[type='submit'].Ghost[type='button'], input[type='button'].Ghost[type='button'], input.Button.Ghost[type='button'], table td.Actions ul li input.Ghost[type='button'], span.Button.Round, table td.Actions ul li span.Round, table td.Actions ul li span.Button.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li span.Button.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li span[type='submit'].Ghost, table td.Actions ul li span[type='button'].Ghost, table td.Actions ul li span.Button.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, span.Button.Ghost.Button, span.Button.Ghost.Button, span[type='submit'].Ghost.Button, table td.Actions ul li span[type='submit'].Ghost, span[type='button'].Ghost.Button, table td.Actions ul li span[type='button'].Ghost, span.Button.Ghost.Button {
+  a.Button.Round, a.Button.Ghost.Button, a.Button.Ghost.Button, a[type='submit'].Ghost.Button, a[type='button'].Ghost.Button, a.Button.Ghost.Button, button.Button.Round, button.Button.Ghost.Button, button.Button.Ghost.Button, button[type='submit'].Ghost.Button, button[type='button'].Ghost.Button, button.Button.Ghost.Button, input[type='submit'].Round, input.Button.Ghost[type='submit'], input.Button.Ghost[type='submit'], input[type='submit'].Ghost[type='submit'], input[type='button'].Ghost[type='submit'], input.Button.Ghost[type='submit'], input[type='button'].Round, input.Button.Ghost[type='button'], input.Button.Ghost[type='button'], input[type='submit'].Ghost[type='button'], input[type='button'].Ghost[type='button'], input.Button.Ghost[type='button'], span.Button.Round, span.Button.Ghost.Button, span.Button.Ghost.Button, span[type='submit'].Ghost.Button, span[type='button'].Ghost.Button, span.Button.Ghost.Button {
     border-radius: 10px; }
-  a.Button.Search, table td.Actions ul li a.Search, button.Button.Search, table td.Actions ul li button.Search, input[type='submit'].Search, input[type='button'].Search, span.Button.Search, table td.Actions ul li span.Search {
+  a.Button.Search, button.Button.Search, input[type='submit'].Search, input[type='button'].Search, span.Button.Search {
     border-radius: 17px; }
-  a.Button.Search.Large, table td.Actions ul li a.Search.Large, button.Button.Search.Large, table td.Actions ul li button.Search.Large, input[type='submit'].Search.Large, input[type='button'].Search.Large, span.Button.Search.Large, table td.Actions ul li span.Search.Large {
+  a.Button.Search.Large, button.Button.Search.Large, input[type='submit'].Search.Large, input[type='button'].Search.Large, span.Button.Search.Large {
     border-radius: 22px; }
-  a.Button.Search.Huge, table td.Actions ul li a.Search.Huge, button.Button.Search.Huge, table td.Actions ul li button.Search.Huge, input[type='submit'].Search.Huge, input[type='button'].Search.Huge, span.Button.Search.Huge, table td.Actions ul li span.Search.Huge {
+  a.Button.Search.Huge, button.Button.Search.Huge, input[type='submit'].Search.Huge, input[type='button'].Search.Huge, span.Button.Search.Huge {
     border-radius: 27px; }
-  a.Button.Icon > span.fa:first-child, table td.Actions ul li a.Icon > span.fa:first-child, button.Button.Icon > span.fa:first-child, table td.Actions ul li button.Icon > span.fa:first-child, input[type='submit'].Icon > span.fa:first-child, input[type='button'].Icon > span.fa:first-child, span.Button.Icon > span.fa:first-child, table td.Actions ul li span.Icon > span.fa:first-child {
+  a.Button.Icon > span.fa:first-child, button.Button.Icon > span.fa:first-child, input[type='submit'].Icon > span.fa:first-child, input[type='button'].Icon > span.fa:first-child, span.Button.Icon > span.fa:first-child {
     margin-right: 10px; }
-  a.Button.Primary, table td.Actions ul li a.Primary, button.Button.Primary, table td.Actions ul li button.Primary, input[type='submit'].Primary, input[type='button'].Primary, span.Button.Primary, table td.Actions ul li span.Primary {
+  a.Button.Primary, button.Button.Primary, input[type='submit'].Primary, input[type='button'].Primary, span.Button.Primary {
     border: 1px solid #c0392b;
     background-color: #e74c3c;
     color: white;
     text-shadow: 1px 1px 1px #c0392b; }
-  a.Button.Primary:hover, table td.Actions ul li a.Primary:hover, button.Button.Primary:hover, table td.Actions ul li button.Primary:hover, input[type='submit'].Primary:hover, input[type='button'].Primary:hover, span.Button.Primary:hover, table td.Actions ul li span.Primary:hover {
+  a.Button.Primary:hover, button.Button.Primary:hover, input[type='submit'].Primary:hover, input[type='button'].Primary:hover, span.Button.Primary:hover {
     background-color: #c0392b; }
-  a.Button.Ghost, table td.Actions ul li a.Ghost, button.Button.Ghost, table td.Actions ul li button.Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, span.Button.Ghost, table td.Actions ul li span.Ghost {
+  a.Button.Ghost, button.Button.Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, span.Button.Ghost {
     color: #2c3e50;
     background-color: transparent;
     border: 1px solid #bdc3c7; }
-  a.Button.Ghost:hover, table td.Actions ul li a.Ghost:hover, button.Button.Ghost:hover, table td.Actions ul li button.Ghost:hover, input[type='submit'].Ghost:hover, input[type='button'].Ghost:hover, span.Button.Ghost:hover, table td.Actions ul li span.Ghost:hover {
+  a.Button.Ghost:hover, button.Button.Ghost:hover, input[type='submit'].Ghost:hover, input[type='button'].Ghost:hover, span.Button.Ghost:hover {
     color: black;
     border-color: #95a5a6;
     background-color: #ecf0f1; }
-  a.Button.Ghost.Invert, table td.Actions ul li a.Ghost.Invert, button.Button.Ghost.Invert, table td.Actions ul li button.Ghost.Invert, input[type='submit'].Ghost.Invert, input[type='button'].Ghost.Invert, span.Button.Ghost.Invert, table td.Actions ul li span.Ghost.Invert {
+  a.Button.Ghost.Invert, button.Button.Ghost.Invert, input[type='submit'].Ghost.Invert, input[type='button'].Ghost.Invert, span.Button.Ghost.Invert {
     color: white;
     border-color: white; }
-  a.Button.Ghost.Invert:hover, table td.Actions ul li a.Ghost.Invert:hover, button.Button.Ghost.Invert:hover, table td.Actions ul li button.Ghost.Invert:hover, input[type='submit'].Ghost.Invert:hover, input[type='button'].Ghost.Invert:hover, span.Button.Ghost.Invert:hover, table td.Actions ul li span.Ghost.Invert:hover {
+  a.Button.Ghost.Invert:hover, button.Button.Ghost.Invert:hover, input[type='submit'].Ghost.Invert:hover, input[type='button'].Ghost.Invert:hover, span.Button.Ghost.Invert:hover {
     color: #e74c3c;
     border-color: #e74c3c; }
-  a.Button.Info, table td.Actions ul li a.Info, button.Button.Info, table td.Actions ul li button.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, table td.Actions ul li span.Info, a.Button.Success, table td.Actions ul li a.Success, button.Button.Success, table td.Actions ul li button.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, table td.Actions ul li span.Success, a.Button.Error, table td.Actions ul li a.Error, button.Button.Error, table td.Actions ul li button.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, table td.Actions ul li span.Error, a.Button.Warning, table td.Actions ul li a.Warning, button.Button.Warning, table td.Actions ul li button.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning, table td.Actions ul li span.Warning {
+  a.Button.Info, button.Button.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, a.Button.Success, button.Button.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, a.Button.Error, button.Button.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, a.Button.Warning, button.Button.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning {
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
     box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset; }
-  a.Button.Info, table td.Actions ul li a.Info, button.Button.Info, table td.Actions ul li button.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, table td.Actions ul li span.Info {
+  a.Button.Info, button.Button.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info {
     border-color: #00a4c6;
     background-color: #25c9eb; }
-  a.Button.Info:hover, table td.Actions ul li a.Info:hover, button.Button.Info:hover, table td.Actions ul li button.Info:hover, input[type='submit'].Info:hover, input[type='button'].Info:hover, span.Button.Info:hover, table td.Actions ul li span.Info:hover {
+  a.Button.Info:hover, button.Button.Info:hover, input[type='submit'].Info:hover, input[type='button'].Info:hover, span.Button.Info:hover {
     background-color: #00a4c6; }
-  a.Button.Success, table td.Actions ul li a.Success, button.Button.Success, table td.Actions ul li button.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, table td.Actions ul li span.Success {
+  a.Button.Success, button.Button.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success {
     border-color: #54894e;
     background-color: #6ea268; }
-  a.Button.Success:hover, table td.Actions ul li a.Success:hover, button.Button.Success:hover, table td.Actions ul li button.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover, table td.Actions ul li span.Success:hover {
+  a.Button.Success:hover, button.Button.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover {
     background-color: #54894e; }
-  a.Button.Success, table td.Actions ul li a.Success, button.Button.Success, table td.Actions ul li button.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, table td.Actions ul li span.Success {
+  a.Button.Success, button.Button.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success {
     background-color: #2ecc71; }
-  a.Button.Success:hover, table td.Actions ul li a.Success:hover, button.Button.Success:hover, table td.Actions ul li button.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover, table td.Actions ul li span.Success:hover {
+  a.Button.Success:hover, button.Button.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover {
     background-color: #5ec67d; }
-  a.Button.Warning, table td.Actions ul li a.Warning, button.Button.Warning, table td.Actions ul li button.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning, table td.Actions ul li span.Warning {
+  a.Button.Warning, button.Button.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning {
     background-color: #e67e22; }
-  a.Button.Warning:hover, table td.Actions ul li a.Warning:hover, button.Button.Warning:hover, table td.Actions ul li button.Warning:hover, input[type='submit'].Warning:hover, input[type='button'].Warning:hover, span.Button.Warning:hover, table td.Actions ul li span.Warning:hover {
+  a.Button.Warning:hover, button.Button.Warning:hover, input[type='submit'].Warning:hover, input[type='button'].Warning:hover, span.Button.Warning:hover {
     background-color: #d35400; }
-  a.Button.Error, table td.Actions ul li a.Error, button.Button.Error, table td.Actions ul li button.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, table td.Actions ul li span.Error {
+  a.Button.Error, button.Button.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error {
     border-color: #a02828;
     background-color: #e43f3f; }
-  a.Button.Error:hover, table td.Actions ul li a.Error:hover, button.Button.Error:hover, table td.Actions ul li button.Error:hover, input[type='submit'].Error:hover, input[type='button'].Error:hover, span.Button.Error:hover, table td.Actions ul li span.Error:hover {
+  a.Button.Error:hover, button.Button.Error:hover, input[type='submit'].Error:hover, input[type='button'].Error:hover, span.Button.Error:hover {
     background-color: #a02828; }
-  a.Button + .Button, table td.Actions ul li a + .Button, table td.Actions ul li a + table td.Actions ul li a, table td.Actions ul li table td.Actions ul li a + a, a.Button + table td.Actions ul li a, table td.Actions ul li a.Button + a, button.Button + .Button, table td.Actions ul li button + .Button, table td.Actions ul li button + table td.Actions ul li a, table td.Actions ul li table td.Actions ul li button + a, button.Button + table td.Actions ul li a, table td.Actions ul li button.Button + a, input[type='submit'] + .Button, input[type='submit'] + table td.Actions ul li a, table td.Actions ul li input[type='submit'] + a, input[type='button'] + .Button, input[type='button'] + table td.Actions ul li a, table td.Actions ul li input[type='button'] + a, span.Button + .Button, table td.Actions ul li span + .Button, table td.Actions ul li span + table td.Actions ul li a, table td.Actions ul li table td.Actions ul li span + a, span.Button + table td.Actions ul li a, table td.Actions ul li span.Button + a {
+  a.Button + .Button, button.Button + .Button, input[type='submit'] + .Button, input[type='button'] + .Button, span.Button + .Button {
     margin-left: 10px; }
 
 .Message {
@@ -2784,7 +2782,7 @@ a.Button, table td.Actions ul li a, button.Button, table td.Actions ul li button
     margin: 15px; }
   .Box > .Box-Content {
     padding: 10px 15px 15px; }
-  .Box.Round, a.Button.Ghost.Box, table td.Actions ul li a.Ghost.Box, button.Button.Ghost.Box, table td.Actions ul li button.Ghost.Box, input[type='submit'].Ghost.Box, input[type='button'].Ghost.Box, span.Button.Ghost.Box, table td.Actions ul li span.Ghost.Box {
+  .Box.Round, a.Button.Ghost.Box, button.Button.Ghost.Box, input[type='submit'].Ghost.Box, input[type='button'].Ghost.Box, span.Button.Ghost.Box {
     border-radius: 10px; }
   .Box.Outlined {
     border: 2px solid #95a5a6; }
@@ -3164,7 +3162,6 @@ body {
 dl.Tabs {
   clear: both; }
   dl.Tabs dt {
-    margin-left: -1px;
     position: relative;
     display: table;
     float: left;
@@ -4996,8 +4993,7 @@ a.Subcategory-Action {
 
 .Toolbar {
   border: 1px solid #f2f2f2;
-  border-radius: 6px;
-  padding: 5px; }
+  border-radius: 6px; }
   .Toolbar .Control-Group {
     padding: 0 5px; }
 

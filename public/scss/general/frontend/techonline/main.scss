@@ -229,9 +229,12 @@ img.Footer-Img {
 		{
 			margin-top: $size-n;
 		}
+
+
 	}
 	.Item-Gallery {
 		@extend %Clearfix;
+        padding-bottom: 10px;
 		& > img {
 			width: 100%;
 		}
@@ -319,6 +322,10 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 			text-align: center;
 			color: white;
 			@extend %Small-Prototype;
+
+            .Icon{
+                font-size:12px;
+            }
 		}
 		.Item-Views
 		{
@@ -383,10 +390,25 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		{
 			padding: 0 $size-n $size-n;
 		}
+
+        .Item-Details{
+            margin: $size-s 0 0 ;
+            padding: $size-s 0 0;
+            border-top: 1px solid $Clr-Grey-Light;
+            color: $Clr-Grey-Dark;
+
+            li{
+                margin-right: $size-n;
+
+                font-size: $Font-Size-Micro;
+            }
+        }
+
 		img
 		{
 			width: 100%;
 		}
+
 		h6 {
 			margin: $size-s 0 $size-xs;
 			font-size: 18px;
@@ -399,19 +421,23 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		}
 		table {
 			font-size: 14px;
-			border-top: 1px solid $Clr-Grey-Light;
 			width: 100%;
+
 			tr {
 				td {
+                    color: $Clr-Grey-Dark;
+                    font-size: 12px;
 					padding: $size-xs 0;
 				}
 			}
 		}
-		.More-Info a
+		.More-Info>h6>a
 		{
 			font-family: $Font-Family-Open-Sans;
-			font-size: 14px;
+			font-size: 12px;
+            color: black;
 			@extend %Script;
+
 			&:hover
 			{
 				border-color: $Clr-Text-Main;
@@ -831,3 +857,9 @@ ul.Tag-List {
 @import 'media';
 
 
+/*** Dropdown ***/
+
+
+.Toggled-Next-Item{
+    display:none;
+}

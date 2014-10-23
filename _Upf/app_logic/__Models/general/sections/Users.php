@@ -16,6 +16,22 @@ class Users extends Meta implements UserInterface, RemindableInterface {
     public $Config = 'models/backend/sections/Users';
 
 
+    /*** Relations :: Rent :: Has Many ***/
+
+    public function rent()
+    {
+        return $this->hasMany('UpfModels\Rent','user_id','id');
+    }
+
+    /*** Relations :: Parts :: Has Many ***/
+
+    public function parts()
+    {
+        return $this->hasMany('UpfModels\Parts','user_id','id');
+    }
+
+
+
     public function Register(){
         /*** Set Fields ***/
 
@@ -49,10 +65,64 @@ class Users extends Meta implements UserInterface, RemindableInterface {
         }
     }
 
+    /*** *** Get Front List *** ***/
+
+    public function FrontendIndex($Filter = []){
+
+        /*** Get Data ***/
+        $List = $this->WhereStatusesInMeta($this,$Filter)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files'
+
+            )
+            ->paginate(
+                isset($Filter['Pagination'])?$Filter['Pagination']
+                    :\Config::get('site\app_settings.PaginateFrontend.content')
+            );
+       //  print_r($this->GetFields('list','frontend', true));exit;
+        //print_r($List->toArray()['data']);exit;
+//
+        /*** Return Frontend Content ***/
+        return [
+            'List'          =>      $List->toArray()['data'],
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+            'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
+            'Filters'       =>      $this->FrontFilters()
+        ];
+    }
 
 
+    /*** *** Get Front Item *** ***/
 
-    /******************************************************************************************************************* Cabinet ***/
+    public function FrontendItem($Alias, $Meta = false, $SearchField = false, $Division = 'backend'){
 
+        /*** Get Data ***/
+        $Item = $this->WhereAliasInMeta($this,$Alias)
+            ->with('meta',
+                'meta.categories',
+                'meta.tags',
+                'meta.regions',
+                'meta.files',
+                'meta.comments',
+                'rent',
+                'rent.meta',
+                'parts',
+                'parts.meta'
+
+            )
+            ->first();
+
+        // print_r($this->GetFields('list','frontend', true));exit;
+//         print_r($Item->toArray());exit;
+
+        /*** Return Frontend Content ***/
+        return [
+            'Item'          =>      $Item->toArray(),
+            'Fields'        =>      $this->GetFields('list','frontend', true),
+        ];
+    }
 
 }

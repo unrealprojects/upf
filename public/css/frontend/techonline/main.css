@@ -10,6 +10,7 @@
 /* makes the font 33% larger relative to the icon container */
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
+/*** Dropdown ***/
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -604,9 +605,7 @@ code.Inline, code.pagination, code.Pagination {
   outline: 1px red solid !important; }
 
 ol[class*='Grid'] > li, ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box-Tools, .Breadcrumbs ul.Breadcrumb-List, .Tab-Set ul.Tab-Captions, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-Item header ul.Item-Vote, .Snippet-Item .Item-Gallery ul, ul.Tag-List, ul.List-Group-Actions, table td.Actions ul, .pagination, .Pagination, .Box > header ul.Box-Tools, .Breadcrumbs .Breadcrumb-List, .Dropdown .Dropdown-Content, .Tab-Set ul.Tab-Content, .Site-Navigation.Primary ul, footer[role='contentinfo'] > div .Footer-Navigation ul, .Snippet-List, .Snippet-Item header .Item-Vote, .Snippet-Item .Item-Gallery ul, .Filter-Result, ul.Tag-List, .Item-Vote, .List-Filter, .Menu-List ul, .Filter.Accordion, .Filter-Subcategory ul, .List-Group-Actions {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
+  list-style: none; }
   ol[class*='Grid'] > li > li, ul[class*='Grid'] > li > li, ul._Inline > li, .Box > header ul.Box-Tools > li, .Breadcrumbs ul.Breadcrumb-List > li, .Tab-Set ul.Tab-Captions > li, footer[role='contentinfo'] > div .Footer-Navigation ul > li, .Snippet-Item header ul.Item-Vote > li, .Snippet-Item .Item-Gallery ul > li, ul.Tag-List > li, ul.List-Group-Actions > li, table td.Actions ul > li, .pagination > li, .Pagination > li, .Box > header ul.Box-Tools > li, .Breadcrumbs .Breadcrumb-List > li, .Dropdown .Dropdown-Content > li, .Tab-Set ul.Tab-Content > li, .Site-Navigation.Primary ul > li, footer[role='contentinfo'] > div .Footer-Navigation ul > li, .Snippet-List > li, .Snippet-Item header .Item-Vote > li, .Snippet-Item .Item-Gallery ul > li, .Filter-Result > li, ul.Tag-List > li, .Item-Vote > li, .List-Filter > li, .Menu-List ul > li, .Filter.Accordion > li, .Filter-Subcategory ul > li, .List-Group-Actions > li {
     margin: 0;
     padding: 0; }
@@ -637,7 +636,7 @@ ol[class*='Grid'] > li, ul[class*='Grid'] > li, ul._Inline, .Box > header ul.Box
   -o-user-select: none;
   user-select: none; }
 
-a.Button, table td.Actions ul li a, .Filter-Result li a.Delete, button.Button, table td.Actions ul li button, .Filter-Result li button.Delete, input[type='submit'], input[type='button'], span.Button, table td.Actions ul li span, .Filter-Result li span.Delete, #Menu-Toggle span:hover {
+a.Button, .Filter-Result li a.Delete, button.Button, .Filter-Result li button.Delete, input[type='submit'], input[type='button'], span.Button, .Filter-Result li span.Delete, #Menu-Toggle span:hover {
   cursor: pointer; }
 
 .Error-404 h2, .Error-404 p {
@@ -646,7 +645,7 @@ a.Button, table td.Actions ul li a, .Filter-Result li a.Delete, button.Button, t
 .Collapsed .Dropdown {
   display: none; }
 
-.Snippet-Item .Item-Content .More-Info a {
+.Snippet-Item .Item-Content .More-Info > h6 > a {
   text-decoration: none;
   border-bottom: 1px dashed; }
 
@@ -783,7 +782,7 @@ table {
   padding: 10px;
   display: inline-block; }
 
-input[type='text'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown, Label.File-Upload > span {
+input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown, Label.File-Upload > span {
   display: inline-block;
   height: 30px;
   border: 1px #b7b7b7 solid;
@@ -792,7 +791,7 @@ input[type='text'], input[type='tel'], input[type='submit'], input[type='button'
   font-size: 14px;
   line-height: 14px; }
 
-input[type='text'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown {
+input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown {
   padding: 7px;
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
@@ -800,34 +799,34 @@ input[type='text'], input[type='tel'], input[type='submit'], input[type='button'
   -webkit-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   -moz-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   transition: border-color 0.4s, background-color 0.4s, color 0.4s; }
-  input[type='text']:hover, input[type='tel']:hover, input[type='submit']:hover, input[type='button']:hover, input[type='search']:hover, input[type='email']:hover, input[type='file']:hover, input[type='password']:hover, select:hover, textarea:hover, .Dropdown:hover {
+  input[type='text']:hover, input[type='number']:hover, input[type='tel']:hover, input[type='submit']:hover, input[type='button']:hover, input[type='search']:hover, input[type='email']:hover, input[type='file']:hover, input[type='password']:hover, select:hover, textarea:hover, .Dropdown:hover {
     background-color: #f2f2f2; }
-  input[type='text']:focus, input[type='tel']:focus, input[type='submit']:focus, input[type='button']:focus, input[type='search']:focus, input[type='email']:focus, input[type='file']:focus, input[type='password']:focus, select:focus, textarea:focus, .Dropdown:focus {
+  input[type='text']:focus, input[type='number']:focus, input[type='tel']:focus, input[type='submit']:focus, input[type='button']:focus, input[type='search']:focus, input[type='email']:focus, input[type='file']:focus, input[type='password']:focus, select:focus, textarea:focus, .Dropdown:focus {
     border-color: #00a4c6;
     background-color: #e5fbff;
     box-shadow: 0 0 1px white inset, 0 0 10px #95edff; }
-  input[type='text'][disabled], input[type='tel'][disabled], input[type='submit'][disabled], input[type='button'][disabled], input[type='search'][disabled], input[type='email'][disabled], input[type='file'][disabled], input[type='password'][disabled], select[disabled], textarea[disabled], .Dropdown[disabled], input[type='text'][disabled]:hover, input[type='tel'][disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, input[type='search'][disabled]:hover, input[type='email'][disabled]:hover, input[type='file'][disabled]:hover, input[type='password'][disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, .Dropdown[disabled]:hover {
+  input[type='text'][disabled], input[type='number'][disabled], input[type='tel'][disabled], input[type='submit'][disabled], input[type='button'][disabled], input[type='search'][disabled], input[type='email'][disabled], input[type='file'][disabled], input[type='password'][disabled], select[disabled], textarea[disabled], .Dropdown[disabled], input[type='text'][disabled]:hover, input[type='number'][disabled]:hover, input[type='tel'][disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, input[type='search'][disabled]:hover, input[type='email'][disabled]:hover, input[type='file'][disabled]:hover, input[type='password'][disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, .Dropdown[disabled]:hover {
     border-color: #b7b7b7;
     background-color: #f2f2f2;
     color: #b7b7b7;
     cursor: not-allowed; }
-  input[type='text'].Ghost, input[type='tel'].Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, input[type='search'].Ghost, input[type='email'].Ghost, input[type='file'].Ghost, input[type='password'].Ghost, select.Ghost, textarea.Ghost, .Dropdown.Ghost {
+  input[type='text'].Ghost, input[type='number'].Ghost, input[type='tel'].Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, input[type='search'].Ghost, input[type='email'].Ghost, input[type='file'].Ghost, input[type='password'].Ghost, select.Ghost, textarea.Ghost, .Dropdown.Ghost {
     border-color: transparent;
     background: transparent;
     box-shadow: none; }
-  input[type='text'].Error, input[type='tel'].Error, input[type='submit'].Error, input[type='button'].Error, input[type='search'].Error, input[type='email'].Error, input[type='file'].Error, input[type='password'].Error, select.Error, textarea.Error, .Dropdown.Error {
+  input[type='text'].Error, input[type='number'].Error, input[type='tel'].Error, input[type='submit'].Error, input[type='button'].Error, input[type='search'].Error, input[type='email'].Error, input[type='file'].Error, input[type='password'].Error, select.Error, textarea.Error, .Dropdown.Error {
     color: #a02828;
     border-color: #e43f3f;
     background-color: #fff3f3; }
-  input[type='text'].Warning, input[type='tel'].Warning, input[type='submit'].Warning, input[type='button'].Warning, input[type='search'].Warning, input[type='email'].Warning, input[type='file'].Warning, input[type='password'].Warning, select.Warning, textarea.Warning, .Dropdown.Warning {
+  input[type='text'].Warning, input[type='number'].Warning, input[type='tel'].Warning, input[type='submit'].Warning, input[type='button'].Warning, input[type='search'].Warning, input[type='email'].Warning, input[type='file'].Warning, input[type='password'].Warning, select.Warning, textarea.Warning, .Dropdown.Warning {
     color: #b4771e;
     border-color: #e4a43f;
     background-color: #fff9f1; }
-  input[type='text'].Success, input[type='tel'].Success, input[type='submit'].Success, input[type='button'].Success, input[type='search'].Success, input[type='email'].Success, input[type='file'].Success, input[type='password'].Success, select.Success, textarea.Success, .Dropdown.Success {
+  input[type='text'].Success, input[type='number'].Success, input[type='tel'].Success, input[type='submit'].Success, input[type='button'].Success, input[type='search'].Success, input[type='email'].Success, input[type='file'].Success, input[type='password'].Success, select.Success, textarea.Success, .Dropdown.Success {
     color: #54894e;
     border-color: #6ea268;
     background-color: #f1fff0; }
-  input[type='text'].Info, input[type='tel'].Info, input[type='submit'].Info, input[type='button'].Info, input[type='search'].Info, input[type='email'].Info, input[type='file'].Info, input[type='password'].Info, select.Info, textarea.Info, .Dropdown.Info {
+  input[type='text'].Info, input[type='number'].Info, input[type='tel'].Info, input[type='submit'].Info, input[type='button'].Info, input[type='search'].Info, input[type='email'].Info, input[type='file'].Info, input[type='password'].Info, select.Info, textarea.Info, .Dropdown.Info {
     color: #18637f;
     border-color: #2782a4;
     background-color: #f4fdff; }
@@ -1067,7 +1066,7 @@ Label.File-Upload {
 .Heading + dl.Tabs {
   margin-top: 15px; }
 
-a.Button, table td.Actions ul li a, .Filter-Result li a.Delete, button.Button, table td.Actions ul li button, .Filter-Result li button.Delete, input[type='submit'], input[type='button'], span.Button, table td.Actions ul li span, .Filter-Result li span.Delete {
+a.Button, .Filter-Result li a.Delete, button.Button, .Filter-Result li button.Delete, input[type='submit'], input[type='button'], span.Button, .Filter-Result li span.Delete {
   padding: 7px;
   border: 1px #b7b7b7 solid;
   background-color: #f9f9f9;
@@ -1083,84 +1082,84 @@ a.Button, table td.Actions ul li a, .Filter-Result li a.Delete, button.Button, t
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
   border-radius: 5px; }
-  a.Button:hover, table td.Actions ul li a:hover, .Filter-Result li a.Delete:hover, button.Button:hover, table td.Actions ul li button:hover, .Filter-Result li button.Delete:hover, input[type='submit']:hover, input[type='button']:hover, span.Button:hover, table td.Actions ul li span:hover, .Filter-Result li span.Delete:hover {
+  a.Button:hover, .Filter-Result li a.Delete:hover, button.Button:hover, .Filter-Result li button.Delete:hover, input[type='submit']:hover, input[type='button']:hover, span.Button:hover, .Filter-Result li span.Delete:hover {
     background-color: #f2f2f2;
     border-color: #00a4c6; }
-  a.Button[disabled], table td.Actions ul li a[disabled], .Filter-Result li a.Delete[disabled], button.Button[disabled], table td.Actions ul li button[disabled], .Filter-Result li button.Delete[disabled], input[type='submit'][disabled], input[type='button'][disabled], span.Button[disabled], table td.Actions ul li span[disabled], .Filter-Result li span.Delete[disabled] {
+  a.Button[disabled], .Filter-Result li a.Delete[disabled], button.Button[disabled], .Filter-Result li button.Delete[disabled], input[type='submit'][disabled], input[type='button'][disabled], span.Button[disabled], .Filter-Result li span.Delete[disabled] {
     color: #ccc;
     cursor: not-allowed; }
-  a.Button[disabled]:hover, table td.Actions ul li a[disabled]:hover, .Filter-Result li a.Delete[disabled]:hover, button.Button[disabled]:hover, table td.Actions ul li button[disabled]:hover, .Filter-Result li button.Delete[disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, span.Button[disabled]:hover, table td.Actions ul li span[disabled]:hover, .Filter-Result li span.Delete[disabled]:hover {
+  a.Button[disabled]:hover, .Filter-Result li a.Delete[disabled]:hover, button.Button[disabled]:hover, .Filter-Result li button.Delete[disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, span.Button[disabled]:hover, .Filter-Result li span.Delete[disabled]:hover {
     background-color: #f1f1f1;
     border-color: 1px solid #dedede; }
-  a.Button.Fluid, table td.Actions ul li a.Fluid, .Filter-Result li a.Delete.Fluid, button.Button.Fluid, table td.Actions ul li button.Fluid, .Filter-Result li button.Delete.Fluid, input[type='submit'].Fluid, input[type='button'].Fluid, span.Button.Fluid, table td.Actions ul li span.Fluid, .Filter-Result li span.Delete.Fluid {
+  a.Button.Fluid, .Filter-Result li a.Delete.Fluid, button.Button.Fluid, .Filter-Result li button.Delete.Fluid, input[type='submit'].Fluid, input[type='button'].Fluid, span.Button.Fluid, .Filter-Result li span.Delete.Fluid {
     width: 100%; }
-  a.Button.Small, table td.Actions ul li a.Small, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li .Filter-Result li a.Delete, .Filter-Result li table td.Actions ul li a.Delete, .Filter-Result li a.Delete.Small, .Filter-Result li table td.Actions ul li a.Delete, table td.Actions ul li .Filter-Result li a.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, table td.Actions ul li a.Button, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li table td.Actions ul li a, table td.Actions ul li .Filter-Result li a.Delete, .Filter-Result li table td.Actions ul li a.Delete, .Filter-Result li a.Delete.Button, .Filter-Result li table td.Actions ul li a.Delete, table td.Actions ul li .Filter-Result li a.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, button.Button.Small, table td.Actions ul li button.Small, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li .Filter-Result li button.Delete, .Filter-Result li table td.Actions ul li button.Delete, .Filter-Result li button.Delete.Small, .Filter-Result li table td.Actions ul li button.Delete, table td.Actions ul li .Filter-Result li button.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, table td.Actions ul li button.Button, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li table td.Actions ul li button, table td.Actions ul li .Filter-Result li button.Delete, .Filter-Result li table td.Actions ul li button.Delete, .Filter-Result li button.Delete.Button, .Filter-Result li table td.Actions ul li button.Delete, table td.Actions ul li .Filter-Result li button.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, input[type='submit'].Small, table td.Actions ul li input[type='submit'], .Filter-Result li input.Delete[type='submit'], input[type='button'].Small, table td.Actions ul li input[type='button'], .Filter-Result li input.Delete[type='button'], span.Button.Small, table td.Actions ul li span.Small, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li .Filter-Result li span.Delete, .Filter-Result li table td.Actions ul li span.Delete, .Filter-Result li span.Delete.Small, .Filter-Result li table td.Actions ul li span.Delete, table td.Actions ul li .Filter-Result li span.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete, table td.Actions ul li span.Button, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li table td.Actions ul li span, table td.Actions ul li .Filter-Result li span.Delete, .Filter-Result li table td.Actions ul li span.Delete, .Filter-Result li span.Delete.Button, .Filter-Result li table td.Actions ul li span.Delete, table td.Actions ul li .Filter-Result li span.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete {
+  a.Button.Small, .Filter-Result li a.Delete.Small, .Filter-Result li table td.Actions ul li a.Delete, table td.Actions ul li .Filter-Result li a.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, table td.Actions ul li a.Button, table td.Actions ul li .Filter-Result li a.Delete, .Filter-Result li table td.Actions ul li a.Delete, .Filter-Result li a.Delete.Button, .Filter-Result li .Filter-Result li a.Delete.Delete, .Filter-Result li .Filter-Result li a.Delete.Delete, button.Button.Small, .Filter-Result li button.Delete.Small, .Filter-Result li table td.Actions ul li button.Delete, table td.Actions ul li .Filter-Result li button.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, table td.Actions ul li button.Button, table td.Actions ul li .Filter-Result li button.Delete, .Filter-Result li table td.Actions ul li button.Delete, .Filter-Result li button.Delete.Button, .Filter-Result li .Filter-Result li button.Delete.Delete, .Filter-Result li .Filter-Result li button.Delete.Delete, input[type='submit'].Small, table td.Actions ul li input[type='submit'], .Filter-Result li input.Delete[type='submit'], input[type='button'].Small, table td.Actions ul li input[type='button'], .Filter-Result li input.Delete[type='button'], span.Button.Small, .Filter-Result li span.Delete.Small, .Filter-Result li table td.Actions ul li span.Delete, table td.Actions ul li .Filter-Result li span.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete, table td.Actions ul li span.Button, table td.Actions ul li .Filter-Result li span.Delete, .Filter-Result li table td.Actions ul li span.Delete, .Filter-Result li span.Delete.Button, .Filter-Result li .Filter-Result li span.Delete.Delete, .Filter-Result li .Filter-Result li span.Delete.Delete {
     font-size: 10px;
     padding: 2px 5px; }
-  a.Button.Large, table td.Actions ul li a.Large, .Filter-Result li a.Delete.Large, button.Button.Large, table td.Actions ul li button.Large, .Filter-Result li button.Delete.Large, input[type='submit'].Large, input[type='button'].Large, span.Button.Large, table td.Actions ul li span.Large, .Filter-Result li span.Delete.Large {
+  a.Button.Large, .Filter-Result li a.Delete.Large, button.Button.Large, .Filter-Result li button.Delete.Large, input[type='submit'].Large, input[type='button'].Large, span.Button.Large, .Filter-Result li span.Delete.Large {
     padding: 10px 15px; }
-  a.Button.Huge, table td.Actions ul li a.Huge, .Filter-Result li a.Delete.Huge, button.Button.Huge, table td.Actions ul li button.Huge, .Filter-Result li button.Delete.Huge, input[type='submit'].Huge, input[type='button'].Huge, span.Button.Huge, table td.Actions ul li span.Huge, .Filter-Result li span.Delete.Huge {
+  a.Button.Huge, .Filter-Result li a.Delete.Huge, button.Button.Huge, .Filter-Result li button.Delete.Huge, input[type='submit'].Huge, input[type='button'].Huge, span.Button.Huge, .Filter-Result li span.Delete.Huge {
     font-size: 19px;
     padding: 15px 20px; }
-  a.Button.Round, table td.Actions ul li a.Round, table td.Actions ul li a.Button.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li .Filter-Result li a.Delete.Ghost, .Filter-Result li table td.Actions ul li a.Delete.Ghost, table td.Actions ul li a.Button.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li .Filter-Result li a.Delete.Ghost, .Filter-Result li table td.Actions ul li a.Delete.Ghost, table td.Actions ul li a[type='submit'].Ghost, table td.Actions ul li a[type='button'].Ghost, table td.Actions ul li a.Button.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li table td.Actions ul li a.Ghost, table td.Actions ul li .Filter-Result li a.Delete.Ghost, .Filter-Result li table td.Actions ul li a.Delete.Ghost, .Filter-Result li a.Delete.Round, .Filter-Result li a.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li a.Ghost.Delete, table td.Actions ul li .Filter-Result li a.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li a.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li a.Ghost.Delete, table td.Actions ul li .Filter-Result li a.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li a[type='submit'].Ghost.Delete, .Filter-Result li a[type='button'].Ghost.Delete, .Filter-Result li a.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li a.Ghost.Delete, table td.Actions ul li .Filter-Result li a.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, a.Button.Ghost.Button, a.Button.Ghost.Button, a[type='submit'].Ghost.Button, table td.Actions ul li a[type='submit'].Ghost, .Filter-Result li a.Delete[type='submit'].Ghost, a[type='button'].Ghost.Button, table td.Actions ul li a[type='button'].Ghost, .Filter-Result li a.Delete[type='button'].Ghost, a.Button.Ghost.Button, button.Button.Round, table td.Actions ul li button.Round, table td.Actions ul li button.Button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li .Filter-Result li button.Delete.Ghost, .Filter-Result li table td.Actions ul li button.Delete.Ghost, table td.Actions ul li button.Button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li .Filter-Result li button.Delete.Ghost, .Filter-Result li table td.Actions ul li button.Delete.Ghost, table td.Actions ul li button[type='submit'].Ghost, table td.Actions ul li button[type='button'].Ghost, table td.Actions ul li button.Button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li table td.Actions ul li button.Ghost, table td.Actions ul li .Filter-Result li button.Delete.Ghost, .Filter-Result li table td.Actions ul li button.Delete.Ghost, .Filter-Result li button.Delete.Round, .Filter-Result li button.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li button.Ghost.Delete, table td.Actions ul li .Filter-Result li button.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li button.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li button.Ghost.Delete, table td.Actions ul li .Filter-Result li button.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li button[type='submit'].Ghost.Delete, .Filter-Result li button[type='button'].Ghost.Delete, .Filter-Result li button.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li button.Ghost.Delete, table td.Actions ul li .Filter-Result li button.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, button.Button.Ghost.Button, button.Button.Ghost.Button, button[type='submit'].Ghost.Button, table td.Actions ul li button[type='submit'].Ghost, .Filter-Result li button.Delete[type='submit'].Ghost, button[type='button'].Ghost.Button, table td.Actions ul li button[type='button'].Ghost, .Filter-Result li button.Delete[type='button'].Ghost, button.Button.Ghost.Button, input[type='submit'].Round, input.Button.Ghost[type='submit'], table td.Actions ul li input.Ghost[type='submit'], .Filter-Result li input.Delete.Ghost[type='submit'], input.Button.Ghost[type='submit'], table td.Actions ul li input.Ghost[type='submit'], .Filter-Result li input.Delete.Ghost[type='submit'], input[type='submit'].Ghost[type='submit'], input[type='button'].Ghost[type='submit'], input.Button.Ghost[type='submit'], table td.Actions ul li input.Ghost[type='submit'], .Filter-Result li input.Delete.Ghost[type='submit'], input[type='button'].Round, input.Button.Ghost[type='button'], table td.Actions ul li input.Ghost[type='button'], .Filter-Result li input.Delete.Ghost[type='button'], input.Button.Ghost[type='button'], table td.Actions ul li input.Ghost[type='button'], .Filter-Result li input.Delete.Ghost[type='button'], input[type='submit'].Ghost[type='button'], input[type='button'].Ghost[type='button'], input.Button.Ghost[type='button'], table td.Actions ul li input.Ghost[type='button'], .Filter-Result li input.Delete.Ghost[type='button'], span.Button.Round, table td.Actions ul li span.Round, table td.Actions ul li span.Button.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li .Filter-Result li span.Delete.Ghost, .Filter-Result li table td.Actions ul li span.Delete.Ghost, table td.Actions ul li span.Button.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li .Filter-Result li span.Delete.Ghost, .Filter-Result li table td.Actions ul li span.Delete.Ghost, table td.Actions ul li span[type='submit'].Ghost, table td.Actions ul li span[type='button'].Ghost, table td.Actions ul li span.Button.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li table td.Actions ul li span.Ghost, table td.Actions ul li .Filter-Result li span.Delete.Ghost, .Filter-Result li table td.Actions ul li span.Delete.Ghost, .Filter-Result li span.Delete.Round, .Filter-Result li span.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li span.Ghost.Delete, table td.Actions ul li .Filter-Result li span.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li span.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li span.Ghost.Delete, table td.Actions ul li .Filter-Result li span.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li span[type='submit'].Ghost.Delete, .Filter-Result li span[type='button'].Ghost.Delete, .Filter-Result li span.Button.Ghost.Delete, .Filter-Result li table td.Actions ul li span.Ghost.Delete, table td.Actions ul li .Filter-Result li span.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, span.Button.Ghost.Button, span.Button.Ghost.Button, span[type='submit'].Ghost.Button, table td.Actions ul li span[type='submit'].Ghost, .Filter-Result li span.Delete[type='submit'].Ghost, span[type='button'].Ghost.Button, table td.Actions ul li span[type='button'].Ghost, .Filter-Result li span.Delete[type='button'].Ghost, span.Button.Ghost.Button {
+  a.Button.Round, .Filter-Result li a.Delete.Round, .Filter-Result li a.Button.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li a.Button.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li a[type='submit'].Ghost.Delete, .Filter-Result li a[type='button'].Ghost.Delete, .Filter-Result li a.Button.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li a.Delete.Ghost.Delete, a.Button.Ghost.Button, a.Button.Ghost.Button, a[type='submit'].Ghost.Button, .Filter-Result li a.Delete[type='submit'].Ghost, a[type='button'].Ghost.Button, .Filter-Result li a.Delete[type='button'].Ghost, a.Button.Ghost.Button, button.Button.Round, .Filter-Result li button.Delete.Round, .Filter-Result li button.Button.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li button.Button.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li button[type='submit'].Ghost.Delete, .Filter-Result li button[type='button'].Ghost.Delete, .Filter-Result li button.Button.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li button.Delete.Ghost.Delete, button.Button.Ghost.Button, button.Button.Ghost.Button, button[type='submit'].Ghost.Button, .Filter-Result li button.Delete[type='submit'].Ghost, button[type='button'].Ghost.Button, .Filter-Result li button.Delete[type='button'].Ghost, button.Button.Ghost.Button, input[type='submit'].Round, input.Button.Ghost[type='submit'], .Filter-Result li input.Delete.Ghost[type='submit'], input.Button.Ghost[type='submit'], .Filter-Result li input.Delete.Ghost[type='submit'], input[type='submit'].Ghost[type='submit'], input[type='button'].Ghost[type='submit'], input.Button.Ghost[type='submit'], .Filter-Result li input.Delete.Ghost[type='submit'], input[type='button'].Round, input.Button.Ghost[type='button'], .Filter-Result li input.Delete.Ghost[type='button'], input.Button.Ghost[type='button'], .Filter-Result li input.Delete.Ghost[type='button'], input[type='submit'].Ghost[type='button'], input[type='button'].Ghost[type='button'], input.Button.Ghost[type='button'], .Filter-Result li input.Delete.Ghost[type='button'], span.Button.Round, .Filter-Result li span.Delete.Round, .Filter-Result li span.Button.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li span.Button.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li span[type='submit'].Ghost.Delete, .Filter-Result li span[type='button'].Ghost.Delete, .Filter-Result li span.Button.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, .Filter-Result li .Filter-Result li span.Delete.Ghost.Delete, span.Button.Ghost.Button, span.Button.Ghost.Button, span[type='submit'].Ghost.Button, .Filter-Result li span.Delete[type='submit'].Ghost, span[type='button'].Ghost.Button, .Filter-Result li span.Delete[type='button'].Ghost, span.Button.Ghost.Button {
     border-radius: 10px; }
-  a.Button.Search, table td.Actions ul li a.Search, .Filter-Result li a.Delete.Search, button.Button.Search, table td.Actions ul li button.Search, .Filter-Result li button.Delete.Search, input[type='submit'].Search, input[type='button'].Search, span.Button.Search, table td.Actions ul li span.Search, .Filter-Result li span.Delete.Search {
+  a.Button.Search, .Filter-Result li a.Delete.Search, button.Button.Search, .Filter-Result li button.Delete.Search, input[type='submit'].Search, input[type='button'].Search, span.Button.Search, .Filter-Result li span.Delete.Search {
     border-radius: 17px; }
-  a.Button.Search.Large, table td.Actions ul li a.Search.Large, .Filter-Result li a.Delete.Search.Large, button.Button.Search.Large, table td.Actions ul li button.Search.Large, .Filter-Result li button.Delete.Search.Large, input[type='submit'].Search.Large, input[type='button'].Search.Large, span.Button.Search.Large, table td.Actions ul li span.Search.Large, .Filter-Result li span.Delete.Search.Large {
+  a.Button.Search.Large, .Filter-Result li a.Delete.Search.Large, button.Button.Search.Large, .Filter-Result li button.Delete.Search.Large, input[type='submit'].Search.Large, input[type='button'].Search.Large, span.Button.Search.Large, .Filter-Result li span.Delete.Search.Large {
     border-radius: 22px; }
-  a.Button.Search.Huge, table td.Actions ul li a.Search.Huge, .Filter-Result li a.Delete.Search.Huge, button.Button.Search.Huge, table td.Actions ul li button.Search.Huge, .Filter-Result li button.Delete.Search.Huge, input[type='submit'].Search.Huge, input[type='button'].Search.Huge, span.Button.Search.Huge, table td.Actions ul li span.Search.Huge, .Filter-Result li span.Delete.Search.Huge {
+  a.Button.Search.Huge, .Filter-Result li a.Delete.Search.Huge, button.Button.Search.Huge, .Filter-Result li button.Delete.Search.Huge, input[type='submit'].Search.Huge, input[type='button'].Search.Huge, span.Button.Search.Huge, .Filter-Result li span.Delete.Search.Huge {
     border-radius: 27px; }
-  a.Button.Icon > span.fa:first-child, table td.Actions ul li a.Icon > span.fa:first-child, .Filter-Result li a.Delete.Icon > span.fa:first-child, button.Button.Icon > span.fa:first-child, table td.Actions ul li button.Icon > span.fa:first-child, .Filter-Result li button.Delete.Icon > span.fa:first-child, input[type='submit'].Icon > span.fa:first-child, input[type='button'].Icon > span.fa:first-child, span.Button.Icon > span.fa:first-child, table td.Actions ul li span.Icon > span.fa:first-child, .Filter-Result li span.Delete.Icon > span.fa:first-child {
+  a.Button.Icon > span.fa:first-child, .Filter-Result li a.Delete.Icon > span.fa:first-child, button.Button.Icon > span.fa:first-child, .Filter-Result li button.Delete.Icon > span.fa:first-child, input[type='submit'].Icon > span.fa:first-child, input[type='button'].Icon > span.fa:first-child, span.Button.Icon > span.fa:first-child, .Filter-Result li span.Delete.Icon > span.fa:first-child {
     margin-right: 10px; }
-  a.Button.Primary, table td.Actions ul li a.Primary, .Filter-Result li a.Delete.Primary, button.Button.Primary, table td.Actions ul li button.Primary, .Filter-Result li button.Delete.Primary, input[type='submit'].Primary, input[type='button'].Primary, span.Button.Primary, table td.Actions ul li span.Primary, .Filter-Result li span.Delete.Primary {
+  a.Button.Primary, .Filter-Result li a.Delete.Primary, button.Button.Primary, .Filter-Result li button.Delete.Primary, input[type='submit'].Primary, input[type='button'].Primary, span.Button.Primary, .Filter-Result li span.Delete.Primary {
     border: 1px solid #c0392b;
     background-color: #e74c3c;
     color: white;
     text-shadow: 1px 1px 1px #c0392b; }
-  a.Button.Primary:hover, table td.Actions ul li a.Primary:hover, .Filter-Result li a.Delete.Primary:hover, button.Button.Primary:hover, table td.Actions ul li button.Primary:hover, .Filter-Result li button.Delete.Primary:hover, input[type='submit'].Primary:hover, input[type='button'].Primary:hover, span.Button.Primary:hover, table td.Actions ul li span.Primary:hover, .Filter-Result li span.Delete.Primary:hover {
+  a.Button.Primary:hover, .Filter-Result li a.Delete.Primary:hover, button.Button.Primary:hover, .Filter-Result li button.Delete.Primary:hover, input[type='submit'].Primary:hover, input[type='button'].Primary:hover, span.Button.Primary:hover, .Filter-Result li span.Delete.Primary:hover {
     background-color: #c0392b; }
-  a.Button.Ghost, table td.Actions ul li a.Ghost, .Filter-Result li a.Delete.Ghost, button.Button.Ghost, table td.Actions ul li button.Ghost, .Filter-Result li button.Delete.Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, span.Button.Ghost, table td.Actions ul li span.Ghost, .Filter-Result li span.Delete.Ghost {
+  a.Button.Ghost, .Filter-Result li a.Delete.Ghost, button.Button.Ghost, .Filter-Result li button.Delete.Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, span.Button.Ghost, .Filter-Result li span.Delete.Ghost {
     color: #2c3e50;
     background-color: transparent;
     border: 1px solid #bdc3c7; }
-  a.Button.Ghost:hover, table td.Actions ul li a.Ghost:hover, .Filter-Result li a.Delete.Ghost:hover, button.Button.Ghost:hover, table td.Actions ul li button.Ghost:hover, .Filter-Result li button.Delete.Ghost:hover, input[type='submit'].Ghost:hover, input[type='button'].Ghost:hover, span.Button.Ghost:hover, table td.Actions ul li span.Ghost:hover, .Filter-Result li span.Delete.Ghost:hover {
+  a.Button.Ghost:hover, .Filter-Result li a.Delete.Ghost:hover, button.Button.Ghost:hover, .Filter-Result li button.Delete.Ghost:hover, input[type='submit'].Ghost:hover, input[type='button'].Ghost:hover, span.Button.Ghost:hover, .Filter-Result li span.Delete.Ghost:hover {
     color: black;
     border-color: #95a5a6;
     background-color: #ecf0f1; }
-  a.Button.Ghost.Invert, table td.Actions ul li a.Ghost.Invert, .Filter-Result li a.Delete.Ghost.Invert, button.Button.Ghost.Invert, table td.Actions ul li button.Ghost.Invert, .Filter-Result li button.Delete.Ghost.Invert, input[type='submit'].Ghost.Invert, input[type='button'].Ghost.Invert, span.Button.Ghost.Invert, table td.Actions ul li span.Ghost.Invert, .Filter-Result li span.Delete.Ghost.Invert {
+  a.Button.Ghost.Invert, .Filter-Result li a.Delete.Ghost.Invert, button.Button.Ghost.Invert, .Filter-Result li button.Delete.Ghost.Invert, input[type='submit'].Ghost.Invert, input[type='button'].Ghost.Invert, span.Button.Ghost.Invert, .Filter-Result li span.Delete.Ghost.Invert {
     color: white;
     border-color: white; }
-  a.Button.Ghost.Invert:hover, table td.Actions ul li a.Ghost.Invert:hover, .Filter-Result li a.Delete.Ghost.Invert:hover, button.Button.Ghost.Invert:hover, table td.Actions ul li button.Ghost.Invert:hover, .Filter-Result li button.Delete.Ghost.Invert:hover, input[type='submit'].Ghost.Invert:hover, input[type='button'].Ghost.Invert:hover, span.Button.Ghost.Invert:hover, table td.Actions ul li span.Ghost.Invert:hover, .Filter-Result li span.Delete.Ghost.Invert:hover {
+  a.Button.Ghost.Invert:hover, .Filter-Result li a.Delete.Ghost.Invert:hover, button.Button.Ghost.Invert:hover, .Filter-Result li button.Delete.Ghost.Invert:hover, input[type='submit'].Ghost.Invert:hover, input[type='button'].Ghost.Invert:hover, span.Button.Ghost.Invert:hover, .Filter-Result li span.Delete.Ghost.Invert:hover {
     color: #e74c3c;
     border-color: #e74c3c; }
-  a.Button.Info, table td.Actions ul li a.Info, .Filter-Result li a.Delete.Info, button.Button.Info, table td.Actions ul li button.Info, .Filter-Result li button.Delete.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, table td.Actions ul li span.Info, .Filter-Result li span.Delete.Info, a.Button.Success, table td.Actions ul li a.Success, .Filter-Result li a.Delete.Success, button.Button.Success, table td.Actions ul li button.Success, .Filter-Result li button.Delete.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, table td.Actions ul li span.Success, .Filter-Result li span.Delete.Success, a.Button.Error, table td.Actions ul li a.Error, .Filter-Result li a.Delete.Error, button.Button.Error, table td.Actions ul li button.Error, .Filter-Result li button.Delete.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, table td.Actions ul li span.Error, .Filter-Result li span.Delete.Error, a.Button.Warning, table td.Actions ul li a.Warning, .Filter-Result li a.Delete.Warning, button.Button.Warning, table td.Actions ul li button.Warning, .Filter-Result li button.Delete.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning, table td.Actions ul li span.Warning, .Filter-Result li span.Delete.Warning {
+  a.Button.Info, .Filter-Result li a.Delete.Info, button.Button.Info, .Filter-Result li button.Delete.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, .Filter-Result li span.Delete.Info, a.Button.Success, .Filter-Result li a.Delete.Success, button.Button.Success, .Filter-Result li button.Delete.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, .Filter-Result li span.Delete.Success, a.Button.Error, .Filter-Result li a.Delete.Error, button.Button.Error, .Filter-Result li button.Delete.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, .Filter-Result li span.Delete.Error, a.Button.Warning, .Filter-Result li a.Delete.Warning, button.Button.Warning, .Filter-Result li button.Delete.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning, .Filter-Result li span.Delete.Warning {
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
     box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset; }
-  a.Button.Info, table td.Actions ul li a.Info, .Filter-Result li a.Delete.Info, button.Button.Info, table td.Actions ul li button.Info, .Filter-Result li button.Delete.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, table td.Actions ul li span.Info, .Filter-Result li span.Delete.Info {
+  a.Button.Info, .Filter-Result li a.Delete.Info, button.Button.Info, .Filter-Result li button.Delete.Info, input[type='submit'].Info, input[type='button'].Info, span.Button.Info, .Filter-Result li span.Delete.Info {
     border-color: #00a4c6;
     background-color: #25c9eb; }
-  a.Button.Info:hover, table td.Actions ul li a.Info:hover, .Filter-Result li a.Delete.Info:hover, button.Button.Info:hover, table td.Actions ul li button.Info:hover, .Filter-Result li button.Delete.Info:hover, input[type='submit'].Info:hover, input[type='button'].Info:hover, span.Button.Info:hover, table td.Actions ul li span.Info:hover, .Filter-Result li span.Delete.Info:hover {
+  a.Button.Info:hover, .Filter-Result li a.Delete.Info:hover, button.Button.Info:hover, .Filter-Result li button.Delete.Info:hover, input[type='submit'].Info:hover, input[type='button'].Info:hover, span.Button.Info:hover, .Filter-Result li span.Delete.Info:hover {
     background-color: #00a4c6; }
-  a.Button.Success, table td.Actions ul li a.Success, .Filter-Result li a.Delete.Success, button.Button.Success, table td.Actions ul li button.Success, .Filter-Result li button.Delete.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, table td.Actions ul li span.Success, .Filter-Result li span.Delete.Success {
+  a.Button.Success, .Filter-Result li a.Delete.Success, button.Button.Success, .Filter-Result li button.Delete.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, .Filter-Result li span.Delete.Success {
     border-color: #54894e;
     background-color: #6ea268; }
-  a.Button.Success:hover, table td.Actions ul li a.Success:hover, .Filter-Result li a.Delete.Success:hover, button.Button.Success:hover, table td.Actions ul li button.Success:hover, .Filter-Result li button.Delete.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover, table td.Actions ul li span.Success:hover, .Filter-Result li span.Delete.Success:hover {
+  a.Button.Success:hover, .Filter-Result li a.Delete.Success:hover, button.Button.Success:hover, .Filter-Result li button.Delete.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover, .Filter-Result li span.Delete.Success:hover {
     background-color: #54894e; }
-  a.Button.Success, table td.Actions ul li a.Success, .Filter-Result li a.Delete.Success, button.Button.Success, table td.Actions ul li button.Success, .Filter-Result li button.Delete.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, table td.Actions ul li span.Success, .Filter-Result li span.Delete.Success {
+  a.Button.Success, .Filter-Result li a.Delete.Success, button.Button.Success, .Filter-Result li button.Delete.Success, input[type='submit'].Success, input[type='button'].Success, span.Button.Success, .Filter-Result li span.Delete.Success {
     background-color: #2ecc71; }
-  a.Button.Success:hover, table td.Actions ul li a.Success:hover, .Filter-Result li a.Delete.Success:hover, button.Button.Success:hover, table td.Actions ul li button.Success:hover, .Filter-Result li button.Delete.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover, table td.Actions ul li span.Success:hover, .Filter-Result li span.Delete.Success:hover {
+  a.Button.Success:hover, .Filter-Result li a.Delete.Success:hover, button.Button.Success:hover, .Filter-Result li button.Delete.Success:hover, input[type='submit'].Success:hover, input[type='button'].Success:hover, span.Button.Success:hover, .Filter-Result li span.Delete.Success:hover {
     background-color: #5ec67d; }
-  a.Button.Warning, table td.Actions ul li a.Warning, .Filter-Result li a.Delete.Warning, button.Button.Warning, table td.Actions ul li button.Warning, .Filter-Result li button.Delete.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning, table td.Actions ul li span.Warning, .Filter-Result li span.Delete.Warning {
+  a.Button.Warning, .Filter-Result li a.Delete.Warning, button.Button.Warning, .Filter-Result li button.Delete.Warning, input[type='submit'].Warning, input[type='button'].Warning, span.Button.Warning, .Filter-Result li span.Delete.Warning {
     background-color: #e67e22; }
-  a.Button.Warning:hover, table td.Actions ul li a.Warning:hover, .Filter-Result li a.Delete.Warning:hover, button.Button.Warning:hover, table td.Actions ul li button.Warning:hover, .Filter-Result li button.Delete.Warning:hover, input[type='submit'].Warning:hover, input[type='button'].Warning:hover, span.Button.Warning:hover, table td.Actions ul li span.Warning:hover, .Filter-Result li span.Delete.Warning:hover {
+  a.Button.Warning:hover, .Filter-Result li a.Delete.Warning:hover, button.Button.Warning:hover, .Filter-Result li button.Delete.Warning:hover, input[type='submit'].Warning:hover, input[type='button'].Warning:hover, span.Button.Warning:hover, .Filter-Result li span.Delete.Warning:hover {
     background-color: #d35400; }
-  a.Button.Error, table td.Actions ul li a.Error, .Filter-Result li a.Delete.Error, button.Button.Error, table td.Actions ul li button.Error, .Filter-Result li button.Delete.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, table td.Actions ul li span.Error, .Filter-Result li span.Delete.Error {
+  a.Button.Error, .Filter-Result li a.Delete.Error, button.Button.Error, .Filter-Result li button.Delete.Error, input[type='submit'].Error, input[type='button'].Error, span.Button.Error, .Filter-Result li span.Delete.Error {
     border-color: #a02828;
     background-color: #e43f3f; }
-  a.Button.Error:hover, table td.Actions ul li a.Error:hover, .Filter-Result li a.Delete.Error:hover, button.Button.Error:hover, table td.Actions ul li button.Error:hover, .Filter-Result li button.Delete.Error:hover, input[type='submit'].Error:hover, input[type='button'].Error:hover, span.Button.Error:hover, table td.Actions ul li span.Error:hover, .Filter-Result li span.Delete.Error:hover {
+  a.Button.Error:hover, .Filter-Result li a.Delete.Error:hover, button.Button.Error:hover, .Filter-Result li button.Delete.Error:hover, input[type='submit'].Error:hover, input[type='button'].Error:hover, span.Button.Error:hover, .Filter-Result li span.Delete.Error:hover {
     background-color: #a02828; }
-  a.Button + .Button, table td.Actions ul li a + .Button, table td.Actions ul li a + table td.Actions ul li a, table td.Actions ul li table td.Actions ul li a + a, table td.Actions ul li a + .Filter-Result li .Delete, .Filter-Result li table td.Actions ul li a + .Delete, .Filter-Result li a.Delete + .Button, .Filter-Result li a.Delete + table td.Actions ul li a, table td.Actions ul li .Filter-Result li a.Delete + a, .Filter-Result li a.Delete + .Filter-Result li .Delete, .Filter-Result li .Filter-Result li a.Delete + .Delete, a.Button + table td.Actions ul li a, table td.Actions ul li a.Button + a, a.Button + .Filter-Result li .Delete, .Filter-Result li a.Button + .Delete, button.Button + .Button, table td.Actions ul li button + .Button, table td.Actions ul li button + table td.Actions ul li a, table td.Actions ul li table td.Actions ul li button + a, table td.Actions ul li button + .Filter-Result li .Delete, .Filter-Result li table td.Actions ul li button + .Delete, .Filter-Result li button.Delete + .Button, .Filter-Result li button.Delete + table td.Actions ul li a, table td.Actions ul li .Filter-Result li button.Delete + a, .Filter-Result li button.Delete + .Filter-Result li .Delete, .Filter-Result li .Filter-Result li button.Delete + .Delete, button.Button + table td.Actions ul li a, table td.Actions ul li button.Button + a, button.Button + .Filter-Result li .Delete, .Filter-Result li button.Button + .Delete, input[type='submit'] + .Button, input[type='submit'] + table td.Actions ul li a, table td.Actions ul li input[type='submit'] + a, input[type='submit'] + .Filter-Result li .Delete, .Filter-Result li input[type='submit'] + .Delete, input[type='button'] + .Button, input[type='button'] + table td.Actions ul li a, table td.Actions ul li input[type='button'] + a, input[type='button'] + .Filter-Result li .Delete, .Filter-Result li input[type='button'] + .Delete, span.Button + .Button, table td.Actions ul li span + .Button, table td.Actions ul li span + table td.Actions ul li a, table td.Actions ul li table td.Actions ul li span + a, table td.Actions ul li span + .Filter-Result li .Delete, .Filter-Result li table td.Actions ul li span + .Delete, .Filter-Result li span.Delete + .Button, .Filter-Result li span.Delete + table td.Actions ul li a, table td.Actions ul li .Filter-Result li span.Delete + a, .Filter-Result li span.Delete + .Filter-Result li .Delete, .Filter-Result li .Filter-Result li span.Delete + .Delete, span.Button + table td.Actions ul li a, table td.Actions ul li span.Button + a, span.Button + .Filter-Result li .Delete, .Filter-Result li span.Button + .Delete {
+  a.Button + .Button, .Filter-Result li a.Delete + .Button, .Filter-Result li a.Delete + .Filter-Result li .Delete, .Filter-Result li .Filter-Result li a.Delete + .Delete, a.Button + .Filter-Result li .Delete, .Filter-Result li a.Button + .Delete, button.Button + .Button, .Filter-Result li button.Delete + .Button, .Filter-Result li button.Delete + .Filter-Result li .Delete, .Filter-Result li .Filter-Result li button.Delete + .Delete, button.Button + .Filter-Result li .Delete, .Filter-Result li button.Button + .Delete, input[type='submit'] + .Button, input[type='submit'] + .Filter-Result li .Delete, .Filter-Result li input[type='submit'] + .Delete, input[type='button'] + .Button, input[type='button'] + .Filter-Result li .Delete, .Filter-Result li input[type='button'] + .Delete, span.Button + .Button, .Filter-Result li span.Delete + .Button, .Filter-Result li span.Delete + .Filter-Result li .Delete, .Filter-Result li .Filter-Result li span.Delete + .Delete, span.Button + .Filter-Result li .Delete, .Filter-Result li span.Button + .Delete {
     margin-left: 10px; }
 
 .Message {
@@ -1197,7 +1196,7 @@ a.Button, table td.Actions ul li a, .Filter-Result li a.Delete, button.Button, t
     margin: 15px; }
   .Box > .Box-Content {
     padding: 10px 15px 15px; }
-  .Box.Round, a.Button.Ghost.Box, table td.Actions ul li a.Ghost.Box, .Filter-Result li a.Delete.Ghost.Box, button.Button.Ghost.Box, table td.Actions ul li button.Ghost.Box, .Filter-Result li button.Delete.Ghost.Box, input[type='submit'].Ghost.Box, input[type='button'].Ghost.Box, span.Button.Ghost.Box, table td.Actions ul li span.Ghost.Box, .Filter-Result li span.Delete.Ghost.Box {
+  .Box.Round, a.Button.Ghost.Box, .Filter-Result li a.Delete.Ghost.Box, button.Button.Ghost.Box, .Filter-Result li button.Delete.Ghost.Box, input[type='submit'].Ghost.Box, input[type='button'].Ghost.Box, span.Button.Ghost.Box, .Filter-Result li span.Delete.Ghost.Box {
     border-radius: 10px; }
   .Box.Outlined {
     border: 2px solid #95a5a6; }
@@ -3551,6 +3550,8 @@ img.Footer-Img {
         padding: 15px 15px 15px; } }
   .Snippet-List .Snippet-Item + .Snippet-Item {
     margin-top: 15px; }
+  .Snippet-List .Item-Gallery {
+    padding-bottom: 10px; }
   .Snippet-List .Item-Gallery > img {
     width: 100%; }
   .Snippet-List .Item-Content {
@@ -3595,6 +3596,8 @@ img.Footer-Img {
     border-radius: 5px;
     text-align: center;
     color: white; }
+  .Snippet-Item header .Item-Price .Icon {
+    font-size: 12px; }
   .Snippet-Item header .Item-Views span.fa {
     margin-right: 10px;
     color: #555; }
@@ -3623,6 +3626,14 @@ img.Footer-Img {
   @media screen and (min-width: 1014px) {
     .Snippet-Item .Item-Content {
       padding: 0 15px 15px; } }
+  .Snippet-Item .Item-Content .Item-Details {
+    margin: 10px 0 0;
+    padding: 10px 0 0;
+    border-top: 1px solid #dedede;
+    color: #999; }
+  .Snippet-Item .Item-Content .Item-Details li {
+    margin-right: 15px;
+    font-size: 0.8em; }
   .Snippet-Item .Item-Content img {
     width: 100%; }
   .Snippet-Item .Item-Content h6 {
@@ -3632,14 +3643,16 @@ img.Footer-Img {
     margin-top: 15px; }
   .Snippet-Item .Item-Content table {
     font-size: 14px;
-    border-top: 1px solid #dedede;
     width: 100%; }
   .Snippet-Item .Item-Content table tr td {
+    color: #999;
+    font-size: 12px;
     padding: 5px 0; }
-  .Snippet-Item .Item-Content .More-Info a {
+  .Snippet-Item .Item-Content .More-Info > h6 > a {
     font-family: 'Open Sans', Helvetica, Verdana, sans-serif;
-    font-size: 14px; }
-  .Snippet-Item .Item-Content .More-Info a:hover {
+    font-size: 12px;
+    color: black; }
+  .Snippet-Item .Item-Content .More-Info > h6 > a:hover {
     border-color: black; }
   .Snippet-Item .Item-Info {
     clear: both;
@@ -4051,3 +4064,6 @@ ul.Tag-List li.Tag-Item {
 @media all and (min-width: 2540px) {
   .Node {
     padding: 50px; } }
+
+.Toggled-Next-Item {
+  display: none; }

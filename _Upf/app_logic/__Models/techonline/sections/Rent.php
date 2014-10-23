@@ -39,14 +39,16 @@ class Rent extends Meta{
                 'meta.tags',
                 'meta.regions',
                 'meta.files',
-                'meta.users',
+                'users',
                 'meta.comments',
-                'meta.categories.params',
-                'meta.paramsvalues',
-                'meta.paramsvalues.params',
                 'catalog',
                 'catalog.meta',
-                'catalog.meta.categories')
+                'catalog.meta.categories',
+                'catalog.meta.categories.params',
+                'catalog.meta.paramsvalues',
+                'catalog.meta.paramsvalues.paramData'
+
+            )
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')
@@ -76,13 +78,15 @@ class Rent extends Meta{
                 'meta.tags',
                 'meta.regions',
                 'meta.files',
-                'meta.users',
-                'meta.categories.params',
-                'meta.paramsvalues',
-                'meta.paramsvalues.params',
+                'meta.comments',
+                'users',
                 'catalog',
                 'catalog.meta',
-                'catalog.meta.categories')
+                'catalog.meta.categories',
+                'catalog.meta.categories.params',
+                'catalog.meta.paramsvalues',
+                'catalog.meta.paramsvalues.paramData'
+            )
             ->first();
 
         // print_r($this->GetFields('list','frontend', true));exit;

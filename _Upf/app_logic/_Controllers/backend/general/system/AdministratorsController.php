@@ -6,6 +6,7 @@ class AdministratorsController extends FieldsController{
 
     public $BaseUrl = '/backend/system/administrators/';
     public $Model = '\UpfModels\Administrators';
+    public $HasMeta = false;
 
     /*** Auth Form***/
     public function Auth(){
@@ -41,4 +42,45 @@ class AdministratorsController extends FieldsController{
 
 
     }
+
+
+
+
+
+    /*** Show Edit Element ***/
+
+    public function Edit($Alias){
+
+        $Model = new $this->Model();
+        $this->ViewData['Content'] = $Model->EditItem($Alias, $this->HasMeta,'login');
+
+        return \View::make($this->View.'edit',$this->ViewData);
+    }
+
+
+    /*** Update Item ***/
+
+    public function Update($Alias){
+
+        $Model = new $this->Model();
+        if($Model->UpdateItem($Alias,$this->HasMeta,'login')){
+            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
+        }
+    }
+
+    /*** Remove Item ***/
+    public function Remove($Alias){
+
+        $Model = new $this->Model();
+
+        if($Model->remove($Alias, $this->HasMeta,'login')){
+            echo json_encode(['message'=>'Запись успешноудалена из базы данных.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить запись.','type'=>'Error']);
+        }
+    }
+
+
 }

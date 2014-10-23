@@ -21,6 +21,7 @@ class Parts extends Migration {
 
             /*** Relations ***/
             $table->integer('meta_id')->default(0);
+            $table->integer('user_id')->default(0);
 
             /*** Status ***/
             $table->integer('condition')->nullable();
@@ -56,7 +57,7 @@ class Parts extends Migration {
             ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
             ['Качество', 'condition', 'select', 'Title', 'main', true, 'backend', $Table, 'edit','config','models/Fields.condition'],
             // Relations
-            ['Пользователь', 'meta-user_id', 'select', 'Title', 'main', true, 'backend', $Table, 'edit', 'model', 'Users'],
+            ['Пользователь', 'user_id', 'select', 'Title', 'main', true, 'backend', $Table, 'edit', 'model', 'Users'],
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
