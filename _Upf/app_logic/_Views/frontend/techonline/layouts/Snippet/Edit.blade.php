@@ -260,8 +260,9 @@
 <section class="Node">
     <h3 class="Heading Primary">Запчасти и сервис</h3>
     <article>
+        @if( !empty($Item['parts']) )
         <ul class="Snippet-List">
-         @if( !empty($Item['parts']) )
+
             @foreach($Item['parts'] as $Parts)
             <li class="Snippet-Item Grid Merge" style="margin-bottom: 20px">
                 <header class="Grid Split" style="margin-bottom: 0px">
@@ -306,8 +307,9 @@
             </li>
             @endforeach
 
-        @endif
+
         </ul>
+        @endif
         <a class="Button Large" style="float: left;" href="/cabinet/parts/add">Добавить запчасти</a>
     </article>
 </section>
