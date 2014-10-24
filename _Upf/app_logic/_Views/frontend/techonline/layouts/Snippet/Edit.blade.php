@@ -196,10 +196,11 @@
 </section>
 
 
-@if( !empty($Item['rent']) )
+
 <section class="Node">
     <h3 class="Heading Primary">Аренда</h3>
     <article>
+        @if( !empty($Item['rent']) )
         <ul class="Snippet-List">
 
                 @foreach($Item['rent'] as $Rent)
@@ -248,18 +249,19 @@
                 @endforeach
 
         </ul>
+        @endif
         <a class="Button Large" style="float: left;" href="/cabinet/rent/add">Добавить технику</a>
     </article>
 </section>
-@endif
 
 
-@if( !empty($Item['parts']) )
+
+
 <section class="Node">
     <h3 class="Heading Primary">Запчасти и сервис</h3>
     <article>
         <ul class="Snippet-List">
-
+         @if( !empty($Item['parts']) )
             @foreach($Item['parts'] as $Parts)
             <li class="Snippet-Item Grid Merge" style="margin-bottom: 20px">
                 <header class="Grid Split" style="margin-bottom: 0px">
@@ -304,11 +306,11 @@
             </li>
             @endforeach
 
+        @endif
         </ul>
         <a class="Button Large" style="float: left;" href="/cabinet/parts/add">Добавить запчасти</a>
     </article>
 </section>
-@endif
 
 
     {{-- Comments --}}
