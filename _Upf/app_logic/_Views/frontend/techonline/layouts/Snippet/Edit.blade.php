@@ -52,13 +52,11 @@
                         </div>
                         @endif
 
-                        @if(isset($Item['meta']['rating']))
-                        <ul class="Item-Vote Node-XS-2 End">
-                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                            <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
+                        <ul class="Actions Node-XS-2 Item-Edit End">
+                            <li><a class="Item-Edit" title="Редактировать ..."
+                                   href="/cabinet/profile">
+                                    <span class="Icon Icon-pencil Button"></span></a></li>
                         </ul>
-                        @endif
 
                     {{-- End Group :: Statuses --}}
 
@@ -233,13 +231,13 @@
                             </div>
                             @endif
 
-                            @if(isset($Rent['meta']['rating']))
-                            <ul class="Item-Vote Node-XS-2 End">
-                                <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                                <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                                <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
+
+                            <ul class="Actions Node-XS-2 Item-Edit End">
+                                <li><a class="Item-Edit" title="Редактировать ..."
+                                       href="@if(isset($Rent['meta']['alias'])){{Request::url().'/rent/'.$Rent['meta']['alias'].'/edit'}}@endif">
+                                        <span class="Icon Icon-pencil Button"></span></a></li>
+                                <li><a class="Item-Remove" data-remove-link="{{'/cabinet/rent/'.$Rent['meta']['alias'].'/remove'}}"  title="Удалить ..." href="#"><span class="Icon Icon-remove Button"></span></a></li>
                             </ul>
-                            @endif
 
                             {{-- End Group :: Statuses --}}
 
@@ -250,6 +248,7 @@
                 @endforeach
 
         </ul>
+        <a class="Button Large" style="float: left;" href="/cabinet/rent/add">Добавить технику</a>
     </article>
 </section>
 @endif
@@ -290,13 +289,12 @@
                     </div>
                     @endif
 
-                    @if(isset($Parts['meta']['rating']))
-                    <ul class="Item-Vote Node-XS-2 End">
-                        <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                        <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                        <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                    </ul>
-                    @endif
+                        <ul class="Actions Node-XS-2 Item-Edit End">
+                            <li><a class="Item-Edit" title="Редактировать ..."
+                                   href="@if(isset($Parts['meta']['alias'])){{Request::url().'/parts/'.$Parts['meta']['alias'].'/edit'}}@endif">
+                                    <span class="Icon Icon-pencil Button"></span></a></li>
+                            <li><a class="Item-Remove" data-remove-link="{{'/cabinet/parts/'.$Parts['meta']['alias'].'/remove'}}" title="Удалить ..." href="#"><span class="Icon Icon-remove Button"></span></a></li>
+                        </ul>
 
                     {{-- End Group :: Statuses --}}
 
@@ -307,6 +305,7 @@
             @endforeach
 
         </ul>
+        <a class="Button Large" style="float: left;" href="/cabinet/parts/add">Добавить запчасти</a>
     </article>
 </section>
 @endif

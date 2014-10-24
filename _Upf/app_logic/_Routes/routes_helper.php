@@ -64,12 +64,12 @@
                 Route::get('/'. $Section .'/','\UpfFrontendControllers\\'.$Controller.'Controller@Index');
                 Route::get('/'. $Section .'/profile','\UpfFrontendControllers\\'.$Controller.'Controller@Profile');
 
-                Route::any('/' . $Section . '/update',                     '\UpfFrontendControllers\\'     .$Controller.    'Controller@Update');
-                Route::any('/' . $Section . '/remove',                     '\UpfFrontendControllers\\'     .$Controller.    'Controller@Remove');
+                Route::any('/' . $Section . '/profile/update',                     '\UpfFrontendControllers\\'     .$Controller.    'Controller@ProfileUpdate');
+                Route::any('/' . $Section . '/profile/remove',                     '\UpfFrontendControllers\\'     .$Controller.    'Controller@ProfileRemove');
 
-                Route::any('/' . $Section . '/{alias}/photos',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@UpdatePhotos');
-                Route::any('/' . $Section . '/{alias}/removePhotos/{id}',  '\UpfFrontendControllers\\'     .$Controller.    'Controller@RemovePhotos');
-                Route::any('/' . $Section . '/{alias}/removeLogotype',     '\UpfFrontendControllers\\'     .$Controller.    'Controller@RemoveLogotype');
+                Route::any('/' . $Section . '/profile/updatePhotos',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@ProfilePhotos');
+                Route::any('/' . $Section . '/profile/removePhotos/{id}',  '\UpfFrontendControllers\\'     .$Controller.    'Controller@RemoveProfilePhotos');
+                Route::any('/' . $Section . '/profile/removeLogotype',     '\UpfFrontendControllers\\'     .$Controller.    'Controller@RemoveProfileLogotype');
 
 
             /*** Cabinet Rent ***/
@@ -81,7 +81,7 @@
                 Route::any('/' . $Section . '/rent/{alias}/update',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@RentUpdate');
                 Route::any('' .  $Section . '/rent/{alias}/remove',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@RentRemove');
 
-                Route::any('/' . $Section . '/rent/{alias}/photos',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@RentUpdatePhotos');
+                Route::any('/' . $Section . '/rent/{alias}/updatePhotos',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@RentPhotos');
                 Route::any('/' . $Section . '/rent/{alias}/removePhotos/{id}',  '\UpfFrontendControllers\\'     .$Controller.    'Controller@RentRemovePhotos');
                 Route::any('/' . $Section . '/rent/{alias}/removeLogotype',     '\UpfFrontendControllers\\'     .$Controller.    'Controller@RentRemoveLogotype');
 
@@ -96,7 +96,7 @@
                 Route::any('/' . $Section . '/parts/{alias}/update',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@PartsUpdate');
                 Route::any('' .  $Section . '/parts/{alias}/remove',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@PartsRemove');
 
-                Route::any('/' . $Section . '/parts/{alias}/photos',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@PartsUpdatePhotos');
+                Route::any('/' . $Section . '/parts/{alias}/updatePhotos',             '\UpfFrontendControllers\\'     .$Controller.    'Controller@PartsPhotos');
                 Route::any('/' . $Section . '/parts/{alias}/removePhotos/{id}',  '\UpfFrontendControllers\\'     .$Controller.    'Controller@PartsRemovePhotos');
                 Route::any('/' . $Section . '/parts/{alias}/removeLogotype',     '\UpfFrontendControllers\\'     .$Controller.    'Controller@PartsRemoveLogotype');
 

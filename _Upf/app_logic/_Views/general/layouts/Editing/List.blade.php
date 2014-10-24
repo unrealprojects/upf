@@ -80,9 +80,9 @@
                                 <ul>
                                     <li><a class="Item-Update" title="Принять изменения" href="#"><span class="Icon Icon-check Button"></span></a></li>
                                     <li><a class="Item-Edit" title="Редактировать ..."
-                                        href="@if(isset($Item['meta']['alias'])){{$BaseUrl.$Item['meta']['alias'].'/edit'}}
-                                              @elseif(isset($Item['alias'])){{$BaseUrl.$Item['alias'].'/edit'}}
-                                              @elseif(isset($Item['login'])){{$BaseUrl.$Item['login'].'/edit'}}@endif">
+                                        href="@if(isset($Item['meta']['alias'])){{Request::url().'/'.$Item['meta']['alias'].'/edit'}}
+                                              @elseif(isset($Item['alias'])){{Request::url().'/'.$Item['alias'].'/edit'}}
+                                              @elseif(isset($Item['login'])){{Request::url().'/'.$Item['login'].'/edit'}}@endif">
                                             <span class="Icon Icon-pencil Button"></span></a></li>
                                     <li><a class="Item-Remove" title="Удалить ..." href="#"><span class="Icon Icon-remove Button"></span></a></li>
                                 </ul>
@@ -93,7 +93,11 @@
                 </tbody>
 
             </table>
+            @if(isset($Modules['Navigate']))
+                <a class="Button Large" style="float: left;" href="{{Request::url().'/add'}}" >Добавить</a>
+            @endif
             {{$Content['Pagination']}}
         </section>
+
     </section>
 @endsection

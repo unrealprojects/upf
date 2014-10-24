@@ -44,15 +44,25 @@ upf.List.TrashItem = function(){
         // Function Variables
         var This = this,
             $ItemAlias = $(This).parents('tr').attr('item-alias');
+        var URL = '';
+        if($(this).attr('data-remove-link')){
+            URL = $(this).attr('data-remove-link');
+        }else{
+            URL  = location.pathname + '/' + $ItemAlias + '/remove';
+        }
 
         // Send Ajax to "/alias/trash"
         $.ajax({
             type:'get',
-            url:location.pathname + '/' + $ItemAlias + '/remove',
+            url: URL,
             dataType:'json',
             success: function(Data){
                 if(Data['type']=='Success'){
                     $(This).parents('tr').animate({'opacity':0},function(){
+                        $(this).remove();
+                    });
+                    // To Cabinet
+                    $(This).parents('.Snippet-Item').animate({'opacity':0},function(){
                         $(this).remove();
                     });
                 }
@@ -114,9 +124,12 @@ upf.Edit.UpdateItemFiles = function(){
         // Send Ajax to "/alias/update"
         var This = this;
         var formData = new FormData($(UpdateForm)[0]);
+
+
+
         $.ajax({
             type:'POST',
-            url:  location.pathname.replace('edit','') + 'updatePhotos',
+            url:  location.pathname.replace('/edit','') + '/updatePhotos',
             data: formData,
             dataType:'json',
             success: function(Data){
@@ -158,7 +171,7 @@ upf.Edit.RemoveItemLogotype = function(){
         var This = this;
         $.ajax({
             type:'POST',
-            url:  location.pathname.replace('edit','') + 'removeLogotype',
+            url:  location.pathname.replace('/edit','') + '/removeLogotype',
             dataType:'json',
             success: function(Data){
                 upf.Messages.Show(Data['message'],Data['type']);
@@ -181,7 +194,7 @@ upf.Edit.RemoveItemPhotos = function(){
         var PhotoId = $(This).next('img').attr('item_img_id');
         $.ajax({
             type:'POST',
-            url:  location.pathname.replace('edit','') + 'removePhotos/' + PhotoId,
+            url:  location.pathname.replace('/edit','') + '/removePhotos/' + PhotoId,
             dataType:'json',
             success: function(Data){
                 upf.Messages.Show(Data['message'],Data['type']);

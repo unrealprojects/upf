@@ -102,8 +102,47 @@ class Fields extends General {
             if(!$SearchField){
                 $SearchField = 'alias';
             }
-            /*** By Field ***/
-            return $Model->where($SearchField,$Alias)->first();
+
+            // When find In users Login
+            if(count($Fields = explode($SearchField,'.'))==2){
+
+                return $Model->whereHas($Fields[0],function($Query) use ($Fields,$Alias){
+                    $Query->where($Fields[1],$Alias);
+                })
+                    ->with('meta',
+                        'meta.categories',
+                        'meta.tags',
+                        'meta.regions',
+                        'meta.comments',
+                        'meta.files',
+                        'meta.categories.params',
+                        'meta.paramsvalues',
+                        'meta.paramsvalues.paramData'
+                    )->first();
+            }else{
+
+                /*** By Field ***/
+                if(!$Meta){
+                    return $Model->where($SearchField,$Alias)->first();
+                }else{
+                    return $Model->where($SearchField,$Alias)
+                        ->with('meta',
+                            'meta.categories',
+                            'meta.tags',
+                            'meta.regions',
+                            'meta.comments',
+                            'meta.files',
+                            'meta.categories.params',
+                            'meta.paramsvalues',
+                            'meta.paramsvalues.paramData'
+                        )->first();
+                }
+            }
+
+
+
+
+
         }else{
             /*** By Alias in Meta ***/
             return $Model->WhereAliasInMeta($Model,$Alias)
@@ -201,7 +240,7 @@ class Fields extends General {
                     if(\Input::hasFile('logotype')){
 
                         /*** Set File Src ***/
-                        $FileSrc = $this->PhotosUrl.time().'_'.\Mascame\Urlify::filter(\Input::file('logotype')->getClientOriginalName());
+                        $FileSrc = $this->PhotosUrl.time().'_'.\Mascame\Urlify::filter(\Input::file('logotype')->getClientOriginalName()).'.'.\Input::file('logotype')->getClientOriginalExtension();
                         \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
                         $this->logotype = $FileSrc;
                     }
@@ -395,14 +434,14 @@ class Fields extends General {
 
         /*** Get Item By Field ***/
         $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
-    //        print_r(\Input::all());
-    //        exit;
+//            print_r($Item);
+//            exit;
 
         /*** Write Logotype ***/
 
         if(\Input::hasFile('logotype')){
             /*** Set File Src ***/
-            $FileSrc = $this->PhotosUrl.time().'_'.\Mascame\Urlify::filter(\Input::file('logotype')->getClientOriginalName());
+            $FileSrc = $this->PhotosUrl.time().'_'.\Mascame\Urlify::filter(\Input::file('logotype')->getClientOriginalName()).'.'.\Input::file('logotype')->getClientOriginalExtension();
 
             /*** Save ***/
             \Input::file('logotype')->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
@@ -417,7 +456,7 @@ class Fields extends General {
                 foreach(\Input::file('meta-files') as $Key=>$Photo){
                     $File = new \UpfModels\Files();
 
-                    $FileSrc = $this->PhotosUrl.time() . '_' . \Mascame\Urlify::filter($Photo->getClientOriginalName());
+                    $FileSrc = $this->PhotosUrl.time() . '_' . \Mascame\Urlify::filter($Photo->getClientOriginalName()).'.'.$Photo->getClientOriginalExtension();
                     $Photo->move(base_path().'/public'.$this->PhotosUrl,$FileSrc);
                     $File->src = $FileSrc;
                     $File->save();
@@ -468,7 +507,7 @@ class Fields extends General {
         $Item = $this->GetItemByField($Alias, $Meta, $SearchField, $this);
 
         /*** Delete ***/
-        return  $Item->files()->detach([$Id]);
+        return  $Item->meta ->files()->detach([$Id]);
     }
 
 

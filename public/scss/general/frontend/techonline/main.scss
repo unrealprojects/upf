@@ -863,3 +863,21 @@ ul.Tag-List {
 .Toggled-Next-Item{
     display:none;
 }
+
+ul.Item-Edit
+{
+    @extend %Unstyle;
+    @extend ._Inline;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    li{
+        margin-right: 15px;
+        float: right;
+
+        span{
+            width: 31px;
+            height: 31px;
+            text-align: center;
+        }
+    }
+}

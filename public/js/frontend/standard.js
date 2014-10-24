@@ -30,14 +30,28 @@
         });
 
 
+
+        var URI = location.pathname.split('/');
         /*** Activate Current Tab ***/
-        $('.Tab-Set a').each(function(Key,Item){
-            if($(Item).attr('href') == location.pathname){
-                $(Item).addClass('Active');
-            }else{
-                $(Item).removeClass('Active');
-            }
-        });
+        if(URI[1]){
+            $('.Tab-Set a').each(function(Key,Item){
+
+                var Crumbs = $(Item).attr('href').split('/');
+                if(URI [2]){
+                    if(Crumbs [1] == URI [1] && Crumbs [2] == URI [2]){
+                        $(Item).addClass('Active');
+                    }else{
+                        $(Item).removeClass('Active');
+                    }
+                }else{
+                    if(Crumbs [1] == URI [1] && !Crumbs [2]){
+                        $(Item).addClass('Active');
+                    }else{
+                        $(Item).removeClass('Active');
+                    }
+                }
+            });
+        }
 
     });
 })(jQuery);

@@ -47,18 +47,63 @@ class CabinetController extends SystemController{
 
         /*** Update User Cabinet ***/
 
-            public function Update(){
+            public function ProfileUpdate(){
                 /*** Default Model ***/
                 $DefaultModel = new $this->Model();
 
                 /*** Update Model ***/
-                if($DefaultModel->UpdateItem( $this->User['login'],'login') ){
+                if($DefaultModel->UpdateItem( $this->User['login'], true, 'login') ){
                     echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
                 }else{
                     echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
                 }
             }
 
+
+        /*** Update Cabinet Photos ***/
+
+        public function ProfilePhotos(){
+
+            $Model = new $this->Model();
+
+            if($Files = $Model->UpdateItemPhotos($this->User['login'], true, 'login')){
+                echo json_encode(['message' => 'Запись успешно обновлена.','type'=>'Success','files'=>$Files]);
+            }else{
+                echo json_encode(['message' => 'Невозможно обновить запись.','type'=>'Error']);
+            }
+        }
+
+
+
+        /*** Remove Cabinet Logotype ***/
+
+        public function RemoveProfileLogotype(){
+
+            $Model = new $this->Model();
+
+            if($Model->RemoveLogotype($this->User['login'], true,'login')){
+                echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+            }else{
+                echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+            }
+        }
+
+
+
+
+
+        /*** Remove Cabinet Photos ***/
+
+        public function RemoveProfilePhotos($Id){
+
+            $Model = new $this->Model();
+
+            if($Updated=$Model->RemovePhoto($this->User['login'], $Id, true,'login')){
+                echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+            }else{
+                echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+            }
+        }
 
     /******************************************************************************************************************* Cabinet Rent ***/
 
@@ -76,40 +121,114 @@ class CabinetController extends SystemController{
             }
 
 
-    /*** Add Rent ***/
+        /*** Add Rent ***/
 
-        public function RentAdd(){
+            public function RentAdd(){
 
-            /*** Default Model ***/
-            $DefaultModel = new \UpfModels\Rent();
+                /*** Default Model ***/
+                $DefaultModel = new \UpfModels\Rent();
 
-            if( \Input::get('title')){
-                /*** Save ***/
-                if($Location = $DefaultModel->AddItem(true,$this->User['login'])){
-                    echo json_encode(['message'=>'Запись успешно добавлена в базу данных.','type'=>'Success','location'=>$Location]);
+                if( \Input::get('title')){
+                    /*** Save ***/
+                    if($Location = $DefaultModel->AddItem(true,$this->User['login'])){
+                        echo json_encode(['message'=>'Запись успешно добавлена в базу данных.','type'=>'Success','location'=>$Location]);
+                    }else{
+                        echo json_encode(['message'=>'Невозможно добавить запись.','type'=>'Error']);
+                    }
                 }else{
-                    echo json_encode(['message'=>'Невозможно добавить запись.','type'=>'Error']);
-                }
-            }else{
-                /*** Show Form ***/
-                $this->ViewData['Content'] = [ 'Fields' => $DefaultModel->GetFields('add') ];
+                    /*** Show Form ***/
+                    $this->ViewData['Content'] = [ 'Fields' => $DefaultModel->GetFields('add') ];
 
-                return \View::make($this->View.'Add',$this->ViewData);
+                    return \View::make($this->View.'Add',$this->ViewData);
+                }
+
             }
 
+
+        /*** Show Edit Rent ***/
+
+            public function RentEdit($Alias){
+
+                $Model = new \UpfModels\Rent();
+
+                $this->ViewData['Content'] = $Model->EditItem($Alias, true, false,'frontend');
+
+                return \View::make($this->View.'Edit',$this->ViewData);
+            }
+
+
+    /*** Update User Rent ***/
+
+    public function RentUpdate($Alias){
+        /*** Default Model ***/
+        $DefaultModel = new \UpfModels\Rent();
+
+        /*** Update Model ***/
+        if($DefaultModel->UpdateItem( $Alias, true ) ){
+            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
         }
+    }
 
 
-    /*** Show Edit Rent ***/
+    /*** Remove Rent Item ***/
+    public function RentRemove($Alias){
 
-        public function RentEdit($Alias){
+        $DefaultModel = new \UpfModels\Rent();
 
-            $Model = new \UpfModels\Rent();
-
-            $this->ViewData['Content'] = $Model->EditItem($Alias, true, false,'frontend');
-
-            return \View::make($this->View.'Edit',$this->ViewData);
+        if($DefaultModel->remove($Alias, true)){
+            echo json_encode(['message'=>'Запись успешноудалена из базы данных.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить запись.','type'=>'Error']);
         }
+    }
+
+
+    /*** Update Rent Photos ***/
+
+    public function RentPhotos($Alias){
+
+        $DefaultModel = new \UpfModels\Rent();
+
+        if($Files = $DefaultModel->UpdateItemPhotos($Alias, true)){
+            echo json_encode(['message' => 'Запись успешно обновлена.','type'=>'Success','files'=>$Files]);
+        }else{
+            echo json_encode(['message' => 'Невозможно обновить запись.','type'=>'Error']);
+        }
+    }
+
+
+
+    /*** Remove Rent Logotype ***/
+
+    public function RentRemoveLogotype($Alias){
+
+        $DefaultModel = new \UpfModels\Rent();
+
+        if($DefaultModel->RemoveLogotype($Alias, true)){
+            echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+        }
+    }
+
+
+
+
+
+    /*** Remove Rent Photos ***/
+
+    public function RentRemovePhotos($Alias,$Id){
+
+        $DefaultModel = new \UpfModels\Rent();
+
+        if($Updated=$DefaultModel->RemovePhoto($Alias, true, $Id, true)){
+            echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+        }
+    }
 
 
     /******************************************************************************************************************* Cabinet Rent ***/
@@ -163,6 +282,79 @@ class CabinetController extends SystemController{
             return \View::make($this->View.'Edit',$this->ViewData);
         }
 
+
+    /*** Update User Parts ***/
+
+    public function PartsUpdate($Alias){
+        /*** Default Model ***/
+        $DefaultModel = new \UpfModels\Parts();
+
+        /*** Update Model ***/
+        if($DefaultModel->UpdateItem( $Alias, true ) ){
+            echo json_encode([ 'message'=>'Запись успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно обновить запись.','type'=>'Error']);
+        }
+    }
+
+
+    /*** Remove Rent Item ***/
+    public function PartsRemove($Alias){
+
+        $DefaultModel = new \UpfModels\Parts();
+
+        if($DefaultModel->remove($Alias, true)){
+            echo json_encode(['message'=>'Запись успешноудалена из базы данных.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить запись.','type'=>'Error']);
+        }
+    }
+
+
+    /*** Update Rent Photos ***/
+
+    public function PartsPhotos($Alias){
+
+        $DefaultModel = new \UpfModels\Parts();
+
+        if($Files = $DefaultModel->UpdateItemPhotos($Alias, true)){
+            echo json_encode(['message' => 'Запись успешно обновлена.','type'=>'Success','files'=>$Files]);
+        }else{
+            echo json_encode(['message' => 'Невозможно обновить запись.','type'=>'Error']);
+        }
+    }
+
+
+
+    /*** Remove Rent Logotype ***/
+
+    public function PartsRemoveLogotype($Alias){
+
+        $DefaultModel = new \UpfModels\Parts();
+
+        if($DefaultModel->RemoveLogotype($Alias, true)){
+            echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+        }
+    }
+
+
+
+
+
+    /*** Remove Rent Photos ***/
+
+    public function PartsRemovePhotos($Alias,$Id){
+
+        $DefaultModel = new \UpfModels\Parts();
+
+        if($Updated=$DefaultModel->RemovePhoto($Alias, true, $Id, true)){
+            echo json_encode([ 'message'=>'Фото успешно обновлена.','type'=>'Success']);
+        }else{
+            echo json_encode(['message'=>'Невозможно удалить Фото.','type'=>'Error']);
+        }
+    }
 
     /******************************************************************************************************************* Modules ***/
     public function Modules(){
