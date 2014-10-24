@@ -3,23 +3,25 @@
     {{-- Comments Body --}}
         <h4 class="Heading Primary">Комментарии</h4>
         <ul class="Comments Separated">
-            @foreach($Comments as $Comment)
-                <li class="Comment Grid Split" comment_id="{{$Comment['id']}}">
+            @if(!empty($Comments))
+                @foreach($Comments as $Comment)
+                    <li class="Comment Grid Split" comment_id="{{$Comment['id']}}">
 
-                    <div class="Comment-Content Node-XS-10">
-                        <header>
-                            <h5>{{$Comment['author']}}</h5>
-                                <time>{{$Comment['created_at']}}</time>
-                        </header>
-                        <p>{{$Comment['post']}}</p>
-                    </div>
-                    <ul class="Item-Vote Node-XXS-3 Node-XS-2">
-                        <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                        <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                        <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                    </ul>
-                </li>
-            @endforeach
+                        <div class="Comment-Content Node-XS-10">
+                            <header>
+                                <h5>{{$Comment['author']}}</h5>
+                                    <time>{{$Comment['created_at']}}</time>
+                            </header>
+                            <p>{{$Comment['post']}}</p>
+                        </div>
+                        <ul class="Item-Vote Node-XXS-3 Node-XS-2">
+                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                            <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
+                        </ul>
+                    </li>
+                @endforeach
+            @endif
         </ul>
     {{-- End Comments Body --}}
 
