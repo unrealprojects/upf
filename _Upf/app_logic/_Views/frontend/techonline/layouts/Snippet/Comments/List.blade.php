@@ -3,7 +3,7 @@
     {{-- Comments Body --}}
         <h4 class="Heading Primary">Комментарии</h4>
         <ul class="Comments Separated">
-            @if(!empty($Comments))
+            @if(!empty($Comments) && count($Comments)>0)
                 @foreach($Comments as $Comment)
                     <li class="Comment Grid Split" comment_id="{{$Comment['id']}}">
 
