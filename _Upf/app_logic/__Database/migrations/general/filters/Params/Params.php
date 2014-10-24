@@ -42,13 +42,13 @@ class Params extends Migration {
         return [
             /*** List ***/
             ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'list'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'list'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', true, 'backend', $Table, 'list'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'list'],
 
             /*** Add ***/
             ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'add'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'add'],
+            ['Алиас', 'alias', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'add'],
 
             /*** Edit ***/
             // Group :: Main
@@ -65,8 +65,8 @@ class Params extends Migration {
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
             ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
             // Group :: Date
-            ['Созданно', 'created_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
-            ['Обновлено', 'updated_at', 'text', 'Date', 'main', true, 'backend', $Table, 'edit'],
+            ['Созданно', 'created_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
+            ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
         ];
     }
 }

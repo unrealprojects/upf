@@ -74,6 +74,11 @@ class Parts extends Migration {
             ['Цена', 'price', 'text', 'Title', 'main', true, 'frontend', $Table, 'edit'],
             ['Качество', 'condition', 'select', 'Title', 'main', true, 'frontend', $Table, 'edit','config','models/Fields.condition'],
 
+            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'frontend', $Table, 'edit','model','Regions'],
+            ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'frontend', $Table, 'edit','model','Tags'],
+            ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'frontend', $Table, 'edit','model','Categories'],
+
+
             ['Медиа информация', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'edit',''],

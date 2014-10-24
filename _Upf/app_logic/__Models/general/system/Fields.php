@@ -281,12 +281,16 @@ class Fields extends General {
                     }
                 $LinkAlias = $MetaRelations[1];
             }else{
+                // todo: clean
                 if(isset($this->alias)){
                     $this->alias = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->title)?$this->title:''),$this);
                     $LinkAlias = $this->alias;
                 }elseif(isset($this->login)){
                     $this->login = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->login)?$this->login:''),$this,'login');
                     $LinkAlias = $this->login;
+                }else{
+                    $this->alias = $this->CreateUniqueAlias(\Mascame\Urlify::filter(isset($this->title)?$this->title:''),$this);
+                    $LinkAlias = $this->alias;
                 }
             }
 

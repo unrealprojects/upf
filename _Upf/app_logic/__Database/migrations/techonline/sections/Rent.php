@@ -78,10 +78,13 @@ class Rent extends Migration {
             ['Цена', 'price', 'text', 'Title', 'main', true, 'frontend', $Table, 'edit'],
             ['Качество', 'condition', 'select', 'Title', 'main', true, 'frontend', $Table, 'edit','config','models/Fields.condition'],
 
-            ['Выберите модель из каталога', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
+            ['Подробная информация', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
 
             //Group :: Relations
             ['Модель', 'model_id', 'select', 'Title', 'main', true, 'frontend', $Table, 'edit', 'model', 'Catalog'],
+            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'frontend', $Table, 'edit','model','Regions'],
+            ['Тэги', 'meta-tags', 'multi-select', 'Relation', 'relations', true, 'frontend', $Table, 'edit','model','Tags'],
+
 
             ['Медиа информация', 'divider_3', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
             // Group :: Media

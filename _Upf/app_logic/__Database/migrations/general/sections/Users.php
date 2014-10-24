@@ -97,6 +97,7 @@ class Users extends Migration {
 
 
             ['О компании', 'about', 'textarea', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'frontend', 'section_users', 'edit','model','Regions'],
             ['Email', 'email', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Телефоны', 'phones', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Адрес', 'address', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
