@@ -95,11 +95,10 @@
 
                     {{-- Group :: Content --}}
 
-                        @if( isset($Item['intro']) || isset($Item['about']))
                             <div class="Item-Content Node-XS-10" >
                                 @if( isset($Item['intro']) )
                                     <p>{{ $Item['intro'] }}</p>
-                                @else
+                                @elseif( isset($Item['about']) )
                                     <p>{{ $Item['about'] }}</p>
                                 @endif
 
@@ -133,6 +132,11 @@
                                         <li class="Item-User">
                                             <span>Категория:</span>
                                             <strong>{{ $Item['meta']['categories']['title'] }}</strong>
+                                        </li>
+                                    @elseif(isset($Item['catalog']['meta']['categories']['title']))
+                                        <li class="Item-User">
+                                            <span>Категория:</span>
+                                            <strong>{{ $Item['catalog']['meta']['categories']['title'] }}</strong>
                                         </li>
                                     @endif
 
@@ -175,7 +179,6 @@
                                      </div>
                                 @endif
                             </div>
-                        @endif
 
                     {{-- End Group :: Content --}}
 
