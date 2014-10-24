@@ -51,23 +51,30 @@ $(document).on('click',Vote_Buttons,function(){
     var This = this;
 
     var Data = {
-        "action"    :   $(this).parents(Vote_Item).attr('data-action'),
-        "section"   :   $(this).parents(Vote_Item).attr('data-action-section'),
-        "direct"    :   $(this).attr('data-direct'),
-        "alias"     :   $(this).parents(Vote_Item).attr('data-action-alias')
-
+        "action"        :   $(this).parents(Vote_Item).attr('data-action'),
+        "section"       :   $(this).parents(Vote_Item).attr('data-section'),
+        "direct"        :   $(this).attr('data-direct'),
+        "alias"         :   $(this).parents(Vote_Item).attr('data-alias'),
+        "comment_id"    :   $(this).parents(Vote_Item).attr('data-comment-id')
     };
 
     $.ajax({
-        url:        '/vote/',
-        type:       'get',
+        url:        '/vote',
+        type:       'post',
         data:       Data,
         dataType:   'json',
         success:    function(Data)
         {
-            upf.Messages.Show(Data['message'],Data['type']);
-            if($data['Type']=='Success'){
-                $(this).parents(Vote_Item).find('.Rating').text(Data['rating']);
+            upf.Messages.Show(Data['Message'],Data['Type']);
+            if(Data['Type']=='Success'){
+                $(This).parents(Vote_Item).find('.Rating').html(Data['Rating']);
+                if(Data['Rating']>0){
+                    $(This).parents(Vote_Item).find('.Rating').addClass('Positive').removeClass('Negative');
+                }else if(Data['Rating']<0){
+                    $(This).parents(Vote_Item).find('.Rating').addClass('Negative').removeClass('Positive');
+                }else{
+                    $(This).parents(Vote_Item).find('.Rating').removeClass('Positive Negative');
+                }
             }
         }
 

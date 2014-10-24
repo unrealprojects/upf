@@ -14,11 +14,8 @@
                             </header>
                             <p>{{$Comment['post']}}</p>
                         </div>
-                        <ul class="Item-Vote Node-XXS-3 Node-XS-2">
-                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                            <li><span title="Рейтинг">{{ $Comment['rating'] }}</span></li>
-                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                        </ul>
+
+                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Comment , 'Action' => 'comments'])
                     </li>
                 @endforeach
             @endif

@@ -43,11 +43,7 @@
                         @endif
 
                         @if(isset($Item['meta']['rating']))
-                        <ul class="Item-Vote Node-XS-2 End">
-                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                            <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                        </ul>
+                            @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Item['meta'] , 'Action' => 'section'])
                         @endif
 
                     {{-- End Group :: Statuses --}}
@@ -275,11 +271,7 @@
                             @endif
 
                             @if(isset($Rent['meta']['rating']))
-                            <ul class="Item-Vote Node-XS-2 End">
-                                <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                                <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                                <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                            </ul>
+                                @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Rent['meta'] , 'Action' => 'section'])
                             @endif
 
                             {{-- End Group :: Statuses --}}
@@ -332,11 +324,7 @@
                     @endif
 
                     @if(isset($Parts['meta']['rating']))
-                    <ul class="Item-Vote Node-XS-2 End">
-                        <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                        <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
-                        <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                    </ul>
+                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Parts['meta'] , 'Action' => 'section'])
                     @endif
 
                     {{-- End Group :: Statuses --}}

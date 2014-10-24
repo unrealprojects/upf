@@ -375,7 +375,7 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 				img {
 					display: block;
 					width: 100%;
-					border: 5px solid $Clr-Secondary;
+//					border: 5px solid $Clr-Secondary;
 					@extend ._Highlight;
 				}
 			}

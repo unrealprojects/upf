@@ -3616,8 +3616,7 @@ img.Footer-Img {
     margin-left: 0; }
   .Snippet-Item .Item-Gallery ul li img {
     display: block;
-    width: 100%;
-    border: 5px solid #ecf0f1; }
+    width: 100%; }
   .Snippet-Item .Item-Content {
     margin-top: 0;
     font-size: 14px; }

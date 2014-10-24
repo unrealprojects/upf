@@ -43,25 +43,57 @@ class General extends \Eloquent {
 // Vote Up
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-public function Vote( $Data, $HasMeta = true ){
-
-    // Get Item
-    $Item = $this->GetItemByField($Data['alias'], $HasMeta, false, $this);
+public function Vote($Data, $HasMeta = true , $SearchField = false){
 
     if($Data['direct']=='up')
     {
-        $Item->meta()->update([
-            'rating' => $Item['meta']['rating'] + 1
-        ]);
+        $Change = 1;
     }
-    elseif($Data['direct']='down')
+    elseif($Data['direct']=='down')
     {
-        $Item->meta()->update([
-            'rating' => $Item['meta']['rating'] - 1
-        ]);
+        $Change = - 1;
     }
 
-    return $Item->save();
+    // Get Item
+    if($Data['action'] == 'comments')
+    {
+        $Item = $this->find($Data['comment_id']);
+
+        if(!\UpfModels\Voted::HasVoted($Data['section'],$Item->id))
+        {
+            $Rating = $Item->rating = $Item->rating + $Change;
+            \UpfModels\Voted::Ban($Data['section'],$Item->id);
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        $Item = $this->GetItemByField($Data['alias'], $HasMeta, $SearchField, $this);
+
+        if(!\UpfModels\Voted::HasVoted($Data['section'],$Item->id))
+        {
+            $Rating = $Item['meta']['rating'] + $Change;
+            $Item->meta()->update([
+                'rating' => $Rating
+            ]);
+            \UpfModels\Voted::Ban($Data['section'],$Item->id);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    if($Item->save())
+    {
+        return $Rating;
+    }
+    else
+    {
+        return false;
+    }
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

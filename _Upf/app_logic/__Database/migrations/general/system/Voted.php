@@ -17,7 +17,7 @@ class Voted extends Migration {
             $table->string('ip')->nullable();
 
             /*** Relations ***/
-            $table->integer('section')->nullable();
+            $table->string('section')->nullable();
             $table->integer('item_id')->nullable();
         });
 	}

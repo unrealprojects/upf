@@ -15,6 +15,12 @@ class HomeController extends FrontendController{
 
         return \View::make($this->View,$this->ViewData);
     }
+
+
+    public function Error(){
+        return \View::make('/frontend/techonline/layouts/404',$this->ViewData);
+    }
+
 }
 
 /*

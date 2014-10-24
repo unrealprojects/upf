@@ -59,11 +59,7 @@
                             </span>
                         </h4>
 
-                        <ul class="Item-Vote Node-XXS-3">
-                            <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                            <li><span title="Рейтинг">{{ $User['meta']['rating'] }}</span></li>
-                            <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                        </ul>
+                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $User['meta'] , 'Action' => 'section'])
                     </header>
 
                     <div class="Grid Node-XS-3 Item-Gallery">
@@ -103,11 +99,7 @@
                                 </time>
                             </h5>
 
-                            <ul class="Item-Vote Node-XXS-3" data-action="section" data-alias="{{ $Article['meta']['alias'] }}" data-section="{{ $Article['meta']['section'] }}">
-                                <li><a href="#" data-direct="down" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                                <li><span class="Rating" title="Рейтинг">{{ $Article['meta']['rating'] }}</span></li>
-                                <li><a href="#" data-direct="up" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
-                            </ul>
+                            @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => <0Article></0Article>['meta'] , 'Action' => 'section'])
 
                         </header>
                         <div class="Grid Node-XS-4 Item-Gallery">

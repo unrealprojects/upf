@@ -6,44 +6,34 @@ class VoteController extends SystemController{
 	public function Vote()
 	{
         $Data = [
-            'action'    =>      \Input::get('action'),
-            'section'    =>      \Input::get('section'),
-            'alias'    =>      \Input::get('action'),
-            'direct'    =>      \Input::get('action'),
+            'action'        =>      \Input::get('action'),
+            'section'       =>      \Input::get('section'),
+            'alias'         =>      \Input::get('alias'),
+            'direct'        =>      \Input::get('direct'),
+            'comment_id'    =>      \Input::get('comment_id')
         ];
 
-        if($Data['action']=='section')
+
+        $Model = '\UpfModels\\' . \UpfHelpers\String::LetterToUppercase($Data['section']);
+        $DefaultModel = new $Model();
+
+
+        if($Rating = $DefaultModel->Vote($Data))
         {
-            $Model = \UpfHelpers\String::LetterToUppercase($Data['section']);
-            $DefaultModel = new $Model();
-
-            $Model->Vote($Data['alias']);
-
+            echo json_encode([
+                'Type'=>'Success',
+                'Message'=>'Спасибо, Ваш голос учтен!',
+                'Rating'=>$Rating
+            ]);
         }
-        elseif($Data['action']=='comment'){
-
+        else
+        {
+            echo json_encode([
+                'Type'=>'Error',
+                'Message'=>'Возможно, Вы уже проголосовали!'
+            ]);
         }
 
-
-
-/*
-
-        // Проверка ip
-        if(!\UpfModels\Voted::hasVoted('comments',$id) &&
-            $newVote=\UpfModels\Comments::find($id)){
-
-            $newVoteIp = new \UpfModels\Voted();
-            $newVoteIp->app_section=$app_section;
-            $newVoteIp->item_id=$id;
-            $newVoteIp->ip=\Request::getClientIp();
-            $newVoteIp->save();
-
-            $newVote->rating=++$newVote->rating;
-            $newVote->save();
-            echo json_encode(['Event'=>'Сообщение','Message'=>'Спасибо, Ваш голос учтен!','Type'=>'Success']);
-        }else{
-            echo json_encode(['Event'=>'Ошибка','Message'=>'Возможно, Вы уже проголосовали!','Type'=>'Error']);
-        }*/
 	}
 
 
