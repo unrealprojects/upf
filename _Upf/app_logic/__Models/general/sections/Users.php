@@ -78,6 +78,11 @@ class Users extends Meta implements UserInterface, RemindableInterface {
                 'meta.files'
 
             )
+            //  Hard Crutch
+            ->leftJoin('system_meta', 'meta_id', '=', 'system_meta.id')
+            ->orderBy('created_at', 'DESC')
+            ->select($this->table . '.*')
+
             ->paginate(
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')
