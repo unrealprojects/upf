@@ -16,7 +16,7 @@
                         </div>
                         <ul class="Item-Vote Node-XXS-3 Node-XS-2">
                             <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                            <li><span title="Рейтинг">{{ $Item['meta']['rating'] }}</span></li>
+                            <li><span title="Рейтинг">{{ $Comment['rating'] }}</span></li>
                             <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                         </ul>
                     </li>
@@ -30,7 +30,7 @@
     {{-- Comments Form --}}
     <h4 class="Section-Subheader">Написать комментарий</h4>
         <form class="Form-Horizontal action="">
-            <input name="list_id" value="{{isset( $Comments[0]['wall_id'] )?$Comments[0]['wall_id']:''}}" type="hidden">
+            <input name="list_id" value="{{( !empty( $Comments[0]) && !empty($Comments[0]['wall_id']) )?$Comments[0]['wall_id']:'0'}}" type="hidden">
 
             <div class="Control-Group">
                 <label class="Node-XS-3" for="Comment-New-Name">Имя</label>
