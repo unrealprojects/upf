@@ -149,12 +149,47 @@
                                 </ul>
 
                                 {{-- More Info --}}
-                                @if(!empty($Item['meta']['paramsvalues'])  || !empty($Item['catalog']['meta']['paramsvalues']) )
+                                @if(!empty($Item['meta']['paramsvalues'])  || !empty($Item['catalog']['meta']['paramsvalues']) || !empty($Item['login']))
                                     <div class="More-Info">
                                         <h6 class=" Toggle-Next-Item"><a href="#">Подробная информация <span class="Icon Icon-caret-down"></span></a></h6>
                                         <div  class="Toggled-Next-Item">
                                         <table>
 
+
+                                            @if( isset($Item['meta']['regions']) )
+                                            <tr>
+                                                <td>Регион</td>
+                                                <td>{{$Item['meta']['regions']['title']}}</td>
+                                            </tr>
+                                            @endif
+
+                                            @if( isset($Item['address']) )
+                                            <tr>
+                                                <td>Адрес</td>
+                                                <td>{{$Item['address']}}</td>
+                                            </tr>
+                                            @endif
+
+                                            @if( isset($Item['email']) )
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>{{$Item['email']}}</td>
+                                            </tr>
+                                            @endif
+
+                                            @if( isset($Item['website']) )
+                                            <tr>
+                                                <td>Website</td>
+                                                <td>{{$Item['website']}}</td>
+                                            </tr>
+                                            @endif
+
+                                            @if( isset($Item['skype']) )
+                                            <tr>
+                                                <td>Skype</td>
+                                                <td>{{$Item['skype']}}</td>
+                                            </tr>
+                                            @endif
 
                                             @if( isset($Item['meta']['paramsvalues']) )
                                                 @foreach($Item['meta']['paramsvalues'] as $Param)
