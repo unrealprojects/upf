@@ -128,6 +128,17 @@
                                     @endif
 
 
+                                    @if( isset($Item['catalog']) )
+                                    <li>
+                                        <span>Модель:</span>
+                                        <strong>
+                                            <a href="/catalog/{{$Item['catalog']['meta']['alias']}}">
+                                                {{ $Item['catalog']['meta']['alias'] }}
+                                            </a>
+                                        </strong>
+                                    </li>
+                                    @endif
+
                                     @if(isset($Item['meta']['categories']['title']))
                                         <li class="Item-User">
                                             <span>Категория:</span>
