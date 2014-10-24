@@ -71,7 +71,7 @@
                     dataType:'json',
                     success: function(Data){
                         if(Data['type']=='Success'){
-                            location.href='/cabinet/';
+                            location.href='/cabinet/profile/';
                         }else{
                             upf.Messages.Show(Data['message'],Data['type']);
                         }

@@ -96,12 +96,13 @@ class Users extends Migration {
             ['Контактная информация', 'divider_2', 'divider', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
 
 
+            ['О компании', 'about', 'textarea', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Email', 'email', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Телефоны', 'phones', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Адрес', 'address', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Веб сайт', 'website', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Skype', 'skype', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
-            ['О пользователе', 'about', 'textarea', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
+
 
             ['Медиа', 'divider_3', 'divider', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
 
