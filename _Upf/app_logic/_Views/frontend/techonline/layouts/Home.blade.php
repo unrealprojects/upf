@@ -55,7 +55,7 @@
                         <h4 class="Item-Title Node-XXS-9">
                             <a href="/users/{{$User['meta']['alias']}}" alt=" {{$User['title']}}">{{$User['title']}}</a>
                             <span class="Item-Subtitle">
-                                {{ $User['title'] }}
+                                {{$User['meta']['created_at']}}
                             </span>
                         </h4>
 
@@ -103,10 +103,10 @@
                                 </time>
                             </h5>
 
-                            <ul class="Item-Vote Node-XXS-3">
-                                <li><a href="#" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
-                                <li><span title="Рейтинг">{{ $Article['meta']['rating'] }}</span></li>
-                                <li><a href="#" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
+                            <ul class="Item-Vote Node-XXS-3" data-action="section" data-alias="{{ $Article['meta']['alias'] }}" data-section="{{ $Article['meta']['section'] }}">
+                                <li><a href="#" data-direct="down" title="Понизить рейтинг"><span class="Icon Icon-minus"></span></a></li>
+                                <li><span class="Rating" title="Рейтинг">{{ $Article['meta']['rating'] }}</span></li>
+                                <li><a href="#" data-direct="up" title="Повысить рейтинг"><span class="Icon Icon-plus"></span></a></li>
                             </ul>
 
                         </header>

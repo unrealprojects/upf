@@ -33,9 +33,8 @@
 
 /*** VOTED ***/
 
-    Route::get('/vote/up/{section}/{id}','\Controller\VoteController@Up');
-    Route::get('/vote/down/{section}/{id}','\Controller\VoteController@Down');
+    Route::post('/vote/','\UpfFrontendControllers\VoteController@Vote');
 
 /*** COMMENTS ***/
 
-    Route::get('/comments/add/{list_id}','\Controller\CommentsController@Add');
+    Route::get('/comments/add/{list_id}','\UpfFrontendControllers\CommentsController@Add');

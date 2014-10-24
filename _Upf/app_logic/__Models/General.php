@@ -37,4 +37,32 @@ class General extends \Eloquent {
         }
     }
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Vote Up
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+public function Vote( $Data, $HasMeta = true ){
+
+    // Get Item
+    $Item = $this->GetItemByField($Data['alias'], $HasMeta, false, $this);
+
+    if($Data['direct']=='up')
+    {
+        $Item->meta()->update([
+            'rating' => $Item['meta']['rating'] + 1
+        ]);
+    }
+    elseif($Data['direct']='down')
+    {
+        $Item->meta()->update([
+            'rating' => $Item['meta']['rating'] - 1
+        ]);
+    }
+
+    return $Item->save();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

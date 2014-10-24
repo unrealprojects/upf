@@ -3,38 +3,6 @@
         /* Vote */
         $.getScript('http://www.google.com/recaptcha/api/js/recaptcha_ajax.js');
 
-        $(document).on('click','.Comment-List-Element .Up',function(){
-            comment_id=$(this).parent().parent().parent().attr('comment_id');
-            var this_element = this;
-            $.ajax({
-                url:'/vote/up/comments/'+comment_id,
-                type:'get',
-                dataType:'json',
-                success:function($data){
-                    UP.Message($data['Event'],$data['Message'],$data['Type']);
-                    if($data['Type']=='Success'){
-                        $('.Value',$(this_element).parent()).text(parseInt($('.Value',$(this_element).parent()).text())+1);
-                    }
-                }
-            });
-        });
-
-        $(document).on('click','.Comment-List-Element .Down',function(){
-            comment_id=$(this).parent().parent().parent().attr('comment_id');
-            var this_element = this;
-            $.ajax({
-                url:'/vote/down/comments/'+comment_id,
-                type:'get',
-                dataType:'json',
-                success:function($data){
-                    UP.Message($data['Event'],$data['Message'],$data['Type']);
-                    if($data['Type']=='Success'){
-                        $('.Value',$(this_element).parent()).text(parseInt($('.Value',$(this_element).parent()).text())-1);
-                    }
-                }
-            });
-        });
-
         /* Comments */
         $('.Form-Horizontal input[type=submit]').click(function(){
             var this_element = this;
@@ -66,5 +34,56 @@
             return false;
         });
         /* End Comments */
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Vote
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var Vote_Item       = '.Item-Vote';
+var Vote_Buttons    = Vote_Item + ' li a';
+
+
+$(document).on('click',Vote_Buttons,function(){
+    var This = this;
+
+    var Data = {
+        "action"    :   $(this).parents(Vote_Item).attr('data-action'),
+        "section"   :   $(this).parents(Vote_Item).attr('data-action-section'),
+        "direct"    :   $(this).attr('data-direct'),
+        "alias"     :   $(this).parents(Vote_Item).attr('data-action-alias')
+
+    };
+
+    $.ajax({
+        url:        '/vote/',
+        type:       'get',
+        data:       Data,
+        dataType:   'json',
+        success:    function(Data)
+        {
+            upf.Messages.Show(Data['message'],Data['type']);
+            if($data['Type']=='Success'){
+                $(this).parents(Vote_Item).find('.Rating').text(Data['rating']);
+            }
+        }
+
+    });
+
+    return false;
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
     });
 })(jQuery);
