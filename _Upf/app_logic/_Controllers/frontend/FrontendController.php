@@ -33,7 +33,7 @@ class FrontendController extends \UpfControllers\UpfController {
             'TemplateLayouts'   => $this->TemplateLayouts,
             'TemplateModules'   => $this->TemplateModules,
             /*** Other ***/
-            'Modules'           => $this->Modules()
+            'Modules'           => $this->Modules(),
         ];
 
         /*** User Data ***/
@@ -52,6 +52,8 @@ class FrontendController extends \UpfControllers\UpfController {
         public function Index(){
             /*** Default Model ***/
             $DefaultModel = new $this->Model();
+
+
 
             /*** Set Content ***/
             $this->ViewData['Content'] = $DefaultModel->FrontendIndex();

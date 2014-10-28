@@ -37,7 +37,8 @@
 
 /*** COMMENTS ***/
 
-    Route::get('/comments/add/{list_id}','\UpfFrontendControllers\CommentsController@Add');
+    Route::any('/comments/','\UpfFrontendControllers\CommentsController@Add');
 
-    Route::get('/error','\UpfFrontendControllers\HomeController@Error');
+/*** Error ***/
+  //  Route::get('/error','\UpfFrontendControllers\HomeController@Error');
 

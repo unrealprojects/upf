@@ -10,12 +10,12 @@
                         <div class="Comment-Content Node-XS-10">
                             <header>
                                 <h5>{{$Comment['author']}}</h5>
-                                    <time>{{$Comment['created_at']}}</time>
+                                <time>{{$Comment['created_at']}}</time>
                             </header>
                             <p>{{$Comment['post']}}</p>
                         </div>
 
-                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Comment , 'Action' => 'comments'])
+                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Comment , 'Action' => 'comments', 'Class' => 'Node-XXS-2'])
                     </li>
                 @endforeach
             @endif
@@ -26,35 +26,33 @@
 
     {{-- Comments Form --}}
     <h4 class="Section-Subheader">Написать комментарий</h4>
-        <form class="Form-Horizontal action="">
-            <input name="list_id" value="{{( !empty( $Comments[0]) && !empty($Comments[0]['wall_id']) )?$Comments[0]['wall_id']:'0'}}" type="hidden">
 
-            <div class="Control-Group">
-                <label class="Node-XS-3" for="Comment-New-Name">Имя</label>
-                <input class="Node-XS-9" id="Comment-New-Name" name="name" type="text"/>
-            </div>
+    <form class="Form-Horizontal Form-Comment"
+          data-alias="{{ isset($Content['Item']['meta']['alias'])?$Content['Item']['meta']['alias']:'' }}"
+          data-section="{{ !empty($Content['Item']['meta']['section'])?$Content['Item']['meta']['section']:'' }}"
+          data-wall-id="{{ !empty($Content['Item']['meta']['comments_id'])?$Content['Item']['meta']['comments_id']:'' }}">
 
-            <div class="Control-Group">
-                <label class="Node-XS-3" for="Comment-New">Текст комментария</label>
-                <textarea class="Node-XS-9" name="comment" id="Comment-New-Text" rows="5"></textarea>
-            </div>
+        <div class="Control-Group">
+            <label class="Node-XS-3" for="Comment-New-Name">Имя</label>
+            <input class="Node-XS-9" id="Comment-New-Name" name="author" type="text"/>
+        </div>
 
-            <div class="Control-Group">
-                <label class="Node-XS-3" for="Comment-New">Введите код</label>
-                <div class="Input-Group Node-XS-9">
-                    {{Form::captcha()}}
-                </div>
-            </div>
+        <div class="Control-Group">
+            <label class="Node-XS-3" for="Comment-New">Текст комментария</label>
+            <textarea class="Node-XS-9" name="post" id="Comment-New-Text" rows="5"></textarea>
+        </div>
 
-            <div class="Control-Group Offset">
-                <input class="Node-XS-3 Push-3 Primary" type="submit" value="Написать"/>
+        <div class="Control-Group">
+            <label class="Node-XS-3" for="Comment-New">Введите код</label>
+            <div class="Input-Group Node-XS-9">
+                {{Form::captcha()}}
             </div>
-        </form>
+        </div>
+
+        <div class="Control-Group Offset">
+            <input class="Node-XS-3 Push-3 Primary Send-Post" type="submit" value="Написать"/>
+        </div>
+    </form>
     {{-- End Comments Form --}}
-
 </div>
 
-@section('scripts')
-    @parent
-    <script src="/js/frontend/Comments.js" type="text/javascript"></script>
-@endsection

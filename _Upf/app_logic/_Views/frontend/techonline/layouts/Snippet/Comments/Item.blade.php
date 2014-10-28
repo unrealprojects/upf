@@ -1,19 +1,8 @@
-<li class="Comment-List-Element" comment_id="{{$comment['id']}}">
-    <div class="Comment-List-Element-Rating">
-        <span class="Default">
-            <span class="Arrow Up">
-                <img title="Проголосовать за этот комментарий" src="/img/techonline/arrow-up.png">
-            </span>
-            <span class="Value">{{$Comment['rating']}}</span>
-            <span class="Arrow Down">
-                <img title="Проголосовать против этого комментария" src="/img/techonline/arrow-down.png">
-            </span>
-        </span>
-    </div>
-    <div class="Comment-List-Element-Content">
+<li class="Comment Grid Split" comment_id="{{$Comment['id']}}">
+    <div class="Comment-Content Node-XS-10">
         <header>
             <h5>{{$Comment['author']}}</h5>
-            <small class="Date">{{$Comment['created_at']}}</small>
+            <time>{{$Comment['created_at']}}</time>
         </header>
         <p>{{$Comment['post']}}</p>
     </div>

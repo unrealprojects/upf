@@ -70,7 +70,7 @@ class Rent extends Meta{
             'List'          =>      $List->toArray()['data'],
             'Fields'        =>      $this->GetFields('list','frontend', true),
             'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
-            'Filters'       =>      $this->FrontFilters()
+            'Filters'       =>      $this->Filters()
         ];
     }
 

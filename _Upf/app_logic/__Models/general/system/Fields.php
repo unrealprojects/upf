@@ -568,7 +568,7 @@ class Fields extends General {
             'List'          =>      $List->toArray()['data'],
             'Fields'        =>      $this->GetFields('list','backend', false),
             'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
-            'Filters'       =>      $this->FrontFilters()
+            'Filters'       =>      $this->Filters()
         ];
     }
 

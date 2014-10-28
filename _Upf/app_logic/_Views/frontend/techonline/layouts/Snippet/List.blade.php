@@ -3,7 +3,7 @@
 @section('Main')
 
     {{-- Filter --}}
-        @include($TemplateLayouts.'Filter.HomeFilter')
+        @include($TemplateLayouts.'Filter.Tabs')
     {{-- End Filter --}}
 
 <section class="Node">

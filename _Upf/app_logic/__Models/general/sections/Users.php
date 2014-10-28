@@ -95,7 +95,7 @@ class Users extends Meta implements UserInterface, RemindableInterface {
             'List'          =>      $List->toArray()['data'],
             'Fields'        =>      $this->GetFields('list','frontend', true),
             'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
-            'Filters'       =>      $this->FrontFilters()
+            'Filters'       =>      $this->Filters()
         ];
     }
 

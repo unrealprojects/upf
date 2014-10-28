@@ -7,6 +7,20 @@ class UsersController extends SectionsController{
     public $Model =                  '\UpfModels\Users';
     public $BaseUrl =                '/users/';
 
+    public function __construct(){
+        parent::__construct();
+
+        // Set Filters
+        $this->ViewData['HasFilters'] = [
+            'Categories' => false,
+            'Regions' =>    true,
+            'Tags' =>       false,
+            'Params' =>     false,
+            'TabsNode'=>     'Node-XXS-12 Node-XS-12'
+        ];
+
+    }
+
     /*** Auth LogIn ***/
     public function LogIn(){
         if (\Auth::users()->attempt(['login' => \Input::get('login'), 'password' => \Input::get('password')],

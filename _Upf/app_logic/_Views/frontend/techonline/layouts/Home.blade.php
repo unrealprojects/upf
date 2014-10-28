@@ -18,7 +18,7 @@
 
 
     {{-- Filter --}}
-        @include($TemplateLayouts.'Filter.HomeFilter')
+        @include($TemplateLayouts.'Filter.Tabs')
     {{-- End Filter --}}
 
     {{-- Main Categories --}}
@@ -59,7 +59,7 @@
                             </span>
                         </h4>
 
-                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $User['meta'] , 'Action' => 'section'])
+                        @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $User['meta'] , 'Action' => 'section', 'Class' => 'Node-XXS-3'])
                     </header>
 
                     <div class="Grid Node-XS-3 Item-Gallery">
@@ -99,7 +99,7 @@
                                 </time>
                             </h5>
 
-                            @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => <0Article></0Article>['meta'] , 'Action' => 'section'])
+                            @include( $TemplateLayouts . 'Snippet.Elements.Vote', [ 'Item' => $Article['meta'] , 'Action' => 'section', 'Class' => 'Node-XXS-3'])
 
                         </header>
                         <div class="Grid Node-XS-4 Item-Gallery">

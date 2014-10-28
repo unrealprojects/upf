@@ -224,7 +224,7 @@ class Meta extends Fields {
                 'List'          =>      $List->toArray()['data'],
                 'Fields'        =>      $this->GetFields('list', 'frontend' , $Sort =  true),
                 'Pagination'    =>      $List->appends(\Input::except('page'))->links(),
-                'Filters'       =>      $this->FrontFilters()
+                'Filters'       =>      $this->Filters()
             ];
         }
 
@@ -281,7 +281,7 @@ class Meta extends Fields {
 
             /*** Return Filters ***/
                 return [
-                    'Filters'                   =>      $this->FrontFilters('catalog'),
+                    'Filters'                   =>      $this->Filters('catalog'),
                     'MainCatalogCategories'     =>      $MainCatalogCategories,
                     'BestUsers'                 =>      $BestUsers,
                     'LastArticles'              =>      $LastArticles,
@@ -294,7 +294,7 @@ class Meta extends Fields {
 
     /*** *** Get Front Filters *** ***/
 
-        public function FrontFilters($Section = false){
+        public function Filters($Section = false){
 
             if(!$Section){
                 $Section = $this->Section;

@@ -8909,7 +8909,6 @@ namespace {
 			//Method inherited from \Illuminate\Queue\Queue
 			 \Illuminate\Queue\SyncQueue::setContainer($container);
 		 }
-
 	}
 	class Redirect extends \Illuminate\Support\Facades\Redirect{
 		/**

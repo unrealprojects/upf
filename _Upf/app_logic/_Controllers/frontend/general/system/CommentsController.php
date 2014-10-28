@@ -1,32 +1,25 @@
 <?php
-namespace Controller;
+namespace UpfFrontendControllers;
 
-class CommentsController extends \Controller{
-    public $Upf_Page_Section =       'users';
+class CommentsController extends SystemController{
 
+    public function Add(){
+       $ReCaptcha = new \Greggilbert\Recaptcha\CheckRecaptcha();
+        $Post = new \UpfModels\Comments();
 
-    public function add($list_id){
-       $reCaptcha = new \Greggilbert\Recaptcha\CheckRecaptcha();
-       if($reCaptcha=$reCaptcha->check(\Input::get('challenge'),\Input::get('response'))[0]=='true'){
-           $comment = new \UpfModels\Comments();
+        if(/*$ReCaptcha->check(\Input::get('Challenge'),\Input::get('Response'))[0]=='true' && */$Post =  $Post->Add()){
 
-           $comment->name = \Input::get('name');
-           $comment->comment = \Input::get('comment');
-           $comment->list_id = $list_id;
-           $comment->save();
-           $comment['comment']=$comment->find($comment->id)->toArray();
-           $content = \View::make('frontend.standard.layouts.comments.Item',$comment);
+            $this->ViewData['Comment'] = $Post;
 
 
-           $newVoteIp = new \UpfModels\Voted();
-           $newVoteIp->section='comments';
-           $newVoteIp->item_id=$comment->id;
-           $newVoteIp->ip=\Request::getClientIp();
-           $newVoteIp->save();
+            $Post_View =  \View::make('frontend.techonline.layouts.Snippet.Comments.Item',$this->ViewData);
 
-           echo json_encode(['Message'=>'Спасибо, Ваш комментрий добавлен!','Type'=>'Success',
-                             'comment'=>[htmlentities($content)]]);
-       }else{
+            echo json_encode(['Message'=>'Спасибо, Ваш комментрий добавлен!','Type'=>'Success',
+                              'Post'=>htmlentities($Post_View)
+            ]);
+       }
+       else{
+
            echo json_encode(['Message'=>'Не верно введена капча!','Type'=>'Error']);
        }
     }

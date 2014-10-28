@@ -5,8 +5,8 @@
     <dl class="Tabs Grid Merge">
 
         {{-- Regions --}}
-            @if( isset($Content['Filters']['regions']) )
-                <dt class="Active Tab-Regions Node-XXS-6 Node-XS-3"><span>Выбор региона</span></dt>
+            @if( isset($Content['Filters']['regions'] ) && $HasFilters['Regions'] )
+                <dt class="Active Tab-Regions {{$HasFilters['TabsNode']}}"><span>Выбор региона</span></dt>
 
                 <dd class="Active Tab-Regions">
                     <div>
@@ -82,8 +82,8 @@
 
 
         {{-- Categories --}}
-            @if(!empty($Content['Filters']['categories']))
-            <dt class="Tab-Categories Node-XXS-6 Node-XS-3 {{(!empty($Content['Filters']['type']) && $Content['Filters']['type']=='catalog')?'inTwo Active':''}}">
+            @if(!empty($Content['Filters']['categories']) && $HasFilters['Categories'] )
+            <dt class="Tab-Categories {{$HasFilters['TabsNode']}}">
                 <span>Выбор категории</span>
             </dt>
 
@@ -123,45 +123,9 @@
 
 
 
-
-
-        {{-- Params --}}
-            <dt class="Wide Tab-Params Node-XXS-6 Node-XS-3">
-                <span>Дополнительные параметры</span>
-            </dt>
-
-            <dd class="Tab-Params">
-                <div>
-                    <form class="Form-Vertical" action="">
-
-                        <div class="Control-Group">
-
-                             <label for="Slider-Range-1">Цена: <span id="Slider-Range-Value-1"></span></label>
-                             <div class="Slider-Range" id="Slider-Range-1"></div>
-
-                        </div>
-
-                        @if(!empty($Content['Filters']['params']))
-                            @foreach($Content['Filters']['params'] as $ParamKey => $Param)
-                                <div class="Control-Group">
-                                    <label for="Slider-Range-">{{$Param['title']}}: <span id="Slider-Range-Value-{{$Param["alias"]}}"></span></label>
-                                    <div class="Slider-Range" id="Slider-Range-{{$Param['alias']}}"></div>
-                                </div>
-                            @endforeach
-                        @endif
-
-                    </form>
-                </div>
-            </dd>
-        {{-- End Params --}}
-
-
-
-
-
         {{-- Tags --}}
-            @if(isset($Content['Filters']['tags']))
-                <dt class="Tab-Params Node-XXS-6 Node-XS-3">
+            @if(isset($Content['Filters']['tags']) && $HasFilters['Tags'] )
+                <dt class="Tab-Params {{$HasFilters['TabsNode']}}">
                     <span>Производители</span>
                 </dt>
 
@@ -187,14 +151,49 @@
                         @endforeach
                     </ul>
 
-
-
                 </dd>
             @endif
         {{-- End Tags --}}
 
 
+
+
+        {{-- Params --}}
+        @if($HasFilters['Params'] )
+        <dt class="Wide Tab-Params {{$HasFilters['TabsNode']}}">
+            <span>Дополнительные параметры</span>
+        </dt>
+
+        <dd class="Tab-Params">
+            <div>
+                <form class="Form-Vertical" action="">
+
+                    <div class="Control-Group">
+
+                        <label for="Slider-Range-1">Цена: <span id="Slider-Range-Value-1"></span></label>
+                        <div class="Slider-Range" id="Slider-Range-1"></div>
+
+                    </div>
+
+                    @if(!empty($Content['Filters']['params']))
+                    @foreach($Content['Filters']['params'] as $ParamKey => $Param)
+                    <div class="Control-Group">
+                        <label for="Slider-Range-">{{$Param['title']}}: <span id="Slider-Range-Value-{{$Param["alias"]}}"></span></label>
+                        <div class="Slider-Range" id="Slider-Range-{{$Param['alias']}}"></div>
+                    </div>
+                    @endforeach
+                    @endif
+
+                </form>
+            </div>
+        </dd>
+        @endif
+        {{-- End Params --}}
+
     </dl>
+    <div class="Control-Group Offset">
+        <button id="Filter-Search" class="Button">Выполнить поиск</button>
+    </div>
 </section>
 
-@include($TemplateLayouts . '/Filter/HomeFilterScript')
+@include($TemplateLayouts . '/Filter/Script')

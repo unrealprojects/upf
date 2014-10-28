@@ -1,4 +1,4 @@
-<ul class="Item-Vote Node-XXS-2 End"
+<ul class="Item-Vote {{isset($Class)?$Class:'Node-XXS-2'}} End"
     data-action="{{ $Action }}"
     data-alias="{{ isset($Item['alias'])?$Item['alias']:'' }}"
     data-section="{{ !empty($Item['section'])?$Item['section']:$Action }}"

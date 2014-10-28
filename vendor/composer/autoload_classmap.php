@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Controller\\CommentsController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/CommentsController.php',
     'Controller\\Frontend\\WindSpace\\WindController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/wind/WindController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'Maatwebsite\\Excel\\Classes\\Cache' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/Cache.php',
@@ -65,6 +64,7 @@ return array(
     'UpfFrontendControllers\\ArticlesController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/sections/ArticlesController.php',
     'UpfFrontendControllers\\CabinetController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/techonline/CabinetController.php',
     'UpfFrontendControllers\\CatalogController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/techonline/sections/CatalogController.php',
+    'UpfFrontendControllers\\CommentsController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/CommentsController.php',
     'UpfFrontendControllers\\FrontendController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/FrontendController.php',
     'UpfFrontendControllers\\HomeController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/HomeController.php',
     'UpfFrontendControllers\\MetaController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/general/system/MetaController.php',

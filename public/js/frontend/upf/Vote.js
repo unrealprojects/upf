@@ -1,43 +1,5 @@
 (function($){
     $(document).ready(function(){
-        /* Vote */
-        $.getScript('http://www.google.com/recaptcha/api/js/recaptcha_ajax.js');
-
-        /* Comments */
-        $('.Form-Horizontal input[type=submit]').click(function(){
-            var this_element = this;
-            var name = $('input[name=name]',$(this_element).parent().parent()).val();
-            var comment = $('textarea[name=comment]',$(this_element).parent().parent()).val();
-            var list_id = $('input[name=list_id]',$(this_element).parent().parent()).val();
-            var captcha = $('input[name=recaptcha_response_field]',$(this_element).parent().parent()).val();
-            if(name && comment && list_id && captcha){
-                $.ajax({
-                    url:'/comments/add/'+list_id,
-                    type:'get',
-                    data:{'challenge':Recaptcha.get_challenge(),
-                          'response':Recaptcha.get_response(),
-                          'name':name,
-                          'comment':comment},
-                    dataType:'json',
-                    success:function($data){
-                        Recaptcha.reload();
-                        UP.Message($data['Event'],$data['Message'],$data['Type']);
-                        if($data['Type']=='Success'){
-                            $('.Comment-List').append($('<div/>').html($data['comment']).text());
-                        }
-                    }
-                });
-            }else{
-                Recaptcha.reload();
-                UP.Message('Ошибка','Заполните все поля','Error');
-            }
-            return false;
-        });
-        /* End Comments */
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Vote
@@ -68,6 +30,8 @@ $(document).on('click',Vote_Buttons,function(){
             upf.Messages.Show(Data['Message'],Data['Type']);
             if(Data['Type']=='Success'){
                 $(This).parents(Vote_Item).find('.Rating').html(Data['Rating']);
+
+                // Set Current Value
                 if(Data['Rating']>0){
                     $(This).parents(Vote_Item).find('.Rating').addClass('Positive').removeClass('Negative');
                 }else if(Data['Rating']<0){
@@ -88,6 +52,55 @@ $(document).on('click',Vote_Buttons,function(){
 
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Comments
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Initialise Recaptcha
+$.getScript('http://www.google.com/recaptcha/api/js/recaptcha_ajax.js');
+
+$('.Form-Comment input[type=submit].Send-Post').click(function(){
+    var This = this;
+//    var list_id = $('input[name=list_id]',$(this_element).parent().parent()).val();
+//    var captcha = $('input[name=recaptcha_response_field]',$(this_element).parent().parent()).val();
+
+    var Data = {
+        'Challenge':    Recaptcha.get_challenge(),
+        'Response':     Recaptcha.get_response(),
+        'Author':       $('input[name=author]',$(This).parents('.Form-Comment')).val(),
+        'Post':         $('textarea[name=post]',$(This).parents('.Form-Comment')).val(),
+        'Section':      $(This).parents('.Form-Comment').attr('data-section'),
+        'Alias':        $(This).parents('.Form-Comment').attr('data-alias'),
+        'Wall-Id':      $(This).parents('.Form-Comment').attr('data-wall-id')
+    };
+
+    if(Data['Challenge'] && Data['Response'] && Data['Author'] && Data['Post'] && Data['Section'] && Data['Alias']){
+        $.ajax({
+            url:        '/comments',
+            type:       'post',
+            data:       Data,
+            dataType:   'json',
+            success:    function(Data)
+            {
+                upf.Messages.Show(Data['Message'],Data['Type']);
+                if(Data['Type']=='Success')
+                {
+                    $('.Comments').append($('<div/>').html(Data['Post']).text());
+                }
+                Recaptcha.reload();
+            }
+        });
+    }
+    else
+    {
+        Recaptcha.reload();
+        upf.Messages.Show('Ошибка при отправке сообщения, проверьте все поля.','Error');
+    }
+    return false;
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
