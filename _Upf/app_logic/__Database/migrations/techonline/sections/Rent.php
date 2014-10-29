@@ -47,7 +47,9 @@ class Rent extends Migration {
             ['Короткое описание', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
+            ['Модель', 'model_id', 'select', 'Title', 'main', true, 'backend', $Table, 'add', 'model', 'Catalog'],
+            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'add','model','Regions'],
+            ['Фото техники', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
 
             /*** Edit ***/
             // Group :: Main
@@ -63,6 +65,8 @@ class Rent extends Migration {
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+
+
 
 
 

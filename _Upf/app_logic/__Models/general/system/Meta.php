@@ -82,23 +82,122 @@ class Meta extends Fields {
 
     /*** Where :: Alias in Tags ***/
 
-        public static function WhereAliasInTags($This,$Alias){
-            return $This->whereHas('tags', function($Query) use ($Alias) {
-                $Query->where('alias',$Alias);
+        public static function FilterTagsFromRent($Aliases,$Query){
+//            print_r($Aliases);
+//            exit;
+
+           return $Query->whereHas('catalog',function($QueryCatalog) use ($Aliases){
+                $QueryCatalog->whereHas('meta',function($QueryMeta)  use ($Aliases){
+                    $QueryMeta->whereHas('tags',function($QueryRegion) use ($Aliases){
+                        $QueryRegion->whereIn('alias', $Aliases);
+                    });
+                });
             });
         }
 
     /*** Where :: Alias in Categories ***/
 
-        public static function WhereAliasInCategories($This,$Alias){
-            return $This->whereHas('tags', function($Query) use ($Alias) {
-                $Query->where('alias',$Alias);
-            });
+        public static function FilterCategoriesFromRent($Alias, $Query){
+
+            $Categories = new \UpfModels\Categories();
+            $Category = $Categories->where('alias',$Alias)->first();
+
+            if($Category){
+                // Details Categories where('section', 'catalog')->get()
+                $Parents = $Categories->where('parent_id',$Category->id)->get()->toArray();
+                foreach($Parents as $Value){
+                    $Keys[] = $Value['id'];
+                }
+
+                if(!empty($Keys)){
+                    return $Query->whereHas('catalog',function($QueryCatalog) use ($Alias, $Keys){
+                        $QueryCatalog->whereHas('meta',function($QueryMeta)  use ($Alias, $Keys){
+                            $QueryMeta->whereHas('categories',function($QueryCategories)  use ($Alias, $Keys){
+                                $QueryCategories->whereIn('id', $Keys)->whereOr('alias', $Alias);
+                            });
+                        });
+                    });
+                }else{
+                    return $Query->whereHas('catalog',function($QueryCatalog) use ($Alias){
+                        $QueryCatalog->whereHas('meta',function($QueryMeta)  use ($Alias){
+                            $QueryMeta->whereHas('categories',function($QueryCategories)  use ($Alias){
+                                $QueryCategories->where('alias',$Alias);
+                            });
+                        });
+                    });
+                }
+            }else{
+
+                return $Query->whereHas('catalog',function($QueryCatalog) use ($Alias){
+                    $QueryCatalog->whereHas('meta',function($QueryMeta)  use ($Alias){
+                        $QueryMeta->whereHas('categories',function($QueryCategories)  use ($Alias){
+                            $QueryCategories->where('alias',$Alias);
+                        });
+                    });
+                });
+            }
         }
+
+    /*** Where :: Alias in Categories ***/
+
+    public static function FilterParamsFromRent($Params, $Query){
+        return $Query->whereHas('catalog', function($QueryCatalog) use($Params){
+            $QueryCatalog->whereHas('meta',function($QueryMeta)  use ($Params){
+                foreach($Params as $ParamKey => $Param){
+                    $QueryMeta->whereHas('paramsvalues',function($QueryParamsValues) use($Param) {
+                        $QueryParamsValues->where('param_id',$Param['id'])
+                                          ->where('value','>=',$Param['min-value'])
+                                          ->where('value','<=',$Param['max-value']);
+                    });
+                }
+            });
+        });
+    }
+
+
+    /*** *** Search In "SubRegions" *** ***/
+
+    public static function FilterRegions($Alias,$Query){
+         // Get Current Region
+         $Regions = new \UpfModels\Regions();
+         $Region = $Regions->where('alias',$Alias)->first();
+
+         // Search In Parents
+         if($Region)
+         {
+             $Parents = $Regions->where('parent_id',$Region->id)->get()->toArray();
+
+             // Each Parent
+             foreach($Parents as $Parent){
+                 $Keys[]=$Parent['id'];
+             }
+
+            if(!empty($Keys)){
+                 $Query->whereHas('regions',function($QueryRegion) use ($Alias,$Keys){
+                     $QueryRegion->whereIn('id', $Keys)->whereOr('alias', $Alias);
+                 });
+            }else{
+                $Query->whereHas('regions',function($QueryRegion) use ($Alias){
+                    $QueryRegion->where('alias', $Alias);
+                });
+            }
+
+         }else{
+             $Query->whereHas('regions',function($QueryRegion) use ($Alias){
+                 $QueryRegion->where('alias', $Alias);
+             });
+         }
+    }
+
+
 
     /*** Where :: Statuses Filter in Meta ***/
 
-        public static function WhereStatusesInMeta($This,$Filters){
+        public function WhereStatusesInMeta($This,$Filters){
+//
+            $Filters = $this->SetFilters();
+
+//           print_r($Filters);exit;
 
             if($This->table=='system_meta'){
                 // Exception
@@ -106,37 +205,59 @@ class Meta extends Fields {
             }else{
 
                 /*** Return Data ***/
-                return $This->whereHas('meta', function($Query) use ($This,$Filters) {
+                $Result = $This->whereHas('meta', function($Query) use ($This,$Filters) {
                     /*** Status ***/
-                    if(isset($Filters['status'])){
+                    if(!empty($Filters['status'])){
                         $Query->where('status',$Filters['status']);
                     }else{
                         $Query->where('status',\Config::get('models/Fields.status.active'));
                     }
 
                     /*** Privileges ***/
-                    if(isset($Filters['privileges'])){
+                    if(!empty($Filters['privileges'])){
                         $Query->where('privileges',$Filters['privileges']);
                     }
 
-                    /*** Filters ***/
-                    if(isset($Filters['favorite'])){
+                    /*** Favorite ***/
+                    if(!empty($Filters['favorite'])){
                         $Query->where('privileges',$Filters['favorite']);
                     }
 
-                    /*** Category  ***/
-                    if(isset($Filters['category_alias'])){
-                        $This->WhereAliasInCategories($Query,$Filters['category_alias']);
+
+                    /*** *** Filters *** ***/
+
+                    /*** Region ***/
+                    if(!empty($Filters['Region'])){
+                        $This->FilterRegions($Filters['Region'],$Query);
                     }
 
-                    /*** Tag ***/
-                    if(isset($Filters['tag_alias'])){
-                        $This->WhereAliasInTags($Query,$Filters['tag_alias']);
-                    }
-
-                   // $This->orderBy('updated_at','DESC');
                 });
             }
+
+            /*** *** Filters To Catalog From Rent *** ***/
+
+                /*** Category  ***/
+
+                if(!empty($Filters['Category'])){
+                    $Result = $This->FilterCategoriesFromRent($Filters['Category'],$Result);
+                }
+
+                /*** Tag ***/
+                if(!empty($Filters['Tags'])){
+                    $Result = $This->FilterTagsFromRent($Filters['Tags'],$Result);
+                }
+
+                /*** Params ***/
+                if(!empty($Filters['Params'])){
+                    $Result = $This->FilterParamsFromRent($Filters['Params'], $Result);
+                }
+
+                if(!empty($Filters['Price']) && !empty($Filters['Price']['Min']) && !empty($Filters['Price']['Max'])){
+                    $Result = $Result->where('price','>=',$Filters['Price']['Min'])
+                                     ->where('price','<=',$Filters['Price']['Max']);
+                }
+
+           return $Result;
 
         }
 
@@ -201,6 +322,8 @@ class Meta extends Fields {
     /*** *** Get Front List *** ***/
 
         public function FrontendIndex($Filter = []){
+
+            $Filter = $this->SetFilters();
 
             /*** Get Data ***/
             $List = $this->WhereStatusesInMeta($this,$Filter)
@@ -301,20 +424,35 @@ class Meta extends Fields {
             }
 
             /*** Categories List ***/
+
+            // I don't use sections here
             $Categories     =       \UpfModels\Categories::SortCategories(true);
             $CategoriesList =       \UpfModels\Categories::where( 'section', $Section )->get();
 
             /*** Tags List ***/
-            $Tags           =       \UpfModels\Tags::where( 'section', $Section )->get();
+            if($Section == 'rent'){
+                $Tags           =       \UpfModels\Tags::where( 'section', 'catalog' )->orderBy('privileges','desc')->get();
+            }
+            else
+            {
+                $Tags           =       \UpfModels\Tags::where( 'section', $Section )->orderBy('privileges','desc')->get();
+            }
+
 
             /*** Regions List ***/
-            $Regions        =       \UpfModels\Regions::SortRegions(true);
+            $Regions            =       \UpfModels\Regions::SortRegions(true);
             $RegionsList        =       \UpfModels\Regions::all();
 
             /*** Params List ***/
-            $Params         =       \UpfModels\Params::where( 'section', $Section )->get();
-            // Set Filter To Session
+            if( \Input::get('category') ){
 
+            $Params = \UpfModels\Params::whereHas('categories',function($Query){
+                $Query->where('alias',\Input::get('category'));
+            })->get();
+            }else{
+                $Params = false;
+            }
+            // Set Filter To Session
 
 
             /*** Return Filters ***/
@@ -324,9 +462,26 @@ class Meta extends Fields {
                 'regions'           =>     $Regions,
                 'regions_list'      =>     $RegionsList,
                 'categories_list'   =>     $CategoriesList,
-               // 'params'        =>     $Params,
+                'params'            =>     $Params
             ];
         }
 
+
+
+        /*** *** Set Default Modules *** ***/
+        public function SetFilters(){
+            return [
+                'Category' =>    \Input::get('category'),
+                'Region' =>      \Input::get('region'),
+                'Params' =>      \Input::get('params'),
+                'Tags' =>        \Input::get('tags'),
+
+                'Price' =>
+                    [
+                        'Min' => \Input::get('price-min'),
+                        'Max' => \Input::get('price-max'),
+                    ]
+            ];
+        }
 }
 

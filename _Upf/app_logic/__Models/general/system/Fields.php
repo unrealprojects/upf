@@ -215,6 +215,35 @@ class Fields extends General {
 
                 /*** Text ***/
                 if(\Input::get($Field->relation) && ($Field->type=='text' || $Field->type=='textarea')  && $Field->editable){
+
+                    if(empty($FieldExplode[1])){
+                        $this->{$FieldExplode[0]} = \Input::get($FieldExplode[0]);
+                    }else{
+                        echo $Field->relation; exit;
+                        $this->$FieldExplode[0]()->update([
+                            $FieldExplode[1] => \Input::get($Field->relation)
+                        ]);
+                    }
+
+                    /*** Multi Select ***/
+                }elseif(\Input::get($Field->relation) && $Field['type']=='multi-select' && $Field['editable']){
+
+                    $Keys = [];
+                    if( isset($FieldExplode[1]) ){
+                        foreach(\Input::get($Field->relation) as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $this->{$FieldExplode[0]}->{$FieldExplode[1]}()->sync($Keys);
+                    }elseif($FieldExplode[0]){
+
+                        foreach(\Input::get($Field->relation) as $Key){
+                            $Keys[$Key] = ['section'=>$this->Section];
+                        }
+                        $this->{$FieldExplode[0]}()->sync($Keys);
+                    }
+
+                    /*** Select ***/
+                }elseif($Field['type']=='select' && $Field['editable']){
                     if(empty($FieldExplode[1])){
                         $this->{$FieldExplode[0]} = \Input::get($FieldExplode[0]);
                     }else{
@@ -222,7 +251,6 @@ class Fields extends General {
                             $FieldExplode[1] => \Input::get($Field->relation)
                         ]);
                     }
-
 
                     /*** Password ***/
                 }elseif(\Input::get($Field->relation) && $Field->type=='password' && $Field->editable){
@@ -263,7 +291,8 @@ class Fields extends General {
                     'keywords' =>       $this->title,
                     /*** Relations ***/
                     'section' =>        $this->Section,
-                    'category_id' =>    0 ,
+                    'category_id' =>    \Input::get('meta-category_id')?\Input::get('meta-category_id'):0 ,
+                    'region_id' =>      \Input::get('meta-region_id')?\Input::get('meta-region_id'):0 ,
                     /*** Statuses ***/
                     'status' =>         1,
                     'privileges' =>     0,

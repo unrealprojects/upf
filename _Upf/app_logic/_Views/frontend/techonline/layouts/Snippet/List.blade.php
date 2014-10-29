@@ -11,6 +11,7 @@
     {{--@include($TemplateParts . 'BreadCrumbs')--}}
 
     <article>
+    @if(!empty($Content['List']))
         <ul class="Snippet-List">
 
             {{-- Each Item --}}
@@ -153,6 +154,18 @@
                                             <strong>{{ $Item['meta']['regions']['title'] }}</strong>
                                         </li>
                                     @endif
+
+                                    @if( !empty($Item['catalog']['meta']['tags']) )
+                                    <li class="Tag-Item">
+                                        <span>Производитель:</span>
+                                        @foreach($Item['catalog']['meta']['tags'] as $TagKey => $Tag)
+                                            @if($TagKey>0)
+                                            ,
+                                            @endif
+                                            <a href="{{$BaseUrl}}?tag={{$Tag['alias']}}">{{$Tag['title']}}</a>
+                                        @endforeach
+                                    </li>
+                                    @endif
                                 </ul>
 
                                 {{-- More Info --}}
@@ -250,6 +263,9 @@
                 </li>
             @endforeach
         </ul>
+    @else
+        <h3>Ничего не найдено</h3>
+    @endif
     </article>
 
     @if(isset($Content['Pagination']))

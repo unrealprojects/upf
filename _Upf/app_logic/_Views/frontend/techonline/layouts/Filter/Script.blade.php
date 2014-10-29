@@ -3,54 +3,27 @@
 <script>
 
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// SEARCH STRING
+// Start
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-searchArray = {};
+// -- First Tab
 
-if(location.search.length>0){
-    var search = location.search.replace('?','').split('&');
-    $.each(search,function(key,value){
-        var item=value.split('=');
-        searchArray[item[0]]=item[1];
-    });
-    delete searchArray['page'];
+// If No Selected Items
+$('.Tabs dt:first-of-type, .Tabs dd:first-of-type').addClass('Active');
+// Else
+
+
+// -- URI
+var URI = location.pathname.split('/');
+if(URI[1]==undefined){
+    URI[1] = '';
 }
-
-if(searchArray['region']){
-    addToFilterSelected($('[alias='+searchArray['region']+']'),'Region');
-    changeTab('.Tab-Categories',false);
+if(URI[2]==undefined){
+    URI[2] = '';
 }
-
-if(searchArray['category']){
-    addToFilterSelected($('[alias='+searchArray['category']+']'),'Category');
-    changeTab('.Tab-Params',false);
-}
-
-
-// Проверка Checkbox
-var findBrands = false;
-for(var i=0;i<100;i++){
-     if(!findBrands && searchArray["brands["+i+"]"]){
-         $('input[type=checkbox]').prop('checked',false);
-         findBrands=true;
-     }
-     $('input[name='+searchArray["brands["+i+"]"]).prop('checked',true);
-     $('input[name='+searchArray["brands%5B"+i+"%5D"]).prop('checked',true);
-}
-if(findBrands){
-    checkedBrands();
-}
-
-$(document).on('click','.Filter a',function()
-{
-    return false;
-});
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -71,7 +44,7 @@ function scrollToTabs(){
 function getAjaxParams($category_alias){
     $.ajax({
         type:'get',
-        url:'/filter/'+$category_alias,
+        url:'/filter/' + $category_alias,
         dataType:'json',
         success:function(data){
             $('.Ajax-Params').remove();
@@ -114,15 +87,65 @@ $(document).on('click','#Filter-Selected-Region .Delete,' +
 });
 
 // Функция смены таба
-function changeTab(tabName,scrollToTabs){
-    if(scrollToTabs===undefined){scrollToTabs=true;}
+function changeTab(tabName,ScrollUpToTabs){
+    if(ScrollUpToTabs===undefined){ScrollUpToTabs=true;}
     $('.Tabs dt,.Tabs dd').removeClass('Active');
     $(tabName).addClass('Active');
-    if(scrollToTabs){
+    //if(ScrollUpToTabs){
         scrollToTabs();
-    }
+   // }
 }
 
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SEARCH STRING
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+searchArray = {};
+
+if(location.search.length>0){
+    var search = location.search.replace('?','').split('&');
+    $.each(search,function(key,value){
+        var item=value.split('=');
+        searchArray[item[0]]=item[1];
+    });
+    delete searchArray['page'];
+}
+
+if(searchArray['region']){
+    addToFilterSelected($('[alias='+searchArray['region']+']'),'Region');
+    changeTab('.Tab-Categories',false);
+}
+
+if(searchArray['category']){
+    addToFilterSelected($('[alias='+searchArray['category']+']'),'Category');
+    changeTab('.Tab-Tags',false);
+}
+
+
+// Проверка Checkbox
+var findtags = false;
+for(var i=0;i<100;i++){
+    if(!findtags && searchArray["tags["+i+"]"]){
+        $('input[type=checkbox]').prop('checked',false);
+        findtags=true;
+    }
+    $('input[name='+searchArray["tags["+i+"]"]).prop('checked',true);
+    $('input[name='+searchArray["tags%5B"+i+"%5D"]).prop('checked',true);
+}
+if(findtags){
+    checkedtags();
+}
+
+$(document).on('click','.Filter a',function()
+{
+    return false;
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Tab Regions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,14 +238,14 @@ $( ".Autocomplete-Categories" ).autocomplete({
     }
 });
 
-/*** Клик :: Категории ***/
+// -- Click To Categories
 $('dd.Tab-Categories a').click(function(){
     /*** Запись Параметров ***/
     searchArray['category']=$(this).attr('alias');
     addToFilterSelected(this,'Category');
     getAjaxParams(searchArray['category']);
 
-    /*** Смена Таба Или Перескок на Главную страницу ***/
+    // Go To Rent Page
     if(location.pathname!='/'){
         changeTab('.Tab-Params');
     }else{
@@ -241,13 +264,13 @@ $('dd.Tab-Categories a').click(function(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*** Перебор всех чекбоксов ***/
-function checkedBrands(){
+function checkedtags(){
     var all_selected=true,
         foreign_all_selected=true,
         native_all_selected=true;
-    $('.Accordion-Brands input[type=checkbox]').each(function(key,item){
+    $('.Accordion-tags input[type=checkbox]').each(function(key,item){
         if($(item).is(':checked') && $(item).attr('name')){
-            searchArray['brands['+key+']']=$(item).attr('name');
+            searchArray['tags['+key+']']=$(item).attr('name');
         }else{
             if($(item).attr('name')){
                 all_selected=false;
@@ -260,71 +283,71 @@ function checkedBrands(){
             if(!$(item).is(':checked') && $(item).attr('name')&& $(item).attr('foreign')=='1'){
                 foreign_all_selected=false;
             }
-            delete searchArray['brands['+key+']'];
-            delete searchArray[["brands%5B"+key+"%5D"]];
+            delete searchArray['tags['+key+']'];
+            delete searchArray[["tags%5B"+key+"%5D"]];
         }
     });
 
     /*** Если один выбран ***/
     if(all_selected){
-        $('#all_brands').prop('checked','checked');
+        $('#all_tags').prop('checked','checked');
     }else{
-        $('#all_brands').prop('checked',false);
+        $('#all_tags').prop('checked',false);
     }
     if(foreign_all_selected){
-        $('#foreign_brands').prop('checked','checked');
+        $('#foreign_tags').prop('checked','checked');
     }else{
-        $('#foreign_brands').prop('checked',false);
+        $('#foreign_tags').prop('checked',false);
     }
     if(native_all_selected){
-        $('#native_brands').prop('checked','checked');
+        $('#native_tags').prop('checked','checked');
     }else{
-        $('#native_brands').prop('checked',false);
+        $('#native_tags').prop('checked',false);
     }
 }
 
 /*** Клик :: Чекбокс ***/
-$('.Accordion-Brands input[type=checkbox]').click( function(){
-    if($(this).attr('id')!='foreign_brands' &&
-        $(this).attr('id')!='native_brands' &&
-        $(this).attr('id')!='all_brands' ){
-        checkedBrands();
+$('.Accordion-tags input[type=checkbox]').click( function(){
+    if($(this).attr('id')!='foreign_tags' &&
+        $(this).attr('id')!='native_tags' &&
+        $(this).attr('id')!='all_tags' ){
+        checkedtags();
     }
 });
 
 /*** Клик на чекбокс "Выбрать все" ***/
-$('#all_brands').click(function(){
+$('#all_tags').click(function(){
     if($(this).is(':checked')){
-        $('.Accordion-Brands input[type=checkbox]').prop('checked','checked');
+        $('.Accordion-tags input[type=checkbox]').prop('checked','checked');
     }else{
-        $('.Accordion-Brands input[type=checkbox]').prop('checked',false);
+        $('.Accordion-tags input[type=checkbox]').prop('checked',false);
     }
-    checkedBrands();
+    checkedtags();
 });
 
 /*** Клик на чекбокс "Выбрать иномарки" ***/
-$('#foreign_brands').click(function(){
+$('#foreign_tags').click(function(){
     if($(this).is(':checked')){
-        $('.Accordion-Brands input[foreign=1]').prop('checked','checked');
+        $('.Accordion-tags input[foreign=1]').prop('checked','checked');
     }else{
-        $('.Accordion-Brands input[foreign=1]').prop('checked',false);
+        $('.Accordion-tags input[foreign=1]').prop('checked',false);
     }
-    checkedBrands();
+    checkedtags();
 });
 
 /*** Клик на чекбокс "Выбрать отечественные" ***/
-$('#native_brands').click(function(){
+$('#native_tags').click(function(){
     if($(this).is(':checked')){
-        $('.Accordion-Brands input[foreign=0]').prop('checked','checked');
+        $('.Accordion-tags input[foreign=0]').prop('checked','checked');
     }else{
-        $('.Accordion-Brands input[foreign=0]').prop('checked',false);
+        $('.Accordion-tags input[foreign=0]').prop('checked',false);
     }
-    checkedBrands();
+    checkedtags();
 });
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-rams
+// Params
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*** Параметры ***/
@@ -344,23 +367,23 @@ $("#Slider-Range-Value-1").html(
     $( "#Slider-Range-1").slider( "values", 0 ) + " - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" <span class='fa Icon-rub'></span>"
 );
 
-@if(isset($Content['Filters']['params']))
-    @foreach($Content['Filters']['params']['filters'] as $ParamKey => $Param)
-        $("#Slider-Range-{{$param['alias']}}").slider({
+@if(!empty($Content['Filters']['params']))
+    @foreach($Content['Filters']['params'] as $ParamKey => $Param)
+        $("#Slider-Range-{{$Param['alias']}}").slider({
             range: true,
-            min: {{$param['min_value']}},
-            max: {{$param['max_value']}},
-            values: [ searchArray['params[{{$param["alias"]}}][min-value]']?searchArray['params[{{$param["alias"]}}][min-value]']:{{$Param['min_value']}},
-                      searchArray['params[{{$param["alias"]}}][max-value]']?searchArray['params[{{$param["alias"]}}][max-value]']:{{$Param  ['max_value']}} ],
+            min: {{$Param['param_min']}},
+            max: {{$Param['param_max']}},
+            values: [ searchArray['params[{{$Param["alias"]}}][min-value]']?searchArray['params[{{$Param["alias"]}}][min-value]']:{{$Param['param_min']}},
+                      searchArray['params[{{$Param["alias"]}}][max-value]']?searchArray['params[{{$Param["alias"]}}][max-value]']:{{$Param['param_max']}} ],
             slide: function( event, ui ) {
-                $("#Slider-Range-Value-{{$param["alias"]}}").text(ui.values[ 0 ] + "{{$param['dimension']}} - " + ui.values[ 1 ] +"{{$param['dimension']}}");
-                searchArray['params[{{$param["alias"]}}][min-value]']=ui.values[ 0 ];
-                searchArray['params[{{$param["alias"]}}][max-value]']= ui.values[ 1 ];
-                searchArray['params[{{$param["alias"]}}][id]']='{{$param["id"]}}';
+                $("#Slider-Range-Value-{{$Param["alias"]}}").text(ui.values[ 0 ] + "{{$Param['dimension']}} - " + ui.values[ 1 ] +"{{$Param['dimension']}}");
+                searchArray['params[{{$Param["alias"]}}][min-value]']=ui.values[ 0 ];
+                searchArray['params[{{$Param["alias"]}}][max-value]']= ui.values[ 1 ];
+                searchArray['params[{{$Param["alias"]}}][id]']='{{$Param["id"]}}';
             }
         });
-        $("#Slider-Range-Value-{{$param["alias"]}}").text(
-            $( "#Slider-Range-{{$param["alias"]}}").slider( "values", 0 ) + " {{$param['dimension']}} - " + $( "#Slider-Range-{{$param["alias"]}}" ).slider( "values", 1 ) + ' {{$param['dimension']}}'
+        $("#Slider-Range-Value-{{$Param["alias"]}}").text(
+            $( "#Slider-Range-{{$Param["alias"]}}").slider( "values", 0 ) + " {{$Param['dimension']}} - " + $( "#Slider-Range-{{$Param["alias"]}}" ).slider( "values", 1 ) + ' {{$Param['dimension']}}'
         );
     @endforeach
 @endif
@@ -380,9 +403,15 @@ function filterSearch(){
             searchString+=key+'='+value+'&';
         }
     });
-    location.href=searchString;
-      console.log('rent'+searchString);
+    if(URI[1]==''){
+        console.log('rent'+searchString);
+        location.href='rent' + searchString;
+
+    }else{
+        location.href = location.pathname + searchString;
+    }
 }
+
 $('#Filter-Search').click(function(){
     filterSearch();
 });

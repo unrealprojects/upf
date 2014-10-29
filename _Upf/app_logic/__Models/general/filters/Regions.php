@@ -43,74 +43,50 @@ class Regions extends Fields {
 
 
         /*** Set Level Areas ***/
-        foreach($Regions as &$Region){
+        foreach($Regions as $RegionKey => $Region){
             /*** Unset Level Countries ***/
-            if($Region['administrative_unit']== 0 ){
-                unset($Region);
+            if($Region['administrative_unit'] == 0 ){
+                unset($Regions[$RegionKey]);
             }
             /*** Set Level Areas ***/
-            elseif($Region['administrative_unit']== 1 && $Region['region_type']== 0){
+            elseif($Region['administrative_unit'] == 1 && $Region['region_type'] == 0){
                 $SortedRegions['areas']['list'][] = $Region;
-                unset($Region);
+                unset($Regions[$RegionKey]);
             }
-            elseif($Region['administrative_unit']== 1 && $Region['region_type']== 1){
+            /*** Set Level Republics ***/
+            elseif($Region['administrative_unit'] == 1 && $Region['region_type'] == 1){
                 $SortedRegions['republics']['list'][] = $Region;
-                unset($Region);
+                unset($Regions[$RegionKey]);
             }
         }
 
+
         /*** Set Level Cities In Areas ***/
         // Each Area
-        foreach($SortedRegions['areas']['list'] as $SortedRegion){
+        foreach($SortedRegions['areas']['list'] as $RegionKey => &$SortedRegion){
+
             //Each Region
-            foreach($Regions as &$Region){
+            foreach($Regions as $RegionKey => $Region){
                 if($SortedRegion['id']==$Region['parent_id']){
                     $SortedRegion['cities']['list'][] = $Region;
-                    unset($Region);
+                    unset($Regions[$RegionKey]);
                 }
             }
         }
 
+
         /*** Set Level Cities In Republics ***/
         // Each Area
-        foreach($SortedRegions['republics']['list'] as $SortedRegion){
+        foreach($SortedRegions['republics']['list'] as &$SortedRegion){
             //Each Republic
-            if($SortedRegion['id']==$Region['parent_id']){
-                $SortedRegion['cities']['list'][] = $Region;
-                unset($Region);
+            foreach($Regions as $RegionKey => $Region){
+                if($SortedRegion['id']==$Region['parent_id']){
+                    $SortedRegion['cities']['list'][] = $Region;
+                    unset($Regions[$RegionKey]);
+                }
             }
         }
-       // print_r($SortedRegions);exit;
-
         return $SortedRegions;
-
-    }
-
-
-
-
-
-    /*** *** Search In "SubRegions" *** ***/
-
-    public static function filterSubRegions($Query,$Alias){
-
-        /*** Get Current Region ***/
-        $Regions = new \UpfModels\Regions();
-        $Region = $Regions->where('parent_id',0)->where('alias',$Alias)->first();
-
-        /*** Search In Parents ***/
-        if($Region){
-            $Parents = $Regions->where('parent_id',$Region->id)->get()->toArray();
-
-            // Each Parent
-            foreach($Parents as $Parent){
-                $Keys[]=$Parent['id'];
-            }
-            $Query->whereIn('id', $Keys)->whereOr('alias', $Alias);
-        }else{
-            $Query->where('alias', $Alias);
-        }
-
     }
 
 }

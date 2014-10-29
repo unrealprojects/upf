@@ -777,9 +777,11 @@ ul.Tag-List {
 	@extend .Merge;
 
 	li.List-Params-Item {
-
+        @extend %Clearfix;
+        list-style: none;
 		.Control-Group,
 		a {
+
 			display: block;
 			padding: $size-s $size-l;
 			color: black!important;
@@ -880,4 +882,26 @@ ul.Item-Edit
             text-align: center;
         }
     }
+}
+
+
+/*** Slider Range ***/
+
+.Control-Group .Slider-Range{
+    margin: $Control-Padding 9px;
+}
+
+
+#Filter-Search
+{
+    float: right;
+    border-radius: 0;
+    border: none;
+    padding: 10px 21px;
+    margin-top: 10px;
+}
+
+.Control-Group input[type='checkbox'].Slide.Red-Checkbox:checked
+{
+    background-color: $C-Orange-2;
 }

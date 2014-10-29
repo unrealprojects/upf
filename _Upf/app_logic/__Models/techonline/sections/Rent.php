@@ -34,6 +34,7 @@ class Rent extends Meta{
 
         /*** Get Data ***/
         $List = $this->WhereStatusesInMeta($this,$Filter)
+
             ->with('meta',
                 'meta.categories',
                 'meta.tags',
@@ -45,6 +46,7 @@ class Rent extends Meta{
                 'catalog',
                 'catalog.meta',
                 'catalog.meta.categories',
+                'catalog.meta.tags',
                 'catalog.meta.categories.params',
                 'catalog.meta.paramsvalues',
                 'catalog.meta.paramsvalues.paramData'
@@ -61,6 +63,7 @@ class Rent extends Meta{
                 isset($Filter['Pagination'])?$Filter['Pagination']
                     :\Config::get('site\app_settings.PaginateFrontend.content')
             );
+
 
 //         print_r($this->GetFields('list','frontend', true));exit;
 //        print_r($List->toArray()['data']);exit;
@@ -92,6 +95,7 @@ class Rent extends Meta{
                 'catalog',
                 'catalog.meta',
                 'catalog.meta.categories',
+                'catalog.meta.tags',
                 'catalog.meta.categories.params',
                 'catalog.meta.paramsvalues',
                 'catalog.meta.paramsvalues.paramData'

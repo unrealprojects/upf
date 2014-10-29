@@ -46,6 +46,7 @@ class Parts extends Migration {
             ['Короткое описание', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Цена', 'price', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
+            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'add','model','Regions'],
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
 
             /*** Edit ***/

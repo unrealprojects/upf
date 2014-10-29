@@ -31,7 +31,6 @@ class Categories extends Fields{
 
        $SortedCategories = [];
         $SortedCategories[0]['title'] = 'Популярные';
-        $SortedCategories[0]['alias'] = '';
         /*** Get Popular ***/
         if($Popular){
             // Each Category
@@ -73,26 +72,4 @@ class Categories extends Fields{
 
     }
 
-
-
-
-
-
-
-    /*** Get Subcategories In Search ***/
-    public static function filterSubCategories($query,$alias){
-
-        $categories = new \UpfModels\Categories();
-        $category = $categories->where('parent_id',0)->where('alias',$alias)->first();
-        if($category){
-            $parents = $categories->where('parent_id',$category->id)
-                                  ->where('section', 'catalog')->get()->toArray();
-            foreach($parents as $value){
-                $keys[]=$value['id'];
-            }
-            $query->whereIn('id', $keys)->whereOr('alias', $alias);
-        }else{
-            $query->where('alias', $alias);
-        }
-    }
 }

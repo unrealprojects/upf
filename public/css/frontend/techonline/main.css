@@ -559,11 +559,11 @@ code.Inline, code.pagination, code.Pagination {
 .Heading.Icon span.Icon {
   margin-right: 15px; }
 
-[class*='Grid']:before, ._Inline:before, .Box > header ul.Box-Tools:before, .Breadcrumbs .Breadcrumb-List:before, .Tab-Set ul.Tab-Captions:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header .Item-Vote:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, .List-Group-Actions:before, ul.Item-Edit:before, ul._Inline:before, .Box > header ul.Box-Tools:before, .Breadcrumbs ul.Breadcrumb-List:before, .Tab-Set ul.Tab-Captions:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header ul.Item-Vote:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, ul.List-Group-Actions:before, ul.Item-Edit:before, .Node:before, table.Adaptive td:before, .pagination:before, .Pagination:before, .Control-Group:before, .Box:before, .Box > header:before, .Breadcrumbs .Breadcrumb-List:before, .Comments .Comment:before, .Comments .Comment .Comment-Content header:before, .Dropdown:before, dl.Tabs:before, .Site-Header:before, .List-Categories:before, .List-Categories li:before, footer[role='contentinfo'] > div:before, .Snippet-List .Snippet-Item footer:before, .Snippet-List .Item-Gallery:before, .Snippet-Item:before, .Snippet-Item header:before, .Snippet-Item .Item-Gallery:before, .Filter-Result:before, .Filter-Result li:before, ul.Tag-List:before, .Item-Vote > li:before, .Filter.Accordion .Filter-Subheader:before, .Filter-Subcategory ul:before, [class*='Grid']:after, ._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs .Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .List-Group-Actions:after, ul.Item-Edit:after, ul._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs ul.Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header ul.Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, ul.List-Group-Actions:after, ul.Item-Edit:after, .Node:after, table.Adaptive td:after, .pagination:after, .Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Breadcrumbs .Breadcrumb-List:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, footer[role='contentinfo'] > div:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result:after, .Filter-Result li:after, ul.Tag-List:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
+[class*='Grid']:before, ._Inline:before, .Box > header ul.Box-Tools:before, .Breadcrumbs .Breadcrumb-List:before, .Tab-Set ul.Tab-Captions:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header .Item-Vote:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, .List-Group-Actions:before, ul.Item-Edit:before, ul._Inline:before, .Box > header ul.Box-Tools:before, .Breadcrumbs ul.Breadcrumb-List:before, .Tab-Set ul.Tab-Captions:before, footer[role='contentinfo'] > div .Footer-Navigation ul:before, .Snippet-Item header ul.Item-Vote:before, .Snippet-Item .Item-Gallery ul:before, ul.Tag-List:before, ul.List-Group-Actions:before, ul.Item-Edit:before, .Node:before, table.Adaptive td:before, .pagination:before, .Pagination:before, .Control-Group:before, .Box:before, .Box > header:before, .Breadcrumbs .Breadcrumb-List:before, .Comments .Comment:before, .Comments .Comment .Comment-Content header:before, .Dropdown:before, dl.Tabs:before, .Site-Header:before, .List-Categories:before, .List-Categories li:before, footer[role='contentinfo'] > div:before, .Snippet-List .Snippet-Item footer:before, .Snippet-List .Item-Gallery:before, .Snippet-Item:before, .Snippet-Item header:before, .Snippet-Item .Item-Gallery:before, .Filter-Result:before, .Filter-Result li:before, ul.Tag-List:before, .Item-Vote > li:before, .Filter.Accordion .Filter-Subheader:before, .Filter-Subcategory ul:before, .List-Params li.List-Params-Item:before, [class*='Grid']:after, ._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs .Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .List-Group-Actions:after, ul.Item-Edit:after, ul._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs ul.Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header ul.Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, ul.List-Group-Actions:after, ul.Item-Edit:after, .Node:after, table.Adaptive td:after, .pagination:after, .Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Breadcrumbs .Breadcrumb-List:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, footer[role='contentinfo'] > div:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result:after, .Filter-Result li:after, ul.Tag-List:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after, .List-Params li.List-Params-Item:after {
   content: " ";
   display: table; }
 
-[class*='Grid']:after, ._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs .Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .List-Group-Actions:after, ul.Item-Edit:after, ul._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs ul.Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header ul.Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, ul.List-Group-Actions:after, ul.Item-Edit:after, .Node:after, table.Adaptive td:after, .pagination:after, .Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Breadcrumbs .Breadcrumb-List:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, footer[role='contentinfo'] > div:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result:after, .Filter-Result li:after, ul.Tag-List:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after {
+[class*='Grid']:after, ._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs .Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header .Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, .List-Group-Actions:after, ul.Item-Edit:after, ul._Inline:after, .Box > header ul.Box-Tools:after, .Breadcrumbs ul.Breadcrumb-List:after, .Tab-Set ul.Tab-Captions:after, footer[role='contentinfo'] > div .Footer-Navigation ul:after, .Snippet-Item header ul.Item-Vote:after, .Snippet-Item .Item-Gallery ul:after, ul.Tag-List:after, ul.List-Group-Actions:after, ul.Item-Edit:after, .Node:after, table.Adaptive td:after, .pagination:after, .Pagination:after, .Control-Group:after, .Box:after, .Box > header:after, .Breadcrumbs .Breadcrumb-List:after, .Comments .Comment:after, .Comments .Comment .Comment-Content header:after, .Dropdown:after, dl.Tabs:after, .Site-Header:after, .List-Categories:after, .List-Categories li:after, footer[role='contentinfo'] > div:after, .Snippet-List .Snippet-Item footer:after, .Snippet-List .Item-Gallery:after, .Snippet-Item:after, .Snippet-Item header:after, .Snippet-Item .Item-Gallery:after, .Filter-Result:after, .Filter-Result li:after, ul.Tag-List:after, .Item-Vote > li:after, .Filter.Accordion .Filter-Subheader:after, .Filter-Subcategory ul:after, .List-Params li.List-Params-Item:after {
   clear: both; }
 
 .Node, footer[role='contentinfo'] > div {
@@ -3873,6 +3873,8 @@ ul.Tag-List li.Tag-Item {
 
 .List-Params {
   margin-top: 20px; }
+  .List-Params li.List-Params-Item {
+    list-style: none; }
   .List-Params li.List-Params-Item .Control-Group, .List-Params li.List-Params-Item a {
     display: block;
     padding: 10px 30px;
@@ -4067,7 +4069,8 @@ ul.Tag-List li.Tag-Item {
 
 ul.Item-Edit {
   margin-top: 9px;
-  margin-bottom: 9px; }
+  margin-bottom: 9px;
+  /*** Slider Range ***/ }
   ul.Item-Edit li {
     margin-right: 15px;
     float: right; }
@@ -4075,3 +4078,16 @@ ul.Item-Edit {
     width: 31px;
     height: 31px;
     text-align: center; }
+
+.Control-Group .Slider-Range {
+  margin: 7px 9px; }
+
+#Filter-Search {
+  float: right;
+  border-radius: 0;
+  border: none;
+  padding: 10px 21px;
+  margin-top: 10px; }
+
+.Control-Group input[type='checkbox'].Slide.Red-Checkbox:checked {
+  background-color: #e4a43f; }

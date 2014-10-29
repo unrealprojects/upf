@@ -71,6 +71,51 @@
 
 
 {{---------------------------------------------------------------------------------------------------------------------- Photo Field --}}
+
+{{--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Select Field
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
+
+@elseif($Field['type']=='select')
+
+<div class="Control-Group">
+    <label class='Node-XXS-3' for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
+    <select class='Node-XXS-9' name="{{$Field['relation']}}" id="field_{{$Field['relation']}}">
+        <option value="0">Нет</option>
+        @foreach($Model::GetFieldValues($Field['values'],$Field['values_type'],$Model) as $key => $value)
+        @if($Field['values_type']=='config' && ( is_int($key) || $Field['relation']=='section' ) )
+        <option value="{{$key}}">{{$value}}</option>
+        @elseif($Field['values_type']=='model' && is_int($key) )
+        <option value="{{$value['id']}}">{{$value['title']}}</option>
+        @endif
+        @endforeach
+    </select>
+</div>
+
+{{--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
+
+
+
+
+
+
+{{--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Multi Select Field
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
+
+@elseif($Field['type']=='multi-select')
+
+<div class="Control-Group">
+    <label class='Node-XXS-3' for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
+    <select class='Node-XXS-9' multiple="multiple" name="{{$Field['relation']}}[]"
+            id="field_{{$Field['relation']}}">
+        @foreach($Model::GetFieldValues($Field['values'],$Field['values_type'],$Model) as $value)
+        <option value="{{$value['id']}}">{{$value['title']}}</option>
+        @endforeach
+    </select>
+</div>
+
+{{--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
                     @endif
                 @endforeach
                 </div>
