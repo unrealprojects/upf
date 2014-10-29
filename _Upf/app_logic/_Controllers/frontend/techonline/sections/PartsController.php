@@ -16,6 +16,7 @@ class PartsController extends SectionsController{
             'Regions' =>     true,
             'Tags' =>        true,
             'Params' =>      false,
+            'Price' =>       true,
             'TabsNode'=>     'Node-XXS-6 Node-XS-4'
         ];
 

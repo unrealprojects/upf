@@ -127,13 +127,14 @@
         <dd class="Tab-Params">
             <form class="Form-Vertical Grid Split" action="">
 
-
+                @if($HasFilters['Price'])
                 <div class="Control-Group Node-XS-12">
 
                     <label for="Slider-Range-1">Цена: <span id="Slider-Range-Value-1"></span></label>
                     <div class="Slider-Range" id="Slider-Range-1"></div>
 
                 </div>
+                @endif
 
                 @if($Content['Filters']['params'])
                     @foreach($Content['Filters']['params'] as $ParamKey => $Param)

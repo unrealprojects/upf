@@ -16,6 +16,7 @@ class UsersController extends SectionsController{
             'Regions' =>    true,
             'Tags' =>       false,
             'Params' =>     false,
+            'price' =>      false,
             'TabsNode'=>     'Node-XXS-12 Node-XS-12'
         ];
 

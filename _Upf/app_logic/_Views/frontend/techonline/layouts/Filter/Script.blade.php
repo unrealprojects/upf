@@ -42,7 +42,8 @@ function scrollToTabs(){
 
 /*** Параметры для Категории ***/
 function getAjaxParams($category_alias){
-    $.ajax({
+    filterSearch();
+    /*$.ajax({
         type:'get',
         url:'/filter/' + $category_alias,
         dataType:'json',
@@ -51,7 +52,7 @@ function getAjaxParams($category_alias){
             $('.Tab-Params .Form-Vertical>.Control-Group').first().after($('<div/>').html(data['params']).text());
             $('body').append($('<div/>').html(data['script']).text());
         }
-    });
+    });*/
 }
 
 // Добавить в SELECTED
@@ -67,6 +68,21 @@ function addToFilterSelected(element,name){
         $('.Filter .Heading').after('<ul class="Filter-Result"><li id="Filter-Selected-'+name+'"><span>'+$(element).first().text()+'</span><a class="Delete" alias="'+$(element).attr('alias')+'" href="#">Удалить</a></li></ul>');
     }
 }
+
+// Добавить в SELECTED
+function addToFilterSelectedFromAutocomplete(element,name){
+    if($('.Filter-Result').text().length){
+        $("#Filter-Selected-"+name).remove();
+        if(name=='Region'){
+            $('.Filter-Result').prepend('<li id="Filter-Selected-'+name+'"><span>'+element.name+'</span><a class="Delete" alias="'+element.key+'" href="#">Удалить</a></li>');
+        }else{
+            $('.Filter-Result').append('<li id="Filter-Selected-'+name+'"><span>'+element.name+'</span><a class="Delete" alias="'+element.key+'" href="#">Удалить</a></li>');
+        }
+    }else{
+        $('.Filter .Heading').after('<ul class="Filter-Result"><li id="Filter-Selected-'+name+'"><span>'+element.name+'</span><a class="Delete" alias="'+element.key+'" href="#">Удалить</a></li></ul>');
+    }
+}
+
 
 // Удаление SELECTED Категорий и Регионов
 $(document).on('click','#Filter-Selected-Region .Delete,' +
@@ -122,7 +138,7 @@ if(searchArray['region']){
 
 if(searchArray['category']){
     addToFilterSelected($('[alias='+searchArray['category']+']'),'Category');
-    changeTab('.Tab-Tags',false);
+    changeTab('.Tab-Params',false);
 }
 
 
@@ -163,7 +179,8 @@ $( ".Autocomplete-Regions" ).autocomplete({
     select: function (event, ui) {
         /*** Запись параметров ***/
         searchArray['region']=ui.item.key;
-        addToFilterSelected(this,'Region');
+        var SelectedItem = {key:ui.item.key,name:ui.item.name};
+        addToFilterSelectedFromAutocomplete(SelectedItem,'Category');
         changeTab('.Tab-Categories');
     }
 });
@@ -227,7 +244,8 @@ $( ".Autocomplete-Categories" ).autocomplete({
         /*** Запись параметров ***/
         searchArray['category']=ui.item.key;
         getAjaxParams(searchArray['category']);
-        addToFilterSelected(this,'Category');
+        var SelectedItem = {key:ui.item.key,name:ui.item.name};
+        addToFilterSelectedFromAutocomplete(SelectedItem,'Category');
 
         /*** Смена Таба Или Перескок на Главную страницу ***/
         if(location.pathname!='/'){
@@ -260,7 +278,7 @@ $('dd.Tab-Categories a').click(function(){
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Tab :: Categories
+// Tab :: Tags
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*** Перебор всех чекбоксов ***/

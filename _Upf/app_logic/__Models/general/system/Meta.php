@@ -83,9 +83,6 @@ class Meta extends Fields {
     /*** Where :: Alias in Tags ***/
 
         public static function FilterTagsFromRent($Aliases,$Query){
-//            print_r($Aliases);
-//            exit;
-
            return $Query->whereHas('catalog',function($QueryCatalog) use ($Aliases){
                 $QueryCatalog->whereHas('meta',function($QueryMeta)  use ($Aliases){
                     $QueryMeta->whereHas('tags',function($QueryRegion) use ($Aliases){
@@ -94,6 +91,16 @@ class Meta extends Fields {
                 });
             });
         }
+
+    public static function FilterTags($Aliases,$Query){
+        $Query->whereHas('tags',function($QueryRegion) use ($Aliases){
+            $QueryRegion->whereIn('alias', $Aliases);
+        });
+    }
+
+
+
+
 
     /*** Where :: Alias in Categories ***/
 
@@ -138,7 +145,44 @@ class Meta extends Fields {
             }
         }
 
-    /*** Where :: Alias in Categories ***/
+    public static function FilterCategories($Alias, $Query){
+
+        $Categories = new \UpfModels\Categories();
+        $Category = $Categories->where('alias',$Alias)->first();
+
+        if($Category){
+            // Details Categories where('section', 'catalog')->get()
+            $Parents = $Categories->where('parent_id',$Category->id)->get()->toArray();
+            foreach($Parents as $Value){
+                $Keys[] = $Value['id'];
+            }
+
+            if(!empty($Keys)){
+                $Query->whereHas('categories',function($QueryCategories)  use ($Alias,$Keys){
+                    $QueryCategories->whereIn('id', $Keys)->whereOr('alias',$Alias);
+                });
+            }else{
+
+                $Query->whereHas('categories',function($QueryCategories)  use ($Alias){
+                    $QueryCategories->where('alias',$Alias);
+                });
+            }
+        }else{
+
+            $Query->whereHas('categories',function($QueryCategories)  use ($Alias){
+                $QueryCategories->where('alias',$Alias);
+            });
+        }
+    }
+
+
+
+
+
+
+
+
+    /*** Where :: Params ***/
 
     public static function FilterParamsFromRent($Params, $Query){
         return $Query->whereHas('catalog', function($QueryCatalog) use($Params){
@@ -153,6 +197,22 @@ class Meta extends Fields {
             });
         });
     }
+
+
+    public static function FilterParams($Params, $Query){
+                foreach($Params as $ParamKey => $Param){
+                    $Query->whereHas('paramsvalues',function($QueryParamsValues) use($Param) {
+                        $QueryParamsValues->where('param_id',$Param['id'])
+                            ->where('value','>=',$Param['min-value'])
+                            ->where('value','<=',$Param['max-value']);
+                    });
+                }
+    }
+
+
+
+
+
 
 
     /*** *** Search In "SubRegions" *** ***/
@@ -231,13 +291,28 @@ class Meta extends Fields {
                         $This->FilterRegions($Filters['Region'],$Query);
                     }
 
+                    if(\Request::segment(1)!='rent'){
+                        if(!empty($Filters['Category'])){
+                            $This->FilterCategories($Filters['Category'],$Query);
+                        }
+
+                        /*** Tag ***/
+                        if(!empty($Filters['Tags'])){
+                            $This->FilterTags($Filters['Tags'],$Query);
+                        }
+
+                        /*** Params ***/
+                        if(!empty($Filters['Params'])){
+                            $This->FilterParams($Filters['Params'], $Query);
+                        }
+                    }
                 });
             }
 
             /*** *** Filters To Catalog From Rent *** ***/
 
                 /*** Category  ***/
-
+            if(\Request::segment(1)=='rent' || !\Request::segment(1)){
                 if(!empty($Filters['Category'])){
                     $Result = $This->FilterCategoriesFromRent($Filters['Category'],$Result);
                 }
@@ -251,11 +326,12 @@ class Meta extends Fields {
                 if(!empty($Filters['Params'])){
                     $Result = $This->FilterParamsFromRent($Filters['Params'], $Result);
                 }
+            }
 
-                if(!empty($Filters['Price']) && !empty($Filters['Price']['Min']) && !empty($Filters['Price']['Max'])){
-                    $Result = $Result->where('price','>=',$Filters['Price']['Min'])
-                                     ->where('price','<=',$Filters['Price']['Max']);
-                }
+            if(!empty($Filters['Price']) && !empty($Filters['Price']['Min']) && !empty($Filters['Price']['Max'])){
+                $Result = $Result->where('price','>=',$Filters['Price']['Min'])
+                                 ->where('price','<=',$Filters['Price']['Max']);
+            }
 
            return $Result;
 
@@ -327,20 +403,19 @@ class Meta extends Fields {
 
             /*** Get Data ***/
             $List = $this->WhereStatusesInMeta($this,$Filter)
-                ->with('meta',
-                       'meta.categories',
-                       'meta.tags',
-                       'meta.regions',
-                       'meta.files',
-                       'meta.categories.params',
-                       'meta.paramsvalues',
-                       'meta.paramsvalues.paramData'
-                )
-                ->paginate(
-                    isset($Filter['Pagination'])?$Filter['Pagination']
-                                                :\Config::get('site\app_settings.PaginateFrontend.content')
-                );
-          // print_r($List->toArray());exit;
+            ->with('meta',
+                   'meta.categories',
+                   'meta.tags',
+                   'meta.regions',
+                   'meta.files',
+                   'meta.categories.params',
+                   'meta.paramsvalues',
+                   'meta.paramsvalues.paramData'
+            )
+            ->paginate(
+                isset($Filter['Pagination'])?$Filter['Pagination']
+                                            :\Config::get('site\app_settings.PaginateFrontend.content')
+            );
 
             /*** Return Frontend Content ***/
             return [

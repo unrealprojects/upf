@@ -18,6 +18,7 @@ class ArticlesController extends SectionsController{
             'Regions' =>    false,
             'Tags' =>       true,
             'Params' =>     false,
+            'Price' =>      false,
             'TabsNode'=>     'Node-XXS-12 Node-XS-12'
         ];
 
