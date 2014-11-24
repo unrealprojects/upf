@@ -735,6 +735,7 @@ span.Button
 .Message {
 	position: fixed;
 	max-width: 	320px;
+    z-index: 9999;
 	@include 	Adaptive($Viewport-XS) {
 		top: 	$size-l;
 		right: 	$size-l;

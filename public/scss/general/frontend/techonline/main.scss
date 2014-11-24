@@ -493,6 +493,8 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
 		}
 	}
 
+
+
 }
 
 ul.Tag-List {
@@ -520,7 +522,10 @@ ul.Tag-List {
 			}
 		}
 	}
+
+
 }
+
 .Item-Vote
 {
 	@extend ._Unselectable;
@@ -880,6 +885,7 @@ ul.Item-Edit
             width: 31px;
             height: 31px;
             text-align: center;
+
         }
     }
 }
@@ -904,4 +910,8 @@ ul.Item-Edit
 .Control-Group input[type='checkbox'].Slide.Red-Checkbox:checked
 {
     background-color: $C-Orange-2;
+}
+
+.Tab-Params .Control-Group{
+    margin-top: 0px;
 }

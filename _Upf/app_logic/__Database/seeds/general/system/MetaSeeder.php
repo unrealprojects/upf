@@ -29,13 +29,19 @@ class MetaSeeder extends \Seeder {
         /*** Relations ***/
         $Meta->section = $Data['section'];
         //$Meta->comments_id = \UpfSeeds\CommentsSeeder::AddCommentsToSection($Data['section']);
-        $Meta->comments_id = \UpfModels\Comments::max('wall_id') + 1;
+        $Meta->comments_id = \UpfModels\Meta::max('comments_id') + 1;
 
         /*** Statuses ***/
         $Meta->status = isset($Data['status'])?$Data['status']:\Config::get('models/Fields.status.default');
         $Meta->privileges = isset($Data['privileges'])?$Data['privileges']:\Config::get('models/Fields.status.privileges');
         $Meta->rating = isset($Data['rating'])?$Data['rating']:0;
         $Meta->favorite = isset($Data['favorite'])?$Data['favorite']:0;
+
+
+//        Todo :: Relation Tags
+//        if(isset($Data->tags)){
+//            $Meta->tags()->sync($Data->tags);
+//        }
 
         if($Meta->save()){
             return [$Meta->id,$Meta->alias];

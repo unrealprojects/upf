@@ -55,7 +55,7 @@ function getAjaxParams($category_alias){
     });*/
 }
 
-// Добавить в SELECTED
+// Add To SELECTED
 function addToFilterSelected(element,name){
     if($('.Filter-Result').text().length){
         $("#Filter-Selected-"+name).remove();
@@ -69,7 +69,7 @@ function addToFilterSelected(element,name){
     }
 }
 
-// Добавить в SELECTED
+// Add To SELECTED
 function addToFilterSelectedFromAutocomplete(element,name){
     if($('.Filter-Result').text().length){
         $("#Filter-Selected-"+name).remove();
@@ -179,14 +179,14 @@ $( ".Autocomplete-Regions" ).autocomplete({
     select: function (event, ui) {
         /*** Запись параметров ***/
         searchArray['region']=ui.item.key;
-        var SelectedItem = {key:ui.item.key,name:ui.item.name};
+        var SelectedItem = {key:ui.item.key,name:ui.item.label};
         addToFilterSelectedFromAutocomplete(SelectedItem,'Category');
         changeTab('.Tab-Categories');
     }
 });
 @endif
 
-/*** Клик :: Регионы ***/
+/*** Click :: Regions ***/
 $('dd.Tab-Regions .Filter-Subcategory li>a').click(function(){
     if($('.Filter-Cities',$(this).parent()).length){
         /*** Смена Регионов на Города ***/
@@ -244,7 +244,7 @@ $( ".Autocomplete-Categories" ).autocomplete({
         /*** Запись параметров ***/
         searchArray['category']=ui.item.key;
         getAjaxParams(searchArray['category']);
-        var SelectedItem = {key:ui.item.key,name:ui.item.name};
+        var SelectedItem = {key:ui.item.key,name:ui.item.label};
         addToFilterSelectedFromAutocomplete(SelectedItem,'Category');
 
         /*** Смена Таба Или Перескок на Главную страницу ***/
@@ -387,22 +387,26 @@ $("#Slider-Range-Value-1").html(
 
 @if(!empty($Content['Filters']['params']))
     @foreach($Content['Filters']['params'] as $ParamKey => $Param)
-        $("#Slider-Range-{{$Param['alias']}}").slider({
-            range: true,
-            min: {{$Param['param_min']}},
-            max: {{$Param['param_max']}},
-            values: [ searchArray['params[{{$Param["alias"]}}][min-value]']?searchArray['params[{{$Param["alias"]}}][min-value]']:{{$Param['param_min']}},
-                      searchArray['params[{{$Param["alias"]}}][max-value]']?searchArray['params[{{$Param["alias"]}}][max-value]']:{{$Param['param_max']}} ],
-            slide: function( event, ui ) {
-                $("#Slider-Range-Value-{{$Param["alias"]}}").text(ui.values[ 0 ] + "{{$Param['dimension']}} - " + ui.values[ 1 ] +"{{$Param['dimension']}}");
-                searchArray['params[{{$Param["alias"]}}][min-value]']=ui.values[ 0 ];
-                searchArray['params[{{$Param["alias"]}}][max-value]']= ui.values[ 1 ];
-                searchArray['params[{{$Param["alias"]}}][id]']='{{$Param["id"]}}';
-            }
-        });
-        $("#Slider-Range-Value-{{$Param["alias"]}}").text(
-            $( "#Slider-Range-{{$Param["alias"]}}").slider( "values", 0 ) + " {{$Param['dimension']}} - " + $( "#Slider-Range-{{$Param["alias"]}}" ).slider( "values", 1 ) + ' {{$Param['dimension']}}'
-        );
+        @if(!empty($Param['alias']) && !empty($Param['param_min']) && !empty($Param['param_max']))
+
+            $("#Slider-Range-{{$Param['alias']}}").slider({
+                range: true,
+                min: {{$Param['param_min']}},
+                max: {{$Param['param_max']}},
+                values: [ searchArray['params[{{$Param["alias"]}}][min-value]']?searchArray['params[{{$Param["alias"]}}][min-value]']:{{$Param['param_min']}},
+                          searchArray['params[{{$Param["alias"]}}][max-value]']?searchArray['params[{{$Param["alias"]}}][max-value]']:{{$Param['param_max']}} ],
+                slide: function( event, ui ) {
+                    $("#Slider-Range-Value-{{$Param["alias"]}}").text(ui.values[ 0 ] + "{{$Param['dimension']}} - " + ui.values[ 1 ] +"{{$Param['dimension']}}");
+                    searchArray['params[{{$Param["alias"]}}][min-value]']=ui.values[ 0 ];
+                    searchArray['params[{{$Param["alias"]}}][max-value]']= ui.values[ 1 ];
+                    searchArray['params[{{$Param["alias"]}}][id]']='{{$Param["id"]}}';
+                }
+            });
+            $("#Slider-Range-Value-{{$Param["alias"]}}").text(
+                $( "#Slider-Range-{{$Param["alias"]}}").slider( "values", 0 ) + " {{$Param['dimension']}} - " + $( "#Slider-Range-{{$Param["alias"]}}" ).slider( "values", 1 ) + ' {{$Param['dimension']}}'
+            );
+
+        @endif
     @endforeach
 @endif
 

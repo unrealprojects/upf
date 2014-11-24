@@ -138,10 +138,12 @@
 
                 @if($Content['Filters']['params'])
                     @foreach($Content['Filters']['params'] as $ParamKey => $Param)
-                        <div class="Control-Group Node-XS-6">
-                            <label for="Slider-Range-">{{$Param['title']}}: <span id="Slider-Range-Value-{{$Param["alias"]}}"></span></label>
-                            <div class="Slider-Range" id="Slider-Range-{{$Param['alias']}}"></div>
-                        </div>
+                        @if(!empty($Param['alias']) && !empty($Param['param_min']) && !empty($Param['param_max']))
+                            <div class="Control-Group Node-XS-6">
+                                <label for="Slider-Range-">{{$Param['title']}}: <span id="Slider-Range-Value-{{$Param["alias"]}}"></span></label>
+                                <div class="Slider-Range" id="Slider-Range-{{$Param['alias']}}"></div>
+                            </div>
+                        @endif
                     @endforeach
                 @endif
 

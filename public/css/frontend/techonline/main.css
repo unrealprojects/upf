@@ -1,16 +1,5 @@
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700,300);
-/* Force table to not be like tables anymore */
-/*!
- *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-/* FONT PATH
- * -------------------------- */
-/* makes the font 33% larger relative to the icon container */
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
-/*** Dropdown ***/
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -739,8 +728,9 @@ table {
     outline: 0; }
 
 @media screen and (max-width: 768px) {
-  table, thead, tbody, th, td, tr {
-    display: block; }
+  /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+      display: block; }
     thead tr {
       position: absolute;
       top: -9999px;
@@ -1164,7 +1154,8 @@ a.Button, .Filter-Result li a.Delete, button.Button, .Filter-Result li button.De
 
 .Message {
   position: fixed;
-  max-width: 320px; }
+  max-width: 320px;
+  z-index: 9999; }
   @media screen and (min-width: 768px) {
   .Message {
     top: 30px;
@@ -1495,12 +1486,57 @@ body {
   .Dropdown.Invert .Dropdown-Content li:last-child a {
     border-radius: 0 0 5px 5px; }
 
-.Panel {
-  padding: 15px;
-  border-radius: 5px;
-  border: 1px #b7b7b7 solid;
-  background-color: #f9f9f9;
-  color: #212121; }
+.Input-Select .Input-Select-Content li a.Icon:before {
+  width: ;
+  padding-right: ; }
+
+.Input-Select .Input-Select-Content {
+  margin-top: 0px;
+  border: 1px;
+  display: none;
+  position: absolute;
+  top: 30px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
+  border: 1px solid #bbb;
+  border-top: 0;
+  background-color: #f2f2f2;
+  border-radius: 0 0 4px 4px; }
+  .Input-Select .Input-Select-Content li a, .Input-Select .Input-Select-Content li > label {
+    display: block;
+    padding: 5px 5px;
+    color: black; }
+  .Input-Select .Input-Select-Content li a:hover, .Input-Select .Input-Select-Content li > label:hover {
+    background-color: #00a4c6;
+    color: white; }
+  .Input-Select .Input-Select-Content li.Divide {
+    border-top: 1px solid #bbb; }
+
+.Input-Select {
+  position: relative; }
+  .Input-Select .Input-Select-Clean {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    margin-top: 0.4rem;
+    line-height: 14px; }
+  .Input-Select .Input-Select-Toggle {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    line-height: 14px;
+    margin-top: 0.4rem; }
+  .Input-Select.Expanded .Input-Select-Content {
+    display: block; }
+  .Input-Select.Collapsed .Input-Select-Content {
+    display: none; }
+  .Panel {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px #b7b7b7 solid;
+    background-color: #f9f9f9;
+    color: #212121; }
   .Panel.Invert {
     background-color: #3c3c3c;
     border-color: #212121; }
@@ -1673,7 +1709,12 @@ dl.Tabs {
     border-top-width: 0; }
   .Tab-Set.Outlined ul.Tab-Content li {
     padding: 15px; }
-
+/*!
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
   src: url('../../../../fonts/fontawesome-webfont.eot?v=4.2.0');
@@ -1688,7 +1729,7 @@ dl.Tabs {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-
+/* makes the font 33% larger relative to the icon container */
 .Icon-lg {
   font-size: 1.33333em;
   line-height: 0.75em;
@@ -1819,7 +1860,8 @@ dl.Tabs {
 
 .Icon-inverse {
   color: #fff; }
-
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+ readers do not read off random characters that represent icons */
 .Icon-glass:before {
   content: "\f000"; }
 
@@ -3274,11 +3316,14 @@ body {
   @media screen and (min-width: 1014px) {
   .Site-Header {
     height: 80px; } }
-  .Site-Logo {
-    height: 80px;
-    position: relative;
-    width: 100%;
-    padding: 0 15px; }
+  .Site-Header .Site-Header-Inner {
+    /*@extend 						.Row;*/ }
+
+.Site-Logo {
+  height: 80px;
+  position: relative;
+  width: 100%;
+  padding: 0 15px; }
   .Site-Logo div {
     height: 80px;
     width: 100%;
@@ -3494,6 +3539,7 @@ footer[role='contentinfo'] {
     footer[role='contentinfo'] > div {
       padding: 30px 0; } }
   footer[role='contentinfo'] > div .Footer-Navigation {
+    /*@extend %_Right;*/
     display: inline-block;
     margin-top: 15px; }
   @media screen and (min-width: 1014px) {
@@ -3609,6 +3655,8 @@ img.Footer-Img {
   @media screen and (min-width: 1014px) {
     .Snippet-Item .Item-Gallery {
       padding-left: 15px; } }
+  .Snippet-Item .Item-Gallery img.Item-Main-Photo {
+    /*border: 5px solid $Clr-Secondary;*/ }
   .Snippet-Item .Item-Gallery ul li {
     margin-top: -6px;
     width: 33.33%; }
@@ -4063,14 +4111,13 @@ ul.Tag-List li.Tag-Item {
 @media all and (min-width: 2540px) {
   .Node {
     padding: 50px; } }
-
+/*** Dropdown ***/
 .Toggled-Next-Item {
   display: none; }
 
 ul.Item-Edit {
   margin-top: 9px;
-  margin-bottom: 9px;
-  /*** Slider Range ***/ }
+  margin-bottom: 9px; }
   ul.Item-Edit li {
     margin-right: 15px;
     float: right; }
@@ -4078,7 +4125,7 @@ ul.Item-Edit {
     width: 31px;
     height: 31px;
     text-align: center; }
-
+/*** Slider Range ***/
 .Control-Group .Slider-Range {
   margin: 7px 9px; }
 
@@ -4091,3 +4138,6 @@ ul.Item-Edit {
 
 .Control-Group input[type='checkbox'].Slide.Red-Checkbox:checked {
   background-color: #e4a43f; }
+
+.Tab-Params .Control-Group {
+  margin-top: 0px; }

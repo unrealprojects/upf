@@ -114,7 +114,7 @@
                             <ul class="Tag-List">
                                 @foreach( $Article['meta']['tags'] as $Tag )
                                     <li class="Tag-Item">
-                                        <a href="{{$BaseUrl}}?tag={{$Tag['alias']}}">{{$Tag['title']}}</a>
+                                        <a href="{{$BaseUrl}}?tags={{$Tag['alias']}}">{{$Tag['title']}}</a>
                                     </li>
                                 @endforeach
                             </ul>

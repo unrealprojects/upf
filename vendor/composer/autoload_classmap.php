@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Controller\\Frontend\\Excavator\\ParserController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/parser/ParserController.php',
     'Controller\\Frontend\\WindSpace\\WindController' => $baseDir . '/_Upf/app_logic/_Controllers/frontend/wind/WindController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'Maatwebsite\\Excel\\Classes\\Cache' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/Cache.php',
@@ -146,6 +147,7 @@ return array(
     'Whoops\\Provider\\Zend\\RouteNotFoundStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/RouteNotFoundStrategy.php',
     'scss_formatter' => $vendorDir . '/leafo/scssphp/scss.inc.php',
     'scss_formatter_compressed' => $vendorDir . '/leafo/scssphp/scss.inc.php',
+    'scss_formatter_crunched' => $vendorDir . '/leafo/scssphp/scss.inc.php',
     'scss_formatter_nested' => $vendorDir . '/leafo/scssphp/scss.inc.php',
     'scss_parser' => $vendorDir . '/leafo/scssphp/scss.inc.php',
     'scss_server' => $vendorDir . '/leafo/scssphp/scss.inc.php',

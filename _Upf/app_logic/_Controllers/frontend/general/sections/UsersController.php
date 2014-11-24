@@ -23,8 +23,11 @@ class UsersController extends SectionsController{
     }
 
     /*** Auth LogIn ***/
-    public function LogIn(){
-        if (\Auth::users()->attempt(['login' => \Input::get('login'), 'password' => \Input::get('password')],
+    public function LogIn($Login = false){
+        if(!$Login){
+            $Login = \Input::get('login');
+        }
+        if (\Auth::users()->attempt(['login' => $Login, 'password' => \Input::get('password')],
             \Input::get('remember')?true:false)
         ) {
             echo json_encode([
@@ -33,7 +36,7 @@ class UsersController extends SectionsController{
         }else{
             echo json_encode([
                 'type'=>'Error',
-                'message'=>'Доступ запрещен!'
+                'message'=>'Невериный логин или пароль!'
             ]);
         }
     }
@@ -47,10 +50,31 @@ class UsersController extends SectionsController{
 
     /*** Auth Register ***/
     public function Register(){
-        if(\Input::get('login') && \ Input::get('password')){
+        // Send Register Mail
+        $Data = [
+            'Login' => \Input::get('login'),
+            'Password' => \Input::get('password')
+        ];
+        if(\Input::get('login') && \Input::get('password')){
             $NewUser = new $this->Model();
-            $NewUser->Register();
-            echo $this->LogIn();
+
+            if($Login = $NewUser->Register()){
+
+                \Mail::send('emails.Welcome', $Data, function($Message) use ($Data)
+                {
+                    $Message->from('info@techonline.com', 'стройтехника');
+                    $Message->to($Data['Login'], $Data['Login'])->subject('Регистрация на сайте стройтехника.онлайн');
+                });
+
+                echo $this->LogIn($Login);
+            }else{
+                echo json_encode([
+                    'type'=>'Error',
+                    'message'=>'Вы уже зарегестрированы на сайте!'
+                ]);
+            }
+
+
         }else{
             echo json_encode([
                 'type'=>'Error',

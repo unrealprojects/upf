@@ -157,3 +157,119 @@
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PROTOTYPES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%Dropdown-Shadow
+{
+    box-shadow: 					0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+%Dropdown-Icon
+{
+    &:before
+    {
+        width:						$Size-Default;
+        padding-right:				$Size-Small;
+    }
+}
+%Dropdown-Prototype
+{
+    margin-top: 0px;
+    border: 1px;
+    display: 						none;
+    position: 						absolute;
+    top:							$Control-Height;
+    overflow: 						hidden;
+    width:							100%;
+    z-index: 						10;
+
+    border: 1px solid #bbb;
+
+    border-top:						0;
+    background-color: 				#f2f2f2;
+    border-radius: 0 0 4px 4px;
+
+    li
+    {
+        a,
+        & > label
+        {
+            display: 				block;
+            padding: 				5px 5px;
+
+            color:					black;
+
+            &:hover
+            {
+                background-color:   #00a4c6;
+                color:				white;
+            }
+        }
+        a.Icon
+        {
+            @extend 					%Dropdown-Icon;
+        }
+    }
+    li.Divide
+    {
+        border-top:					 1px solid #bbb;
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INPUT SELECT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.Input-Select
+{
+    position: 						relative;
+
+
+    .Input-Select-Clean
+    {
+        position: absolute;
+        right: 30px;
+        top: 0px;
+        margin-top: 0.4rem;
+        line-height: 14px;
+    }
+
+    .Input-Select-Toggle{
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        line-height: 14px;
+        margin-top: 0.4rem;
+    }
+
+    &.Expanded
+    {
+        .Input-Select-Content
+        {
+            display: 				block;
+        }
+    }
+
+    &.Collapsed
+    {
+        .Input-Select-Content
+        {
+            display: 				none;
+        }
+    }
+
+    .Input-Select-Content
+    {
+        @extend 						%Dropdown-Prototype;
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

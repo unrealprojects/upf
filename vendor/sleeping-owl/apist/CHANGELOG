@@ -1,0 +1,53 @@
+CHANGELOG
+=========
+
+2014-11-10, v1.3.2
+------------------
+
+* Blueprint marked as optional parameter in request. You can get request result without parsing if blueprint is omitted.
+
+2014-10-31, v1.3.1
+------------------
+
+* Exception messages improvements. Now you'll see filter that throws an exception.
+
+2014-10-30, v1.3.0
+------------------
+
+* New method Apist::current() to create filter based on current node element. Usefull in ->each() callback.
+* New YAML default structure :current. Same as Apist::current() method.
+* New pseudo class support in css selectors: :first, :last, :eq(pos).
+* Code cleanup: all basic filters was moved to ApistFilter class, your IDE now will work better with Apist.
+* Exception suppression now can be disabled using `$api->setSuppressExceptions(false)`. By default suppression is on. Otherwise all nodes with exceptions will be silently replaced with `null`.
+* New filter: ->children() - get all children nodes
+* New filters: ->prev(), ->prevAll(), ->prevUntil($selector) - get previous node (nodes)
+* New filters: ->next(), ->nextAll(), ->nextUntil($selector) - get next node (nodes)
+* New filter: ->is($selector) - check if this node can be retrieved by $selector
+* New filter: ->find($selector) - find children by $selector
+* New filter: ->filterNodes($selector) - filter selected nodes by $selector (same as jquery "filter" method)
+* New filter: ->closest($selector) - find closest parent by $selector
+* New filter: ->hasAttr($attribute) - check if attribute exists
+
+2014-10-25, v1.2.0
+------------------
+
+* Updated filter chain method: each() also can be used without any arguments, return array of nodes
+* Filter chain methods can be applied to array: ->each()->text()->mb_strtoupper() will return array of uppercase strings
+* Yaml configuration files support added. For details see [documentation](http://sleeping-owl-apist.gopagoda.com/documentation#yaml-configuration)
+* Now you can initialize api from yaml file without writing your own classes using Apist::fromYaml($file) method
+
+2014-10-24, v1.1.0
+------------------
+
+* getBaseUrl() overriding method instead of protected field
+* Api class methods now can be used in filter chain methods
+* New filter chain method for conditional check by callback: ->check($callback)
+* New filter chain method for custom callback call: ->call($callback)
+* Updated filter chain methods: each() also accepts callback with ($node, $index) parameters
+* New api class method parse($content, $blueprint) to parse content by blueprint without http-requests
+* Code cleanup
+
+2014-10-22, v1.0.0
+-----------------
+
+* Initial Version

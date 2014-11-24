@@ -1,43 +1,441 @@
-@extends('frontend.standard.content')
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<br><br><br><br><br>
+<h1>-- -- -- -- {{$Title}} -- -- -- --</h1>
+<br><br><br><br><br>
 
-@foreach($avgDay as $param_name => $params_set)
-<h3>Среднесуточное значение {{$param_name}}</h3>
-<table border="1">
-    <tr>
-        <td>ym/d</td>
-        @for($i=1; $i<32;$i++)
-         <td>{{$i}}</td>
-        @endfor
-    </tr>
-    @foreach($params_set as $key=>$list)
-    <tr>
-        <td>{{$key}}</td>
-        @foreach($list as $value)
-            <td>{{str_replace('.',',',round($value,2))}}</td>
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднесуточное значение
+----------------------------------------------------------------------------------------------------------------------}}
+@if(isset($avgDay))
+    @foreach($avgDay as $param_name => $params_set)
+    <h1>Среднесуточное значение {{$param_name}}</h1>
+        @foreach($params_set as $YearKey=>$Year)
+        <h3>Среднесуточное значение {{$param_name}} за {{$YearKey}}</h3>
+            <table border="1">
+                <tr>
+                    <td>ym/d</td>
+                    @for($i=1; $i<32;$i++)
+                        <td>{{$i}}</td>
+                    @endfor
+                </tr>
+                @foreach($Year as $MonthKey=>$Month)
+                <tr>
+                    <td>{{$MonthKey}}</td>
+                    @foreach($Month as $Day)
+                        <td>{{str_replace('.',',',round($Day,2))}}</td>
+                    @endforeach
+                </tr>
+                @endforeach
+            </table>
         @endforeach
-    </tr>
     @endforeach
-</table>
-@endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
 
 
-@foreach($avgMonth as  $param_name => $params_set)
-<h3>Среднемесячное значение {{$param_name}}</h3>
-<table border="1">
-    <tr>
-        <td>y/m</td>
-        @for($i=1; $i<=12;$i++)
-        <td>{{$i}}</td>
-        @endfor
-    </tr>
-    @foreach($params_set as $key=>$list)
 
-    <tr>
-        <td>{{$key}}</td>
-        @foreach($list as $value)
-        <td>{{str_replace('.',',',round($value,2))}}</td>
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячное значение
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($avgMonth))
+    @foreach($avgMonth as  $param_name => $params_set)
+    <h1>Среднемесячное значение {{$param_name}}</h1>
+        <table border="1">
+            <tr>
+                <td>y/m</td>
+                @for($i=1; $i<=12;$i++)
+                <td>{{$i}}</td>
+                @endfor
+            </tr>
+            @foreach($params_set as $key=>$list)
+
+            <tr>
+                <td>{{$key}}</td>
+                @foreach($list as $value)
+                <td>{{str_replace('.',',',round($value,2))}}</td>
+                @endforeach
+            </tr>
+            @endforeach
+        </table>
+    @endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднесуточная мода по направлению верта
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['DayMode']))
+    <h1>Среднесуточная мода по направлению верта</h1>
+    @foreach($WindMode['DayMode'] as $YearKey => $Year)
+    <h3>Среднесуточная мода по направлению верта за {{$YearKey}} г.</h3>
+        <table border="1">
+            <tr>
+                <td>y/m</td>
+                @for($Day=1; $Day<=31;$Day++)
+                <td>{{$Day}}</td>
+                @endfor
+            </tr>
+
+            @foreach($Year as $MonthKey => $Month)
+                <tr>
+                    <td>{{$MonthKey}}</td>
+                    @foreach($Month as $Day)
+                        <td>{{$Day}}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+
+        </table>
+    @endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячное направлению вертра
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['MonthMode']))
+    <h1>Среднемесячная мода по направлению верта</h1>
+    <table border="1">
+        <tr>
+            <td>y/m</td>
+            @for($Month = 1; $Month <= 12;$Month++)
+            <td>{{$Month}}</td>
+            @endfor
+        </tr>
+        @foreach($WindMode['MonthMode'] as $YearKey => $Year )
+        <tr>
+            <td>{{$YearKey}}</td>
+            @foreach($Year as $MonthKey => $Month)
+                <td>{{$Month}}</td>
+            @endforeach
+        </tr>
         @endforeach
-    </tr>
+    </table>
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячное процентное отношение ветров
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if( isset($WindMode['MonthPercent']) )
+    <h1> Среднемесячное процентное отношение ветров</h1>
+     @foreach($WindMode['MonthPercent'] as $YearKey => $Year )
+     <h3>За {{$YearKey}}</h3>
+     <table border="1">
+
+         <tr>
+             <td>y/m</td>
+             @foreach($WindMode['Directions'] as $Direction)
+                 <td>{{$Direction}}</td>
+             @endforeach
+         </tr>
+
+        @foreach($Year as $MonthKey => $Month)
+         <tr>
+             <td>{{$MonthKey}}</td>
+
+             @foreach($WindMode['Directions'] as $Direction)
+                 <td>{{isset($Month[$Direction])?str_replace('.',',',round($Month[$Direction],2)):0}}</td>
+             @endforeach
+         </tr>
+        @endforeach
+
+
+     </table>
+     @endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячное процентное отношение ветров
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if( isset($WindMode['MonthPercent_Brief']) )
+    <h1>Процентное отношение ветров за весь период</h1>
+     <table border="1">
+
+         <tr>
+             @foreach($WindMode['Directions'] as $Direction)
+                 <td>{{$Direction}}</td>
+             @endforeach
+         </tr>
+
+         <tr>
+             @foreach($WindMode['Directions'] as $Direction)
+                 <td>{{isset($WindMode['MonthPercent_Brief'][$Direction])?str_replace('.',',',round($WindMode['MonthPercent_Brief'][$Direction],2)):0}}</td>
+             @endforeach
+         </tr>
+     </table>
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячная направление вертра по часам (1,4,7,11)
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['TimeMode']))
+
+    <h1>Среднемесячное направление вертра по часам</h1>
+    @foreach($WindMode['TimeMode'] as $YearKey => $Year)
+    <h3>Среднемесячное направление вертра по часам {{$YearKey}} г.</h3>
+        <table border="1">
+            <tr>
+                <td>t/m</td>
+                @for($Month = 0; $Month < 24;$Month=$Month+3)
+                <td>{{$Month}}-00</td>
+                @endfor
+            </tr>
+
+            @foreach($Year as $MonthKey => $Month)
+                <tr>
+                    <td>{{$MonthKey}}</td>
+                    @foreach($Month as $TimeKey => $Time)
+                        <td>{{$Time}}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+
+        </table>
     @endforeach
-</table>
-@endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячная направление вертра по часам  - сводка
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['TimeModeBrief']))
+
+    <h1>Сводка :: Среднемесячное направление вертра по часам</h1>
+    <table border="1">
+        <tr>
+            <td>t/m</td>
+            @for($Month = 0; $Month < 24;$Month=$Month+3)
+            <td>{{$Month}}-00</td>
+            @endfor
+        </tr>
+
+        @foreach($WindMode['TimeModeBrief'] as $MonthKey => $Month)
+            <tr>
+                <td>{{$MonthKey}}</td>
+                @foreach($Month as $TimeKey => $Time)
+                    <td>{{$Time}}</td>
+                @endforeach
+            </tr>
+        @endforeach
+
+    </table>
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Среднемесячная скорость вертра по часам
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['TimeAvg']))
+    <h1>Среднемесячная скорость вертра по часам</h1>
+    @foreach($WindMode['TimeAvg'] as $YearKey => $Year)
+    <h3>Среднемесячная скорость вертра по часам {{$YearKey}} г.</h3>
+        <table border="1">
+            <tr>
+                <td>t/m</td>
+                @for($Month = 0; $Month < 24;$Month=$Month+3)
+                <td>{{$Month}}-00</td>
+                @endfor
+            </tr>
+
+            @foreach($Year as $MonthKey => $Month)
+                <tr>
+                    <td>{{$MonthKey}}</td>
+                    @foreach($Month as $TimeKey => $Time)
+                        <td>{{str_replace('.',',',round($Time,2))}}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+
+        </table>
+    @endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Максимальная скорость ветра за сутки
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['DayMax']))
+    <h1>Максимальная суточная скорость ветра</h1>
+    @foreach($WindMode['DayMax'] as $YearKey => $Year)
+    <h3>Максимальная суточная скорость ветра за {{$YearKey}} г.</h3>
+        <table border="1">
+            <tr>
+                <td>y/m</td>
+                @for($Day=1; $Day<=31;$Day++)
+                <td>{{$Day}}</td>
+                @endfor
+            </tr>
+
+            @foreach($Year as $MonthKey => $Month)
+                <tr>
+                    <td>{{$MonthKey}}</td>
+                    @foreach($Month as $Day)
+                        <td>{{$Day}}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+
+        </table>
+    @endforeach
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Максимальная скорость ветра за Месяц
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['MonthMax']))
+    <h1>Максимальная скорость ветра за месяц</h1>
+    <table border="1">
+        <tr>
+            <td>y/m</td>
+            @for($Month = 1; $Month <= 12;$Month++)
+            <td>{{$Month}}</td>
+            @endfor
+        </tr>
+
+        @foreach($WindMode['MonthMax'] as $YearKey => $Year )
+            <tr>
+                <td>{{$YearKey}}</td>
+                @foreach($Year as $MonthKey => $Month)
+                    <td>{{$Month}}</td>
+                @endforeach
+            </tr>
+        @endforeach
+
+    </table>
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Количество ветров за год
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['VelocityTimesYear']))
+    <h1>Количество ветров за год</h1>
+    <table border="1">
+        <tr>
+            <td>г/в</td>
+             @foreach($WindMode['Winds'] as $Wind)
+            <td>{{$Wind}}</td>
+            @endforeach
+        </tr>
+
+        @foreach($WindMode['VelocityTimesYear'] as $YearKey => $Year )
+            <tr>
+                <td>{{$YearKey}}</td>
+                @foreach($WindMode['Winds'] as $Wind)
+                    <td>{{isset($Year[$Wind])?$Year[$Wind]:0}}</td>
+                @endforeach
+            </tr>
+        @endforeach
+
+    </table>
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+
+
+
+{{----------------------------------------------------------------------------------------------------------------------
+-- Количество ветров за сезон
+----------------------------------------------------------------------------------------------------------------------}}
+
+@if(isset($WindMode['VelocityTimesQuarters']))
+    <h1>Количество ветров за сезон</h1>
+    <table border="1">
+        <tr>
+            <td>г/в</td>
+             @foreach($WindMode['Winds'] as $Wind)
+            <td>{{$Wind}}</td>
+            @endforeach
+        </tr>
+
+        @foreach($WindMode['VelocityTimesQuarters'] as $YearKey => $Year )
+            <tr>
+                <td>{{$YearKey}}</td>
+                @foreach($WindMode['Winds'] as $Wind)
+                    <td>{{isset($Year[$Wind])?$Year[$Wind]:0}}</td>
+                @endforeach
+            </tr>
+        @endforeach
+
+    </table>
+@endif
+
+{{--------------------------------------------------------------------------------------------------------------------}}
+</body>
+</html>

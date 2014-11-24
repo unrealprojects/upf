@@ -10,7 +10,8 @@
         "greggilbert/recaptcha": "dev-master",
         "maatwebsite/excel": "1.*",
         "ollieread/multiauth": "dev-master",
-        "panique/laravel-sass": "dev-master"
+        "panique/laravel-sass": "dev-master",
+        "sleeping-owl/apist": "1.*"
 	},
 	"autoload": {
 		"classmap": [

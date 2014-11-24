@@ -64,7 +64,7 @@
                         <input name="_token" id="field_token" type="hidden" value="{{csrf_token()}}" />
                         <h4>Регистрация</h4>
                         <div class="Control-Group">
-                            <label class="Node-XS-3" for="Sign-Up-Username">Логин</label>
+                            <label class="Node-XS-3" for="Sign-Up-Username">Email</label>
                             <input class="Node-XS-9" id="Sign-Up-Username" name='login' type="text"/>
                         </div>
 

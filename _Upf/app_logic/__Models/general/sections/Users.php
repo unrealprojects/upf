@@ -39,6 +39,12 @@ class Users extends Meta implements UserInterface, RemindableInterface {
 
         $this->login = $this->CreateUniqueAlias(\Mascame\Urlify::filter(\Input::get('login')),$this,'login');
 
+        if($this->isUniqueAlias(\Input::get('login'),$this,'login')){
+            $this->login = \Input::get('login');
+            $this->email = \Input::get('login');
+        }else{
+            return false;
+        }
         /*** Add Meta ***/
         $Data = [
             /*** Content ***/
@@ -62,6 +68,8 @@ class Users extends Meta implements UserInterface, RemindableInterface {
 
         if($this->save()){
             return $this->login;
+        }else{
+            return false;
         }
     }
 

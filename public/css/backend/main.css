@@ -1,29 +1,11 @@
-/*!
- *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-/* FONT PATH
- * -------------------------- */
-/* makes the font 33% larger relative to the icon container */
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700,300);
-/* Force table to not be like tables anymore */
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
-/* makes the font 33% larger relative to the icon container */
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
-/*
-
-Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
-
-*/
 @font-face {
   font-family: 'FontAwesome';
   src: url('../../../../fonts/fontawesome-webfont.eot?v=4.2.0');
@@ -38,7 +20,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-
+/* makes the font 33% larger relative to the icon container */
 .Icon-lg {
   font-size: 1.33333em;
   line-height: 0.75em;
@@ -169,7 +151,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .Icon-inverse {
   color: #fff; }
-
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+ readers do not read off random characters that represent icons */
 .Icon-glass:before {
   content: "\f000"; }
 
@@ -2325,8 +2308,9 @@ table {
     outline: 0; }
 
 @media screen and (max-width: 768px) {
-  table, thead, tbody, th, td, tr {
-    display: block; }
+  /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+      display: block; }
     thead tr {
       position: absolute;
       top: -9999px;
@@ -2750,7 +2734,8 @@ a.Button, button.Button, input[type='submit'], input[type='button'], span.Button
 
 .Message {
   position: fixed;
-  max-width: 320px; }
+  max-width: 320px;
+  z-index: 9999; }
   @media screen and (min-width: 768px) {
   .Message {
     top: 30px;
@@ -3081,12 +3066,57 @@ body {
   .Dropdown.Invert .Dropdown-Content li:last-child a {
     border-radius: 0 0 5px 5px; }
 
-.Panel {
-  padding: 15px;
-  border-radius: 5px;
-  border: 1px #b7b7b7 solid;
-  background-color: #f9f9f9;
-  color: #212121; }
+.Input-Select .Input-Select-Content li a.Icon:before {
+  width: ;
+  padding-right: ; }
+
+.Input-Select .Input-Select-Content {
+  margin-top: 0px;
+  border: 1px;
+  display: none;
+  position: absolute;
+  top: 30px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
+  border: 1px solid #bbb;
+  border-top: 0;
+  background-color: #f2f2f2;
+  border-radius: 0 0 4px 4px; }
+  .Input-Select .Input-Select-Content li a, .Input-Select .Input-Select-Content li > label {
+    display: block;
+    padding: 5px 5px;
+    color: black; }
+  .Input-Select .Input-Select-Content li a:hover, .Input-Select .Input-Select-Content li > label:hover {
+    background-color: #00a4c6;
+    color: white; }
+  .Input-Select .Input-Select-Content li.Divide {
+    border-top: 1px solid #bbb; }
+
+.Input-Select {
+  position: relative; }
+  .Input-Select .Input-Select-Clean {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    margin-top: 0.4rem;
+    line-height: 14px; }
+  .Input-Select .Input-Select-Toggle {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    line-height: 14px;
+    margin-top: 0.4rem; }
+  .Input-Select.Expanded .Input-Select-Content {
+    display: block; }
+  .Input-Select.Collapsed .Input-Select-Content {
+    display: none; }
+  .Panel {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px #b7b7b7 solid;
+    background-color: #f9f9f9;
+    color: #212121; }
   .Panel.Invert {
     background-color: #3c3c3c;
     border-color: #212121; }
@@ -3259,7 +3289,12 @@ dl.Tabs {
     border-top-width: 0; }
   .Tab-Set.Outlined ul.Tab-Content li {
     padding: 15px; }
-
+/*!
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
   src: url('../../../../fonts/fontawesome-webfont.eot?v=4.2.0');
@@ -3274,7 +3309,7 @@ dl.Tabs {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-
+/* makes the font 33% larger relative to the icon container */
 .Icon-lg {
   font-size: 1.33333em;
   line-height: 0.75em;
@@ -3405,7 +3440,8 @@ dl.Tabs {
 
 .Icon-inverse {
   color: #fff; }
-
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+ readers do not read off random characters that represent icons */
 .Icon-glass:before {
   content: "\f000"; }
 
@@ -4842,7 +4878,9 @@ dl.Tabs {
 
 .Icon-meanpath:before {
   content: "\f20c"; }
-
+/*
+ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+ */
 .hljs {
   display: block;
   overflow-x: auto;
