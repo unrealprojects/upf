@@ -137,8 +137,10 @@
 
 
                     {{-- More Info --}}
-                    @if(!empty($Item['meta']['paramsvalues'])  || !empty($Item['catalog']['meta']['paramsvalues']) || !empty($Item['login']) )
+                    @if(    (!empty($Item['meta']['paramsvalues']) || !empty($Item['catalog']['meta']['paramsvalues']) || !empty($Item['login']))
+                        && ($Item['meta']['section']!='pages' && $Item['meta']['section']!='articles') )
                     <div>
+
                         <h6>Подробная информация</h6>
                         <table>
 
