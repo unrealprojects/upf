@@ -267,7 +267,7 @@
                 if($(Item).attr('selected'))
                 {
                     $(InputSelect.Input_Value, Element).val($(Item).text());
-                    $(InputSelect.Input_Index, Element).val($(Item).attr(InputSelect.Data_Selected_Index));
+                    $(InputSelect.Input_Index, Element).val($(Item).attr(InputSelect.Data_Index));
                     return false;
                 }
             });
