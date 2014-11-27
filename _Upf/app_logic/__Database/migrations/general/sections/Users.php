@@ -1,14 +1,15 @@
 <?php
 namespace UpfMigrations;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Users extends Migration {
+class Users extends Migration
+{
     public function up()
     {
         /*** Users ***/
-        \Schema::create('section_users', function($table)
-        {
+        \Schema::create('section_users', function ($table) {
             /*** Index ***/
             $table->increments('id');
 
@@ -45,7 +46,8 @@ class Users extends Migration {
         \Schema::dropIfExists('section_users');
     }
 
-    public static function fields($Table = 'section_users'){
+    public static function fields($Table = 'section_users')
+    {
         return [
             /*** List ***/
             ['Логин', 'login', 'text', 'Title', 'main', true, 'backend', 'section_users', 'list'],
@@ -78,9 +80,8 @@ class Users extends Migration {
 //            ['Статус', 'user_status', 'textarea', 'Custom', 'main', true, 'backend', 'section_users', 'edit'],
 
             // Group :: Media
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', 'section_users', 'edit',''],
+            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', 'section_users', 'edit', ''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit'],
-
 
 
             /*** Frontend :: Edit ***/
@@ -97,7 +98,7 @@ class Users extends Migration {
 
 
             ['О компании', 'about', 'textarea', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
-            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'frontend', 'section_users', 'edit','model','Regions'],
+            ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'frontend', 'section_users', 'edit', 'model', 'Regions'],
             ['Email', 'email', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Телефоны', 'phones', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
             ['Адрес', 'address', 'text', 'Custom', 'main', true, 'frontend', 'section_users', 'edit'],
@@ -108,9 +109,30 @@ class Users extends Migration {
             ['Медиа', 'divider_3', 'divider', 'Title', 'main', true, 'frontend', 'section_users', 'edit'],
 
             // Group :: Media
-            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', 'section_users', 'edit',''],
+            ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', 'section_users', 'edit', ''],
             ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', 'section_users', 'edit']
         ];
+    }
+
+
+    public function AddItem($Data)
+    {
+        if (isset($Data) && isset($Data['main'])) {
+
+            // Set
+            $Photo_Website = 'http://exkavator.ru/';
+            // Set
+
+            $Faker = \Faker\Factory::create();
+
+            $Users = new \UpfModels\Users();
+
+            /*** Content ***/
+            $Users->title = $Data['main']['title'];
+            $Users->logotype = (isset($Data['main']['logotype'])) ? $Photo_Website . $Data['main']['logotype'] : '';
+            $Users->intro = $Data['main']['intro'];
+            $Users->text = $Data['main']['intro'];
+        }
     }
 
 }

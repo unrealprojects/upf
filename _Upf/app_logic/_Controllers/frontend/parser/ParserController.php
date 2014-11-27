@@ -9,22 +9,55 @@ class ParserController extends \Controller
     /*
      * Parse Catalog
      */
+
     public function Index()
     {
         $Parser = new Parser;
+        $User = new \UpfMigrations\Users();
+
         echo '<meta charset="utf-8">';
         $Companies = $Parser->List_Companies();
         foreach ($Companies['links'] as $CompanyKey => &$Company) {
-            $Rent = str_replace('index', 'rent', $Company['link']);
-            $Parts = str_replace('index', 'parts', $Company['link']);
 
-//          $Company['rent'] = $Parser->List_Rate($Rent);
-//          $Company['parts'] = $Parser->List_Parts($Parts);
+/*
+            // Rent
+            $Rent = str_replace('index', 'rent', $Company['link']);
+            $Company['rent'] = $Parser->List_Rate($Rent);
+
+            foreach ($Company['rent']['links'] as $Rent) {
+                if ($Rent['link']) {
+                    $Parser->Item_Rent_Or_Part($Rent['link']);
+                }
+            }
+
+            // Parts
+            $Parts = str_replace('index', 'parts', $Company['link']);
+            $Company['parts'] = $Parser->List_Parts($Parts);
+
+            foreach ($Company['rent']['links'] as $Rent) {
+                if ($Rent['link']) {
+                    $Parser->Item_Rent_Or_Part($Rent['link']);
+                }
+            }
+*/
+            // User
             $Company['user'] = $Parser->Item_User($Company['link']);
-            $Company['user']['main']['contacts'] = str_replace('  ','',$Company['user']['main']['contacts']);
-            $Company['user']['main']['contacts'] = str_replace('</strong>','<strong>',$Company['user']['main']['contacts']);
-            $Company['user']['main']['contacts'] = str_replace('\n','',$Company['user']['main']['contacts']);
-            $Company['user']['main']['contacts'] = explode('<strong>',$Company['user']['main']['contacts']);
+            $Company['user']['main']['contacts'] = str_replace('  ', '', $Company['user']['main']['contacts']);
+            $Company['user']['main']['contacts'] = str_replace('</strong>', '<strong>', $Company['user']['main']['contacts']);
+            $Company['user']['main']['contacts'] = str_replace(["\r\n", "\r", "\n"], '', $Company['user']['main']['contacts']);
+            $Company['user']['main']['contacts'] = explode('<strong>', $Company['user']['main']['contacts']);
+            foreach ($Company['user']['main']['contacts'] as $ContactKey => $Contact) {
+                if ($Contact == 'Телефон:') {
+                    $Company['user']['main']['phone'] = $Company['user']['main']['contacts'][ $ContactKey + 1 ];
+                }
+                elseif ($Contact == 'Фактический адрес:') {
+                    $Company['user']['main']['contacts'][ $ContactKey + 1 ] = explode('<div', $Company['user']['main']['contacts'][ $ContactKey + 1 ]);
+                    $Company['user']['main']['address'] = $Company['user']['main']['contacts'][ $ContactKey + 1 ][0];
+                }
+            }
+
+
+            $User->AddItem($Company['user']);
         }
 
         print_r($Companies);
@@ -70,8 +103,6 @@ class ParserController extends \Controller
                 if ($Parsed = $Parser->Item_Model($Link['link'])) {
                     $Catalog->AddItem($Parsed);
                 }
-//                print_r($Key);
-//                print_r($Link);
             }
         }
 
@@ -189,13 +220,40 @@ class Parser extends Apist
                     'text'     => Apist::filter('#centercol .seller_item .info')->text(),
                     'logotype' => Apist::filter('#centercol .seller_item .img .logo_item')->attr('src'),
                     'contacts' => Apist::filter('#centercol .ccontin')->html(),
-                    'email' => Apist::filter('#centercol .ccontin>a')->attr('href'),
+                    'website'  => Apist::filter('#centercol .ccontin>a')->attr('href'),
                 ],
                 'meta' => [
                     'title'       => Apist::filter('#centercol .norm>h1')->text(),
                     'description' => Apist::filter('#centercol .seller_item .info')->text(),
                     'keywords'    => Apist::filter('#centercol .seller_item .info')->text(),
                     'alias'       => $Link,
+                ]
+            ]);
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Item Rent
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function Item_Rent_Or_Part($Link = '')
+    {
+        return $this->get($Link,
+            [
+                'main' => [
+                    'title'    => Apist::filter('#centercol .bnorm>h1')->text(),
+                    'price'    => Apist::filter('#centercol .price .gray')->text()->intval(),
+                    'region'   => Apist::filter('#centercol .city')->text(),
+                    'intro'    => Apist::filter('#centercol .fi_info')->text(),
+                    'text'     => Apist::filter('#centercol .fi_info')->html(),
+                    'logotype' => Apist::filter('#centercol .fi_mimg img')->attr('src'),
+                ],
+                'meta' => [
+                    'title'       => Apist::filter('#centercol .bnorm>h1')->text(),
+                    'description' => Apist::filter('#centercol .fi_info')->text(),
+                    'keywords'    => Apist::filter('#centercol .fi_info')->text(),
+                    'short'       => Apist::filter('#centercol .fi_like a')->text(),
+                    'alias'       => $Link
                 ]
             ]);
     }

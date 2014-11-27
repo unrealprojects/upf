@@ -14,12 +14,12 @@ class FieldsController extends SystemController{
         public function Index(){
             $Model = new $this->Model();
 
+            // No Mater Status
+            $this->Filters['status'] = 0;
             $this->ViewData['Content'] = $Model->Index($this->Filters,$this->HasMeta);
-//            print_r($this->ViewData['Meta']);
-//            exit;
 
 
-            return \View::make($this->View.'List',$this->ViewData);
+            return \View::make($this->View . 'List',$this->ViewData);
         }
 
 
