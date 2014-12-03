@@ -61,8 +61,8 @@ class Meta extends Migration {
             // Group :: Meta
             ['Алиас', 'alias', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
             ['Title', 'title', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Descriptions', 'description', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-            ['Keywords', 'keywords', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+            ['Descriptions', 'description', 'textarea', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+            ['Keywords', 'keywords', 'textarea', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
             // Group :: Relations
             ['Категория', 'category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
             ['Регион', 'region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
@@ -72,7 +72,7 @@ class Meta extends Migration {
 
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            ['Привилегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
             ['Рейтинг', 'rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
             ['Просмотры', 'views', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
             ['Избранное', 'favorite', 'radio', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.favorite'],
@@ -96,8 +96,8 @@ class Meta extends Migration {
                 // Group :: Meta
                 ['Алиас', 'meta-alias', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
                 ['Title', 'meta-title', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-                ['Descriptions', 'meta-description', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
-                ['Keywords', 'meta-keywords', 'text', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+                ['Descriptions', 'meta-description', 'textarea', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
+                ['Keywords', 'meta-keywords', 'textarea', 'Meta', 'meta', true, 'backend', $Table, 'edit'],
                 // Group :: Relations
                 ['Категория', 'meta-category_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
                 ['Регион', 'meta-region_id', 'select', 'Relation', 'relations', true, 'backend', $Table, 'edit','model','Regions'],
@@ -105,7 +105,7 @@ class Meta extends Migration {
 
                 // Group :: Statuses
                 ['Статус', 'meta-status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-                ['Привелегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+                ['Привилегии', 'meta-privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
                 ['Рейтинг', 'meta-rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
                 ['Просмотры', 'meta-views', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
                 ['Избранное', 'meta-favorite', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.favorite'],
@@ -128,7 +128,7 @@ class Meta extends Migration {
 
             // Group :: Statuses
             ['Статус',       'meta-status',         'text',        'Status',       'statuses',      true,     'frontend',     $Table,     'list'],
-            ['Привелегии',   'meta-privileges',     'text',        'Status',       'statuses',      true,     'frontend',     $Table,     'list'],
+            ['Привилегии',   'meta-privileges',     'text',        'Status',       'statuses',      true,     'frontend',     $Table,     'list'],
             ['Рейтинг',      'meta-rating',         'text',        'Status',       'statuses',      false,    'frontend',     $Table,     'list'],
             ['Просмотры',    'meta-views',          'text',        'Status',       'statuses',      false,    'frontend',     $Table,     'list'],
 

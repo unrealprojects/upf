@@ -17,6 +17,7 @@ class Fields extends General
     /*** Get Field Values Set ***/
     public static function GetFieldValues($Values, $ValuesType, $SectionModel = false)
     {
+
         /*** Values Form Values ***/
         if ($ValuesType == 'model') {
             if ($SectionModel) {
@@ -49,6 +50,8 @@ class Fields extends General
             $Section = $SectionModel->Section;
 
             return $SectionModel->all();
+        }else{
+            return [];
         }
     }
 

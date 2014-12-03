@@ -81,7 +81,7 @@ class Users extends Migration
 
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', 'section_users', 'edit', ''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit'],
+            ['Галерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', 'section_users', 'edit'],
 
 
             /*** Frontend :: Edit ***/
@@ -110,7 +110,7 @@ class Users extends Migration
 
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', 'section_users', 'edit', ''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', 'section_users', 'edit']
+            ['Галерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', 'section_users', 'edit']
         ];
     }
 
@@ -123,15 +123,53 @@ class Users extends Migration
             $Photo_Website = 'http://exkavator.ru/';
             // Set
 
-            $Faker = \Faker\Factory::create();
 
             $Users = new \UpfModels\Users();
+            $Regions = new \UpfModels\Regions();
 
             /*** Content ***/
             $Users->title = $Data['main']['title'];
             $Users->logotype = (isset($Data['main']['logotype'])) ? $Photo_Website . $Data['main']['logotype'] : '';
-            $Users->intro = $Data['main']['intro'];
-            $Users->text = $Data['main']['intro'];
+            $Users->about = $Data['main']['intro'];
+            $Users->about = $Data['main']['text'];
+            $Users->website = $Data['main']['website'];
+            $Users->phones = $Data['main']['phone'];
+            $Users->address = $Data['main']['address'];
+
+            if ($Region = $Regions->where('title', 'like', '%' . $Data['main']['city'] . '%')->first()){
+                $Region = $Region->id;
+            }else{
+                $Region = false;
+            }
+
+            /*** Meta ***/
+            $DataMeta = [
+                /*** Content ***/
+                'title'       => $Data['main']['title'],
+                'description' => $Data['main']['intro'],
+                'keywords'    => $Data['main']['intro'],
+                /*** Relations ***/
+                'section'     => 'users',
+                'category_id' => '',
+                'region_id' => $Region,
+                /*** Statuses ***/
+                'status'      => 1,
+                'privileges'  => 0,
+                'rating'      => 0,
+                'favorite'    => 0
+            ];
+
+            if ($Meta = \UpfSeeds\MetaSeeder::AddMetaToSection($DataMeta)) {
+                $Users->login = $Meta[1];
+                $Users->password = \Hash::make($Meta[1] . '_temp');
+                $Users->meta_id = $Meta[0];
+                $Users->save();
+                return [$Users->id,$Region];
+            }
+
+
+            // Search Cities
+
         }
     }
 

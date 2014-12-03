@@ -16,7 +16,7 @@ class Catalog extends Migration
 
             /*** Add ***/
             ['Модель', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Короткое описание', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
+            ['Короткое описание', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Подробное описание', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add', ''],
 
@@ -30,7 +30,7 @@ class Catalog extends Migration
 
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit', ''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+            ['Галерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
         ];
     }
 

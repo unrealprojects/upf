@@ -1,13 +1,14 @@
 <?php
 namespace UpfMigrations;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Regions extends Migration {
+class Regions extends Migration
+{
     public function up()
     {
-        \Schema::create('filter_regions', function($table)
-        {
+        \Schema::create('filter_regions', function ($table) {
             /*** Index ***/
             $table->increments('id');
             $table->unique('alias');
@@ -29,12 +30,13 @@ class Regions extends Migration {
         });
     }
 
-	public function down()
-	{
+    public function down()
+    {
         \Schema::dropIfExists('filter_regions');
-	}
+    }
 
-    public static function fields($Table = 'filter_regions'){
+    public static function fields($Table = 'filter_regions')
+    {
         return [
             /*** List ***/
             ['Тег', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'list'],
@@ -52,16 +54,54 @@ class Regions extends Migration {
             ['Тег', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
             ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
             // Group :: Relations
-            ['Родитель', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
-            ['Административное деление', 'administrative_unit', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.administrative_unit'],
-            ['Тип региона', 'region_type', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','config','models/Fields.region_type'],
+            ['Родитель', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'model', 'Categories'],
+            ['Административное деление', 'administrative_unit', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'config', 'models/Fields.administrative_unit'],
+            ['Тип региона', 'region_type', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'config', 'models/Fields.region_type'],
             // Group :: Statuses
-            ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit', 'config', 'models/Fields.status'],
+            ['Привилегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit', 'config', 'models/Fields.privileges'],
             // Group :: Date
             ['Созданно', 'created_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
             ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
         ];
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Add Item
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function AddItem($Data)
+    {
+        if (isset($Data) && $Data['title'] && $Data['region']) {
+
+            $Region = new \UpfModels\Regions();
+
+            // Search Parent
+            $RegionSearch = explode(' ', $Data['region']);
+
+            if ($Parent = $Region::where('title', 'like', '%' . $RegionSearch[0] . '%')->first()) {
+
+                if ($Parent && !empty($Parent['id'])) {
+                    // Add Item
+                    $Region = new \UpfModels\Regions();
+
+                    $Region->title = $Data['title'];
+                    $Region->alias = $Region->CreateUniqueAlias(\Mascame\Urlify::filter($Data['title']), '\UpfModels\\Regions');
+                    $Region->parent_id = $Parent['id'];
+                    $Region->administrative_unit = 2;
+                    $Region->region_type = 0;
+                    $Region->status = 1;
+                    $Region->privileges = 0;
+
+                    // Save
+                    $Region->save();
+                }
+
+            }
+        }
+
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

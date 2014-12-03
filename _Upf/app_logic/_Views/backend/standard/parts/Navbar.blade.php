@@ -24,4 +24,6 @@
         </li>
     @endforeach
     </ul>
+     <a class="Create-Item Button" href="{{$Upf['Page']['BaseUrl']}}add">Создать</a>
+
 </nav>

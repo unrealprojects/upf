@@ -176,12 +176,12 @@
                                         <table>
 
 
-                                            @if( isset($Item['meta']['regions']) )
-                                            <tr>
-                                                <td>Регион</td>
-                                                <td>{{$Item['meta']['regions']['title']}}</td>
-                                            </tr>
-                                            @endif
+                                            {{--@if( isset($Item['meta']['regions']) )--}}
+                                            {{--<tr>--}}
+                                                {{--<td>Регион</td>--}}
+                                                {{--<td>{{$Item['meta']['regions']['title']}}</td>--}}
+                                            {{--</tr>--}}
+                                            {{--@endif--}}
 
                                             @if( isset($Item['address']) )
                                             <tr>

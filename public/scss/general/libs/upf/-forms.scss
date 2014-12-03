@@ -67,6 +67,7 @@ input[type='file'],
 input[type='password'],
 select,
 textarea,
+.cke_textarea_inline,
 .Dropdown
 {
 	padding: $Control-Padding;
@@ -153,7 +154,7 @@ select[multiple='multiple']{
 	-moz-appearance: button;
 	min-height: $Control-MultiSelect-Min-Height;
 }
-textarea
+textarea,.cke_textarea_inline
 {
 	resize: vertical;
 	line-height: $Control-Textarea-Line-Height;
@@ -245,8 +246,9 @@ Label.File-Upload
 	}
 	input,
 	select,
-	textarea
-	{
+	textarea,
+    .cke_textarea_inline
+    {
 		width: 100%;
 	}
 	input
@@ -353,8 +355,9 @@ Label.File-Upload
 		border-radius: $Control-Border-Radius;
 		input.Error,
 		select.Error,
-		textarea.Error
-		{
+		textarea.Error,
+        .cke_textarea_inline.Error
+        {
 			border-color: $C-Red-2;
 			color: $C-Red-1;
 		}
@@ -522,8 +525,9 @@ Label.File-Upload
 		}
 		input,
 		select,
-		textarea
-		{
+		textarea,
+        .cke_textarea_inline
+        {
 			color: white;
 			background-color: rgba(0,0,0,.2);
 			border: $Control-Border-Width solid white;

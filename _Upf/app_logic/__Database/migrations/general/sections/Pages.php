@@ -40,7 +40,7 @@ class Pages extends Migration {
 
             /*** Add ***/
             ['Заголовок', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'add'],
-            ['Введение', 'intro', 'text', 'Custom', 'main', true, 'backend', $Table, 'add'],
+            ['Введение', 'intro', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Текст', 'text', 'textarea', 'Custom', 'main', true, 'backend', $Table, 'add'],
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'add',''],
 
@@ -53,7 +53,7 @@ class Pages extends Migration {
 
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+            ['Галерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
         ];
     }
 }

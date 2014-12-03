@@ -9,6 +9,7 @@ class UpfController extends \Controller{
 
 public $ViewData = [];
 public $Filters = [];
+public $BaseUrl = '/';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -51,7 +52,8 @@ public function __construct(){
         'Component' =>   $this->Upf_Page_Component,
         'Section'   =>   $this->Upf_Page_Section,
         'Alias'     =>   $this->Upf_Page_Alias,
-        'Action'    =>   $this->Upf_Page_Action
+        'Action'    =>   $this->Upf_Page_Action,
+        'BaseUrl'    =>   $this->BaseUrl,
     ];
 
 

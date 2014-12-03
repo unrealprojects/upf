@@ -64,7 +64,7 @@ class Rent extends Migration {
             ['Пользователь', 'user_id', 'select', 'Title', 'main', true, 'backend', $Table, 'edit', 'model', 'Users'],
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'backend', $Table, 'edit',''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
+            ['Галерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'backend', $Table, 'edit'],
 
 
 
@@ -93,8 +93,75 @@ class Rent extends Migration {
             ['Медиа информация', 'divider_3', 'divider', 'Title', 'main', true, 'frontend', $Table, 'edit'],
             // Group :: Media
             ['Логотип', 'logotype', 'photo', 'Photo', 'media', true, 'frontend', $Table, 'edit',''],
-            ['Галлерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'edit'],
+            ['Галерея', 'meta-files', 'photos', 'Gallery', 'media', true, 'frontend', $Table, 'edit'],
 
         ];
+    }
+
+
+
+
+    public function AddItem($Data, $City = false, $User_Id = false)
+    {
+        echo $City;
+        if (isset($Data) && isset($Data['main'])) {
+
+            // Set
+            $Photo_Website = 'http://exkavator.ru/';
+            // Set
+
+
+            $Catalog = new \UpfModels\Catalog();
+            $Rent = new \UpfModels\Rent();
+            $Region = new \UpfModels\Regions();
+
+            /*** Content ***/
+            $Rent->title = $Data['main']['title'];
+            $Rent->logotype = (isset($Data['main']['logotype'])) ? $Photo_Website . $Data['main']['logotype'] : '';
+            $Rent->intro = trim($Data['main']['intro']);
+            $Rent->text = trim($Data['main']['text']);
+            $Rent->price = (int)$Data['main']['price'];
+
+
+            // Set Region
+            if ($Region = $Region->where('title', 'like', '%' . $City . '%')->first()){
+                $Region = $Region->id;
+            }else{
+                $Region = false;
+            }
+
+            // Set Catalog
+            if($Model = $Catalog->where('title', 'like', '%' . $Data['meta']['short'] . '%')->first()){
+                $Rent->model_id = $Model->id;
+            }else{
+                $Rent->model_id = false;
+            }
+
+            $Rent->user_id = $User_Id;
+
+
+
+            /*** Meta ***/
+            $DataMeta = [
+                /*** Content ***/
+                'title'       => $Data['main']['title'],
+                'description' => $Data['main']['intro'],
+                'keywords'    => $Data['main']['intro'],
+                /*** Relations ***/
+                'section'     => 'rent',
+                'category_id' => '',
+                'region_id' => $Region,
+                /*** Statuses ***/
+                'status'      => 1,
+                'privileges'  => 0,
+                'rating'      => 0,
+                'favorite'    => 0
+            ];
+
+            if ($Meta = \UpfSeeds\MetaSeeder::AddMetaToSection($DataMeta)) {
+                $Rent->meta_id = $Meta[0];
+                $Rent->save();
+            }
+        }
     }
 }

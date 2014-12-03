@@ -1,246 +1,279 @@
 @import "../../general/libs/fa/font-awesome";
-
 @import "-variables";
 @import "../../general/libs/upf/upf";
 @import "-code";
 
-$Menu-Width: 			300px;
+$Menu-Width: 300px;
 
-$Clr-Main:  			$Clr-Alizarin;
-$Clr-Main-Dark: 		$Clr-Pamegranate;
-$Clr-Secondary:			$Clr-Clouds;
-$Clr-Secondary-Dark:	$Clr-Silver;
-$Clr-Secondary-Darker:	$Clr-Concrete;
+$Clr-Main: $Clr-Alizarin;
+$Clr-Main-Dark: $Clr-Pamegranate;
+$Clr-Secondary: $Clr-Clouds;
+$Clr-Secondary-Dark: $Clr-Silver;
+$Clr-Secondary-Darker: $Clr-Concrete;
 
 body {
-	font-family: 		$Font-Family-Open-Sans;
-	font-size: 			13px;
-	background-color: 	$Clr-Secondary;
+    font-family: $Font-Family-Open-Sans;
+    font-size: 13px;
+    background-color: $Clr-Secondary;
 }
 
 .Icon-Link {
-	font-size: 			13px;
-	span.Icon {
-		line-height: 	16px;
-		font-size: 		16px;
-	}
-	&.Right {
-		span.Icon {
-			margin-left: $size-s;
-		}
-	}
+    font-size: 13px;
+    span.Icon {
+        line-height: 16px;
+        font-size: 16px;
+    }
+    &.Right {
+        span.Icon {
+            margin-left: $size-s;
+        }
+    }
 }
+
 aside.Menu {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 300px;
-	background-color: $Clr-Slate-Light;
-	z-index: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    background-color: $Clr-Slate-Light;
+    z-index: 1;
 }
+
 .Menu-Shadow {
-	position: fixed;
-	width: 3px;
-	top: 0;
-	bottom: 0;
-	left: $Menu-Width;
-	box-shadow: -3px 0 3px rgba(0,0,0,0.5);
-	z-index: 2;
+    position: fixed;
+    width: 3px;
+    top: 0;
+    bottom: 0;
+    left: $Menu-Width;
+    box-shadow: -3px 0 3px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
+
 // Category
 aside.Menu > ul.Menu-Category {
-	@extend %Unstyle;
+    @extend %Unstyle;
 }
+
 li.Menu-Category-Item {
-	position: relative;
-	@extend %Unstyle;
-	@extend %Clearfix;
-	&:hover {
-		span.Menu-Category-Icon {
-			color: $Clr-Secondary;
-		}
-	}
+    position: relative;
+    @extend %Unstyle;
+    @extend %Clearfix;
+    &:hover {
+        span.Menu-Category-Icon {
+            color: $Clr-Secondary;
+        }
+    }
 }
+
 span.Menu-Category-Icon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 16px;
-	font-weight: 100;
-	color: $Clr-Secondary-Dark;
-	padding: $size-n $size-n $size-n 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    font-weight: 100;
+    color: $Clr-Secondary-Dark;
+    padding: $size-n $size-n $size-n 0;
 }
+
 a.Menu-Category-Link {
-	display: block;
-	font-size: 13px;
-	padding: $size-n $size-n;
-	color: $Clr-Secondary-Dark;
-	&.Active ,
-	&:hover {
-		background-color: $Clr-Cyan;
-		color: $Clr-Secondary;
-	}
-	span.Icon {
-		vertical-align: middle;
-		width: 16px;
-		font-size: 16px;
-		margin-right: $size-s;
-	}
+    display: block;
+    font-size: 13px;
+    padding: $size-n $size-n;
+    color: $Clr-Secondary-Dark;
+    &.Active,
+    &:hover {
+        background-color: $Clr-Cyan;
+        color: $Clr-Secondary;
+    }
+    span.Icon {
+        vertical-align: middle;
+        width: 16px;
+        font-size: 16px;
+        margin-right: $size-s;
+    }
 }
+
 // Subcategory
 ul.Menu-Subcategory {
-	background-color: $Clr-Slate;
-	@extend %Unstyle;
-}
-li.Menu-Subcategory-Item {
-	@extend %Clearfix;
-	position: relative;
-}
-a.Menu-Subcategory-Link {
-	display: block;
-	padding: $size-s $size-n $size-s $size-l;
-	font-size: 13px;
-	color: $Clr-Secondary-Dark;
-	&.Active ,
-	&:hover {
-		background-color: $Clr-Slate-Dark;
-		color: $Clr-Secondary;
-	}
-	&:hover {
-	}
-	span.Icon {
-		margin-right: $size-s;
-	}
-}
-li.Menu-Subcategory-Item:hover a.Subcategory-Action
-{
-	@include Opacity(1);
-}
-a.Subcategory-Action
-{
-	right: 10px;
-	top: 6px;
-	position: absolute;
-	color: white;
-	border: 1px white solid;
-	padding: 3px $size-s;
-	border-radius: 2px;
-	@include Opacity(0);
-	@include Transitions(#{opacity .3s, border-color .3s, color .3s, background-color .3s});
-	&:hover
-	{
-		border-color: $Clr-Cyan;
-		color: $Clr-Cyan;
-		background-color: rgba(0,0,0,0.2);
-	}
+    background-color: $Clr-Slate;
+    @extend %Unstyle;
 }
 
-.Toolbar
-{
-	border: 1px solid $C-Grey-5;
-	border-radius: 6px;
-	.Control-Group
-	{
-		padding: 0 $size-xs;
-	}
+li.Menu-Subcategory-Item {
+    @extend %Clearfix;
+    position: relative;
 }
+
+a.Menu-Subcategory-Link {
+    display: block;
+    padding: $size-s $size-n $size-s $size-l;
+    font-size: 13px;
+    color: $Clr-Secondary-Dark;
+    &.Active,
+    &:hover {
+        background-color: $Clr-Slate-Dark;
+        color: $Clr-Secondary;
+    }
+    &:hover {
+    }
+    span.Icon {
+        margin-right: $size-s;
+    }
+}
+
+li.Menu-Subcategory-Item:hover a.Subcategory-Action {
+    @include Opacity(1);
+}
+
+a.Subcategory-Action {
+    right: 10px;
+    top: 6px;
+    position: absolute;
+    color: white;
+    border: 1px white solid;
+    padding: 3px $size-s;
+    border-radius: 2px;
+    @include Opacity(0);
+    @include Transitions(#{opacity .3s, border-color .3s, color .3s, background-color .3s});
+    &:hover {
+        border-color: $Clr-Cyan;
+        color: $Clr-Cyan;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.Toolbar {
+    border: 1px solid $C-Grey-5;
+    border-radius: 6px;
+    .Control-Group {
+        padding: 0 $size-xs;
+    }
+}
+
 // Main Block
 main {
-	margin-left: $Menu-Width;
-	& > .Content {
-		margin-top: $size;
-		border-top: 1px solid $Clr-Grey-Light;
-		border-bottom: 1px solid $Clr-Grey-Light;
-		background-color: white;
-		.Content-Inner {
-			padding: $size-l;
-			@extend ._Vertical-Spacing;
-			&.Short {
-				max-width: 1000px;
-			}
-		}
-	}
+    margin-left: $Menu-Width;
+    & > .Content {
+        margin-top: $size;
+        border-top: 1px solid $Clr-Grey-Light;
+        border-bottom: 1px solid $Clr-Grey-Light;
+        background-color: white;
+        .Content-Inner {
+            padding: $size-l;
+            @extend ._Vertical-Spacing;
+            &.Short {
+                max-width: 1000px;
+            }
+        }
+    }
 }
+
 nav.Userbar {
-	height: 				auto;
-	background-color: 		white;
-	border-bottom: 			1px solid $Clr-Secondary-Dark;
-	@extend 				%Clearfix;
-	ul {
-		float: left;
-		display: 			inline-block;
-		@extend 			._Inline;
-		@extend 			%Unstyle;
-		li {
-			line-height: 	16px;
-			a {
-				display: 	block;
-				padding: 	$size-n;
-				color: 		$Clr-Text-Main;
-				&:hover {
-					color: 	$Clr-Cyan;
-				}
-			}
-			&.Icon {
-				a {
-				}
-				span.Icon {
-					display: inline-block;
-					margin-right: $size-n;
-				}
-			}
-			span.Icon {
-			}
-		}
-		&.Left {
-			float: left;
-		}
-		&.Right {
-			float: right;
-		}
-	}
-	.Dropdown
-	{
-		float: right;
-		margin-top: 9px;
-		margin-right: $size-n;
-		min-width: 200px;
-	}
+    height: auto;
+    background-color: white;
+    border-bottom: 1px solid $Clr-Secondary-Dark;
+    @extend %Clearfix;
+    ul {
+        float: left;
+        display: inline-block;
+        @extend ._Inline;
+        @extend %Unstyle;
+        li {
+            line-height: 16px;
+            a {
+                display: block;
+                padding: $size-n;
+                color: $Clr-Text-Main;
+                &:hover {
+                    color: $Clr-Cyan;
+                }
+            }
+            &.Icon {
+                a {
+                }
+                span.Icon {
+                    display: inline-block;
+                    margin-right: $size-n;
+                }
+            }
+            span.Icon {
+            }
+        }
+        &.Left {
+            float: left;
+        }
+        &.Right {
+            float: right;
+        }
+    }
+    .Dropdown {
+        float: right;
+        margin-top: 9px;
+        margin-right: $size-n;
+        min-width: 200px;
+    }
 
 }
+
 .Auth-Wrap {
-	position: absolute;
-	top: 0; bottom: 0;
-	left: 0; right: 0;
-	background-color: $Clr-Slate-Dark;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $Clr-Slate-Dark;
 }
+
 .Auth {
-	width: 100%;
-	background-color: white;
-	padding: $size-n;
-	border-radius: 10px;
-	border: 5px solid $Clr-Slate;
-	@include Gradient(white, $Clr-Clouds);
-	@include Adaptive($Viewport-XS) {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 400px;
-		margin-top: -150px;
-		margin-left: -200px;
-	}
+    width: 100%;
+    background-color: white;
+    padding: $size-n;
+    border-radius: 10px;
+    border: 5px solid $Clr-Slate;
+    @include Gradient(white, $Clr-Clouds);
+    @include Adaptive($Viewport-XS) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        margin-top: -150px;
+        margin-left: -200px;
+    }
 
 }
 
 li.Icon {
-	a {
-		span.Icon {
-			margin-right: $size-n;
-		}
-	}
+    a {
+        span.Icon {
+            margin-right: $size-n;
+        }
+    }
 }
-.Doc-Nav
-{
-	position: fixed;
+
+.Doc-Nav {
+    position: fixed;
+}
+
+.Create-Item {
+    float: right;
+    position: relative;
+    top: -7px;
+}
+
+.Control-Group .cke_textarea_inline {
+    float: left;
+    width: 75%;
+}
+
+
+.Check-Symbols-Title, .Check-Symbols-Description{
+    text-align: right;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.Check-Symbols-Title.Error, .Check-Symbols-Description.Error{
+    color: red;
+    text-decoration: underline;
 }

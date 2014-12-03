@@ -18,7 +18,7 @@ return [
     ],
     /*** Model ***/
     'Paginate'=> [
-        'content'=>'250',
+        'content'=>'20',
         'type'=>'numeric',
         'title'=>'Пагинация на Backend'
     ],

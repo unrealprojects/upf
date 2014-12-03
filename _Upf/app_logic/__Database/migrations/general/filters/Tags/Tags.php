@@ -56,7 +56,7 @@ class Tags extends Migration {
 
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            ['Привилегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
 
             // Group :: Date
             ['Созданно',        'created_at',       'text',     'Date',     'main',     false,      'backend',      $Table,     'edit'],

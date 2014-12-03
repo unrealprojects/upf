@@ -20,7 +20,8 @@ class FrontendController extends \UpfControllers\UpfController {
 
     public function __construct(){
 
-        // \SassCompiler::Make("scss/general/frontend/techonline/main.scss", "css/frontend/techonline/main.css");
+        \SassCompiler::Make("scss/general/frontend/techonline/main.scss", "css/frontend/techonline/main.css");
+
 
         $this->ViewData = [
             /*** Default ***/

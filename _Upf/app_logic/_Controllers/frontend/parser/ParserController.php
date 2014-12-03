@@ -6,61 +6,109 @@ use SleepingOwl\Apist\Apist;
 
 class ParserController extends \Controller
 {
-    /*
-     * Parse Catalog
-     */
+//    public function Index()
+//    {
+//        $Parts = new \UpfModels\Parts();
+//        foreach($Parts->all() as $Key => $Part){
+//            $Part->intro = strip_tags($Part->text);
+//            $Part->save();
+//        }
+//    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Parse Cities
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function Cities()
+    {
+        echo '<meta charset="utf-8">';
+        $Parser = new Parser;
+        $Region = new \UpfMigrations\Regions();
+
+
+        // Get Cities
+        $Cities = $Parser->Cities();
+        foreach ($Cities['cities'] as $City) {
+            $Region->AddItem($City);
+        }
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Parse Catalog
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function Index()
     {
+        echo '<meta charset="utf-8">';
         $Parser = new Parser;
         $User = new \UpfMigrations\Users();
+        $RentMigration = new \UpfMigrations\Rent();
+        $PartMigration = new \UpfMigrations\Parts();
 
-        echo '<meta charset="utf-8">';
+
         $Companies = $Parser->List_Companies();
-        foreach ($Companies['links'] as $CompanyKey => &$Company) {
 
-/*
-            // Rent
-            $Rent = str_replace('index', 'rent', $Company['link']);
-            $Company['rent'] = $Parser->List_Rate($Rent);
+        if(isset($Companies['links'])) {
+            foreach ($Companies['links'] as $CompanyKey => &$Company) {
 
-            foreach ($Company['rent']['links'] as $Rent) {
-                if ($Rent['link']) {
-                    $Parser->Item_Rent_Or_Part($Rent['link']);
+
+                // User
+                $Company['user'] = $Parser->Item_User($Company['link']);
+                $Company['user']['main']['contacts'] = str_replace('  ', '', $Company['user']['main']['contacts']);
+                $Company['user']['main']['city'] = str_replace('&nbsp;', '', htmlentities($Company['city']));
+                $Company['user']['main']['contacts'] = str_replace('</strong>', '<strong>', $Company['user']['main']['contacts']);
+                $Company['user']['main']['contacts'] = str_replace(["\r\n", "\r", "\n"], '', $Company['user']['main']['contacts']);
+                $Company['user']['main']['contacts'] = explode('<strong>', $Company['user']['main']['contacts']);
+                foreach ($Company['user']['main']['contacts'] as $ContactKey => $Contact) {
+                    if ($Contact == 'Телефон:') {
+                        $Company['user']['main']['phone'] = $Company['user']['main']['contacts'][ $ContactKey + 1 ];
+                    }
+                    elseif ($Contact == 'Фактический адрес:') {
+                        $Company['user']['main']['contacts'][ $ContactKey + 1 ] = explode('<div', $Company['user']['main']['contacts'][ $ContactKey + 1 ]);
+                        $Company['user']['main']['address'] = $Company['user']['main']['contacts'][ $ContactKey + 1 ][0];
+                    }
                 }
+
+                if (!isset($Company['user']['main']['phone'])) {
+                    $Company['user']['main']['phone'] = '';
+                }
+                if (!isset($Company['user']['main']['address'])) {
+                    $Company['user']['main']['address'] = '';
+                }
+
+                $UserData = $User->AddItem($Company['user']);
+
+
+                // Rent
+                $Rent = str_replace('index', 'rent', $Company['link']);
+
+                $Company['rent'] = $Parser->List_Rate($Rent);
+                if ($Company['rent']['links']) {
+                    foreach ($Company['rent']['links'] as $Key => $Rent) {
+                        $Rent['city'] = str_replace('&nbsp;', '', htmlentities($Rent['city']));
+                        if ($Rent['link']) {
+                            $RentMigration->AddItem($Parser->Item_Rent_Or_Part($Rent['link']), $Rent['city'], $UserData[0]);
+                        }
+                    }
+                }
+
+
+                // Parts
+                $Parts = str_replace('index', 'parts', $Company['link']);
+                $Company['parts'] = $Parser->List_Parts($Parts);
+
+                foreach ($Company['parts']['links'] as $Key => $Parts) {
+                    if ($Parts['link']) {
+                        $PartMigration->AddItem($Parser->Item_Rent_Or_Part($Parts['link']), $UserData[1], $UserData[0]);
+                    }
+                }
+
             }
-
-            // Parts
-            $Parts = str_replace('index', 'parts', $Company['link']);
-            $Company['parts'] = $Parser->List_Parts($Parts);
-
-            foreach ($Company['rent']['links'] as $Rent) {
-                if ($Rent['link']) {
-                    $Parser->Item_Rent_Or_Part($Rent['link']);
-                }
-            }
-*/
-            // User
-            $Company['user'] = $Parser->Item_User($Company['link']);
-            $Company['user']['main']['contacts'] = str_replace('  ', '', $Company['user']['main']['contacts']);
-            $Company['user']['main']['contacts'] = str_replace('</strong>', '<strong>', $Company['user']['main']['contacts']);
-            $Company['user']['main']['contacts'] = str_replace(["\r\n", "\r", "\n"], '', $Company['user']['main']['contacts']);
-            $Company['user']['main']['contacts'] = explode('<strong>', $Company['user']['main']['contacts']);
-            foreach ($Company['user']['main']['contacts'] as $ContactKey => $Contact) {
-                if ($Contact == 'Телефон:') {
-                    $Company['user']['main']['phone'] = $Company['user']['main']['contacts'][ $ContactKey + 1 ];
-                }
-                elseif ($Contact == 'Фактический адрес:') {
-                    $Company['user']['main']['contacts'][ $ContactKey + 1 ] = explode('<div', $Company['user']['main']['contacts'][ $ContactKey + 1 ]);
-                    $Company['user']['main']['address'] = $Company['user']['main']['contacts'][ $ContactKey + 1 ][0];
-                }
-            }
-
-
-            $User->AddItem($Company['user']);
         }
-
-        print_r($Companies);
     }
 
 
@@ -72,7 +120,6 @@ class ParserController extends \Controller
                 $Query->whereIn('category_id', [116]);
             })->where('id', $I)->first()
             ) {
-
                 $Item->logotype = str_replace('http://exkavator.ru/', 'http://tehnoverh.ru/', $Item->logotype);
                 echo $Item->logotype;
                 $Item->save();
@@ -170,12 +217,13 @@ class Parser extends Apist
     public function List_Companies()
     {
         $Data = [];
-        for ($Page = 0; $Page < 20 /* 09280 */; $Page = $Page + 20) {
+        for ($Page = 9280; $Page <= 9340 /* 09280 */; $Page = $Page + 20) {
             $Data = array_merge_recursive((array)$Data,
                 (array)$this->get('/trade/companies/find/pages/' . $Page,
                     [
                         'links' => Apist::filter('.b_prod')->each([
-                            'link' => Apist::filter('h3>a')->attr('href')
+                            'link' => Apist::filter('h3>a')->attr('href'),
+                            'city' => Apist::filter('h3>.ccountry')->text()->trim(),
                         ])
                     ])
             );
@@ -189,7 +237,8 @@ class Parser extends Apist
         return $this->get($Link,
             [
                 'links' => Apist::filter('.tablezebra tr')->each([
-                    'link' => Apist::filter('.name a')->attr('href')
+                    'link' => Apist::filter('.name a')->attr('href'),
+                    'city' => Apist::filter('.flag')->text()->trim(),
                 ])
             ]);
     }
@@ -246,7 +295,7 @@ class Parser extends Apist
                     'region'   => Apist::filter('#centercol .city')->text(),
                     'intro'    => Apist::filter('#centercol .fi_info')->text(),
                     'text'     => Apist::filter('#centercol .fi_info')->html(),
-                    'logotype' => Apist::filter('#centercol .fi_mimg img')->attr('src'),
+                    'logotype' => Apist::filter('#centercol .fi_galleria img')->attr('src'),
                 ],
                 'meta' => [
                     'title'       => Apist::filter('#centercol .bnorm>h1')->text(),
@@ -257,4 +306,33 @@ class Parser extends Apist
                 ]
             ]);
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Region
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function Cities()
+    {
+        return $this->get('http://localhost/',
+            [
+                'cities' => Apist::filter('.wikitable tr')->each([
+                    'title'  => Apist::filter('td:nth-of-type(2)')->text(),
+                    'region' => Apist::filter('td:nth-of-type(3)')->text()
+                ])
+            ]);
+    }
 }
+
+
+/*
+Все шрифты
+Вырезать все картинкм
+Сделать HTML верстку с текстами
+Отверстать Css
+
+Js
+Google Map
+Fancy Box
+Filter С Черно белого на цветное
+Иконки Addthis и Pluso (в конец)
+*/

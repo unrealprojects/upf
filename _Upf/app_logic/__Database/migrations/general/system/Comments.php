@@ -58,7 +58,7 @@ class Comments extends Migration {
             ['Автор', 'user_id', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','model','Users'],
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            ['Привилегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
             ['Рейтинг', 'rating', 'text', 'Status', 'statuses', false, 'backend', $Table, 'edit'],
             // Group :: Date
             ['Созданно', 'created_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],

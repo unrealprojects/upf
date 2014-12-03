@@ -1,3 +1,8 @@
+$Alias = $('input[name=meta-alias]').val();
+
+
+
+
 /*********************************************************************************************************************** List ***/
 
 /*** *** Update Item *** ***/
@@ -18,6 +23,8 @@ upf.List.UpdateItem = function(){
         $FieldsToUpdate.each(function(key,item){
             DataToUpdate[$(item).attr('item-field')]=$(item).text();
         });
+
+
 
         // Send Ajax to "/alias/update"
         $.ajax({
@@ -84,12 +91,24 @@ upf.List.TrashItem = function(){
                 UpdateForm = 'form#Edit-Item';
 
             // Update body
-            $(document).on('click',UpdateButton,function(){
+            $(document).on('click', UpdateButton,function(){
                 // Function Variables
                 var Current = this;
 
                 // Send Ajax to "/alias/update" or /update
                 var path = location.pathname.replace('/edit','') + '/update';
+
+
+                // Костыль
+                if($('#field_text').length){
+                    $('#field_text').text(CK_Field_Text.getData());
+                }
+                if($('#field_intro').length){
+                    $('#field_intro').text(CK_Field_Intro.getData());
+                }
+                if($('#field_about').length){
+                    $('#field_about').text(CK_Field_About.getData());
+                }
 
                 var formData = new FormData($(UpdateForm)[0]);
                 $.ajax({
@@ -101,6 +120,13 @@ upf.List.TrashItem = function(){
                         upf.Messages.Show(Data['message'],Data['type']);
                         if(Data['file']){
                             $('.Control-Group img').attr('src',Data['file']);
+                        }
+
+                        if($('input[name=meta-alias]').val() != $Alias){
+                            var Path = location.pathname.split('/');
+                            Path[4] = $('input[name=meta-alias]').val();
+                            Path = Path.join('/');
+                            location.href = Path;
                         }
                     }
                 });
@@ -216,8 +242,23 @@ upf.Add.NewItem = function(){
     // Update body
     $(document).on('click',AddButton,function(){
         // Function Variables
+
+        // Костыль
+        if($('#field_text').length){
+            $('#field_text').val(CK_Field_Text.getData());
+        }
+        if($('#field_intro').length){
+            $('#field_intro').val(CK_Field_Intro.getData());
+        }
+        if($('#field_about').length){
+            $('#field_about').val(CK_Field_About.getData());
+        }
+
         var formData = new FormData($(AddForm)[0]);
         // Send Ajax to "/alias/update"
+
+
+
         $.ajax({
             type:'POST',
             url:  location.pathname,
@@ -235,6 +276,7 @@ upf.Add.NewItem = function(){
         });
         return false;
     });
+
 }
 
 /*********************************************************************************************************************** Call Function ***/

@@ -56,7 +56,7 @@ class Categories extends Migration {
             ['Родитель', 'parent_id', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit','model','Categories'],
             // Group :: Statuses
             ['Статус', 'status', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.status'],
-            ['Привелегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
+            ['Привилегии', 'privileges', 'select', 'Status', 'statuses', true, 'backend', $Table, 'edit','config','models/Fields.privileges'],
             // Group :: Date
             ['Созданно', 'created_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
             ['Обновлено', 'updated_at', 'text', 'Date', 'main', false, 'backend', $Table, 'edit'],
