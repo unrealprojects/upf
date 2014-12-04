@@ -71,8 +71,8 @@
                 {{-- Group :: Content --}}
 
                 <div class="Item-Content Node-XS-8" >
-                    @if( isset($Item['intro']) )
-                    <p>{{ $Item['intro'] }}</p>
+                    @if( isset($Item['text']) )
+                    <p>{{ $Item['text'] }}</p>
                     @elseif( isset($Item['about']) )
                     <p>{{ $Item['about'] }}</p>
                     @endif

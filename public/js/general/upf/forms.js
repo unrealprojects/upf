@@ -103,9 +103,9 @@
 // Execute
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   // Forms__Dropdown();
+    // Forms__Dropdown();
     Forms__InputSelect();
-   // Forms__Script();
+    // Forms__Script();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -214,7 +214,7 @@
             });
 
             // Hide Other Selects
-            $(InputSelect.Content).not($(InputSelect.Content,this)).slideUp(InputSelect.Duration, function ()
+            $(InputSelect.Content).not($(InputSelect.Content, this)).slideUp(InputSelect.Duration, function ()
             {
                 $(this).parent()
                     .addClass(InputSelect.Collapsed)
@@ -262,9 +262,11 @@
         });
 
         // Default Selected Value
-        $(InputSelect.Element).each(function(ElementKey,Element){
-            $(InputSelect.Item, Element).each(function(ItemKey,Item){
-                if($(Item).attr('selected'))
+        $(InputSelect.Element).each(function (ElementKey, Element)
+        {
+            $(InputSelect.Item, Element).each(function (ItemKey, Item)
+            {
+                if ($(Item).attr('selected'))
                 {
                     $(InputSelect.Input_Value, Element).val($(Item).text());
                     $(InputSelect.Input_Index, Element).val($(Item).attr(InputSelect.Data_Index));
@@ -274,7 +276,7 @@
         });
 
         // Add Selected Value
-        $(document).on('click', InputSelect.Content + ' ' + InputSelect.Item, function ()
+        $(InputSelect.Content + ' ' + InputSelect.Item).click(function ()
         {
             var $BaseElement = $(this).parents(InputSelect.Element);
 
@@ -291,6 +293,7 @@
                 $(InputSelect.Input_Index, $BaseElement).val($(this).attr(InputSelect.Data_Index));
                 $(InputSelect.Input_Value, $BaseElement).val($(this).text());
             }
+            $('body').trigger('click');
         });
 
         // Type
@@ -302,93 +305,106 @@
             if (ButtonKey == 32 || (48 <= ButtonKey && ButtonKey <= 57) || (65 <= ButtonKey && ButtonKey <= 90) || (97 <= ButtonKey && ButtonKey <= 122) || ButtonKey == 8)
             {
 
-                var Filters = $(this).val().toLowerCase().split(' ');
+                var $FilterString = $(this).val().toLowerCase();
+                var Filters = $FilterString.split(' ');
+
                 var $Item = $(InputSelect.Content + ' ' + InputSelect.Item, $(this).parent());
 
                 // Set Visible
                 if (Filters[0].length > 0)
                 {
-                    $Item.removeClass(InputSelect.Item_Visible + ' ' + InputSelect.Item_Hidden + ' ' + InputSelect.Item_Same);
+                    //$Item.removeClass(InputSelect.Item_Visible + ' ' + InputSelect.Item_Hidden + ' ' + InputSelect.Item_Same);
 
                     $Item.each(function (ItemKey, Item)
                     {
+                        var VisibleItem = true;
+                        if ($(Item).text().toLowerCase().search($FilterString) < 0)
+                        {
+                            VisibleItem = false;
+                        }
 
                         // Exact Items
+
+                        /*
                         $.each(Filters, function (FilterKey, Filter)
                         {
-                            if (Filter.length)
+
+                            if ($(Item).text().toLowerCase().search(Filter) >= 0)
                             {
-                                if ($(Item).text().toLowerCase().search(Filter) >= 0 && !$(Item).hasClass(InputSelect.Item_Hidden))
-                                {
-                                    $(Item).addClass(InputSelect.Item_Visible);
-                                } else
-                                {
-                                    $(Item).addClass(InputSelect.Item_Hidden)
-                                        .removeClass(InputSelect.Item_Visible);
-                                }
+                                VisibleItem = true;
+                            } else
+                            {
+                                VisibleItem = false;
                             }
-                        });
+                        });*/
+
+                        if (VisibleItem)
+                        {
+                            $(Item).addClass(InputSelect.Item_Visible);
+                        } else
+                        {
+                            $(Item).removeClass(InputSelect.Item_Visible).addClass(InputSelect.Item_Hidden);
+                        }
 
                         // Same Items
-                        $.each(Filters, function (FilterKey, Filter)
-                        {
-                            if (Filter.length > 2)
-                            {
-                                var Same = '',
-                                    CircleSame = false;
-                                for (var I = 0; I <= Filter.length; I++)
-                                {
+                        /*$.each(Filters, function (FilterKey, Filter)
+                         {
+                         if (Filter.length > 2)
+                         {
+                         var Same = '',
+                         CircleSame = false;
+                         for (var I = 0; I <= Filter.length; I++)
+                         {
 
-                                    if (I < Filter.length)
-                                    {
-                                        Same = new RegExp(Filter.substr(0, I) + '[^]' + Filter.substr(I + 1, Filter.length));
-                                    } else
-                                    {
-                                        Same = Filter;
-                                    }
+                         if (I < Filter.length)
+                         {
+                         Same = new RegExp(Filter.substr(0, I) + '[^]' + Filter.substr(I + 1, Filter.length));
+                         } else
+                         {
+                         Same = Filter;
+                         }
 
-                                    if ($(Item).text().toLowerCase().search(Same) >= 0)
-                                    {
-                                        if (FilterKey == 0 && $(Item).hasClass(InputSelect.Item_Hidden))
-                                        {
-                                            $(Item).addClass(InputSelect.Item_Same)
-                                                .removeClass(InputSelect.Item_Hidden);
-                                        }
-                                        else if ($(Item).text().toLowerCase().search(Same) >= 0 && FilterKey > 0 && $(Item).hasClass(InputSelect.Item_Same))
-                                        {
-                                            CircleSame = true;
-                                            $(Item).addClass(InputSelect.Item_Same)
-                                                .removeClass(InputSelect.Item_Hidden);
-                                        }
-                                    }
+                         if ($(Item).text().toLowerCase().search(Same) >= 0)
+                         {
+                         if (FilterKey == 0 && $(Item).hasClass(InputSelect.Item_Hidden))
+                         {
+                         $(Item).addClass(InputSelect.Item_Same)
+                         .removeClass(InputSelect.Item_Hidden);
+                         }
+                         else if ($(Item).text().toLowerCase().search(Same) >= 0 && FilterKey > 0 && $(Item).hasClass(InputSelect.Item_Same))
+                         {
+                         CircleSame = true;
+                         $(Item).addClass(InputSelect.Item_Same)
+                         .removeClass(InputSelect.Item_Hidden);
+                         }
+                         }
 
-                                }
+                         }
 
 
-                                // More Than One Coincidence
-                                if (CircleSame == false && FilterKey > 0)
-                                {
-                                    $(Item).removeClass(InputSelect.Item_Same).addClass(InputSelect.Item_Hidden);
-                                }
+                         // More Than One Coincidence
+                         if (CircleSame == false && FilterKey > 0)
+                         {
+                         $(Item).removeClass(InputSelect.Item_Same).addClass(InputSelect.Item_Hidden);
+                         }
 
-                            }
-                        });
+                         }
+                         });*/
 
 
                     });
 
 
                     // Show Visible
-
-                    $(InputSelect.Content + ' .' + InputSelect.Item_Hidden).slideUp();
-                    $(InputSelect.Content + ' .' + InputSelect.Item_Visible + ',' + InputSelect.Content + ' .' + InputSelect.Item_Same).slideDown();
+                    $(InputSelect.Content + ' .' + InputSelect.Item_Hidden).hide(false);
+                    $(InputSelect.Content + ' .' + InputSelect.Item_Visible).show(false);
 
                 } else
                 {
                     // Todo::Make a Function
                     $Item.removeClass(InputSelect.Item_Hidden)
                         .addClass(InputSelect.Item_Visible)
-                        .slideDown();
+                        .show(false);
                 }
             }
         });

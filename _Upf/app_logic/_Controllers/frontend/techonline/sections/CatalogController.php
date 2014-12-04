@@ -18,7 +18,7 @@ class CatalogController extends SectionsController{
             'Tags' =>       true,
             'Params' =>     true,
             'Price' =>      false,
-            'TabsNode'=>    'Node-XXS-6 Node-XS-4'
+            'TabsNode'=>    'Node-XXS-12 Node-XS-6'
         ];
 
     }

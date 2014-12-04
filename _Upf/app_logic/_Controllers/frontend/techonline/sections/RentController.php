@@ -17,7 +17,7 @@ class RentController extends SectionsController{
             'Tags' =>        true,
             'Params' =>      true,
             'Price' =>       true,
-            'TabsNode'=>     'Node-XXS-6 Node-XS-3'
+            'TabsNode'=>     'Node-XXS-12 Node-XS-4'
         ];
 
     }

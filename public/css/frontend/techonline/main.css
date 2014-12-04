@@ -772,7 +772,7 @@ table {
   padding: 10px;
   display: inline-block; }
 
-input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown, Label.File-Upload > span {
+input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .cke_textarea_inline, .Dropdown, Label.File-Upload > span {
   display: inline-block;
   height: 30px;
   border: 1px #b7b7b7 solid;
@@ -781,7 +781,7 @@ input[type='text'], input[type='number'], input[type='tel'], input[type='submit'
   font-size: 14px;
   line-height: 14px; }
 
-input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .Dropdown {
+input[type='text'], input[type='number'], input[type='tel'], input[type='submit'], input[type='button'], input[type='search'], input[type='email'], input[type='file'], input[type='password'], select, textarea, .cke_textarea_inline, .Dropdown {
   padding: 7px;
   box-shadow: 0 0 1px white inset;
   background-color: #f9f9f9;
@@ -789,34 +789,34 @@ input[type='text'], input[type='number'], input[type='tel'], input[type='submit'
   -webkit-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   -moz-transition: border-color 0.4s, background-color 0.4s, color 0.4s;
   transition: border-color 0.4s, background-color 0.4s, color 0.4s; }
-  input[type='text']:hover, input[type='number']:hover, input[type='tel']:hover, input[type='submit']:hover, input[type='button']:hover, input[type='search']:hover, input[type='email']:hover, input[type='file']:hover, input[type='password']:hover, select:hover, textarea:hover, .Dropdown:hover {
+  input[type='text']:hover, input[type='number']:hover, input[type='tel']:hover, input[type='submit']:hover, input[type='button']:hover, input[type='search']:hover, input[type='email']:hover, input[type='file']:hover, input[type='password']:hover, select:hover, textarea:hover, .cke_textarea_inline:hover, .Dropdown:hover {
     background-color: #f2f2f2; }
-  input[type='text']:focus, input[type='number']:focus, input[type='tel']:focus, input[type='submit']:focus, input[type='button']:focus, input[type='search']:focus, input[type='email']:focus, input[type='file']:focus, input[type='password']:focus, select:focus, textarea:focus, .Dropdown:focus {
+  input[type='text']:focus, input[type='number']:focus, input[type='tel']:focus, input[type='submit']:focus, input[type='button']:focus, input[type='search']:focus, input[type='email']:focus, input[type='file']:focus, input[type='password']:focus, select:focus, textarea:focus, .cke_textarea_inline:focus, .Dropdown:focus {
     border-color: #00a4c6;
     background-color: #e5fbff;
     box-shadow: 0 0 1px white inset, 0 0 10px #95edff; }
-  input[type='text'][disabled], input[type='number'][disabled], input[type='tel'][disabled], input[type='submit'][disabled], input[type='button'][disabled], input[type='search'][disabled], input[type='email'][disabled], input[type='file'][disabled], input[type='password'][disabled], select[disabled], textarea[disabled], .Dropdown[disabled], input[type='text'][disabled]:hover, input[type='number'][disabled]:hover, input[type='tel'][disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, input[type='search'][disabled]:hover, input[type='email'][disabled]:hover, input[type='file'][disabled]:hover, input[type='password'][disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, .Dropdown[disabled]:hover {
+  input[type='text'][disabled], input[type='number'][disabled], input[type='tel'][disabled], input[type='submit'][disabled], input[type='button'][disabled], input[type='search'][disabled], input[type='email'][disabled], input[type='file'][disabled], input[type='password'][disabled], select[disabled], textarea[disabled], .cke_textarea_inline[disabled], .Dropdown[disabled], input[type='text'][disabled]:hover, input[type='number'][disabled]:hover, input[type='tel'][disabled]:hover, input[type='submit'][disabled]:hover, input[type='button'][disabled]:hover, input[type='search'][disabled]:hover, input[type='email'][disabled]:hover, input[type='file'][disabled]:hover, input[type='password'][disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, .cke_textarea_inline[disabled]:hover, .Dropdown[disabled]:hover {
     border-color: #b7b7b7;
     background-color: #f2f2f2;
     color: #b7b7b7;
     cursor: not-allowed; }
-  input[type='text'].Ghost, input[type='number'].Ghost, input[type='tel'].Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, input[type='search'].Ghost, input[type='email'].Ghost, input[type='file'].Ghost, input[type='password'].Ghost, select.Ghost, textarea.Ghost, .Dropdown.Ghost {
+  input[type='text'].Ghost, input[type='number'].Ghost, input[type='tel'].Ghost, input[type='submit'].Ghost, input[type='button'].Ghost, input[type='search'].Ghost, input[type='email'].Ghost, input[type='file'].Ghost, input[type='password'].Ghost, select.Ghost, textarea.Ghost, .cke_textarea_inline.Ghost, .Dropdown.Ghost {
     border-color: transparent;
     background: transparent;
     box-shadow: none; }
-  input[type='text'].Error, input[type='number'].Error, input[type='tel'].Error, input[type='submit'].Error, input[type='button'].Error, input[type='search'].Error, input[type='email'].Error, input[type='file'].Error, input[type='password'].Error, select.Error, textarea.Error, .Dropdown.Error {
+  input[type='text'].Error, input[type='number'].Error, input[type='tel'].Error, input[type='submit'].Error, input[type='button'].Error, input[type='search'].Error, input[type='email'].Error, input[type='file'].Error, input[type='password'].Error, select.Error, textarea.Error, .cke_textarea_inline.Error, .Dropdown.Error {
     color: #a02828;
     border-color: #e43f3f;
     background-color: #fff3f3; }
-  input[type='text'].Warning, input[type='number'].Warning, input[type='tel'].Warning, input[type='submit'].Warning, input[type='button'].Warning, input[type='search'].Warning, input[type='email'].Warning, input[type='file'].Warning, input[type='password'].Warning, select.Warning, textarea.Warning, .Dropdown.Warning {
+  input[type='text'].Warning, input[type='number'].Warning, input[type='tel'].Warning, input[type='submit'].Warning, input[type='button'].Warning, input[type='search'].Warning, input[type='email'].Warning, input[type='file'].Warning, input[type='password'].Warning, select.Warning, textarea.Warning, .cke_textarea_inline.Warning, .Dropdown.Warning {
     color: #b4771e;
     border-color: #e4a43f;
     background-color: #fff9f1; }
-  input[type='text'].Success, input[type='number'].Success, input[type='tel'].Success, input[type='submit'].Success, input[type='button'].Success, input[type='search'].Success, input[type='email'].Success, input[type='file'].Success, input[type='password'].Success, select.Success, textarea.Success, .Dropdown.Success {
+  input[type='text'].Success, input[type='number'].Success, input[type='tel'].Success, input[type='submit'].Success, input[type='button'].Success, input[type='search'].Success, input[type='email'].Success, input[type='file'].Success, input[type='password'].Success, select.Success, textarea.Success, .cke_textarea_inline.Success, .Dropdown.Success {
     color: #54894e;
     border-color: #6ea268;
     background-color: #f1fff0; }
-  input[type='text'].Info, input[type='number'].Info, input[type='tel'].Info, input[type='submit'].Info, input[type='button'].Info, input[type='search'].Info, input[type='email'].Info, input[type='file'].Info, input[type='password'].Info, select.Info, textarea.Info, .Dropdown.Info {
+  input[type='text'].Info, input[type='number'].Info, input[type='tel'].Info, input[type='submit'].Info, input[type='button'].Info, input[type='search'].Info, input[type='email'].Info, input[type='file'].Info, input[type='password'].Info, select.Info, textarea.Info, .cke_textarea_inline.Info, .Dropdown.Info {
     color: #18637f;
     border-color: #2782a4;
     background-color: #f4fdff; }
@@ -832,7 +832,7 @@ select[multiple='multiple'] {
   -moz-appearance: button;
   min-height: 232px; }
 
-textarea {
+textarea, .cke_textarea_inline {
   resize: vertical;
   line-height: 21px;
   min-height: 58px;
@@ -842,7 +842,7 @@ textarea {
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   transition-duration: 0.5s; }
-  textarea:focus {
+  textarea:focus, .cke_textarea_inline:focus {
     background-color: #f9f9f9;
     min-height: 100px; }
 
@@ -884,7 +884,7 @@ Label.File-Upload {
   border: 1px solid transparent;
   font-size: 14px;
   line-height: 14px; }
-  .Control-Group input, .Control-Group select, .Control-Group textarea {
+  .Control-Group input, .Control-Group select, .Control-Group textarea, .Control-Group .cke_textarea_inline {
     width: 100%; }
   .Control-Group input select {
     background-color: white; }
@@ -943,7 +943,7 @@ Label.File-Upload {
     color: white;
     background-color: #f2070b;
     border-radius: 5px; }
-  .Control-Group .Input-Group.Error input.Error, .Control-Group .Input-Group.Error select.Error, .Control-Group .Input-Group.Error textarea.Error {
+  .Control-Group .Input-Group.Error input.Error, .Control-Group .Input-Group.Error select.Error, .Control-Group .Input-Group.Error textarea.Error, .Control-Group .Input-Group.Error .cke_textarea_inline.Error {
     border-color: #e43f3f;
     color: #a02828; }
   .Control-Group .Input-Group .Message {
@@ -1018,7 +1018,7 @@ Label.File-Upload {
 
 .Invert .Control-Group label {
   color: white; }
-  .Invert .Control-Group input, .Invert .Control-Group select, .Invert .Control-Group textarea {
+  .Invert .Control-Group input, .Invert .Control-Group select, .Invert .Control-Group textarea, .Invert .Control-Group .cke_textarea_inline {
     color: white;
     background-color: rgba(0, 0, 0, .2);
     border: 1px solid white;
@@ -1281,6 +1281,8 @@ a.Button, .Filter-Result li a.Delete, button.Button, .Filter-Result li button.De
   margin-top: 20px;
   background-color: #ecf0f1;
   border-radius: 5px; }
+  .Breadcrumbs .Breadcrumb-List {
+    display: inline-block; }
   .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item > span, .Breadcrumbs .Breadcrumb-List .Breadcrumb-Item > a {
     padding: 5px;
     font-size: 13px;
@@ -1527,16 +1529,20 @@ body {
     top: 0px;
     line-height: 14px;
     margin-top: 0.4rem; }
-  .Input-Select.Expanded .Input-Select-Content {
+  .Input-Select.Expanded . Input-Select-Content {
     display: block; }
   .Input-Select.Collapsed .Input-Select-Content {
     display: none; }
-  .Panel {
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px #b7b7b7 solid;
-    background-color: #f9f9f9;
-    color: #212121; }
+  .Input-Select .Input-Select-Content {
+    max-height: 300px;
+    overflow-y: auto; }
+
+.Panel {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px #b7b7b7 solid;
+  background-color: #f9f9f9;
+  color: #212121; }
   .Panel.Invert {
     background-color: #3c3c3c;
     border-color: #212121; }
@@ -4141,3 +4147,25 @@ ul.Item-Edit {
 
 .Tab-Params .Control-Group {
   margin-top: 0px; }
+
+.Input-Select input[type=text] {
+  background: white;
+  border-radius: 0px;
+  width: 100%;
+  padding: 18px 20px;
+  font-size: 13px;
+  line-height: 18px; }
+
+.Input-Select .Input-Select-Toggle {
+  top: 5px; }
+
+.Input-Select .Input-Select-Clean {
+  right: 32px;
+  top: 5px; }
+
+.Input-Select {
+  margin-top: 20px;
+  margin-right: 0px !important; }
+
+.Input-Select .Input-Select-Content {
+  top: 38px; }

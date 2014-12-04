@@ -119,13 +119,29 @@
 
 
         {{-- Params --}}
-        @if($HasFilters['Params'])
+        @if($HasFilters['Params'] || $HasFilters['Tags'])
         <dt class="Wide Tab-Params {{$HasFilters['TabsNode']}}">
             <span>Дополнительные параметры</span>
         </dt>
 
         <dd class="Tab-Params">
             <form class="Form-Vertical Grid Split" action="">
+
+                @if(isset($Content['Filters']['tags']) && $HasFilters['Tags'] )
+                    <div class='Input-Select'>
+                        <input type="text" placeholder="Поиск по тегам"/>
+                        <input type="hidden" name="tags" value="" id="field_tag" />
+                        <span class="Input-Select-Clean Icon Icon-close"></span>
+                        <span class="Input-Select-Toggle Icon Icon-chevron-down"></span>
+
+                        <ul class="Input-Select-Content" name="tag" id="tag">
+                            <li data-index="0"><a href="">Сбросить фильтр</a></li>
+                                @foreach($Content['Filters']['tags'] as $Tag)
+                                    <li data-index="{{$Tag['alias']}}"><a href="">{{$Tag['title']}}</a></li>
+                                @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 @if($HasFilters['Price'])
                 <div class="Control-Group Node-XS-12">
@@ -147,46 +163,11 @@
                     @endforeach
                 @endif
 
+
             </form>
         </dd>
         @endif
         {{-- End Params --}}
-
-
-
-
-        {{-- Tags --}}
-            @if(isset($Content['Filters']['tags']) && $HasFilters['Tags'] )
-                <dt class="Tab-Tags {{$HasFilters['TabsNode']}}">
-                    <span>Теги</span>
-                </dt>
-
-                <dd class="Tab-Tags">
-
-                    <ul class="List-Group-Actions">
-                        <li class="Item-Group-Actions">
-                            <label class="Control-Group">
-                                <span class="Node-XXS-8" for="all_params" >Все производители</span>
-                                <input class="Node-XXS-4 Slide End" type="checkbox" checked="checked" id="all_tags"/>
-                            </label>
-                        </li>
-                    </ul>
-
-                    <ul class="List-Params  Accordion-tags Spoiler-Content Grid Merge">
-                        @foreach($Content['Filters']['tags'] as $Tag)
-                        <li class="Item-Group-Actions Node-XS-6 Node-SM-4 Node-LR-3">
-                            <label class="Control-Group">
-                                <span class="Node-XXS-8" for="tag_{{$Tag['alias']}}" >{{$Tag['title']}}</span>
-                                <input class="Node-XXS-4 Slide End {{$Tag['privileges']>0?'Red-Checkbox':''}}" type="checkbox" checked="checked" name="{{$Tag['alias']}}" id="tag_{{$Tag['alias']}}"/>
-                            </label>
-                        </li>
-                        @endforeach
-                    </ul>
-
-                </dd>
-            @endif
-        {{-- End Tags --}}
-
 
 
 

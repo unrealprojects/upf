@@ -94,11 +94,15 @@ $(document).on('click','#Filter-Selected-Region .Delete,' +
     }
     if($(this).parent().is('#Filter-Selected-Region')){
         delete searchArray['region'];
-        changeTab('.Tab-Regions');
+        if($('.Tab-Regions').length){
+            changeTab('.Tab-Regions');
+        }
     }
     if($(this).parent().is('#Filter-Selected-Category')){
         delete searchArray['category'];
-        changeTab('.Tab-Categories');
+        if($('.Tab-Categories').length){
+            changeTab('.Tab-Categories');
+        }
     }
 });
 
@@ -133,15 +137,26 @@ if(location.search.length>0){
 
 if(searchArray['region']){
     addToFilterSelected($('[alias='+searchArray['region']+']'),'Region');
-    changeTab('.Tab-Categories',false);
+    if($('.Tab-Categories').length){
+        changeTab('.Tab-Categories',false);
+    }
+
 }
 
 if(searchArray['category']){
     addToFilterSelected($('[alias='+searchArray['category']+']'),'Category');
-    changeTab('.Tab-Params',false);
+     if($('.Tab-Params').length){
+            changeTab('.Tab-Params',false);
+        }
 }
 
+if(searchArray['tags[0]']){
+    $('.Input-Select input[type=text]').val(
+        $('.Input-Select li[data-index='+(searchArray['tags[0]']+']')).text()
+    );
+}
 
+/*
 // Проверка Checkbox
 var findtags = false;
 for(var i=0;i<100;i++){
@@ -160,8 +175,14 @@ $(document).on('click','.Filter a',function()
 {
     return false;
 });
+*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Tab Regions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,7 +202,9 @@ $( ".Autocomplete-Regions" ).autocomplete({
         searchArray['region']=ui.item.key;
         var SelectedItem = {key:ui.item.key,name:ui.item.label};
         addToFilterSelectedFromAutocomplete(SelectedItem,'Category');
-        changeTab('.Tab-Categories');
+        if($('.Tab-Categories').length){
+            changeTab('.Tab-Categories');
+        }
     }
 });
 @endif
@@ -208,7 +231,10 @@ $('dd.Tab-Regions .Filter-Subcategory li>a').click(function(){
         /*** Параметры ***/
         searchArray['region']=$(this).attr('alias');
         addToFilterSelected(this,'Region');
-        changeTab('.Tab-Categories');
+        if($('.Tab-Categories').length){
+            changeTab('.Tab-Categories');
+        }
+
     }
     return false;
 });
@@ -217,7 +243,11 @@ $('dd.Tab-Regions .Filter-Subcategory li>a').click(function(){
 $(document).on('click','.Filter-Cities a',function(){
     searchArray['region']=$(this).attr('alias');
     addToFilterSelected(this,'Region');
-    changeTab('.Tab-Categories');
+    if($('.Tab-Categories').length){
+        changeTab('.Tab-Categories');
+    }else if($('.Tab-Params').length){
+        changeTab('.Tab-Params');
+    }
     return false;
 });
 
@@ -249,7 +279,10 @@ $( ".Autocomplete-Categories" ).autocomplete({
 
         /*** Смена Таба Или Перескок на Главную страницу ***/
         if(location.pathname!='/'){
-            changeTab('.Tab-Params');
+            if($('.Tab-Categories').length){
+                changeTab('.Tab-Categories');
+            }
+
         }else{
             filterSearch();
         }
@@ -265,7 +298,9 @@ $('dd.Tab-Categories a').click(function(){
 
     // Go To Rent Page
     if(location.pathname!='/'){
-        changeTab('.Tab-Params');
+        if($('.Tab-Params').length){
+            changeTab('.Tab-Params');
+        }
     }else{
         filterSearch();
     }
@@ -281,7 +316,8 @@ $('dd.Tab-Categories a').click(function(){
 // Tab :: Tags
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*** Перебор всех чекбоксов ***/
+// Перебор всех чекбоксов
+/*
 function checkedtags(){
     var all_selected=true,
         foreign_all_selected=true,
@@ -293,11 +329,11 @@ function checkedtags(){
             if($(item).attr('name')){
                 all_selected=false;
             }
-            /*** Если выбраны все отечественные или не выбраны - переключаем select ***/
+            // Если выбраны все отечественные или не выбраны - переключаем select
             if(!$(item).is(':checked') && $(item).attr('name') && $(item).attr('foreign')=='0'){
                 native_all_selected=false;
             }
-            /*** Если выбраны все зарубежные или не выбраны - переключаем select ***/
+            // Если выбраны все зарубежные или не выбраны - переключаем select
             if(!$(item).is(':checked') && $(item).attr('name')&& $(item).attr('foreign')=='1'){
                 foreign_all_selected=false;
             }
@@ -306,7 +342,7 @@ function checkedtags(){
         }
     });
 
-    /*** Если один выбран ***/
+    // Если один выбран
     if(all_selected){
         $('#all_tags').prop('checked','checked');
     }else{
@@ -324,7 +360,7 @@ function checkedtags(){
     }
 }
 
-/*** Клик :: Чекбокс ***/
+// Клик :: Чекбокс
 $('.Accordion-tags input[type=checkbox]').click( function(){
     if($(this).attr('id')!='foreign_tags' &&
         $(this).attr('id')!='native_tags' &&
@@ -333,7 +369,7 @@ $('.Accordion-tags input[type=checkbox]').click( function(){
     }
 });
 
-/*** Клик на чекбокс "Выбрать все" ***/
+// Клик на чекбокс "Выбрать все"
 $('#all_tags').click(function(){
     if($(this).is(':checked')){
         $('.Accordion-tags input[type=checkbox]').prop('checked','checked');
@@ -343,7 +379,7 @@ $('#all_tags').click(function(){
     checkedtags();
 });
 
-/*** Клик на чекбокс "Выбрать иномарки" ***/
+// Клик на чекбокс "Выбрать иномарки"
 $('#foreign_tags').click(function(){
     if($(this).is(':checked')){
         $('.Accordion-tags input[foreign=1]').prop('checked','checked');
@@ -353,7 +389,7 @@ $('#foreign_tags').click(function(){
     checkedtags();
 });
 
-/*** Клик на чекбокс "Выбрать отечественные" ***/
+// Клик на чекбокс "Выбрать отечественные"
 $('#native_tags').click(function(){
     if($(this).is(':checked')){
         $('.Accordion-tags input[foreign=0]').prop('checked','checked');
@@ -362,7 +398,7 @@ $('#native_tags').click(function(){
     }
     checkedtags();
 });
-
+*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Params
@@ -409,6 +445,11 @@ $("#Slider-Range-Value-1").html(
         @endif
     @endforeach
 @endif
+
+$('.Input-Select-Content li').click(function(){
+    searchArray['tags[0]'] = $(this).attr('data-index');
+});
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

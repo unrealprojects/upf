@@ -3109,16 +3109,20 @@ body {
     top: 0px;
     line-height: 14px;
     margin-top: 0.4rem; }
-  .Input-Select.Expanded .Input-Select-Content {
+  .Input-Select.Expanded . Input-Select-Content {
     display: block; }
   .Input-Select.Collapsed .Input-Select-Content {
     display: none; }
-  .Panel {
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px #b7b7b7 solid;
-    background-color: #f9f9f9;
-    color: #212121; }
+  .Input-Select .Input-Select-Content {
+    max-height: 300px;
+    overflow-y: auto; }
+
+.Panel {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px #b7b7b7 solid;
+  background-color: #f9f9f9;
+  color: #212121; }
   .Panel.Invert {
     background-color: #3c3c3c;
     border-color: #212121; }
@@ -5120,7 +5124,8 @@ li.Icon a span.Icon {
 
 .Control-Group .cke_textarea_inline {
   float: left;
-  width: 75%; }
+  width: 75%;
+  overflow: auto; }
 
 .Check-Symbols-Title, .Check-Symbols-Description {
   text-align: right;

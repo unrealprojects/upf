@@ -138,6 +138,7 @@ $(document).ready(function ()
 // Editor
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+CKEDITOR.disableAutoInline = true;
 if($('#field_text').length){
     var CK_Field_Text = CKEDITOR.inline('field_text');
 }
@@ -161,10 +162,14 @@ if($('#field_about').length){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var $Title = $('[name=meta-title]');
-$Title.after('<p class="Check-Symbols-Title Node-XXS-9 Push-3">' + $Title.val().length + '</p>');
-if( $Title.val().length > 52 ){
-    $('.Check-Symbols-Title').addClass('Error');
-}
+if($Title.length)
+{
+    $Title.after('<p class="Check-Symbols-Title Node-XXS-9 Push-3">' + $Title.val().length + '</p>');
+    if ($Title.val().length > 52)
+    {
+        $('.Check-Symbols-Title').addClass('Error');
+    }
+
 
 $Title.keyup(function(){
     $('.Check-Symbols-Title').remove();
@@ -173,20 +178,28 @@ $Title.keyup(function(){
         $('.Check-Symbols-Title').addClass('Error');
     }
 });
+}
 
 
 var $Description = $('[name=meta-description]');
-$Description.after('<p class="Check-Symbols-Description Node-XXS-9 Push-3">' + $Description.val().length + '</p>');
-if( $Description.val().length > 156){
-    $('.Check-Symbols-Description').addClass('Error');
-}
+if($Description.length)
+{
 
-$Description.keyup(function(){
-    $('.Check-Symbols-Description').remove();
     $Description.after('<p class="Check-Symbols-Description Node-XXS-9 Push-3">' + $Description.val().length + '</p>');
-    if( $Description.val().length > 156){
+    if ($Description.val().length > 156)
+    {
         $('.Check-Symbols-Description').addClass('Error');
     }
-});
+
+    $Description.keyup(function ()
+    {
+        $('.Check-Symbols-Description').remove();
+        $Description.after('<p class="Check-Symbols-Description Node-XXS-9 Push-3">' + $Description.val().length + '</p>');
+        if ($Description.val().length > 156)
+        {
+            $('.Check-Symbols-Description').addClass('Error');
+        }
+    });
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -187,25 +187,25 @@
 <div class="Control-Group">
     <label class='Node-XXS-3' for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
     <div class='Input-Select Node-XXS-9'>
-    <input type="text" placeholder="Поиск"/>
-    <input type="hidden" name="{{$Field['relation']}}" value="{{\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])}}" id="field_{{$Field['relation']}}" />
-    <span class="Input-Select-Clean Icon Icon-close"></span>
-    <span class="Input-Select-Toggle Icon Icon-chevron-down"></span>
+        <input type="text" placeholder="Поиск"/>
+        <input type="hidden" name="{{$Field['relation']}}" value="{{\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])}}" id="field_{{$Field['relation']}}" />
+        <span class="Input-Select-Clean Icon Icon-close"></span>
+        <span class="Input-Select-Toggle Icon Icon-chevron-down"></span>
 
-    <ul class="Input-Select-Content">
-        <li data-index="0"><a href="">Нет</a></li>
-        @if($Input_Select_Data = $Model::GetFieldValues($Field['values'],$Field['values_type'],$Model))
-            @foreach($Input_Select_Data as $key => $value)
-                @if($Field['values_type']=='config' && ( is_int($key) || $Field['relation']=='section' ) )
-                    <li data-index="{{$key}}"
-                    {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$key)?'selected="selected"':''}}><a href="">{{$value}}</a></li>
-                @elseif($Field['values_type']=='model' && is_int($key) )
-                    <li data-index="{{$value['id']}}"
-                    {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$value['id'])?'selected="selected"':''}}><a href="">{{$value['title']}}</a></li>
-                @endif
-            @endforeach
-        @endif
-    </ul>
+        <ul class="Input-Select-Content">
+            <li data-index="0"><a href="">Нет</a></li>
+            @if($Input_Select_Data = $Model::GetFieldValues($Field['values'],$Field['values_type'],$Model))
+                @foreach($Input_Select_Data as $key => $value)
+                    @if($Field['values_type']=='config' && ( is_int($key) || $Field['relation']=='section' ) )
+                        <li data-index="{{$key}}"
+                        {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$key)?'selected="selected"':''}}><a href="">{{$value}}</a></li>
+                    @elseif($Field['values_type']=='model' && is_int($key) )
+                        <li data-index="{{$value['id']}}"
+                        {{(\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])==$value['id'])?'selected="selected"':''}}><a href="">{{$value['title']}}</a></li>
+                    @endif
+                @endforeach
+            @endif
+        </ul>
     </div>
 </div>
 {{--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
