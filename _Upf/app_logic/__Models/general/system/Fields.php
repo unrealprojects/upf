@@ -50,7 +50,8 @@ class Fields extends General
             $Section = $SectionModel->Section;
 
             return $SectionModel->all();
-        }else{
+        }
+        else {
             return [];
         }
     }
@@ -62,6 +63,11 @@ class Fields extends General
 //      print_r($Filter);exit;
         /*** Get List ***/
         /*** With Meta ***/
+
+        if ($Search = \Input::get('search')) {
+
+        }
+
         if ($Meta) {
             $List = $this->WhereStatusesInMeta($this, $Filter)
                 ->with(
@@ -70,9 +76,11 @@ class Fields extends General
                     'meta.tags',
                     'meta.regions')
                 //  Hard Crutch
+                ->where($this->table . '.title', 'like', '%' . \Input::get('search') . '%')
                 ->leftJoin('system_meta', 'meta_id', '=', 'system_meta.id')
                 ->orderBy('created_at', 'DESC')
                 ->select($this->table . '.*')
+
                 ->paginate(isset($Filter['Pagination']) ? $Filter['Pagination']
                     : \Config::get('site\app_settings.Paginate.content'));
 
@@ -80,7 +88,9 @@ class Fields extends General
         }
         else {
             /*** Clear List ***/
-            $List = $this->orderBy('id', 'DESC')->paginate(isset($Filter['PageSize']) ? $Filter['PageSize'] : \Config::get('site\app_settings.Paginate.content'));
+            $List = $this->orderBy('id', 'DESC')
+                ->where('title', 'like', '%' . \Input::get('search') . '%')
+                ->paginate(isset($Filter['PageSize']) ? $Filter['PageSize'] : \Config::get('site\app_settings.Paginate.content'));
         }
 
         /*** Return Data ***/

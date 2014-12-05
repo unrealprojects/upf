@@ -5135,3 +5135,22 @@ li.Icon a span.Icon {
 .Check-Symbols-Title.Error, .Check-Symbols-Description.Error {
   color: red;
   text-decoration: underline; }
+
+.Search {
+  position: relative; }
+  .Search input {
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 13px;
+    padding: 15px 15px !important;
+    height: 100%; }
+  .Search .Icon {
+    position: absolute;
+    padding: 15px;
+    top: 0px;
+    cursor: pointer; }
+  .Search .Go {
+    right: 0px; }
+  .Search .Clear {
+    right: 30px; }

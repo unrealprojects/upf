@@ -278,3 +278,30 @@ li.Icon {
     color: red;
     text-decoration: underline;
 }
+
+
+
+.Search{
+    position: relative;
+
+    input{
+        width: 100%;
+        border-radius: 0px;
+        box-shadow: none;
+        font-size: 13px;
+        padding: 15px 15px !important;
+        height: 100%;
+    }
+    .Icon{
+        position: absolute;
+        padding:15px;
+        top: 0px;
+        cursor: pointer;
+    }
+    .Go{
+        right: 0px;
+    }
+    .Clear{
+        right: 30px;
+    }
+}

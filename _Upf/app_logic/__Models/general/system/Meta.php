@@ -254,7 +254,6 @@ class Meta extends Fields
 
     public function WhereStatusesInMeta($This, $Filters = [])
     {
-//
         $Filters = array_merge($Filters, $this->SetFilters());
         if ($This->table == 'system_meta') {
             // Exception
@@ -306,6 +305,8 @@ class Meta extends Fields
                     }
                 }
             });
+
+
         }
 
         /*** *** Filters To Catalog From Rent *** ***/

@@ -70,5 +70,11 @@
         </li>
 
     </ul>
+    <div class="Search">
+        <input name="search" type="text" placeholder="Поиск"/>
+        <span class="Icon Icon-close Clear"></span>
+        <span class="Icon Icon-search Go"></span>
+
+    </div>
 </aside>
 <div class="Menu-Shadow"></div>

@@ -9,7 +9,7 @@
                 <img id="Truck" src="/img/techonline/belaz.png" alt=""/>
                 <div id="Slider-Links">
                     <a class="Button Large" href="/rent">Арендовать стройтехнику</a>
-                    <a class="Button Large" href="/cabinet">Разместить стройтехнику</a>
+                    <a class="Button Large" href="/pages/instruction">Разместить стройтехнику</a>
                 </div>
             </div>
         </section>

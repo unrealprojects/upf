@@ -54,7 +54,7 @@ class Regions extends Migration
             ['Тег', 'title', 'text', 'Title', 'main', true, 'backend', $Table, 'edit'],
             ['Алиас', 'alias', 'text', 'Custom', 'main', false, 'backend', $Table, 'edit'],
             // Group :: Relations
-            ['Родитель', 'section', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'model', 'Categories'],
+            ['Родитель', 'parent_id', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'model', 'Regions'],
             ['Административное деление', 'administrative_unit', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'config', 'models/Fields.administrative_unit'],
             ['Тип региона', 'region_type', 'select', 'Custom', 'relations', true, 'backend', $Table, 'edit', 'config', 'models/Fields.region_type'],
             // Group :: Statuses
