@@ -407,18 +407,18 @@ $('#native_tags').click(function(){
 /*** Параметры ***/
 $("#Slider-Range-1").slider({
     range: true,
-    min: 100,
-    max: 50000,
-    values: [ searchArray['price-min']?searchArray['price-min']:100, searchArray['price-max']?searchArray['price-max']:50000 ],
+    min: 0,
+    max: 1000000,
+    values: [ searchArray['price-min']?searchArray['price-min']:0, searchArray['price-max']?searchArray['price-max']:1000000 ],
     slide: function( event, ui ) {
         $("#Slider-Range-Value-1").html(ui.values[ 0 ] + " - " + ui.values[ 1 ] +"  <span class='fa Icon-rub'></span>");
-        searchArray['price-min']=ui.values[ 0 ];
-        searchArray['price-max']= ui.values[ 1 ];
+        searchArray['price-min'] = ui.values[ 0 ];
+        searchArray['price-max'] = ui.values[ 1 ];
     }
 });
 
 $("#Slider-Range-Value-1").html(
-    $( "#Slider-Range-1").slider( "values", 0 ) + " - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" <span class='fa Icon-rub'></span>"
+    $( "#Slider-Range-1").slider( "values", 0 ) + " - " + $( "#Slider-Range-1" ).slider( "values", 1 ) +" <span class='Icon Icon-rub'></span>"
 );
 
 @if(!empty($Content['Filters']['params']))

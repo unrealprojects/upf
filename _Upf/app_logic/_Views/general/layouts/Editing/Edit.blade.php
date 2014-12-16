@@ -189,6 +189,7 @@
     <div class='Input-Select Node-XXS-9'>
         <input type="text" placeholder="Поиск"/>
         <input type="hidden" name="{{$Field['relation']}}" value="{{\UpfHelpers\View::RelationToArray($Content['Item'],$Field['relation'])}}" id="field_{{$Field['relation']}}" />
+        {{--<span class="Input-Select-Search Icon Icon-search"></span>--}}
         <span class="Input-Select-Clean Icon Icon-close"></span>
         <span class="Input-Select-Toggle Icon Icon-chevron-down"></span>
 

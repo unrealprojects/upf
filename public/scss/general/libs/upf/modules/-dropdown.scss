@@ -5,235 +5,205 @@
 // Modificators
 // .Invert		makes text white and background darker
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-.Dropdown
-{
-	position: relative;
-	display: inline-block;
-	@extend %Clearfix;
-	@include Transitions(#{border-radius .6s,box-shadow .6s});
+.Dropdown {
+    position: relative;
+    display: inline-block;
+    @extend %Clearfix;
+    @include Transitions(#{border-radius .6s,box-shadow .6s});
 
-	&.Collapsed:hover
-	{
-		background-color: $C-Grey-5;
-		border-color: $C-Grey-4;
-		color: $C-Grey-1;
-	}
-	.Dropdown-Title
-	{
-		float: left;
-		width: 100%;
-		@extend %Clickable;
-		.Icon
-		{
-			margin-right: $size-s;
-		}
-	}
-	&.Expanded,
-	&.Expanded:hover
-	{
-		border-bottom: 0;
-		background-color: $C-Grey-5;
-		border-color: $C-Grey-4;
-		color: $C-Grey-2;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-		@include Round(top, $Control-Border-Radius);
-	}
-	.Dropdown-Toggle
-	{
-		float: right;
-		margin-left: $size-l;
-	}
-	.Dropdown-Toggle:hover
-	{
-		background-color: $Control-Bg-Color-Hover;
-	}
-	.Dropdown-Content
-	{
-		display: none;
-		position: absolute;
-		top: $Control-Height - 1px;
-		left: -1px;
-		right: -1px;
-		border: $Control-Border-Width $Control-Border-Color solid;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-		background-color: white;
-		z-index: 100;
-		@include Round(bottom, $Control-Border-Radius);
+    &.Collapsed:hover {
+        background-color: $C-Grey-5;
+        border-color: $C-Grey-4;
+        color: $C-Grey-1;
+    }
+    .Dropdown-Title {
+        float: left;
+        width: 100%;
+        @extend %Clickable;
+        .Icon {
+            margin-right: $size-s;
+        }
+    }
+    &.Expanded,
+    &.Expanded:hover {
+        border-bottom: 0;
+        background-color: $C-Grey-5;
+        border-color: $C-Grey-4;
+        color: $C-Grey-2;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        @include Round(top, $Control-Border-Radius);
+    }
+    .Dropdown-Toggle {
+        float: right;
+        margin-left: $size-l;
+    }
+    .Dropdown-Toggle:hover {
+        background-color: $Control-Bg-Color-Hover;
+    }
+    .Dropdown-Content {
+        display: none;
+        position: absolute;
+        top: $Control-Height - 1px;
+        left: -1px;
+        right: -1px;
+        border: $Control-Border-Width $Control-Border-Color solid;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        background-color: white;
+        z-index: 100;
+        @include Round(bottom, $Control-Border-Radius);
 
-		@extend %Unstyle;
-		li
-		{
-			width: 100%;
-			text-align: left;
-			a
-			{
-				display: block;
-				padding: $Control-Padding;
-				color: $C-Grey-1;
-				&:hover
-				{
-					background-color: $Clr-Main;
-					color: $C-Grey-6;
-				}
-				span.Icon
-				{
-					margin-right: $size-s;
-				}
-			}
-			&.Divide
-			{
-				border-top: $C-Grey-4 1px solid;
-			}
-			&:last-child a
-			{
-				@include Round(bottom, $Control-Border-Radius);
-			}
+        @extend %Unstyle;
+        li {
+            width: 100%;
+            text-align: left;
+            a {
+                display: block;
+                padding: $Control-Padding;
+                color: $C-Grey-1;
+                &:hover {
+                    background-color: $Clr-Main;
+                    color: $C-Grey-6;
+                }
+                span.Icon {
+                    margin-right: $size-s;
+                }
+            }
+            &.Divide {
+                border-top: $C-Grey-4 1px solid;
+            }
+            &:last-child a {
+                @include Round(bottom, $Control-Border-Radius);
+            }
 
-		}
-	}
-	&.Ghost
-	{
-		border: 0;
-		border-radius: 0;
-		&:hover
-		{
-			border: 0;
-		}
-	}
-	&.Invert
-	{
-		background-color: $C-Grey-2;
-		border-color: $C-Grey-2;
-		color: $C-Grey-6;
-		&:hover
-		{
-			background-color: $C-Grey-2;
-			border-color: $C-Grey-2;
-			color: $C-Grey-6;
+        }
+    }
+    &.Ghost {
+        border: 0;
+        border-radius: 0;
+        &:hover {
+            border: 0;
+        }
+    }
+    &.Invert {
+        background-color: $C-Grey-2;
+        border-color: $C-Grey-2;
+        color: $C-Grey-6;
+        &:hover {
+            background-color: $C-Grey-2;
+            border-color: $C-Grey-2;
+            color: $C-Grey-6;
 
-		}
-		&.Collapsed:hover
-		{
-		}
-		&.Expanded,
-		&.Expanded:hover
-		{
-			background-color: $C-Grey-2;
-			border-color: $C-Grey-2;
-			color: $C-Grey-6;
-		}
-		.Dropdown-Content
-		{
-			border-color: $C-Grey-1;
-			border-top-color: $C-Grey-4;
-			background-color: $C-Grey-2;
-			li
-			{
-				a
-				{
-					padding: $Control-Padding;
-					color: $C-Grey-6;
-					&:hover
-					{
-						background-color: $C-Grey-6;
-						color: $C-Grey-1;
-					}
-					span.Icon
-					{
-						margin-right: $size-s;
-					}
-				}
-				&.Divide
-				{
-					border-top: $C-Grey-4 1px solid;
-				}
-				&:last-child a
-				{
-					@include Round(bottom, $Control-Border-Radius);
-				}
+        }
+        &.Collapsed:hover {
+        }
+        &.Expanded,
+        &.Expanded:hover {
+            background-color: $C-Grey-2;
+            border-color: $C-Grey-2;
+            color: $C-Grey-6;
+        }
+        .Dropdown-Content {
+            border-color: $C-Grey-1;
+            border-top-color: $C-Grey-4;
+            background-color: $C-Grey-2;
+            li {
+                a {
+                    padding: $Control-Padding;
+                    color: $C-Grey-6;
+                    &:hover {
+                        background-color: $C-Grey-6;
+                        color: $C-Grey-1;
+                    }
+                    span.Icon {
+                        margin-right: $size-s;
+                    }
+                }
+                &.Divide {
+                    border-top: $C-Grey-4 1px solid;
+                }
+                &:last-child a {
+                    @include Round(bottom, $Control-Border-Radius);
+                }
 
-			}
-		}
-	}
+            }
+        }
+    }
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // PROTOTYPES
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-%Dropdown-Shadow
-{
-    box-shadow: 					0 0 3px rgba(0, 0, 0, 0.3);
+%Dropdown-Shadow {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-%Dropdown-Icon
-{
-    &:before
-    {
-        width:						$Size-Default;
-        padding-right:				$Size-Small;
+%Dropdown-Icon {
+    &:before {
+        width: $Size-Default;
+        padding-right: $Size-Small;
     }
 }
-%Dropdown-Prototype
-{
+
+%Dropdown-Prototype {
     margin-top: 0px;
     border: 1px;
-    display: 						none;
-    position: 						absolute;
-    top:							$Control-Height;
-    overflow: 						hidden;
-    width:							100%;
-    z-index: 						10;
+    display: none;
+    position: absolute;
+    top: $Control-Height;
+    overflow: hidden;
+    width: 100%;
+    z-index: 10;
 
     border: 1px solid #bbb;
 
-    border-top:						0;
-    background-color: 				#f2f2f2;
+    border-top: 0;
+    background-color: #f2f2f2;
     border-radius: 0 0 4px 4px;
 
-    li
-    {
+    li {
         a,
-        & > label
-        {
-            display: 				block;
-            padding: 				5px 5px;
+        & > label {
+            display: block;
+            padding: 5px 5px;
 
-            color:					black;
+            color: black;
 
-            &:hover
-            {
-                background-color:   #00a4c6;
-                color:				white;
+            &:hover {
+                background-color: #00a4c6;
+                color: white;
             }
         }
-        a.Icon
-        {
-            @extend 					%Dropdown-Icon;
+        a.Icon {
+            @extend %Dropdown-Icon;
         }
     }
-    li.Divide
-    {
-        border-top:					 1px solid #bbb;
+    li.Divide {
+        border-top: 1px solid #bbb;
     }
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // INPUT SELECT
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-.Input-Select
-{
-    position: 						relative;
+.Input-Select {
+    position: relative;
 
-
-    .Input-Select-Clean
-    {
+    .Input-Select-Search {
+        position: absolute;
+        right: 50px;
+        top: 0px;
+        margin-top: 0.4rem;
+        line-height: 14px;
+        cursor: pointer;
+        margin-top: 0.4rem;
+        line-height: 17px;
+        font-size: 18px;
+    }
+    .Input-Select-Clean {
         position: absolute;
         right: 30px;
         top: 0px;
@@ -241,7 +211,7 @@
         line-height: 14px;
     }
 
-    .Input-Select-Toggle{
+    .Input-Select-Toggle {
         position: absolute;
         right: 10px;
         top: 0px;
@@ -249,29 +219,23 @@
         margin-top: 0.4rem;
     }
 
-    &.Expanded
-    {
-        .   Input-Select-Content
-        {
-            display: 				block;
+    &.Expanded {
+        .   Input-Select-Content {
+            display: block;
         }
     }
 
-    &.Collapsed
-    {
-        .Input-Select-Content
-        {
-            display: 				none;
+    &.Collapsed {
+        .Input-Select-Content {
+            display: none;
         }
     }
 
-    .Input-Select-Content
-    {
-        @extend 						%Dropdown-Prototype;
+    .Input-Select-Content {
+        @extend %Dropdown-Prototype;
         max-height: 300px;
         overflow-y: auto;
     }
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

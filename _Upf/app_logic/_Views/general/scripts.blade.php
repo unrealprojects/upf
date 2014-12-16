@@ -11,6 +11,9 @@
 
 <script src="/js/general/libs/jquery.fancybox.js" type="text/javascript"></script>
 
+
+<script src="//cdn.ckeditor.com/4.4.6/full/ckeditor.js"></script>
+
 <script src="/js/general/standard.js" type="text/javascript"></script>
 
 
@@ -21,6 +24,7 @@
 
 <!-- Ufp CMS -->
 <script src="/js/backend/actions.js" type="text/javascript"></script>
+
 
 
 

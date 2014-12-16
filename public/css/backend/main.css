@@ -3097,6 +3097,16 @@ body {
 
 .Input-Select {
   position: relative; }
+  .Input-Select .Input-Select-Search {
+    position: absolute;
+    right: 50px;
+    top: 0px;
+    margin-top: 0.4rem;
+    line-height: 14px;
+    cursor: pointer;
+    margin-top: 0.4rem;
+    line-height: 17px;
+    font-size: 18px; }
   .Input-Select .Input-Select-Clean {
     position: absolute;
     right: 30px;

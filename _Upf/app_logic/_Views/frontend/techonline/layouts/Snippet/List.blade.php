@@ -52,15 +52,10 @@
 
 
                                 {{-- Group :: Statuses --}}
-
-
-
-
-
                                     @if( isset($Item['price']))
                                         <div class="Item-Price Node-XS-2">
                                             <span>{{$Item['price']}}</span>
-                                            <span class="Icon Icon-rub"></span>
+                                            <span class="Icon Icon-rub"></span>@if($Upf['Page']['Section']=='rent')/час.@endif
                                         </div>
                                     @endif
 

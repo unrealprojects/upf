@@ -32,10 +32,10 @@ class Fields extends General
             $Model = new $Model();
             /*** For Filters with Section  ***/
             if (($Values == 'Categories' || $Values == 'Tags') && $Section) {
-                return $Model->where('section', $Section)->get();
+                return $Model->where('section', $Section)->take(1000)->get();
             }
             else {
-                return $Model->all();
+                return $Model->take(10000)->get();
             }
 
             /*** Values From Config ***/

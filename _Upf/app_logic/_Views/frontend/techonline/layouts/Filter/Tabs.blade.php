@@ -128,7 +128,7 @@
             <form class="Form-Vertical Grid Split" action="">
 
                 @if(isset($Content['Filters']['tags']) && $HasFilters['Tags'] )
-                    <div class='Input-Select'>
+                    <div class='Input-Select' style="margin-bottom: 10px;">
                         <input type="text" placeholder="Поиск по тегам"/>
                         <input type="hidden" name="tags" value="" id="field_tag" />
                         <span class="Input-Select-Clean Icon Icon-close"></span>

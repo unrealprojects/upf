@@ -80,18 +80,27 @@
 
 <div class="Control-Group">
     <label class='Node-XXS-3' for="field_{{$Field['relation']}}">{{$Field['title']}}</label>
-    <select class='Node-XXS-9' name="{{$Field['relation']}}" id="field_{{$Field['relation']}}">
-        <option value="0">Нет</option>
-        @foreach($Model::GetFieldValues($Field['values'],$Field['values_type'],$Model) as $key => $value)
-        @if($Field['values_type']=='config' && ( is_int($key) || $Field['relation']=='section' ) )
-        <option value="{{$key}}">{{$value}}</option>
-        @elseif($Field['values_type']=='model' && is_int($key) )
-        <option value="{{$value['id']}}">{{$value['title']}}</option>
-        @endif
-        @endforeach
-    </select>
-</div>
+    <div class='Input-Select Node-XXS-9'>
+        <input type="text" placeholder="Поиск"/>
+        <input type="hidden" name="{{$Field['relation']}}" value="" id="field_{{$Field['relation']}}" />
+        {{--<span class="Input-Select-Search Icon Icon-search"></span>--}}
+        <span class="Input-Select-Clean Icon Icon-close"></span>
+        <span class="Input-Select-Toggle Icon Icon-chevron-down"></span>
 
+        <ul class="Input-Select-Content">
+            <li data-index="0"><a href="">Нет</a></li>
+            @if($Input_Select_Data = $Model::GetFieldValues($Field['values'],$Field['values_type'],$Model))
+                @foreach($Input_Select_Data as $key => $value)
+                    @if($Field['values_type']=='config' && ( is_int($key) || $Field['relation']=='section' ) )
+                        <li data-index="{{$key}}"><a href="">{{$value}}</a></li>
+                    @elseif($Field['values_type']=='model' && is_int($key) )
+                        <li data-index="{{$value['id']}}"><a href="">{{$value['title']}}</a></li>
+                    @endif
+                @endforeach
+            @endif
+        </ul>
+    </div>
+</div>
 {{--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
 
 

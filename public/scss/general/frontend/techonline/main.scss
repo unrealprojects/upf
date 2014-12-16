@@ -894,11 +894,16 @@ ul.Item-Edit {
     top: 5px;
 }
 
-.Input-Select {
+.Tabs .Input-Select {
     margin-top: 20px;
     margin-right: 0px !important;
 }
 
 .Input-Select .Input-Select-Content{
     top: 38px;
+}
+
+.Control-Group .cke_textarea_inline {
+    width: 75%;
+    overflow: hidden;
 }

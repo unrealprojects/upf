@@ -1,5 +1,20 @@
 window.upf = {};
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// URL Segments
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var Segments = location.pathname.split('/').filter(String);
+for (var Key = 0; Key < 8; Key++)
+{
+    if (Segments[Key] === undefined)
+    {
+        Segments[Key] = false;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 /*** Backend ***/
@@ -15,13 +30,21 @@ window.upf.Box = {};
 window.upf.Messages = {};
 
 /*** Box :: Delete ***/
-upf.Box.Delete = function(){
+upf.Box.Delete = function ()
+{
     // Default Variables
     var DeleteButton = '.Box-Delete',
         Box = '.Box';
 
-    $(document).on('click',DeleteButton,function(){
-        $(this).parents(Box).stop(true,true).animate({'width':'0px','height':'0px','opacity':'0','margin':'0px'},function(){
+    $(document).on('click', DeleteButton, function ()
+    {
+        $(this).parents(Box).stop(true, true).animate({
+            'width':   '0px',
+            'height':  '0px',
+            'opacity': '0',
+            'margin':  '0px'
+        }, function ()
+        {
             $(this).remove();
         });
 
@@ -29,39 +52,45 @@ upf.Box.Delete = function(){
     });
 }
 /*** Box :: Hide ***/
-upf.Box.Hide = function(){
+upf.Box.Hide = function ()
+{
     // Default Variables
     var HideButton = '.Box-Hide',
         Box = '.Box';
     //
-    $(document).on('click',HideButton,function(){
-        $(this).parents(Box).animate({'width':'0px','height':'0px','opacity':'0','margin':'0px'});
+    $(document).on('click', HideButton, function ()
+    {
+        $(this).parents(Box).animate({'width': '0px', 'height': '0px', 'opacity': '0', 'margin': '0px'});
         return false;
     });
 }
 /*** Box :: Drop-Down ***/
-upf.Box.DropDown = function(){
+upf.Box.DropDown = function ()
+{
     // Default Variables
     var DropDownButton = '.Box-Drop-Down',
         Box = '.Box',
         BoxContent = '.Box-Content';
 
-    $(document).on('click',DropDownButton,function(){
+    $(document).on('click', DropDownButton, function ()
+    {
         $(this).parents(Box).find(BoxContent).slideToggle();
         return false;
     });
 }
 
 /*** Messages :: Show ***/
-upf.Messages.Show = function (message,type){
-    if(type===undefined){
-        type='Success';
+upf.Messages.Show = function (message, type)
+{
+    if (type === undefined)
+    {
+        type = 'Success';
     }
     var title = {
-        'Success':'Успешно!',
-        'Error':'Ошибка!',
-        'Warning':'Предупреждение!',
-        'Info':'Сообщение!'
+        'Success': 'Успешно!',
+        'Error':   'Ошибка!',
+        'Warning': 'Предупреждение!',
+        'Info':    'Сообщение!'
 
     };
     // Default Variables
@@ -71,16 +100,16 @@ upf.Messages.Show = function (message,type){
     $(Message).remove();
 
     // Show New Message
-    $('body').append('<article class="Box Message '+type+'">'
-                        +'<header>'
-                            +'<h4 class="Box-Title">'+title[type]+'</h4>'
-                            +'<ul class="Box-Tools">'
-                                +'<li><a class="Box-Drop-Down" href="#"><span class="Icon Icon-chevron-down"></span></a></li>'
-                                +'<li><a class="Box-Delete" href="#"><span class="Icon Icon-close"></span></a></li>'
-                            +'</ul>'
-                        +'</header>'
-                        +'<div class="Box-Content">'+ message +'</div>'
-                    +'</article>');
+    $('body').append('<article class="Box Message ' + type + '">'
+    + '<header>'
+    + '<h4 class="Box-Title">' + title[type] + '</h4>'
+    + '<ul class="Box-Tools">'
+    + '<li><a class="Box-Drop-Down" href="#"><span class="Icon Icon-chevron-down"></span></a></li>'
+    + '<li><a class="Box-Delete" href="#"><span class="Icon Icon-close"></span></a></li>'
+    + '</ul>'
+    + '</header>'
+    + '<div class="Box-Content">' + message + '</div>'
+    + '</article>');
     $(Message).fadeIn(1000).delay(10000).fadeOut(2000);
 }
 
@@ -90,3 +119,25 @@ upf.Box.Hide();
 upf.Box.DropDown();
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Editor
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    CKEDITOR.disableAutoInline = true;
+    if ($('#field_text').length)
+    {
+        var CK_Field_Text = CKEDITOR.inline('field_text');
+    }
+    if ($('#field_intro').length)
+    {
+        var CK_Field_Intro = CKEDITOR.inline('field_intro');
+    }
+    if ($('#field_about').length)
+    {
+        var CK_Field_About = CKEDITOR.inline('field_about');
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

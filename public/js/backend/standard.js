@@ -34,7 +34,7 @@ upf.Menu.Accordion = function ()
         }
         return false;
     });
-}
+};
 
 /*** Toggle Menu ***/
 upf.Menu.ToggleMenu = function ()
@@ -62,14 +62,15 @@ upf.Menu.ToggleMenu = function ()
         }
         return false;
     });
-}
+};
 
 /*** Active Item ***/
 upf.Menu.ActiveItem = function ()
 {
     // Default Variables
     var Active = 'Active',
-        Link = location.pathname;
+        Link = '/' + Segments.slice(0,3).join('/');
+    console.log(Link);
 
     $('a').removeClass(Active);
     $('a[href="' + Link + '"]').addClass(Active);
@@ -132,24 +133,6 @@ $(document).ready(function ()
     /*** List ***/
     upf.List.CheckAll();
 });
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Editor
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-CKEDITOR.disableAutoInline = true;
-if($('#field_text').length){
-    var CK_Field_Text = CKEDITOR.inline('field_text');
-}
-if($('#field_intro').length){
-    var CK_Field_Intro = CKEDITOR.inline('field_intro');
-}
-if($('#field_about').length){
-    var CK_Field_About = CKEDITOR.inline('field_about');
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
