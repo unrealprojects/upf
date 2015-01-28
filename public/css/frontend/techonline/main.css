@@ -4183,3 +4183,9 @@ ul.Item-Edit {
 .Control-Group .cke_textarea_inline {
   width: 75%;
   overflow: hidden; }
+
+.Yandex-Informer {
+  position: relative;
+  top: 10px;
+  margin-left: 15px;
+  display: inline-block; }

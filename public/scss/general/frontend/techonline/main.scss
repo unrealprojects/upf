@@ -2,17 +2,18 @@
 @import "-variables";
 @import "../../../general/libs/upf/upf";
 
-$Clr-Main: $Clr-Alizarin;
-$Clr-Main-Dark: $Clr-Pamegranate;
-$Clr-Secondary: $Clr-Clouds;
-$Clr-Secondary-Dark: $Clr-Silver;
-$Clr-Secondary-Darker: $Clr-Concrete;
+$Clr-Main : $Clr-Alizarin;
+$Clr-Main-Dark : $Clr-Pamegranate;
+$Clr-Secondary : $Clr-Clouds;
+$Clr-Secondary-Dark : $Clr-Silver;
+$Clr-Secondary-Darker : $Clr-Concrete;
 
-body {
-    min-width: 320px;
-    background-color: $Clr-Secondary;
-    font-family: 'Exo 2', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.45;
+body
+{
+    min-width        : 320px;
+    background-color : $Clr-Secondary;
+    font-family      : 'Exo 2', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height      : 1.45;
 
     @include Animation(FadeIn, 0.6s);
 }
@@ -20,142 +21,176 @@ body {
 // PAGE HEADER
 @import "-header";
 
-.Autocomplete {
-    width: 100%;
-    padding: $size-s $size;
+.Autocomplete
+{
+    width   : 100%;
+    padding : $size-s $size;
 }
 
-#Page-Slider {
+#Page-Slider
+{
     //	@include Transition(SlideDown, .5s);
-    height: 0;
+    height : 0;
 }
 
-.Sidebar-Filter {
-    a.Active {
+.Sidebar-Filter
+{
+    a.Active
+    {
 
-        color: white;
-        background-color: $Clr-Grey-Darker;
+        color            : white;
+        background-color : $Clr-Grey-Darker;
     }
-    & > h4 {
-        font-size: 20px;
-        font-weight: 100;
-        margin-top: $size;
-        padding: $size-xs $size-s;
-        background: $Clr-Grey-Darker;
-        color: white;
+    & > h4
+    {
+        font-size   : 20px;
+        font-weight : 100;
+        margin-top  : $size;
+        padding     : $size-xs $size-s;
+        background  : $Clr-Grey-Darker;
+        color       : white;
 
-        &:first-child {
-            margin-top: 0;
+        &:first-child
+        {
+            margin-top : 0;
         }
     }
-    & > ul {
-        font-family: $Font-Family-Calibri;
-        & > li {
-            border-top: 1px solid white;
-            & > a {
-                display: block;
-                padding: $size-xs $size-s;
-                font-size: 13px;
-                font-weight: 900;
-                color: black;
-                background-color: $Clr-Grey-Lighter;
-                &:hover {
-                    background-color: $Clr-Grey;
+    & > ul
+    {
+        font-family : $Font-Family-Calibri;
+        & > li
+        {
+            border-top : 1px solid white;
+            & > a
+            {
+                display          : block;
+                padding          : $size-xs $size-s;
+                font-size        : 13px;
+                font-weight      : 900;
+                color            : black;
+                background-color : $Clr-Grey-Lighter;
+                &:hover
+                {
+                    background-color : $Clr-Grey;
                 }
             }
-            &:first-child a {
-                border: 0;
+            &:first-child a
+            {
+                border : 0;
             }
         }
     }
 }
 
 // Список категорий
-.List-Categories {
+.List-Categories
+{
     @extend %Clearfix;
-    li {
-        padding: $size-s 0;
+    li
+    {
+        padding : $size-s 0;
         @extend %Clearfix;
-        a {
-            font-size: $Font-Size-Small;
-            display: inline-block;
+        a
+        {
+            font-size : $Font-Size-Small;
+            display   : inline-block;
             @extend %Capitalize;
         }
     }
-    &.Icons {
-        a {
-            padding: $size-s;
-            width: 100%;
-            @include Adaptive($Viewport-XS) {
-                text-align: center;
+    &.Icons
+    {
+        a
+        {
+            padding : $size-s;
+            width   : 100%;
+            @include Adaptive($Viewport-XS)
+            {
+                text-align : center;
             }
-            border: 1px solid transparent;
-            &:hover {
-                border-color: $Clr-Main;
+            border  : 1px solid transparent;
+            &:hover
+            {
+                border-color : $Clr-Main;
             }
         }
-        img {
-            border: 1px solid transparent;
-            vertical-align: middle;
-            display: none;
-            @include Adaptive($Viewport-XS) {
-                display: block;
+        img
+        {
+            border         : 1px solid transparent;
+            vertical-align : middle;
+            display        : none;
+            @include Adaptive($Viewport-XS)
+            {
+                display : block;
             }
-            height: 100px;
-            margin: 0 auto $size-s;
+            height         : 100px;
+            margin         : 0 auto $size-s;
         }
 
     }
-    &.Brands {
-        img {
-            width: 50px;
+    &.Brands
+    {
+        img
+        {
+            width : 50px;
         }
     }
 }
 
 // Site Footer Block
-footer[role='contentinfo'] {
-    position: relative;
-    height: $Page-Footer-Height;
-    background: white;
-    border-top: 1px solid #e1e1e1;
-    & > div {
-        padding: $size $size-n 0;
-        @include Adaptive($Viewport-SM) {
-            padding: $size-l 0;
+footer[role='contentinfo']
+{
+    position   : relative;
+    height     : $Page-Footer-Height;
+    background : white;
+    border-top : 1px solid #e1e1e1;
+    & > div
+    {
+        padding : $size $size-n 0;
+        @include Adaptive($Viewport-SM)
+        {
+            padding : $size-l 0;
         }
         @extend %Clearfix;
         @extend %Centrate;
         @extend ._Section-Inner;
-        .Copyright {
+        .Copyright
+        {
         }
-        .Footer-Navigation {
+        .Footer-Navigation
+        {
             /*@extend %_Right;*/
-            display: inline-block;
+            display    : inline-block;
 
-            margin-top: $size-n;
-            @include Adaptive($Viewport-SM) {
-                margin-top: 0;
+            margin-top : $size-n;
+            @include Adaptive($Viewport-SM)
+            {
+                margin-top : 0;
             }
-            ul {
-                @include Adaptive($Viewport-SM) {
-                    float: right;
+            ul
+            {
+                @include Adaptive($Viewport-SM)
+                {
+                    float : right;
                 }
                 @extend %Unstyle;
                 @extend ._Inline;
-                li {
-                    margin-right: $size;
-                    a {
-                        color: black;
-                        padding-bottom: $size-xs;
-                        border-bottom: 2px solid transparent;
-                        &:hover {
-                            color: $Clr-Main;
-                            border-color: $Clr-Main;
+                li
+                {
+                    margin-right : $size;
+                    a
+                    {
+                        color          : black;
+                        padding-bottom : $size-xs;
+                        border-bottom  : 2px solid transparent;
+                        &:hover
+                        {
+                            color        : $Clr-Main;
+                            border-color : $Clr-Main;
                         }
                     }
-                    &:first-child {
-                        margin-left: 0;
+                    &:first-child
+                    {
+                        margin-left : 0;
                     }
                 }
             }
@@ -163,201 +198,242 @@ footer[role='contentinfo'] {
     }
 }
 
-img.Footer-Img {
-    display: none;
-    position: absolute;
-    bottom: $Page-Footer-Height/2;
-    right: $size;
-    width: 200px;
+img.Footer-Img
+{
+    display  : none;
+    position : absolute;
+    bottom   : $Page-Footer-Height/2;
+    right    : $size;
+    width    : 200px;
     @extend ._Unselectable;
 }
 
-.Filter-Regions {
-    li {
-        a {
-            display: block;
-            padding: $size-xs 0
+.Filter-Regions
+{
+    li
+    {
+        a
+        {
+            display : block;
+            padding : $size-xs 0
         }
     }
 }
 
-.Filter-Categories {
-    li {
-        a {
-            display: block;
-            padding: $size-s 0;
+.Filter-Categories
+{
+    li
+    {
+        a
+        {
+            display : block;
+            padding : $size-s 0;
         }
     }
 }
 
-.Item-Subtitle {
-    display: block;
-    clear: both;
-    font-size: 11px;
-    font-family: $Font-Family-Open-Sans;
-    color: $C-Grey-3;
+.Item-Subtitle
+{
+    display     : block;
+    clear       : both;
+    font-size   : 11px;
+    font-family : $Font-Family-Open-Sans;
+    color       : $C-Grey-3;
 }
 
 // Only for LIST of Snippets
-.Snippet-List {
+.Snippet-List
+{
     @extend %Unstyle;
 
-    .Snippet-Item {
+    .Snippet-Item
+    {
         @extend .Merge;
 
-        header {
-            position: relative;
-            background-color: $C-Grey-6;
+        header
+        {
+            position         : relative;
+            background-color : $C-Grey-6;
             .Item-Category,
-            .Item-Location {
-                padding: 0;
+            .Item-Location
+            {
+                padding : 0;
             }
         }
-        footer {
-            padding: $size-n 0;
-            @include Adaptive($Viewport-SM) {
-                padding: $size-n $size-n $size-n;
+        footer
+        {
+            padding : $size-n 0;
+            @include Adaptive($Viewport-SM)
+            {
+                padding : $size-n $size-n $size-n;
             }
-            width: 100%;
-            clear: both;
+            width   : 100%;
+            clear   : both;
             @extend %Clearfix;
         }
-        & + .Snippet-Item {
-            margin-top: $size-n;
+        & + .Snippet-Item
+        {
+            margin-top : $size-n;
         }
 
     }
-    .Item-Gallery {
+    .Item-Gallery
+    {
         @extend %Clearfix;
-        padding-bottom: 10px;
-        & > img {
-            width: 100%;
+        padding-bottom : 10px;
+        & > img
+        {
+            width : 100%;
         }
     }
-    .Item-Content {
-        margin-top: $size-n;
+    .Item-Content
+    {
+        margin-top : $size-n;
     }
-    &.Grid {
-        .Snippet-Item {
-            margin-top: 15px;
-            header.Grid {
-                margin-right: 0;
+    &.Grid
+    {
+        .Snippet-Item
+        {
+            margin-top : 15px;
+            header.Grid
+            {
+                margin-right : 0;
             }
         }
     }
 }
 
-$Snippet-Header-Height: 50px;
+$Snippet-Header-Height : 50px;
 
-$Snippet-Header-Tall-Font-Size: 20px;
-$Snippet-Header-Small-Font-Size: 14px;
-$Snippet-Header-Small-Border-Width: 1px;
+$Snippet-Header-Tall-Font-Size : 20px;
+$Snippet-Header-Small-Font-Size : 14px;
+$Snippet-Header-Small-Border-Width : 1px;
 
-$Snippet-Header-Tall-Padding: ($Snippet-Header-Height - $Snippet-Header-Tall-Font-Size) / 4;
-$Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-Font-Size) / 4;
+$Snippet-Header-Tall-Padding : ($Snippet-Header-Height - $Snippet-Header-Tall-Font-Size) / 4;
+$Snippet-Header-Small-Padding : ($Snippet-Header-Height - $Snippet-Header-Small-Font-Size) / 4;
 
-%Tall-Prototype {
-    border: 0;
+%Tall-Prototype
+{
+    border         : 0;
 
-    padding-top: $Snippet-Header-Tall-Padding;
-    padding-bottom: $Snippet-Header-Tall-Padding;
-    margin-top: $Snippet-Header-Tall-Padding;
-    margin-bottom: $Snippet-Header-Tall-Padding;
+    padding-top    : $Snippet-Header-Tall-Padding;
+    padding-bottom : $Snippet-Header-Tall-Padding;
+    margin-top     : $Snippet-Header-Tall-Padding;
+    margin-bottom  : $Snippet-Header-Tall-Padding;
 
-    font-size: $Snippet-Header-Tall-Font-Size;
-    line-height: $Snippet-Header-Tall-Font-Size;
-
-}
-
-%Small-Prototype {
-    border: 1px solid transparent;
-    margin-top: $Snippet-Header-Small-Padding;
-    margin-bottom: $Snippet-Header-Small-Padding;
-    padding-top: $Snippet-Header-Small-Padding;
-    padding-bottom: $Snippet-Header-Small-Padding;
-
-    font-size: $Snippet-Header-Small-Font-Size;
-    line-height: $Snippet-Header-Small-Font-Size;
+    font-size      : $Snippet-Header-Tall-Font-Size;
+    line-height    : $Snippet-Header-Tall-Font-Size;
 
 }
 
-.Snippet-Item {
-    @include Adaptive($Viewport-SM) {
-        border: 1px solid $C-Grey-5;
+%Small-Prototype
+{
+    border         : 1px solid transparent;
+    margin-top     : $Snippet-Header-Small-Padding;
+    margin-bottom  : $Snippet-Header-Small-Padding;
+    padding-top    : $Snippet-Header-Small-Padding;
+    padding-bottom : $Snippet-Header-Small-Padding;
+
+    font-size      : $Snippet-Header-Small-Font-Size;
+    line-height    : $Snippet-Header-Small-Font-Size;
+
+}
+
+.Snippet-Item
+{
+    @include Adaptive($Viewport-SM)
+    {
+        border : 1px solid $C-Grey-5;
     }
     @extend %Clearfix;
     //	@extend .Row;
-    header {
-        width: 100%;
-        margin-bottom: $size-n;
+    header
+    {
+        width         : 100%;
+        margin-bottom : $size-n;
         @extend %Clearfix;
-        .Item-Title {
-            padding-left: $size-n;
+        .Item-Title
+        {
+            padding-left : $size-n;
             @extend %Capitalize;
             @extend %Tall-Prototype;
-            a {
-                color: $Clr-Text-Main;
-                &:hover {
-                    color: $Clr-Main;
+            a
+            {
+                color : $Clr-Text-Main;
+                &:hover
+                {
+                    color : $Clr-Main;
                 }
             }
         }
-        .Item-Price {
-            background-color: $Clr-Main;
-            border-radius: $Control-Border-Radius;
-            text-align: center;
-            color: white;
+        .Item-Price
+        {
+            background-color : $Clr-Main;
+            border-radius    : $Control-Border-Radius;
+            text-align       : center;
+            color            : white;
             @extend %Small-Prototype;
 
-            .Icon {
-                font-size: 12px;
+            .Icon
+            {
+                font-size : 12px;
             }
         }
-        .Item-Views {
+        .Item-Views
+        {
             @extend ._Unselectable;
             @extend %Small-Prototype;
-            span.fa {
-                margin-right: $size-s;
-                color: $C-Grey-3;
+            span.fa
+            {
+                margin-right : $size-s;
+                color        : $C-Grey-3;
             }
         }
-        .Item-Vote {
+        .Item-Vote
+        {
             @extend %Tall-Prototype;
             @extend ._Inline;
             @extend %Unstyle;
-            padding: 0;
-            padding-right: $size-n;
+            padding       : 0;
+            padding-right : $size-n;
         }
 
     }
-    .Item-Gallery {
-        padding-left: 0;
-        @include Adaptive($Viewport-SM) {
-            padding-left: $size-n;
+    .Item-Gallery
+    {
+        padding-left : 0;
+        @include Adaptive($Viewport-SM)
+        {
+            padding-left : $size-n;
         }
         @extend %Clearfix;
 
-        img.Item-Main-Photo {
+        img.Item-Main-Photo
+        {
             /*border: 5px solid $Clr-Secondary;*/
             @extend ._Fit-Row;
             @extend ._Highlight;
         }
 
-        ul {
+        ul
+        {
             @extend %Unstyle;
             @extend ._Inline;
 
-            li {
-                margin-top: -6px;
-                width: 33.33%;
+            li
+            {
+                margin-top : -6px;
+                width      : 33.33%;
 
-                &:first-child {
-                    margin-left: 0;
+                &:first-child
+                {
+                    margin-left : 0;
                 }
 
-                img {
-                    display: block;
-                    width: 100%;
+                img
+                {
+                    display : block;
+                    width   : 100%;
                     //					border: 5px solid $Clr-Secondary;
                     @extend ._Highlight;
                 }
@@ -365,314 +441,370 @@ $Snippet-Header-Small-Padding: ($Snippet-Header-Height - $Snippet-Header-Small-F
         }
     }
 
-    .Item-Content {
-        margin-top: 0;
-        font-size: 14px;
-        @include Adaptive($Viewport-SM) {
-            padding: 0 $size-n $size-n;
+    .Item-Content
+    {
+        margin-top : 0;
+        font-size  : 14px;
+        @include Adaptive($Viewport-SM)
+        {
+            padding : 0 $size-n $size-n;
         }
 
-        .Item-Details {
-            margin: $size-s 0 0;
-            padding: $size-s 0 0;
-            border-top: 1px solid $Clr-Grey-Light;
-            color: $Clr-Grey-Dark;
+        .Item-Details
+        {
+            margin     : $size-s 0 0;
+            padding    : $size-s 0 0;
+            border-top : 1px solid $Clr-Grey-Light;
+            color      : $Clr-Grey-Dark;
 
-            li {
-                margin-right: $size-n;
+            li
+            {
+                margin-right : $size-n;
 
-                font-size: $Font-Size-Micro;
+                font-size    : $Font-Size-Micro;
             }
         }
 
-        img {
-            width: 100%;
+        img
+        {
+            width : 100%;
         }
 
-        h6 {
-            margin: $size-s 0 $size-xs;
-            font-size: 18px;
+        h6
+        {
+            margin    : $size-s 0 $size-xs;
+            font-size : 18px;
         }
 
-        p {
-            & + p {
-                margin-top: $size-n;
+        p
+        {
+            & + p
+            {
+                margin-top : $size-n;
             }
         }
-        table {
-            font-size: 14px;
-            width: 100%;
+        table
+        {
+            font-size : 14px;
+            width     : 100%;
 
-            tr {
-                td {
-                    color: $Clr-Grey-Dark;
-                    font-size: 12px;
-                    padding: $size-xs 0;
+            tr
+            {
+                td
+                {
+                    color     : $Clr-Grey-Dark;
+                    font-size : 12px;
+                    padding   : $size-xs 0;
                 }
             }
         }
-        .More-Info > h6 > a {
-            font-family: $Font-Family-Open-Sans;
-            font-size: 12px;
-            color: black;
+        .More-Info > h6 > a
+        {
+            font-family : $Font-Family-Open-Sans;
+            font-size   : 12px;
+            color       : black;
             @extend %Script;
 
-            &:hover {
-                border-color: $Clr-Text-Main;
+            &:hover
+            {
+                border-color : $Clr-Text-Main;
             }
         }
     }
 
-    .Item-Info {
-        clear: both;
-        padding: $size-s 0;
-        border-top: 1px dashed $Clr-Grey-Dark;
-        color: $Clr-Grey-Dark;
-        font-size: $Font-Size-Micro;
-        .Date {
-            padding: $size-xs 0;
-            margin: 0 $size-l $size-s 0;
+    .Item-Info
+    {
+        clear      : both;
+        padding    : $size-s 0;
+        border-top : 1px dashed $Clr-Grey-Dark;
+        color      : $Clr-Grey-Dark;
+        font-size  : $Font-Size-Micro;
+        .Date
+        {
+            padding : $size-xs 0;
+            margin  : 0 $size-l $size-s 0;
             @extend %Left;
         }
-        .Tags {
+        .Tags
+        {
             @extend %Left;
         }
     }
 }
 
-.Filter-Result {
-    font-size: 12px;
+.Filter-Result
+{
+    font-size : 12px;
     @extend %Clearfix;
     @extend %Unstyle;
     @include Animation(FadeIn, 1s);
-    li {
-        margin-top: $size-s;
-        float: left;
-        width: auto;
-        padding: $size-xs;
-        margin-right: $size-s;
-        border: 1px $C-Grey-5 solid;
-        background-color: white;
+    li
+    {
+        margin-top       : $size-s;
+        float            : left;
+        width            : auto;
+        padding          : $size-xs;
+        margin-right     : $size-s;
+        border           : 1px $C-Grey-5 solid;
+        background-color : white;
         @extend %Clearfix;
-        span {
-            display: inline-block;
-            padding: $size-xs;
+        span
+        {
+            display : inline-block;
+            padding : $size-xs;
         }
-        .Delete {
-            display: inline-block;
-            margin-left: $size-s;
-            padding: $size-xs;
-            background-color: $Clr-Main;
-            color: white;
+        .Delete
+        {
+            display          : inline-block;
+            margin-left      : $size-s;
+            padding          : $size-xs;
+            background-color : $Clr-Main;
+            color            : white;
             @extend .Button;
             @extend .Small;
-            &:hover {
-                background-color: $Clr-Grey-Darker;
+            &:hover
+            {
+                background-color : $Clr-Grey-Darker;
             }
         }
     }
 
 }
 
-ul.Tag-List {
+ul.Tag-List
+{
     @extend %Clearfix;
     @extend ._Inline;
     @extend %Unstyle;
 
-    li.Tag-Item {
-        margin-right: $size-xs;
-        margin-bottom: $size-xs;
-        a {
-            display: inline-block;
-            padding: $size-xs;
-            background-color: $C-Grey-6;
-            border: 1px solid $C-Grey-5;
-            color: $Clr-Grey-Darker;
-            font-family: $Font-Family-Calibri;
-            font-size: 12px;
+    li.Tag-Item
+    {
+        margin-right  : $size-xs;
+        margin-bottom : $size-xs;
+        a
+        {
+            display          : inline-block;
+            padding          : $size-xs;
+            background-color : $C-Grey-6;
+            border           : 1px solid $C-Grey-5;
+            color            : $Clr-Grey-Darker;
+            font-family      : $Font-Family-Calibri;
+            font-size        : 12px;
             @include Round(all, $Control-Border-Radius);
 
-            &:hover {
-                color: white;
-                background-color: $Clr-Main;
-                border-color: $Clr-Main-Dark;
+            &:hover
+            {
+                color            : white;
+                background-color : $Clr-Main;
+                border-color     : $Clr-Main-Dark;
             }
         }
     }
 
 }
 
-.Item-Vote {
+.Item-Vote
+{
     @extend ._Unselectable;
     @extend %Unstyle;
-    li {
-        margin: 0;
-        float: left;
+    li
+    {
+        margin : 0;
+        float  : left;
     }
-    & > li {
-        display: block;
-        width: 33.33%;
+    & > li
+    {
+        display : block;
+        width   : 33.33%;
         &:first-child,
-        &:first-child a {
+        &:first-child a
+        {
             @include Round(left, $Control-Border-Radius);
         }
         &:last-child,
-        &:last-child a {
+        &:last-child a
+        {
             @include Round(right, $Control-Border-Radius);
         }
         @extend %Clearfix;
-        & > a {
-            display: block;
-            height: 35px;
-            border: 1px solid $Clr-Silver;
-            padding-top: 6px;
-            text-align: center;
-            color: $C-Grey-4;
+        & > a
+        {
+            display     : block;
+            height      : 35px;
+            border      : 1px solid $Clr-Silver;
+            padding-top : 6px;
+            text-align  : center;
+            color       : $C-Grey-4;
             @include Transitions(#{text-shadow $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time, border-color $Base-Animation-Time});
-            &:hover {
-                background-color: $Clr-Main;
-                border-color: $Clr-Main-Dark;
-                color: white;
-                text-shadow: 1px 1px 0 $Clr-Main-Dark;
+            &:hover
+            {
+                background-color : $Clr-Main;
+                border-color     : $Clr-Main-Dark;
+                color            : white;
+                text-shadow      : 1px 1px 0 $Clr-Main-Dark;
             }
-            span.fa {
-                font-size: 14px;
+            span.fa
+            {
+                font-size : 14px;
             }
         }
-        & > span {
-            display: block;
-            text-align: center;
-            padding-top: 6px;
-            border-top: 1px solid $Clr-Silver;
-            border-bottom: 1px solid $Clr-Silver;
-            height: 35px;
-            color: $Clr-Silver;
-            font-size: 14px;
-            &.Positive {
-                color: $C-Green-2;
+        & > span
+        {
+            display       : block;
+            text-align    : center;
+            padding-top   : 6px;
+            border-top    : 1px solid $Clr-Silver;
+            border-bottom : 1px solid $Clr-Silver;
+            height        : 35px;
+            color         : $Clr-Silver;
+            font-size     : 14px;
+            &.Positive
+            {
+                color : $C-Green-2;
             }
-            &.Negative {
-                color: $C-Red-3;
+            &.Negative
+            {
+                color : $C-Red-3;
             }
         }
     }
 }
 
-.List-Filter {
+.List-Filter
+{
     @extend %Unstyle;
 }
 
-.Menu-List {
+.Menu-List
+{
 
-    ul {
+    ul
+    {
         @extend %Unstyle;
 
-        li {
-            padding: $size-s 0;
+        li
+        {
+            padding : $size-s 0;
         }
     }
 }
 
-#Scroll-Top {
-    display: none;
-    position: fixed;
-    top: $size;
-    left: $size;
-    span {
-        display: block;
-        padding: 3px 6px 6px;
-        font-size: 19px;
-        border: $Control-Border-Color $Control-Border-Width solid;
-        border-radius: $Control-Border-Radius;
-        background-color: white;
+#Scroll-Top
+{
+    display  : none;
+    position : fixed;
+    top      : $size;
+    left     : $size;
+    span
+    {
+        display          : block;
+        padding          : 3px 6px 6px;
+        font-size        : 19px;
+        border           : $Control-Border-Color $Control-Border-Width solid;
+        border-radius    : $Control-Border-Radius;
+        background-color : white;
         @extend %Clickable;
         @include Transitions(#{border-color $Base-Animation-Time, color $Base-Animation-Time, background-color $Base-Animation-Time});
-        &:hover {
-            border-color: $Clr-Main-Dark;
-            background-color: $Clr-Main;
-            color: white;
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+        &:hover
+        {
+            border-color     : $Clr-Main-Dark;
+            background-color : $Clr-Main;
+            color            : white;
+            box-shadow       : 1px 1px 3px rgba(0, 0, 0, .3);
         }
 
     }
 }
 
-.Filter.Accordion {
-    margin-top: $size;
+.Filter.Accordion
+{
+    margin-top : $size;
 
     @extend %Unstyle;
-    .Filter-Subheader {
-        margin-top: 1px;
-        background-color: $Clr-Clouds;
-        clear: both;
+    .Filter-Subheader
+    {
+        margin-top       : 1px;
+        background-color : $Clr-Clouds;
+        clear            : both;
         @extend %Clearfix;
 
-        & > div {
-            float: left;
-            width: 10%;
-            text-align: center;
+        & > div
+        {
+            float      : left;
+            width      : 10%;
+            text-align : center;
 
-            span {
-                color: white;
-                display: block;
-                width: 100%;
-                padding: $size-xs 0;
-                line-height: $line-height;
-                background-color: $Clr-Main;
+            span
+            {
+                color            : white;
+                display          : block;
+                width            : 100%;
+                padding          : $size-xs 0;
+                line-height      : $line-height;
+                background-color : $Clr-Main;
                 @extend %Clickable;
 
-                &:hover {
-                    color: white;
-                    background-color: $Clr-Main-Dark;
+                &:hover
+                {
+                    color            : white;
+                    background-color : $Clr-Main-Dark;
                 }
             }
         }
-        & > a {
-            float: right;
-            width: 90%;
-            color: $Clr-Midnight-Blue;
-            background-color: $Clr-Clouds;
-            line-height: $line-height;
-            font-size: 16px;
-            display: block;
-            padding: $size-xs $size-l;
+        & > a
+        {
+            float            : right;
+            width            : 90%;
+            color            : $Clr-Midnight-Blue;
+            background-color : $Clr-Clouds;
+            line-height      : $line-height;
+            font-size        : 16px;
+            display          : block;
+            padding          : $size-xs $size-l;
         }
     }
 }
 
-.Filter-Subcategory {
-    margin: $size-xs 0;
-    display: none;
+.Filter-Subcategory
+{
+    margin  : $size-xs 0;
+    display : none;
 
-    ul {
-        border-top: 0;
+    ul
+    {
+        border-top : 0;
         @extend %Clearfix;
         @extend %Unstyle;
-        .Filter-Cities {
-            display: none;
+        .Filter-Cities
+        {
+            display : none;
         }
 
-        li {
-            border-top: 1px solid $Clr-Grey-Lighter;
-            display: inline-block;
-            width: 100%;
+        li
+        {
+            border-top : 1px solid $Clr-Grey-Lighter;
+            display    : inline-block;
+            width      : 100%;
 
-            a {
-                display: block;
-                padding: $size-xs $size-l;
-                color: black;
-                &:hover {
-                    background-color: $Clr-Grey-Light;
+            a
+            {
+                display : block;
+                padding : $size-xs $size-l;
+                color   : black;
+                &:hover
+                {
+                    background-color : $Clr-Grey-Light;
                 }
             }
         }
     }
 }
 
-.List-Group-Actions {
-    margin-top: $size;
-    border-top: 2px solid $Clr-Main;
-    background-color: $Clr-Grey-Lighter;
+.List-Group-Actions
+{
+    margin-top       : $size;
+    border-top       : 2px solid $Clr-Main;
+    background-color : $Clr-Grey-Lighter;
 
     @extend %Unstyle;
     @extend ._Inline;
@@ -680,150 +812,186 @@ ul.Tag-List {
     @extend .Merge;
 }
 
-.Item-Group-Actions {
-    border-left: 1px solid white;
-    width: 100%;
+.Item-Group-Actions
+{
+    border-left : 1px solid white;
+    width       : 100%;
     //	@extend .Grid-XS-4;
     .Control-Group,
-    a {
-        display: block;
-        padding: $size-xs $size-l;
-        font-weight: bold;
-        font-size: 80%;
-        color: $Clr-Grey-Darker;
-        &:hover {
-            background-color: $Clr-Midnight-Blue;
-            color: white;
+    a
+    {
+        display     : block;
+        padding     : $size-xs $size-l;
+        font-weight : bold;
+        font-size   : 80%;
+        color       : $Clr-Grey-Darker;
+        &:hover
+        {
+            background-color : $Clr-Midnight-Blue;
+            color            : white;
         }
-        &.Icon {
-            background-position: $size-s center;
-            background-repeat: no-repeat;
-            &.Back {
-                background-image: url(../../../../img/techonline/icon-backward.png);
+        &.Icon
+        {
+            background-position : $size-s center;
+            background-repeat   : no-repeat;
+            &.Back
+            {
+                background-image : url(../../../../img/techonline/icon-backward.png);
             }
         }
     }
-    label span {
-        padding: $Control-Padding;
+    label span
+    {
+        padding : $Control-Padding;
     }
-    &:first-child {
-        border: 0;
+    &:first-child
+    {
+        border : 0;
     }
 }
 
-.Spoiler {
-    margin-top: $size-n;
-    &:hover {
-        border-color: $Clr-Wet-Asphalt;
+.Spoiler
+{
+    margin-top : $size-n;
+    &:hover
+    {
+        border-color : $Clr-Wet-Asphalt;
     }
 
-    .Spoiler-Caption {
-        display: block;
-        color: white;
-        background-color: $Clr-Wet-Asphalt;
-        padding: $size-s $size-l;
+    .Spoiler-Caption
+    {
+        display          : block;
+        color            : white;
+        background-color : $Clr-Wet-Asphalt;
+        padding          : $size-s $size-l;
         @include Transition(background-color, .5s);
-        &:hover {
-            background-color: $Clr-Midnight-Blue;
+        &:hover
+        {
+            background-color : $Clr-Midnight-Blue;
         }
-        span.Icon {
-            margin-right: $size-s;
+        span.Icon
+        {
+            margin-right : $size-s;
         }
     }
-    .Spoiler-Content {
-        margin-top: 0;
-        display: none;
-        border: 1px solid $Clr-Grey;
-        border-top: 0;
-        li {
+    .Spoiler-Content
+    {
+        margin-top : 0;
+        display    : none;
+        border     : 1px solid $Clr-Grey;
+        border-top : 0;
+        li
+        {
             @include Animation(FadeIn, 1s);
         }
     }
 }
 
-.List-Params {
-    margin-top: $size;
+.List-Params
+{
+    margin-top : $size;
     //	@extend .Row;
     @extend .Merge;
 
-    li.List-Params-Item {
+    li.List-Params-Item
+    {
         @extend %Clearfix;
-        list-style: none;
+        list-style : none;
         .Control-Group,
-        a {
+        a
+        {
 
-            display: block;
-            padding: $size-s $size-l;
-            color: black !important;
+            display : block;
+            padding : $size-s $size-l;
+            color   : black !important;
 
-            &:hover {
-                background-color: $Clr-Grey-Lighter;
+            &:hover
+            {
+                background-color : $Clr-Grey-Lighter;
             }
         }
     }
 }
 
-.Error-404 {
-    header {
+.Error-404
+{
+    header
+    {
     }
-    h2 {
-        margin-top: $size-n;
-        font-weight: 100;
-        font-size: 72px;
-        color: $Clr-Midnight-Blue;
+    h2
+    {
+        margin-top  : $size-n;
+        font-weight : 100;
+        font-size   : 72px;
+        color       : $Clr-Midnight-Blue;
     }
-    p {
-        font-size: 36px;
-        color: $Clr-Text-Main;
+    p
+    {
+        font-size : 36px;
+        color     : $Clr-Text-Main;
     }
-    h2, p {
+    h2, p
+    {
         @extend %_Letterpress;
-        line-height: 1;
-        text-align: right;
+        line-height : 1;
+        text-align  : right;
     }
-    img {
-        margin-left: $size-n;
+    img
+    {
+        margin-left : $size-n;
     }
 }
 
-.ui-widget-header {
-    background-color: $Clr-Main;
+.ui-widget-header
+{
+    background-color : $Clr-Main;
 }
 
-.Accordion-Subcategory {
-    display: none;
+.Accordion-Subcategory
+{
+    display : none;
 }
 
-.Page-Auth .Sign-In-UI, .Page-Auth .Sign-Up-UI {
-    z-index: 1000 !important;
+.Page-Auth .Sign-In-UI, .Page-Auth .Sign-Up-UI
+{
+    z-index : 1000 !important;
 }
 
-@include Keyframes(FadeIn) {
-    from {
+@include Keyframes(FadeIn)
+{
+    from
+    {
         @include Opacity(0);
     }
-    to {
+    to
+    {
         @include Opacity(1);
     }
 }
 
-@include Keyframes(SlideUp) {
-    from {
+@include Keyframes(SlideUp)
+{
+    from
+    {
         @include Opacity(0);
-        top: 300px;
+        top : 300px;
     }
-    to {
+    to
+    {
         @include Opacity(1);
-        top: 0;
+        top : 0;
     }
 }
 
-@include Keyframes(SlideDown) {
-    from {
-        max-height: 1px;
+@include Keyframes(SlideDown)
+{
+    from
+    {
+        max-height : 1px;
     }
-    to {
-        max-height: 350px;
+    to
+    {
+        max-height : 350px;
     }
 }
 
@@ -832,23 +1000,27 @@ ul.Tag-List {
 
 /*** Dropdown ***/
 
-.Toggled-Next-Item {
-    display: none;
+.Toggled-Next-Item
+{
+    display : none;
 }
 
-ul.Item-Edit {
+ul.Item-Edit
+{
     @extend %Unstyle;
     @extend ._Inline;
-    margin-top: 9px;
-    margin-bottom: 9px;
-    li {
-        margin-right: 15px;
-        float: right;
+    margin-top    : 9px;
+    margin-bottom : 9px;
+    li
+    {
+        margin-right : 15px;
+        float        : right;
 
-        span {
-            width: 31px;
-            height: 31px;
-            text-align: center;
+        span
+        {
+            width      : 31px;
+            height     : 31px;
+            text-align : center;
 
         }
     }
@@ -856,54 +1028,72 @@ ul.Item-Edit {
 
 /*** Slider Range ***/
 
-.Control-Group .Slider-Range {
-    margin: $Control-Padding 9px;
+.Control-Group .Slider-Range
+{
+    margin : $Control-Padding 9px;
 }
 
-#Filter-Search {
-    float: right;
-    border-radius: 0;
-    border: none;
-    padding: 10px 21px;
-    margin-top: 10px;
+#Filter-Search
+{
+    float         : right;
+    border-radius : 0;
+    border        : none;
+    padding       : 10px 21px;
+    margin-top    : 10px;
 }
 
-.Control-Group input[type='checkbox'].Slide.Red-Checkbox:checked {
-    background-color: $C-Orange-2;
+.Control-Group input[type='checkbox'].Slide.Red-Checkbox:checked
+{
+    background-color : $C-Orange-2;
 }
 
-.Tab-Params .Control-Group {
-    margin-top: 0px;
+.Tab-Params .Control-Group
+{
+    margin-top : 0px;
 }
 
-.Input-Select input[type=text] {
-    background: white;
-    border-radius: 0px;
-    width: 100%;
-    padding: 18px 20px;
-    font-size: 13px;
-    line-height: 18px;
+.Input-Select input[type=text]
+{
+    background    : white;
+    border-radius : 0px;
+    width         : 100%;
+    padding       : 18px 20px;
+    font-size     : 13px;
+    line-height   : 18px;
 }
 
-.Input-Select .Input-Select-Toggle {
-    top: 5px;
+.Input-Select .Input-Select-Toggle
+{
+    top : 5px;
 }
 
-.Input-Select .Input-Select-Clean {
-    right: 32px;
-    top: 5px;
+.Input-Select .Input-Select-Clean
+{
+    right : 32px;
+    top   : 5px;
 }
 
-.Tabs .Input-Select {
-    margin-top: 20px;
-    margin-right: 0px !important;
+.Tabs .Input-Select
+{
+    margin-top   : 20px;
+    margin-right : 0px !important;
 }
 
-.Input-Select .Input-Select-Content{
-    top: 38px;
+.Input-Select .Input-Select-Content
+{
+    top : 38px;
 }
 
-.Control-Group .cke_textarea_inline {
-    width: 75%;
-    overflow: hidden;
+.Control-Group .cke_textarea_inline
+{
+    width    : 75%;
+    overflow : hidden;
+}
+
+.Yandex-Informer
+{
+    position    : relative;
+    top         : 10px;
+    margin-left : 15px;
+    display     : inline-block;
 }
