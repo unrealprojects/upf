@@ -1,2 +1,14 @@
 User-agent: *
 Disallow:
+
+User-agent: Yandex
+Crawl-delay: 4
+Disallow:
+
+User-agent: Googlebot
+Crawl-delay: 4
+Disallow:
+
+User-agent: StackRambler
+Crawl-delay: 4
+Disallow:
