@@ -1,7 +1,6 @@
 <?php namespace Greggilbert\Recaptcha;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Validation\Factory;
 
 /**
  * Service provider for the Recaptcha class
@@ -32,7 +31,7 @@ class RecaptchaServiceProvider extends ServiceProvider
 		$this->addValidator();
 		$this->addFormMacro();
 	}
-	
+    
 	/**
 	 * Extends Validator to include a recaptcha type
 	 */
@@ -42,15 +41,10 @@ class RecaptchaServiceProvider extends ServiceProvider
 		
 		$validator::extend('recaptcha', function($attribute, $value, $parameters)
 		{
-			$challenge = app('Input')->get('recaptcha_challenge_field');
-			
-			$captcha = new CheckRecaptcha;
-			list($passed, $response) = $captcha->check($challenge, $value);
-			
-			if('true' == trim($passed))
-				return true;
-			
-			return false;
+			$captcha = app('Greggilbert\Recaptcha\RecaptchaInterface');
+            $challenge = app('Input')->get($captcha->getResponseKey());
+            
+			return $captcha->check($challenge, $value);
 		});
 	}
 	
@@ -70,13 +64,13 @@ class RecaptchaServiceProvider extends ServiceProvider
 				'options'		=> $mergedOptions,
 			);
 			
-			if(array_key_exists('lang', $mergedOptions) && "" != trim($mergedOptions['lang']))
+			if(array_key_exists('lang', $mergedOptions) && "" !== trim($mergedOptions['lang']))
 			{
 				$data['lang'] = $mergedOptions['lang'];
 			}
 			
-			$view = 'recaptcha::captcha';
-			
+            $view = 'recaptcha::' . app('Greggilbert\Recaptcha\RecaptchaInterface')->getTemplate();
+            
 			$configTemplate = app('config')->get('recaptcha::template', '');
 			
 			if(array_key_exists('template', $options))
@@ -100,6 +94,15 @@ class RecaptchaServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
+        $this->app->bind('Greggilbert\Recaptcha\RecaptchaInterface', function()
+        {
+            if(app('config')->get('recaptcha::version', false) === 2 || app('config')->get('recaptcha::v2', false))
+            {
+                return new CheckRecaptchaV2;
+            }
+            
+            return new CheckRecaptcha;
+        });
 	}
 
 	/**

@@ -132,6 +132,7 @@ return array(
         'Mascame\Urlify\UrlifyServiceProvider',
         'Greggilbert\Recaptcha\RecaptchaServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
+        'Roumen\Sitemap\SitemapServiceProvider'
 	),
 
 	/*
