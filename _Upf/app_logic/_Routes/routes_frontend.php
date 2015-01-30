@@ -3,7 +3,6 @@
 /*** Home ***/
 
     Route::get('/','\UpfFrontendControllers\HomeController@Index');
-    Route::get('/sitemap.xml','\UpfFrontendControllers\HomeController@SiteMap');
 
 
 /*** Sections ***/

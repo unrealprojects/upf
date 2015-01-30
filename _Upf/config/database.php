@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'sql.unrealprojects.com',
 			'database'  => 'hardcore',
             'username'  => 'root',
             'password'  => '987975',

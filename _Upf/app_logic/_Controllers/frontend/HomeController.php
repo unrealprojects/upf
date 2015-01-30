@@ -39,10 +39,8 @@ class HomeController extends FrontendController
     public function SiteMap()
     {
         $SiteMap = \App::make("sitemap");
-        $SiteMap->setCache('laravel.sitemap', 36000);
 
-
-        if (!$SiteMap->isCached()) {
+/*
             $SiteMap->add(\URL::to('/'), '2014-08-25T12:34:54+02:00', '1.0', 'daily');
 
             $SiteMap->add(\URL::to('/catalog'), date('Y-m-d'), '1.0', 'daily');
@@ -56,33 +54,38 @@ class HomeController extends FrontendController
             $SiteMap->add(\URL::to('/pages/instruction'), '2014-08-25T12:34:54+02:00', '1.0', 'daily');
             $SiteMap->add(\URL::to('/pages/contacts'), '2014-08-25T12:34:54+02:00', '1.0', 'daily');
             $SiteMap->add(\URL::to('/pages/about'), '2014-08-25T12:34:54+02:00', '0.9', 'daily');
+*/
+
+//            $Catalog = \UpfModels\Catalog::where('id', '<', '50000')->where('id', '>=', '40000')->with('meta')->get()->toArray();
+//
+//            foreach ($Catalog as $Item) {
+//                $SiteMap->add(\URL::to('/catalog/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.4', 'daily');
+//            }
 
 
-            $Catalog = \UpfModels\Catalog::where('id', '<', '30000000')->with('meta')->get()->toArray();
-            foreach ($Catalog as $Item) {
-                $SiteMap->add(\URL::to('/catalog/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.4', 'daily');
-            }
+/*
+                    $Rent = \UpfModels\Rent::where('id', '>=', '20000')->where('id', '<', '30000')->with('meta')->get()->toArray();
+                    foreach ($Rent as $Item) {
+                        $SiteMap->add(\URL::to('/rent/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.7', 'daily');
+                    }
+*/
+/*
+                    $Parts = \UpfModels\Parts::where('id', '>=', '20000')->where('id', '<', '300000')->with('meta')->get()->toArray();
+                    foreach ($Parts as $Item) {
+                        $SiteMap->add(\URL::to('/parts/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.6', 'daily');
+                    }*/
 
-            $Rent = \UpfModels\Rent::where('id', '<', '3000000')->with('meta')->get()->toArray();
-            foreach ($Rent as $Item) {
-                $SiteMap->add(\URL::to('/rent/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.7', 'daily');
-            }
+/*
+                    $Users = \UpfModels\Users::where('id', '<', '300000')->with('meta')->get()->toArray();
+                    foreach ($Users as $Item) {
+                        $SiteMap->add(\URL::to('/users/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.6', 'daily');
+                    }
+*/
 
-            $Parts = \UpfModels\Parts::where('id', '<', '3000000')->with('meta')->get()->toArray();
-            foreach ($Parts as $Item) {
-                $SiteMap->add(\URL::to('/parts/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.6', 'daily');
-            }
-
-            $Users = \UpfModels\Users::where('id', '<', '3000000')->with('meta')->get()->toArray();
-            foreach ($Users as $Item) {
-                $SiteMap->add(\URL::to('/users/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.6', 'daily');
-            }
-
-            $Articles = \UpfModels\Articles::where('id', '<', '300000000')->with('meta')->get()->toArray();
-            foreach ($Articles as $Item) {
-                $SiteMap->add(\URL::to('/articles/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.5', 'daily');
-            }
-        }
+                    $Articles = \UpfModels\Articles::where('id', '<', '300000000')->with('meta')->get()->toArray();
+                    foreach ($Articles as $Item) {
+                        $SiteMap->add(\URL::to('/articles/' . $Item['meta']['alias']), $Item['meta']['updated_at'], '0.5', 'daily');
+                    }
         return $SiteMap->render('xml');
     }
 
