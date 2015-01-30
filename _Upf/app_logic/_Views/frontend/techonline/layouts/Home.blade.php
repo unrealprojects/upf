@@ -28,7 +28,7 @@
             <ul class="Grid Merge List-Categories Icons">
                 @foreach($Content['MainCatalogCategories'] as $Category)
                     <li class=" Node-SM-3 Node-XXS-12 Node-XS-6">
-                        <a href="/catalog/?category={{$Category['alias']}}" alt="{{$Category['title']}}">
+                        <a href="/rent/?category={{$Category['alias']}}" alt="{{$Category['title']}}">
                             <img src="{{$Category['logotype']}}">
                                 {{$Category['title']}}
                         </a>
