@@ -114,11 +114,21 @@ upf.Edit.UpdateItem = function ()
         // Function Variables
         var Current = this;
 
+
+
         // Send Ajax to "/alias/update" or /update
         var path = location.pathname.replace('/edit', '') + '/update';
 
 
+        var $__Section = $('input[name=section]');
+
+        if($__Section.length && $__Section.val().length == 0){
+            $__Section.remove();
+        }
+
+
         // Костыль
+
         if ($('#field_text').length)
         {
             $('#field_text').text(CK_Field_Text.getData());
