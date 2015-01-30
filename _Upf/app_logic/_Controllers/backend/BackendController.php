@@ -19,7 +19,7 @@ class BackendController extends UpfController {
         public function __construct(){
 
 
-            \SassCompiler::Make("scss/general/backend/main.scss", "css/backend/main.css");
+//            \SassCompiler::Make("scss/general/backend/main.scss", "css/backend/main.css");
 
             /*** Current Administrator ***/
                 if($Administrator = \Auth::administrators()->getUser()){
